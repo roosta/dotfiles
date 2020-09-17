@@ -323,7 +323,7 @@ nnoremap <leader>t- yyp<c-v>$r-
 " https://vimtricks.substack.com/p/vimtrick-search-project-for-current
 map <leader>* :Ggrep --untracked <cword><CR><CR>
 " }}}
-" Cmd:{{{
+" Functions & Commands::{{{
 
 " Append modeline after last line in buffer.
 " Use substitute() instead of printf() to handle '%%s' modeline in LaTeX
@@ -353,8 +353,7 @@ function! InstallAndExit()
 endfunction
 
 " }}}
-" Plugin Manager: {{{1
-" PLUG BEGIN: {{{2
+" Plugins: {{{1
 
 " Setup plugin manager vim-plug: https://github.com/junegunn/vim-plug
 " download vim-plug if not present in 'autoload'
@@ -367,14 +366,10 @@ augroup vimrc
 augroup END
 call plug#begin('~/.vim/plugged')
 
-"}}}
-" General: {{{
-
+" General:
 Plug 'tpope/vim-sensible'                                                    " Sensible defaults
 
-"}}}
-" Editing {{{2
-
+" Editing:
 Plug 'christoomey/vim-sort-motion'                                           " Sort various things using motions
 Plug 'farmergreg/vim-lastplace'                                              " Save cursor position
 Plug 'jiangmiao/auto-pairs'                                                  " Insert or delete brackets, parens, quotes in pair
@@ -389,36 +384,26 @@ Plug 'tpope/vim-unimpaired'                                                  " H
 Plug 'wellle/targets.vim'                                                    " More text objects
 Plug 'mbbill/undotree'                                                       " Tree of undo changes, use :UndotreeToggle
 
-"}}}
-" System: {{{
-
+" System:
 Plug 'tpope/vim-eunuch'     " Unix helper commands
 Plug 'lambdalisue/suda.vim' " Assist in writing system files with sudo @ neovim
 Plug 'tpope/vim-dispatch'   " Asynchronous build and test dispatcher
 
-"}}}
-" Quick fix {{{2
-
+" Quickfix:
 " Plug 'romainl/vim-qf'
 Plug 'romainl/vim-qlist'
 
-"}}}
-" Note taking {{{2
-
+" Notes:
 Plug 'jceb/vim-orgmode'
 " Plug 'vimwiki/vimwiki'
 " Plug 'vuciv/vim-bujo'
 
-"}}}
-" Files: {{{2
-
+" Files:
 " Plug 'justinmk/vim-dirvish'
 Plug 'tpope/vim-vinegar'
 Plug 'trapd00r/vim-syntax-vidir-ls'
 
-"}}}
-" Search/replace: {{{2
-
+" Finding:
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 " Plug 'rking/ag.vim'
@@ -430,25 +415,17 @@ Plug 'tpope/vim-abolish'
 " The bang version will try to download the prebuilt binary if cargo does not exist.
 " Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary!' }
 
-"}}}
-" Visual: {{{2
-
+" Visual:
 Plug 'terryma/vim-expand-region'
 
-"}}}
-" Movement {{{2
-
+" Movement:
 Plug 'justinmk/vim-sneak'
 Plug 'easymotion/vim-easymotion'
 
-"}}}
-" Tags: {{{2
-
+" Tags:
 Plug 'ludovicchabant/vim-gutentags'
 
-"}}}
-" Completion: {{{2
-
+" Completion:
 " Plug 'ajh17/VimCompletesMe'
 " Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 " Plug 'prabirshrestha/asyncomplete.vim'
@@ -462,8 +439,7 @@ endif
 " Plug 'clojure-vim/async-clj-omni'
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-"}}}
-" Theme: {{{2
+" Theme:
 
 Plug 'itchyny/lightline.vim'
 " Plug 'vim-airline/vim-airline'
@@ -474,35 +450,25 @@ Plug '~/src/srcery-vim'
 " Plug 'morhetz/gruvbox'
 " Plug 'gruvbox-community/gruvbox'
 
-"}}}
-" Git: {{{2
-
+" Git:
 Plug 'tpope/vim-fugitive'
 " Plug 'airblade/vim-gitgutter'
 
-"}}}
-" Multiplexer: {{{2
-
+" Multiplexer:
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'jpalardy/vim-slime'
 Plug 'tpope/vim-tbone'
 
-"}}}
-" Web {{{2
-
+" Web:
 Plug 'mattn/emmet-vim', { 'for': ['html', 'css'] }
 " Plug 'ternjs/tern_for_vim', { 'for': 'javascript', 'do': 'npm install' }
 
-"}}}
-" Python: {{{2
-
+" Python:
 Plug 'jmcantrell/vim-virtualenv'
 Plug 'hdima/python-syntax'
 
-"}}}
-" Lisp: {{{2
-
+" Lisp:
 Plug 'guns/vim-sexp'
 Plug 'tpope/vim-sexp-mappings-for-regular-people'
 " Plug 'liquidz/vim-iced', {'for': 'clojure'}
@@ -517,14 +483,10 @@ Plug 'guns/vim-clojure-highlight', { 'for': 'clojure' }
 " Plug 'kien/rainbow_parentheses.vim'
 " Plug 'Olical/conjure', {'tag': 'v3.4.0'}
 
-"}}}
-" Projects {{{2
-
+" Projects:
 Plug 'tpope/vim-projectionist'
 
-"}}}
-" Syntax {{{2
-
+" Syntax:
 Plug 'sheerun/vim-polyglot'
 Plug 'PotatoesMaster/i3-vim-syntax'
 Plug 'tmux-plugins/vim-tmux'
@@ -535,62 +497,42 @@ Plug 'othree/yajs.vim'
 Plug 'gregjurman/vim-nc'
 Plug 'vim-scripts/nginx.vim'
 
-"}}}
-" Linting {{{2
-
+" Linting:
 Plug 'w0rp/ale'
 
-"}}}
-" Rust {{{2
-
+" Rust:
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'racer-rust/vim-racer', { 'for': 'rust' }
 
-"}}}
-" Documentation {{{2
-
+" Documentation:
 " Plug 'alx741/vinfo'
 
-"}}}
-" Registers: {{{2
-
+" Registers:
 Plug 'bfredl/nvim-miniyank'
 Plug 'junegunn/vim-peekaboo'
 
-"}}}
-" Snippets: {{{
-
+" Snippets:
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
-" }}}
-" Markdown: {{{
-
+" Markdown:
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install', 'for': 'markdown' }
 Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
 Plug 'godlygeek/tabular'
 
-"}}}
-" Color: {{{
-
+" Color:
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 
-" }}}
-" Folding: {{{
-
+" Folding:
 Plug 'obreitwi/vim-sort-folds'
 " Plug 'brianrodri/vim-sort-folds'
 Plug '~/src/foldlist'
 " Plug '~/src/vim-sort-folds'
 
-" }}}
-" PLUG END: {{{2
-
 call plug#end()
 syntax on
 filetype plugin indent on
 
-"}}}
 "}}}
 " Plugin Config: {{{1
 "  Colorscheme: {{{2
