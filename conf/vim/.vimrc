@@ -210,7 +210,7 @@ noremap <leader>t- yyp<c-v>$r-
 " https://vimtricks.substack.com/p/vimtrick-search-project-for-current
 map <leader>* :Ggrep --untracked <cword><CR><CR>
 " }}}
-" Functions & Commands::{{{
+" Functions & Commands: {{{
 
 " Append modeline after last line in buffer.
 " Use substitute() instead of printf() to handle '%%s' modeline in LaTeX
