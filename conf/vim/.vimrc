@@ -87,10 +87,8 @@ endif
 "}}}
 " Terminal: {{{2
 
-" set number of colors to 256
 if !has('gui_running')
   set termguicolors
-  " set t_Co=256
 endif
 
 "}}}
