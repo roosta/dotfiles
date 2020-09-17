@@ -69,6 +69,10 @@ if executable("rg")
   set grepprg=rg\ --vimgrep
 endif
 
+" mouse in all modes
+silent! set ttymouse=xterm2
+set mouse=a
+
 "}}}
 " Environments {{{1
 
@@ -105,9 +109,6 @@ let &t_EI = "\<Esc>[2 q"
 
 "}}}
 " Mappings: {{{1
-
-" Enable mouse in all modes
-set mouse=a
 
 " Use space as leader, set local leader to backslash
 let g:mapleader = "\<SPACE>"
