@@ -16,60 +16,83 @@ set lazyredraw
 set cursorline
 set synmaxcol=2048
 set autowrite
+set background=dark
+set hidden
+set backspace=indent,eol,start
+set spelllang=en_us,nb
+set showtabline=1
+" set foldmethod=marker
+" set magic
+
+" Swap
 set updatetime=100
 set directory=~/.cache/vim/swap//
+
+" Undo
 set undofile
 set undodir=~/.cache/vim/undo
+
+" Wildmenu
 set wildmenu
 set wildmode=longest,list,full
 set wildignorecase
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/build/*,*/node_modules/*,
                 \*/dist/*,*/undo/*,*/out/*,*/.repl*,*/.cljs_rhino_repl/*,
                 \*/_site/*,\*/resources/public/js/*
+
+" indent
 set expandtab
 set shiftwidth=2
 set tabstop=2
 set softtabstop=2
 set autoindent
 set smartindent
-set showtabline=1
+
+" Searching
 set incsearch
 set ignorecase
 set smartcase
-" set magic
+
+" Linebreak
 set wrap
 set linebreak
 set breakat=" ^I!@*-+;:,./?"
-set cpoptions+=n
+set cpoptions+=n " Don't show linenumbers on break
 set breakindent
-set showbreak=>\
+let &showbreak = '↳ '
+
 set relativenumber
 set number
 set matchtime=2
 set showmatch
 set clipboard=unnamedplus
+
+" Encoding
 set encoding=utf-8
 " scriptencoding utf-8
-set spelllang=en_us,nb
+
+" ctags
 " set tags=tags;/
-" set foldmethod=marker
+
+" Backup
 " set backup
 " set writebackup
 set backupdir=$HOME/.cache/vim/backup
+
+" Status
 " set laststatus=2
 set noshowmode
 set showcmd
+
+" Local rc
 set exrc
 set secure
-set background=dark
-set hidden
-set backspace=indent,eol,start
 
 if executable("rg")
   set grepprg=rg\ --vimgrep
 endif
 
-" mouse in all modes
+" mouse
 silent! set ttymouse=xterm2
 set mouse=a
 
