@@ -62,6 +62,8 @@ set showcmd
 set exrc
 set secure
 set background=dark
+set hidden
+set backspace=indent,eol,start
 
 if executable("rg")
   set grepprg=rg\ --vimgrep
