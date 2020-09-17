@@ -272,9 +272,9 @@ Plug 'wellle/targets.vim'                                                    " M
 Plug 'mbbill/undotree'                                                       " Tree of undo changes, use :UndotreeToggle
 
 " System:
-Plug 'tpope/vim-eunuch'     " Unix helper commands
-Plug 'lambdalisue/suda.vim' " Assist in writing system files with sudo @ neovim
-Plug 'tpope/vim-dispatch'   " Asynchronous build and test dispatcher
+Plug 'tpope/vim-eunuch'                                                      " Unix helper commands
+Plug 'lambdalisue/suda.vim'                                                  " Assist in writing system files with sudo @ neovim
+Plug 'tpope/vim-dispatch'                                                    " Asynchronous build and test dispatcher
 
 " Quickfix:
 " Plug 'romainl/vim-qf'
