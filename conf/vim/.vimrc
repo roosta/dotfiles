@@ -129,32 +129,32 @@ let &t_EI = "\<Esc>[2 q"
 "}}}
 " Mappings: {{{1
 
-" Use space as leader, set local leader to backslash
+" leader
 let g:mapleader = "\<SPACE>"
 let g:maplocalleader = "\\"
 
 " source config on demand
 " Note that this may cause some plugins not to load properly if it has init logic
-noremap <leader>R :source $MYVIMRC<CR>
+nmap <leader>R :source $MYVIMRC<CR>
 
 " correct annoying typo
 cnoremap Q q
 
-" Treat long lines as break lines (useful when moving around in them)
-noremap j gj
-noremap k gk
+" Treat long lines as break lines
+nnoremap j gj
+nnoremap k gk
 
 " Remove search hl
 noremap <silent> <leader>sc :nohlsearch<CR>
 
 " switch to last buffer used.
-nnoremap <leader><tab> :b#<cr>
+noremap <leader><tab> :b#<cr>
 
 " yank to end of line when pressing Y
 nnoremap Y y$
 
 " Quick way of opening Ilist
-nnoremap <leader>jl :Ilist<space>
+map <leader>jl :Ilist<space>
 
 " Insert date
 map <leader>D :put =strftime('# %a %Y-%m-%d %H:%M:%S%z')<CR>
@@ -173,14 +173,14 @@ map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans
 \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
 " Quickly toggling relative line number
-nnoremap <leader>rn :set rnu!<cr>
+map <leader>rn :set rnu!<cr>
 
 " Go to my note index file
-nnoremap <leader>ww :e ~/notes/index.md<cr>
+map <leader>ww :e ~/notes/index.md<cr>
 
 " Underline the current line
-nnoremap <leader>t= yyp<c-v>$r=
-nnoremap <leader>t- yyp<c-v>$r-
+noremap <leader>t= yyp<c-v>$r=
+noremap <leader>t- yyp<c-v>$r-
 
 " Search project for current word
 " https://vimtricks.substack.com/p/vimtrick-search-project-for-current
