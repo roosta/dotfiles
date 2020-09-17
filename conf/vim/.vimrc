@@ -157,6 +157,7 @@ nnoremap Y y$
 map <leader>jl :Ilist<space>
 
 " Insert date
+" https://vimtricks.substack.com/p/insert-the-current-date-or-time
 map <leader>D :put =strftime('# %a %Y-%m-%d %H:%M:%S%z')<CR>
 
 " Use tab and c-j/c-k for completion navigation
