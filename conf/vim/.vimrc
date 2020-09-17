@@ -193,7 +193,6 @@ set secure
 " Vim: {{{2
 
 if !has('nvim')
-  set ttymouse=xterm2
 endif
 
 "}}}
