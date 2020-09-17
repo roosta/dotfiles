@@ -61,6 +61,7 @@ set noshowmode
 set showcmd
 set exrc
 set secure
+set background=dark
 
 if executable("rg")
   set grepprg=rg\ --vimgrep
