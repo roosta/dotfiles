@@ -8,186 +8,68 @@
 "│█░ Site   : https://www.roosta.sh      ░█│
 "│█░ Github : https://github.com/roosta  ░█│
 "└─────────────────────────────────────────┘
-" Options: {{{1
-" General {{{
+" Settings: {{{1
 
-" No startup message
 set shortmess+=I
-
-" keep 7 lines visible lines above/below when scrolling up/down
 set scrolloff=7
-
-" Do not redraw screen in the middle of a macro. Makes them complete faster.
 set lazyredraw
-
-" show cursor line
 set cursorline
-
-" limit highlighting to lines shorter than 2048 chars.  useful if opening, say
-" a minified js file, where the lines are extremely long
 set synmaxcol=2048
-
-" Save file before various commands are invoked (i.e :make)
 set autowrite
-
-"}}}
-" Swap: {{{
-
-" Increase how often swap file is written (milliseconds)
 set updatetime=100
 set directory=~/.cache/vim/swap//
-
-"}}}
-" Undo {{{2
-
 set undofile
 set undodir=~/.cache/vim/undo
-
-"}}}
-" Wildmenu: {{{2
-
 set wildmenu
 set wildmode=longest,list,full
 set wildignorecase
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/build/*,*/node_modules/*,
                 \*/dist/*,*/undo/*,*/out/*,*/.repl*,*/.cljs_rhino_repl/*,
                 \*/_site/*,\*/resources/public/js/*
-" set wildignore+=.git,.hg,.svn,build,node_modules,undo,out,.repl*,.cljs_rhino_repl,_site
-
-"}}}
-" Indenting: {{{
-
 set expandtab
 set shiftwidth=2
 set tabstop=2
 set softtabstop=2
-
 set autoindent
 set smartindent
-
-"}}}
-" Tabs: {{{
-
-" show tabline when at least two tab pages
 set showtabline=1
-
-" }}}
-" Search: {{{
-
 set incsearch
 set ignorecase
 set smartcase
-set magic
-
-"}}}
-" Linebreak: {{{
-
-" wrap long lines
+" set magic
 set wrap
-
-" wrap long lines at a character in 'breakat'
 set linebreak
-
-" define what characters cause a linebreak
 set breakat=" ^I!@*-+;:,./?"
-
-" Every wrapped line will continue visually indented (same amount of
-" space as the beginning of that line)
-set breakindent
-
-" dont show linenumbers on wrap
 set cpoptions+=n
-
-" set custom character on linebreaks caused by wrap
+set breakindent
 set showbreak=>\
-
-"}}}
-" Line numbers {{{
-
-" Relative line numbers start counting from the position of the cursor, making
-" commands like 10j easier to spot without having to do math
 set relativenumber
 set number
-
-" }}}
-" Matching surrounds {{{
-
 set matchtime=2
 set showmatch
-
-"}}}
-" Clipboard {{{
-
-" Use xorg clipboard, makes pasting less painfull by not having to refer to
-" register. I also use nvim-miniyank to traverse clipboard history
 set clipboard=unnamedplus
-
-" }}}
-" Encoding {{{
-
 set encoding=utf-8
-scriptencoding utf-8
-
-" }}}
-" Spelling {{{
-
+" scriptencoding utf-8
 set spelllang=en_us,nb
-
-"}}}
-" Tags: {{{
-
-" search recursively up for tags
-set tags=tags;/
-
-"}}}
-" Folding {{{
-
-" Default to marker folding
-set foldmethod=marker
-
-"}}}
-" Undercurl: {{{
-
-" let &t_Cs = "\e[4:3m"
-" let &t_Ce = "\e[4:0m"
-
-"}}}
-" Backup {{{
-
+" set tags=tags;/
+" set foldmethod=marker
 " set backup
 " set writebackup
 set backupdir=$HOME/.cache/vim/backup
+" set laststatus=2
+set noshowmode
+set showcmd
+set exrc
+set secure
 
-"}}}
-" Grep: {{{2
+" Undercurl
+" let &t_Cs = "\e[4:3m"
+" let &t_Ce = "\e[4:0m"
 
 if executable("rg")
   set grepprg=rg\ --vimgrep
 endif
 
-"}}}
-" Statusline: {{{2
-
-" always show statusline
-" set laststatus=2
-
-" Don't disple mode in command buffer, taken care of by lightline
-set noshowmode
-
-" show the command being typed on the statusline
-set showcmd
-
-"}}}
-"Project: {{{
-
-" allows loading local executing local rc files.
-set exrc
-
-" secure disallows the use of :autocmd, shell and write commands in local
-" .vimrc files
-set secure
-
-"}}}
 "}}}
 " Environments {{{1
 " Vim: {{{2
