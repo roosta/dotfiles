@@ -88,7 +88,7 @@ export GTAGSLABEL=ctags
 # https://github.com/trapd00r/vim-syntax-vidir-ls
 export VIDIR_EDITOR_ARGS='-c :set nolist | :set ft=vidir-ls'
 
-export SYSTEMD_EDITOR="/usr/bin/vim"
+export SYSTEMD_EDITOR="/usr/bin/nvim"
 
 export GRAALVM_HOME="${HOME}/java/graalvm-ce-19.1.1/bin"
 export JAVA_HOME="/usr/lib/jvm/default"
