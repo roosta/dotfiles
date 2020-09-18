@@ -307,6 +307,7 @@ Plug 'terryma/vim-expand-region'
 
 " Movement:
 Plug 'justinmk/vim-sneak'
+  let g:sneak#use_ic_scs = 1
 Plug 'easymotion/vim-easymotion'
 
 " Tags:
