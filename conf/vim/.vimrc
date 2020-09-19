@@ -16,7 +16,6 @@ set lazyredraw
 set cursorline
 set synmaxcol=2048
 set autowrite
-set background=dark
 set hidden
 set backspace=indent,eol,start
 set spelllang=en_us,nb
