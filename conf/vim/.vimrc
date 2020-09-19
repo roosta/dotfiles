@@ -209,7 +209,6 @@ set cursorline
 set synmaxcol=2048
 set autowrite
 set hidden
-set backspace=indent,eol,start
 set spelllang=en_us,nb
 set showtabline=1
 set wildmode=full
@@ -229,11 +228,9 @@ set expandtab
 set shiftwidth=2
 set tabstop=2
 set softtabstop=2
-set autoindent
 set smartindent
 
 " Searching
-set incsearch
 set ignorecase
 set smartcase
 
@@ -251,20 +248,12 @@ set matchtime=2
 set showmatch
 set clipboard=unnamedplus
 
-" Encoding
-set encoding=utf-8
-" scriptencoding utf-8
-
-" ctags
-" set tags=tags;/
-
 " Backup
 " set backup
 " set writebackup
 set backupdir=$HOME/.cache/vim/backup
 
 " Status
-" set laststatus=2
 set noshowmode
 set showcmd
 
