@@ -8,10 +8,11 @@
 "│█░ Site   : https://www.roosta.sh      ░█│
 "│█░ Github : https://github.com/roosta  ░█│
 "└─────────────────────────────────────────┘
+" Initialize: {{{
 
-" Vim 8 defaults
-unlet! skip_defaults_vim
-silent! source $VIMRUNTIME/defaults.vim
+" Vim 8 defaults, using vim-sensible
+" unlet! skip_defaults_vim
+" silent! source $VIMRUNTIME/defaults.vim
 
 augroup vimrc
   autocmd!
@@ -20,6 +21,7 @@ augroup END
 let mapleader      = ' '
 let maplocalleader = ' '
 
+" }}}
 " Plugins: {{{1
 
 " Automatic installation of vim-plug
@@ -31,8 +33,8 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
-" General:
-Plug 'tpope/vim-sensible'                                                    " Sensible defaults
+" Defaults:
+Plug 'tpope/vim-sensible'
 
 " Editing:
 Plug 'christoomey/vim-sort-motion'                                           " Sort various things using motions
