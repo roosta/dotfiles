@@ -624,7 +624,7 @@ call deoplete#custom#option('keyword_patterns', {'clojure': '[\w!$%&*+/:<=>?@\^_
 " git {{{
 
 nnoremap <leader>gs :Git<cr>
-autocmd FileType gitcommit setlocal nofoldenable
+autocmd vimrc FileType gitcommit setlocal nofoldenable
 
 " }}}
 " ultisnips {{{
