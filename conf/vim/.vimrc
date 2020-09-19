@@ -266,13 +266,13 @@ if executable("rg")
 endif
 
 " mouse
-silent! set ttymouse=xterm2
 set mouse=a
 
 "}}}
 " Environments {{{1
 
 if !has('nvim')
+  set ttymouse=xterm2
 endif
 
 if has('nvim')
