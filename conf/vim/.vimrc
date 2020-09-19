@@ -8,6 +8,10 @@
 "│█░ Site   : https://www.roosta.sh      ░█│
 "│█░ Github : https://github.com/roosta  ░█│
 "└─────────────────────────────────────────┘
+
+let mapleader      = ' '
+let maplocalleader = ' '
+
 " Plugins: {{{1
 
 " Automatic installation of vim-plug
@@ -328,10 +332,6 @@ let &t_EI = "\<Esc>[2 q"
 
 "}}}
 " Mappings: {{{1
-
-" leader
-let g:mapleader = "\<SPACE>"
-let g:maplocalleader = "\\"
 
 " source config on demand
 " Note that this may cause some plugins not to load properly if it has init logic
