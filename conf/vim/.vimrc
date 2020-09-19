@@ -13,6 +13,10 @@
 unlet! skip_defaults_vim
 silent! source $VIMRUNTIME/defaults.vim
 
+augroup vimrc
+  autocmd!
+augroup END
+
 let mapleader      = ' '
 let maplocalleader = ' '
 
@@ -640,7 +644,6 @@ map <C-i> <Plug>(NetrwHideEdit)
 " https://gist.github.com/mhanberg/dd9377163be770930e6eedb81b2fe61e
 " Remove C-l binding from netrw, conflicts with nav commands
 augroup vimrc
-  autocmd!
   autocmd FileType netrw call s:RemoveNetrwMap()
 augroup END
 
