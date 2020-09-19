@@ -237,6 +237,7 @@ set smartindent
 " Searching
 set ignorecase
 set smartcase
+set hlsearch
 
 " Linebreak
 set wrap
@@ -272,7 +273,6 @@ endif
 " mouse
 set mouse=a
 
-" colorscheme
 colorscheme srcery
 
 "}}}
@@ -483,8 +483,6 @@ map /  <Plug>(incsearch-forward)
 map ?  <Plug>(incsearch-backward)
 map g/ <Plug>(incsearch-stay)
 
-" :h g:incsearch#auto_nohlsearch
-set hlsearch
 let g:incsearch#auto_nohlsearch = 0
 map n  <Plug>(incsearch-nohl-n)
 map N  <Plug>(incsearch-nohl-N)
