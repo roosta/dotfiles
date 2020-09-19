@@ -212,6 +212,7 @@ set hidden
 set backspace=indent,eol,start
 set spelllang=en_us,nb
 set showtabline=1
+set wildmode=full
 " set foldmethod=marker
 " set magic
 
@@ -222,14 +223,6 @@ set directory=~/.cache/vim/swap//
 " Undo
 set undofile
 set undodir=~/.cache/vim/undo
-
-" Wildmenu
-set wildmenu
-set wildmode=longest,list,full
-set wildignorecase
-set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/build/*,*/node_modules/*,
-                \*/dist/*,*/undo/*,*/out/*,*/.repl*,*/.cljs_rhino_repl/*,
-                \*/_site/*,\*/resources/public/js/*
 
 " indent
 set expandtab
