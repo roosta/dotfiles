@@ -420,8 +420,7 @@ function! InstallAndExit()
 endfunction
 
 " }}}
-" Plugin Config: {{{1
-" Fzf: {{{2
+" Fzf: {{{
 
 " https://github.com/junegunn/fzf.vim
 
@@ -477,6 +476,7 @@ command! -bang -nargs=* Rg
   \   <bang>0)
 
 "}}}
+" Plugin Config: {{{1
 " Incsearch: {{{2
 
 map /  <Plug>(incsearch-forward)
