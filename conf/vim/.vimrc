@@ -9,6 +9,10 @@
 "│█░ Github : https://github.com/roosta  ░█│
 "└─────────────────────────────────────────┘
 
+" Vim 8 defaults
+unlet! skip_defaults_vim
+silent! source $VIMRUNTIME/defaults.vim
+
 let mapleader      = ' '
 let maplocalleader = ' '
 
