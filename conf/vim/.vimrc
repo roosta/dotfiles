@@ -8,6 +8,184 @@
 "│█░ Site   : https://www.roosta.sh      ░█│
 "│█░ Github : https://github.com/roosta  ░█│
 "└─────────────────────────────────────────┘
+" Plugins: {{{1
+
+" Automatic installation of vim-plug
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin('~/.vim/plugged')
+
+" General:
+Plug 'tpope/vim-sensible'                                                    " Sensible defaults
+
+" Editing:
+Plug 'christoomey/vim-sort-motion'                                           " Sort various things using motions
+Plug 'farmergreg/vim-lastplace'                                              " Save cursor position
+Plug 'jiangmiao/auto-pairs'                                                  " Insert or delete brackets, parens, quotes in pair
+Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] } " Alignment
+Plug 'ntpeters/vim-better-whitespace'                                        " Highlight and handle trailing whitespace
+Plug 'tpope/vim-commentary'                                                  " Comments
+Plug 'tpope/vim-repeat'                                                      " Add repeat support to various plugins
+Plug 'tpope/vim-rsi'                                                         " Readline bindings
+Plug 'tpope/vim-speeddating'                                                 " Easier dates
+Plug 'tpope/vim-surround'                                                    " Surround text easily
+Plug 'tpope/vim-unimpaired'                                                  " Handy bracket mappings
+Plug 'wellle/targets.vim'                                                    " More text objects
+Plug 'mbbill/undotree'                                                       " Tree of undo changes, use :UndotreeToggle
+
+" System:
+Plug 'tpope/vim-eunuch'                                                      " Unix helper commands
+Plug 'lambdalisue/suda.vim'                                                  " Assist in writing system files with sudo @ neovim
+Plug 'tpope/vim-dispatch'                                                    " Asynchronous build and test dispatcher
+
+" Quickfix:
+" Plug 'romainl/vim-qf'
+Plug 'romainl/vim-qlist'
+
+" Notes:
+Plug 'jceb/vim-orgmode'
+" Plug 'vimwiki/vimwiki'
+" Plug 'vuciv/vim-bujo'
+
+" Files:
+" Plug 'justinmk/vim-dirvish'
+Plug 'tpope/vim-vinegar'
+Plug 'trapd00r/vim-syntax-vidir-ls'
+
+" Finding:
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+" Plug 'rking/ag.vim'
+" Plug 'mileszs/ack.vim'
+Plug 'haya14busa/incsearch.vim'
+Plug 'markonm/traces.vim'
+Plug 'tpope/vim-abolish'
+
+" The bang version will try to download the prebuilt binary if cargo does not exist.
+" Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary!' }
+
+" Visual:
+Plug 'terryma/vim-expand-region'
+
+" Movement:
+Plug 'justinmk/vim-sneak'
+  let g:sneak#use_ic_scs = 1
+Plug 'easymotion/vim-easymotion'
+
+" Tags:
+Plug 'ludovicchabant/vim-gutentags'
+
+" Completion:
+" Plug 'ajh17/VimCompletesMe'
+" Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+" Plug 'prabirshrestha/asyncomplete.vim'
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+" Plug 'clojure-vim/async-clj-omni'
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" Theme:
+
+Plug 'itchyny/lightline.vim'
+" Plug 'vim-airline/vim-airline'
+Plug '~/src/srcery-vim'
+" Plug 'srcery-colors/srcery-vim'
+" Plug 'sjl/badwolf'
+" Plug 'romainl/flattened'
+" Plug 'morhetz/gruvbox'
+" Plug 'gruvbox-community/gruvbox'
+
+" Git:
+Plug 'tpope/vim-fugitive'
+" Plug 'airblade/vim-gitgutter'
+
+" Multiplexer:
+Plug 'tmux-plugins/vim-tmux-focus-events'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'jpalardy/vim-slime'
+Plug 'tpope/vim-tbone'
+
+" Web:
+Plug 'mattn/emmet-vim', { 'for': ['html', 'css'] }
+" Plug 'ternjs/tern_for_vim', { 'for': 'javascript', 'do': 'npm install' }
+
+" Python:
+Plug 'jmcantrell/vim-virtualenv'
+Plug 'hdima/python-syntax'
+
+" Lisp:
+Plug 'guns/vim-sexp'
+Plug 'tpope/vim-sexp-mappings-for-regular-people'
+" Plug 'liquidz/vim-iced', {'for': 'clojure'}
+" Plug 'liquidz/vim-iced-asyncomplete', {'for': 'clojure'}
+Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
+Plug 'tpope/vim-salve', { 'for': 'clojure' }
+" Plug 'venantius/vim-cljfmt', { 'for': 'clojure' }
+" Plug 'guns/vim-clojure-static', { 'for': 'clojure' }
+Plug 'guns/vim-clojure-highlight', { 'for': 'clojure' }
+" Plug 'kovisoft/paredit', { 'for': ['clojure', 'scheme'] }
+" Plug 'junegunn/rainbow_parentheses.vim'
+" Plug 'kien/rainbow_parentheses.vim'
+" Plug 'Olical/conjure', {'tag': 'v3.4.0'}
+
+" Projects:
+Plug 'tpope/vim-projectionist'
+
+" Syntax:
+Plug 'sheerun/vim-polyglot'
+Plug 'PotatoesMaster/i3-vim-syntax'
+Plug 'tmux-plugins/vim-tmux'
+Plug 'sudar/vim-arduino-syntax'
+" Plug 'pangloss/vim-javascript'
+Plug 'othree/yajs.vim'
+" Plug 'vim-syntastic/syntastic'
+Plug 'gregjurman/vim-nc'
+Plug 'vim-scripts/nginx.vim'
+
+" Linting:
+Plug 'w0rp/ale'
+
+" Rust:
+Plug 'rust-lang/rust.vim', { 'for': 'rust' }
+Plug 'racer-rust/vim-racer', { 'for': 'rust' }
+
+" Documentation:
+" Plug 'alx741/vinfo'
+
+" Registers:
+Plug 'bfredl/nvim-miniyank'
+Plug 'junegunn/vim-peekaboo'
+
+" Snippets:
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+
+" Markdown:
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install', 'for': 'markdown' }
+Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
+Plug 'godlygeek/tabular'
+
+" Color:
+Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
+
+" Folding:
+Plug 'obreitwi/vim-sort-folds'
+" Plug 'brianrodri/vim-sort-folds'
+Plug '~/src/foldlist'
+" Plug '~/src/vim-sort-folds'
+
+call plug#end()
+
+"}}}
 " Settings: {{{1
 
 set shortmess+=I
@@ -239,186 +417,6 @@ function! InstallAndExit()
 endfunction
 
 " }}}
-" Plugins: {{{1
-
-" Automatic installation of vim-plug
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
-
-call plug#begin('~/.vim/plugged')
-
-" General:
-Plug 'tpope/vim-sensible'                                                    " Sensible defaults
-
-" Editing:
-Plug 'christoomey/vim-sort-motion'                                           " Sort various things using motions
-Plug 'farmergreg/vim-lastplace'                                              " Save cursor position
-Plug 'jiangmiao/auto-pairs'                                                  " Insert or delete brackets, parens, quotes in pair
-Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] } " Alignment
-Plug 'ntpeters/vim-better-whitespace'                                        " Highlight and handle trailing whitespace
-Plug 'tpope/vim-commentary'                                                  " Comments
-Plug 'tpope/vim-repeat'                                                      " Add repeat support to various plugins
-Plug 'tpope/vim-rsi'                                                         " Readline bindings
-Plug 'tpope/vim-speeddating'                                                 " Easier dates
-Plug 'tpope/vim-surround'                                                    " Surround text easily
-Plug 'tpope/vim-unimpaired'                                                  " Handy bracket mappings
-Plug 'wellle/targets.vim'                                                    " More text objects
-Plug 'mbbill/undotree'                                                       " Tree of undo changes, use :UndotreeToggle
-
-" System:
-Plug 'tpope/vim-eunuch'                                                      " Unix helper commands
-Plug 'lambdalisue/suda.vim'                                                  " Assist in writing system files with sudo @ neovim
-Plug 'tpope/vim-dispatch'                                                    " Asynchronous build and test dispatcher
-
-" Quickfix:
-" Plug 'romainl/vim-qf'
-Plug 'romainl/vim-qlist'
-
-" Notes:
-Plug 'jceb/vim-orgmode'
-" Plug 'vimwiki/vimwiki'
-" Plug 'vuciv/vim-bujo'
-
-" Files:
-" Plug 'justinmk/vim-dirvish'
-Plug 'tpope/vim-vinegar'
-Plug 'trapd00r/vim-syntax-vidir-ls'
-
-" Finding:
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-" Plug 'rking/ag.vim'
-" Plug 'mileszs/ack.vim'
-Plug 'haya14busa/incsearch.vim'
-Plug 'markonm/traces.vim'
-Plug 'tpope/vim-abolish'
-
-" The bang version will try to download the prebuilt binary if cargo does not exist.
-" Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary!' }
-
-" Visual:
-Plug 'terryma/vim-expand-region'
-
-" Movement:
-Plug 'justinmk/vim-sneak'
-  let g:sneak#use_ic_scs = 1
-Plug 'easymotion/vim-easymotion'
-
-" Tags:
-Plug 'ludovicchabant/vim-gutentags'
-
-" Completion:
-" Plug 'ajh17/VimCompletesMe'
-" Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
-" Plug 'prabirshrestha/asyncomplete.vim'
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
-" Plug 'clojure-vim/async-clj-omni'
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-" Theme:
-
-Plug 'itchyny/lightline.vim'
-" Plug 'vim-airline/vim-airline'
-Plug '~/src/srcery-vim'
-" Plug 'srcery-colors/srcery-vim'
-" Plug 'sjl/badwolf'
-" Plug 'romainl/flattened'
-" Plug 'morhetz/gruvbox'
-" Plug 'gruvbox-community/gruvbox'
-
-" Git:
-Plug 'tpope/vim-fugitive'
-" Plug 'airblade/vim-gitgutter'
-
-" Multiplexer:
-Plug 'tmux-plugins/vim-tmux-focus-events'
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'jpalardy/vim-slime'
-Plug 'tpope/vim-tbone'
-
-" Web:
-Plug 'mattn/emmet-vim', { 'for': ['html', 'css'] }
-" Plug 'ternjs/tern_for_vim', { 'for': 'javascript', 'do': 'npm install' }
-
-" Python:
-Plug 'jmcantrell/vim-virtualenv'
-Plug 'hdima/python-syntax'
-
-" Lisp:
-Plug 'guns/vim-sexp'
-Plug 'tpope/vim-sexp-mappings-for-regular-people'
-" Plug 'liquidz/vim-iced', {'for': 'clojure'}
-" Plug 'liquidz/vim-iced-asyncomplete', {'for': 'clojure'}
-Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
-Plug 'tpope/vim-salve', { 'for': 'clojure' }
-" Plug 'venantius/vim-cljfmt', { 'for': 'clojure' }
-" Plug 'guns/vim-clojure-static', { 'for': 'clojure' }
-Plug 'guns/vim-clojure-highlight', { 'for': 'clojure' }
-" Plug 'kovisoft/paredit', { 'for': ['clojure', 'scheme'] }
-" Plug 'junegunn/rainbow_parentheses.vim'
-" Plug 'kien/rainbow_parentheses.vim'
-" Plug 'Olical/conjure', {'tag': 'v3.4.0'}
-
-" Projects:
-Plug 'tpope/vim-projectionist'
-
-" Syntax:
-Plug 'sheerun/vim-polyglot'
-Plug 'PotatoesMaster/i3-vim-syntax'
-Plug 'tmux-plugins/vim-tmux'
-Plug 'sudar/vim-arduino-syntax'
-" Plug 'pangloss/vim-javascript'
-Plug 'othree/yajs.vim'
-" Plug 'vim-syntastic/syntastic'
-Plug 'gregjurman/vim-nc'
-Plug 'vim-scripts/nginx.vim'
-
-" Linting:
-Plug 'w0rp/ale'
-
-" Rust:
-Plug 'rust-lang/rust.vim', { 'for': 'rust' }
-Plug 'racer-rust/vim-racer', { 'for': 'rust' }
-
-" Documentation:
-" Plug 'alx741/vinfo'
-
-" Registers:
-Plug 'bfredl/nvim-miniyank'
-Plug 'junegunn/vim-peekaboo'
-
-" Snippets:
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-
-" Markdown:
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install', 'for': 'markdown' }
-Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
-Plug 'godlygeek/tabular'
-
-" Color:
-Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
-
-" Folding:
-Plug 'obreitwi/vim-sort-folds'
-" Plug 'brianrodri/vim-sort-folds'
-Plug '~/src/foldlist'
-" Plug '~/src/vim-sort-folds'
-
-call plug#end()
-syntax on
-filetype plugin indent on
-
-"}}}
 " Plugin Config: {{{1
 "  Colorscheme: {{{2
 
