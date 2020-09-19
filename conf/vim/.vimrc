@@ -112,6 +112,10 @@ endif
 Plug 'itchyny/lightline.vim'
 " Plug 'vim-airline/vim-airline'
 Plug '~/src/srcery-vim'
+  let g:srcery_dim_lisp_paren=1
+  let g:srcery_italic=1
+  let g:srcery_transparent_background=1
+
 " Plug 'srcery-colors/srcery-vim'
 " Plug 'sjl/badwolf'
 " Plug 'romainl/flattened'
@@ -268,6 +272,9 @@ endif
 " mouse
 set mouse=a
 
+" colorscheme
+colorscheme srcery
+
 "}}}
 " Environments {{{1
 
@@ -414,16 +421,6 @@ endfunction
 
 " }}}
 " Plugin Config: {{{1
-"  Colorscheme: {{{2
-
-let g:srcery_dim_lisp_paren=1
-let g:srcery_italic=1
-" let g:srcery_inverse_matches=1
-let g:srcery_transparent_background=1
-
-colorscheme srcery
-
-"}}}
 " Fzf: {{{2
 
 " https://github.com/junegunn/fzf.vim
