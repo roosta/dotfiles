@@ -51,9 +51,6 @@ fi
 # Then, source plugins and add commands to $PATH
 zplug load
 # }}}
-# VirtualEnv {{{
-# [ -f ~/.pip/bin/virtualenvwrapper.sh ] && source ~/.pip/bin/virtualenvwrapper.sh
-# }}}
 # Functions {{{
 fpath+=("$HOME/.zsh.d/functions")
 for fn (~/.zsh.d/functions/*)  autoload -Uz $fn
