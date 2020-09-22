@@ -16,6 +16,12 @@ if [ "$TERM" = "linux" ]; then
     clear
 fi
 #}}}
+# Config: {{{
+
+for fn (~/.zsh.d/functions/*)  autoload -Uz $fn
+for config (~/.zsh.d/*.zsh) source $config
+
+# }}}
 # Plugins {{{
 
 if [[ -s '/usr/share/doc/pkgfile/command-not-found.zsh' ]]; then
@@ -53,14 +59,4 @@ fi
 # Then, source plugins and add commands to $PATH
 zplug load
 
-# }}}
-# Functions {{{
-
-for fn (~/.zsh.d/functions/*)  autoload -Uz $fn
-
-# }}}
-# Zsh configuration {{{
-for config (~/.zsh.d/*.zsh) source $config
-
-# }}}
 #  vim: set ts=2 sw=2 tw=0 fdm=marker et :
