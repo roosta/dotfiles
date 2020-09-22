@@ -7,16 +7,21 @@
 # Ensure path arrays do not contain duplicates.
 typeset -gU cdpath fpath mailpath path
 
-path=(~/bin
-      /usr/local/bin
-      $HOME/.go/bin
-      ~/perl5/bin
-      ~/.npm/bin
-      ~/.pip/bin
-      ~/.cargo/bin
-      $path[@])
+path=(
+	~/bin
+	/usr/local/bin
+	$HOME/.go/bin
+	~/perl5/bin
+	~/.npm/bin
+	~/.pip/bin
+	~/.cargo/bin
+	$path[@]
+)
 
-fpath+=("$HOME/.zsh.d/functions")
+fpath=(
+	"$HOME/.zsh.d/functions"
+	$fpath[@]
+)
 
 if [[ -z "$LANG" ]]; then
   export LANG='en_US.UTF-8'
