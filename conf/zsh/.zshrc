@@ -20,11 +20,12 @@ if [ "$TERM" = "linux" ]; then
 fi
 #}}}
 # Plugins {{{
-source ~/.zplug/init.zsh
 
 if [[ -s '/usr/share/doc/pkgfile/command-not-found.zsh' ]]; then
   source '/usr/share/doc/pkgfile/command-not-found.zsh'
 fi
+
+source ~/.zplug/init.zsh
 
 # (If the defer tag is given 2 or above, run after compinit command)
 zplug "Tarrasch/zsh-bd"
@@ -52,8 +53,10 @@ fi
 zplug load
 # }}}
 # Functions {{{
+
 fpath+=("$HOME/.zsh.d/functions")
 for fn (~/.zsh.d/functions/*)  autoload -Uz $fn
+
 # }}}
 # Zsh configuration {{{
 for config (~/.zsh.d/*.zsh) source $config
