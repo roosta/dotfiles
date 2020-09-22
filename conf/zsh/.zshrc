@@ -25,6 +25,10 @@ if [[ -s '/usr/share/doc/pkgfile/command-not-found.zsh' ]]; then
   source '/usr/share/doc/pkgfile/command-not-found.zsh'
 fi
 
+if [[ -s ~/.fzf.zsh ]]; then
+  source ~/.fzf.zsh
+fi
+
 source ~/.zplug/init.zsh
 
 # (If the defer tag is given 2 or above, run after compinit command)
@@ -61,9 +65,6 @@ for fn (~/.zsh.d/functions/*)  autoload -Uz $fn
 # Zsh configuration {{{
 for config (~/.zsh.d/*.zsh) source $config
 
-if [[ -s ~/.fzf.zsh ]]; then
-  source ~/.fzf.zsh
-fi
 # }}}
 # Plugin conf {{{
 # for cfg (~/.zsh.d/plugin_conf/*.zsh) source $cfg
