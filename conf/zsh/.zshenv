@@ -98,13 +98,13 @@ export JAVA_HOME="/usr/lib/jvm/default"
 export NASHORN_HOME="$JAVA_HOME/bin"
 
 # temp
-export PGSSLMODE=require
+# export PGSSLMODE=require
 
 # https://github.com/racer-rust/racer#installation
-hash rustc 2>/dev/null && export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
+# hash rustc 2>/dev/null && export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
 
-if hash ruby 2>/dev/null; then
-  PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH"
-fi
+# if hash ruby 2>/dev/null; then
+#   PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH"
+# fi
 
 export CHEAT_USE_FZF=true
