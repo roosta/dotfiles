@@ -16,8 +16,7 @@ path=(~/bin
       ~/.cargo/bin
       $path[@])
 
-# set ruby gems install location to home
-# export BUNDLE_PATH=$(ruby -rubygems -e "puts Gem.user_dir")
+fpath+=("$HOME/.zsh.d/functions")
 
 if [[ -z "$LANG" ]]; then
   export LANG='en_US.UTF-8'

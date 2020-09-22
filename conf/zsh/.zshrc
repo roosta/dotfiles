@@ -55,10 +55,10 @@ fi
 
 # Then, source plugins and add commands to $PATH
 zplug load
+
 # }}}
 # Functions {{{
 
-fpath+=("$HOME/.zsh.d/functions")
 for fn (~/.zsh.d/functions/*)  autoload -Uz $fn
 
 # }}}
