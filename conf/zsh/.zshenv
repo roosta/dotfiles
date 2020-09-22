@@ -32,7 +32,6 @@ if [[ -z "$LC_CTYPE" && -z "$LC_ALL" ]]; then
 	export LC_CTYPE=${LANG%%:*} # pick the first entry from LANG
 fi
 
-# export TERM="rxvt-unicode-256color"
 export TERM="xterm-termite"
 export TERMINAL=termite
 export BROWSER=firefox
@@ -41,17 +40,11 @@ export BROWSER=firefox
 export DESKTOP_SESSION=gnome
 export QT_STYLE_OVERRIDE=GTK+
 export GDK_DPI_SCALE=1
-# export GDK_SCALE=2
 
 # editor
 export EDITOR="nvim"
-# export EDITOR="emacsclient -a vim -c -t"
 export ALTERNATE_EDITOR="nvim"
-# export VISUAL="emacsclient -a vim -c -t"
 export VISUAL="nvim"
-
-# export EDITOR=vim
-# export VISUAL=vim
 
 # golang lib path
 export GOPATH=$HOME/.go
