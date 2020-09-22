@@ -66,14 +66,4 @@ for fn (~/.zsh.d/functions/*)  autoload -Uz $fn
 for config (~/.zsh.d/*.zsh) source $config
 
 # }}}
-# Plugin conf {{{
-# for cfg (~/.zsh.d/plugin_conf/*.zsh) source $cfg
-# hash fasd 2>/dev/null && source ~/.zsh.d/plugin_conf/fasd.zsh
-# hash fzf 2>/dev/null && source ~/.zsh.d/fzf.zsh
-source ~/.zsh.d/plugin_conf/ls_colors.zsh
-source ~/.zsh.d/plugin_conf/autosuggestions.zsh
-source ~/.zsh.d/plugin_conf/enhancd.zsh
-source ~/.zsh.d/plugin_conf/zsh-syntax-highlighting.zsh
-# hash thefuck 2>/dev/null && eval $(thefuck --alias)
-# }}}
 #  vim: set ts=2 sw=2 tw=0 fdm=marker et :
