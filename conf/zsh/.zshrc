@@ -70,6 +70,6 @@ source ~/.zsh.d/plugin_conf/ls_colors.zsh
 source ~/.zsh.d/plugin_conf/autosuggestions.zsh
 source ~/.zsh.d/plugin_conf/enhancd.zsh
 source ~/.zsh.d/plugin_conf/zsh-syntax-highlighting.zsh
-hash thefuck 2>/dev/null && eval $(thefuck --alias)
+# hash thefuck 2>/dev/null && eval $(thefuck --alias)
 # }}}
 #  vim: set ts=2 sw=2 tw=0 fdm=marker et :
