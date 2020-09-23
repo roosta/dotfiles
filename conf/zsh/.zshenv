@@ -74,9 +74,6 @@ export GRAALVM_HOME="${HOME}/java/graalvm-ce-19.1.1/bin"
 export JAVA_HOME="/usr/lib/jvm/default"
 export NASHORN_HOME="$JAVA_HOME/bin"
 
-# temp
-# export PGSSLMODE=require
-
 # https://github.com/racer-rust/racer#installation
 # hash rustc 2>/dev/null && export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
 
