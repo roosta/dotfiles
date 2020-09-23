@@ -176,7 +176,12 @@ Plug 'SirVer/ultisnips'
   let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 Plug 'honza/vim-snippets'
+
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install', 'for': 'markdown' }
+  let g:mkdp_browser = 'chrome-scaled'
+  let g:mkdp_auto_close = 0
+  nnoremap <leader>mp :MarkdownPreview<cr>
+
 Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
 Plug 'godlygeek/tabular'
 
@@ -519,13 +524,6 @@ endfunction
 
 " Markdown preview
 " ----------------
-let g:mkdp_browser = 'chrome-scaled'
-let g:mkdp_auto_close = 0
-nnoremap <leader>mp :MarkdownPreview<cr>
-
-" open the preview window after entering the markdown buffer
-let g:mkdp_auto_start = 0
-
 " vim-markdown
 " ------------
 let g:markdown_folding = 1
