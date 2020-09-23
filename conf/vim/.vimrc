@@ -33,10 +33,10 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
-" Defaults
+" defaults
 Plug 'tpope/vim-sensible'
 
-" General
+" edit
 Plug 'christoomey/vim-sort-motion'
 Plug 'farmergreg/vim-lastplace'
 Plug 'jiangmiao/auto-pairs'
@@ -86,7 +86,6 @@ Plug 'haya14busa/incsearch.vim'
   map g# <Plug>(incsearch-nohl-g#)
 Plug 'justinmk/vim-sneak'
   let g:sneak#use_ic_scs = 1
-
 Plug 'easymotion/vim-easymotion'
   let g:EasyMotion_smartcase = 1
   let g:EasyMotion_startofline = 1 " keep cursor column when JK motion
@@ -107,6 +106,10 @@ Plug 'tpope/vim-fugitive'
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'jpalardy/vim-slime'
+  let g:slime_target = 'tmux'
+  let g:slime_default_config = {'socket_name': 'default', 'target_pane': '2'}
+  let g:slime_paste_file = '$HOME/.slime_paste'
+  let g:slime_python_ipython = 1
 Plug 'tpope/vim-tbone'
 
 " lang
@@ -423,14 +426,6 @@ command! -bang -nargs=* Rg
 
 "}}}
 " Plugin Config: {{{1
-" Slime: {{{2
-
-let g:slime_target = 'tmux'
-let g:slime_default_config = {'socket_name': 'default', 'target_pane': '2'}
-let g:slime_paste_file = '$HOME/.slime_paste'
-let g:slime_python_ipython = 1
-
-"}}}
 " Clojure Highlight: {{{2
 
 " This should enable Emacs like indentation
