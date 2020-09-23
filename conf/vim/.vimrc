@@ -46,6 +46,8 @@ Plug 'junegunn/vim-easy-align'
   nmap ga <Plug>(EasyAlign)
 
 Plug 'ntpeters/vim-better-whitespace'
+  let g:better_whitespace_filetypes_blacklist=['diff', 'gitcommit', 'help', 'nofile', 'git']
+
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-rsi'
@@ -488,11 +490,6 @@ let g:clojure_fuzzy_indent_patterns=['^GET', '^POST', '^PUT', '^DELETE', '^ANY',
 let g:python_highlight_all = 1
 
 "}}}
-" Better whitespace: {{{
-
-let g:better_whitespace_filetypes_blacklist=['diff', 'gitcommit', 'help', 'nofile', 'git']
-
-" }}}
 " ale: {{{
 
 " https://github.com/borkdude/clj-kondo/blob/master/doc/editor-integration.md#vim--neovim
