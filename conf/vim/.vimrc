@@ -76,6 +76,18 @@ Plug 'junegunn/fzf.vim'
 " Plug 'rking/ag.vim'
 " Plug 'mileszs/ack.vim'
 Plug 'haya14busa/incsearch.vim'
+  let g:incsearch#auto_nohlsearch = 0
+  map /  <Plug>(incsearch-forward)
+  map ?  <Plug>(incsearch-backward)
+  map g/ <Plug>(incsearch-stay)
+  map n  <Plug>(incsearch-nohl-n)
+  map N  <Plug>(incsearch-nohl-N)
+  map *  <Plug>(incsearch-nohl-*)
+  map #  <Plug>(incsearch-nohl-#)
+  map g* <Plug>(incsearch-nohl-g*)
+  map g# <Plug>(incsearch-nohl-g#)
+
+
 Plug 'markonm/traces.vim'
 Plug 'tpope/vim-abolish'
 
@@ -476,21 +488,6 @@ command! -bang -nargs=* Rg
 
 "}}}
 " Plugin Config: {{{1
-" Incsearch: {{{2
-
-map /  <Plug>(incsearch-forward)
-map ?  <Plug>(incsearch-backward)
-map g/ <Plug>(incsearch-stay)
-
-let g:incsearch#auto_nohlsearch = 0
-map n  <Plug>(incsearch-nohl-n)
-map N  <Plug>(incsearch-nohl-N)
-map *  <Plug>(incsearch-nohl-*)
-map #  <Plug>(incsearch-nohl-#)
-map g* <Plug>(incsearch-nohl-g*)
-map g# <Plug>(incsearch-nohl-g#)
-
-"}}}
 "  Easymotion: {{{2
 
 let g:EasyMotion_smartcase = 1
