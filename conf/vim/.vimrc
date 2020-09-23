@@ -146,7 +146,15 @@ Plug 'gregjurman/vim-nc'
 Plug 'vim-scripts/nginx.vim'
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'racer-rust/vim-racer', { 'for': 'rust' }
+
 Plug 'ludovicchabant/vim-gutentags'
+  let g:gutentags_exclude_filetypes = ['gitcommit', 'gitconfig', 'gitrebase', 'gitsendemail', 'git']
+  let g:gutentags_cache_dir = expand('~/.cache/vim/ctags/')
+  let g:gutentags_exclude_project_root = ['/etc', 'usr/local']
+  command! -nargs=0 GutentagsClearCache call system('rm ' . g:gutentags_cache_dir . '/*')
+
+"}}}
+
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install', 'for': 'markdown' }
@@ -465,19 +473,6 @@ let g:clojure_fuzzy_indent_patterns=['^GET', '^POST', '^PUT', '^DELETE', '^ANY',
 " Python: {{{2
 
 let g:python_highlight_all = 1
-
-"}}}
-" Gutentags: {{{2
-
-let g:gutentags_exclude_filetypes = ['gitcommit', 'gitconfig', 'gitrebase', 'gitsendemail', 'git']
-
-" Move tag files to cache dir
-let g:gutentags_cache_dir = expand('~/.cache/vim/ctags/')
-
-let g:gutentags_exclude_project_root = ['/etc', 'usr/local']
-
-" command to clear the cache quickly
-command! -nargs=0 GutentagsClearCache call system('rm ' . g:gutentags_cache_dir . '/*')
 
 "}}}
 " Lightline: {{{2
