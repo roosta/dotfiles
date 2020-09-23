@@ -49,7 +49,9 @@ Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'wellle/targets.vim'
+
 Plug 'mbbill/undotree'
+  nnoremap <leader>ut :UndotreeToggle<cr>
 
 " System:
 Plug 'tpope/vim-eunuch'
@@ -491,11 +493,6 @@ command! -bang -nargs=* Rg
 
 "}}}
 " Plugin Config: {{{1
-" Undotree: {{{2
-
-nnoremap <leader>ut :UndotreeToggle<cr>
-
-"}}}
 " Slime: {{{2
 
 let g:slime_target = 'tmux'
