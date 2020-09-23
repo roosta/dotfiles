@@ -116,7 +116,14 @@ Plug 'tpope/vim-fugitive'
 
 " Multiplexer
 Plug 'tmux-plugins/vim-tmux-focus-events'
+
 Plug 'christoomey/vim-tmux-navigator'
+  let g:tmux_navigator_no_mappings = 1
+  nnoremap <silent> <C-h> :TmuxNavigateLeft<cr>
+  nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
+  nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
+  nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
+
 Plug 'jpalardy/vim-slime'
   let g:slime_target = 'tmux'
   let g:slime_default_config = {'socket_name': 'default', 'target_pane': '2'}
@@ -448,14 +455,6 @@ let g:clojure_align_multiline_strings = 1
 let g:clojure_fuzzy_indent_patterns=['^GET', '^POST', '^PUT', '^DELETE', '^ANY', '^HEAD', '^PATCH', '^OPTIONS', '^def']
 
 "}}}
-" Tmux Navigator: {{{2
-
-let g:tmux_navigator_no_mappings = 1
-nnoremap <silent> <C-h>  : TmuxNavigateLeft<cr>
-nnoremap <silent> <C-j>  : TmuxNavigateDown<cr>
-nnoremap <silent> <C-k>  : TmuxNavigateUp<cr>
-nnoremap <silent> <C-l>  : TmuxNavigateRight<cr>
-
 " Emmet: {{{2
 
 let g:user_emmet_leader_key='<C-A>'
