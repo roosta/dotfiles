@@ -525,7 +525,7 @@ call expand_region#custom_text_objects('clojure', {
 let g:python_highlight_all = 1
 
 "}}}
-" netrw {{{2
+" Netrw: {{{2
 
 " Change default netrw liststyle
 " let g:netrw_liststyle = 1
