@@ -54,8 +54,6 @@ fi
 alias less=$PAGER
 alias zless=$PAGER
 
-export BAT_STYLE="plain"
-
 # tell ranger not to use default config
 export RANGER_LOAD_DEFAULT_RC="false"
 
