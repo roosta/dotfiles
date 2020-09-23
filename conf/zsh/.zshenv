@@ -65,9 +65,6 @@ export ARDUINO_DIR=/usr/share/arduino
 # Fix for latency issues in wine
 export PULSE_LATENCY_MSEC=60
 
-# gtags
-export GTAGSLABEL=ctags
-
 # https://github.com/trapd00r/vim-syntax-vidir-ls
 export VIDIR_EDITOR_ARGS='-c :set nolist | :set ft=vidir-ls'
 
