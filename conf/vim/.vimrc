@@ -550,11 +550,6 @@ let g:vim_markdown_folding_level = 2
 let g:vim_markdown_new_list_item_indent = 2
 
 "}}}
-" Clap: {{{
-
-" let g:clap_search_box_border_style = 'curve'
-
-" }}}
 " vim-expand-region: {{{
 
 " let expand region know about 'form' text objects added by vim-sexp
