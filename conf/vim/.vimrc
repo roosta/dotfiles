@@ -171,6 +171,10 @@ Plug 'ludovicchabant/vim-gutentags'
   command! -nargs=0 GutentagsClearCache call system('rm ' . g:gutentags_cache_dir . '/*')
 
 Plug 'SirVer/ultisnips'
+  let g:UltiSnipsExpandTrigger="<c-;>"
+  let g:UltiSnipsJumpForwardTrigger="<c-b>"
+  let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
 Plug 'honza/vim-snippets'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install', 'for': 'markdown' }
 Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
@@ -491,13 +495,6 @@ let g:clojure_fuzzy_indent_patterns=['^GET', '^POST', '^PUT', '^DELETE', '^ANY',
 let g:python_highlight_all = 1
 
 "}}}
-" ultisnips {{{
-
-let g:UltiSnipsExpandTrigger="<c-;>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
-" }}}
 " netrw {{{
 
 " Change default netrw liststyle
