@@ -75,7 +75,10 @@ Plug 'bfredl/nvim-miniyank'
 
 Plug 'junegunn/vim-peekaboo'
 Plug 'tpope/vim-abolish'
+
 Plug 'obreitwi/vim-sort-folds'
+  let g:sort_folds_ignore_case = 1
+
 Plug '~/src/foldlist'
 Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-eunuch'
@@ -558,11 +561,6 @@ call expand_region#custom_text_objects('clojure', {
       \ 'if' :0,
       \ 'af' :1,
       \ })
-
-" }}}
-" vim-sort-folds: {{{
-
-let g:sort_folds_ignore_case = 1
 
 " }}}
 " VimWiki {{{
