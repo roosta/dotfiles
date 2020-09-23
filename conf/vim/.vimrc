@@ -563,15 +563,6 @@ call expand_region#custom_text_objects('clojure', {
       \ })
 
 " }}}
-" VimWiki {{{
-
-let g:vimwiki_global_ext = 0 " Prevent vimwiki for all markdown files
-let g:vimwiki_list = [{'path': '~/notes/',
-                      \ 'syntax': 'markdown', 'ext': '.md'}]
-
-let g:vimwiki_folding = 'expr'
-
-" }}}
 " Sort Motion: {{{
 
 " Case insensitive
