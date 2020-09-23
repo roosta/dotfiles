@@ -40,7 +40,11 @@ Plug 'tpope/vim-sensible'
 Plug 'christoomey/vim-sort-motion'
 Plug 'farmergreg/vim-lastplace'
 Plug 'jiangmiao/auto-pairs'
+
 Plug 'junegunn/vim-easy-align'
+  xmap ga <Plug>(EasyAlign)
+  nmap ga <Plug>(EasyAlign)
+
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
@@ -456,15 +460,6 @@ let g:clojure_align_multiline_strings = 1
 
 " Add some words which should be indented like defn etc: Compojure/compojure-api, midje and schema stuff mostly.
 let g:clojure_fuzzy_indent_patterns=['^GET', '^POST', '^PUT', '^DELETE', '^ANY', '^HEAD', '^PATCH', '^OPTIONS', '^def']
-
-"}}}
-" Easy-align: {{{2
-
-" Start interactive EasyAlign in visual mode (e.g. vipga)
-xmap ga <Plug>(EasyAlign)
-
-" Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap ga <Plug>(EasyAlign)
 
 "}}}
 " Python: {{{2
