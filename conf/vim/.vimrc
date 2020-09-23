@@ -49,12 +49,20 @@ Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'wellle/targets.vim'
+
 Plug 'mbbill/undotree'
   nnoremap <leader>ut :UndotreeToggle<cr>
+
 Plug 'romainl/vim-qlist'
 Plug 'terryma/vim-expand-region'
 Plug 'tpope/vim-dispatch'
+
 Plug 'bfredl/nvim-miniyank'
+  map p <Plug>(miniyank-autoput)
+  map P <Plug>(miniyank-autoPut)
+  map <c-p> <Plug>(miniyank-cycle)
+  map <c-n> <Plug>(miniyank-cycleback)
+
 Plug 'junegunn/vim-peekaboo'
 Plug 'tpope/vim-abolish'
 Plug 'obreitwi/vim-sort-folds'
@@ -438,10 +446,6 @@ let g:clojure_fuzzy_indent_patterns=['^GET', '^POST', '^PUT', '^DELETE', '^ANY',
 "}}}
 " nvim-miniyank: {{{2
 
-map p <Plug>(miniyank-autoput)
-map P <Plug>(miniyank-autoPut)
-map <c-p> <Plug>(miniyank-cycle)
-map <c-n> <Plug>(miniyank-cycleback)
 
 "}}}
 " Tmux Navigator: {{{2
