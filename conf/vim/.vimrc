@@ -100,7 +100,10 @@ Plug 'terryma/vim-expand-region'
 " Movement:
 Plug 'justinmk/vim-sneak'
   let g:sneak#use_ic_scs = 1
+
 Plug 'easymotion/vim-easymotion'
+  let g:EasyMotion_smartcase = 1
+  let g:EasyMotion_startofline = 1 " keep cursor column when JK motion
 
 " Tags:
 Plug 'ludovicchabant/vim-gutentags'
@@ -488,12 +491,6 @@ command! -bang -nargs=* Rg
 
 "}}}
 " Plugin Config: {{{1
-"  Easymotion: {{{2
-
-let g:EasyMotion_smartcase = 1
-let g:EasyMotion_startofline = 1 " keep cursor column when JK motion
-
-"}}}
 " Undotree: {{{2
 
 nnoremap <leader>ut :UndotreeToggle<cr>
