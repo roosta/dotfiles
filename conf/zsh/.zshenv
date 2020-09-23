@@ -23,11 +23,6 @@ fpath=(
 	$fpath[@]
 )
 
-# only define LC_CTYPE if undefined
-if [[ -z "$LC_CTYPE" && -z "$LC_ALL" ]]; then
-	export LC_CTYPE=${LANG%%:*} # pick the first entry from LANG
-fi
-
 export TERM="xterm-termite"
 export TERMINAL=termite
 export BROWSER=firefox
