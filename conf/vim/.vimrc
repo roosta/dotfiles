@@ -199,6 +199,10 @@ endif
 
 " Linting
 Plug 'w0rp/ale'
+  " https://github.com/borkdude/clj-kondo/blob/master/doc/editor-integration.md#vim--neovim
+  let g:ale_linters = {
+        \ 'clojure': ['clj-kondo']
+        \}
 
 call plug#end()
 
@@ -490,14 +494,6 @@ let g:clojure_fuzzy_indent_patterns=['^GET', '^POST', '^PUT', '^DELETE', '^ANY',
 let g:python_highlight_all = 1
 
 "}}}
-" ale: {{{
-
-" https://github.com/borkdude/clj-kondo/blob/master/doc/editor-integration.md#vim--neovim
-let g:ale_linters = {
-      \ 'clojure': ['clj-kondo']
-      \}
-
-" }}}
 " Deoplete: {{{
 
 let g:deoplete#enable_at_startup = 1
