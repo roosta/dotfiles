@@ -81,6 +81,7 @@ Plug 'jceb/vim-orgmode'
 " nav
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+
 Plug 'haya14busa/incsearch.vim'
   let g:incsearch#auto_nohlsearch = 0
   map /  <Plug>(incsearch-forward)
@@ -92,11 +93,14 @@ Plug 'haya14busa/incsearch.vim'
   map #  <Plug>(incsearch-nohl-#)
   map g* <Plug>(incsearch-nohl-g*)
   map g# <Plug>(incsearch-nohl-g#)
+
 Plug 'justinmk/vim-sneak'
   let g:sneak#use_ic_scs = 1
+
 Plug 'easymotion/vim-easymotion'
   let g:EasyMotion_smartcase = 1
   let g:EasyMotion_startofline = 1 " keep cursor column when JK motion
+
 Plug 'markonm/traces.vim'
 
 " Color
@@ -143,7 +147,7 @@ Plug 'tpope/vim-sexp-mappings-for-regular-people'
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 Plug 'tpope/vim-salve', { 'for': 'clojure' }
 Plug 'guns/vim-clojure-highlight', { 'for': 'clojure' }
-" Plug 'Olical/conjure', {'tag': 'v3.4.0'}
+" Plug 'Olical/conjure', {'tag': 'v4.5.0'}
 Plug 'jmcantrell/vim-virtualenv'
 Plug 'hdima/python-syntax'
 
@@ -442,10 +446,6 @@ let g:clojure_align_multiline_strings = 1
 
 " Add some words which should be indented like defn etc: Compojure/compojure-api, midje and schema stuff mostly.
 let g:clojure_fuzzy_indent_patterns=['^GET', '^POST', '^PUT', '^DELETE', '^ANY', '^HEAD', '^PATCH', '^OPTIONS', '^def']
-
-"}}}
-" nvim-miniyank: {{{2
-
 
 "}}}
 " Tmux Navigator: {{{2
