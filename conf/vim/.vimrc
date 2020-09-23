@@ -185,15 +185,7 @@ Plug 'guns/vim-clojure-highlight', { 'for': 'clojure' }
 " Plug 'Olical/conjure', {'tag': 'v4.5.0'}
 Plug 'jmcantrell/vim-virtualenv'
 Plug 'hdima/python-syntax'
-
-" Completion
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
+Plug 'vim-scripts/AutoComplPop'
 
 " Linting
 Plug 'w0rp/ale'
@@ -207,7 +199,7 @@ call plug#end()
 "}}}
 " Settings: {{{1
 
-set shortmess+=I
+set shortmess+=Ic
 set scrolloff=7
 set lazyredraw
 set cursorline
@@ -272,6 +264,10 @@ endif
 
 " mouse
 set mouse=a
+
+" completion
+set complete+=kspell
+set completeopt=menuone,longest,preview
 
 colorscheme srcery
 
@@ -366,8 +362,9 @@ map <leader>D :put =strftime('# %a %Y-%m-%d %H:%M:%S%z')<CR>
 " Use tab and c-j/c-k for completion navigation
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <C-j> pumvisible() ? "\<C-N>" : "<C-j>"
-inoremap <expr> <C-k> pumvisible() ? "\<C-P>" : "<C-k>"
+inoremap <expr> <C-j> pumvisible() ? "\<C-N>" : "\<C-j>"
+inoremap <expr> <C-k> pumvisible() ? "\<C-P>" : "\<C-k>"
+" inoremap <expr> <C-h> pumvisible() ? "\<C-e>" : "\<C-h>"
 
 " Here's a (what should be a one-line) map to help you tell just what syntax
 " highlighting groups the item under the cursor actually is:
@@ -492,12 +489,6 @@ let g:clojure_fuzzy_indent_patterns=['^GET', '^POST', '^PUT', '^DELETE', '^ANY',
 let g:python_highlight_all = 1
 
 "}}}
-" Deoplete: {{{
-
-let g:deoplete#enable_at_startup = 1
-call deoplete#custom#option('keyword_patterns', {'clojure': '[\w!$%&*+/:<=>?@\^_~\-\.#]*'})
-
-" }}}
 " git {{{
 
 nnoremap <leader>gs :Git<cr>
