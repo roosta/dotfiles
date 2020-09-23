@@ -132,6 +132,8 @@ let g:lightline = {
 
 " Git
 Plug 'tpope/vim-fugitive'
+  nnoremap <leader>gs :Git<cr>
+  autocmd vimrc FileType gitcommit setlocal nofoldenable
 
 " Multiplexer
 Plug 'tmux-plugins/vim-tmux-focus-events'
@@ -489,12 +491,6 @@ let g:clojure_fuzzy_indent_patterns=['^GET', '^POST', '^PUT', '^DELETE', '^ANY',
 let g:python_highlight_all = 1
 
 "}}}
-" git {{{
-
-nnoremap <leader>gs :Git<cr>
-autocmd vimrc FileType gitcommit setlocal nofoldenable
-
-" }}}
 " ultisnips {{{
 
 let g:UltiSnipsExpandTrigger="<c-;>"
