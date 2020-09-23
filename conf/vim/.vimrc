@@ -64,10 +64,10 @@ Plug 'terryma/vim-expand-region'
 Plug 'tpope/vim-dispatch'
 
 Plug 'bfredl/nvim-miniyank'
-  map p <Plug>(miniyank-autoput)
-  map P <Plug>(miniyank-autoPut)
-  map <c-p> <Plug>(miniyank-cycle)
-  map <c-n> <Plug>(miniyank-cycleback)
+  nmap p <Plug>(miniyank-autoput)
+  nmap P <Plug>(miniyank-autoPut)
+  nmap <c-p> <Plug>(miniyank-cycle)
+  nmap <c-n> <Plug>(miniyank-cycleback)
 
 Plug 'junegunn/vim-peekaboo'
 Plug 'tpope/vim-abolish'
