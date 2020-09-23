@@ -118,7 +118,16 @@ Plug '~/src/srcery-vim'
   let g:srcery_dim_lisp_paren=1
   let g:srcery_italic=1
   let g:srcery_transparent_background=1
+
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
+  let g:Hexokinase_optInPatterns = [
+        \ 'full_hex',
+        \ 'triple_hex',
+        \ 'rgb',
+        \ 'rgba',
+        \ 'hsl',
+        \ 'hsla',
+        \ ]
 
 Plug 'itchyny/lightline.vim'
 let g:lightline = {
@@ -539,18 +548,6 @@ let g:vim_markdown_folding_level = 2
 
 " Set indent level on new list items
 let g:vim_markdown_new_list_item_indent = 2
-
-"}}}
-" Hexokinase: {{{2
-
-let g:Hexokinase_optInPatterns = [
-\     'full_hex',
-\     'triple_hex',
-\     'rgb',
-\     'rgba',
-\     'hsl',
-\     'hsla',
-\ ]
 
 "}}}
 " Clap: {{{
