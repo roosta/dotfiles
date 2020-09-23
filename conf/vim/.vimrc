@@ -168,8 +168,6 @@ Plug 'ludovicchabant/vim-gutentags'
   let g:gutentags_exclude_project_root = ['/etc', 'usr/local']
   command! -nargs=0 GutentagsClearCache call system('rm ' . g:gutentags_cache_dir . '/*')
 
-"}}}
-
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install', 'for': 'markdown' }
