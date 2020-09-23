@@ -39,7 +39,11 @@ Plug 'tpope/vim-sensible'
 " edit
 Plug 'christoomey/vim-sort-motion'
 Plug 'farmergreg/vim-lastplace'
+
 Plug 'jiangmiao/auto-pairs'
+  " Fix for 'å' button on Norwegian keyboards
+  let g:AutoPairsShortcutFastWrap=''
+
 
 Plug 'junegunn/vim-easy-align'
   xmap ga <Plug>(EasyAlign)
@@ -522,10 +526,6 @@ endfunction
 "}}}
 " Markdown: {{{
 
-" Markdown preview
-" ----------------
-" vim-markdown
-" ------------
 let g:markdown_folding = 1
 
 " " Set syntax filetype alternatives for codeblocks
@@ -540,12 +540,6 @@ let g:vim_markdown_folding_level = 2
 " Set indent level on new list items
 let g:vim_markdown_new_list_item_indent = 2
 
-"}}}
-" auto-pairs: {{{
-
-" Fix for 'å' button on Norwegian keyboards
-let g:AutoPairsShortcutFastWrap=''
-" let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"', '"""':'"""', "'''":"'''"}
 "}}}
 " Hexokinase: {{{2
 
