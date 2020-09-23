@@ -108,12 +108,25 @@ Plug 'easymotion/vim-easymotion'
 Plug 'markonm/traces.vim'
 
 " Color
-Plug 'itchyny/lightline.vim'
 Plug '~/src/srcery-vim'
   let g:srcery_dim_lisp_paren=1
   let g:srcery_italic=1
   let g:srcery_transparent_background=1
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
+
+Plug 'itchyny/lightline.vim'
+let g:lightline = {
+      \ 'colorscheme': 'srcery',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'cocstatus': 'coc#status'
+      \ },
+      \ 'component': {
+      \   'readonly': '%{&readonly?"🔒":""}',
+      \ }}
 
 " Git
 Plug 'tpope/vim-fugitive'
@@ -473,22 +486,6 @@ let g:clojure_fuzzy_indent_patterns=['^GET', '^POST', '^PUT', '^DELETE', '^ANY',
 " Python: {{{2
 
 let g:python_highlight_all = 1
-
-"}}}
-" Lightline: {{{2
-
-let g:lightline = {
-      \ 'colorscheme': 'srcery',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'component_function': {
-      \   'cocstatus': 'coc#status'
-      \ },
-      \ 'component': {
-      \   'readonly': '%{&readonly?"🔒":""}',
-      \ }}
 
 "}}}
 " Better whitespace: {{{
