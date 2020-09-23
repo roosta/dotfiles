@@ -36,7 +36,7 @@ call plug#begin('~/.vim/plugged')
 " Defaults
 Plug 'tpope/vim-sensible'
 
-" Editing
+" General
 Plug 'christoomey/vim-sort-motion'
 Plug 'farmergreg/vim-lastplace'
 Plug 'jiangmiao/auto-pairs'
@@ -49,27 +49,28 @@ Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'wellle/targets.vim'
-
 Plug 'mbbill/undotree'
   nnoremap <leader>ut :UndotreeToggle<cr>
-
-" System
-Plug 'tpope/vim-eunuch'
-Plug 'lambdalisue/suda.vim'
-Plug 'tpope/vim-dispatch'
-
-" Quickfix
 Plug 'romainl/vim-qlist'
+Plug 'terryma/vim-expand-region'
+Plug 'tpope/vim-dispatch'
+Plug 'bfredl/nvim-miniyank'
+Plug 'junegunn/vim-peekaboo'
+Plug 'tpope/vim-abolish'
+Plug 'obreitwi/vim-sort-folds'
+Plug '~/src/foldlist'
+Plug 'tpope/vim-projectionist'
+Plug 'tpope/vim-eunuch'
 
-" Notes
-Plug 'jceb/vim-orgmode'
-" Plug 'vuciv/vim-bujo'
-
-" Files
+" files
 Plug 'tpope/vim-vinegar'
 Plug 'trapd00r/vim-syntax-vidir-ls'
 
-" Finding
+" notes
+" Plug 'vuciv/vim-bujo'
+Plug 'jceb/vim-orgmode'
+
+" nav
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'haya14busa/incsearch.vim'
@@ -83,39 +84,21 @@ Plug 'haya14busa/incsearch.vim'
   map #  <Plug>(incsearch-nohl-#)
   map g* <Plug>(incsearch-nohl-g*)
   map g# <Plug>(incsearch-nohl-g#)
-
-Plug 'markonm/traces.vim'
-Plug 'tpope/vim-abolish'
-
-" Visual
-Plug 'terryma/vim-expand-region'
-
-" Movement
 Plug 'justinmk/vim-sneak'
   let g:sneak#use_ic_scs = 1
 
 Plug 'easymotion/vim-easymotion'
   let g:EasyMotion_smartcase = 1
   let g:EasyMotion_startofline = 1 " keep cursor column when JK motion
+Plug 'markonm/traces.vim'
 
-" Tags
-Plug 'ludovicchabant/vim-gutentags'
-
-" Completion
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
-
-" Theme
+" Color
 Plug 'itchyny/lightline.vim'
 Plug '~/src/srcery-vim'
   let g:srcery_dim_lisp_paren=1
   let g:srcery_italic=1
   let g:srcery_transparent_background=1
+Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 
 " Git
 Plug 'tpope/vim-fugitive'
@@ -126,25 +109,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'jpalardy/vim-slime'
 Plug 'tpope/vim-tbone'
 
-" Web
-Plug 'mattn/emmet-vim', { 'for': ['html', 'css'] }
-
-" Python
-Plug 'jmcantrell/vim-virtualenv'
-Plug 'hdima/python-syntax'
-
-" Lisp
-Plug 'guns/vim-sexp'
-Plug 'tpope/vim-sexp-mappings-for-regular-people'
-Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
-Plug 'tpope/vim-salve', { 'for': 'clojure' }
-Plug 'guns/vim-clojure-highlight', { 'for': 'clojure' }
-" Plug 'Olical/conjure', {'tag': 'v3.4.0'}
-
-" Projects
-Plug 'tpope/vim-projectionist'
-
-" Syntax
+" lang
 Plug 'sheerun/vim-polyglot'
 Plug 'PotatoesMaster/i3-vim-syntax'
 Plug 'tmux-plugins/vim-tmux'
@@ -153,33 +118,35 @@ Plug 'sudar/vim-arduino-syntax'
 Plug 'othree/yajs.vim'
 Plug 'gregjurman/vim-nc'
 Plug 'vim-scripts/nginx.vim'
-
-" Linting
-Plug 'w0rp/ale'
-
-" Rust
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'racer-rust/vim-racer', { 'for': 'rust' }
-
-" Registers
-Plug 'bfredl/nvim-miniyank'
-Plug 'junegunn/vim-peekaboo'
-
-" Snippets
+Plug 'ludovicchabant/vim-gutentags'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-
-" Markdown
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install', 'for': 'markdown' }
 Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
 Plug 'godlygeek/tabular'
+Plug 'mattn/emmet-vim', { 'for': ['html', 'css'] }
+Plug 'guns/vim-sexp'
+Plug 'tpope/vim-sexp-mappings-for-regular-people'
+Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
+Plug 'tpope/vim-salve', { 'for': 'clojure' }
+Plug 'guns/vim-clojure-highlight', { 'for': 'clojure' }
+" Plug 'Olical/conjure', {'tag': 'v3.4.0'}
+Plug 'jmcantrell/vim-virtualenv'
+Plug 'hdima/python-syntax'
 
-" Color
-Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
+" Completion
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
 
-" Folding
-Plug 'obreitwi/vim-sort-folds'
-Plug '~/src/foldlist'
+" Linting
+Plug 'w0rp/ale'
 
 call plug#end()
 
