@@ -501,7 +501,7 @@ command! -bang -nargs=* Rg
 
 "}}}
 " Plugin Config: {{{1
-" Clojure Highlight: {{{2
+" Clojure: {{{2
 
 " This should enable Emacs like indentation
 let g:clojure_fuzzy_indent=1
@@ -509,6 +509,13 @@ let g:clojure_align_multiline_strings = 1
 
 " Add some words which should be indented like defn etc: Compojure/compojure-api, midje and schema stuff mostly.
 let g:clojure_fuzzy_indent_patterns=['^GET', '^POST', '^PUT', '^DELETE', '^ANY', '^HEAD', '^PATCH', '^OPTIONS', '^def']
+
+" let expand region know about 'form' text objects added by vim-sexp
+" Use :1 to support nesting of around form.
+call expand_region#custom_text_objects('clojure', {
+      \ 'if' :0,
+      \ 'af' :1,
+      \ })
 
 "}}}
 " Python: {{{2
@@ -553,16 +560,6 @@ let g:vim_markdown_folding_level = 2
 let g:vim_markdown_new_list_item_indent = 2
 
 "}}}
-" vim-expand-region: {{{
-
-" let expand region know about 'form' text objects added by vim-sexp
-" Use :1 to support nesting of around form.
-call expand_region#custom_text_objects('clojure', {
-      \ 'if' :0,
-      \ 'af' :1,
-      \ })
-
-" }}}
 " Sort Motion: {{{
 
 " Case insensitive
