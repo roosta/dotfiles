@@ -57,12 +57,6 @@ alias zless=$PAGER
 # tell ranger not to use default config
 export RANGER_LOAD_DEFAULT_RC="false"
 
-# cpan stuff
-export PERL5LIB="${HOME}/perl5/lib/perl5${PERL5LIB+:}${PERL5LIB}"
-export PERL_LOCAL_LIB_ROOT="${HOME}/perl5${PERL_LOCAL_LIB_ROOT+:}${PERL_LOCAL_LIB_ROOT}"
-export PERL_MB_OPT="--install_base \"${HOME}/perl5\""
-export PERL_MM_OPT="INSTALL_BASE=${HOME}/perl5"
-
 # set site.USERBASE for pip user installs
 export PYTHONUSERBASE=$HOME/.pip
 
