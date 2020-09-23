@@ -59,24 +59,19 @@ Plug 'lambdalisue/suda.vim'
 Plug 'tpope/vim-dispatch'
 
 " Quickfix:
-" Plug 'romainl/vim-qf'
 Plug 'romainl/vim-qlist'
 
 " Notes:
 Plug 'jceb/vim-orgmode'
-" Plug 'vimwiki/vimwiki'
 " Plug 'vuciv/vim-bujo'
 
 " Files:
-" Plug 'justinmk/vim-dirvish'
 Plug 'tpope/vim-vinegar'
 Plug 'trapd00r/vim-syntax-vidir-ls'
 
 " Finding:
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-" Plug 'rking/ag.vim'
-" Plug 'mileszs/ack.vim'
 Plug 'haya14busa/incsearch.vim'
   let g:incsearch#auto_nohlsearch = 0
   map /  <Plug>(incsearch-forward)
@@ -89,12 +84,8 @@ Plug 'haya14busa/incsearch.vim'
   map g* <Plug>(incsearch-nohl-g*)
   map g# <Plug>(incsearch-nohl-g#)
 
-
 Plug 'markonm/traces.vim'
 Plug 'tpope/vim-abolish'
-
-" The bang version will try to download the prebuilt binary if cargo does not exist.
-" Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary!' }
 
 " Visual:
 Plug 'terryma/vim-expand-region'
@@ -111,9 +102,6 @@ Plug 'easymotion/vim-easymotion'
 Plug 'ludovicchabant/vim-gutentags'
 
 " Completion:
-" Plug 'ajh17/VimCompletesMe'
-" Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
-" Plug 'prabirshrestha/asyncomplete.vim'
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
@@ -121,27 +109,16 @@ else
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
-" Plug 'clojure-vim/async-clj-omni'
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Theme:
-
 Plug 'itchyny/lightline.vim'
-" Plug 'vim-airline/vim-airline'
 Plug '~/src/srcery-vim'
   let g:srcery_dim_lisp_paren=1
   let g:srcery_italic=1
   let g:srcery_transparent_background=1
 
-" Plug 'srcery-colors/srcery-vim'
-" Plug 'sjl/badwolf'
-" Plug 'romainl/flattened'
-" Plug 'morhetz/gruvbox'
-" Plug 'gruvbox-community/gruvbox'
-
 " Git:
 Plug 'tpope/vim-fugitive'
-" Plug 'airblade/vim-gitgutter'
 
 " Multiplexer:
 Plug 'tmux-plugins/vim-tmux-focus-events'
@@ -151,7 +128,6 @@ Plug 'tpope/vim-tbone'
 
 " Web:
 Plug 'mattn/emmet-vim', { 'for': ['html', 'css'] }
-" Plug 'ternjs/tern_for_vim', { 'for': 'javascript', 'do': 'npm install' }
 
 " Python:
 Plug 'jmcantrell/vim-virtualenv'
@@ -160,16 +136,9 @@ Plug 'hdima/python-syntax'
 " Lisp:
 Plug 'guns/vim-sexp'
 Plug 'tpope/vim-sexp-mappings-for-regular-people'
-" Plug 'liquidz/vim-iced', {'for': 'clojure'}
-" Plug 'liquidz/vim-iced-asyncomplete', {'for': 'clojure'}
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 Plug 'tpope/vim-salve', { 'for': 'clojure' }
-" Plug 'venantius/vim-cljfmt', { 'for': 'clojure' }
-" Plug 'guns/vim-clojure-static', { 'for': 'clojure' }
 Plug 'guns/vim-clojure-highlight', { 'for': 'clojure' }
-" Plug 'kovisoft/paredit', { 'for': ['clojure', 'scheme'] }
-" Plug 'junegunn/rainbow_parentheses.vim'
-" Plug 'kien/rainbow_parentheses.vim'
 " Plug 'Olical/conjure', {'tag': 'v3.4.0'}
 
 " Projects:
@@ -182,7 +151,6 @@ Plug 'tmux-plugins/vim-tmux'
 Plug 'sudar/vim-arduino-syntax'
 " Plug 'pangloss/vim-javascript'
 Plug 'othree/yajs.vim'
-" Plug 'vim-syntastic/syntastic'
 Plug 'gregjurman/vim-nc'
 Plug 'vim-scripts/nginx.vim'
 
@@ -192,9 +160,6 @@ Plug 'w0rp/ale'
 " Rust:
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'racer-rust/vim-racer', { 'for': 'rust' }
-
-" Documentation:
-" Plug 'alx741/vinfo'
 
 " Registers:
 Plug 'bfredl/nvim-miniyank'
@@ -214,9 +179,7 @@ Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 
 " Folding:
 Plug 'obreitwi/vim-sort-folds'
-" Plug 'brianrodri/vim-sort-folds'
 Plug '~/src/foldlist'
-" Plug '~/src/vim-sort-folds'
 
 call plug#end()
 
