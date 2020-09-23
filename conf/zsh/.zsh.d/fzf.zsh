@@ -3,9 +3,6 @@
 # ┆  ┆─┘└─┘└─┘ ┆   ┆  ┆┆└┘┆─┘┴─┘┆└┘
 # Options: {{{
 
-# plugin handled externally with vim-plug
-#[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 # Respecting .gitignore, .hgignore, and svn:ignore
 # Setting ag as the default source for fzf
 export FZF_DEFAULT_COMMAND='rg --hidden --smart-case --follow --ignore-file ~/.globalignore --files'
