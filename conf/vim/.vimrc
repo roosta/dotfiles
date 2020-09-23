@@ -33,10 +33,10 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
-" Defaults:
+" Defaults
 Plug 'tpope/vim-sensible'
 
-" Editing:
+" Editing
 Plug 'christoomey/vim-sort-motion'
 Plug 'farmergreg/vim-lastplace'
 Plug 'jiangmiao/auto-pairs'
@@ -53,23 +53,23 @@ Plug 'wellle/targets.vim'
 Plug 'mbbill/undotree'
   nnoremap <leader>ut :UndotreeToggle<cr>
 
-" System:
+" System
 Plug 'tpope/vim-eunuch'
 Plug 'lambdalisue/suda.vim'
 Plug 'tpope/vim-dispatch'
 
-" Quickfix:
+" Quickfix
 Plug 'romainl/vim-qlist'
 
-" Notes:
+" Notes
 Plug 'jceb/vim-orgmode'
 " Plug 'vuciv/vim-bujo'
 
-" Files:
+" Files
 Plug 'tpope/vim-vinegar'
 Plug 'trapd00r/vim-syntax-vidir-ls'
 
-" Finding:
+" Finding
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'haya14busa/incsearch.vim'
@@ -87,10 +87,10 @@ Plug 'haya14busa/incsearch.vim'
 Plug 'markonm/traces.vim'
 Plug 'tpope/vim-abolish'
 
-" Visual:
+" Visual
 Plug 'terryma/vim-expand-region'
 
-" Movement:
+" Movement
 Plug 'justinmk/vim-sneak'
   let g:sneak#use_ic_scs = 1
 
@@ -98,10 +98,10 @@ Plug 'easymotion/vim-easymotion'
   let g:EasyMotion_smartcase = 1
   let g:EasyMotion_startofline = 1 " keep cursor column when JK motion
 
-" Tags:
+" Tags
 Plug 'ludovicchabant/vim-gutentags'
 
-" Completion:
+" Completion
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
@@ -110,30 +110,30 @@ else
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
 
-" Theme:
+" Theme
 Plug 'itchyny/lightline.vim'
 Plug '~/src/srcery-vim'
   let g:srcery_dim_lisp_paren=1
   let g:srcery_italic=1
   let g:srcery_transparent_background=1
 
-" Git:
+" Git
 Plug 'tpope/vim-fugitive'
 
-" Multiplexer:
+" Multiplexer
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'jpalardy/vim-slime'
 Plug 'tpope/vim-tbone'
 
-" Web:
+" Web
 Plug 'mattn/emmet-vim', { 'for': ['html', 'css'] }
 
-" Python:
+" Python
 Plug 'jmcantrell/vim-virtualenv'
 Plug 'hdima/python-syntax'
 
-" Lisp:
+" Lisp
 Plug 'guns/vim-sexp'
 Plug 'tpope/vim-sexp-mappings-for-regular-people'
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
@@ -141,10 +141,10 @@ Plug 'tpope/vim-salve', { 'for': 'clojure' }
 Plug 'guns/vim-clojure-highlight', { 'for': 'clojure' }
 " Plug 'Olical/conjure', {'tag': 'v3.4.0'}
 
-" Projects:
+" Projects
 Plug 'tpope/vim-projectionist'
 
-" Syntax:
+" Syntax
 Plug 'sheerun/vim-polyglot'
 Plug 'PotatoesMaster/i3-vim-syntax'
 Plug 'tmux-plugins/vim-tmux'
@@ -154,30 +154,30 @@ Plug 'othree/yajs.vim'
 Plug 'gregjurman/vim-nc'
 Plug 'vim-scripts/nginx.vim'
 
-" Linting:
+" Linting
 Plug 'w0rp/ale'
 
-" Rust:
+" Rust
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'racer-rust/vim-racer', { 'for': 'rust' }
 
-" Registers:
+" Registers
 Plug 'bfredl/nvim-miniyank'
 Plug 'junegunn/vim-peekaboo'
 
-" Snippets:
+" Snippets
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
-" Markdown:
+" Markdown
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install', 'for': 'markdown' }
 Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
 Plug 'godlygeek/tabular'
 
-" Color:
+" Color
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 
-" Folding:
+" Folding
 Plug 'obreitwi/vim-sort-folds'
 Plug '~/src/foldlist'
 
