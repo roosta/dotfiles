@@ -148,7 +148,10 @@ Plug 'honza/vim-snippets'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install', 'for': 'markdown' }
 Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
 Plug 'godlygeek/tabular'
+
 Plug 'mattn/emmet-vim', { 'for': ['html', 'css'] }
+  let g:user_emmet_leader_key='<C-A>'
+
 Plug 'guns/vim-sexp'
 Plug 'tpope/vim-sexp-mappings-for-regular-people'
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
@@ -453,11 +456,6 @@ let g:clojure_align_multiline_strings = 1
 
 " Add some words which should be indented like defn etc: Compojure/compojure-api, midje and schema stuff mostly.
 let g:clojure_fuzzy_indent_patterns=['^GET', '^POST', '^PUT', '^DELETE', '^ANY', '^HEAD', '^PATCH', '^OPTIONS', '^def']
-
-"}}}
-" Emmet: {{{2
-
-let g:user_emmet_leader_key='<C-A>'
 
 "}}}
 " Easy-align: {{{2
