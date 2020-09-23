@@ -525,7 +525,7 @@ call expand_region#custom_text_objects('clojure', {
 let g:python_highlight_all = 1
 
 "}}}
-" netrw {{{
+" netrw {{{2
 
 " Change default netrw liststyle
 " let g:netrw_liststyle = 1
@@ -545,7 +545,7 @@ function s:RemoveNetrwMap()
 endfunction
 
 "}}}
-" Markdown: {{{
+" Markdown: {{{2
 
 let g:markdown_folding = 1
 
