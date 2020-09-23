@@ -38,6 +38,8 @@ Plug 'tpope/vim-sensible'
 
 " edit
 Plug 'christoomey/vim-sort-motion'
+  let g:sort_motion_flags = "i"
+
 Plug 'farmergreg/vim-lastplace'
 
 Plug 'jiangmiao/auto-pairs'
@@ -560,11 +562,5 @@ let g:vim_markdown_folding_level = 2
 let g:vim_markdown_new_list_item_indent = 2
 
 "}}}
-" Sort Motion: {{{
-
-" Case insensitive
-let g:sort_motion_flags = "i"
-
-" }}}
 "}}}
 " vim: fdm=marker:sw=2
