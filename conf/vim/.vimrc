@@ -37,24 +37,24 @@ call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-sensible'
 
 " Editing:
-Plug 'christoomey/vim-sort-motion'                                           " Sort various things using motions
-Plug 'farmergreg/vim-lastplace'                                              " Save cursor position
-Plug 'jiangmiao/auto-pairs'                                                  " Insert or delete brackets, parens, quotes in pair
-Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] } " Alignment
-Plug 'ntpeters/vim-better-whitespace'                                        " Highlight and handle trailing whitespace
-Plug 'tpope/vim-commentary'                                                  " Comments
-Plug 'tpope/vim-repeat'                                                      " Add repeat support to various plugins
-Plug 'tpope/vim-rsi'                                                         " Readline bindings
-Plug 'tpope/vim-speeddating'                                                 " Easier dates
-Plug 'tpope/vim-surround'                                                    " Surround text easily
-Plug 'tpope/vim-unimpaired'                                                  " Handy bracket mappings
-Plug 'wellle/targets.vim'                                                    " More text objects
-Plug 'mbbill/undotree'                                                       " Tree of undo changes, use :UndotreeToggle
+Plug 'christoomey/vim-sort-motion'
+Plug 'farmergreg/vim-lastplace'
+Plug 'jiangmiao/auto-pairs'
+Plug 'junegunn/vim-easy-align'
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-rsi'
+Plug 'tpope/vim-speeddating'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+Plug 'wellle/targets.vim'
+Plug 'mbbill/undotree'
 
 " System:
-Plug 'tpope/vim-eunuch'                                                      " Unix helper commands
-Plug 'lambdalisue/suda.vim'                                                  " Assist in writing system files with sudo @ neovim
-Plug 'tpope/vim-dispatch'                                                    " Asynchronous build and test dispatcher
+Plug 'tpope/vim-eunuch'
+Plug 'lambdalisue/suda.vim'
+Plug 'tpope/vim-dispatch'
 
 " Quickfix:
 " Plug 'romainl/vim-qf'
