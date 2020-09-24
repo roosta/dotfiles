@@ -197,7 +197,6 @@ Plug 'honza/vim-snippets'
 
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install', 'for': 'markdown' }
   let g:mkdp_browser = 'chrome-scaled'
-  let g:mkdp_auto_close = 0
   nnoremap <leader>mp :MarkdownPreview<cr>
 
 Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
