@@ -501,8 +501,7 @@ command! -bang -nargs=* Rg
   \   <bang>0)
 
 "}}}
-" Plugin Config: {{{1
-" Clojure: {{{2
+" Clojure: {{{
 
 " This should enable Emacs like indentation
 let g:clojure_fuzzy_indent=1
@@ -519,12 +518,12 @@ call expand_region#custom_text_objects('clojure', {
       \ })
 
 "}}}
-" Python: {{{2
+" Python: {{{
 
 let g:python_highlight_all = 1
 
 "}}}
-" Netrw: {{{2
+" Netrw: {{{
 
 " Change default netrw liststyle
 " let g:netrw_liststyle = 1
@@ -544,7 +543,7 @@ function s:RemoveNetrwMap()
 endfunction
 
 "}}}
-" Markdown: {{{2
+" Markdown: {{{
 
 let g:markdown_folding = 1
 
@@ -560,6 +559,5 @@ let g:vim_markdown_folding_level = 2
 " Set indent level on new list items
 let g:vim_markdown_new_list_item_indent = 2
 
-"}}}
 "}}}
 " vim: fdm=marker:sw=2
