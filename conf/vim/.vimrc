@@ -291,16 +291,9 @@ set mouse=a
 set complete+=kspell
 set completeopt=menuone,longest,preview
 
-colorscheme srcery
-
-"}}}
-" Environments {{{1
-
-if !has('nvim')
+" Environments
+if has('vim')
   set ttymouse=xterm2
-endif
-
-if has('nvim')
 endif
 
 if !has('gui_running')
@@ -314,6 +307,9 @@ if has('gui_running')
   set guioptions-=L
   set guifont=Iosevka\ 9
 endif
+
+" theme
+colorscheme srcery
 
 "}}}
 " Vimpager: {{{
