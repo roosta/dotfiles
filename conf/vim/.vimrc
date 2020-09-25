@@ -328,6 +328,8 @@ let g:vimpager_passthrough = 0
 if exists("vimpager")
   call <SNR>1_ToggleLess()
   set notermguicolors
+  set nonumber
+  set norelativenumber
 endif
 
 "}}}
