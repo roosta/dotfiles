@@ -3,18 +3,24 @@
 # ┆  ┆─┘┆─┘┆─┘┆┆└┘──┘
 # zsh-autosuggest: {{{
 
-bindkey '^ ' autosuggest-accept
+if zplug check zsh-users/zsh-autosuggestions; then
+  bindkey '^ ' autosuggest-accept
+fi
 
 # }}}
 # enhancd: {{{
 
-export ENHANCD_DISABLE_DOT=1
-export ENHANCD_HYPHEN_ARG=1
+if zplug check b4b4r07/enhancd; then
+    export ENHANCD_DISABLE_DOT=1
+    export ENHANCD_HYPHEN_ARG=1
+fi
 
 # }}}
 # ls_colors: {{{
 
-eval $(dircolors -b $HOME/.dircolors)
+if  [[ -f $HOME/.dircolors ]]; then
+  eval $(dircolors -b $HOME/.dircolors)
+fi
 
 # }}}
 
