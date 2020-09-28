@@ -68,7 +68,6 @@ alias gpumeminfo='grep -i --color memory /var/log/Xorg.0.log'
 # create parents, be verbose
 alias mkdir='mkdir -pv'
 alias svn='colorsvn'
-alias pass='EDITOR=vim pass'
 alias vim='nvim'
 # alias docker='sudo docker'
 
