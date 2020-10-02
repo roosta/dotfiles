@@ -8,6 +8,10 @@ autoload -Uz compinit
 compinit -u
 # autoload -U ~/.zsh.d/completion/*(:t)
 
+# complete hidden files
+# https://unix.stackexchange.com/questions/308315/how-can-i-configure-zsh-completion-to-show-hidden-files-and-folders/366137 
+_comp_options+=(globdots)
+
 # OPTIONS
 setopt COMPLETE_IN_WORD    # Complete from both ends of a word.
 
