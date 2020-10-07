@@ -69,8 +69,7 @@ emacs --daemon &
 # see https://github.com/iye/lightsOn/blob/master/lightsOn.sh
 # lightsOn 590 &
 
-eval "$(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)"
-export SSH_AUTH_SOCK
+eval "$(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets)"
 
 # set background with nitrogen
 nitrogen --restore &
