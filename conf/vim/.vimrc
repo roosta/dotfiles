@@ -270,6 +270,7 @@ set clipboard=unnamedplus
 " set backup
 " set writebackup
 set backupdir=$HOME/.cache/vim/backup
+set backupcopy=yes
 
 " Status
 set noshowmode
