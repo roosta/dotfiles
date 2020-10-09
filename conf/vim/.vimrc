@@ -197,7 +197,6 @@ Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
 Plug 'godlygeek/tabular'
 
 Plug 'mattn/emmet-vim', { 'for': ['html', 'css'] }
-  let g:user_emmet_leader_key='<C-A>'
 
 Plug 'guns/vim-sexp'
 Plug 'tpope/vim-sexp-mappings-for-regular-people'
