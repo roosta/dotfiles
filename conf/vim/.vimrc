@@ -170,7 +170,7 @@ Plug 'PotatoesMaster/i3-vim-syntax'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'sudar/vim-arduino-syntax'
 " Plug 'pangloss/vim-javascript'
-Plug 'othree/yajs.vim'
+" Plug 'othree/yajs.vim'
 Plug 'gregjurman/vim-nc'
 Plug 'vim-scripts/nginx.vim'
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
