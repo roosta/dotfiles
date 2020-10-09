@@ -405,6 +405,14 @@ noremap <leader>t- yyp<c-v>$r-
 " Search project for current word
 " https://vimtricks.substack.com/p/vimtrick-search-project-for-current
 map <leader>* :Ggrep --untracked <cword><CR><CR>
+
+" https://vimtricks.substack.com/p/vimtrick-moving-lines
+nnoremap <m-j> :m .+1<CR>==
+nnoremap <m-k> :m .-2<CR>==
+inoremap <m-j> <Esc>:m .+1<CR>==gi
+inoremap <m-k> <Esc>:m .-2<CR>==gi
+vnoremap <m-j> :m '>+1<CR>gv=gv
+vnoremap <m-k> :m '<-2<CR>gv=gv
 " }}}
 " Functions & Commands: {{{
 
