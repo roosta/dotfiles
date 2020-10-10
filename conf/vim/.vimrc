@@ -100,7 +100,7 @@ Plug 'trapd00r/vim-syntax-vidir-ls'
 
 Plug 'jceb/vim-orgmode'
 
-" nav
+" navigation
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
@@ -182,29 +182,7 @@ Plug 'gregjurman/vim-nc'
 Plug 'vim-scripts/nginx.vim'
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'racer-rust/vim-racer', { 'for': 'rust' }
-
-Plug 'ludovicchabant/vim-gutentags'
-  let g:gutentags_exclude_filetypes = ['gitcommit', 'gitconfig', 'gitrebase', 'gitsendemail', 'git']
-  let g:gutentags_cache_dir = expand('~/.cache/vim/ctags/')
-  let g:gutentags_exclude_project_root = ['/etc', 'usr/local']
-  command! -nargs=0 GutentagsClearCache call system('rm ' . g:gutentags_cache_dir . '/*')
-
-Plug 'SirVer/ultisnips'
-  let g:UltiSnipsExpandTrigger="<c-;>"
-  let g:UltiSnipsJumpForwardTrigger="<c-b>"
-  let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
-Plug 'honza/vim-snippets'
-
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install', 'for': 'markdown' }
-  let g:mkdp_browser = 'chrome-scaled'
-  nnoremap <leader>mp :MarkdownPreview<cr>
-
-Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
-Plug 'godlygeek/tabular'
-
 Plug 'mattn/emmet-vim', { 'for': ['html', 'css'] }
-
 Plug 'guns/vim-sexp'
 Plug 'tpope/vim-sexp-mappings-for-regular-people'
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
@@ -214,6 +192,30 @@ Plug 'guns/vim-clojure-highlight', { 'for': 'clojure' }
 Plug 'jmcantrell/vim-virtualenv'
 Plug 'hdima/python-syntax'
 Plug 'vim-scripts/AutoComplPop'
+
+Plug 'ludovicchabant/vim-gutentags'
+  let g:gutentags_exclude_filetypes = ['gitcommit', 'gitconfig', 'gitrebase', 'gitsendemail', 'git']
+  let g:gutentags_cache_dir = expand('~/.cache/vim/ctags/')
+  let g:gutentags_exclude_project_root = ['/etc', 'usr/local']
+  command! -nargs=0 GutentagsClearCache call system('rm ' . g:gutentags_cache_dir . '/*')
+
+" Snippets
+Plug 'SirVer/ultisnips'
+  let g:UltiSnipsExpandTrigger="<c-;>"
+  let g:UltiSnipsJumpForwardTrigger="<c-b>"
+  let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+Plug 'honza/vim-snippets'
+
+" Markdown
+Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
+Plug 'godlygeek/tabular'
+Plug 'https://github.com/dhruvasagar/vim-table-mode'
+
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install', 'for': 'markdown' }
+  let g:mkdp_browser = 'chrome-scaled'
+  nnoremap <leader>mp :MarkdownPreview<cr>
+
 
 " Linting
 Plug 'w0rp/ale'
