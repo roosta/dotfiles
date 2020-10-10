@@ -464,16 +464,16 @@ nmap <leader>? <plug>(fzf-maps-n)
 xmap <leader>? <plug>(fzf-maps-x)
 omap <leader>? <plug>(fzf-maps-o)
 
-nnoremap <leader>oo  :Files<CR>
+nnoremap <leader>oo :Files<CR>
 nnoremap <leader>bb :Buffers<cr>
 nnoremap <leader>T  :Tags<cr>
 nnoremap <leader>t  :BTags<cr>
 nnoremap <leader>gC :Commits<cr>
 nnoremap <leader>gc :BCommits<cr>
-nnoremap <leader>mm  :Marks<cr>
+nnoremap <leader>mm :Marks<cr>
 nnoremap <leader>H  :Helptags<cr>
 nnoremap <leader>/  :Rg<cr>
-nnoremap <leader><leader> :Commands<cr>
+nnoremap <leader>:  :Commands<cr>
 nnoremap <leader>ss :BLines<cr>
 nnoremap <leader>ji :BTags<cr>
 
