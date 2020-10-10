@@ -211,6 +211,7 @@ Plug 'honza/vim-snippets'
 Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
 Plug 'godlygeek/tabular'
 Plug 'https://github.com/dhruvasagar/vim-table-mode'
+  let g:table_mode_corner='|'
 
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install', 'for': 'markdown' }
   let g:mkdp_browser = 'chrome-scaled'
