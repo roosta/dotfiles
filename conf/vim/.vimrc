@@ -239,9 +239,15 @@ set autowrite
 set hidden
 set spelllang=en_us,nb
 set showtabline=1
+
+" Wildmenu
 set wildmode=full
-" set foldmethod=marker
-" set magic
+set wildignore=*.swp,*.bak
+set wildignore+=*.class,*.cache,*.min
+set wildignore+=*/dist/**/*,*/target/**/*,*/node_modules/**/*
+set wildignore+=*/.git/**/*,*/.hg/**/*,*/.svn/**/*
+set wildignore+=tags
+set wildignore+=*.tar.*
 
 " Swap
 set updatetime=100
