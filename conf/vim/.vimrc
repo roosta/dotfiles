@@ -430,6 +430,10 @@ inoremap <m-j> <Esc>:m .+1<CR>==gi
 inoremap <m-k> <Esc>:m .-2<CR>==gi
 vnoremap <m-j> :m '>+1<CR>gv=gv
 vnoremap <m-k> :m '<-2<CR>gv=gv
+
+" Toggle colorcolumn
+nnoremap <leader>cc :execute "set colorcolumn=" . (&colorcolumn == "" ? "80" : "")<CR>
+
 " }}}
 " Functions & Commands: {{{
 
