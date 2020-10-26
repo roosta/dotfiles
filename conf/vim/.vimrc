@@ -548,6 +548,12 @@ call expand_region#custom_text_objects('clojure', {
       \ 'af' :1,
       \ })
 
+" https://github.com/clojure-vim/clojure.vim#syntax-options
+" https://github.com/clojure-vim/clojure.vim/blob/73b713f79d13d45b0c44d1292f5384ee16117f7d/syntax/clojure.vim#L26
+let g:clojure_syntax_keywords = {
+    \ 'clojureSpecial': ["defgroup", "defglobal"],
+    \ }
+
 "}}}
 " Python: {{{
 
