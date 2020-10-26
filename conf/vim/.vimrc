@@ -103,6 +103,7 @@ Plug 'jceb/vim-orgmode'
 " navigation
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'vifm/vifm.vim'
 
 Plug 'haya14busa/incsearch.vim'
   let g:incsearch#auto_nohlsearch = 0
