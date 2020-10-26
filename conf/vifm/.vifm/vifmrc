@@ -48,7 +48,7 @@ set undolevels=100
 " If you installed the vim.txt help file set vimhelp.
 " If would rather use a plain text help file set novimhelp.
 
-" set novimhelp
+set vimhelp
 
 " If you would like to run an executable file when you
 " press return on the file name set this.
