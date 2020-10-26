@@ -118,3 +118,4 @@ lookup-key-example.el
 places
 request
 .lsp-session-v1
+conf/vifm/.vifm/vifminfo.json
