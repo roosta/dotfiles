@@ -90,14 +90,6 @@ Plug 'tpope/vim-vinegar'
 Plug 'trapd00r/vim-syntax-vidir-ls'
 
 " notes
-Plug 'vuciv/vim-bujo'
-  let g:bujo#window_width = 40
-  let g:bujo#todo_file_path = $HOME . "/.bujo"
-  nmap <C-return> <Plug>BujoAddnormal
-  imap <C-return> <Plug>BujoAddinsert
-  nmap <C-Q> <Plug>BujoChecknormal
-  imap <C-Q> <Plug>BujoCheckinsert
-
 Plug 'jceb/vim-orgmode'
 
 " navigation
