@@ -128,7 +128,7 @@ rofi.fullscreen:                     false
 ! rofi.show-match:                     true
 
 ! New style theme file
-rofi.theme:                          ~/.config/rofi/srcery.rasi
+rofi.theme:                          ~/src/srcery-gui/rofi/srcery_rofi.rasi
 
 ! Color scheme for normal row
 ! rofi.color-normal:
