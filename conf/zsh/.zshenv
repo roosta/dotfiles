@@ -82,3 +82,6 @@ if hash ruby 2>/dev/null; then
 fi
 
 export CHEAT_USE_FZF=true
+
+export CM_LAUNCHER=rofi
+
