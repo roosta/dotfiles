@@ -5,7 +5,7 @@
 
 configuration {
 
-	modi: "combi";
+	modi: "combi,calc,clipmenu:env CM_LAUNCHER=rofi-script clipmenu";
 
   /* Set the modi to combine in combi mode */
 	combi-modi: "window,drun";
