@@ -6,6 +6,10 @@
 configuration {
 
 	modi: "combi";
+
+  /* Set the modi to combine in combi mode */
+	combi-modi: "window,drun";
+
 	width: 20;
 	columns: 1;
 
@@ -40,9 +44,6 @@ configuration {
 
   /* Parse hosts file for ssh mode */
 	parse-hosts: false;
-
-  /* Set the modi to combine in combi mode */
-	combi-modi: "window,drun";
 
   /* ! Monitor id to show on */
 	m: "-1";
@@ -150,5 +151,3 @@ configuration {
   /* Quit rofi */
 	kb-cancel: "Escape";
 }
-
-
