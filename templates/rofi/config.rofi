@@ -11,118 +11,40 @@ configuration {
 	combi-modi: "window,drun";
 
 	width: 20;
-	columns: 1;
 
   /* Location on screen */
 	location: 1;
 
-  /* X-offset relative to location */
-	xoffset: 0;
-
-  /* Always show number of lines */
-	fixed-num-lines: true;
-
 	terminal: "termite";
-	ssh-client: "ssh";
-	ssh-command: "{terminal} -e {ssh-client} {host}";
-
-  /* Run command to execute */
-	run-command: "{cmd}";
-
-  /* Run command to execute that runs in shell */
-	run-shell-command: "{terminal} -e {cmd}";
-
-  /* "Disable history in run/ssh" Set from: File */
-	disable-history: false;
-
-  /* Set case-sensitivity */
-	case-sensitive: false;
 
 	sidebar-mode: true;
-	eh: 1;
-	auto-select: false;
-
-  /* Parse hosts file for ssh mode */
-	parse-hosts: false;
 
   /* ! Monitor id to show on */
 	m: "-1";
-
-  /* Pre-set filter */
-	filter: "";
-
-	fullscreen: false;
 
   /*  Override  the  default  DPI setting. If set to 0, it tries to auto-detect */
   /*  based on X11 screen size (similar to i3 and GTK). If set to 1, it tries to */
   /*  auto-detect based on the size of the monitor that rofi is displayed on */
   /*  (similar to latest Qt 5). */
-	dpi: 0;
+	dpi: 1;
 
   /* Theme */
 	theme: "~/src/srcery-gui/rofi/srcery_rofi.rasi";
 
-  /* "Pidfile location" Set from: File */
-	pid: "/run/user/1000/rofi.pid";
-
-  /* "Paste primary selection" Set from: File */
-	kb-primary-paste: "Control+Shift+v,Shift+Insert";
-
-  /* Paste clipboard */
-	kb-secondary-paste: "Control+v,Insert";
-
-  /* Beginning of line */
-	kb-move-front: "Control+a";
-
-  /* End of line */
-	kb-move-end: "Control+0";
-
-  /* Move back one word */
-	kb-move-word-back: "Control+b";
-
-
-  /* Move forward one word */
-	kb-move-word-forward: "Control+e";
-
-  /* Move back one char */
-	kb-move-char-back: "Left";
-
-  /* Move forward one char */
-	kb-move-char-forward: "Right";
-
-  /* Delete next word */
-	kb-remove-word-forward: "Control+Alt+w";
-
-  /* Delete next char */
-	kb-remove-char-forward: "Delete,Control+d";
-
-  /* Delete previous char */
-	kb-remove-char-back: "BackSpace";
-
+  /* Accept entry */
+	kb-accept-entry: "Return,KP_Enter";
 
   /* Delete till the end of line */
 	kb-remove-to-eol: "Control+q";
 
-  /* Accept entry */
-	kb-accept-entry: "Return,KP_Enter";
-
-  /* Use entered text as command (in ssh/run modi) */
-	kb-accept-custom: "Control+Return";
-
-  /* Delete entry from history */
-	kb-delete-entry: "Shift+Delete";
+  /* Delete previous char */
+	kb-remove-char-back: "BackSpace";
 
   /* Switch to the next mode. */
 	kb-mode-next: "Shift+Right,Control+Tab,Control+l";
 
   /* ! Switch to the previous mode. */
 	kb-mode-previous: "Shift+Left,Control+Shift+Tab,Control+h";
-
-  /* Go to the previous column */
-	kb-row-left: "Control+Left";
-
-  /* Go to the next column */
-	kb-row-right: "Control+Right";
 
   /* Select previous entry */
 	kb-row-up: "Up,Control+k,Shift+Tab";
@@ -136,18 +58,4 @@ configuration {
   /* Go to the next page */
 	kb-page-next: "Page_Down";
 
-  /* Go to the first entry */
-	kb-row-first: "Home,KP_Home";
-
-  /* Go to the last entry */
-	kb-row-last: "End,KP_End";
-
-  /* Set selected item as input text */
-	kb-row-select: "Control+space";
-
-  /* Toggle case sensitivity */
-	kb-toggle-case-sensitivity: "grave,dead_grave";
-
-  /* Quit rofi */
-	kb-cancel: "Escape";
 }
