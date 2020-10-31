@@ -213,7 +213,7 @@ bindsym $mod+c kill
 
 # Rofi
 bindsym $mod+Tab   exec --no-startup-id "rofi -show"
-bindsym $mod+g     exec --no-startup-id "rofi -show calc"
+bindsym $mod+g     exec --no-startup-id "rofi -show calc -modi calc -no-show-match -no-sort -calc-command \\"echo -n '{result}' | xclip -selection clipboard\\""
 bindsym $mod+y     exec --no-startup-id "rofi -show clipmenu"
 bindsym $mod+grave exec --no-startup-id rofi -show window
 
