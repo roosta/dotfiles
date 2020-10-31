@@ -211,10 +211,10 @@ bindsym $mod+Shift+Return exec $term_scaled
 # kill focused window
 bindsym $mod+c kill
 
-# set $combi_modi "window;DRun"
-bindsym $mod+Tab exec --no-startup-id "rofi -combi-modi window#drun -show combi -modi combi,calc -no-show-match -no-sort"
-
-# bindsym $mod+Tab exec --no-startup-id "rofi -show"
+# Rofi
+bindsym $mod+Tab   exec --no-startup-id "rofi -show"
+bindsym $mod+g     exec --no-startup-id "rofi -show calc"
+bindsym $mod+y     exec --no-startup-id "rofi -show clipmenu"
 bindsym $mod+grave exec --no-startup-id rofi -show window
 
 # focus vi bindings
