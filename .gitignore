@@ -119,3 +119,4 @@ places
 request
 .lsp-session-v1
 conf/vifm/.vifm/vifminfo.json
+conf/rofi/.config/rofi/config.rasi

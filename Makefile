@@ -234,16 +234,17 @@ ifdef dunst_geometry
 endif
 
 ~/.config/rofi/config: ~/etc/templates/rofi/config.rofi ~/etc/local/$(HOST)/variables.mk
-	cat ~/etc/templates/rofi/*.rofi > ~/.config/rofi/config
+	cat ~/etc/templates/rofi/*.rofi > ~/.config/rofi/config.rasi
 ifdef bar_height
-	@echo  "rofi.yoffset: $(bar_height)" >> ~/.config/rofi/config
+	sed -i '$$s/}/\n  yoffset: $(bar_height);\n}/' ~/.config/rofi/config.rasi
 endif
 ifdef lines
-	@echo "rofi.lines: $(lines)" >> ~/.config/rofi/config
+	sed -i '$$s/}/\n  lines: $(lines);\n}/' ~/.config/rofi/config.rasi
 endif
 ifdef font
-	@echo "rofi.font: $(font)" >> ~/.config/rofi/config
+	sed -i '$$s/}/\n  font: $(font);\n}/' ~/.config/rofi/config.rasi
 endif
+
 rofi: ~/.config/rofi/config
 	@echo -e "\033[0;33mCreating rofi config...\033[0m"
 
