@@ -85,6 +85,7 @@ Plug '~/src/foldlist'
 Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-eunuch'
 Plug 'matze/vim-move'
+Plug 'tommcdo/vim-exchange'
 
 " files
 Plug 'tpope/vim-vinegar'
