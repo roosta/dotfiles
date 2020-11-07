@@ -84,6 +84,7 @@ Plug 'obreitwi/vim-sort-folds'
 Plug '~/src/foldlist'
 Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-eunuch'
+Plug 'matze/vim-move'
 
 " files
 Plug 'tpope/vim-vinegar'
@@ -417,12 +418,13 @@ noremap <leader>t- yyp<c-v>$r-
 map <leader>* :Ggrep --untracked <cword><CR><CR>
 
 " https://vimtricks.substack.com/p/vimtrick-moving-lines
-nnoremap <m-j> :m .+1<CR>==
-nnoremap <m-k> :m .-2<CR>==
-inoremap <m-j> <Esc>:m .+1<CR>==gi
-inoremap <m-k> <Esc>:m .-2<CR>==gi
-vnoremap <m-j> :m '>+1<CR>gv=gv
-vnoremap <m-k> :m '<-2<CR>gv=gv
+" Use vim-move: https://github.com/matze/vim-move
+" nnoremap <m-j> :m .+1<CR>==
+" nnoremap <m-k> :m .-2<CR>==
+" inoremap <m-j> <Esc>:m .+1<CR>==gi
+" inoremap <m-k> <Esc>:m .-2<CR>==gi
+" vnoremap <m-j> :m '>+1<CR>gv=gv
+" vnoremap <m-k> :m '<-2<CR>gv=gv
 
 " Toggle colorcolumn
 nnoremap <leader>cc :execute "set colorcolumn=" . (&colorcolumn == "" ? "80" : "")<CR>
