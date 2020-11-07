@@ -65,7 +65,15 @@ font-5 = "FontAwesome5Free:style=Regular:size=10;4"
 font-6 = "FontAwesome5Brands:style=Regular:size=10;4"
 modules-left = i3 xwindow
 ; modules-center = mpd
-modules-right = keyboard-layout vpncheck updates-arch-combined volume memory cpu date time
+modules-right = spotify keyboard-layout vpncheck updates-arch-combined volume memory cpu date time
+
+[module/spotify]
+type = custom/script
+tail = true
+format-prefix = ""
+label-padding = 1
+format = <label>
+exec = ~/lib/polybar-spotify/scroll_spotify_status.sh
 
 [bar/lintilla-secondary]
 ;; Secondary monitor @ lintilla, max resolution is 1920x1080 so font sizes and
@@ -200,6 +208,7 @@ interval = 600
 type = custom/ipc
 format-foreground = ${colors.brightwhite}
 format = <output>
+format-padding = 1
 hook-0 = ~/scripts/keyboard-layout.sh
 initial = 1
 
