@@ -300,6 +300,8 @@ bindsym --release Print exec teiler
 # bindsym --release Caps_Lock exec killall -USR1 py3status
 # bindsym --release Caps_Lock exec killall -USR1 ~/script/keyboard-layout.sh
 bindsym --release Caps_Lock exec polybar-msg hook keyboard-layout 1
+bindsym --release Shift+Caps_Lock exec polybar-msg hook keyboard-layout 1
+
 
 bindsym $mod+Control+e exec ~/.vim-anywhere/bin/run
 # bindsym $mod+Control+e exec ~/.emacs_anywhere/bin/run
