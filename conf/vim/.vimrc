@@ -371,9 +371,9 @@ nmap <leader>R :source $MYVIMRC<CR>
 " correct annoying typo
 cnoremap Q q
 
-" Treat long lines as break lines
-nnoremap j gj
-nnoremap k gk
+" Treat long lines as break lines unless count is given
+noremap <expr> j (v:count? 'j' : 'gj')
+noremap <expr> k (v:count? 'k' : 'gk')
 
 " Remove search hl
 noremap <silent> <leader>sc :nohlsearch<CR>
