@@ -138,18 +138,18 @@ Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
         \ ]
 
 Plug 'itchyny/lightline.vim'
-let g:lightline = {
-      \ 'colorscheme': 'srcery',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'component_function': {
-      \   'cocstatus': 'coc#status'
-      \ },
-      \ 'component': {
-      \   'readonly': '%{&readonly?"🔒":""}',
-      \ }}
+  let g:lightline = {
+        \ 'colorscheme': 'srcery',
+        \ 'active': {
+        \   'left': [ [ 'mode', 'paste' ],
+        \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+        \ },
+        \ 'component_function': {
+        \   'cocstatus': 'coc#status'
+        \ },
+        \ 'component': {
+        \   'readonly': '%{&readonly?"🔒":""}',
+        \ }}
 
 " Git
 Plug 'tpope/vim-fugitive'
