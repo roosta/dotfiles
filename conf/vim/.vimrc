@@ -88,6 +88,10 @@ Plug 'tpope/vim-eunuch'
 Plug 'matze/vim-move'
 Plug 'tommcdo/vim-exchange'
 
+Plug 'AndrewRadev/sideways.vim'
+  nnoremap <leader>> :SidewaysLeft<cr>
+  nnoremap <leader>< :SidewaysRight<cr>
+
 " files
 Plug 'tpope/vim-vinegar'
 Plug 'trapd00r/vim-syntax-vidir-ls'
