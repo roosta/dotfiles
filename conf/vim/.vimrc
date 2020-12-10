@@ -293,8 +293,10 @@ set noshowmode
 set showcmd
 
 " Local rc
-set exrc
-set secure
+" https://vimtricks.com/p/local-vimrc-files/
+if getcwd() =~# '^' . expand('~/src')
+  set secure exrc
+endif
 
 if executable("rg")
   set grepprg=rg\ --vimgrep
