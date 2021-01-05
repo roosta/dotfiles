@@ -62,7 +62,6 @@ Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'wellle/targets.vim'
-
 Plug 'mbbill/undotree'
   nnoremap <leader>ut :UndotreeToggle<cr>
 
@@ -134,6 +133,7 @@ Plug '~/src/srcery-vim'
   let g:srcery_transparent_background=1
 
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
+  let g:Hexokinase_virtualText = '▀'
   let g:Hexokinase_optInPatterns = [
         \ 'full_hex',
         \ 'triple_hex',
