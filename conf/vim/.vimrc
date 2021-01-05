@@ -92,6 +92,8 @@ Plug 'AndrewRadev/sideways.vim'
   nnoremap <leader>> :SidewaysLeft<cr>
   nnoremap <leader>< :SidewaysRight<cr>
 
+Plug 'chaoren/vim-wordmotion'
+
 " files
 Plug 'tpope/vim-vinegar'
 Plug 'trapd00r/vim-syntax-vidir-ls'
