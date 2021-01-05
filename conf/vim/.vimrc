@@ -162,6 +162,8 @@ Plug 'tpope/vim-fugitive'
   nnoremap <leader>gs :Git<cr>
   autocmd vimrc FileType gitcommit setlocal nofoldenable
 
+Plug 'rhysd/git-messenger.vim'
+
 " Multiplexer
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'christoomey/vim-tmux-navigator'
