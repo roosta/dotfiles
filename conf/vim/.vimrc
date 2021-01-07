@@ -177,6 +177,9 @@ Plug 'tpope/vim-tbone'
 
 " lang
 Plug 'sheerun/vim-polyglot'
+  let g:polyglot_disabled = ['markdown']
+
+
 Plug 'PotatoesMaster/i3-vim-syntax'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'sudar/vim-arduino-syntax'
@@ -214,6 +217,7 @@ Plug 'honza/vim-snippets'
 " Markdown
 Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
 Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
 Plug 'https://github.com/dhruvasagar/vim-table-mode'
   let g:table_mode_corner='|'
 
@@ -607,5 +611,6 @@ let g:vim_markdown_follow_anchor = 1
 let g:vim_markdown_toc_autofit = 1
 let g:vim_markdown_auto_insert_bullets = 0
 let g:vim_markdown_frontmatter = 1
+let g:vim_markdown_folding_style_pythonic = 1
 "}}}
 " vim: fdm=marker:sw=2
