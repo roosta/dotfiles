@@ -423,7 +423,7 @@ map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans
 map <leader>rn :set rnu!<cr>
 
 " Go to my note index file
-map <leader>ww :e ~/notes/index.md<cr>
+map <leader>ww :cd ~/notes \| :e index.md<cr>
 
 " Underline the current line
 noremap <leader>t= yyp<c-v>$r=
