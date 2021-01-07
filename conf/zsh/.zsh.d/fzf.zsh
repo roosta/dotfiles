@@ -86,7 +86,7 @@ e() {
   else
     local file
     file=$(fzf-tmux --query="$1")
-    [ -n "$file" ] && sleep 0.2 && "${EDITOR:-vim}" "$file"
+    [ -n "$file" ] && sleep 0.1 && "${EDITOR:-vim}" "$file"
   fi
 }
 
@@ -96,7 +96,7 @@ et() {
   else
     local file
     file=$(fzf-tmux --query="$1")
-    [ -n "$file" ] && sleep 0.2 && emacsclient -c -t "$file"
+    [ -n "$file" ] && sleep 0.1 && emacsclient -c -t "$file"
   fi
 }
 
