@@ -125,8 +125,8 @@ v() {
 # To to org folder and open match
 o() {
   local file
-  file=$(\ls ~/org | fzf-tmux --query="$1")  &&
-    [ -n "$file" ] && emacsclient -a vim -c -t "~/org/${file}"
+  file=$(find ~/notes -name '*.md' | fzf -d "/" --query="$1" --with-nth "5..")  &&
+    [ -n "$file" ] && vim -- "$file"
 }
 
 # vf - fuzzy open with vim from anywhere
