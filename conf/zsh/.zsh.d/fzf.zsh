@@ -122,7 +122,7 @@ v() {
   fi
 }
 
-# To to org folder and open match
+# Open file in notes
 o() {
   local file
   file=$(find ~/notes -name '*.md' | fzf -d "/" --query="$1" --with-nth "5..")  &&
