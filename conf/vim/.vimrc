@@ -28,7 +28,8 @@ let maplocalleader = ' '
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+
+  autocmd vimrc VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
 call plug#begin('~/.vim/plugged')
@@ -38,7 +39,7 @@ Plug 'tpope/vim-sensible'
 
 " edit
 Plug 'christoomey/vim-sort-motion'
-  let g:sort_motion_flags = "i"
+  let g:sort_motion_flags = 'i'
 
 Plug 'farmergreg/vim-lastplace'
 
@@ -208,9 +209,9 @@ Plug 'ludovicchabant/vim-gutentags'
 
 " Snippets
 Plug 'SirVer/ultisnips'
-  let g:UltiSnipsExpandTrigger="<c-;>"
-  let g:UltiSnipsJumpForwardTrigger="<c-b>"
-  let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+  let g:UltiSnipsExpandTrigger='<c-;>'
+  let g:UltiSnipsJumpForwardTrigger='<c-b>'
+  let g:UltiSnipsJumpBackwardTrigger='<c-z>'
 
 Plug 'honza/vim-snippets'
 
@@ -306,7 +307,7 @@ if getcwd() =~# '^' . expand('~/src')
   set secure exrc
 endif
 
-if executable("rg")
+if executable('rg')
   set grepprg=rg\ --vimgrep
 endif
 
@@ -495,8 +496,8 @@ function! FzfSpellSink(word)
   exe 'normal! "_ciw'.a:word
 endfunction
 function! FzfSpell()
-  let suggestions = spellsuggest(expand("<cword>"))
-  return fzf#run({'source': suggestions, 'sink': function("FzfSpellSink"), 'down': 10 })
+  let suggestions = spellsuggest(expand('<cword>'))
+  return fzf#run({'source': suggestions, 'sink': function('FzfSpellSink'), 'down': 10 })
 endfunction
 nnoremap z= :call FzfSpell()<CR>
 
@@ -541,7 +542,7 @@ call expand_region#custom_text_objects('clojure', {
 " https://github.com/clojure-vim/clojure.vim#syntax-options
 " https://github.com/clojure-vim/clojure.vim/blob/73b713f79d13d45b0c44d1292f5384ee16117f7d/syntax/clojure.vim#L26
 let g:clojure_syntax_keywords = {
-    \ 'clojureSpecial': ["defgroup", "defglobal"],
+    \ 'clojureSpecial': ['defgroup', 'defglobal'],
     \ }
 
 "}}}
