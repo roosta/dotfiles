@@ -439,28 +439,58 @@ function! AppendModeline()
 endfunction
 command! Mode call AppendModeline()
 
-" Use this to update plugins via script
-" vim -c "exec UpdateAndExit()"
-function! UpdateAndExit()
-     :PlugUpdate
-     :q
-     :q
+let g:note_projects = glob('~/notes/projects')
+let g:note_index = glob('~/notes/index.md')
+
+function! UpdateNoteIndex(name, text)
+  let l:list = split(a:text, ' -- ')
+  let l:title = get(list, 0, a:name)
+  let l:desc = get(list, 1, '')
+  let l:desc =  empty(desc) ? '' : ' -- ' . desc
+  let l:out = '- [' . title . '](projects/' . a:name . '.md)' . desc
+  exec 'edit ' . g:note_index
+	let [l:lnum, l:col] = searchpos('^## Projects', 'n')
+  call cursor(lnum, col)
+  normal! '}}'
+  exec ' normal! O' . out
+  w | bd
 endfunction
 
-function! EditProjectNote()
+function! CreateNoteTitle(name, text)
+  let l:line = ''
+  for c in split(a:text, '\zs')
+    let l:line = line . '='
+  endfor
+  call append(0, a:text)
+  call append(1, line)
+  write
+  call UpdateNoteIndex(a:name, a:text)
+endfunction
+
+function! EditNote(...)
   let l:name = system("basename \"$PWD\"")
-  let l:clean = split(name, '\v\n')[0]
-  let l:file = '~/notes/projects/' . clean . '.md'
+  let s:note_name = split(name, '\v\n')[0]
+  if a:0 == 0
+    let s:note_text = s:note_name
+  else
+    let s:note_text = a:1
+  endif
+  let l:file = g:note_projects . '/' . s:note_name . '.md'
+  exec 'autocmd vimrc BufNewFile ' . file . ' call CreateNoteTitle(s:note_name, s:note_text)'
   exec 'edit ' . file
 endfunction
-command! Note call EditProjectNote()
+command! -nargs=? Note call EditNote(<f-args>)
 
 " Use this to install plugins via script
 " vim -c "exec InstallAndExit()"
 function! InstallAndExit()
-     :PlugInstall
-     :q
-     :q
+  PlugInstall | q | q
+endfunction
+
+" Use this to update plugins via script
+" vim -c "exec UpdateAndExit()"
+function! UpdateAndExit()
+  PlugUpdate | q | q
 endfunction
 
 " }}}
