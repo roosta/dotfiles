@@ -447,6 +447,14 @@ function! UpdateAndExit()
      :q
 endfunction
 
+function! EditProjectNote()
+  let l:name = system("basename \"$PWD\"")
+  let l:clean = split(name, '\v\n')[0]
+  let l:file = '~/notes/projects/' . clean . '.md'
+  exec 'edit ' . file
+endfunction
+command! Note call EditProjectNote()
+
 " Use this to install plugins via script
 " vim -c "exec InstallAndExit()"
 function! InstallAndExit()
