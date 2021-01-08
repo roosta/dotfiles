@@ -126,7 +126,7 @@ v() {
 o() {
   local file
   file=$(find ~/notes -name '*.md' | fzf -d "/" --query="$1" --with-nth "5..")  &&
-    [ -n "$file" ] && vim -- "$file"
+    [ -n "$file" ] && vim -c "cd ~/notes" -- "$file"
 }
 
 # vf - fuzzy open with vim from anywhere
