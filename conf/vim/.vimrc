@@ -469,6 +469,9 @@ function! EditNote(...)
   exec 'edit ' . file
 endfunction
 
+" Define :Note command, optionally takes args
+command! -nargs=? Note call EditNote(<f-args>)
+
 " Update ~/notes/index.md with new entry on BufNewFile
 function! UpdateNoteIndex(name, text)
   let l:list = split(a:text, ' -- ')
@@ -495,9 +498,6 @@ function! CreateNoteTitle(name, text)
   write
   call UpdateNoteIndex(a:name, a:text)
 endfunction
-
-" Define :Note command, optionally takes args
-command! -nargs=? Note call EditNote(<f-args>)
 
 " Use this to install plugins via script
 " vim -c "exec InstallAndExit()"
