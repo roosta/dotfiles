@@ -2,12 +2,12 @@
 "
 " This script introduce a command :Note, that will create a project markdown
 " note document at ~/notes/projects/[project folder basename].md or whatever
-" the variable g:note_projects are defined as.
+" the variable s:note_projects are defined as.
 "
 " If the file exist, simply open it, or create it if it doesn't.
 "
 " On file creation, the script will update an index.md file located at
-" ~/notes/index.md or g:note_index, moving to heading ## Projects and
+" ~/notes/index.md or s:note_index, moving to heading ## Projects and
 " appending a new entry at the bottom of the following paragraph.
 "
 "
@@ -22,8 +22,8 @@
 " Author: Daniel Berg <mail@roosta.sh>
 " License: Same as Vim itself
 "
-let g:note_projects = glob('~/notes/projects')
-let g:note_index = glob('~/notes/index.md')
+let s:note_projects = glob('~/notes/projects')
+let s:note_index = glob('~/notes/index.md')
 
 " Main entry for :Note command
 function! EditNote(...)
@@ -34,7 +34,7 @@ function! EditNote(...)
   else
     let s:note_text = a:1
   endif
-  let l:file = g:note_projects . '/' . s:note_name . '.md'
+  let l:file = s:note_projects . '/' . s:note_name . '.md'
   exec 'autocmd vimrc BufNewFile ' . file . ' call CreateNoteTitle(s:note_name, s:note_text)'
   exec 'edit ' . file
 endfunction
@@ -50,7 +50,7 @@ function! UpdateNoteIndex(name, text)
   let l:desc = get(list, 1, '')
   let l:desc =  empty(desc) ? '' : ' -- ' . desc
   let l:out = '- [' . title . '](projects/' . a:name . '.md)' . desc
-  exec 'edit ' . g:note_index
+  exec 'edit ' . s:note_index
 	let [l:lnum, l:col] = searchpos('^## Projects', 'n')
   call cursor(lnum, col)
   normal! '}}'
