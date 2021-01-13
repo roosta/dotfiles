@@ -440,66 +440,6 @@ function! AppendModeline()
 endfunction
 command! Mode call AppendModeline()
 
-let g:note_projects = glob('~/notes/projects')
-let g:note_index = glob('~/notes/index.md')
-
-" Function to quickly open a project note located @
-" ~/notes/projects/[project-basename.md]
-"
-" The function will try to simply edit the file if it exist, or if its being
-" created ensure title and index update
-"
-" Takes option arguments when creating doc in the form:
-" :Note title -- description
-"
-" If no arguments are provided the document title will default to
-" basename. Further more it will update an index file located @
-" ~/notes/index.md where the function will create an entry based on basename
-" or arguments given under the heading:
-" ## Projects
-function! EditNote(...)
-  let l:name = system("basename \"$PWD\"")
-  let s:note_name = split(name, '\v\n')[0]
-  if a:0 == 0
-    let s:note_text = s:note_name
-  else
-    let s:note_text = a:1
-  endif
-  let l:file = g:note_projects . '/' . s:note_name . '.md'
-  exec 'autocmd vimrc BufNewFile ' . file . ' call CreateNoteTitle(s:note_name, s:note_text)'
-  exec 'edit ' . file
-endfunction
-
-" Define :Note command, optionally takes args
-command! -nargs=? Note call EditNote(<f-args>)
-
-" Update ~/notes/index.md with new entry on BufNewFile
-function! UpdateNoteIndex(name, text)
-  let l:list = split(a:text, ' -- ')
-  let l:title = get(list, 0, a:name)
-  let l:desc = get(list, 1, '')
-  let l:desc =  empty(desc) ? '' : ' -- ' . desc
-  let l:out = '- [' . title . '](projects/' . a:name . '.md)' . desc
-  exec 'edit ' . g:note_index
-	let [l:lnum, l:col] = searchpos('^## Projects', 'n')
-  call cursor(lnum, col)
-  normal! '}}'
-  exec ' normal! O' . out
-  w | bd
-endfunction
-
-" Creates a a title for a new document
-function! CreateNoteTitle(name, text)
-  let l:line = ''
-  for c in split(a:text, '\zs')
-    let l:line = line . '='
-  endfor
-  call append(0, a:text)
-  call append(1, line)
-  write
-  call UpdateNoteIndex(a:name, a:text)
-endfunction
-
 " Use this to install plugins via script
 " vim -c "exec InstallAndExit()"
 function! InstallAndExit()
