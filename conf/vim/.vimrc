@@ -234,6 +234,8 @@ Plug 'w0rp/ale'
         \ 'clojure': ['clj-kondo']
         \}
 
+" misc
+Plug 'AndrewRadev/bufferize.vim'
 call plug#end()
 
 "}}}
