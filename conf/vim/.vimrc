@@ -485,7 +485,8 @@ imap <c-x><c-l> <plug>(fzf-complete-line)
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
   \ 'ctrl-x': 'split',
-  \ 'ctrl-v': 'vsplit' }
+  \ 'ctrl-v': 'vsplit'
+  \ }
 
 " Vim Spelling Suggestions with fzf
 " https://coreyja.com/vim-spelling-suggestions-fzf/
