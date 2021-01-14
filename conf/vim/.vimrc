@@ -292,6 +292,10 @@ set matchtime=2
 set showmatch
 set clipboard=unnamedplus
 
+" Encoding
+set encoding=utf-8
+scriptencoding utf-8
+
 " Backup
 " set backup
 " set writebackup
