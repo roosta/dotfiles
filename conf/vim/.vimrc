@@ -33,11 +33,13 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
+" Defaults {{{
 
-" defaults
 Plug 'tpope/vim-sensible'
 
-" edit
+" }}}
+" Edit {{{
+
 Plug 'christoomey/vim-sort-motion'
   let g:sort_motion_flags = 'i'
 
@@ -94,14 +96,20 @@ Plug 'AndrewRadev/sideways.vim'
 
 Plug 'chaoren/vim-wordmotion'
 
-" files
+" }}}
+" Files {{{
+
 Plug 'tpope/vim-vinegar'
 Plug 'trapd00r/vim-syntax-vidir-ls'
 
-" notes
+" }}}
+" Notes {{{
+
 Plug 'jceb/vim-orgmode'
 
-" navigation
+" }}}
+" Navigation {{{
+
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'vifm/vifm.vim'
@@ -127,7 +135,9 @@ Plug 'easymotion/vim-easymotion'
 
 Plug 'markonm/traces.vim'
 
-" Color
+" }}}
+" Color {{{
+
 Plug '~/src/srcery-vim'
   let g:srcery_dim_lisp_paren=1
   let g:srcery_italic=1
@@ -158,14 +168,18 @@ Plug 'itchyny/lightline.vim'
         \   'readonly': '%{&readonly?"🔒":""}',
         \ }}
 
-" Git
+" }}}
+" Git {{{
+
 Plug 'tpope/vim-fugitive'
   nnoremap <leader>gs :Git<cr>
   autocmd vimrc FileType gitcommit setlocal nofoldenable
 
 Plug 'rhysd/git-messenger.vim'
 
-" Multiplexer
+" }}}
+" Multiplexer {{{
+
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'christoomey/vim-tmux-navigator'
 
@@ -176,7 +190,9 @@ Plug 'jpalardy/vim-slime'
   let g:slime_python_ipython = 1
 Plug 'tpope/vim-tbone'
 
-" lang
+" }}}
+" Lang {{{
+
 Plug 'sheerun/vim-polyglot'
   let g:polyglot_disabled = ['markdown']
 
@@ -207,7 +223,9 @@ Plug 'ludovicchabant/vim-gutentags'
   let g:gutentags_exclude_project_root = ['/etc', 'usr/local']
   command! -nargs=0 GutentagsClearCache call system('rm ' . g:gutentags_cache_dir . '/*')
 
-" Snippets
+" }}}
+" Snippets {{{
+
 Plug 'SirVer/ultisnips'
   let g:UltiSnipsExpandTrigger='<c-;>'
   let g:UltiSnipsJumpForwardTrigger='<c-b>'
@@ -215,7 +233,9 @@ Plug 'SirVer/ultisnips'
 
 Plug 'honza/vim-snippets'
 
-" Markdown
+" }}}
+" Markdown {{{
+
 Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
@@ -226,16 +246,21 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install', 'for': 'ma
   let g:mkdp_browser = 'chrome-scaled'
   nnoremap <leader>mp :MarkdownPreview<cr>
 
+" }}}
+" Linting {{{
 
-" Linting
 Plug 'w0rp/ale'
   " https://github.com/borkdude/clj-kondo/blob/master/doc/editor-integration.md#vim--neovim
   let g:ale_linters = {
         \ 'clojure': ['clj-kondo']
         \}
 
-" misc
+" }}}
+" Misc {{{
+
 Plug 'AndrewRadev/bufferize.vim'
+
+" }}}
 call plug#end()
 
 "}}}
