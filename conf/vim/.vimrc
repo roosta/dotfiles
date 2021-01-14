@@ -355,10 +355,6 @@ let &t_EI = "\<Esc>[2 q"
 "}}}
 " Mappings: {{{1
 
-" Don't use Ex mode, use Q for formatting.
-" Revert with ":unmap Q".
-map Q gq
-
 " source config on demand
 " Note that this may cause some plugins not to load properly if it has init logic
 nmap <leader>R :source $MYVIMRC<CR>
