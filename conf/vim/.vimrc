@@ -238,13 +238,24 @@ Plug 'honza/vim-snippets'
 
 Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
 Plug 'godlygeek/tabular'
-Plug 'plasticboy/vim-markdown'
 Plug 'https://github.com/dhruvasagar/vim-table-mode'
   let g:table_mode_corner='|'
 
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install', 'for': 'markdown' }
   let g:mkdp_browser = 'chrome-scaled'
   nnoremap <leader>mp :MarkdownPreview<cr>
+
+Plug 'plasticboy/vim-markdown'
+  let g:markdown_folding = 1
+  let g:vim_markdown_fenced_languages = ['bash=sh', 'shell=sh', 'js=javascript']
+  let g:vim_markdown_conceal_code_blocks = 1
+  let g:vim_markdown_folding_level = 2
+  let g:vim_markdown_new_list_item_indent = 0
+  let g:vim_markdown_follow_anchor = 1
+  let g:vim_markdown_toc_autofit = 1
+  let g:vim_markdown_auto_insert_bullets = 0
+  let g:vim_markdown_frontmatter = 1
+  let g:vim_markdown_folding_style_pythonic = 1
 
 " }}}
 " Linting {{{
@@ -318,6 +329,9 @@ set number
 set matchtime=2
 set showmatch
 set clipboard=unnamedplus
+
+" Conceal
+set conceallevel=2
 
 " Encoding
 set encoding=utf-8
@@ -598,27 +612,5 @@ function s:RemoveNetrwMap()
   endif
 endfunction
 
-"}}}
-" Markdown: {{{
-
-let g:markdown_folding = 1
-
-" " Set syntax filetype alternatives for codeblocks
-let g:vim_markdown_fenced_languages = ['bash=sh', 'shell=sh', 'js=javascript']
-
-" Conceal
-set conceallevel=2
-let g:vim_markdown_conceal_code_blocks = 1
-
-let g:vim_markdown_folding_level = 2
-
-" Set indent level on new list items
-let g:vim_markdown_new_list_item_indent = 0
-
-let g:vim_markdown_follow_anchor = 1
-let g:vim_markdown_toc_autofit = 1
-let g:vim_markdown_auto_insert_bullets = 0
-let g:vim_markdown_frontmatter = 1
-let g:vim_markdown_folding_style_pythonic = 1
 "}}}
 " vim: fdm=marker:sw=2
