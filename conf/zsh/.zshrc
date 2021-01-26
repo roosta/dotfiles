@@ -45,9 +45,11 @@ zplug load
 for fn (~/.zsh.d/functions/*)  autoload -Uz $fn
 for config (~/.zsh.d/*.zsh) source $config
 
-if [[ -s ~/.fzf.zsh ]]; then
-  source ~/.fzf.zsh
-fi
+# Fix issue where fzf keybindings would get overriden
+# This ensures zsh is sourced after zsh-vi-mode
+function zvm_after_init() {
+  [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+}
 
 # }}}
 #  vim: set ts=2 sw=2 tw=0 fdm=marker et :
