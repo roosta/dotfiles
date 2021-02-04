@@ -20,6 +20,7 @@ path=(
 
 fpath=(
 	"$HOME/.zsh.d/functions"
+	"/opt/vagrant/embedded/gems/2.2.14/gems/vagrant-2.2.14/contrib/zsh"
 	$fpath[@]
 )
 
