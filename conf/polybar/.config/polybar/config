@@ -169,7 +169,7 @@ label-urgent-foreground = ${colors.black}
 [module/xwindow]
 type = internal/xwindow
 format-foreground = ${colors.brightblack}
-label = %title:0:80%
+label = %title:0:65%
 label-padding = 1
 
 [module/xwindow-small]
