@@ -215,13 +215,29 @@ Plug 'guns/vim-clojure-highlight', { 'for': 'clojure' }
 " Plug 'Olical/conjure', {'tag': 'v4.5.0'}
 Plug 'jmcantrell/vim-virtualenv'
 Plug 'hdima/python-syntax'
-Plug 'vim-scripts/AutoComplPop'
 
 Plug 'ludovicchabant/vim-gutentags'
   let g:gutentags_exclude_filetypes = ['gitcommit', 'gitconfig', 'gitrebase', 'gitsendemail', 'git']
   let g:gutentags_cache_dir = expand('~/.cache/vim/ctags/')
   let g:gutentags_exclude_project_root = ['/etc', 'usr/local']
   command! -nargs=0 GutentagsClearCache call system('rm ' . g:gutentags_cache_dir . '/*')
+
+" }}}
+" Completion {{{
+
+" Plug 'vim-scripts/AutoComplPop'
+Plug 'lifepillar/vim-mucomplete'
+  let g:mucomplete#enable_auto_at_startup = 1
+  let g:mucomplete#no_mappings =1
+	imap <c-j> <plug>(MUcompleteFwd)
+	imap <c-k> <plug>(MUcompleteBwd)
+	imap <Tab> <plug>(MUcompleteFwd)
+	imap <S-Tab> <plug>(MUcompleteBwd)
+
+	inoremap <silent> <plug>(MUcompleteFwdKey) <c-]>
+	imap <c-]> <plug>(MUcompleteCycFwd)
+	inoremap <silent> <plug>(MUcompleteBwdKey) <c-[>
+	imap <c-[> <plug>(MUcompleteCycBwd)
 
 " }}}
 " Snippets {{{
@@ -361,8 +377,12 @@ endif
 set mouse=a
 
 " completion
-set complete+=kspell
-set completeopt=menuone,longest,preview
+set completeopt+=menuone
+set completeopt+=noselect
+set completeopt-=preview
+
+" set complete-=i
+" set complete-=t
 
 " Environments
 if has('vim')
@@ -431,10 +451,10 @@ map <leader>jl :Ilist<space>
 map <leader>D :put =strftime('# %a %Y-%m-%d %H:%M:%S%z')<CR>
 
 " Use tab and c-j/c-k for completion navigation
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <C-j> pumvisible() ? "\<C-N>" : "\<C-j>"
-inoremap <expr> <C-k> pumvisible() ? "\<C-P>" : "\<C-k>"
+" inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" inoremap <expr> <C-j> pumvisible() ? "\<C-N>" : "\<C-j>"
+" inoremap <expr> <C-k> pumvisible() ? "\<C-P>" : "\<C-k>"
 " inoremap <expr> <C-h> pumvisible() ? "\<C-e>" : "\<C-h>"
 
 " Here's a (what should be a one-line) map to help you tell just what syntax
