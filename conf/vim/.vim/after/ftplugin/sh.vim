@@ -1,4 +1,6 @@
 setlocal makeprg=shellcheck\ -x\ -f\ gcc\ %
+setlocal shiftwidth=2
+setlocal tabstop=2
 
 nnoremap <buffer> <F5> :!./%<cr>
 
