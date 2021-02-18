@@ -495,6 +495,9 @@ alias pacorph='yay -Rns $(pacman -Qtdq)'
 # clean cache
 alias pacc='yay -Scc'
 
+# Lists files installed from a given package
+alias pacls='pacman -Ql'
+
 #}}}
 
 # vim: fdm=marker:sw=2
