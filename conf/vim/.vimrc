@@ -49,6 +49,12 @@ Plug 'jiangmiao/auto-pairs'
   " Fix for 'å' button on Norwegian keyboards
   let g:AutoPairsShortcutFastWrap=''
 
+  " Fix issue with mucomplete
+	let g:AutoPairsMapSpace = 0
+	imap <silent> <expr> <space> pumvisible()
+	    \ ? "<space>"
+	    \ : "<c-r>=AutoPairsSpace()<cr>"
+
 
 Plug 'junegunn/vim-easy-align'
   xmap ga <Plug>(EasyAlign)
@@ -228,16 +234,21 @@ Plug 'ludovicchabant/vim-gutentags'
 " Plug 'vim-scripts/AutoComplPop'
 Plug 'lifepillar/vim-mucomplete'
   let g:mucomplete#enable_auto_at_startup = 1
-  let g:mucomplete#no_mappings =1
+  let g:mucomplete#no_mappings = 1
 	imap <c-j> <plug>(MUcompleteFwd)
 	imap <c-k> <plug>(MUcompleteBwd)
 	imap <Tab> <plug>(MUcompleteFwd)
 	imap <S-Tab> <plug>(MUcompleteBwd)
 
-	inoremap <silent> <plug>(MUcompleteFwdKey) <c-]>
-	imap <c-]> <plug>(MUcompleteCycFwd)
-	inoremap <silent> <plug>(MUcompleteBwdKey) <c-[>
-	imap <c-[> <plug>(MUcompleteCycBwd)
+	inoremap <silent> <plug>(MUcompleteFwdKey) <right>
+	imap <right> <plug>(MUcompleteCycFwd)
+	inoremap <silent> <plug>(MUcompleteBwdKey) <left>
+	imap <left> <plug>(MUcompleteCycBwd)
+
+	inoremap <silent> <expr> <plug>UltiExpand
+	      \ mucomplete#ultisnips#expand_snippet("\<cr>")
+	imap <plug>MyCR <plug>UltiExpand<plug>AutoPairsReturn
+	imap <cr> <plug>MyCR
 
 " }}}
 " Snippets {{{
