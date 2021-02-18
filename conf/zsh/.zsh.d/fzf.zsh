@@ -4,7 +4,7 @@
 # Options: {{{
 
 # Respecting .gitignore, .hgignore, and svn:ignore
-# Setting ag as the default source for fzf
+# Setting rg as the default source for fzf
 export FZF_DEFAULT_COMMAND='rg --hidden --smart-case --follow --ignore-file ~/.globalignore --files'
 
 export FZF_DEFAULT_OPTS="
