@@ -7,7 +7,7 @@ bindkey -v
 
 # 10ms for key sequences
 # make keymode indication more responsive
-KEYTIMEOUT=1
+# KEYTIMEOUT=1
 
 # Bind up arrow, down arrow to zsh-history-substring-search
 bindkey '^[[A' history-substring-search-up
