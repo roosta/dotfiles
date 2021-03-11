@@ -15,6 +15,7 @@ fi
 source ~/.zplug/init.zsh
 
 # (If the defer tag is given 2 or above, run after compinit command)
+zplug 'zplug/zplug', hook-build:'zplug --self-manage'
 zplug "Tarrasch/zsh-bd"
 zplug 'wfxr/forgit'
 zplug "kutsan/zsh-system-clipboard"
