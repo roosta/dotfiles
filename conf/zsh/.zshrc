@@ -24,8 +24,8 @@ zplug "b4b4r07/enhancd", use:init.sh
 # zplug "roosta/fif"
 zplug "~/src/fif", from:local
 zplug "Aloxaf/fzf-tab"
-zplug "softmoth/zsh-vim-mode", defer:2
-# zplug "jeffreytse/zsh-vi-mode"
+# zplug "softmoth/zsh-vim-mode", defer:2
+zplug "jeffreytse/zsh-vi-mode"
 zplug "zsh-users/zsh-history-substring-search"
 zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-autosuggestions"
@@ -42,12 +42,15 @@ zplug load
 #}}}
 # Config: {{{
 
-for fn (~/.zsh.d/functions/*)  autoload -Uz $fn
-for config (~/.zsh.d/*.zsh) source $config
+function zvm_after_init() {
+  [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+  for fn (~/.zsh.d/functions/*)  autoload -Uz $fn
+  for config (~/.zsh.d/*.zsh) source $config
+}
 
-if [[ -s ~/.fzf.zsh ]]; then
-  source ~/.fzf.zsh
-fi
+# if [[ -s ~/.fzf.zsh ]]; then
+#   source ~/.fzf.zsh
+# fi
 
 # }}}
 #  vim: set ts=2 sw=2 tw=0 fdm=marker et :
