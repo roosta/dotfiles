@@ -257,7 +257,7 @@ Plug 'SirVer/ultisnips'
   let g:UltiSnipsExpandTrigger='<c-;>'
   let g:UltiSnipsJumpForwardTrigger='<c-b>'
   let g:UltiSnipsJumpBackwardTrigger='<c-z>'
-
+  let g:UltiSnipsSnippetDirectories=['UltiSnips', 'mysnippets']
 Plug 'honza/vim-snippets'
 
 " }}}
