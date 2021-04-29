@@ -604,6 +604,7 @@ let g:clojure_fuzzy_indent_patterns = [
       \ '^OPTIONS',
       \ '^def',
       \ '^fdef',
+      \ '^when-let*',
       \ ]
 
 " let expand region know about 'form' text objects added by vim-sexp
@@ -616,7 +617,7 @@ call expand_region#custom_text_objects('clojure', {
 " https://github.com/clojure-vim/clojure.vim#syntax-options
 " https://github.com/clojure-vim/clojure.vim/blob/73b713f79d13d45b0c44d1292f5384ee16117f7d/syntax/clojure.vim#L26
 let g:clojure_syntax_keywords = {
-    \ 'clojureSpecial': ['defgroup', 'defglobal'],
+    \ 'clojureSpecial': ['defgroup', 'defglobal', 'defkeyframes', 'when-let*'],
     \ }
 
 "}}}
