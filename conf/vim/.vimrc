@@ -213,7 +213,7 @@ Plug 'gregjurman/vim-nc'
 Plug 'vim-scripts/nginx.vim'
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 " Plug 'racer-rust/vim-racer', { 'for': 'rust' }
-Plug 'mattn/emmet-vim', { 'for': ['html', 'css'] }
+Plug 'mattn/emmet-vim', { 'for': ['html', 'css', 'html.handlebars'] }
 Plug 'guns/vim-sexp'
 Plug 'tpope/vim-sexp-mappings-for-regular-people'
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
