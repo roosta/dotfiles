@@ -101,6 +101,7 @@ Plug 'AndrewRadev/sideways.vim'
   nnoremap <leader>< :SidewaysRight<cr>
 
 Plug 'chaoren/vim-wordmotion'
+Plug 'stefandtw/quickfix-reflector.vim'
 
 " }}}
 " Files {{{
