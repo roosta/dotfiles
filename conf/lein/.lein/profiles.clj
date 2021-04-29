@@ -2,7 +2,7 @@
         :signing {:gpg-key "mail@roosta.sh"}
         :dependencies [
                        ;; [com.bhauman/rebel-readline "0.1.4"]
-                       [hashp "0.2.0"]]
+                       [hashp "0.2.1"]]
         :injections [(require 'hashp.core)]
         :plugins [;; check deps for new versions
                   [lein-ancient "0.6.15"]
