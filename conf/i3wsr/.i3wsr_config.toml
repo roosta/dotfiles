@@ -1,11 +1,6 @@
 [general]
 default_icon = ""
 
-[options]
-no_names = false
-remove_duplicates = false
-use_instance = false
-
 [icons]
 firefox = ""
 firefoxdeveloperedition = ""
@@ -20,16 +15,17 @@ Transmission-gtk = ""
 com-eviware-soapui-SoapUI = ""
 "Org.gnome.Nautilus" = ""
 "web.whatsapp.com" = ""
+"Discord" = ""
 
 [aliases]
 firefoxdeveloperedition = "Firefox-dev"
-google-chrome-unstable = "Chrome unstable"
 "web.whatsapp.com" = "Whatsapp"
 libreoffice-calc = "Calc"
 firefox = "Firefox"
 Google-chrome-unstable = "Chrome-dev"
 Google-chrome = "Chrome"
-"Gimp-2.10" = "Gimp"
+"Gimp-\\d\\.\\d\\d" = "Gimp"
 Transmission-gtk = "Transmission"
 com-eviware-soapui-SoapUI = "SoapUI"
 "Org.gnome.Nautilus" = "Nautilus"
+"^discord$" = "Discord"
