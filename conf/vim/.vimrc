@@ -631,7 +631,7 @@ let g:python_highlight_all = 1
 " Change default netrw liststyle
 " let g:netrw_liststyle = 1
 
-map <C-i> <Plug>(NetrwHideEdit)
+" map <C-i> <Plug>(NetrwHideEdit)
 
 " https://gist.github.com/mhanberg/dd9377163be770930e6eedb81b2fe61e
 " Remove C-l binding from netrw, conflicts with nav commands
