@@ -113,6 +113,7 @@ Plug 'trapd00r/vim-syntax-vidir-ls'
 " Notes {{{
 
 Plug 'jceb/vim-orgmode'
+Plug 'blindFS/vim-taskwarrior'
 
 " }}}
 " Navigation {{{
