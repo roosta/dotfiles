@@ -1,7 +1,7 @@
 {:user {:aliases  {"rebl" ["trampoline" "run" "-m" "rebel-readline.main"]}
         :signing {:gpg-key "mail@roosta.sh"}
         :dependencies [
-                       ;; [com.bhauman/rebel-readline "0.1.4"]
+                       ; [com.bhauman/rebel-readline "0.1.4"]
                        [hashp "0.2.1"]]
         :injections [(require 'hashp.core)]
         :plugins [;; check deps for new versions
