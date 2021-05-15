@@ -114,3 +114,6 @@ thefuck
 neovim
 python-pynvim
 yarn
+ctags
+task
+inetutils
