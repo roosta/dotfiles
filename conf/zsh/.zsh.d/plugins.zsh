@@ -29,5 +29,15 @@ ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
 ZVM_VI_HIGHLIGHT_BACKGROUND=red
 
 # }}}
+# Cheat.sh {{{
 
+export CHEAT_USE_FZF=true
+
+# }}}
+
+# clipmenu {{{
+
+export CM_LAUNCHER=rofi
+
+# }}}
 #  vim: set ts=2 sw=2 tw=0 fdm=marker et :

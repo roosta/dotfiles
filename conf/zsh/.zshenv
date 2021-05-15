@@ -84,7 +84,4 @@ if hash ruby 2>/dev/null; then
   PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH"
 fi
 
-export CHEAT_USE_FZF=true
-
-export CM_LAUNCHER=rofi
 
