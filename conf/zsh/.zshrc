@@ -43,15 +43,22 @@ zplug load
 #}}}
 # Config: {{{
 
+for fn (~/.zsh.d/functions/*)  autoload -Uz $fn
+
+source ~/.zsh.d/aliases.zsh
+source ~/.zsh.d/colored_man_pages.zsh
+source ~/.zsh.d/completion.zsh
+source ~/.zsh.d/dirstack.zsh
+source ~/.zsh.d/fzf.zsh
+source ~/.zsh.d/options.zsh
+source ~/.zsh.d/plugins.zsh
+source ~/.zsh.d/prompt.zsh
+source ~/.zsh.d/rationalise_dot.zsh
+
 function zvm_after_init() {
   [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-  for fn (~/.zsh.d/functions/*)  autoload -Uz $fn
-  for config (~/.zsh.d/*.zsh) source $config
+  source ~/.zsh.d/keybinds.zsh
 }
-
-# if [[ -s ~/.fzf.zsh ]]; then
-#   source ~/.fzf.zsh
-# fi
 
 # }}}
 #  vim: set ts=2 sw=2 tw=0 fdm=marker et :
