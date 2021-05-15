@@ -55,6 +55,10 @@ setopt IGNORE_EOF
 # │─┤│└─┐ │ │ ││┬┘└┌┘
 # ┆ ┴┆──┘ ┆ ┘─┘┆└┘ ┆
 
+HISTFILE=~/.histfile
+HISTSIZE=500000
+SAVEHIST=500000
+
 # Whenever  the  user  enters  a  line with history expansion, don't execute the line directly; instead, perform history
 # expansion and reload the line into the editing buffer.
 setopt HIST_VERIFY
@@ -71,11 +75,7 @@ setopt HIST_REDUCE_BLANKS
 
 # adds history incrementally and share it across sessions
 setopt INC_APPEND_HISTORY
-#setopt SHARE_HISTORY
-
-HISTFILE=~/.histfile
-HISTSIZE=12000
-SAVEHIST=10000
+setopt SHARE_HISTORY
 
 #  enable a built in help command
 autoload -U run-help
