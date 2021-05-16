@@ -117,3 +117,4 @@ yarn
 ctags
 task
 inetutils
+clipmenu
