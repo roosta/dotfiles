@@ -202,7 +202,7 @@ Plug 'tpope/vim-tbone'
 " Lang {{{
 
 Plug 'sheerun/vim-polyglot'
-  let g:polyglot_disabled = ['markdown']
+  let g:polyglot_disabled = ['markdown', 'vue']
 
 
 Plug 'PotatoesMaster/i3-vim-syntax'
@@ -214,7 +214,8 @@ Plug 'gregjurman/vim-nc'
 Plug 'vim-scripts/nginx.vim'
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 " Plug 'racer-rust/vim-racer', { 'for': 'rust' }
-Plug 'mattn/emmet-vim', { 'for': ['html', 'css', 'html.handlebars'] }
+Plug 'mattn/emmet-vim', { 'for': ['html', 'css', 'html.handlebars', 'vue'] }
+Plug 'leafOfTree/vim-vue-plugin'
 Plug 'guns/vim-sexp'
 Plug 'tpope/vim-sexp-mappings-for-regular-people'
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
