@@ -1,0 +1,6 @@
+# Open project note if exist
+function note() {
+    vim -c ":Note $*"
+}
+
+note "$@"
