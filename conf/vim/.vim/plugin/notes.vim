@@ -27,16 +27,21 @@ let s:note_index = glob('~/notes/index.md')
 
 " Main entry for :Note command
 function! EditNote(...)
-  let l:name = system("basename \"$PWD\"")
-  let s:note_name = split(name, '\v\n')[0]
-  if a:0 == 0
-    let s:note_text = s:note_name
+  let l:root = system("git rev-parse --show-toplevel")
+  if v:shell_error != 0
+    echoerr "Not in a git repository!"
   else
-    let s:note_text = a:1
+    let l:name = system("basename " . root)
+    let s:note_name = split(name, '\v\n')[0]
+    if a:0 == 0
+      let s:note_text = s:note_name
+    else
+      let s:note_text = a:1
+    endif
+    let l:file = s:note_projects . '/' . s:note_name . '.md'
+    exec 'autocmd vimrc BufNewFile ' . file . ' call CreateNoteTitle(s:note_name, s:note_text)'
+    exec 'edit ' . file
   endif
-  let l:file = s:note_projects . '/' . s:note_name . '.md'
-  exec 'autocmd vimrc BufNewFile ' . file . ' call CreateNoteTitle(s:note_name, s:note_text)'
-  exec 'edit ' . file
 endfunction
 
 " Define :Note command, optionally takes args
