@@ -50,6 +50,11 @@ install-yay: ~/etc/build
 	-cd ~/etc/build && git clone https://aur.archlinux.org/yay.git
 	-cd ~/etc/build/yay && makepkg -si --noconfirm --needed
 
+install-paru: ~/etc/build
+	@echo -e "\033[0;33mBuilding and installing paru...\033[0m"
+	-cd ~/etc/build && git clone https://aur.archlinux.org/paru.git
+	-cd ~/etc/build/paru && makepkg -si --noconfirm --needed
+
 # add-pacman-repositories:
 # 	@echo -e "\033[0;33mAdding pacman repositories...\033[0m"
 # 	cat pacman_repositories.txt | sudo tee -a /etc/pacman.conf
