@@ -248,10 +248,10 @@ fapt() {
 
 # Search AUR and official repos using yay and install on
 # select. Supports multiple selections and preview using yay -Si
-fyay() {
-  local pkg=$(yay -Ssq | fzf-tmux --multi --query "$1" --preview="yay -Si {}")
+faur() {
+  local pkg=$(paru -Slq | fzf --multi --query "$1" --preview 'paru -Si {1}')
   if [[ $pkg ]]; then
-    yay -S - <<< $pkg
+    paru -S - <<< $pkg
   fi
 }
 
