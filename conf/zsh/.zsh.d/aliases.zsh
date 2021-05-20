@@ -379,7 +379,7 @@ alias fm='vifm'
 alias npmls='npm -g ls --depth=0'
 alias npmoutdated='npm outdated -g --depth=0'
 
-alias cheat='cht.sh'
+# alias cheat='cht.sh'
 alias weather='curl http://wttr.in/oslo'
 #}}}
 # VCS: {{{1
