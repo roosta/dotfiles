@@ -587,6 +587,10 @@ command! -bang -nargs=* Rg
   \   fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'right:50%:hidden', '?'),
   \   <bang>0)
 
+" Search in notes directory
+command! -bang NoteFiles call fzf#vim#files('~/notes', <bang>0)
+nnoremap <leader>o :NoteFiles<CR>
+
 "}}}
 " Clojure: {{{
 
