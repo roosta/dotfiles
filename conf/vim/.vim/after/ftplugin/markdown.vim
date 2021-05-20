@@ -1,5 +1,8 @@
 setlocal spell spelllang=en_us
 
+" Handles checking checkboxes in markdown files
+" Will either check or uncheck checkboxes based on search
+" Returns cursor position after substitute
 function! <SID>Check()
   let l:cursor_pos = getpos('.')
   if (search('\[ \]', 'nc', line('.')) || search('\[ \]', 'nbc', line('.')))
@@ -11,6 +14,7 @@ function! <SID>Check()
 endfunction
 
 
+" Map check function
 nnoremap <buffer> <C-x><C-x> :call <SID>Check()<CR>
 inoremap <buffer> <C-x><C-x> <ESC>:call <SID>Check()<CR>a
 
