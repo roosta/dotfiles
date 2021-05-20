@@ -361,7 +361,7 @@ set showmatch
 set clipboard=unnamedplus
 
 " Conceal
-set conceallevel=2
+" set conceallevel=2
 
 " Encoding
 set encoding=utf-8
