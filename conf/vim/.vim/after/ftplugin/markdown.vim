@@ -1,17 +1,20 @@
 setlocal spell spelllang=en_us
-setlocal conceallevel=2
 
-" https://github.com/vuciv/vim-bujo/blob/master/ftplugin/markdown_bujo.vim
-" locate checkbox brackets
-function <SID>SearchCheck()
-  return (search('\[ \]', 'nc', line('.')) || search('\[ \]', 'nbc', line('.')))
+function! <SID>Check()
+  let l:cursor_pos = getpos('.')
+  if (search('\[ \]', 'nc', line('.')) || search('\[ \]', 'nbc', line('.')))
+    exec '.s/\[ \]/\[x\]'
+  else
+    exec '.s/\[x\]/\[ \]'
+  endif
+  call cursor(l:cursor_pos[1], l:cursor_pos[2])
 endfunction
 
-" check and uncheck checkboxes
-nnoremap <expr> <buffer> <C-s> <SID>SearchCheck() ? ':.s/\[ \]/\[x\]<CR>:noh<CR>' : ':.s/\[x\]/\[ \]<CR>:noh<CR>'
-inoremap <expr> <buffer> <C-s> <SID>SearchCheck() ? '<esc>:.s/\[ \]/\[x\]<CR>:noh<CR>' : '<esc>:.s/\[x\]/\[ \]<CR>:noh<CR>'
+
+nnoremap <buffer> <C-x><C-x> :call <SID>Check()<CR>
+inoremap <buffer> <C-x><C-x> <ESC>:call <SID>Check()<CR>a
 
 " Add checkboxes
-nnoremap <buffer> <C-q> o- [ ] 
-inoremap <buffer> <C-q> - [ ] 
+nnoremap <buffer> <C-x><return> o- [ ] 
+inoremap <buffer> <C-x><return> - [ ] 
 
