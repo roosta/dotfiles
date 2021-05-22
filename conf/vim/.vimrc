@@ -147,9 +147,9 @@ Plug 'markonm/traces.vim'
 " Color {{{
 
 Plug '~/src/srcery-vim'
-  let g:srcery_dim_lisp_paren=1
+  let g:srcery_dim_lisp_paren=0
   let g:srcery_italic=1
-  let g:srcery_transparent_background=1
+  let g:srcery_bg_passthrough=1
 
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
   let g:Hexokinase_virtualText = '▀'
