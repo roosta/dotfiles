@@ -215,7 +215,21 @@ Plug 'vim-scripts/nginx.vim'
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 " Plug 'racer-rust/vim-racer', { 'for': 'rust' }
 Plug 'mattn/emmet-vim', { 'for': ['html', 'css', 'html.handlebars', 'vue'] }
+
 Plug 'leafOfTree/vim-vue-plugin'
+  function! OnChangeVueSyntax(syntax)
+    echom 'Syntax is '.a:syntax
+    if a:syntax ==? 'html'
+      setlocal commentstring=<!--%s-->
+      setlocal comments=s:<!--,m:\ \ \ \ ,e:-->
+    elseif a:syntax =~? 'css'
+      setlocal comments=s1:/*,mb:*,ex:*/ commentstring&
+    else
+      setlocal commentstring=//%s
+      setlocal comments=sO:*\ -,mO:*\ \ ,exO:*/,s1:/*,mb:*,ex:*/,://
+    endif
+  endfunction
+
 Plug 'guns/vim-sexp'
 Plug 'tpope/vim-sexp-mappings-for-regular-people'
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
