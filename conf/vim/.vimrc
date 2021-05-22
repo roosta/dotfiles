@@ -597,7 +597,7 @@ nnoremap z= :call FzfSpell()<CR>
 " had a file called clap fzf would match on the filename as well.
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
-  \   'rg --column --line-number --no-heading --color=always --smart-case -- '.shellescape(<q-args>), 1,
+  \   'rg --column --line-number --no-heading --color=always --smart-case --colors=path:fg:blue --colors=line:fg:yellow -- '.shellescape(<q-args>), 1,
   \   fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'right:50%:hidden', '?'),
   \   <bang>0)
 
