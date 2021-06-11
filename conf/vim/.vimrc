@@ -456,9 +456,6 @@ source ~/.vim/vimpager.vim
 " Note that this may cause some plugins not to load properly if it has init logic
 nmap <leader>R :source $MYVIMRC<CR>
 
-" correct annoying typo
-cnoremap Q q
-
 " Treat long lines as break lines unless count is given
 noremap <expr> j (v:count? 'j' : 'gj')
 noremap <expr> k (v:count? 'k' : 'gk')
