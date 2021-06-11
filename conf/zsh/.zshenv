@@ -52,6 +52,7 @@ else
   export PAGER=less
 fi
 
+export PARU_PAGER=bat
 alias less=$PAGER
 alias zless=$PAGER
 
