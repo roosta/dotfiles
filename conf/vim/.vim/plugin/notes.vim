@@ -27,11 +27,11 @@ let s:note_index = glob('~/notes/index.md')
 
 " Main entry for :Note command
 function! EditNote(...)
-  let l:root = system("git rev-parse --show-toplevel")
+  let l:root = system('git rev-parse --show-toplevel')
   if v:shell_error != 0
-    echoerr "Not in a git repository!"
+    echoerr 'Not in a git repository!'
   else
-    let l:name = system("basename " . root)
+    let l:name = system('basename ' . root)
     let s:note_name = split(name, '\v\n')[0]
     if a:0 == 0
       let s:note_text = s:note_name
