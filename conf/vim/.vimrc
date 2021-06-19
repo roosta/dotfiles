@@ -215,7 +215,7 @@ Plug 'vim-scripts/nginx.vim'
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 " Plug 'racer-rust/vim-racer', { 'for': 'rust' }
 Plug 'mattn/emmet-vim', { 'for': ['html', 'css', 'html.handlebars', 'vue'] }
-  let g:user_emmet_leader_key='<C-S>'
+  let g:user_emmet_leader_key='<C-Q>'
 
 Plug 'leafOfTree/vim-vue-plugin'
   function! OnChangeVueSyntax(syntax)
