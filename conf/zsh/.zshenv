@@ -24,7 +24,7 @@ fpath=(
 	$fpath[@]
 )
 
-export TERM="xterm-termite"
+# export TERM="xterm-termite"
 export TERMINAL=termite
 export BROWSER=firefox
 
