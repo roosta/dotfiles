@@ -15,10 +15,10 @@ endfunction
 
 
 " Map check function
-nnoremap <buffer> <C-[><C-[> :call <SID>Check()<CR>
-inoremap <buffer> <C-[><C-[> <ESC>:call <SID>Check()<CR>a
+nnoremap <buffer> <C-Q><C-Q> :call <SID>Check()<CR>
+inoremap <buffer> <C-Q><C-Q> <ESC>:call <SID>Check()<CR>a
 
 " Add checkboxes
-nnoremap <buffer> <C-[><return> o- [ ] 
-inoremap <buffer> <C-[><return> - [ ] 
+nnoremap <buffer> <C-Q><return> o- [ ] 
+inoremap <buffer> <C-Q><return> - [ ] 
 
