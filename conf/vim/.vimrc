@@ -324,7 +324,7 @@ call plug#end()
 
 set shortmess+=Ic
 set scrolloff=7
-set lazyredraw
+" set lazyredraw
 set cursorline
 set synmaxcol=2048
 set autowrite
