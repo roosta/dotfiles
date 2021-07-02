@@ -460,8 +460,8 @@ alias _="sudo"
 
 # quit aliases
 alias :q="exit"
-alias q:="exit"
-alias :Q="exit"
+# alias q:="exit"
+# alias :Q="exit"
 
 # common typo
 alias claer='clear'
