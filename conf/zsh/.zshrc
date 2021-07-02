@@ -19,7 +19,6 @@ source ~/.zplug/init.zsh
 zplug 'zplug/zplug', hook-build:'zplug --self-manage'
 zplug "Tarrasch/zsh-bd"
 zplug 'wfxr/forgit'
-zplug "kutsan/zsh-system-clipboard"
 zplug "mafredri/zsh-async", from:github
 zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
 zplug "b4b4r07/enhancd", use:init.sh
