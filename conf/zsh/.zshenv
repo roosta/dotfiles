@@ -89,3 +89,4 @@ if hash ruby 2>/dev/null; then
 fi
 
 
+#  vim: set ts=2 sw=2 tw=0 fdm=marker noet :
