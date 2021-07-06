@@ -6,7 +6,7 @@ x-scheme-handler/http=firefox.desktop
 x-scheme-handler/https=firefox.desktop
 x-scheme-handler/ftp=firefox.desktop
 x-scheme-handler/chrome=firefox.desktop
-text/html=firefox.desktop
+text/html=google-chrome.desktop
 application/x-extension-htm=firefox.desktop
 application/x-extension-html=firefox.desktop
 application/x-extension-shtml=firefox.desktop
@@ -17,6 +17,8 @@ x-scheme-handler/mailto=thunderbird.desktop
 message/rfc822=thunderbird.desktop
 application/pdf=zathura.desktop
 text/x-arduino=arduino-arduinoide.desktop
+x-scheme-handler/webcal=google-chrome.desktop
+x-scheme-handler/figma=figma-linux.desktop
 
 [Added Associations]
 image/jpeg=gimp.desktop;feh.desktop;
