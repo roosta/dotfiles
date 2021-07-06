@@ -34,10 +34,13 @@ ZVM_VI_HIGHLIGHT_BACKGROUND=red
 export CHEAT_USE_FZF=true
 
 # }}}
-
 # clipmenu {{{
 
 export CM_LAUNCHER=rofi
 
 # }}}
+# fzf-tab {{{
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+# }}}
+
 #  vim: set ts=2 sw=2 tw=0 fdm=marker et :
