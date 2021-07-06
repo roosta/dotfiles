@@ -1,0 +1,1 @@
+/home/roosta/.vim/plugged/vim-tmux-navigator/plugin/tmux_navigator.vim

@@ -46,13 +46,16 @@ export ZSH_CACHE_DIR=$HOME/.cache/zsh
 # always use the -R option to show raw characters
 export LESS=-R
 
-if hash vimpager 2>/dev/null; then
+if hash nvimpager 2>/dev/null; then
+	export PAGER=/usr/bin/nvimpager
+elif hash vimpager 2>/dev/null; then
   export PAGER=/usr/bin/vimpager
 else
   export PAGER=less
 fi
 
-export PARU_PAGER=bat
+export PARU_PAGER=nvimpager
+
 alias less=$PAGER
 alias zless=$PAGER
 
