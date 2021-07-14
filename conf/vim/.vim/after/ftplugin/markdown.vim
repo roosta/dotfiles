@@ -1,4 +1,6 @@
 setlocal spell spelllang=en_us
+setlocal conceallevel=2
+
 
 " Handles checking checkboxes in markdown files
 " Will either check or uncheck checkboxes based on search
@@ -22,3 +24,5 @@ inoremap <buffer> <C-Q><C-Q> <ESC>:call <SID>Check()<CR>a
 nnoremap <buffer> <C-Q><return> o- [ ] 
 inoremap <buffer> <C-Q><return> - [ ] 
 
+
+nnoremap gm :MarkdownPreview<cr>

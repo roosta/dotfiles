@@ -288,7 +288,6 @@ Plug 'https://github.com/dhruvasagar/vim-table-mode'
 
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install', 'for': 'markdown' }
   let g:mkdp_browser = 'chrome-scaled'
-  nnoremap <leader>mp :MarkdownPreview<cr>
 
 Plug 'plasticboy/vim-markdown'
   let g:markdown_folding = 1
@@ -374,9 +373,6 @@ set number
 set matchtime=2
 set showmatch
 set clipboard=unnamedplus
-
-" Conceal
-" set conceallevel=2
 
 " Encoding
 set encoding=utf-8
