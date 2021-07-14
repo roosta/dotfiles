@@ -289,8 +289,22 @@ Plug 'https://github.com/dhruvasagar/vim-table-mode'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install', 'for': 'markdown' }
   let g:mkdp_browser = 'chrome-scaled'
 
+" let g:markdown_fenced_languages = [
+"       \ 'clojure',
+"       \ 'python',
+"       \ 'rust',
+"       \ 'vim',
+"       \ 'sh',
+"       \ 'js=javascript',
+"       \ 'shell=sh',
+"       \ 'css'
+"       \]
+
+let g:markdown_folding = 1
+
+" Plug 'SidOfc/mkdx'
+
 Plug 'plasticboy/vim-markdown'
-  let g:markdown_folding = 1
   let g:vim_markdown_fenced_languages = ['bash=sh', 'shell=sh', 'js=javascript']
   let g:vim_markdown_conceal_code_blocks = 1
   let g:vim_markdown_folding_level = 2
