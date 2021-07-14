@@ -1,0 +1,1 @@
+/home/roosta/src/srcery-vim/colors/srcery.vim
