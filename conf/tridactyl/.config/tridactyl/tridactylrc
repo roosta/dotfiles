@@ -1,12 +1,11 @@
-" -*- vimrc -*-
-" -*- mode: vimrc -*-
 " vim: set filetype=vim:
 " https://github.com/tridactyl/tridactyl/blob/master/.tridactylrc
+
 unbind <C-y>
 unbind <C-f>
 unbind <C-h>
 unbind <C-j>
-bind <C-S-r> source ~/.config/tridactyl/tridactylrc
+bind <C-S-z> source ~/.config/tridactyl/tridactylrc
 bind <C-]> tabnext
 bind <C-[> tabprev
 " bind <C-l> tabnext
@@ -24,6 +23,8 @@ set searchurls.!img https://www.google.com/search?tbm=isch&q=
 
 set hintfiltermode vimperator-reflow
 set hintnames numeric
+
+set editorcmd termite -e "nvim %f '+normal!%lGzv%c|'"
 
 colors srcery
 " set theme srcery
