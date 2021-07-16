@@ -188,7 +188,6 @@ Plug 'rhysd/git-messenger.vim'
 " }}}
 " Multiplexer {{{
 
-Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'christoomey/vim-tmux-navigator'
 
 Plug 'jpalardy/vim-slime'
