@@ -255,6 +255,12 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'lifepillar/vim-mucomplete'
   let g:mucomplete#enable_auto_at_startup = 1
   let g:mucomplete#no_mappings = 1
+
+	let g:mucomplete#chains = {
+	    \ 'default' : ['path', 'omni', 'keyn', 'ulti', 'dict', 'uspl'],
+	    \ 'vim'     : ['path', 'cmd', 'keyn']
+	    \ }
+
 	imap <c-j> <plug>(MUcompleteFwd)
 	imap <c-k> <plug>(MUcompleteBwd)
 	imap <Tab> <plug>(MUcompleteFwd)
@@ -274,10 +280,11 @@ Plug 'lifepillar/vim-mucomplete'
 " Snippets {{{
 
 Plug 'SirVer/ultisnips'
-  let g:UltiSnipsExpandTrigger='<c-;>'
-  let g:UltiSnipsJumpForwardTrigger='<c-b>'
-  let g:UltiSnipsJumpBackwardTrigger='<c-z>'
-  let g:UltiSnipsSnippetDirectories=['UltiSnips', 'mysnippets']
+  let g:UltiSnipsExpandTrigger='<a-q>'
+  " let g:UltiSnipsListSnippets='<a-Q>'
+  let g:UltiSnipsJumpForwardTrigger='<a-l>'
+  let g:UltiSnipsJumpBackwardTrigger='<a-h>'
+  let g:UltiSnipsSnippetDirectories=['mysnippets']
 Plug 'honza/vim-snippets'
 
 " }}}
@@ -553,6 +560,7 @@ nnoremap <leader>/  :Rg<cr>
 nnoremap <leader>:  :Commands<cr>
 nnoremap <leader>ss :BLines<cr>
 nnoremap <leader>ji :BTags<cr>
+nnoremap <leader>q  :Snippets<cr>
 
 " Insert mode completion
 imap <c-x><c-k> <plug>(fzf-complete-word)
