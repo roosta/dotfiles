@@ -240,8 +240,7 @@ Plug 'tpope/vim-salve', { 'for': 'clojure' }
 Plug 'guns/vim-clojure-highlight', { 'for': 'clojure' }
 " Plug 'Olical/conjure', {'tag': 'v4.5.0'}
 " Plug 'jmcantrell/vim-virtualenv'
-Plug 'hdima/python-syntax'
-
+Plug 'vim-python/python-syntax'
 Plug 'ludovicchabant/vim-gutentags'
   let g:gutentags_exclude_filetypes = ['gitcommit', 'gitconfig', 'gitrebase', 'gitsendemail', 'git']
   let g:gutentags_cache_dir = expand('~/.cache/vim/ctags/')
