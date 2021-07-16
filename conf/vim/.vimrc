@@ -209,7 +209,10 @@ Plug 'tmux-plugins/vim-tmux'
 Plug 'sudar/vim-arduino-syntax'
 " Plug 'pangloss/vim-javascript'
 " Plug 'othree/yajs.vim'
+
+" Gcode
 Plug 'gregjurman/vim-nc'
+
 Plug 'vim-scripts/nginx.vim'
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 " Plug 'racer-rust/vim-racer', { 'for': 'rust' }
@@ -280,39 +283,16 @@ Plug 'honza/vim-snippets'
 " }}}
 " Markdown {{{
 
-Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
-Plug 'godlygeek/tabular'
-Plug 'https://github.com/dhruvasagar/vim-table-mode'
+" Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
+Plug 'godlygeek/tabular', { 'for': 'markdown' }
+Plug 'https://github.com/dhruvasagar/vim-table-mode', { 'for': 'markdown' }
   let g:table_mode_corner='|'
 
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install', 'for': 'markdown' }
   let g:mkdp_browser = 'chrome-scaled'
 
-" let g:markdown_fenced_languages = [
-"       \ 'clojure',
-"       \ 'python',
-"       \ 'rust',
-"       \ 'vim',
-"       \ 'sh',
-"       \ 'js=javascript',
-"       \ 'shell=sh',
-"       \ 'css'
-"       \]
-
-let g:markdown_folding = 1
-
-" Plug 'SidOfc/mkdx'
-
-Plug 'plasticboy/vim-markdown'
-  let g:vim_markdown_fenced_languages = ['bash=sh', 'shell=sh', 'js=javascript']
-  let g:vim_markdown_conceal_code_blocks = 1
-  let g:vim_markdown_folding_level = 2
-  let g:vim_markdown_new_list_item_indent = 0
-  let g:vim_markdown_follow_anchor = 1
-  let g:vim_markdown_toc_autofit = 1
-  let g:vim_markdown_auto_insert_bullets = 0
-  let g:vim_markdown_frontmatter = 1
-  let g:vim_markdown_folding_style_pythonic = 1
+  Plug 'SidOfc/mkdx', { 'for': 'markdown' }
+  let g:mkdx#settings = { 'highlight': { 'enable': 1 } }
 
 " }}}
 " Linting {{{
@@ -671,6 +651,22 @@ function s:RemoveNetrwMap()
     unmap <buffer> <C-l>
   endif
 endfunction
+
+"}}}
+" Markdown: {{{
+
+let g:markdown_fenced_languages = [
+      \ 'clojure',
+      \ 'python',
+      \ 'rust',
+      \ 'vim',
+      \ 'sh',
+      \ 'js=javascript',
+      \ 'shell=sh',
+      \ 'css'
+      \]
+
+let g:markdown_folding = 1
 
 "}}}
 " vim: fdm=marker:sw=2
