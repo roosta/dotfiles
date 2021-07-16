@@ -200,10 +200,10 @@ Plug 'tpope/vim-tbone'
 " }}}
 " Lang {{{
 
-Plug 'sheerun/vim-polyglot'
-  let g:polyglot_disabled = ['markdown', 'vue']
+" Plug 'sheerun/vim-polyglot'
+"   let g:polyglot_disabled = ['markdown', 'vue']
 
-
+Plug 'pangloss/vim-javascript'
 Plug 'PotatoesMaster/i3-vim-syntax'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'sudar/vim-arduino-syntax'
