@@ -207,7 +207,6 @@ Plug 'pangloss/vim-javascript'
 Plug 'PotatoesMaster/i3-vim-syntax'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'sudar/vim-arduino-syntax'
-" Plug 'pangloss/vim-javascript'
 " Plug 'othree/yajs.vim'
 
 " Gcode
@@ -297,7 +296,7 @@ Plug 'https://github.com/dhruvasagar/vim-table-mode', { 'for': 'markdown' }
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install', 'for': 'markdown' }
   let g:mkdp_browser = 'chrome-scaled'
 
-  Plug 'SidOfc/mkdx', { 'for': 'markdown' }
+Plug 'SidOfc/mkdx', { 'for': 'markdown' }
   let g:mkdx#settings = { 'highlight': { 'enable': 1 } }
 
 " }}}
