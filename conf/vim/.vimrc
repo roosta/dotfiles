@@ -113,7 +113,7 @@ Plug 'trapd00r/vim-syntax-vidir-ls'
 " Notes {{{
 
 Plug 'jceb/vim-orgmode'
-Plug 'blindFS/vim-taskwarrior'
+" Plug 'blindFS/vim-taskwarrior'
 
 " }}}
 " Navigation {{{
@@ -233,8 +233,8 @@ Plug 'leafOfTree/vim-vue-plugin'
     endif
   endfunction
 
-Plug 'guns/vim-sexp'
-Plug 'tpope/vim-sexp-mappings-for-regular-people'
+Plug 'guns/vim-sexp', { 'for': 'clojure' }
+Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for': 'clojure' }
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 Plug 'tpope/vim-salve', { 'for': 'clojure' }
 Plug 'guns/vim-clojure-highlight', { 'for': 'clojure' }
@@ -313,6 +313,7 @@ Plug 'w0rp/ale'
 " Misc {{{
 
 Plug 'AndrewRadev/bufferize.vim'
+Plug 'dstein64/vim-startuptime'
 
 " }}}
 call plug#end()
