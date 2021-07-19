@@ -36,7 +36,7 @@
   last-sha  = rev-parse --short HEAD
 [init]
   templatedir = ~/.git_template
-	defaultBranch = main
+  defaultBranch = main
 [merge]
   tool = emergeclient
 [commit]
@@ -55,9 +55,11 @@
 [diff-so-fancy]
   rulerWidth = 47
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
 [pull]
-	rebase = false
+  rebase = false
+[interactive]
+  diffFilter = diff-so-fancy --patch
