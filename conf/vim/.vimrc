@@ -87,8 +87,8 @@ Plug 'bfredl/nvim-miniyank'
 Plug 'junegunn/vim-peekaboo'
 Plug 'tpope/vim-abolish'
 
-Plug 'obreitwi/vim-sort-folds'
-  let g:sort_folds_ignore_case = 1
+" Plug 'obreitwi/vim-sort-folds'
+"   let g:sort_folds_ignore_case = 1
 
 Plug '~/src/foldlist'
 Plug 'tpope/vim-projectionist'
