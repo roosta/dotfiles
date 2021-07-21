@@ -26,3 +26,39 @@ endfunction
 
 
 nnoremap gm :MarkdownPreview<cr>
+
+" https://vi.stackexchange.com/questions/21687/how-to-prevent-markdown-folding-of-comments-in-fenced-code
+" Fix folding issue where fenced codeblocks with a hash based comment string
+" cause vim to fold the comment as if it was a heading
+function! MarkdownFold()
+  let line = getline(v:lnum)
+
+  " Regular headers
+  let depth = match(line, '\(^#\+\)\@<=\( .*$\)\@=')
+  if depth > 0
+    " check syntax, it should be markdownH1-6
+    let syncode = synstack(v:lnum, 1)
+    if len(syncode) > 0 && synIDattr(syncode[0], 'name') =~# 'markdownH[1-6]'
+      return '>' . depth
+    endif
+  endif
+
+  " Setext style headings
+  let prevline = getline(v:lnum - 1)
+  let nextline = getline(v:lnum + 1)
+  if (line =~# '^.\+$') && (nextline =~# '^=\+$') && (prevline =~# '^\s*$')
+    return '>1'
+  endif
+
+  if (line =~# '^.\+$') && (nextline =~# '^-\+$') && (prevline =~# '^\s*$')
+    return '>2'
+  endif
+
+  " frontmatter
+  if (v:lnum == 1) && (line =~# '^----*$')
+    return '>1'
+  endif
+
+  return '='
+endfunction
+
