@@ -483,6 +483,7 @@ alias rf='setxkbmap -model pc104 -layout us,no -option grp:caps_toggle -option t
 
 alias todos="task +main list"
 alias summary="task entry.after:today-1mo list"
+alias tui="taskwarrior-tui"
 
 # }}}
 # Pacman: {{{1
