@@ -413,7 +413,7 @@ if has('vim')
   set ttymouse=xterm2
 endif
 
-if !has('gui_running')
+if !has('gui_running') && has('nvim')
   set termguicolors
 endif
 
