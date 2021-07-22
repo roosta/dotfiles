@@ -25,9 +25,10 @@ fi
 # }}}
 # zsh-vi-mode {{{
 
-ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
-ZVM_VI_HIGHLIGHT_BACKGROUND=red
-
+if zplug check jeffreytse/zsh-vi-mode; then
+  ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
+  ZVM_VI_HIGHLIGHT_BACKGROUND=red
+fi
 # }}}
 # Cheat.sh {{{
 
