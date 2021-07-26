@@ -515,6 +515,10 @@ map <leader>* :Ggrep --untracked <cword><CR><CR>
 " Toggle colorcolumn
 nnoremap <leader>cc :execute "set colorcolumn=" . (&colorcolumn == "" ? "80" : "")<CR>
 
+" reselect pasted text
+" https://vimtricks.com/p/reselect-pasted-text/
+nnoremap gp `[v`]
+
 " }}}
 " Functions & Commands: {{{
 
