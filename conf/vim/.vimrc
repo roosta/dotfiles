@@ -447,7 +447,7 @@ let &t_EI = "\<Esc>[2 q"
 
 "}}}
 " Pager {{{
-source ~/.vim/vimpager.vim
+" source ~/.vim/vimpager.vim
 " }}}
 " Mappings: {{{1
 
