@@ -25,7 +25,7 @@ fpath=(
 )
 
 # export TERM="xterm-termite"
-export TERMINAL=termite
+export TERMINAL=alacritty
 export BROWSER=firefox
 
 # uniform qt/gtk look.
