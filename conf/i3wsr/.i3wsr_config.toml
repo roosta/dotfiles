@@ -16,7 +16,7 @@ com-eviware-soapui-SoapUI = ""
 "Org.gnome.Nautilus" = ""
 "web.whatsapp.com" = ""
 "Discord" = ""
-Alacritty=""
+Alacritty = ""
 
 [aliases]
 firefoxdeveloperedition = "Firefox-dev"
