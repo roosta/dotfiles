@@ -41,7 +41,17 @@ export CM_LAUNCHER=rofi
 
 # }}}
 # fzf-tab {{{
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+if zplug check Aloxaf/fzf-tab; then
+  zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+fi
+# }}}
+# forgit {{{
+
+if zplug check wfxr/forgit; then
+  # export FORGIT_PAGER="forgit-pager"
+fi
+
+
 # }}}
 
 #  vim: set ts=2 sw=2 tw=0 fdm=marker et :
