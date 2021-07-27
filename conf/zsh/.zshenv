@@ -44,7 +44,7 @@ export GOPATH=$HOME/.go
 export ZSH_CACHE_DIR=$HOME/.cache/zsh
 
 # always use the -R option to show raw characters
-export LESS=-R
+export LESS="-R --use-color"
 
 if hash nvimpager 2>/dev/null; then
 	export PAGER=/usr/bin/nvimpager
@@ -56,8 +56,8 @@ fi
 
 export PARU_PAGER=nvimpager
 
-alias less=$PAGER
-alias zless=$PAGER
+# alias less=$PAGER
+# alias zless=$PAGER
 
 # tell ranger not to use default config
 export RANGER_LOAD_DEFAULT_RC="false"
