@@ -22,6 +22,11 @@
 " Author: Daniel Berg <mail@roosta.sh>
 " License: Same as Vim itself
 "
+if exists('g:loaded_notes_plugin')
+  finish
+endif
+let g:loaded_notes_plugin = 1
+
 let s:note_projects = glob('~/notes/projects')
 let s:note_index = glob('~/notes/index.md')
 
