@@ -5,7 +5,7 @@
 [core]
   editor = nvim
   excludesfile = ~/.globalignore
-  pager = diff-so-fancy | nvimpager
+  pager = diff-so-fancy | less -RFX
 [push]
   default = simple
 [credential]
@@ -54,6 +54,7 @@
   includeIssuesSection = true
 [diff-so-fancy]
   rulerWidth = 47
+	first-run = false
 [filter "lfs"]
   clean = git-lfs clean -- %f
   smudge = git-lfs smudge -- %f
