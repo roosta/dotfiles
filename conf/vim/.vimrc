@@ -143,6 +143,8 @@ Plug 'easymotion/vim-easymotion'
 
 Plug 'markonm/traces.vim'
 
+Plug '~/src/fzfolds.vim'
+
 " }}}
 " Color {{{
 
