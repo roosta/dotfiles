@@ -519,6 +519,8 @@ nnoremap <leader>cc :execute "set colorcolumn=" . (&colorcolumn == "" ? "80" : "
 " https://vimtricks.com/p/reselect-pasted-text/
 nnoremap gp `[v`]
 
+nnoremap <leader>bd :bd<CR>
+
 " }}}
 " Functions & Commands: {{{
 
