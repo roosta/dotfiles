@@ -63,8 +63,9 @@ Plug 'junegunn/vim-easy-align'
 Plug 'ntpeters/vim-better-whitespace'
   let g:better_whitespace_filetypes_blacklist=['diff', 'gitcommit', 'help', 'nofile', 'git']
 
-Plug 'tpope/vim-commentary'
-" Plug 'tyru/caw.vim'
+" Plug 'tpope/vim-commentary'
+Plug 'tyru/caw.vim'
+Plug 'Shougo/context_filetype.vim'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-rsi'
 Plug 'tpope/vim-speeddating'
@@ -220,19 +221,21 @@ Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'mattn/emmet-vim', { 'for': ['html', 'css', 'html.handlebars', 'vue'] }
   let g:user_emmet_leader_key='<C-Q>'
 
-Plug 'leafOfTree/vim-vue-plugin'
-  function! OnChangeVueSyntax(syntax)
-    echom 'Syntax is ' . a:syntax
-    if a:syntax ==? 'html'
-      setlocal commentstring=<!--%s-->
-      setlocal comments=s:<!--,m:\ \ \ \ ,e:-->
-    elseif a:syntax =~? 'css'
-      setlocal comments=s1:/*,mb:*,ex:*/ commentstring&
-    else
-      setlocal commentstring=//%s
-      setlocal comments=sO:*\ -,mO:*\ \ ,exO:*/,s1:/*,mb:*,ex:*/,://
-    endif
-  endfunction
+Plug 'posva/vim-vue'
+
+" Plug 'leafOfTree/vim-vue-plugin'
+"   function! OnChangeVueSyntax(syntax)
+"     echom 'Syntax is ' . a:syntax
+"     if a:syntax ==? 'html'
+"       setlocal commentstring=<!--%s-->
+"       setlocal comments=s:<!--,m:\ \ \ \ ,e:-->
+"     elseif a:syntax =~? 'css'
+"       setlocal comments=s1:/*,mb:*,ex:*/ commentstring&
+"     else
+"       setlocal commentstring=//%s
+"       setlocal comments=sO:*\ -,mO:*\ \ ,exO:*/,s1:/*,mb:*,ex:*/,://
+"     endif
+"   endfunction
 
 Plug 'guns/vim-sexp', { 'for': 'clojure' }
 Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for': 'clojure' }
