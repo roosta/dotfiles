@@ -565,19 +565,19 @@ nmap <leader>? <plug>(fzf-maps-n)
 xmap <leader>? <plug>(fzf-maps-x)
 omap <leader>? <plug>(fzf-maps-o)
 
-nnoremap <leader>e  :Files<CR>
-nnoremap <leader>bb :Buffers<cr>
-nnoremap <leader>T  :Tags<cr>
-nnoremap <leader>t  :BTags<cr>
-nnoremap <leader>gC :Commits<cr>
-nnoremap <leader>gc :BCommits<cr>
-nnoremap <leader>mm :Marks<cr>
-nnoremap <leader>H  :Helptags<cr>
-nnoremap <leader>/  :Rg<cr>
-nnoremap <leader>:  :Commands<cr>
-nnoremap <leader>ss :BLines<cr>
-nnoremap <leader>ji :BTags<cr>
-nnoremap <leader>q  :Snippets<cr>
+nmap <leader>e  :Files<CR>
+nmap <leader>bb :Buffers<cr>
+nmap <leader>T  :Tags<cr>
+nmap <leader>t  :BTags<cr>
+nmap <leader>gC :Commits<cr>
+nmap <leader>gc :BCommits<cr>
+nmap <leader>mm :Marks<cr>
+nmap <leader>H  :Helptags<cr>
+nmap <leader>/  :Rg<cr>
+nmap <leader>:  :Commands<cr>
+nmap <leader>ss :BLines<cr>
+nmap <leader>ji :BTags<cr>
+nmap <leader>q  :Snippets<cr>
 
 " Insert mode completion
 imap <c-x><c-k> <plug>(fzf-complete-word)
