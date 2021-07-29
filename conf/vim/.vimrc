@@ -146,7 +146,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'markonm/traces.vim'
 
 Plug '~/src/fzfolds.vim'
-  nnoremap <leader>jo :FFolds<CR>
+  nnoremap <leader>jo :Folds<CR>
 
 
 " }}}
