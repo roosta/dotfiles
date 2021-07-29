@@ -104,6 +104,7 @@ Plug 'AndrewRadev/sideways.vim'
 Plug 'chaoren/vim-wordmotion'
 Plug 'stefandtw/quickfix-reflector.vim'
 Plug 'triglav/vim-visual-increment'
+Plug 'tpope/vim-capslock'
 " }}}
 " Files {{{
 
