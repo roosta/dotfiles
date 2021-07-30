@@ -227,20 +227,6 @@ Plug 'mattn/emmet-vim', { 'for': ['html', 'css', 'html.handlebars', 'vue'] }
 Plug 'othree/html5.vim'
 Plug 'posva/vim-vue'
 
-" Plug 'leafOfTree/vim-vue-plugin'
-"   function! OnChangeVueSyntax(syntax)
-"     echom 'Syntax is ' . a:syntax
-"     if a:syntax ==? 'html'
-"       setlocal commentstring=<!--%s-->
-"       setlocal comments=s:<!--,m:\ \ \ \ ,e:-->
-"     elseif a:syntax =~? 'css'
-"       setlocal comments=s1:/*,mb:*,ex:*/ commentstring&
-"     else
-"       setlocal commentstring=//%s
-"       setlocal comments=sO:*\ -,mO:*\ \ ,exO:*/,s1:/*,mb:*,ex:*/,://
-"     endif
-"   endfunction
-
 Plug 'guns/vim-sexp', { 'for': 'clojure' }
 Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for': 'clojure' }
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
