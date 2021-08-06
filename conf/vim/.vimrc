@@ -147,7 +147,7 @@ Plug 'markonm/traces.vim'
 
 Plug '~/src/fzfolds.vim'
   nnoremap <leader>jo :Folds<CR>
-
+  let g:fzfolds_open = 1
 
 " }}}
 " Color {{{
