@@ -294,7 +294,10 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install', 'for': 'ma
   let g:mkdp_browser = 'chrome-scaled'
 
 Plug 'SidOfc/mkdx', { 'for': 'markdown' }
-  let g:mkdx#settings = { 'highlight': { 'enable': 1 } }
+  let g:mkdx#settings = {
+        \ 'highlight': { 'enable': 1 },
+        \ 'map': { 'prefix': '\' },
+        \ }
 
 " }}}
 " Linting {{{
