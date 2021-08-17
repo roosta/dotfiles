@@ -122,7 +122,7 @@ alias rg="rg --smart-case --colors 'match:fg:magenta' --colors 'match:style:bold
 
 alias sgrep='grep -R -n -H -C 5 --exclude-dir={.git,.svn,CVS} '
 
-alias aliasg="vimcat ~/.zsh.d/aliases.zsh | ag" # locate an alias quickly
+alias aliasg="vimcat ~/.zsh.d/aliases.zsh | rg" # locate an alias quickly
 alias aliasgrep="aliasg"
 
 # grep command history quickly
@@ -358,7 +358,8 @@ alias paste="clippaste" # see functions
 
 # print date in various formats
 alias gettime='date +"%T"'
-alias now='date +"%Y-%m-%d@%T"'
+alias _now='date +"%Y-%m-%d@%T"'
+alias now='date +"%Y-%m-%dT%T"'
 alias getdate='date +"%Y-%m-%d"'
 
 alias tasks="task"
