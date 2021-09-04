@@ -537,6 +537,9 @@ nnoremap gp `[v`]
 
 nnoremap <leader>bd :bd<CR>
 
+" edit or create file
+map gf :e <cfile><CR>
+
 " }}}
 " Functions & Commands: {{{
 
