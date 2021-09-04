@@ -258,6 +258,8 @@ Plug 'ludovicchabant/vim-gutentags'
   command! -nargs=0 GutentagsClearCache call system('rm ' . g:gutentags_cache_dir . '/*')
 
 Plug 'cespare/vim-toml'
+Plug 'mustache/vim-mustache-handlebars'
+Plug 'chr4/nginx.vim'
 
 " }}}
 " Completion {{{
