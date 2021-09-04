@@ -225,7 +225,23 @@ Plug 'mattn/emmet-vim', { 'for': ['html', 'css', 'html.handlebars', 'vue'] }
   let g:user_emmet_leader_key='<C-Q>'
 
 Plug 'othree/html5.vim'
-Plug 'posva/vim-vue'
+Plug 'othree/xml.vim'
+Plug 'leafOfTree/vim-vue-plugin'
+  function! OnChangeVueSyntax(syntax)
+    if a:syntax ==? 'html'
+      setlocal commentstring=<!--%s-->
+      setlocal comments=s:<!--,m:\ \ \ \ ,e:-->
+    elseif a:syntax =~? 'css'
+      setlocal comments=s1:/*,mb:*,ex:*/ commentstring&
+    else
+      setlocal commentstring=//%s
+      setlocal comments=sO:*\ -,mO:*\ \ ,exO:*/,s1:/*,mb:*,ex:*/,://
+    endif
+  endfunction
+
+" Plug 'posva/vim-vue'
+"   let g:html_indent_inctags = 'transition'
+"   let g:vue_pre_processors = 'detect_on_enter'
 
 Plug 'guns/vim-sexp', { 'for': 'clojure' }
 Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for': 'clojure' }
