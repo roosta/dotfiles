@@ -554,6 +554,9 @@ function! AppendModeline()
 endfunction
 command! Mode call AppendModeline()
 
+" https://vimtricks.substack.com/p/insert-the-current-date-or-time
+command! Date execute "put =strftime('%a %Y-%m-%d %H:%M:%S%z')"
+
 " Use this to install plugins via script
 " vim -c "exec InstallAndExit()"
 function! InstallAndExit()
