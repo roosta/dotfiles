@@ -91,7 +91,6 @@ Plug 'tpope/vim-abolish'
 " Plug 'obreitwi/vim-sort-folds'
 "   let g:sort_folds_ignore_case = 1
 
-Plug '~/src/foldlist'
 Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-eunuch'
 Plug 'matze/vim-move'
