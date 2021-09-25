@@ -157,16 +157,16 @@ Plug '~/src/srcery-vim'
   let g:srcery_italic=1
   let g:srcery_bg_passthrough=1
 
-Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
-  let g:Hexokinase_virtualText = '▀'
-  let g:Hexokinase_optInPatterns = [
-        \ 'full_hex',
-        \ 'triple_hex',
-        \ 'rgb',
-        \ 'rgba',
-        \ 'hsl',
-        \ 'hsla',
-        \ ]
+" Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
+  " let g:Hexokinase_virtualText = '▀'
+  " let g:Hexokinase_optInPatterns = [
+  "      \ 'full_hex',
+  "      \ 'triple_hex',
+  "      \ 'rgb',
+  "      \ 'rgba',
+  "      \ 'hsl',
+  "      \ 'hsla',
+  "      \ ]
 
 Plug 'itchyny/lightline.vim'
   let g:lightline = {
