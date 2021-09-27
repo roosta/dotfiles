@@ -261,6 +261,8 @@ Plug 'cespare/vim-toml'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'chr4/nginx.vim'
 
+Plug 'fladson/vim-kitty'
+
 " }}}
 " Completion {{{
 
