@@ -17,6 +17,7 @@ com-eviware-soapui-SoapUI = ""
 "web.whatsapp.com" = ""
 "Discord" = ""
 Alacritty = ""
+Kitty = ""
 
 [aliases]
 firefoxdeveloperedition = "Firefox-dev"
