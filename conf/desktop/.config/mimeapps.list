@@ -23,7 +23,7 @@ x-scheme-handler/figma=figma-linux.desktop
 [Added Associations]
 image/jpeg=gimp.desktop;feh.desktop;
 video/H264=mpv.desktop
-text/plain=gvim.desktop;vim.desktop;
+text/plain=nvim.desktop;gvim.desktop;vim.desktop;
 x-scheme-handler/http=firefox.desktop;
 x-scheme-handler/https=firefox.desktop;
 x-scheme-handler/ftp=firefox.desktop;
