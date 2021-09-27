@@ -11,8 +11,8 @@ set $locker i3lock -i /home/roosta/backgrounds/footer_lodyas.png -t
 # set $term urxvtc -e bash -c "tmux -q has-session && exec tmux attach-session -d || exec tmux new-session -s main"
 # set $term termite -e "bash -c 'tmux -q has-session && exec tmux attach-session -d || exec tmux new-session -s main'"
 # set $term termite -e tmux
-set $term alacritty
-set $term_scaled env GDK_DPI_SCALE=0.5 alacritty
+set $term kitty
+set $term_scaled env GDK_DPI_SCALE=0.5 kitty
 
 # set scrot/screenshot file arguments
 set $screenshot "$HOME/Pictures/screenshots/screenshot_$(date +%Y-%m-%d@%H-%M-%S).png"
