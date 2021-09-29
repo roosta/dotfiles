@@ -193,25 +193,25 @@ update-spacemacs:
 # 	git clone -b develop https://github.com/syl20bnr/spacemacs ~/.emacs.d
 
 ~/var/emacs/undo:
-	mkdir -p ~/var/emacs/undo
+	mkdir -p $@
 
 ~/.dircolors: update-libs
-	-ln -s $(HOME)/lib/LS_COLORS/LS_COLORS $(HOME)/.dircolors
+	-ln -s $(HOME)/lib/LS_COLORS/LS_COLORS $@
 
 ~/bin/vidir: update-libs
-	-ln -s $(HOME)/lib/vidir/bin/vidir $(HOME)/bin/vidir
+	-ln -s $(HOME)/lib/vidir/bin/vidir $@
 
 ~/.i3/config: link-conf ~/etc/local/$(HOST)/variables.mk ~/etc/templates/i3/*.i3
 	@echo -e "\033[0;33mCreating i3 config...\033[0m"
-	cd ~/etc/templates/i3 && cat *.i3 > ~/.i3/config
+	cd ~/etc/templates/i3 && cat *.i3 > $@
 ifdef primary_monitor
-	@echo "set \$$primary_monitor $(primary_monitor)" >> ~/.i3/config
+	@echo "set \$$primary_monitor $(primary_monitor)" >> $@
 endif
 ifdef secondary_monitor
-	@echo "set \$$secondary_monitor $(secondary_monitor)" >> ~/.i3/config
+	@echo "set \$$secondary_monitor $(secondary_monitor)" >> $@
 endif
 ifdef tertiary_monitor
-	@echo "set \$$tertiary_monitor $(tertiary_monitor)" >> ~/.i3/config
+	@echo "set \$$tertiary_monitor $(tertiary_monitor)" >> $@
 endif
 
 i3: ~/.i3/config
@@ -226,16 +226,16 @@ dunst: ~/.config/dunst/dunstrc
 	@echo -e "\033[0;33mCreating dunst config...\033[0m"
 
 ~/.config/dunst:
-	mkdir -p ~/.config/dunst
+	mkdir -p $@
 
 ~/.config/dunst/dunstrc: ~/etc/templates/dunst/config.dunst ~/etc/local/$(HOST)/variables.mk ~/.config/dunst
 	cat ~/etc/templates/dunst/config.dunst > ~/.config/dunst/dunstrc
 ifdef font
-	sed -ri 's/font = (.*)/font = $(font)/' ~/.config/dunst/dunstrc
+	sed -ri 's/font = (.*)/font = $(font)/' $@
 endif
 
 ifdef dunst_geometry
-	sed -ri 's/geometry = (.*)/geometry = $(dunst_geometry)/' ~/.config/dunst/dunstrc
+	sed -ri 's/geometry = (.*)/geometry = $(dunst_geometry)/' $@
 endif
 
 ~/.config/rofi/config.rasi: ~/etc/templates/rofi/config.rofi ~/etc/local/$(HOST)/variables.mk
