@@ -365,7 +365,9 @@ set directory=~/.cache/vim/swap//
 
 " Undo
 set undofile
-set undodir=~/.cache/vim/undo
+if !has('nvim')
+  set undodir=~/.cache/vim/undo
+endif
 
 " indent
 set expandtab
