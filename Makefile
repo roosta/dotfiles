@@ -3,6 +3,7 @@ HOST ?= $(shell hostname)
 NOW = $(shell date +"%Y-%m-%dT%T")
 VARS = ~/etc/local/$(HOST)/variables.mk
 GLOBAL_VERSION = "6.6.3"
+DIRS = ~/src ~/lib ~/mnt ~/tmp ~/bin ~/sbin ~/var/log ~/var/vim/undo ~/var/emacs/backup ~/.cache/zsh ~/backup  ~/.local/share ~/.mozilla/firefox/roosta ~/var/emacs/undo ~/.config/dunst ~/etc/build
 
 ifneq ("$(wildcard $(VARS))","")
 include $(VARS)
@@ -25,9 +26,6 @@ min-install:
 
 min-links:
 	stow zsh git tmux vim bash -R -t ~ -d conf
-
-~/etc/build:
-	-mkdir -p ~/etc/build
 
 cleanup:
 	@echo -e "\033[0;33mCleaning up...\033[0m"
@@ -75,37 +73,14 @@ install-packages:
 # Scaffold user fs structure.
 # @ stops the command from being echoed to stdout.
 # - means that make will keep going in the case of an error.
-user-fs: ~/src ~/lib ~/mnt ~/tmp ~/bin ~/sbin ~/var/log ~/var/vim/undo ~/.cache/zsh ~/backup ~/.cache/zsh/dirs ~/var/emacs/undo ~/var/emacs/backup ~/.local/share ~/.mozilla/firefox/roosta
+user-fs: $(DIRS)
 	@echo -e "\033[0;33mCreate user fs...\033[0m"
 
-~/src:
-	-mkdir ~/src
-~/lib:
-	-mkdir ~/lib
-~/mnt:
-	-mkdir ~/mnt
-~/tmp:
-	-mkdir ~/tmp
-~/bin:
-	-mkdir ~/bin
-~/sbin:
-	-mkdir ~/sbin
-~/var/log:
-	-mkdir -p ~/var/log
-~/var/vim/undo:
-	-mkdir -p ~/var/vim/undo
-~/var/emacs/backup:
-	-mkdir -p ~/var/emacs/backup
-~/.cache/zsh:
-	-mkdir -p ~/.cache/zsh
-~/backup:
-	-mkdir -p ~/backup
+$(DIRS):
+	mkdir -p $@
+
 ~/.cache/zsh/dirs:
 	-touch ~/.cache/zsh/dirs
-~/.local/share:
-	-mkdir -p ~/.local/share
-~/.mozilla/firefox/roosta:
-	-mkdir -p ~/.mozilla/firefox/roosta
 
 update-zsh-plugins: ~/.zplug
 	@echo -e "\033[0;33mUpdating zsh plugins...\033[0m"
@@ -192,9 +167,6 @@ update-spacemacs:
 # 	@echo -e "\033[0;33mInitialize spacemacs...\033[0m"
 # 	git clone -b develop https://github.com/syl20bnr/spacemacs ~/.emacs.d
 
-~/var/emacs/undo:
-	mkdir -p $@
-
 ~/.dircolors: update-libs
 	-ln -s $(HOME)/lib/LS_COLORS/LS_COLORS $@
 
@@ -225,10 +197,8 @@ i3: ~/.i3/config
 dunst: ~/.config/dunst/dunstrc
 	@echo -e "\033[0;33mCreating dunst config...\033[0m"
 
-~/.config/dunst:
-	mkdir -p $@
-
 ~/.config/dunst/dunstrc: ~/etc/templates/dunst/config.dunst ~/etc/local/$(HOST)/variables.mk ~/.config/dunst
+	@mkdir -p $(@D)
 	cat ~/etc/templates/dunst/config.dunst > ~/.config/dunst/dunstrc
 ifdef font
 	sed -ri 's/font = (.*)/font = $(font)/' $@
@@ -262,7 +232,7 @@ update-tmux:
 
 ~/.tmux/plugins/tpm: link-conf
 	@echo -e "\033[0;33mInitialize tmux...\033[0m"
-	mkdir -p ~/.tmux/plugins
+	@mkdir -p $(@D)
 	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm && ~/.tmux/plugins/tpm/bin/install_plugins
 
 save-originals:
