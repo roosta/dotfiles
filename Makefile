@@ -238,19 +238,22 @@ ifdef dunst_geometry
 	sed -ri 's/geometry = (.*)/geometry = $(dunst_geometry)/' ~/.config/dunst/dunstrc
 endif
 
-~/.config/rofi/config: ~/etc/templates/rofi/config.rofi ~/etc/local/$(HOST)/variables.mk
-	cat ~/etc/templates/rofi/*.rofi > ~/.config/rofi/config.rasi
+~/.config/rofi/config.rasi: ~/etc/templates/rofi/config.rofi ~/etc/local/$(HOST)/variables.mk
+	cat ~/etc/templates/rofi/*.rofi > $@
 ifdef bar_height
-	sed -i '$$s/}/\n  yoffset: $(bar_height);\n}/' ~/.config/rofi/config.rasi
-endif
-ifdef lines
-	sed -i '$$s/}/\n  lines: $(lines);\n}/' ~/.config/rofi/config.rasi
+	sed -i '$$s/}/\n  yoffset: $(bar_height);\n}/' $@
 endif
 ifdef font
-	sed -i '$$s/}/\n  font: $(font);\n}/' ~/.config/rofi/config.rasi
+	sed -i '$$s/}/\n  font: $(font);\n}/' $@
+endif
+ifneq ($(and $(rofi_height),$(rofi_width)),)
+	echo -e "\nwindow {" >> $@
+	echo "  width: $(rofi_width)px;" >> $@
+	echo "  height: $(rofi_height)px;" >> $@
+	echo "}" >> $@
 endif
 
-rofi: ~/.config/rofi/config
+rofi: ~/.config/rofi/config.rasi
 	@echo -e "\033[0;33mCreating rofi config...\033[0m"
 
 update-tmux:
