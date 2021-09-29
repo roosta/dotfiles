@@ -1,4 +1,4 @@
-.PHONY: default update links install min min-update min-install min-links install-yay install-aur-packages install-packages user-fs update-zsh-plugins update-libs init-vim update-vim update-src link-misc link-conf link-local set-shell update-spacemacs i3 rofi update-tmux save-originals rustup exa update-rust
+.PHONY: default update links install min min-update min-install min-links install-yay install-aur-packages install-packages user-fs update-zsh-plugins update-libs init-vim update-vim update-src link-misc link-conf link-local set-shell  i3 rofi update-tmux save-originals rustup exa update-rust
 HOST ?= $(shell hostname)
 NOW = $(shell date +"%Y-%m-%dT%T")
 VARS = ~/etc/local/$(HOST)/variables.mk
@@ -30,10 +30,6 @@ cleanup:
 	@echo -e "\033[0;33mCleaning up...\033[0m"
 	-rm -rf ~/etc/build
 
-~/.terminfo/x/xterm-termite: ~/etc/build
-	wget https://raw.githubusercontent.com/thestinger/termite/master/termite.terminfo ~/etc/build/
-	tic -x ~/etc/build/termite.terminfo
-
 install-yay: ~/etc/build
 	@echo -e "\033[0;33mBuilding and installing yay...\033[0m"
 	-cd ~/etc/build && git clone https://aur.archlinux.org/yay.git
@@ -44,9 +40,9 @@ install-paru: ~/etc/build
 	-cd ~/etc/build && git clone https://aur.archlinux.org/paru.git
 	-cd ~/etc/build/paru && makepkg -si --noconfirm --needed
 
-# add-pacman-repositories:
-# 	@echo -e "\033[0;33mAdding pacman repositories...\033[0m"
-# 	cat pacman_repositories.txt | sudo tee -a /etc/pacman.conf
+add-pacman-repositories:
+	@echo -e "\033[0;33mAdding pacman repositories...\033[0m"
+	cat pacman_repositories.txt | sudo tee -a /etc/pacman.conf
 
 install-aur-packages: install-yay
 	@echo -e "\033[0;33mInstalling AUR packages...\033[0m"
@@ -56,14 +52,7 @@ install-packages:
 	@echo -e "\033[0;33mInstalling packages...\033[0m"
 	sudo pacman --needed -S - < pacman_packages.txt
 
-# .PHONY: enable-services
-# enable-services: init-emacs
-# 	@echo -e "\033[0;33mInitialize emacs...\033[0m"
-# 	systemctl --user enable emacs && systemctl --user start emacs
-
 # Scaffold user fs structure.
-# @ stops the command from being echoed to stdout.
-# - means that make will keep going in the case of an error.
 user-fs: $(DIRS)
 	@echo -e "\033[0;33mCreate user fs...\033[0m"
 
@@ -97,12 +86,7 @@ update-src:
 	# ssh-add -l &>/dev/null || ssh-add ~/.ssh/id_rsa
 	./scripts/git_update.sh ~/src ~/etc/src_repositories.txt
 
-~/org:
-	@echo -e "\033[0;33mCloning org...\033[0m"
-	# ssh-add -l &>/dev/null || ssh-add ~/.ssh/id_rsa
-	git clone git@github.com:roosta/org.git ~/org
-
-link-misc: ~/scripts ~/colors ~/bin/emacs-file-opener ~/bin/ftl ~/bin/touchpad-toggle ~/bin/tmain ~/bin/tupd
+link-misc: ~/scripts ~/colors ~/bin/ftl ~/bin/touchpad-toggle ~/bin/tmain ~/bin/tupd
 	@echo -e "\033[0;33mSymlinking misc files...\033[0m"
 
 ~/scripts: user-fs update-src
@@ -110,9 +94,6 @@ link-misc: ~/scripts ~/colors ~/bin/emacs-file-opener ~/bin/ftl ~/bin/touchpad-t
 
 ~/colors: user-fs update-src
 	-ln -f -s $(HOME)/src/colors $(HOME) &>/dev/null
-
-~/bin/emacs-file-opener: user-fs update-src
-	-ln -f -s $(HOME)/src/scripts/emacs-file-opener.sh $(HOME)/bin/emacs-file-opener &>/dev/null
 
 ~/bin/ftl: user-fs update-src
 	-ln -f -s $(HOME)/etc/scripts/ftl.sh $(HOME)/bin/ftl &>/dev/null
@@ -132,12 +113,6 @@ link-misc: ~/scripts ~/colors ~/bin/emacs-file-opener ~/bin/ftl ~/bin/touchpad-t
 ~/bin/tssh: user-fs update-src
 	-ln -f -s $(HOME)/scripts/tmux-ssh.sh $(HOME)/bin/tssh &>/dev/null
 
-~/bin/rxtx: user-fs update-src
-	-ln -f -s $(HOME)/scripts/rxtx.sh $(HOME)/bin/rxtx &>/dev/null
-
-~/bin/loadavg: user-fs update-src
-	-ln -f -s $(HOME)/scripts/loadavg.sh $(HOME)/bin/loadavg &>/dev/null
-
 link-conf: user-fs
 	@echo -e "\033[0;33mSymlinking conf...\033[0m"
 	stow $(shell ls conf) -R -t ~ -d conf --ignore="md|org|firefox"
@@ -149,14 +124,6 @@ link-local:
 set-shell:
 	@echo -e "\033[0;33mSetting shell to zsh...\033[0m"
 	chsh -s `which zsh`
-
-update-spacemacs:
-	@echo -e "\033[0;33mUpdating spacemacs...\033[0m"
-	cd ~/.emacs.d && git pull --rebase
-
-# ~/.emacs.d: link-conf install-packages ~/var/emacs/undo ~/var/emacs/backup
-# 	@echo -e "\033[0;33mInitialize spacemacs...\033[0m"
-# 	git clone -b develop https://github.com/syl20bnr/spacemacs ~/.emacs.d
 
 ~/.dircolors: update-libs
 	-ln -s $(HOME)/lib/LS_COLORS/LS_COLORS $@
@@ -181,9 +148,6 @@ i3: ~/.i3/config
 	@echo -e "\033[0;33mReload i3 config...\033[0m"
 	i3-msg reload
 	@echo -e "\033[1;32mi3 config reloaded!\033[0m"
-
-# clear-rofi:
-# 	rm ~/.config/rofi/config -f
 
 dunst: ~/.config/dunst/dunstrc
 	@echo -e "\033[0;33mCreating dunst config...\033[0m"
