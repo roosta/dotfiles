@@ -2,7 +2,6 @@
 HOST ?= $(shell hostname)
 NOW = $(shell date +"%Y-%m-%dT%T")
 VARS = ~/etc/local/$(HOST)/variables.mk
-GLOBAL_VERSION = "6.6.3"
 DIRS = ~/src ~/lib ~/mnt ~/tmp ~/bin ~/sbin ~/var/log ~/var/vim/undo ~/var/emacs/backup ~/.cache/zsh ~/backup  ~/.local/share ~/.mozilla/firefox/roosta ~/var/emacs/undo ~/.config/dunst ~/etc/build
 
 ifneq ("$(wildcard $(VARS))","")
@@ -34,14 +33,6 @@ cleanup:
 ~/.terminfo/x/xterm-termite: ~/etc/build
 	wget https://raw.githubusercontent.com/thestinger/termite/master/termite.terminfo ~/etc/build/
 	tic -x ~/etc/build/termite.terminfo
-
-global: ~/etc/build
-	wget http://tamacom.com/global/global-$(GLOBAL_VERSION).tar.gz -O ~/etc/build/global-$(GLOBAL_VERSION).tar.gz
-	cd ~/etc/build && tar xvf global-$(GLOBAL_VERSION).tar.gz
-	cd ~/etc/build/global-$(GLOBAL_VERSION) && \
-		./configure --with-exuberant-ctags=/usr/bin/ctags && \
-		make && \
-		sudo make install
 
 install-yay: ~/etc/build
 	@echo -e "\033[0;33mBuilding and installing yay...\033[0m"
