@@ -15,7 +15,7 @@ configuration {
   /* Location on screen */
 	location: 1;
 
-	terminal: "termite";
+	terminal: "kitty";
 
 	sidebar-mode: true;
 
@@ -28,9 +28,6 @@ configuration {
   /*  (similar to latest Qt 5). */
 	dpi: 1;
 
-  /* Theme */
-	theme: "~/src/srcery-gui/rofi/srcery_rofi.rasi";
-
   /* Accept entry */
 	kb-accept-entry: "Return,KP_Enter";
 
@@ -38,7 +35,9 @@ configuration {
 	kb-remove-to-eol: "Control+q";
 
   /* Delete previous char */
-	kb-remove-char-back: "BackSpace";
+  kb-remove-char-back: "BackSpace";
+
+  kb-mode-complete: "Alt+q";
 
   /* Switch to the next mode. */
 	kb-mode-next: "Shift+Right,Control+Tab,Control+l";
