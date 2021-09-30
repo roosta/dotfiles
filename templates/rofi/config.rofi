@@ -10,8 +10,6 @@ configuration {
   /* Set the modi to combine in combi mode */
 	combi-modi: "window,drun";
 
-	width: 20;
-
   /* Location on screen */
 	location: 1;
 
@@ -58,3 +56,5 @@ configuration {
 	kb-page-next: "Page_Down";
 
 }
+
+@theme "~/src/srcery-gui/rofi/srcery_rofi.rasi"
