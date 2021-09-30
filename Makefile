@@ -166,10 +166,10 @@ endif
 ~/.config/rofi/config.rasi: ~/etc/templates/rofi/config.rofi ~/etc/local/$(HOST)/variables.mk
 	cat ~/etc/templates/rofi/*.rofi > $@
 ifdef bar_height
-	sed -i '$$s/}/\n  yoffset: $(bar_height);\n}/' $@
+	sed -i '0,/}/{s//\n yoffset: $(bar_height);\n}/}' $@
 endif
 ifdef font
-	sed -i '$$s/}/\n  font: $(font);\n}/' $@
+	sed -i '0,/}/{s//\n font: $(font);\n}/}' $@
 endif
 ifneq ($(and $(rofi_height),$(rofi_width)),)
 	echo -e "\nwindow {" >> $@
