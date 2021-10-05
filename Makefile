@@ -1,8 +1,52 @@
-.PHONY: default update links install min min-update min-install min-links install-yay install-aur-packages install-packages user-fs update-zsh-plugins update-libs init-vim update-vim update-src link-misc link-conf link-local set-shell  i3 rofi update-tmux save-originals rustup exa update-rust
+.PHONY: \
+	default \
+	update \
+	links \
+	install \
+	min \
+	min-update \
+	min-install \
+	min-links \
+	install-yay \
+	install-aur-packages \
+	install-packages \
+	user-fs \
+	update-zsh-plugins \
+	update-libs \
+	init-vim \
+	update-vim \
+	update-src \
+	link-misc \
+	link-conf \
+	link-local \
+	set-shell \
+	i3 \
+	rofi \
+	update-tmux \
+	save-originals \
+	rustup \
+	exa \
+	update-rust
 HOST ?= $(shell hostname)
 NOW = $(shell date +"%Y-%m-%dT%T")
 VARS = ~/etc/local/$(HOST)/variables.mk
-DIRS = ~/src ~/lib ~/mnt ~/tmp ~/bin ~/sbin ~/var/log ~/var/vim/undo ~/var/emacs/backup ~/.cache/zsh ~/backup  ~/.local/share ~/.mozilla/firefox/roosta ~/var/emacs/undo ~/.config/dunst ~/etc/build
+DIRS = \
+		 ~/src \
+		 ~/lib \
+		 ~/mnt \
+		 ~/tmp \
+		 ~/bin \
+		 ~/sbin \
+		 ~/var/log \
+		 ~/var/vim/undo \
+		 ~/var/emacs/backup \
+		 ~/.cache/zsh \
+		 ~/backup \
+		 ~/.local/share \
+		 ~/.mozilla/firefox/roosta \
+		 ~/var/emacs/undo \
+		 ~/.config/dunst \
+		 ~/etc/build
 
 ifneq ("$(wildcard $(VARS))","")
 include $(VARS)
@@ -14,9 +58,30 @@ update: update-zsh-plugins update-libs update-tmux update-vim update-rust
 
 links: link-conf link-misc link-local
 
-install: user-fs install-yay install-packages install-aur-packages save-originals ~/.emacs.d set-shell update-src update-libs update-zsh-plugins ~/.tmux/plugins/tpm links ~/.zplug cleanup
+install: user-fs \
+	install-yay \
+	install-packages \
+	install-aur-packages \
+	save-originals \
+	~/.emacs.d \
+	set-shell \
+	update-src \
+	update-libs \
+	update-zsh-plugins \
+	~/.tmux/plugins/tpm \
+	links \
+	~/.zplug cleanup
 
-min: min-install save-originals user-fs update-libs set-shell update-zsh-plugins min-links init-vim init-tmux cleanup
+min: min-install \
+	save-originals \
+	user-fs \
+	update-libs \
+	set-shell \
+	update-zsh-plugins \
+	min-links \
+	init-vim \
+	init-tmux \
+	cleanup
 
 min-update: update-libs update-zsh-plugins update-tmux update-vim
 
