@@ -10,7 +10,6 @@ clojure
 cmake
 cryptsetup
 dunst
-emacs
 encfs
 feh
 firefox
@@ -96,8 +95,11 @@ diff-so-fancy
 bat
 flameshot
 neovim
+gvim
 yarn
 ctags
 task
 inetutils
 clipmenu
+gdb
+scrot
