@@ -92,7 +92,7 @@ min-install:
 	xargs sudo apt-get install -y < min_packages.txt
 
 min-links:
-	stow -R -t ~ -d conf zsh git tmux vim bash
+	stow -R -t ~ -d conf zsh git tmux vim bash nvim
 
 cleanup:
 	@echo -e "\033[0;33mCleaning up...\033[0m"
