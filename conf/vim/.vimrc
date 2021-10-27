@@ -456,6 +456,8 @@ if has('gui_running')
   set guifont=Iosevka\ 9
 endif
 
+" list
+set listchars+=eol:$,space:･
 " theme
 colorscheme srcery
 
