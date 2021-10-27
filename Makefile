@@ -40,11 +40,9 @@ DIRS = \
 		 ~/sbin \
 		 ~/var/log \
 		 ~/var/vim/undo \
-		 ~/var/emacs/backup \
 		 ~/.cache/zsh \
 		 ~/backup \
 		 ~/.local/share \
-		 ~/.mozilla/firefox/roosta \
 		 ~/var/emacs/undo \
 		 ~/.config/dunst \
 		 ~/etc/build
