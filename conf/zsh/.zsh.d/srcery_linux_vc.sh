@@ -1,1 +1,1 @@
-/home/roosta/src/srcery-terminal/linux_vc/srcery_linux_vc.sh
+../../../../src/srcery-terminal/linux_vc/srcery_linux_vc.sh
