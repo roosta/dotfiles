@@ -256,11 +256,11 @@ update-tmux:
 ~/.tmux/plugins/tpm: link-conf
 	@echo -e "\033[0;33mInitialize tmux...\033[0m"
 	@mkdir -p $(@D)
-	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm && ~/.tmux/plugins/tpm/bin/install_plugins
+	-@git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm && ~/.tmux/plugins/tpm/bin/install_plugins
 
 save-originals:
 	mkdir -p ~/backup/original-system-files
-	-mv ~/.bash* ~/backup/original-system-files
+	-@mv ~/.bash* ~/backup/original-system-files
 
 rustup:
 	rustup install stable
