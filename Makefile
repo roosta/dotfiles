@@ -256,7 +256,7 @@ update-tmux:
 	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm && ~/.tmux/plugins/tpm/bin/install_plugins
 
 save-originals:
-	mkdir ~/backup/original-system-files@$(NOW)
+	mkdir -p ~/backup/original-system-files@$(NOW)
 	mv ~/.bash* ~/backup/original-system-files@$(NOW)
 
 rustup:
