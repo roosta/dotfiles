@@ -77,6 +77,8 @@ min: min-install \
 	update-libs \
 	set-shell \
 	min-links \
+	~/src/srcery-vim \
+	~/src/srcery-terminal \
 	update-zsh-plugins \
 	init-vim \
 	~/.tmux/plugins/tpm \
@@ -288,3 +290,11 @@ npm-packages: links
 
 ~/.zplug:
 	curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
+
+~/src/srcery-vim:
+	@mkdir -p $(@D)
+	git clone https://github.com/srcery-colors/srcery-vim ~/src/srcery-vim
+
+~/src/srcery-terminal:
+	@mkdir -p $(@D)
+	git clone https://github.com/srcery-colors/srcery-terminal ~/src/srcery-terminal
