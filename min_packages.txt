@@ -3,3 +3,4 @@ stow
 tmux
 vim
 exuberant-ctags
+parallel

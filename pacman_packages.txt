@@ -103,3 +103,4 @@ inetutils
 clipmenu
 gdb
 scrot
+paralell
