@@ -78,8 +78,8 @@ min: min-install \
 	user-fs \
 	update-libs \
 	set-shell \
-	update-zsh-plugins \
 	min-links \
+	update-zsh-plugins \
 	init-vim \
 	init-tmux \
 	cleanup
