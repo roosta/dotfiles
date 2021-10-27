@@ -29,6 +29,7 @@
 	update-rust
 HOST ?= $(shell hostname)
 NOW = $(shell date +"%Y-%m-%dT%T")
+TIMESTAMP=$(shell date +%s)
 VARS = ~/etc/local/$(HOST)/variables.mk
 DIRS = \
 		 ~/src \
@@ -256,8 +257,8 @@ update-tmux:
 	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm && ~/.tmux/plugins/tpm/bin/install_plugins
 
 save-originals:
-	mkdir -p ~/backup/original-system-files@$(NOW)
-	mv ~/.bash* ~/backup/original-system-files@$(NOW)
+	mkdir -p ~/backup/original-system-files
+	-mv ~/.bash* ~/backup/original-system-files
 
 rustup:
 	rustup install stable
