@@ -59,6 +59,13 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/vim-easy-align'
   xmap ga <Plug>(EasyAlign)
   nmap ga <Plug>(EasyAlign)
+  let g:easy_align_delimiters = {
+        \ '/': {
+          \ 'pattern': '//\+\|/\*\|\*/',
+          \ 'delimiter_align': 'l',
+          \ 'ignore_groups': ['!Comment']
+          \ }
+        \ }
 
 Plug 'ntpeters/vim-better-whitespace'
   let g:better_whitespace_filetypes_blacklist=['diff', 'gitcommit', 'help', 'nofile', 'git']
