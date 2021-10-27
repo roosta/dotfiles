@@ -87,7 +87,7 @@ min: min-install \
 min-update: update-libs update-zsh-plugins update-tmux update-vim
 
 min-install:
-	sudo apt-get install < min_packages.txt
+	xargs sudo apt-get install -y < min_packages.txt
 
 min-links:
 	stow zsh git tmux vim bash -R -t ~ -d conf
