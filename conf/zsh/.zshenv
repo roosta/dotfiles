@@ -75,9 +75,8 @@ export NASHORN_HOME="$JAVA_HOME/bin"
 # https://github.com/racer-rust/racer#installation
 # hash rustc 2>/dev/null && export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
 
-export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
-
 if hash ruby 2>/dev/null; then
+	export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
   PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH"
 fi
 
