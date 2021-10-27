@@ -251,7 +251,7 @@ rofi: ~/.config/rofi/config.rasi
 
 update-tmux:
 	@echo -e "\033[0;33mUpdating tmux plugins...\033[0m"
-	. ~/.tmux/plugins/tpm/bin/update_plugins all
+	~/.tmux/plugins/tpm/bin/update_plugins all
 
 ~/.tmux/plugins/tpm:
 	@echo -e "\033[0;33mInitialize tmux...\033[0m"
