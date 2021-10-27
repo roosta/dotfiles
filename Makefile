@@ -92,7 +92,7 @@ min-install:
 	xargs sudo apt-get install -y < min_packages.txt
 
 min-links:
-	stow zsh git tmux vim bash -R -t ~ -d conf
+	stow -R -t ~ -d conf zsh git tmux vim bash
 
 cleanup:
 	@echo -e "\033[0;33mCleaning up...\033[0m"
@@ -183,11 +183,11 @@ link-misc: ~/scripts ~/colors ~/bin/ftl ~/bin/touchpad-toggle ~/bin/tmain ~/bin/
 
 link-conf: user-fs
 	@echo -e "\033[0;33mSymlinking conf...\033[0m"
-	stow $(shell ls conf) -R -t ~ -d conf --ignore="md|org|firefox"
+	stow -R -t ~ -d conf --ignore="md|org|firefox" $(shell ls conf)
 
 link-local:
 	@echo -e "\033[0;33mSymlinking local...\033[0m"
-	stow $(shell ls local/$(HOST)/conf) -R -t ~ -d local/$(HOST)/conf
+	stow -R -t ~ -d local/$(HOST)/conf $(shell ls local/$(HOST)/conf)
 
 set-shell:
 	@echo -e "\033[0;33mSetting shell to zsh...\033[0m"
