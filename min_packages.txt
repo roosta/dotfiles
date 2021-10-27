@@ -4,3 +4,4 @@ tmux
 vim
 exuberant-ctags
 parallel
+gawk
