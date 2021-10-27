@@ -253,7 +253,7 @@ update-tmux:
 	@echo -e "\033[0;33mUpdating tmux plugins...\033[0m"
 	. ~/.tmux/plugins/tpm/bin/update_plugins all
 
-~/.tmux/plugins/tpm: link-conf
+~/.tmux/plugins/tpm:
 	@echo -e "\033[0;33mInitialize tmux...\033[0m"
 	@mkdir -p $(@D)
 	-@git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm && ~/.tmux/plugins/tpm/bin/install_plugins
