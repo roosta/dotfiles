@@ -81,7 +81,8 @@ min: min-install \
 	min-links \
 	update-zsh-plugins \
 	init-vim \
-	init-tmux \
+	~/.tmux/plugins/tpm \
+	update-tmux \
 	cleanup
 
 min-update: update-libs update-zsh-plugins update-tmux update-vim
