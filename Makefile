@@ -40,6 +40,7 @@ DIRS = \
 		 ~/sbin \
 		 ~/var/log \
 		 ~/var/vim/undo \
+		 ~/.cache/vim/backup \
 		 ~/.cache/zsh \
 		 ~/backup \
 		 ~/.local/share \
