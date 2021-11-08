@@ -19,10 +19,10 @@
 !#define FONT_ITALIC     xft:PragmataPro Italic for Powerline:size=10:style=Italic
 !#define FONT_BOLDITALIC xft:PragmataPro Bold Italic for Powerline:size=10:style=Bold Italic
 
-#define FONT_NORMAL     xft:Iosevka Term:size=9:style=Regular, xft:Essential PragmataPro:size=9:style=Regular 
-#define FONT_BOLD       xft:Iosevka Term:size=9:style=Bold, xft:Essential PragmataPro:size=9:style=Bold
-#define FONT_ITALIC     xft:Iosevka Term:size=9:style=Italic, xft:Essential PragmataPro:size=9:style=Italic
-#define FONT_BOLDITALIC xft:Iosevka Term:size=9:style=Bold Italic, xft:Essential PragmataPro:size=9:style=Bold Italic
+#define FONT_NORMAL     xft:Iosevka:size=9:style=Regular:antialias=true:hinting=true
+#define FONT_BOLD       xft:Iosevka:size=9:style=Bold:antialias=true:hinting=true
+#define FONT_ITALIC     xft:Iosevka:size=9:style=Italic:antialias=true:hinting=true
+#define FONT_BOLDITALIC xft:Iosevka:size=9:style=Bold Italic:antialias=true:hinting=true
 
 ! Ttyp0 <allitnil: 1600x900>
 !#define FONT_NORMAL -uw-ttyp0-medium-r-normal--17-160-75-75-c-90-iso10646-1
