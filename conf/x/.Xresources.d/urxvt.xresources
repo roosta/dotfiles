@@ -116,4 +116,3 @@ URxvt.keysym.M-C-S-Home       : \033[1;8H
 URxvt.keysym.M-C-S-End        : \033[1;8F
 
 ! vim:ft=xdefaults:ts=2:sw=2:fdm=marker
-
