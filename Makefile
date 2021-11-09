@@ -220,15 +220,20 @@ i3: ~/.i3/config
 dunst: ~/.config/dunst/dunstrc
 	@echo -e "\033[0;33mCreating dunst config...\033[0m"
 
-~/.config/dunst/dunstrc: ~/etc/templates/dunst/config.dunst ~/etc/local/$(HOST)/variables.mk ~/.config/dunst
+~/.config/dunst/dunstrc: ~/etc/templates/dunst/config.dunst ~/etc/local/$(HOST)/variables.mk
 	@mkdir -p $(@D)
 	cat ~/etc/templates/dunst/config.dunst > ~/.config/dunst/dunstrc
 ifdef font
-	sed -ri 's/font = (.*)/font = $(font)/' $@
+	sed -ri '/\[global\]/a font = $(font)' $@
 endif
-
-ifdef dunst_geometry
-	sed -ri 's/geometry = (.*)/geometry = $(dunst_geometry)/' $@
+ifdef dunst_width
+	sed -ri "/\[global\]/a width = $(dunst_width)" $@
+endif
+ifdef dunst_height
+	sed -ri "/\[global\]/a height = $(dunst_height)" $@
+endif
+ifdef dunst_offset
+	sed -ri "/\[global\]/a offset = $(dunst_offset)" $@
 endif
 
 ~/.config/rofi/config.rasi: ~/etc/templates/rofi/config.rofi ~/etc/local/$(HOST)/variables.mk
