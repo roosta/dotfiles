@@ -460,6 +460,11 @@ endif
 
 " list
 set listchars+=eol:$,space:･
+
+" change the direction of new splits
+set splitbelow
+set splitright
+
 " theme
 colorscheme srcery
 
