@@ -277,11 +277,9 @@ bindsym --release Shift+Caps_Lock exec polybar-msg hook keyboard-layout 1
 bindsym $mod+Control+e exec ~/.vim-anywhere/bin/run
 # bindsym $mod+Control+e exec ~/.emacs_anywhere/bin/run
 
-# DUNST
-bindsym Control+BackSpace exec dunstctl close
-# bindsym Control+Shift+BackSpace exec dunstctl close_all
-bindsym Control+grave exec dunstctl history-pop
-bindsym Control+Shift+period exec dunstctl context
+# Dunst
+bindsym $mod+bracketleft exec dunstctl close
+bindsym $mod+bracketright exec dunstctl history-pop
 
 #}}}
 # Binding modes {{{1
