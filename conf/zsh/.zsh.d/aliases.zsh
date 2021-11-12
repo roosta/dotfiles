@@ -146,6 +146,7 @@ alias sinks="pacmd list-sinks|egrep -i 'index:|name:'"
 
 alias awk='gawk'
 alias find-here='find . -name'
+alias fd='fd --hidden'
 #}}}
 # Web search: {{{1
 alias @aur='googler -w aur.archlinux.org'
