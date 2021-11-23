@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Figma Scaled
+Comment=Figma scaled to 1080p displays
+Exec=figma-linux --force-device-scale-factor=1 %U 
+Icon=utilities-terminal
+Type=Application
+StartupNotify=true
