@@ -158,28 +158,28 @@ link-misc: ~/scripts ~/colors ~/bin/ftl ~/bin/touchpad-toggle ~/bin/tmain ~/bin/
 	@echo -e "\033[0;33mSymlinking misc files...\033[0m"
 
 ~/scripts: user-fs update-src
-	-ln -f -s $(HOME)/src/scripts $@ &>/dev/null
+	-ln -f -s $(HOME)/src/scripts $@
 
 ~/colors: user-fs update-src
-	-ln -f -s $(HOME)/src/colors $@ &>/dev/null
+	-ln -f -s $(HOME)/src/colors $@
 
 ~/bin/ftl: user-fs update-src
-	-ln -f -s $(HOME)/etc/scripts/ftl.sh $@ &>/dev/null
+	-ln -f -s $(HOME)/etc/scripts/ftl.sh $@
 
 ~/bin/touchpad-toggle: user-fs update-src
-	-ln -f -s $(HOME)/src/scripts/touchpad-toggle.sh $@ &>/dev/null
+	-ln -f -s $(HOME)/src/scripts/touchpad-toggle.sh $@
 
 ~/bin/tmain: user-fs update-src
-	-ln -f -s $(HOME)/scripts/tmux-main.sh $@ &>/dev/null
+	-ln -f -s $(HOME)/scripts/tmux-main.sh $@
 
 ~/bin/tmusic: user-fs update-src
-	-ln -f -s $(HOME)/scripts/tmux-music.sh $@ &>/dev/null
+	-ln -f -s $(HOME)/scripts/tmux-music.sh $@
 
 ~/bin/tupd: user-fs update-src
-	-ln -f -s $(HOME)/scripts/tmux-update-window.sh $@ &>/dev/null
+	-ln -f -s $(HOME)/scripts/tmux-update-window.sh $@
 
 ~/bin/tssh: user-fs update-src
-	-ln -f -s $(HOME)/scripts/tmux-ssh.sh $@ &>/dev/null
+	-ln -f -s $(HOME)/scripts/tmux-ssh.sh $@
 
 link-conf: user-fs
 	@echo -e "\033[0;33mSymlinking conf...\033[0m"
