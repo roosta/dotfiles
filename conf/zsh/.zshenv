@@ -43,8 +43,8 @@ export GOPATH=$HOME/.go
 
 export ZSH_CACHE_DIR=$HOME/.cache/zsh
 
-# always use the -R option to show raw characters
-export LESS="-R --use-color"
+# Set less default opts
+export LESS="-R --use-color --mouse --jump-target=12 -DP15.236"
 
 export PAGER=less
 export PARU_PAGER=less
