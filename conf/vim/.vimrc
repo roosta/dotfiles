@@ -100,7 +100,7 @@ Plug 'tpope/vim-abolish'
 
 Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-eunuch'
-Plug 'matze/vim-move'
+" Plug 'matze/vim-move' use unimpaired [/]e
 Plug 'tommcdo/vim-exchange'
 
 Plug 'AndrewRadev/sideways.vim'
