@@ -82,7 +82,7 @@ monitor = ${env:MONITOR:DVI-I-1}
 dpi = 96
 height = 22
 modules-center =
-modules-right = eth-lintilla fs-home fs-root
+modules-right = eth-lintilla fs-root fs-netmedia fs-vmstorage
 tray-position = right
 tray-padding = 1
 tray-scale = 1
@@ -123,7 +123,7 @@ tray-position = right
 tray-padding = 1
 tray-scale = 1
 monitor = ${env:MONITOR:HDMI2}
-modules-right = eth-garkbit fs-home fs-root
+modules-right = eth-garkbit fs-root
 
 [module/i3]
 
@@ -380,11 +380,18 @@ label-mounted = %mountpoint% %percentage_used%%
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.yellow}
 
-[module/fs-home]
+[module/fs-netmedia]
 type = internal/fs
 interval = 25
 inherit = module/fs-root
-mount-0 = /home
+mount-0 = /mnt/netmedia
+bar-used-indicator-foreground = ${colors.blue}
+
+[module/fs-vmstorage]
+type = internal/fs
+interval = 25
+inherit = module/fs-root
+mount-0 = /mnt/vm-storage
 bar-used-indicator-foreground = ${colors.blue}
 
 ; vim:ft=dosini
