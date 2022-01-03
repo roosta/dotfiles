@@ -19,7 +19,7 @@ zplug 'zplug/zplug', hook-build:'zplug --self-manage'
 zplug "Tarrasch/zsh-bd"
 zplug 'wfxr/forgit'
 zplug "mafredri/zsh-async", from:github
-zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
+# zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
 zplug "b4b4r07/enhancd", use:init.sh
 # zplug "roosta/fif"
 zplug "~/src/fif", from:local

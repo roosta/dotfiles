@@ -2,8 +2,11 @@
 # ┃━┛┃┳┛┃ ┃┃┃┃┃━┛ ┃
 # ┇  ┇┗┛┛━┛┛ ┇┇   ┇
 
-VIM_PROMPT="❯"
-PROMPT='%(?.%F{magenta}.%F{red}${VIM_PROMPT})${VIM_PROMPT}%f%k '
+# VIM_PROMPT="❯"
+# PROMPT='%(?.%F{magenta}.%F{red}${VIM_PROMPT})${VIM_PROMPT}%f%k '
+
+
+eval "$(starship init zsh)"
 
 # prompt_pure_update_vim_prompt() {
 #     zle || {

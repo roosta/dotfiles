@@ -104,3 +104,5 @@ clipmenu
 gdb
 scrot
 paralell
+starship
+ttf-iosevka-nerd
