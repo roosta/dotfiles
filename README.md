@@ -8,7 +8,6 @@ by [Make](https://www.gnu.org/software/make/) and
 Companion repos for these dotfiles:
 
 - [srcery-colors/srcery-vim: vim colorscheme](https://github.com/srcery-colors/srcery-vim)
-- [srcery-colors/srcery-emacs: emacs colorscheme](https://github.com/srcery-colors/srcery-emacs)
 - [srcery-colors/srcery-terminal: terminal colorschemes](https://github.com/srcery-colors/srcery-terminal)
 - [roosta/scripts: collection of various shell scripts](https://github.com/roosta/scripts)
 
@@ -95,7 +94,6 @@ detail, but here are some of my favorites:
 - [firefox](https://github.com/roosta/etc/tree/master/conf/firefox)
 - [git](https://github.com/roosta/etc/tree/master/conf/git)
 - [polybar](https://github.com/roosta/etc/tree/master/conf/polybar)
-- [emacs](https://github.com/roosta/etc/tree/master/conf/emacs)
 - rofi
 - termite
 - tmux

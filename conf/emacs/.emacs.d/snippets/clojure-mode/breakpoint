@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: breakpoint
-# key: breakpoint
-# --
-$1-$2? @(rf/subscribe [:tincture/breakpoint-$2 :$1])

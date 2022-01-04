@@ -1,8 +1,0 @@
-# -*- mode: snippet -*-
-# name: Re-frame reg-event-db
-# key: reg-event-db
-# --
-(rf/reg-event-db
-  $1
-  (fn [db [_ $2]]
-    $0))

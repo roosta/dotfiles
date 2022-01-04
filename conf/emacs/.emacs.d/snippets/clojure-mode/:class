@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: Herb :class pattern
-# key: :class
-# --
-:class (<class $1 $0)
