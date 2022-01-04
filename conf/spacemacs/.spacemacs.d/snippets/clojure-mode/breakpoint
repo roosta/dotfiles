@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: breakpoint
-# key: breakpoint
-# --
-$1-$2? @(rf/subscribe [:utils/breakpoint-$2 :$1])

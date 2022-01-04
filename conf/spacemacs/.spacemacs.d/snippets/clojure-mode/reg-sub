@@ -1,8 +1,0 @@
-# -*- mode: snippet -*-
-# name: Re-frame reg-sub
-# key: reg-sub
-# --
-(rf/reg-sub
-  $1
-  (fn [db [_ $2]]
-    $0))
