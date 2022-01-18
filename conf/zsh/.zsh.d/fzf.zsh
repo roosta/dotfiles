@@ -88,12 +88,19 @@ fkill() {
 
 # Fuzzy match file and open with EDITOR
 e() {
-  if [ "$#" -ne 0 ]; then
-    "${EDITOR:-vim}" "$@"
-  else
+  if [ "$#" -eq 0 ]; then
     local file
-    file=$(fzf-tmux --query="$1")
-    [ -n "$file" ] && sleep 0.1 && "${EDITOR:-vim}" "$file"
+    file=$(fd -tf --color=always --strip-cwd-prefix | fzf-tmux --ansi)
+    [ -n "$file" ] && sleep 0.1 && vim "$file"
+  elif [ "$#" -eq 1 ] && [ -d "$1"  ]; then
+    local file
+    file=$(fd -tf --base-directory="$1" --color=always --strip-cwd-prefix | fzf-tmux --ansi)
+    echo "$file"
+    [ -n "$file" ] && vim -c "cd $1" -- "${1}/$file"
+  elif [ "$#" -eq 1 ] && [ -f "$1" ]; then
+    vim "$1"
+  else
+    vim "$@"
   fi
 }
 
