@@ -197,6 +197,7 @@ Plug 'tpope/vim-fugitive'
   autocmd vimrc FileType gitcommit setlocal nofoldenable
 
 Plug 'rhysd/git-messenger.vim'
+Plug 'tpope/vim-rhubarb'
 
 " }}}
 " Multiplexer {{{
