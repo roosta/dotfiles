@@ -383,6 +383,10 @@ alias npmoutdated='npm outdated -g --depth=0'
 
 # alias cheat='cht.sh'
 alias weather='curl http://wttr.in/oslo'
+
+# Kept forgetting these
+alias alarm='termdown'
+alias clock='termdown'
 #}}}
 # VCS: {{{1
 # --------
