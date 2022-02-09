@@ -725,6 +725,7 @@ let g:markdown_fenced_languages = [
       \ 'rust',
       \ 'vim',
       \ 'sh',
+      \ 'c',
       \ 'js=javascript',
       \ 'shell=sh',
       \ 'css'
