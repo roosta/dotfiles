@@ -58,9 +58,9 @@ module-margin-left = 0
 module-margin-right = 0
 font-0 = "Iosevka:pixelsize=9;4"
 font-1 = "Iosevka:pixelsize=9:weight=bold;4"
-font-2 = "FontAwesome5Free:style=Solid:size=10;4"
-font-3 = "FontAwesome5Free:style=Regular:size=10;4"
-font-4 = "FontAwesome5Brands:style=Regular:size=10;4"
+font-2 = "FontAwesome6Free:style=Solid:size=10;4"
+font-3 = "FontAwesome6Free:style=Regular:size=10;4"
+font-4 = "FontAwesome6Brands:style=Regular:size=10;4"
 modules-left = i3 xwindow
 ; modules-center = mpd
 modules-right = spotify keyboard-layout vpncheck updates-arch-combined volume memory cpu date time
