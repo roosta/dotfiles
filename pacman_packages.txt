@@ -82,7 +82,7 @@ zsh-lovers
 lm_sensors
 gnome-keyring
 xorg-xinit
-i3
+i3-wm
 numlockx
 lxqt-policykit
 htop
@@ -103,6 +103,8 @@ inetutils
 clipmenu
 gdb
 scrot
-paralell
+parallel
 starship
 ttf-iosevka-nerd
+alacritty
+rxvt-unicode
