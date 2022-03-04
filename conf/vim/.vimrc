@@ -373,6 +373,7 @@ set wildignore+=*/dist/**/*,*/target/**/*,*/node_modules/**/*
 set wildignore+=*/.git/**/*,*/.hg/**/*,*/.svn/**/*
 set wildignore+=tags
 set wildignore+=*.tar.*
+set wildignore+=*/dist-qa/**,*/dist-devtest/**
 
 " Swap
 set updatetime=100
