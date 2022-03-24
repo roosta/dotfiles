@@ -364,7 +364,9 @@ alias now='date +"%Y-%m-%dT%T"'
 alias getdate='date +"%Y-%m-%d"'
 
 alias tasks="task"
-alias fehp='feh -g 640x480 -d -S filename'
+# alias fehp='feh -g 640x480 -d -S filename'
+alias fehp='devour feh -Z -d -S filename'
+alias mpvp='devour mpv'
 alias mounttmpfs='sudo mount -t tmpfs tmpfs /mnt -o size=1024m'
 alias killemacs='emacsclient -e "(save-buffers-kill-emacs)"'
 alias gpg-reload='gpg-connect-agent reloadagent /bye'
@@ -387,6 +389,7 @@ alias weather='curl http://wttr.in/oslo'
 # Kept forgetting these
 alias alarm='termdown'
 alias clock='termdown'
+
 #}}}
 # VCS: {{{1
 # --------
@@ -470,8 +473,8 @@ alias :q="exit"
 # alias :Q="exit"
 
 # common typo
-alias claer='clear'
-alias cl='clear'
+# alias claer='clear'
+alias cl='clear -x'
 #alias virsh='sudo virsh'
 
 # quick alias to remove steam runtime and use native

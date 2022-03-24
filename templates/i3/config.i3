@@ -8,7 +8,7 @@
 # Startup {{{
 # --------------------
 exec_always --no-startup-id $HOME/scripts/launch-polybar.sh
-exec_always --no-startup-id $HOME/.cargo/bin/i3wsr -c ~/.i3wsr_config.toml
+exec_always --no-startup-id $HOME/.cargo/bin/i3wsr
 # }}}
 # Options {{{
 # --------------------
