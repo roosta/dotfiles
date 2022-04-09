@@ -11,11 +11,6 @@ i18n: {
 },
 endsnippet
 
-
-snippet log
-console.log("${1}", ${2})
-endsnippet
-
 snippet vvbase
 <template>
 	<div>
@@ -43,4 +38,23 @@ snippet style-global
 <style lang="scss">
 	${1}
 </style>
+endsnippet
+
+snippet reqprop
+${1}: {
+	required: true,
+	type: ${2},
+},
+endsnippet
+
+snippet optprop
+${1}: {
+	required: false,
+	type: ${2},
+	default() {
+		return {
+			${3}
+		}
+	}
+}
 endsnippet
