@@ -1,2 +1,5 @@
 [status]
+disabled = true
+
+[sudo]
 disabled = false
