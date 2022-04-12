@@ -3,3 +3,6 @@ disabled = true
 
 [sudo]
 disabled = false
+format = '[$symbol]($style)'
+style = "202"
+symbol = " "
