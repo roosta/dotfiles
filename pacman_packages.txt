@@ -108,3 +108,4 @@ starship
 ttf-iosevka-nerd
 alacritty
 rxvt-unicode
+inotify-tools
