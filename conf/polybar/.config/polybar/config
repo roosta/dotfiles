@@ -95,7 +95,7 @@ dpi = 96
 height = 22
 modules-center =
 modules-right =
-monitor = ${env:MONITOR:HDMI-1}
+monitor = ${env:MONITOR:HDMI-0}
 
 [bar/allitnil]
 inherit = bar/lintilla-primary
