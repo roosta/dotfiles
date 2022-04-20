@@ -1,4 +1,3 @@
-" vim: set filetype=vim:
 " https://github.com/tridactyl/tridactyl/blob/master/.tridactylrc
 
 unbind <C-y>
@@ -28,3 +27,5 @@ set editorcmd alacritty -e "nvim %f '+normal!%lGzv%c|'"
 
 colors srcery
 " set theme srcery
+
+" vim: set filetype=tridactyl:

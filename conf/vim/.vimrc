@@ -275,6 +275,7 @@ Plug 'chr4/nginx.vim'
 Plug 'fladson/vim-kitty'
 
 Plug 'AndrewRadev/splitjoin.vim'
+Plug 'tridactyl/vim-tridactyl'
 
 " }}}
 " Completion {{{
