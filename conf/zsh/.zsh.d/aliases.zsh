@@ -338,7 +338,7 @@ alias watchfirefox="watch progress -wc firefox" # watch firefox download progres
 alias tarx="tar --one-top-level -zxvf" # extract tar to directory same as filename
 alias ports="netstat -tulanp" # list open ports
 # alias make="colormake"
-alias pdf="zathura"
+alias pdf="devour zathura"
 if hash dfc 2>/dev/null; then
   alias disks='dfc'
 else
