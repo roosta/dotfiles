@@ -19,6 +19,8 @@ alias E="SUDO_EDITOR=\"emacsclient -t -a vim\" sudoedit"
 
 alias ~~="$HOME/.backup/home/$USER"
 
+alias sk="sudo -K"
+
 #}}}
 # Shadow: {{{
 # Aliases that shadow some command, like ls='ls -lAh'
@@ -259,7 +261,6 @@ alias -s md=vim
 alias -s org=emacsclient -c -t
 
 # http
-alias -s net=firefox
 alias -s net=firefox
 alias -s com=firefox
 
