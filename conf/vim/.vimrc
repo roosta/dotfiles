@@ -268,11 +268,11 @@ Plug 'ludovicchabant/vim-gutentags'
   let g:gutentags_exclude_project_root = ['/etc', 'usr/local']
   command! -nargs=0 GutentagsClearCache call system('rm ' . g:gutentags_cache_dir . '/*')
 
-Plug 'cespare/vim-toml'
+Plug 'cespare/vim-toml',  { 'branch': 'main' }
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'chr4/nginx.vim'
 
-Plug 'fladson/vim-kitty'
+Plug 'fladson/vim-kitty', { 'branch': 'main' }
 
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'tridactyl/vim-tridactyl'
