@@ -18,6 +18,7 @@
   c         = commit
   a         = add -A
   d         = diff
+  dl         = diff -U28
   dc        = diff --cached
   wd        = diff --word-diff
   precommit = diff --cached --diff-algorithm=minimal -w
