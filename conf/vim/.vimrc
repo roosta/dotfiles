@@ -72,12 +72,17 @@ Plug 'ntpeters/vim-better-whitespace'
 
 " Plug 'tpope/vim-commentary'
 Plug 'tyru/caw.vim'
-Plug 'Shougo/context_filetype.vim'
+
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-rsi'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-capslock'
+Plug 'tpope/vim-scriptease'
+
+Plug 'Shougo/context_filetype.vim'
+
 Plug 'wellle/targets.vim'
 Plug 'mbbill/undotree'
   nnoremap <leader>ut :UndotreeToggle<cr>
@@ -110,7 +115,6 @@ Plug 'AndrewRadev/sideways.vim'
 Plug 'chaoren/vim-wordmotion'
 Plug 'stefandtw/quickfix-reflector.vim'
 Plug 'triglav/vim-visual-increment'
-Plug 'tpope/vim-capslock'
 Plug 'AndrewRadev/inline_edit.vim'
 " }}}
 " Files {{{
