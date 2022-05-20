@@ -502,10 +502,10 @@ alias tui="taskwarrior-tui"
 alias pacown='pacman -Qo'
 
 # clean orphans
-alias pacorph='yay -Rns $(pacman -Qtdq)'
+alias pacorph='paru -Rns $(pacman -Qtdq)'
 
 # clean cache
-alias pacc='yay -Scc'
+alias pacc='paru -Scc'
 
 # Lists files installed from a given package
 alias pacls='pacman -Ql'
