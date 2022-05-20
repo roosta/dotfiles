@@ -1,6 +1,11 @@
 primary_monitor = "eDP-1"
 dpi = 140
 bar_height = 28
-lines = 38
+resolution_height = 1080
+resolution_width = 1920
+rofi_width = $$(( $(resolution_width) * 20/100 ))
+rofi_height = $$(( $(resolution_height) - $(bar_height) ))
 font = "Iosevka 18px"
-dunst_geometry = "400-0+28"
+dunst_width = (0, 300)
+dunst_height = 600
+dunst_offset = 0x$(bar_height)
