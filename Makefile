@@ -185,11 +185,11 @@ link-misc: ~/scripts ~/colors ~/bin/ftl ~/bin/touchpad-toggle ~/bin/tmain ~/bin/
 
 link-conf: user-fs
 	@echo -e "\033[0;33mSymlinking conf...\033[0m"
-	stow -R -t ~ -d conf --ignore="md|org|firefox" $(CONF)
+	-stow -R -t ~ -d conf --ignore="md|org|firefox" $(CONF) 2>&1 | grep -v "BUG in find_stowed_path"
 
 link-local:
 	@echo -e "\033[0;33mSymlinking local...\033[0m"
-	stow -R -t ~ -d local/$(HOST)/conf $(LOCAL)
+	-stow -R -t ~ -d local/$(HOST)/conf $(LOCAL) 2>&1 | grep -v "BUG in find_stowed_path"
 
 set-shell:
 	@echo -e "\033[0;33mSetting shell to zsh...\033[0m"
