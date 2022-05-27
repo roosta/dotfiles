@@ -112,7 +112,7 @@ hide_edge_borders none
 ## ---------------------------
 
 # Secondary monitor
-assign [class="(?i)google-chrome-unstable"] number $sws_d
+assign [class="(?i)google-chrome-unstable"] number $tws_f1
 assign [class="(?i)firefox"] number $pws_e
 assign [class="(?i)thunderbird"] number $pws_2
 

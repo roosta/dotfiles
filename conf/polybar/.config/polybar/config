@@ -78,9 +78,9 @@ exec = ~/lib/polybar-spotify/scroll_spotify_status.sh
 ;; dpi needs to be adjusted accortingly
 inherit = bar/lintilla-primary
 enable-ipc = false
-monitor = ${env:MONITOR:DVI-I-1}
-dpi = 96
-height = 22
+monitor = ${env:MONITOR:HDMI-0}
+dpi = 192
+height = 34
 modules-center =
 modules-right = eth-lintilla fs-root fs-netmedia fs-vmstorage
 tray-position = right
@@ -95,7 +95,7 @@ dpi = 96
 height = 22
 modules-center =
 modules-right =
-monitor = ${env:MONITOR:HDMI-0}
+monitor = ${env:MONITOR:DVI-I-1}
 
 [bar/allitnil]
 inherit = bar/lintilla-primary
