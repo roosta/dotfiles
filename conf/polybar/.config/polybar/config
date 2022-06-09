@@ -83,13 +83,13 @@ dpi = 192
 height = 34
 modules-center =
 modules-right = eth-lintilla fs-root fs-netmedia fs-vmstorage
+
+[bar/lintilla-tertiary]
+inherit = bar/lintilla-primary
 tray-position = right
 tray-padding = 1
 tray-scale = 1
 tray-background = ${colors.xgray2}
-
-[bar/lintilla-tertiary]
-inherit = bar/lintilla-primary
 enable-ipc = false
 dpi = 96
 height = 22
