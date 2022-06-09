@@ -354,6 +354,7 @@ Plug 'w0rp/ale'
 
 Plug 'AndrewRadev/bufferize.vim'
 Plug 'dstein64/vim-startuptime'
+Plug 'DanilaMihailov/vim-tips-wiki'
 
 " }}}
 call plug#end()
