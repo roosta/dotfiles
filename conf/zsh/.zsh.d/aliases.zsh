@@ -391,6 +391,7 @@ alias weather='curl http://wttr.in/oslo'
 alias alarm='termdown'
 alias clock='termdown'
 
+alias imgdim="identify -format 'width: %w\nheight: %h\n'"
 #}}}
 # VCS: {{{1
 # --------
