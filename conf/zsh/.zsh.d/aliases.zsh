@@ -108,7 +108,7 @@ alias vimime="${EDITOR:-vim} ~/.config/mimeapps.list"
 alias virofi="${EDITOR:-vim} ~/etc/templates/rofi/config.rofi"
 alias vijoker="${EDITOR:-vim} ~/.joker"
 alias vidunst="${EDITOR:-vim} ~/etc/templates/dunst/config.dunst"
-alias vifzf="vim ~/.zsh.d/plugin_conf/fzf.zsh"
+alias vifzf="${EDITOR:-vim} ~/.zsh.d/fzf.zsh"
 
 alias vidir="env EDITOR=vim vidir"
 
