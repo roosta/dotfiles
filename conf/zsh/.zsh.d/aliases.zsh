@@ -328,6 +328,8 @@ alias rustofat="toilet -t -f rustofat"
 alias pagga="toilet -t -f pagga"
 alias paggaborder="toilet -t -f pagga -F border"
 
+alias artprint="~/lib/arttime/bin/artprint"
+alias arttime="~/lib/arttime/bin/arttime"
 #}}}
 # Utils: {{{1
 
