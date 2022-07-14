@@ -15,7 +15,7 @@ alias nohup="nohup "
 # alias su="su -"
 
 # Edit root files using emacs client
-alias E="SUDO_EDITOR=\"emacsclient -t -a vim\" sudoedit"
+# alias E="SUDO_EDITOR=\"emacsclient -t -a vim\" sudoedit"
 
 alias ~~="$HOME/.backup/home/$USER"
 
