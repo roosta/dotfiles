@@ -112,7 +112,7 @@ Plug 'AndrewRadev/sideways.vim'
   nnoremap <leader>> :SidewaysLeft<cr>
   nnoremap <leader>< :SidewaysRight<cr>
 
-Plug 'chaoren/vim-wordmotion'
+" Plug 'chaoren/vim-wordmotion'
 Plug 'stefandtw/quickfix-reflector.vim'
 Plug 'triglav/vim-visual-increment'
 Plug 'AndrewRadev/inline_edit.vim'
