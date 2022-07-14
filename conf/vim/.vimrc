@@ -281,6 +281,8 @@ Plug 'fladson/vim-kitty', { 'branch': 'main' }
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'tridactyl/vim-tridactyl'
 Plug 'andreshazard/vim-freemarker'
+Plug 'jdonaldson/vaxe'
+Plug 'jeroenbourgois/vim-actionscript'
 
 " }}}
 " Completion {{{
