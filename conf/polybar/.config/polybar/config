@@ -42,7 +42,7 @@ margin-bottom = 5
 [bar/lintilla-primary]
 ;; Set a config for each screen @ host lintilla
 ;; Multiple monitors with different resolutions
-monitor = ${env:MONITOR:DP-1}
+monitor = ${env:MONITOR:DisplayPort-2}
 width = 100%
 separator = │
 dpi = 192
@@ -74,11 +74,9 @@ format = <label>
 exec = ~/lib/polybar-spotify/scroll_spotify_status.sh
 
 [bar/lintilla-secondary]
-;; Secondary monitor @ lintilla, max resolution is 1920x1080 so font sizes and
-;; dpi needs to be adjusted accortingly
 inherit = bar/lintilla-primary
 enable-ipc = false
-monitor = ${env:MONITOR:HDMI-0}
+monitor = ${env:MONITOR:DisplayPort-1}
 dpi = 192
 height = 34
 modules-center =
@@ -95,7 +93,7 @@ dpi = 96
 height = 22
 modules-center =
 modules-right =
-monitor = ${env:MONITOR:DVI-I-1}
+monitor = ${env:MONITOR:HDMI-A-0}
 
 [bar/allitnil]
 inherit = bar/lintilla-primary
