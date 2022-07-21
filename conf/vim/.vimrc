@@ -383,6 +383,7 @@ set wildignore+=*/.git/**/*,*/.hg/**/*,*/.svn/**/*
 set wildignore+=tags
 set wildignore+=*.tar.*
 set wildignore+=*/dist-qa/**,*/dist-devtest/**
+set wildignore+=*/export/**
 
 " Swap
 set updatetime=100
