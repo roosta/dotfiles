@@ -65,3 +65,5 @@
   rebase = false
 [interactive]
   diffFilter = diff-so-fancy --patch
+[add "interactive"]
+	useBuiltin = false
