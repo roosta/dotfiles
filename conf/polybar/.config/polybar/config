@@ -42,7 +42,7 @@ margin-bottom = 5
 [bar/lintilla-primary]
 ;; Set a config for each screen @ host lintilla
 ;; Multiple monitors with different resolutions
-monitor = ${env:MONITOR:DisplayPort-2}
+monitor = ${env:MONITOR:DisplayPort-0}
 width = 100%
 separator = │
 dpi = 192

@@ -1,4 +1,4 @@
-primary_monitor   = "DisplayPort-2"
+primary_monitor   = "DisplayPort-0"
 secondary_monitor = "DisplayPort-1"
 tertiary_monitor  = "HDMI-1-0"
 dpi = 192
