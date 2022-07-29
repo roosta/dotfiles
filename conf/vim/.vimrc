@@ -294,6 +294,7 @@ Plug 'lifepillar/vim-mucomplete'
 
 	let g:mucomplete#chains = {
 	    \ 'default' : ['path', 'omni', 'keyn', 'ulti', 'dict', 'uspl'],
+	    \ 'haxe' : ['path', 'keyn', 'ulti', 'dict', 'uspl'],
 	    \ 'gitcommit' : ['path', 'keyn', 'ulti', 'dict', 'uspl'],
 	    \ 'vim'     : ['path', 'cmd', 'keyn']
 	    \ }
