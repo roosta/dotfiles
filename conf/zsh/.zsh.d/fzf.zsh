@@ -104,35 +104,13 @@ e() {
   fi
 }
 
-et() {
-  if [ "$#" -ne 0 ]; then
-    emacsclient -c -t "$@"
-  else
-    local file
-    file=$(fzf-tmux --query="$1")
-    [ -n "$file" ] && sleep 0.1 && emacsclient -c -t "$file"
-  fi
-}
-
 _e() {
   if [ "$#" -ne 0 ]; then
-    SUDO_EDITOR="emacsclient -t" sudoedit $@
+    SUDO_EDITOR="vim" sudoedit $@
   else
     local file
     file=$(fzf-tmux --query="$1")
-    [ -n "$file" ] && SUDO_EDITOR="emacsclient -t" sudoedit "$file"
-  fi
-}
-
-# Fuzzy match file and open with vim
-# If passed an argument, open that file in vim, otherwise fzf seach from CWD
-v() {
-  if [ "$#" -ne 0 ]; then
-    vim $@
-  else
-    local file
-    file=$(fzf-tmux --query="$1")
-    [ -n "$file" ] && vim -- "$file"
+    [ -n "$file" ] && SUDO_EDITOR="vim" sudoedit "$file"
   fi
 }
 
@@ -143,47 +121,8 @@ o() {
     [ -n "$file" ] && vim -c "cd ~/notes" -- "$file"
 }
 
-# vf - fuzzy open with vim from anywhere
-# ex: vf word1 word2 ... (even part of a file name)
-# zsh autoload function
-ef() {
-  local files
-
-  files=(${(f)"$(locate -Ai -0 $@ | grep -z -vE '~$' | fzf-tmux --read0 -0 -1 -m)"})
-
-  if [[ -n $files ]]
-  then
-     emacsclient -nw -- $files
-     print -l $files[1]
-  fi
-}
-
 #}}}
 # Git {{{
-
-# fco - checkout git branch/tag
-fco() {
-  local tags branches target
-  tags=$(
-    git tag | awk '{print "\x1b[31;1mtag\x1b[m\t" $1}') || return
-  branches=$(
-    git branch --all | grep -v HEAD             |
-    sed "s/.* //"    | sed "s#remotes/[^/]*/##" |
-    sort -u          | awk '{print "\x1b[34;1mbranch\x1b[m\t" $1}') || return
-  target=$(
-    (echo "$tags"; echo "$branches") |
-    fzf-tmux -l30 -- --no-hscroll --ansi +m -d "\t" -n 2) || return
-  git checkout $(echo "$target" | awk '{print $2}')
-}
-
-# fcoc - checkout git commit
-fcoc() {
-  local commits commit
-  commits=$(git log --graph --color=always --pretty=oneline --format="%C(auto)%h%d %s %C(black)%C(white)%cr" --abbrev-commit) &&
-  commit=$(echo "$commits" | fzf-tmux --ansi +s +m -e) &&
-  git checkout $(echo "$commit" | grep -oe "[0-9a-f]\{5,32\}")
-}
-
 # fsha - get git commit sha
 # example usage: git rebase -i `fsha`
 fsha() {
@@ -191,62 +130,6 @@ fsha() {
   commits=$(git log --graph --color=always --pretty=oneline --format="%C(auto)%h%d %s %C(black)%C(white)%cr" --abbrev-commit) &&
   commit=$(echo "$commits" | fzf-tmux +s +m -e --ansi) &&
   echo -n $(echo "$commit" | grep -oe "[0-9a-f]\{5,32\}")
-}
-
-#}}}
-# Tags {{{
-# ftags - search ctags
-ftags() {
-  local line
-  [ -e tags ] &&
-  line=$(
-    awk 'BEGIN { FS="\t" } !/^!/ {print toupper($4)"\t"$1"\t"$2"\t"$3}' tags |
-    cut -c1-80 | fzf-tmux --nth=1,2
-  ) && $EDITOR $(cut -f3 <<< "$line") -c "set nocst" \
-                                      -c "silent tag $(cut -f2 <<< "$line")"
-}
-#}}}
-# Tmux {{{
-# fs [FUZZY PATTERN] - Select selected tmux session
-#   - Bypass fuzzy finder if there's only one match (--select-1)
-#   - Exit if there's no match (--exit-0)
-fts() {
-  local session
-  session=$(tmux list-sessions -F "#{session_name}" | \
-    fzf-tmux --query="$1" --select-1 --exit-0) &&
-    tmux switch-client -t "$session"
-}
-
-#}}}
-# AG {{{
-# ------
-
-# search using ag and open selected file at linum
-fv() {
-  local match linum file;
-  match=$(\ag \
-    --nobreak \
-    --smart-case \
-    --hidden  \
-    -p ~/.agignore \
-    --noheading . | fzf-tmux +m) &&
-
-    linum=$(echo "$match" | cut -d':' -f2) &&
-    file=$(echo "$match" | cut -d':' -f1) &&
-
-    emacsclient -nw +$linum $file
-}
-
-falias() {
-  local match;
-  match=$(cat ~/.zsh.d/aliases.zsh -n | fzf-tmux +m --reverse --preview="echo {1}") &&
-    echo $match
-
-  # cat aliases.zsh|sed -n '4,5p'
-    # linum=$(echo "$match" | cut -d':' -f2) &&
-    # file=$(echo "$match" | cut -d':' -f1) &&
-
-    # ${EDITOR:-vim} +$linum $file
 }
 
 #}}}
@@ -279,37 +162,17 @@ fpac() {
 }
 #}}}
 # Convenience {{{
-forg() {
-  local match linum file;
-  (
-    cd ~/org &&
-    match=$(\rg \
-              --smart-case \
-              --color "always" \
-              --line-number \
-              --no-heading . | \
-              fzf -d ":" \
-                  --ansi \
-                  --nth "2.." \
-                  --preview-window=up \
-                  --with-nth "1,3.." \
-                  --preview="fzf-preview {q} {}") &&
+falias() {
+  local match;
+  match=$(cat ~/.zsh.d/aliases.zsh -n | fzf-tmux +m --reverse --preview="echo {1}") &&
+    echo $match
 
-      linum=$(echo "$match" | cut -d':' -f2) &&
-      file=$(echo "$match" | cut -d':' -f1) &&
+  # cat aliases.zsh|sed -n '4,5p'
+    # linum=$(echo "$match" | cut -d':' -f2) &&
+    # file=$(echo "$match" | cut -d':' -f1) &&
 
-      emacsclient -nw +$linum $file
-  )
+    # ${EDITOR:-vim} +$linum $file
 }
 
-viemacs() {
-  local file;
-  (
-    cd ~/.emacs.d/lisp &&
-      file=$(fzf-tmux --query="$1" --multi --preview "bat --color always {}") &&
-      [ -n "$file" ] &&
-      emacsclient -nw "$file"
-  )
-}
 #}}}
 #  vim: set ts=2 sw=2 tw=0 fdm=marker et :
