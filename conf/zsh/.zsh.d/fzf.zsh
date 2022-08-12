@@ -1,7 +1,7 @@
 # ┬─┐┬ ┐┌─┐┌─┐┐ ┬  ┬─┐o┌┐┐┬─┐┬─┐┬─┐
 # ├─ │ │┌─┘┌─┘└┌┘──├─ │││││ │├─ │┬┘
 # ┆  ┆─┘└─┘└─┘ ┆   ┆  ┆┆└┘┆─┘┴─┘┆└┘
-# Options
+# Options {{{
 # Respecting .gitignore, .hgignore, and svn:ignore
 # Setting rg as the default source for fzf
 export FZF_DEFAULT_COMMAND='rg \
@@ -14,28 +14,30 @@ export FZF_DEFAULT_COMMAND='rg \
   --files'
 
 export FZF_DEFAULT_OPTS="
-  --ansi
-  --color='fg:15,bg:0,hl:5,fg+:15,bg+:235,hl+:13'
-  --color='info:11,prompt:5,spinner:11,pointer:10,marker:208,header:15'
-  --bind='alt-k:preview-up,alt-p:preview-up'
-  --bind='alt-j:preview-down,alt-n:preview-down'
-  --bind='ctrl-r:toggle-all'
-  --bind='ctrl-s:toggle-sort'
-  --bind='ctrl-p:toggle-preview'
-  --bind='alt-w:toggle-preview-wrap'
+--ansi
+--color='fg:15,bg:0,hl:5,fg+:15,bg+:235,hl+:13'
+--color='info:11,prompt:5,spinner:11,pointer:10,marker:208,header:15'
+--bind='alt-k:preview-up,alt-p:preview-up'
+--bind='alt-j:preview-down,alt-n:preview-down'
+--bind='ctrl-r:toggle-all'
+--bind='ctrl-s:toggle-sort'
+--bind='ctrl-p:toggle-preview'
+--bind='alt-w:toggle-preview-wrap'
 "
 # export FZF_COMPLETION_TRIGGER='~~'
 
 # To apply the command to CTRL-T as well
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 # export FZF_CTRL_T_OPTS="--preview '(bat -O ansi -l {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
+#}}}
+# Functions {{{
 
-# fh - repeat history
+# fhist - repeat history
 fhist() {
   print -z $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf-tmux +s --tac | sed 's/ *[0-9]* *//')
 }
 
-# fd - including hidden directories
+# fdir - including hidden directories
 fdir() {
   local dir
   dir=$(find ${1:-.} -type d 2> /dev/null | fzf-tmux +m) && cd "$dir"
@@ -43,9 +45,9 @@ fdir() {
 
 # cdf - cd into the directory of the selected file
 cdf() {
-   local file
-   local dir
-   file=$(fzf +m -q "$1") && dir=$(dirname "$file") && cd "$dir"
+  local file
+  local dir
+  file=$(fzf +m -q "$1") && dir=$(dirname "$file") && cd "$dir"
 }
 
 # cf - fuzzy cd from anywhere
@@ -58,12 +60,12 @@ cf() {
 
   if [[ -n $file ]]
   then
-     if [[ -d $file ]]
-     then
-        cd -- $file
-     else
-        cd -- ${file:h}
-     fi
+    if [[ -d $file ]]
+    then
+      cd -- $file
+    else
+      cd -- ${file:h}
+    fi
   fi
 }
 
@@ -111,16 +113,16 @@ o() {
   local file
   file=$(find ~/notes -name '*.md' | fzf -d "/" --query="$1" --with-nth "5..")  &&
     [ -n "$file" ] && vim -c "cd ~/notes" -- "$file"
-}
+  }
 
 # fsha - get git commit sha
 # example usage: git rebase -i `fsha`
 fsha() {
   local commits commit
   commits=$(git log --graph --color=always --pretty=oneline --format="%C(auto)%h%d %s %C(black)%C(white)%cr" --abbrev-commit) &&
-  commit=$(echo "$commits" | fzf-tmux +s +m -e --ansi) &&
-  echo -n $(echo "$commit" | grep -oe "[0-9a-f]\{5,32\}")
-}
+    commit=$(echo "$commits" | fzf-tmux +s +m -e --ansi) &&
+    echo -n $(echo "$commit" | grep -oe "[0-9a-f]\{5,32\}")
+  }
 
 # Search apt for query, and install selected package
 fapt() {
@@ -155,11 +157,11 @@ falias() {
     echo $match
 
   # cat aliases.zsh|sed -n '4,5p'
-    # linum=$(echo "$match" | cut -d':' -f2) &&
-    # file=$(echo "$match" | cut -d':' -f1) &&
+  # linum=$(echo "$match" | cut -d':' -f2) &&
+  # file=$(echo "$match" | cut -d':' -f1) &&
 
     # ${EDITOR:-vim} +$linum $file
-}
+  }
 
 #}}}
 #  vim: set ts=2 sw=2 tw=0 fdm=marker et :
