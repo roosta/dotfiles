@@ -39,6 +39,7 @@ DIRS = \
 		 ~/mnt \
 		 ~/tmp \
 		 ~/bin \
+		 ~/opt \
 		 ~/sbin \
 		 ~/var/log \
 		 ~/var/vim/undo \
