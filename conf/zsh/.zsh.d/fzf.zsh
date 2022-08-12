@@ -48,39 +48,17 @@ fdirs() {
   fi
 }
 
-# cdf - cd into the directory of the selected file
-cdf() {
+# cddir - including hidden directories
+cddir() {
+  local dir
+  dir=$(find ${1:-.} -type d 2> /dev/null | fzf-tmux +m) && cd "$dir"
+}
+
+# cdfile - cd into the directory of the selected file
+cdfile() {
   local file
   local dir
   file=$(fzf +m -q "$1") && dir=$(dirname "$file") && cd "$dir"
-}
-
-# cf - fuzzy cd from anywhere
-# ex: cf word1 word2 ... (even part of a file name)
-# zsh autoload function
-cf() {
-  local file
-
-  file="$(locate -Ai -0 $@ | grep -z -vE '~$' | fzf --read0 -0 -1)"
-
-  if [[ -n $file ]]
-  then
-    if [[ -d $file ]]
-    then
-      cd -- $file
-    else
-      cd -- ${file:h}
-    fi
-  fi
-}
-
-fkill() {
-  pid=$(ps -ef | sed 1d | fzf-tmux -m | awk '{print $2}')
-
-  if [ "x$pid" != "x" ]
-  then
-    kill -${1:-9} $pid
-  fi
 }
 
 # Fuzzy match file and open with EDITOR
