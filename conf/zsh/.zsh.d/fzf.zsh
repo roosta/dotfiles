@@ -1,8 +1,7 @@
 # ┬─┐┬ ┐┌─┐┌─┐┐ ┬  ┬─┐o┌┐┐┬─┐┬─┐┬─┐
 # ├─ │ │┌─┘┌─┘└┌┘──├─ │││││ │├─ │┬┘
 # ┆  ┆─┘└─┘└─┘ ┆   ┆  ┆┆└┘┆─┘┴─┘┆└┘
-# Options: {{{
-
+# Options
 # Respecting .gitignore, .hgignore, and svn:ignore
 # Setting rg as the default source for fzf
 export FZF_DEFAULT_COMMAND='rg \
@@ -31,15 +30,10 @@ export FZF_DEFAULT_OPTS="
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 # export FZF_CTRL_T_OPTS="--preview '(bat -O ansi -l {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
 
-#}}}
-# Command history: {{{
-
 # fh - repeat history
 fhist() {
   print -z $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf-tmux +s --tac | sed 's/ *[0-9]* *//')
 }
-#}}}
-# Changing directory {{{
 
 # fd - including hidden directories
 fdir() {
@@ -73,8 +67,6 @@ cf() {
   fi
 }
 
-#}}}
-# Kill {{{
 fkill() {
   pid=$(ps -ef | sed 1d | fzf-tmux -m | awk '{print $2}')
 
@@ -83,8 +75,6 @@ fkill() {
     kill -${1:-9} $pid
   fi
 }
-#}}}
-# Opening files {{{
 
 # Fuzzy match file and open with EDITOR
 e() {
@@ -104,6 +94,8 @@ e() {
   fi
 }
 
+# Set sudo editor to vim and call sudoedit
+# fuzzy edit readonly files
 _e() {
   if [ "$#" -ne 0 ]; then
     SUDO_EDITOR="vim" sudoedit $@
@@ -121,8 +113,6 @@ o() {
     [ -n "$file" ] && vim -c "cd ~/notes" -- "$file"
 }
 
-#}}}
-# Git {{{
 # fsha - get git commit sha
 # example usage: git rebase -i `fsha`
 fsha() {
@@ -132,8 +122,6 @@ fsha() {
   echo -n $(echo "$commit" | grep -oe "[0-9a-f]\{5,32\}")
 }
 
-#}}}
-# Package managers {{{
 # Search apt for query, and install selected package
 fapt() {
   local pkg=$(apt-cache search $1 | fzf --no-multi -q $1 --ansi --preview="apt-cache show {1}" | awk '{ print $1 }')
@@ -160,8 +148,7 @@ fpac() {
     sudo pacman -S - <<< $pkg
   fi
 }
-#}}}
-# Convenience {{{
+
 falias() {
   local match;
   match=$(cat ~/.zsh.d/aliases.zsh -n | fzf-tmux +m --reverse --preview="echo {1}") &&
