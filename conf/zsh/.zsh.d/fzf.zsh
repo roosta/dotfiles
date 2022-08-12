@@ -37,10 +37,15 @@ fhist() {
   print -z $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf-tmux +s --tac | sed 's/ *[0-9]* *//')
 }
 
-# fdir - including hidden directories
-fdir() {
+fdirs() {
   local dir
-  dir=$(find ${1:-.} -type d 2> /dev/null | fzf-tmux +m) && cd "$dir"
+  dir=$(dirs | fzf-tmux)
+  if [ -n "$dir" ]; then
+    index=$(echo "$dir"|cut -f1)
+    cd -$index
+  else
+    return 2
+  fi
 }
 
 # cdf - cd into the directory of the selected file
