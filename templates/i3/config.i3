@@ -148,6 +148,7 @@ for_window [class="(?i)Pidgin"] floating enable
 for_window [class="(?i)nitrogen"] floating enable
 for_window [class="(?i)pinentry-gtk-2"] floating enable
 for_window [class="(?i)yad"] floating enable
+for_window [class="(?i)kooha"] floating enable
 
 ## Window size
 for_window [class="(?i)Pidgin"] floating_maximum_size 50 x 75
