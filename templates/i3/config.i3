@@ -125,6 +125,7 @@ assign [class="(?i)inkscape"] number $pws_3
 assign [class="(?i)gimp"]     number $pws_3
 assign [class="(?i)krita"]    number $pws_3
 assign [class="(?i)freecad"]  number $pws_3
+assign [class="(?i)pivot"]    number $tws_f2
 
 ##}}}
 # Window behaviour {{{1
@@ -162,6 +163,8 @@ for_window [window_role="task_dialog"] floating_maximum_size 670 x 470
 for_window [class="(?i)PrisonArchitect.x86_64"] border none
 for_window [class="(?i)conky"] border none
 for_window [class="(?i)terminator"] border none
+
+for_window [class="(?i)pivot"] focus
 
 #}}}
 # Keybindings {{{1
