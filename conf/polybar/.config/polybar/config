@@ -243,10 +243,18 @@ bar-volume-fill = ╸
 bar-volume-empty = ╸
 bar-volume-empty-foreground = ${colors.brightblack}
 
-[module/volume-small]
-;; Create a smaller size volume indicator for smaller displays
-inherit = module/volume
-format-volume = "<label-volume>"
+; [module/volume-steel]
+; inherit = module/volume
+; sink = alsa_output.usb-SteelSeries_SteelSeries_Arctis_7-00.stereo-game
+
+; [module/volume-speakers]
+; inherit = module/volume
+; sink = alsa_output.pci-0000_00_1b.0.analog-stereo
+
+; [module/volume-small]
+; ;; Create a smaller size volume indicator for smaller displays
+; inherit = module/volume
+; format-volume = "<label-volume>"
 
 [module/memory]
 type = internal/memory
