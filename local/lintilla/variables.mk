@@ -1,6 +1,6 @@
 primary_monitor   = "DisplayPort-0"
 secondary_monitor = "DisplayPort-1"
-tertiary_monitor  = "HDMI-1-0"
+tertiary_monitor  = "HDMI-A-0"
 dpi = 192
 resolution_height = 2160
 resolution_width = 3840
