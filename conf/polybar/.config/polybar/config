@@ -219,7 +219,7 @@ interval = 30
 label = "%output%"
 
 [module/volume]
-type = internal/alsa
+type = internal/pulseaudio
 format-volume = "<bar-volume> <label-volume>"
 ; format-prefix = ${icons.close}
 format-volume-padding = 1
