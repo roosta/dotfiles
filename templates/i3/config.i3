@@ -9,6 +9,11 @@
 # --------------------
 exec_always --no-startup-id $HOME/scripts/launch-polybar.sh
 exec_always --no-startup-id $HOME/.cargo/bin/i3wsr
+
+# Start pavucontrol and move to scratchpad
+# Possibly temporary, but currently dealing with multiple sinks alot
+exec --no-startup-id pavucontrol; exec --no-startup-id i3-msg 'move scratchpad'
+
 # }}}
 # Options {{{
 # --------------------
