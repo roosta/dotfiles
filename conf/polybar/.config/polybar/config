@@ -78,11 +78,12 @@ inherit = bar/lintilla-primary
 enable-ipc = false
 monitor = ${env:MONITOR:DisplayPort-1}
 tray-position = left
-tray-padding = 1
+tray-padding = 5
 tray-scale = 1
 tray-background = ${colors.xgray2}
+tray-maxsize = 24
 modules-center =
-modules-left = 
+modules-left = i3 xwindow
 modules-right = eth-lintilla fs-root fs-netmedia fs-vmstorage
 
 [bar/lintilla-tertiary]
