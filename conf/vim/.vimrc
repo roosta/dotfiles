@@ -157,8 +157,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'markonm/traces.vim'
 
 Plug '~/src/fzf-folds.vim'
-  nnoremap <leader>jo :Folds<CR>
-  let g:fzf_folds_open = 1
+nnoremap <leader>jo :Folds<CR>
 
 " }}}
 " Color {{{
