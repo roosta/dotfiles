@@ -1,4 +1,4 @@
-nvidia-settings --load-config-only &
+# nvidia-settings --load-config-only &
 # /home/roosta/bin/chdisp desk &
 /home/roosta/.screenlayout/main.sh &
 nm-applet &
