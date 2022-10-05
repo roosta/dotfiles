@@ -112,6 +112,7 @@ mouse_warping none
 
 new_window pixel 1
 hide_edge_borders none
+for_window [all] border pixel 1
 #}}}
 # Window workspace assignment {{{1
 ## ---------------------------
