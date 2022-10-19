@@ -136,15 +136,15 @@ fpac() {
 
 falias() {
   local match;
-  match=$(cat ~/.zsh.d/aliases.zsh -n | fzf-tmux +m --reverse --preview="echo {1}") &&
-    echo $match
-
-  # cat aliases.zsh|sed -n '4,5p'
-  # linum=$(echo "$match" | cut -d':' -f2) &&
-  # file=$(echo "$match" | cut -d':' -f1) &&
-
-    # ${EDITOR:-vim} +$linum $file
-  }
+  match=$(bat --color=always --decorations=never ~/.zsh.d/aliases.zsh | fzf-tmux +m --reverse)
+  out=$(sed -n "s/^alias\s\(\S*\)=.*$/\1/p" <<< "$match")
+  if [ -n "$out" ]; then
+    echo "$out"
+  else
+    echo "Not an alias!"
+    return 1
+  fi
+}
 
 #}}}
 #  vim: set ts=2 sw=2 tw=0 fdm=marker et :
