@@ -275,7 +275,7 @@ Plug 'cespare/vim-toml',  { 'branch': 'main' }
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'chr4/nginx.vim'
 
-Plug 'fladson/vim-kitty', { 'branch': 'main' }
+" Plug 'fladson/vim-kitty', { 'branch': 'main' }
 
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'tridactyl/vim-tridactyl'
