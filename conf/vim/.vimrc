@@ -283,6 +283,8 @@ Plug 'andreshazard/vim-freemarker'
 Plug 'jdonaldson/vaxe'
 Plug 'jeroenbourgois/vim-actionscript'
 
+Plug 'mechatroner/rainbow_csv'
+
 " }}}
 " Completion {{{
 
