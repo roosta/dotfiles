@@ -172,6 +172,9 @@ for_window [class="(?i)terminator"] border none
 
 for_window [class="(?i)pivot"] focus
 
+## Blender
+for_window [class="(?i)blender" title="(?i).*render"] move to workspace $sws_d
+
 #}}}
 # Keybindings {{{1
 # use xev to get keycodes
