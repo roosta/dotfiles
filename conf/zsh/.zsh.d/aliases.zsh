@@ -511,5 +511,10 @@ alias pacc='paru -Scc'
 alias pacls='pacman -Ql'
 
 #}}}
+# Audio: {{{1
 
+alias headphones="pacmd set-default-sink 74"
+alias speakers="pacmd set-default-sink 0"
+
+#}}}
 # vim: fdm=marker:sw=2
