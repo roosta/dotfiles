@@ -24,7 +24,7 @@ brightcyan    = ${xrdb:color14:#53FDE9}
 white         = ${xrdb:color7:#D0BFA1}
 brightwhite   = ${xrdb:color15:#FCE8C3}
 orange        = ${xrdb:color166:#D75F00}
-brightorange = ${xrdb:color208:#FF8700}
+brightorange  = ${xrdb:color208:#FF8700}
 hard-black    = ${xrdb:color232:#080808}
 xgray1        = ${xrdb:color235:#262626}
 xgray2        = ${xrdb:color236:#303030}
@@ -61,7 +61,7 @@ font-1 = "Iosevka:pixelsize=9:weight=bold;4"
 font-2 = "FontAwesome6Free:style=Solid:size=10;4"
 font-3 = "FontAwesome6Free:style=Regular:size=10;4"
 font-4 = "FontAwesome6Brands:style=Regular:size=10;4"
-modules-left = i3 xwindow
+modules-left = i3
 ; modules-center = mpd
 modules-right = spotify keyboard-layout vpncheck updates-arch-combined volume memory cpu date time
 
@@ -83,7 +83,7 @@ tray-scale = 1
 tray-background = ${colors.xgray2}
 tray-maxsize = 24
 modules-center =
-modules-left = i3 xwindow
+modules-left = i3
 modules-right = eth-lintilla fs-root fs-netmedia fs-vmstorage
 
 [bar/lintilla-tertiary]
@@ -91,7 +91,7 @@ inherit = bar/lintilla-primary
 enable-ipc = false
 dpi = 96
 height = 22
-modules-center =
+modules-center = xwindow
 modules-right =
 monitor = ${env:MONITOR:HDMI-A-0}
 
