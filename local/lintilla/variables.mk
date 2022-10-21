@@ -10,4 +10,4 @@ rofi_height = $$(( $(resolution_height) - $(bar_height) ))
 font = "Iosevka 24px"
 dunst_width = (0, 300)
 dunst_height = 600
-dunst_offset = 0x$(bar_height)
+dunst_offset = 0x$$(( $(bar_height) / 2 ))
