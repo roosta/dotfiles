@@ -123,3 +123,4 @@ conf/rofi/.config/rofi/config.rasi
 conf/lein/.lein/self-installs
 
 spotify_backup
+.npmrc
