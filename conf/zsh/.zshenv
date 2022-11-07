@@ -80,6 +80,8 @@ if hash ruby 2>/dev/null; then
   PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH"
 fi
 
+export NODE_OPTIONS="--openssl-legacy-provider"
+
 export SSH_AUTH_SOCK=/run/user/$(id -u)/gcr/ssh
 
 #  vim: set ts=2 sw=2 tw=0 fdm=marker noet :
