@@ -69,7 +69,7 @@ xbindkeys &
 # see https://github.com/iye/lightsOn/blob/master/lightsOn.sh
 # lightsOn 590 &
 
-eval "$(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets)"
+eval "$(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)"
 
 # set background with nitrogen
 nitrogen --restore &
