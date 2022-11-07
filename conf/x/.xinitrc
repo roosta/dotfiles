@@ -63,7 +63,7 @@ numlockx &
 # set custom keybinds
 xbindkeys &
 
-emacs --daemon &
+# emacs --daemon &
 
 # disable screensaver when certain fullscreen apps are active
 # see https://github.com/iye/lightsOn/blob/master/lightsOn.sh
