@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<keyboard version="1">
+    <commands />
+    <tools />
+    <quicktools />
+    <actions />
+    <wheel>
+        <key action="Zoom" shortcut="" removed="true" />
+        <key action="Zoom" shortcut="Ctrl" />
+        <key action="HScroll" shortcut="Shift" />
+        <key action="FgColor" shortcut="Alt" />
+        <key action="BgColor" shortcut="Alt+Shift" />
+        <key action="BrushSize" shortcut="Ctrl" removed="true" />
+        <key action="BrushSize" shortcut="" />
+        <key action="Frame" shortcut="Ctrl+Shift" />
+    </wheel>
+</keyboard>
