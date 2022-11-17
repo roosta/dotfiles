@@ -19,7 +19,7 @@ alias nohup="nohup "
 
 alias ~~="$HOME/.backup/home/$USER"
 
-alias sk="sudo -K"
+# alias sk="sudo -K"
 
 #}}}
 # Shadow: {{{
@@ -395,6 +395,7 @@ alias imgdim="identify -format 'width: %w\nheight: %h\n'"
 # VCS: {{{1
 # --------
 
+alias vgit="vim -c 'Git'"
 # if hash hub 2>/dev/null; then
 #   alias git='hub'
 # fi
