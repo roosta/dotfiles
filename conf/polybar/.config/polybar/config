@@ -82,7 +82,7 @@ tray-padding = 5
 tray-scale = 1
 tray-background = ${colors.xgray2}
 tray-maxsize = 24
-modules-center =
+modules-center = xwindow
 modules-left = i3
 modules-right = eth-lintilla fs-root fs-netmedia fs-vmstorage
 
