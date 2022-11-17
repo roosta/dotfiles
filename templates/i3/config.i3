@@ -127,7 +127,7 @@ assign [class="(?i)thunderbird"] number $pws_2
 ## see: https://github.com/i3/i3/issues/2060
 for_window [class="Spotify"] move to workspace $pws_1
 
-assign [class="(?i)google-chrome-stable"] number $sws_a
+assign [class="(?i)google-chrome"] number $sws_a
 assign [class="(?i)inkscape"] number $pws_3
 assign [class="(?i)gimp"]     number $pws_3
 assign [class="(?i)krita"]    number $pws_3
