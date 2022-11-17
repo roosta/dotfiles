@@ -484,6 +484,9 @@ set listchars+=eol:$,space:･
 set splitbelow
 set splitright
 
+" history
+set history=10000
+
 " theme
 colorscheme srcery
 
