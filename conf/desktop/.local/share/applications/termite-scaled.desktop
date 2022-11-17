@@ -1,8 +1,0 @@
-[Desktop Entry]
-Name=Termite Scaled
-Comment=Termite scaled down when using multiple monitors with varying resolutions
-Exec=env GDK_DPI_SCALE=0.5 termite
-Icon=utilities-terminal
-Type=Application
-Categories=GTK;System;TerminalEmulator;
-StartupNotify=true
