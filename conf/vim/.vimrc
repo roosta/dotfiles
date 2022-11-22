@@ -241,6 +241,9 @@ Plug 'mattn/emmet-vim', { 'for': ['html', 'css', 'html.handlebars', 'vue'] }
 Plug 'othree/html5.vim'
 Plug 'othree/xml.vim'
 Plug 'leafOfTree/vim-vue-plugin'
+let g:vim_vue_plugin_config = {
+      \'full_syntax': ['html'],
+      \}
   function! OnChangeVueSyntax(syntax)
     if a:syntax ==? 'html'
       setlocal commentstring=<!--%s-->
