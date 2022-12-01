@@ -290,8 +290,21 @@ Plug 'mechatroner/rainbow_csv'
 
 " }}}
 " Completion {{{
+" coc.nvim {{{
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-" Plug 'vim-scripts/AutoComplPop'
+" " Use tab for trigger completion with characters ahead and navigate.
+" " NOTE: There's always complete item selected by default, you may want to enable
+" " no select by `"suggest.noselect": true` in your configuration file.
+" " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" " other plugin before putting this into your config.
+" inoremap <silent><expr> <TAB>
+"       \ coc#pum#visible() ? coc#pum#next(1) :
+"       \ CheckBackspace() ? "\<Tab>" :
+"       \ coc#refresh()
+" inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+" }}}
+" mucomplete {{{
 Plug 'lifepillar/vim-mucomplete'
   let g:mucomplete#enable_auto_at_startup = 1
   let g:mucomplete#no_mappings = 1
@@ -318,6 +331,8 @@ Plug 'lifepillar/vim-mucomplete'
 	imap <plug>MyCR <plug>UltiExpand<plug>AutoPairsReturn
 	imap <cr> <plug>MyCR
 
+" }}}
+" Plug 'vim-scripts/AutoComplPop'
 " }}}
 " Snippets {{{
 
