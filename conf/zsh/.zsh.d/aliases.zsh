@@ -19,7 +19,7 @@ alias nohup="nohup "
 
 alias ~~="$HOME/.backup/home/$USER"
 
-# alias sk="sudo -K"
+alias suk="sudo -K"
 
 #}}}
 # Shadow: {{{
