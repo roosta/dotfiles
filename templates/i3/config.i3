@@ -177,6 +177,8 @@ for_window [class="(?i)pivot"] focus
 ## Blender
 for_window [class="(?i)blender" title="(?i).*render"] move to workspace $sws_d
 
+for_window [class="(?i)steam"] move to workspace $pws_3
+
 #}}}
 # Keybindings {{{1
 # use xev to get keycodes
