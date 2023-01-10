@@ -232,7 +232,8 @@ Plug 'sudar/vim-arduino-syntax'
 " Gcode
 Plug 'gregjurman/vim-nc'
 
-Plug 'vim-scripts/nginx.vim'
+" Plug 'vim-scripts/nginx.vim'
+Plug 'chr4/nginx.vim'
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 " Plug 'racer-rust/vim-racer', { 'for': 'rust' }
 Plug 'mattn/emmet-vim', { 'for': ['html', 'css', 'html.handlebars', 'vue'] }
