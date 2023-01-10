@@ -92,6 +92,8 @@ flameshot &
 
 clipmenud &
 
+xscreensaver --no-splash &
+
 ## WINDOW MANAGER
 ## --------------
 
