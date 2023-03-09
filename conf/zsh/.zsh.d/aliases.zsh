@@ -319,7 +319,7 @@ alias tw="tmux new-window -n"  # open new window with name
 #}}}
 # ASCII: {{{1
 alias toiletlist='for i in ${TOILET_FONT_PATH:=/usr/share/figlet}/*.{t,f}lf; do j=${i##*/}; echo ""; echo "╓───── "$j; echo "╙────────────────────────────────────── ─ ─ "; echo ""; toilet -d "${i%/*}" -f "$j" "${j%.*}"; done'
-alias ascii="toilet -t -f 3d"
+# alias ascii="toilet -t -f 3d"
 alias future="toilet -t -f future"
 alias rusto="toilet -t -f rusto"
 alias rustofat="toilet -t -f rustofat"
