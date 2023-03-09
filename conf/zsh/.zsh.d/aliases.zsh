@@ -140,9 +140,6 @@ fi
 #alias lsrgrep='lsa -R | grep'
 alias lsrg='tree -f -i -h --matchdirs -P'
 
-# list pulseaudio sinks
-alias sinks="pacmd list-sinks|egrep -i 'index:|name:'"
-
 alias awk='gawk'
 alias find-here='find . -name'
 alias fd='fd --hidden'
@@ -514,8 +511,11 @@ alias pacls='pacman -Ql'
 #}}}
 # Audio: {{{1
 
-alias headphones="pacmd set-default-sink 74"
-alias speakers="pacmd set-default-sink 0"
+# list pulseaudio sinks
+alias sinks="pacmd list-sinks|grep -Ei 'index:|name:'"
+
+alias headphones="pacmd set-default-sink 3"
+alias speakers="pacmd set-default-sink 1"
 
 #}}}
 # vim: fdm=marker:sw=2
