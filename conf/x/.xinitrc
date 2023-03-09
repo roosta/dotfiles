@@ -92,7 +92,7 @@ flameshot &
 
 clipmenud &
 
-xscreensaver --no-splash &
+# xscreensaver --no-splash &
 
 ## WINDOW MANAGER
 ## --------------
