@@ -120,7 +120,7 @@ for_window [all] border pixel 1
 
 # Secondary monitor
 assign [class="(?i)google-chrome-unstable"] number $tws_f1
-assign [class="(?i)firefox"] number $pws_e
+assign [class="(?i)firefox$"] number $pws_e
 assign [class="(?i)thunderbird"] number $pws_2
 
 ## workaround for spotify WS assignment
