@@ -134,6 +134,7 @@ assign [class="(?i)krita"]    number $pws_3
 assign [class="(?i)freecad"]  number $pws_3
 assign [class="(?i)pivot"]    number $tws_f2
 assign [class="(?i)discord"]  number $sws_d
+assign [class="(?i)transmission"] number $sws_s
 
 ##}}}
 # Window behaviour {{{1
