@@ -30,7 +30,9 @@ export BROWSER=firefox
 
 # uniform qt/gtk look.
 export DESKTOP_SESSION=gnome
-export QT_STYLE_OVERRIDE=GTK+
+export QT_STYLE_OVERRIDE=adwaita-dark
+export GTK2_RC_FILES=/usr/share/themes/Adwaita-dark/gtk-2.0/gtkrc
+export GTK_THEME=Adwaita:dark
 export GDK_DPI_SCALE=1
 
 # editor
