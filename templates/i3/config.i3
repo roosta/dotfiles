@@ -118,8 +118,8 @@ for_window [all] border pixel 1
 # Window workspace assignment {{{1
 ## ---------------------------
 
-# Secondary monitor
 assign [class="(?i)google-chrome-unstable"] number $tws_f1
+assign [class="(?i)firefoxdeveloperedition$"] number $tws_f2
 assign [class="(?i)firefox$"] number $pws_e
 assign [class="(?i)thunderbird"] number $pws_2
 
@@ -128,13 +128,13 @@ assign [class="(?i)thunderbird"] number $pws_2
 for_window [class="Spotify"] move to workspace $pws_1
 
 assign [class="(?i)google-chrome"] number $sws_a
-assign [class="(?i)inkscape"] number $pws_3
-assign [class="(?i)gimp"]     number $pws_3
-assign [class="(?i)krita"]    number $pws_3
-assign [class="(?i)freecad"]  number $pws_3
-assign [class="(?i)pivot"]    number $tws_f2
-assign [class="(?i)discord"]  number $sws_d
-assign [class="(?i)transmission"] number $sws_s
+assign [class="(?i)inkscape"]      number $pws_3
+assign [class="(?i)gimp"]          number $pws_3
+assign [class="(?i)krita"]         number $pws_3
+assign [class="(?i)freecad"]       number $pws_3
+assign [class="(?i)pivot"]         number $tws_f2
+assign [class="(?i)discord"]       number $sws_d
+assign [class="(?i)transmission"]  number $sws_s
 
 ##}}}
 # Window behaviour {{{1
