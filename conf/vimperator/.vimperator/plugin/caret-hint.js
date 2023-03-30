@@ -1,1 +1,0 @@
-/home/roosta/lib/vimperator-plugins/caret-hint.js

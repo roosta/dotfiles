@@ -1,5 +1,0 @@
-style -name hide-webrtc-indicator * <<EOM
-  #webrtcIndicator {
-    display: none;
-  }
-EOM
