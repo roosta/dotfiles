@@ -210,11 +210,11 @@ Plug 'tpope/vim-rhubarb'
 
 Plug 'christoomey/vim-tmux-navigator'
 
-Plug 'jpalardy/vim-slime'
-  let g:slime_target = 'tmux'
-  let g:slime_default_config = {'socket_name': 'default', 'target_pane': '2'}
-  let g:slime_paste_file = '$HOME/.slime_paste'
-  let g:slime_python_ipython = 1
+" Plug 'jpalardy/vim-slime'
+"   let g:slime_target = 'tmux'
+"   let g:slime_default_config = {'socket_name': 'default', 'target_pane': '2'}
+"   let g:slime_paste_file = '$HOME/.slime_paste'
+"   let g:slime_python_ipython = 1
 Plug 'tpope/vim-tbone'
 
 " }}}
