@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# Strict mode
+# http://redsymbol.net/articles/unofficial-bash-strict-mode/
+
+set -uo pipefail
+IFS=$'\n\t'
 etc_path=$HOME/etc
 
 error_msg() {
@@ -8,43 +13,54 @@ error_msg() {
 }
 
 ## Git  {{{1
-commit () {
+commit() {
   for arg in "$@"
   do
     if [[ -d "$etc_path/conf/$arg" ]]; then
       cd "$etc_path/conf/$arg" || exit 1
       git add .
     else
-      error_msg "No such directory: $arg"
+      error_msg "No such path: $arg"
     fi
   done
   git commit
 }
 
-add () {
+add() {
   for arg in "$@"
   do
-    if [[ -f "$etc_path/conf/$arg" ]]; then
+    if [[ -d "$etc_path/conf/$arg" ]]; then
       git add "$etc_path/conf/$arg" || exit 1
     else
-      error_msg "No such file: $arg"
+      error_msg "No such path: $arg"
     fi
   done
 }
 
-stat () {
+checkout() {
+  for arg in "$@"
+  do
+    if [[ -d "$etc_path/conf/$arg" ]]; then
+      git checkout "$etc_path/conf/$arg" || exit 1
+    else
+      error_msg "No such path: $arg"
+    fi
+  done
+}
+
+stat() {
   cd "$etc_path" || exit 1
   git status
 }
 
-push () {
+push() {
   cd "$etc_path" || exit 1
   git push
 }
 
 # get config diff if arg is provided
 # else diff entire etc tree
-diff () {
+diff() {
   if (( $# < 1 )); then
     git diff "$etc_path"
   else
@@ -60,12 +76,12 @@ diff () {
   fi
 }
 #}}}
-link () {
+link() {
   cd "$etc_path" || exit 1
   make link
 }
 ## edit {{{1
-edit () {
+edit() {
   for arg in "$@"
   do
     case "$arg" in
@@ -144,18 +160,18 @@ edit () {
 #}}}
 
 make-i3 () {
-  cd "$etc_path" || exit 1
-  make i3
+cd "$etc_path" || exit 1
+make i3
 }
 
 make-rofi () {
-  cd "$etc_path" || exit 1
-  make rofi
+cd "$etc_path" || exit 1
+make rofi
 }
 
 make-dunst () {
-  cd "$etc_path" || exit 1
-  make dunst
+cd "$etc_path" || exit 1
+make dunst
 }
 
 update () {
@@ -199,6 +215,9 @@ run () {
     "add")
       add "${@:2}"
       ;;
+    "checkout")
+      checkout "${@:2}"
+      ;;
     "edit")
       edit "${@:2}"
       ;;
@@ -221,16 +240,29 @@ run () {
 
 usage() {
   cat >&2 <<EOL
-FATLINE
+FATLINE -- Faster than light
 ───────
-Helper script for etc/dotfiles
+Helper script for etc/dotfiles, relies on etc dir structure, config in conf/*.
+Mainly so I don't have to type out each path on common git operations.
+
+Also dispatched from scripts, i3 for example is built using this script.
+A lot of implementation is in the make file, this script just calls that, this
+script is on PATH usually so its a convinient way to access etc
 
 Usage: fatline command option
 
 commands:
   commit            stage a folder and commit using git
-  link-conf         Symlink conf
+  add               stage a conf/[arg]
+  checkout          checkout a conf/[arg]
+  diff              get diff for a given conf/[arg]
   status            get git status
+  update            run all update scripts (see Makefile rule)
+  make              default make, runs through everything to update system
+  edit              Quick access to common configs
+  i3                build i3 configuration (see templates)
+  rofi              build rofi configuration (see templates, variables)
+  link              Symlink config to HOME
   push              push to origin
   help              show help (this)
 
