@@ -101,6 +101,7 @@ tags.temp
 conf/i3/.i3/config
 conf/pip/.pip/bin
 conf/pip/.pip/lib
+conf/pip/.pip/share
 lock.png
 
 .lastupdate
