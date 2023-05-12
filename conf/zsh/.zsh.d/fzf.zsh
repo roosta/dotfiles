@@ -22,6 +22,7 @@ export FZF_DEFAULT_OPTS="
 --bind='ctrl-r:toggle-all'
 --bind='ctrl-s:toggle-sort'
 --bind='ctrl-p:toggle-preview'
+--bind='ctrl-a:select-all'
 --bind='alt-w:toggle-preview-wrap'
 "
 # export FZF_COMPLETION_TRIGGER='~~'
