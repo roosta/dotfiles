@@ -9,7 +9,7 @@
 # --------------------
 exec_always --no-startup-id $HOME/scripts/launch-polybar.sh
 exec_always --no-startup-id $HOME/.cargo/bin/i3wsr
-exec discord
+# exec discord
 
 # Start pavucontrol and move to scratchpad
 # Possibly temporary, but currently dealing with multiple sinks alot
@@ -159,6 +159,7 @@ for_window [class="(?i)nitrogen"] floating enable
 for_window [class="(?i)pinentry-gtk-2"] floating enable
 for_window [class="(?i)yad"] floating enable
 for_window [class="(?i)kooha"] floating enable
+for_window [class="(?i)discord"] floating disable
 
 ## Window size
 for_window [class="(?i)Pidgin"] floating_maximum_size 50 x 75
