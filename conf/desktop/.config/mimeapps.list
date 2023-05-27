@@ -46,7 +46,6 @@ application/pgp-signature=gvim.desktop;
 application/x-xpinstall=firefox.desktop;
 image/png=gimp.desktop;feh.desktop;
 application/x-bittorrent=transmission-gtk.desktop;
-application/zip=firefox.desktop;
 application/x-partial-download=gvim.desktop;
 
 [Removed Associations]
