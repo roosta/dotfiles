@@ -125,7 +125,7 @@ assign [class="(?i)thunderbird"] number $pws_2
 
 ## workaround for spotify WS assignment
 ## see: https://github.com/i3/i3/issues/2060
-for_window [class="Spotify"] move to workspace $pws_1
+for_window [class="Spotify"] move to workspace number $pws_1
 
 assign [class="(?i)google-chrome"] number $sws_a
 assign [class="(?i)inkscape"]      number $pws_3
@@ -177,9 +177,9 @@ for_window [class="(?i)terminator"] border none
 for_window [class="(?i)pivot"] focus
 
 ## Blender
-for_window [class="(?i)blender" title="(?i).*render"] move to workspace $sws_d
+for_window [class="(?i)blender" title="(?i).*render"] move to workspace number $sws_d
 
-for_window [class="(?i)steam"] move to workspace $pws_3
+for_window [class="(?i)steam"] move to workspace number $pws_3
 
 #}}}
 # Keybindings {{{1
