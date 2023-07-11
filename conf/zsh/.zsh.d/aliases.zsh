@@ -143,6 +143,9 @@ alias lsrg='tree -f -i -h --matchdirs -P'
 alias awk='gawk'
 alias find-here='find . -name'
 alias fd='fd --hidden'
+
+# lists most recent last
+alias lsr='\ls -Atr'
 #}}}
 # Web search: {{{1
 alias @aur='googler -w aur.archlinux.org'
@@ -298,7 +301,6 @@ else
     alias ls="ls -lsAhpk --color=auto --group-directories-first"
   fi
 fi
-alias lsr='tree'
 alias lsp='lsp -p'
 #}}}
 # Security: {{{1
