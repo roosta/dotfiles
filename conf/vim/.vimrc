@@ -70,8 +70,9 @@ Plug 'junegunn/vim-easy-align'
 Plug 'ntpeters/vim-better-whitespace'
   let g:better_whitespace_filetypes_blacklist=['diff', 'gitcommit', 'help', 'nofile', 'git']
 
-Plug 'tpope/vim-commentary'
+" Plug 'tpope/vim-commentary'
 " Plug 'tyru/caw.vim'
+Plug 'tomtom/tcomment_vim'
 
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-rsi'
