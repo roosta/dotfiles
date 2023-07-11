@@ -601,6 +601,11 @@ nnoremap <leader>bd :bd<CR>
 " edit or create file
 map gf :e <cfile><CR>
 
+" Unbind f1, keep hitting it by accident
+" https://vim.fandom.com/wiki/Disable_F1_built-in_help_key
+nmap <F1> :echo<CR>
+imap <F1> <C-o>:echo<CR>
+
 " }}}
 " Functions & Commands: {{{
 
