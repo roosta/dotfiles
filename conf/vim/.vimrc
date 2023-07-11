@@ -242,25 +242,25 @@ Plug 'mattn/emmet-vim', { 'for': ['html', 'css', 'html.handlebars', 'vue'] }
 
 Plug 'othree/html5.vim'
 Plug 'othree/xml.vim'
-Plug 'leafOfTree/vim-vue-plugin'
-let g:vim_vue_plugin_config = {
-      \'full_syntax': ['html'],
-      \}
-  function! OnChangeVueSyntax(syntax)
-    if a:syntax ==? 'html'
-      setlocal commentstring=<!--%s-->
-      setlocal comments=s:<!--,m:\ \ \ \ ,e:-->
-    elseif a:syntax =~? 'css'
-      setlocal comments=s1:/*,mb:*,ex:*/ commentstring&
-    else
-      setlocal commentstring=//%s
-      setlocal comments=sO:*\ -,mO:*\ \ ,exO:*/,s1:/*,mb:*,ex:*/,://
-    endif
-  endfunction
+" Plug 'leafOfTree/vim-vue-plugin'
+" let g:vim_vue_plugin_config = {
+"       \'full_syntax': ['html'],
+"       \}
+"   function! OnChangeVueSyntax(syntax)
+"     if a:syntax ==? 'html'
+"       setlocal commentstring=<!--%s-->
+"       setlocal comments=s:<!--,m:\ \ \ \ ,e:-->
+"     elseif a:syntax =~? 'css'
+"       setlocal comments=s1:/*,mb:*,ex:*/ commentstring&
+"     else
+"       setlocal commentstring=//%s
+"       setlocal comments=sO:*\ -,mO:*\ \ ,exO:*/,s1:/*,mb:*,ex:*/,://
+"     endif
+"   endfunction
 
-" Plug 'posva/vim-vue'
-"   let g:html_indent_inctags = 'transition'
-"   let g:vue_pre_processors = 'detect_on_enter'
+Plug 'posva/vim-vue'
+  " let g:html_indent_inctags = 'transition'
+  let g:vue_pre_processors = 'detect_on_enter'
 
 Plug 'guns/vim-sexp', { 'for': 'clojure' }
 Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for': 'clojure' }
