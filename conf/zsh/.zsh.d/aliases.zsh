@@ -132,10 +132,10 @@ alias lsfpath='tr " " "\n" <<< $fpath'
 alias psgrep='ps aux|head -n 1 && ps aux|ag'
 
 # locate file at working dir
-if hash ag 2>/dev/null; then
-  alias lsg='\ls -lAh | ag'
+if hash rg 2>/dev/null; then
+  alias lsg='\ls -A | rg'
 else
-  alias lsg='\ls -lAh | grep'
+  alias lsg='\ls -A | grep'
 fi
 #alias lsrgrep='lsa -R | grep'
 alias lsrg='tree -f -i -h --matchdirs -P'
