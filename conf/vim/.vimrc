@@ -340,7 +340,7 @@ Plug 'lifepillar/vim-mucomplete'
 
 Plug 'SirVer/ultisnips'
   let g:UltiSnipsExpandTrigger='<a-q>'
-  " let g:UltiSnipsListSnippets='<a-Q>'
+  let g:UltiSnipsListSnippets='<a-a>'
   let g:UltiSnipsJumpForwardTrigger='<a-l>'
   let g:UltiSnipsJumpBackwardTrigger='<a-h>'
   let g:UltiSnipsSnippetDirectories=['UltiSnips', 'mysnippets']
