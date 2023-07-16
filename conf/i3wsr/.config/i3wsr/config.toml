@@ -1,6 +1,9 @@
 [general]
 default_icon = ""
 
+[options]
+remove_duplicates = true
+
 [icons]
 firefox = ""
 firefoxdeveloperedition = ""
@@ -18,6 +21,7 @@ com-eviware-soapui-SoapUI = ""
 "Discord" = ""
 Alacritty = ""
 kitty = ""
+Steam = ""
 
 [aliases]
 firefoxdeveloperedition = "Firefox-dev"
@@ -32,3 +36,4 @@ com-eviware-soapui-SoapUI = "SoapUI"
 "Org.gnome.Nautilus" = "Nautilus"
 "^discord$" = "Discord"
 "com\\.bitwig\\.BitwigStudio" = "Bitwig"
+steam="Steam"
