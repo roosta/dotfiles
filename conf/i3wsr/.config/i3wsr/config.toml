@@ -5,8 +5,8 @@ default_icon = ""
 remove_duplicates = true
 
 [icons]
-firefox = ""
-firefoxdeveloperedition = ""
+Firefox = ""
+Firefox-dev = ""
 Termite = ""
 Thunderbird = ""
 Google-chrome-unstable = ""
