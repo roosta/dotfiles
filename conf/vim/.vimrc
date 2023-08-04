@@ -240,7 +240,7 @@ Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'mattn/emmet-vim', { 'for': ['html', 'css', 'html.handlebars', 'vue'] }
   let g:user_emmet_leader_key='<C-Q>'
 
-" Plug 'othree/html5.vim'
+Plug 'othree/html5.vim'
 " Plug 'othree/xml.vim'
 " Plug 'leafOfTree/vim-vue-plugin'
 " let g:vim_vue_plugin_config = {
