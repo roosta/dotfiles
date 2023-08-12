@@ -63,7 +63,7 @@ font-3 = "FontAwesome6Free:style=Regular:size=10;4"
 font-4 = "FontAwesome6Brands:style=Regular:size=10;4"
 modules-left = i3
 ; modules-center = mpd
-modules-right = spotify keyboard-layout vpncheck updates-arch-combined volume memory cpu date time
+modules-right = spotify keyboard-layout vpncheck updates-arch-combined volume memory cpu temp-cpu date time
 
 [module/spotify]
 type = custom/script
@@ -84,7 +84,7 @@ tray-background = ${colors.xgray2}
 tray-maxsize = 24
 modules-center = xwindow
 modules-left = i3
-modules-right = eth-lintilla fs-root fs-netmedia fs-vmstorage
+modules-right =
 
 [bar/lintilla-tertiary]
 inherit = bar/lintilla-primary
@@ -92,7 +92,7 @@ enable-ipc = false
 dpi = 96
 height = 22
 modules-center = xwindow
-modules-right =
+modules-right = eth-lintilla fs-root
 monitor = ${env:MONITOR:HDMI-A-0}
 
 [bar/allitnil]
@@ -320,7 +320,7 @@ format-disconnected = <label-disconnected>
 
 [module/eth-lintilla]
 inherit = module/eth
-interface = enp9s0
+interface = enp11s0
 
 [module/eth-garkbit]
 inherit = module/eth
@@ -367,7 +367,7 @@ format-full-foreground = ${colors.brightgreen}
 label-charging = BAT: %percentage%%
 format-charging-foreground = ${colors.cyan}
 
-[module/fs-root]
+[module/fs-root-old]
 type = internal/fs
 interval = 25
 mount-0 = /
@@ -386,12 +386,17 @@ label-mounted = %mountpoint% %percentage_used%%
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.yellow}
 
-[module/fs-netmedia]
+[module/fs-root]
 type = internal/fs
 interval = 25
-inherit = module/fs-root
-mount-0 = /mnt/netmedia
-bar-used-indicator-foreground = ${colors.blue}
+mount-0 = /
+bar-used-width = 10
+label-mounted-foreground = ${colors.brightwhite}
+format-mounted = <label-mounted>
+format-mounted-padding = 1
+format-unmounted-padding = 1
+label-mounted =  %used%/%total% (%free% free)
+label-unmounted-foreground = ${colors.yellow}
 
 [module/fs-vmstorage]
 type = internal/fs
@@ -399,5 +404,19 @@ interval = 25
 inherit = module/fs-root
 mount-0 = /mnt/vm-storage
 bar-used-indicator-foreground = ${colors.blue}
+
+[module/temp-cpu]
+type = internal/temperature
+interval = 0.5
+format-foreground = ${colors.brightwhite}
+format-padding = 1
+format = <ramp> <label>
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+label = %temperature-c%
+hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon2/temp1_input
+base-temperature = 20
+warn-temperature = 80
 
 ; vim:ft=dosini
