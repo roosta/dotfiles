@@ -1,0 +1,24 @@
+# Run ls in PWD and grep for files/dirs, supports multiple patterns
+# example: lsg word1 word2
+
+# https://stackoverflow.com/a/17841619/4306379
+function join_by {
+  local d=${1-} f=${2-}
+  if shift 2; then
+    printf %s "$f" "${@/#/$d}"
+  fi
+}
+
+function lsg() {
+  local cmd pattern
+  pattern=$(join_by "|" $@)
+  cmd=$(\ls -lA)
+  if hash rg 2>/dev/null; then
+    rg <<< $cmd "$pattern"
+  else
+    grep <<< $cmd "$pattern"
+  fi
+}
+
+lsg "$@"
+#  vim: set ts=2 sw=2 tw=0 fdm=marker ft=zsh et :
