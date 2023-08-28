@@ -510,5 +510,7 @@ alias sinks="pacmd list-sinks|grep -Ei 'index:|name:'"
 alias headphones="pacmd set-default-sink 3"
 alias speakers="pacmd set-default-sink 1"
 
+alias ipleak="curl -s https://ipleak.net/json/ | jq '.type'"
+
 #}}}
 # vim: fdm=marker:sw=2
