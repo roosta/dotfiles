@@ -335,6 +335,13 @@ Plug 'lifepillar/vim-mucomplete'
 
 " }}}
 " Plug 'vim-scripts/AutoComplPop'
+
+Plug 'madox2/vim-ai'
+  " let g:vim_ai_chat = {
+  "     \ 'options': {
+  "     \ 'model': 'gpt-4'
+  "     \ }}
+  "
 " }}}
 " Snippets {{{
 
