@@ -9,8 +9,8 @@ Firefox = ""
 Firefox-dev = ""
 Termite = ""
 Thunderbird = ""
-Google-chrome-unstable = ""
-Google-chrome= ""
+Chrome-dev = ""
+Chrome= ""
 Spotify = ""
 libreoffice-calc = ""
 "Gimp-2.10" = ""
@@ -25,9 +25,8 @@ Steam = ""
 REAPER = ""
 Bitwig = ""
 
-[aliases]
+[aliases.class]
 firefoxdeveloperedition = "Firefox-dev"
-"web.whatsapp.com" = "Whatsapp"
 libreoffice-calc = "Calc"
 firefox = "Firefox"
 Google-chrome-unstable = "Chrome-dev"
@@ -39,3 +38,8 @@ com-eviware-soapui-SoapUI = "SoapUI"
 "^discord$" = "Discord"
 "com\\.bitwig\\.BitwigStudio" = "Bitwig"
 steam = "Steam"
+
+[aliases.instance]
+"open.spotify.com" = "Spotify"
+"web\\.whatsapp\\.com" = "Whatsapp"
+
