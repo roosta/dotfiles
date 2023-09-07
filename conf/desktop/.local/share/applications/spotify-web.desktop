@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Spotify Web
+GenericName=Music Player
+Comment=Spotify running as a chrome app
+Icon=spotify-client
+Exec=google-chrome-beta %U --app="https://open.spotify.com"
+TryExec=google-chrome-beta
+Terminal=false
+Type=Application
+Categories=Audio;Music;Player;AudioVideo;
+MimeType=x-scheme-handler/spotify;
