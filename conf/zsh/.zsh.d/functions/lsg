@@ -13,7 +13,7 @@ function lsg() {
   local cmd pattern
   pattern=$(join_by "|" $@)
   cmd=$(\ls -lA)
-  if hash asd 2>/dev/null; then
+  if hash rg 2>/dev/null; then
     rg <<< $cmd "$pattern" --smart-case
   else
     grep <<< $cmd "$pattern" -iE
