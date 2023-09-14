@@ -126,6 +126,8 @@ assign [class="(?i)thunderbird"] number $pws_2
 ## workaround for spotify WS assignment
 ## see: https://github.com/i3/i3/issues/2060
 for_window [class="Spotify"] move to workspace number $pws_1
+for_window [class="open.spotify.com"] floating disable
+for_window [class="(?i)google-chrome-beta"] move to workspace number $pws_1
 
 assign [class="(?i)google-chrome"] number $sws_a
 assign [class="(?i)inkscape"]      number $pws_3
