@@ -8,8 +8,8 @@
 # Startup {{{
 # --------------------
 exec_always --no-startup-id $HOME/scripts/launch-polybar.sh
-exec_always --no-startup-id $HOME/.cargo/bin/i3wsr
-exec discord
+exec_always --no-startup-id $HOME/src/i3wsr/target/release/i3wsr
+# exec discord
 
 # Start pavucontrol and move to scratchpad
 # Possibly temporary, but currently dealing with multiple sinks alot
