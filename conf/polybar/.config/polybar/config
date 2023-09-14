@@ -63,7 +63,7 @@ font-3 = "FontAwesome6Free:style=Regular:size=10;4"
 font-4 = "FontAwesome6Brands:style=Regular:size=10;4"
 modules-left = i3
 ; modules-center = mpd
-modules-right = spotify keyboard-layout vpncheck updates-arch-combined volume memory cpu temp-cpu date time
+modules-right = keyboard-layout vpncheck updates-arch-combined volume memory cpu temp-cpu date time
 
 [module/spotify]
 type = custom/script
