@@ -24,6 +24,7 @@ kitty = ""
 Steam = ""
 REAPER = ""
 Bitwig = ""
+Slack = ""
 
 [aliases.class]
 firefoxdeveloperedition = "Firefox-dev"
@@ -38,6 +39,8 @@ com-eviware-soapui-SoapUI = "SoapUI"
 "^discord$" = "Discord"
 "com\\.bitwig\\.BitwigStudio" = "Bitwig"
 steam = "Steam"
+jetbrains-idea-ce = "IntelliJ"
+thunderbird = "Thunderbird"
 
 [aliases.instance]
 "open.spotify.com" = "Spotify"
