@@ -63,7 +63,7 @@ font-3 = "FontAwesome6Free:style=Regular:size=10;4"
 font-4 = "FontAwesome6Brands:style=Regular:size=10;4"
 modules-left = i3
 ; modules-center = mpd
-modules-right = keyboard-layout vpncheck updates-arch-combined volume memory cpu temp-cpu date time
+modules-right = keyboard-layout vpncheck updates-arch-combined volume memory cpu temp-cpu-1 temp-cpu-2 date time
 
 [module/spotify]
 type = custom/script
@@ -405,7 +405,21 @@ inherit = module/fs-root
 mount-0 = /mnt/vm-storage
 bar-used-indicator-foreground = ${colors.blue}
 
-[module/temp-cpu]
+[module/temp-cpu-1]
+type = internal/temperature
+interval = 0.5
+format-foreground = ${colors.brightwhite}
+format-padding = 1
+format = <ramp> <label>
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+label = %temperature-c%
+hwmon-path = /sys/devices/platform/coretemp.0/hwmon/hwmon2/temp1_input
+base-temperature = 20
+warn-temperature = 80
+
+[module/temp-cpu-2]
 type = internal/temperature
 interval = 0.5
 format-foreground = ${colors.brightwhite}
