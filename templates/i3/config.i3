@@ -10,10 +10,7 @@
 exec_always --no-startup-id $HOME/scripts/launch-polybar.sh
 exec_always --no-startup-id $HOME/src/i3wsr/target/release/i3wsr
 # exec discord
-
-# Start pavucontrol and move to scratchpad
-# Possibly temporary, but currently dealing with multiple sinks alot
-# exec --no-startup-id pavucontrol; exec --no-startup-id i3-msg 'move scratchpad'
+exec_always --no-startup-id pavucontrol;
 
 # }}}
 # Options {{{
@@ -137,6 +134,8 @@ assign [class="(?i)freecad"]       number $pws_3
 assign [class="(?i)pivot"]         number $tws_f2
 assign [class="(?i)discord"]       number $sws_d
 assign [class="(?i)transmission"]  number $sws_s
+
+for_window [class="(?i)pavucontrol"] move scratchpad
 
 ##}}}
 # Window behaviour {{{1
