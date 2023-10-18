@@ -10,7 +10,7 @@
 exec_always --no-startup-id $HOME/scripts/launch-polybar.sh
 exec_always --no-startup-id $HOME/src/i3wsr/target/release/i3wsr
 # exec discord
-exec_always --no-startup-id pavucontrol;
+exec --no-startup-id pavucontrol;
 
 # }}}
 # Options {{{
