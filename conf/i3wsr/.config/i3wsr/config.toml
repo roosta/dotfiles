@@ -25,6 +25,7 @@ Steam = ""
 REAPER = ""
 Bitwig = ""
 Slack = ""
+Evince = ""
 
 [aliases.class]
 firefoxdeveloperedition = "Firefox-dev"
