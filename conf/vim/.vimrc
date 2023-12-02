@@ -167,7 +167,7 @@ Plug '~/src/srcery-vim'
   let g:srcery_dim_lisp_paren=0
   let g:srcery_italic=1
   let g:srcery_bg_passthrough=1
-  let g:srcery_bg = ['NONE', 'NONE']
+  let g:srcery_bg = ['DEFAULT', 'NONE']
   " let g:srcery_hard_black_terminal_bg=0
 
   " let g:srcery_undercurl=0
@@ -239,6 +239,7 @@ Plug 'gregjurman/vim-nc'
 " Plug 'vim-scripts/nginx.vim'
 Plug 'chr4/nginx.vim'
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
+
 " Plug 'racer-rust/vim-racer', { 'for': 'rust' }
 Plug 'mattn/emmet-vim', { 'for': ['html', 'css', 'html.handlebars', 'vue'] }
   let g:user_emmet_leader_key='<C-Q>'
