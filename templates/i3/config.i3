@@ -125,6 +125,7 @@ assign [class="(?i)thunderbird"] number $pws_2
 for_window [class="Spotify"] move to workspace number $pws_1
 for_window [class="open.spotify.com"] floating disable
 for_window [class="(?i)google-chrome-beta"] move to workspace number $pws_1
+for_window [class="(?i)brave-browser"] move to workspace number $sws_a
 
 assign [class="(?i)google-chrome"] number $sws_a
 assign [class="(?i)inkscape"]      number $pws_3
