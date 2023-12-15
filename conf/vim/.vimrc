@@ -120,8 +120,9 @@ Plug 'AndrewRadev/inline_edit.vim'
 " }}}
 " Files {{{
 
-Plug 'tpope/vim-vinegar'
+" Plug 'tpope/vim-vinegar'
 Plug 'trapd00r/vim-syntax-vidir-ls'
+Plug 'stevearc/oil.nvim'
 
 " }}}
 " Notes {{{
