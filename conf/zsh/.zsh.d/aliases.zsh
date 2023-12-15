@@ -112,7 +112,7 @@ alias vidunst="${EDITOR:-vim} ~/etc/templates/dunst/config.dunst"
 alias vifzf="${EDITOR:-vim} ~/.zsh.d/fzf.zsh"
 alias vimake="${EDITOR:-vim} ~/etc/Makefile"
 
-alias vidir="env EDITOR=vim vidir"
+# alias vidir="env EDITOR=vim vidir"
 
 #}}}
 # Find: {{{1

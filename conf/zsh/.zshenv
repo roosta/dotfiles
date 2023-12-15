@@ -66,7 +66,7 @@ export ARDUINO_DIR=/usr/share/arduino
 export PULSE_LATENCY_MSEC=60
 
 # https://github.com/trapd00r/vim-syntax-vidir-ls
-export VIDIR_EDITOR_ARGS='-c :set nolist | :set ft=vidir-ls'
+# export VIDIR_EDITOR_ARGS='-c :set nolist | :set ft=vidir-ls'
 
 export SYSTEMD_EDITOR="/usr/bin/nvim"
 
