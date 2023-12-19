@@ -45,15 +45,17 @@ Plug 'christoomey/vim-sort-motion'
 
 Plug 'farmergreg/vim-lastplace'
 
-Plug 'jiangmiao/auto-pairs'
-  " Fix for 'å' button on Norwegian keyboards
-  let g:AutoPairsShortcutFastWrap=''
+Plug 'windwp/nvim-autopairs'
 
-  " Fix issue with mucomplete
-	let g:AutoPairsMapSpace = 0
-	imap <silent> <expr> <space> pumvisible()
-	    \ ? "<space>"
-	    \ : "<c-r>=AutoPairsSpace()<cr>"
+" Plug 'jiangmiao/auto-pairs'
+"   " Fix for 'å' button on Norwegian keyboards
+"   let g:AutoPairsShortcutFastWrap=''
+"
+"   " Fix issue with mucomplete
+" 	let g:AutoPairsMapSpace = 0
+" 	imap <silent> <expr> <space> pumvisible()
+" 	    \ ? "<space>"
+" 	    \ : "<c-r>=AutoPairsSpace()<cr>"
 
 
 Plug 'junegunn/vim-easy-align'
@@ -79,16 +81,16 @@ Plug 'tpope/vim-rsi'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
-Plug 'tpope/vim-capslock'
-Plug 'tpope/vim-scriptease'
+" Plug 'tpope/vim-capslock'
+" Plug 'tpope/vim-scriptease'
 
-Plug 'Shougo/context_filetype.vim'
+" Plug 'Shougo/context_filetype.vim'
 
 Plug 'wellle/targets.vim'
 Plug 'mbbill/undotree'
   nnoremap <leader>ut :UndotreeToggle<cr>
 
-Plug 'romainl/vim-qlist'
+" Plug 'romainl/vim-qlist'
 Plug 'terryma/vim-expand-region'
 Plug 'tpope/vim-dispatch'
 
@@ -104,8 +106,8 @@ Plug 'tpope/vim-abolish'
 " Plug 'obreitwi/vim-sort-folds'
 "   let g:sort_folds_ignore_case = 1
 
-Plug 'tpope/vim-projectionist'
-Plug 'tpope/vim-eunuch'
+" Plug 'tpope/vim-projectionist'
+" Plug 'tpope/vim-eunuch'
 " Plug 'matze/vim-move' use unimpaired [/]e
 Plug 'tommcdo/vim-exchange'
 
@@ -115,19 +117,22 @@ Plug 'AndrewRadev/sideways.vim'
 
 Plug 'chaoren/vim-wordmotion'
 Plug 'stefandtw/quickfix-reflector.vim'
+
 Plug 'triglav/vim-visual-increment'
 Plug 'AndrewRadev/inline_edit.vim'
+
 " }}}
 " Files {{{
 
 " Plug 'tpope/vim-vinegar'
-Plug 'trapd00r/vim-syntax-vidir-ls'
+" Plug 'trapd00r/vim-syntax-vidir-ls'
 Plug 'stevearc/oil.nvim'
+  " For config see .vim/plugins/oil.lua
 
 " }}}
 " Notes {{{
 
-Plug 'jceb/vim-orgmode'
+" Plug 'jceb/vim-orgmode'
 " Plug 'blindFS/vim-taskwarrior'
 
 " }}}
@@ -135,26 +140,26 @@ Plug 'jceb/vim-orgmode'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'vifm/vifm.vim'
+" Plug 'vifm/vifm.vim'
 
-Plug 'haya14busa/incsearch.vim'
-  let g:incsearch#auto_nohlsearch = 0
-  map /  <Plug>(incsearch-forward)
-  map ?  <Plug>(incsearch-backward)
-  map g/ <Plug>(incsearch-stay)
-  map n  <Plug>(incsearch-nohl-n)
-  map N  <Plug>(incsearch-nohl-N)
-  map *  <Plug>(incsearch-nohl-*)
-  map #  <Plug>(incsearch-nohl-#)
-  map g* <Plug>(incsearch-nohl-g*)
-  map g# <Plug>(incsearch-nohl-g#)
+" Plug 'haya14busa/incsearch.vim'
+  " let g:incsearch#auto_nohlsearch = 0
+  " map /  <Plug>(incsearch-forward)
+  " map ?  <Plug>(incsearch-backward)
+  " map g/ <Plug>(incsearch-stay)
+  " map n  <Plug>(incsearch-nohl-n)
+  " map N  <Plug>(incsearch-nohl-N)
+  " map *  <Plug>(incsearch-nohl-*)
+  " map #  <Plug>(incsearch-nohl-#)
+  " map g* <Plug>(incsearch-nohl-g*)
+  " map g# <Plug>(incsearch-nohl-g#)
 
 Plug 'justinmk/vim-sneak'
   let g:sneak#use_ic_scs = 1
 
-Plug 'easymotion/vim-easymotion'
-  let g:EasyMotion_smartcase = 1
-  let g:EasyMotion_startofline = 1 " keep cursor column when JK motion
+" Plug 'easymotion/vim-easymotion'
+"   let g:EasyMotion_smartcase = 1
+"   let g:EasyMotion_startofline = 1 " keep cursor column when JK motion
 
 Plug 'markonm/traces.vim'
 
@@ -168,7 +173,7 @@ Plug '~/src/srcery-vim'
   let g:srcery_dim_lisp_paren=0
   let g:srcery_italic=1
   let g:srcery_bg_passthrough=1
-  let g:srcery_bg = ['DEFAULT', 'NONE']
+  let g:srcery_bg = ['NONE', 'NONE']
   " let g:srcery_hard_black_terminal_bg=0
 
   " let g:srcery_undercurl=0
@@ -214,13 +219,13 @@ Plug 'tpope/vim-rhubarb'
 " Multiplexer {{{
 
 Plug 'christoomey/vim-tmux-navigator'
+" Plug 'tpope/vim-tbone'
 
 " Plug 'jpalardy/vim-slime'
 "   let g:slime_target = 'tmux'
 "   let g:slime_default_config = {'socket_name': 'default', 'target_pane': '2'}
 "   let g:slime_paste_file = '$HOME/.slime_paste'
 "   let g:slime_python_ipython = 1
-Plug 'tpope/vim-tbone'
 
 " }}}
 " Lang {{{
@@ -274,7 +279,7 @@ Plug 'tpope/vim-salve', { 'for': 'clojure' }
 Plug 'guns/vim-clojure-highlight', { 'for': 'clojure' }
 " Plug 'Olical/conjure', {'tag': 'v4.5.0'}
 " Plug 'jmcantrell/vim-virtualenv'
-Plug 'vim-python/python-syntax'
+" Plug 'vim-python/python-syntax'
 Plug 'ludovicchabant/vim-gutentags'
   let g:gutentags_exclude_filetypes = ['gitcommit', 'gitconfig', 'gitrebase', 'gitsendemail', 'git']
   let g:gutentags_cache_dir = expand('~/.cache/vim/ctags/')
@@ -312,41 +317,48 @@ Plug 'mechatroner/rainbow_csv'
 " inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 " }}}
 " mucomplete {{{
-Plug 'lifepillar/vim-mucomplete'
-  let g:mucomplete#enable_auto_at_startup = 1
-  let g:mucomplete#no_mappings = 1
-
-	let g:mucomplete#chains = {
-	    \ 'default' : ['path', 'omni', 'keyn', 'ulti', 'dict', 'uspl'],
-	    \ 'haxe' : ['path', 'keyn', 'ulti', 'dict', 'uspl'],
-	    \ 'gitcommit' : ['path', 'keyn', 'ulti', 'dict', 'uspl'],
-	    \ 'vim'     : ['path', 'cmd', 'keyn']
-	    \ }
-
-	imap <c-j> <plug>(MUcompleteFwd)
-	imap <c-k> <plug>(MUcompleteBwd)
-	imap <Tab> <plug>(MUcompleteFwd)
-	imap <S-Tab> <plug>(MUcompleteBwd)
-
-	inoremap <silent> <plug>(MUcompleteFwdKey) <right>
-	imap <right> <plug>(MUcompleteCycFwd)
-	inoremap <silent> <plug>(MUcompleteBwdKey) <left>
-	imap <left> <plug>(MUcompleteCycBwd)
-
-	inoremap <silent> <expr> <plug>UltiExpand
-	      \ mucomplete#ultisnips#expand_snippet("\<cr>")
-	imap <plug>MyCR <plug>UltiExpand<plug>AutoPairsReturn
-	imap <cr> <plug>MyCR
+" Plug 'lifepillar/vim-mucomplete'
+"   let g:mucomplete#enable_auto_at_startup = 1
+"   let g:mucomplete#no_mappings = 1
+"
+" 	let g:mucomplete#chains = {
+" 	    \ 'default' : ['path', 'omni', 'keyn', 'ulti', 'dict', 'uspl'],
+" 	    \ 'haxe' : ['path', 'keyn', 'ulti', 'dict', 'uspl'],
+" 	    \ 'gitcommit' : ['path', 'keyn', 'ulti', 'dict', 'uspl'],
+" 	    \ 'vim'     : ['path', 'cmd', 'keyn']
+" 	    \ }
+"
+" 	imap <c-j> <plug>(MUcompleteFwd)
+" 	imap <c-k> <plug>(MUcompleteBwd)
+" 	imap <Tab> <plug>(MUcompleteFwd)
+" 	imap <S-Tab> <plug>(MUcompleteBwd)
+"
+" 	inoremap <silent> <plug>(MUcompleteFwdKey) <right>
+" 	imap <right> <plug>(MUcompleteCycFwd)
+" 	inoremap <silent> <plug>(MUcompleteBwdKey) <left>
+" 	imap <left> <plug>(MUcompleteCycBwd)
+"
+" 	inoremap <silent> <expr> <plug>UltiExpand
+" 	      \ mucomplete#ultisnips#expand_snippet("\<cr>")
+" 	imap <plug>MyCR <plug>UltiExpand<plug>AutoPairsReturn
+" 	imap <cr> <plug>MyCR
 
 " }}}
-" Plug 'vim-scripts/AutoComplPop'
+" nvim-cmp {{{
 
-Plug 'madox2/vim-ai'
-  " let g:vim_ai_chat = {
-  "     \ 'options': {
-  "     \ 'model': 'gpt-4'
-  "     \ }}
-  "
+Plug 'neovim/nvim-lspconfig'
+Plug 'quangnguyen30192/cmp-nvim-ultisnips'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/nvim-cmp'
+
+let g:loaded_python_provider=1
+let g:python_host_skip_check=1
+let g:python_host_prog = '/usr/bin/python'
+
+" }}}
 " }}}
 " Snippets {{{
 
@@ -357,7 +369,7 @@ Plug 'SirVer/ultisnips'
   let g:UltiSnipsJumpBackwardTrigger='<a-h>'
   let g:UltiSnipsSnippetDirectories=['UltiSnips', 'mysnippets']
   let g:UltiSnipsSnippetStorageDirectoryForUltiSnipsEdit='~/.vim/mysnippets'
-Plug 'honza/vim-snippets'
+" Plug 'honza/vim-snippets'
 
 " }}}
 " Markdown {{{
@@ -374,6 +386,7 @@ Plug 'SidOfc/mkdx', { 'for': 'markdown' }
   let g:mkdx#settings = {
         \ 'highlight': { 'enable': 1 },
         \ 'map': { 'prefix': '\' },
+        \ 'tab': { 'enable': 0  }
         \ }
 
 " }}}
@@ -386,6 +399,22 @@ Plug 'w0rp/ale'
         \}
 
 " }}}
+" AI {{{
+
+" Setup dependencies manually for now, I'll switch vimrc over to lua evenually
+Plug 'MunifTanjim/nui.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'jackMort/ChatGPT.nvim'
+  " For config see lua file in .vim/plugins
+
+" Plug 'madox2/vim-ai'
+  " let g:vim_ai_chat = {
+  "     \ 'options': {
+  "     \ 'model': 'gpt-4'
+  "     \ }}
+  "
+" }}}
 " Misc {{{
 
 Plug 'AndrewRadev/bufferize.vim'
@@ -393,6 +422,7 @@ Plug 'dstein64/vim-startuptime'
 Plug 'DanilaMihailov/vim-tips-wiki'
 
 " }}}
+
 call plug#end()
 
 "}}}
@@ -658,7 +688,7 @@ nmap <leader>? <plug>(fzf-maps-n)
 xmap <leader>? <plug>(fzf-maps-x)
 omap <leader>? <plug>(fzf-maps-o)
 
-nnoremap <leader>e  :Files<CR>
+nnoremap <leader>ee :Files<CR>
 nnoremap <leader>bb :Buffers<cr>
 nnoremap <leader>T  :Tags<cr>
 nnoremap <leader>t  :BTags<cr>
