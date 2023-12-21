@@ -1,5 +1,5 @@
-local defaults = {
-  api_key_cmd = nil,
+require("chatgpt").setup({
+  api_key_cmd = "pass show openai.com/api_token",
   yank_register = "+",
   edit_with_instructions = {
     diff = false,
@@ -8,7 +8,7 @@ local defaults = {
       accept = "<C-y>",
       toggle_diff = "<C-d>",
       toggle_settings = "<C-o>",
-      toggle_help = "<C-h>",
+      toggle_help = "<M-h>",
       cycle_windows = "<Tab>",
       use_output_as_input = "<C-i>",
     },
@@ -17,14 +17,14 @@ local defaults = {
     welcome_message = WELCOME_MESSAGE,
     loading_text = "Loading, please wait ...",
     question_sign = "", -- 🙂
-    answer_sign = "ﮧ", -- 🤖
+    answer_sign = "󰚩 ",
     border_left_sign = "",
     border_right_sign = "",
-    max_line_length = 120,
+    max_line_length = 80,
     sessions_window = {
-      active_sign = "  ",
-      inactive_sign = "  ",
-      current_line_sign = "",
+      active_sign = " 󰄵 ",
+      inactive_sign = " 󰄱 ",
+      current_line_sign = "❯",
       border = {
         style = "rounded",
         text = {
@@ -38,14 +38,14 @@ local defaults = {
     keymaps = {
       close = "<C-c>",
       yank_last = "<C-y>",
-      yank_last_code = "<C-k>",
+      yank_last_code = "<M-y>",
       scroll_up = "<C-u>",
       scroll_down = "<C-d>",
       new_session = "<C-n>",
       cycle_windows = "<Tab>",
       cycle_modes = "<C-f>",
-      next_message = "<C-j>",
-      prev_message = "<C-k>",
+      next_message = "<M-j>",
+      prev_message = "<M-k>",
       select_session = "<Space>",
       rename_session = "r",
       delete_session = "d",
@@ -54,7 +54,7 @@ local defaults = {
       delete_message = "d",
       toggle_settings = "<C-o>",
       toggle_sessions = "<C-p>",
-      toggle_help = "<C-h>",
+      toggle_help = "<M-h>",
       toggle_message_role = "<C-r>",
       toggle_system_role_open = "<C-s>",
       stop_generating = "<C-x>",
@@ -63,8 +63,8 @@ local defaults = {
   popup_layout = {
     default = "center",
     center = {
-      width = "80%",
-      height = "80%",
+      width = "90%",
+      height = "90%",
     },
     right = {
       width = "30%",
@@ -170,8 +170,4 @@ local defaults = {
     help_key = "@symbol",
     help_description = "@comment",
   },
-}
-
-require("chatgpt").setup({
-    api_key_cmd = "pass show openai.com/api_token"
 })
