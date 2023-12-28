@@ -1,0 +1,20 @@
+import = ["/home/roosta/src/srcery-terminal/alacritty/srcery_alacritty.toml"]
+
+[colors]
+draw_bold_text_with_bright_colors = true
+
+[font]
+size = 9.0
+
+[font.normal]
+family = "IosevkaTerm Nerd Font"
+
+[[keyboard.bindings]]
+action = "IncreaseFontSize"
+key = "Equals"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "DecreaseFontSize"
+key = "Minus"
+mods = "Control"
