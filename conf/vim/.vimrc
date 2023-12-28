@@ -688,7 +688,7 @@ nmap <leader>? <plug>(fzf-maps-n)
 xmap <leader>? <plug>(fzf-maps-x)
 omap <leader>? <plug>(fzf-maps-o)
 
-nnoremap <leader>ee :Files<CR>
+nnoremap <leader>e :Files<CR>
 nnoremap <leader>bb :Buffers<cr>
 nnoremap <leader>T  :Tags<cr>
 nnoremap <leader>t  :BTags<cr>
