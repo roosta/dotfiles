@@ -172,7 +172,6 @@ nnoremap <leader>jo :Folds<CR>
 Plug '~/src/srcery-vim'
   let g:srcery_dim_lisp_paren=0
   let g:srcery_italic=1
-  let g:srcery_bg_passthrough=1
   let g:srcery_bg = ['NONE', 'NONE']
   " let g:srcery_hard_black_terminal_bg=0
 
