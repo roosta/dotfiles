@@ -811,6 +811,7 @@ endfunction
 
 let g:markdown_fenced_languages = [
       \ 'clojure',
+      \ 'javascript',
       \ 'python',
       \ 'rust',
       \ 'vim',
