@@ -501,7 +501,8 @@ set showcmd
 " Local rc
 " https://vimtricks.com/p/local-vimrc-files/
 if getcwd() =~# '^' . expand('~/src')
-  set secure exrc
+  set secure
+  set exrc
 endif
 
 if executable('rg')
