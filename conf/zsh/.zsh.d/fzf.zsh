@@ -49,6 +49,16 @@ fdirs() {
   fi
 }
 
+flib() {
+  local dir
+  dir=$(ls -1 ~/lib | fzf-tmux)
+  if [ -n "$dir" ]; then
+    cd $HOME/lib/$dir
+  else
+    return 2
+  fi
+}
+
 # cddir - including hidden directories
 cddir() {
   local dir
