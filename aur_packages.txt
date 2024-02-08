@@ -3,15 +3,12 @@ dropbox
 dropbox-cli
 figlet-fonts
 git-extras
-google-chrome
-google-chrome-dev
-mopidy-spotify
 neofetch
 themix-full-git
+brave-bin
 themix-theme-oomox-git
 polybar
 spotify
 teiler-git
 toilet
 rofi-calc
-clj-kondo-bin
