@@ -107,7 +107,7 @@ Plug 'tpope/vim-abolish'
 "   let g:sort_folds_ignore_case = 1
 
 " Plug 'tpope/vim-projectionist'
-" Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-eunuch'
 " Plug 'matze/vim-move' use unimpaired [/]e
 Plug 'tommcdo/vim-exchange'
 
