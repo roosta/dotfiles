@@ -399,20 +399,21 @@ Plug 'w0rp/ale'
 
 " }}}
 " AI {{{
-
-" Setup dependencies manually for now, I'll switch vimrc over to lua evenually
-Plug 'MunifTanjim/nui.nvim'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
-Plug 'jackMort/ChatGPT.nvim'
-  " For config see lua file in .vim/plugins
-
-" Plug 'madox2/vim-ai'
+Plug 'madox2/vim-ai'
+  map <leader>jl :Ilist<space>
   " let g:vim_ai_chat = {
   "     \ 'options': {
   "     \ 'model': 'gpt-4'
   "     \ }}
   "
+" ChatGPT.nvim {{{
+" Setup dependencies manually for now, I'll switch vimrc over to lua evenually
+" Plug 'MunifTanjim/nui.nvim'
+" Plug 'nvim-lua/plenary.nvim'
+" Plug 'nvim-telescope/telescope.nvim'
+" Plug 'jackMort/ChatGPT.nvim'
+  " For config see lua file in .vim/plugins
+" }}}
 " }}}
 " Misc {{{
 
@@ -634,6 +635,7 @@ map <leader>* :Ggrep --untracked <cword><CR><CR>
 
 " Toggle colorcolumn
 nnoremap <leader>cc :execute "set colorcolumn=" . (&colorcolumn == "" ? "80" : "")<CR>
+nnoremap <leader>cr :execute "set colorcolumn=" . (&colorcolumn == "" ? "99" : "")<CR>
 
 " reselect pasted text
 " https://vimtricks.com/p/reselect-pasted-text/
