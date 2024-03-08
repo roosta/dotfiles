@@ -401,11 +401,11 @@ Plug 'w0rp/ale'
 " AI {{{
 Plug 'madox2/vim-ai'
   map <leader>jl :Ilist<space>
-  " let g:vim_ai_chat = {
-  "     \ 'options': {
-  "     \ 'model': 'gpt-4'
-  "     \ }}
-  "
+  let g:vim_ai_chat = {
+      \ 'options': {
+      \ 'max_tokens': 1000,
+      \ }}
+
 " }}}
 " Misc {{{
 
