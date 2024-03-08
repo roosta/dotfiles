@@ -406,14 +406,6 @@ Plug 'madox2/vim-ai'
   "     \ 'model': 'gpt-4'
   "     \ }}
   "
-" ChatGPT.nvim {{{
-" Setup dependencies manually for now, I'll switch vimrc over to lua evenually
-" Plug 'MunifTanjim/nui.nvim'
-" Plug 'nvim-lua/plenary.nvim'
-" Plug 'nvim-telescope/telescope.nvim'
-" Plug 'jackMort/ChatGPT.nvim'
-  " For config see lua file in .vim/plugins
-" }}}
 " }}}
 " Misc {{{
 
