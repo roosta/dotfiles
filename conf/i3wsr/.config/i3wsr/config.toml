@@ -4,10 +4,10 @@ default_icon = ""
 [options]
 remove_duplicates = true
 
-
 [icons]
 Firefox = ""
 Firefox-dev = ""
+"Firefox Media" = ""
 Termite = ""
 Thunderbird = ""
 Chrome-dev = ""
@@ -33,6 +33,7 @@ Gpick = ""
 "^firefoxdeveloperedition$" = "Firefox-dev"
 libreoffice-calc = "Calc"
 firefox = "Firefox"
+firefox-media = "Firefox Media"
 Google-chrome-unstable = "Chrome-dev"
 Google-chrome = "Chrome"
 "Gimp-\\d\\.\\d\\d" = "Gimp"
