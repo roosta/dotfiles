@@ -45,9 +45,7 @@ com-eviware-soapui-SoapUI = "SoapUI"
 steam = "Steam"
 jetbrains-idea-ce = "IntelliJ"
 thunderbird = "Thunderbird"
-brave-browser = "Brave"
 
 [aliases.instance]
 "open.spotify.com" = "Spotify"
-"web\\.whatsapp\\.com" = "Whatsapp"
 
