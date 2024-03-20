@@ -5,8 +5,8 @@ default_icon = ""
 remove_duplicates = true
 
 [icons]
-Firefox = ""
-Firefox-dev = ""
+"Firefox" = ""
+"Firefox Developer" = ""
 "Firefox Media" = ""
 Termite = ""
 Thunderbird = ""
@@ -30,10 +30,10 @@ Evince = ""
 Gpick = ""
 
 [aliases.class]
-"^firefoxdeveloperedition$" = "Firefox-dev"
+firefoxdeveloperedition = "Firefox Developer"
 libreoffice-calc = "Calc"
-firefox = "Firefox"
-firefox-media = "Firefox Media"
+"^firefox$" = "Firefox"
+"^firefox-media$" = "Firefox Media"
 Google-chrome-unstable = "Chrome-dev"
 Google-chrome = "Chrome"
 "Gimp-\\d\\.\\d\\d" = "Gimp"
