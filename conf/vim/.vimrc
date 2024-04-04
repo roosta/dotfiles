@@ -298,7 +298,8 @@ Plug 'jdonaldson/vaxe'
 Plug 'jeroenbourgois/vim-actionscript'
 
 Plug 'mechatroner/rainbow_csv'
-
+Plug 'NoahTheDuke/vim-just'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 " }}}
 " Completion {{{
 " coc.nvim {{{
