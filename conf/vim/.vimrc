@@ -404,6 +404,7 @@ Plug 'madox2/vim-ai'
   map <leader>jl :Ilist<space>
   let g:vim_ai_chat = {
       \ 'options': {
+      \ 'model': 'gpt-4',
       \ 'max_tokens': 1000,
       \ }}
 
