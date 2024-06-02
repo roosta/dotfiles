@@ -7,10 +7,15 @@
 # └────────────────────────────────────────────────────────┘
 # Startup {{{
 # --------------------
+
+exec discord
+exec thunderbird
+exec firefox
+exec alacritty -e tmain
+
 exec_always --no-startup-id $HOME/scripts/launch-polybar.sh
 exec_always --no-startup-id $HOME/src/i3wsr/target/release/i3wsr
-exec discord
-exec --no-startup-id pavucontrol;
+exec --no-startup-id pavucontrol
 
 # }}}
 # Options {{{
@@ -120,6 +125,7 @@ assign [class="(?i)firefoxdeveloperedition$"] number $tws_f2
 assign [class="(?i)firefox-media$"] number $sws_a
 assign [class="(?i)firefox$"] number $pws_e
 assign [class="(?i)thunderbird"] number $pws_2
+assign [class="(?i)alacritty"] number $pws_q
 
 ## workaround for spotify WS assignment
 ## see: https://github.com/i3/i3/issues/2060
