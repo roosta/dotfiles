@@ -347,6 +347,7 @@ alias logcolor="ccze"
 # alias copy='xsel -i -p -b'
 alias copy="clipcopy" # see functions
 alias paste="clippaste" # see functions
+alias emptyclipmenu="clipdel -d \".*\""
 
 # print date in various formats
 alias gettime='date +"%T"'
