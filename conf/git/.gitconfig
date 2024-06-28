@@ -47,12 +47,6 @@
   path = ~/.gitconfig.local
 [github]
   user = roosta
-[magithub]
-  online = true
-[magithub "status"]
-  includeStatusHeader = true
-  includePullRequestsSection = true
-  includeIssuesSection = true
 [diff-so-fancy]
   rulerWidth = 47
 	first-run = false
