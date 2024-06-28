@@ -89,11 +89,11 @@ modules-right =
 [bar/lintilla-tertiary]
 inherit = bar/lintilla-primary
 enable-ipc = false
-dpi = 96
-height = 22
+dpi = 192
+height = 34
 modules-center = xwindow
 modules-right = eth-lintilla fs-root
-monitor = ${env:MONITOR:HDMI-A-0}
+monitor = ${env:MONITOR:DisplayPort-2}
 
 [bar/allitnil]
 inherit = bar/lintilla-primary
