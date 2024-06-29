@@ -115,7 +115,7 @@ fsha() {
   local commits commit
   commits=$(git log --graph --color=always --pretty=oneline --format="%C(auto)%h%d %s %C(black)%C(white)%cr" --abbrev-commit) &&
     commit=$(echo "$commits" | fzf-tmux +s +m -e --ansi) &&
-    echo -n $(echo "$commit" | grep -oe "[0-9a-f]\{5,32\}")
+    echo -n $(echo "$commit" | \grep -oe "[0-9a-f]\{5,32\}")
   }
 
 # Search apt for query, and install selected package
