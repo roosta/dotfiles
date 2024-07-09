@@ -121,6 +121,8 @@ Plug 'stefandtw/quickfix-reflector.vim'
 Plug 'triglav/vim-visual-increment'
 Plug 'AndrewRadev/inline_edit.vim'
 
+Plug 'AndrewRadev/splitjoin.vim'
+
 " }}}
 " Files {{{
 
@@ -229,28 +231,26 @@ Plug 'christoomey/vim-tmux-navigator'
 " }}}
 " Lang {{{
 
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
 " Plug 'sheerun/vim-polyglot'
 "   let g:polyglot_disabled = ['markdown', 'vue']
 
-" Plug 'pangloss/vim-javascript'
+" i3 {{{
 Plug 'PotatoesMaster/i3-vim-syntax'
+" }}}
+" tmux {{{
 Plug 'tmux-plugins/vim-tmux'
-Plug 'sudar/vim-arduino-syntax'
+" }}}
+" Javascript {{{
+Plug 'pangloss/vim-javascript'
+
 " Plug 'othree/yajs.vim'
 
-" Gcode
-Plug 'gregjurman/vim-nc'
+Plug 'posva/vim-vue'
+  " let g:html_indent_inctags = 'transition'
+  let g:vue_pre_processors = 'detect_on_enter'
 
-" Plug 'vim-scripts/nginx.vim'
-Plug 'chr4/nginx.vim'
-Plug 'rust-lang/rust.vim', { 'for': 'rust' }
-
-" Plug 'racer-rust/vim-racer', { 'for': 'rust' }
-Plug 'mattn/emmet-vim', { 'for': ['html', 'css', 'html.handlebars', 'vue'] }
-  let g:user_emmet_leader_key='<C-Q>'
-
-Plug 'othree/html5.vim'
-" Plug 'othree/xml.vim'
 " Plug 'leafOfTree/vim-vue-plugin'
 " let g:vim_vue_plugin_config = {
 "       \'full_syntax': ['html'],
@@ -267,16 +267,40 @@ Plug 'othree/html5.vim'
 "     endif
 "   endfunction
 
-Plug 'posva/vim-vue'
-  " let g:html_indent_inctags = 'transition'
-  let g:vue_pre_processors = 'detect_on_enter'
+" }}}
+" Arduino {{{
+Plug 'sudar/vim-arduino-syntax'
+" }}}
+" Gcode / 3D Printing {{{
+Plug 'gregjurman/vim-nc'
+Plug 'andreshazard/vim-freemarker'
+" }}}
+" nginx {{{
+Plug 'chr4/nginx.vim'
+" Plug 'vim-scripts/nginx.vim'
+" }}}
+" Rust {{{
+Plug 'rust-lang/rust.vim', { 'for': 'rust' }
+Plug 'cespare/vim-toml',  { 'branch': 'main' }
+" Plug 'racer-rust/vim-racer', { 'for': 'rust' }
+" }}}
+" HTML/XML {{{
+Plug 'mattn/emmet-vim', { 'for': ['html', 'css', 'html.handlebars', 'vue'] }
+  let g:user_emmet_leader_key='<C-Q>'
 
+Plug 'othree/html5.vim'
+Plug 'mustache/vim-mustache-handlebars'
+" Plug 'othree/xml.vim'
+" }}}
+" Clojure/script {{{
 Plug 'guns/vim-sexp', { 'for': 'clojure' }
 Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for': 'clojure' }
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 Plug 'tpope/vim-salve', { 'for': 'clojure' }
 Plug 'guns/vim-clojure-highlight', { 'for': 'clojure' }
 " Plug 'Olical/conjure', {'tag': 'v4.5.0'}
+" }}}
+" Python {{{
 " Plug 'jmcantrell/vim-virtualenv'
 " Plug 'vim-python/python-syntax'
 Plug 'ludovicchabant/vim-gutentags'
@@ -284,22 +308,23 @@ Plug 'ludovicchabant/vim-gutentags'
   let g:gutentags_cache_dir = expand('~/.cache/vim/ctags/')
   let g:gutentags_exclude_project_root = ['/etc', 'usr/local']
   command! -nargs=0 GutentagsClearCache call system('rm ' . g:gutentags_cache_dir . '/*')
-
-Plug 'cespare/vim-toml',  { 'branch': 'main' }
-Plug 'mustache/vim-mustache-handlebars'
-Plug 'chr4/nginx.vim'
-
+" }}}
+" Terminals {{{
 " Plug 'fladson/vim-kitty', { 'branch': 'main' }
-
-Plug 'AndrewRadev/splitjoin.vim'
+" }}}
+" Firefox {{{
 Plug 'tridactyl/vim-tridactyl'
-Plug 'andreshazard/vim-freemarker'
+" }}}
+" Haxe {{{
 Plug 'jdonaldson/vaxe'
 Plug 'jeroenbourgois/vim-actionscript'
-
+" }}}
+" CSV {{{
 Plug 'mechatroner/rainbow_csv'
+" }}}
+" Tooling {{{
 Plug 'NoahTheDuke/vim-just'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+" }}}
 " }}}
 " Completion {{{
 " coc.nvim {{{
