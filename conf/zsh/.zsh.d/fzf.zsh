@@ -48,6 +48,7 @@ fdirs() {
     return 2
   fi
 }
+zle -N fdirs # So that it can be used as a shortcut. See keybinds.sh
 
 flib() {
   local dir

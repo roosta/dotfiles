@@ -19,3 +19,6 @@ bindkey -M vicmd 'j' history-substring-search-down
 
 # invoke vim to edit command-line
 bindkey '^e' edit-command-line
+
+# Fzf over recent dirs
+bindkey '^f' fdirs
