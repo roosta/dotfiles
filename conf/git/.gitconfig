@@ -33,7 +33,6 @@
   uncommit  = reset --mixed HEAD~
   amend     = commit --amend
   last      = cat-file commit HEAD
-  ctags     = !.git/hooks/ctags
   last-sha  = rev-parse --short HEAD
 [init]
   templatedir = ~/.git_template
