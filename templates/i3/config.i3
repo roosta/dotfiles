@@ -103,9 +103,16 @@ workspace $sws_s output $secondary_monitor
 workspace $sws_d output $secondary_monitor
 
 # tertiary
-workspace $tws_f3 output $tertiary_monitor
 workspace $tws_f1 output $tertiary_monitor
 workspace $tws_f2 output $tertiary_monitor
+workspace $tws_f3 output $tertiary_monitor
+workspace $tws_f4 output $tertiary_monitor
+
+# quaternary
+workspace $qws_f5 output $quaternary_monitor
+workspace $qws_f6 output $quaternary_monitor
+workspace $qws_f7 output $quaternary_monitor
+workspace $qws_f8 output $quaternary_monitor
 
 # Options
 focus_follows_mouse no
