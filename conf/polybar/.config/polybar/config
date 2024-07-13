@@ -82,7 +82,6 @@ tray-padding = 5
 tray-scale = 1
 tray-background = ${colors.xgray2}
 tray-maxsize = 24
-modules-center = xwindow
 modules-left = i3
 modules-right =
 
@@ -91,9 +90,17 @@ inherit = bar/lintilla-primary
 enable-ipc = false
 dpi = 192
 height = 34
-modules-center = xwindow
 modules-right = eth-lintilla fs-root
 monitor = ${env:MONITOR:DisplayPort-2}
+
+[bar/lintilla-quaternary]
+inherit = bar/lintilla-primary
+bottom = true
+enable-ipc = false
+height = 38
+modules-center = xwindow
+modules-right =
+monitor = ${env:MONITOR:HDMI-A-0}
 
 [bar/allitnil]
 inherit = bar/lintilla-primary
@@ -164,7 +171,7 @@ label-urgent-foreground = ${colors.black}
 
 [module/xwindow]
 type = internal/xwindow
-format-foreground = ${colors.brightblack}
+format-foreground = ${colors.brightwhite}
 label = %title:0:65%
 label-padding = 1
 
