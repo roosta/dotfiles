@@ -51,9 +51,21 @@ bindsym $mod+Shift+d move workspace number $sws_d
 bindsym $mod+F1  workspace number $tws_f1
 bindsym $mod+F2  workspace number $tws_f2
 bindsym $mod+F3  workspace number $tws_f3
+bindsym $mod+F4  workspace number $tws_f4
 bindsym $mod+Shift+F1  move workspace number $tws_f1
 bindsym $mod+Shift+F2  move workspace number $tws_f2
 bindsym $mod+Shift+F3  move workspace number $tws_f3
+bindsym $mod+Shift+F4  move workspace number $tws_f4
+
+
+bindsym $mod+F5  workspace number $qws_f5
+bindsym $mod+F6  workspace number $qws_f6
+bindsym $mod+F7  workspace number $qws_f7
+bindsym $mod+F8  workspace number $qws_f8
+bindsym $mod+Shift+F5  move workspace number $qws_f5
+bindsym $mod+Shift+F6  move workspace number $qws_f6
+bindsym $mod+Shift+F7  move workspace number $qws_f7
+bindsym $mod+Shift+F8  move workspace number $qws_f8
 
 bindsym $mod+5 workspace number $aws_5
 bindsym $mod+6 workspace number $aws_6
@@ -61,11 +73,6 @@ bindsym $mod+7 workspace number $aws_7
 bindsym $mod+8 workspace number $aws_8
 bindsym $mod+9 workspace number $aws_9
 bindsym $mod+0 workspace number $aws_0
-bindsym $mod+F4  workspace number $aws_f4
-bindsym $mod+F5  workspace number $aws_f5
-bindsym $mod+F6  workspace number $aws_f6
-bindsym $mod+F7  workspace number $aws_f7
-bindsym $mod+F8  workspace number $aws_f8
 bindsym $mod+F9  workspace number $aws_f9
 bindsym $mod+F10 workspace number $aws_f10
 bindsym $mod+F11 workspace number $aws_f11
@@ -77,11 +84,6 @@ bindsym $mod+shift+7  move workspace number $aws_7
 bindsym $mod+shift+8  move workspace number $aws_8
 bindsym $mod+shift+9  move workspace number $aws_9
 bindsym $mod+Shift+0  move workspace number $aws_0
-bindsym $mod+shift+f4  move workspace number $aws_f4
-bindsym $mod+shift+f5  move workspace number $aws_f5
-bindsym $mod+shift+f6  move workspace number $aws_f6
-bindsym $mod+shift+f7  move workspace number $aws_f7
-bindsym $mod+shift+f8  move workspace number $aws_f8
 bindsym $mod+Shift+F9  move workspace number $aws_f9
 bindsym $mod+Shift+F10 move workspace number $aws_f10
 bindsym $mod+Shift+F11 move workspace number $aws_f11
