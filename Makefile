@@ -214,6 +214,9 @@ endif
 ifdef tertiary_monitor
 	@echo "set \$$tertiary_monitor $(tertiary_monitor)" >> $@
 endif
+ifdef quaternary_monitor
+	@echo "set \$$quaternary_monitor $(quaternary_monitor)" >> $@
+endif
 
 i3: ~/.i3/config
 	@echo -e "\033[0;33mReload i3 config...\033[0m"
