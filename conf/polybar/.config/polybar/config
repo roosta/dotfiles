@@ -39,10 +39,10 @@ screenchange-reload = true
 margin-top = 5
 margin-bottom = 5
 
-[bar/lintilla-primary]
-;; Set a config for each screen @ host lintilla
+[bar/garkbit-primary]
+;; Set a config for each screen @ host garkbit
 ;; Multiple monitors with different resolutions
-monitor = ${env:MONITOR:DisplayPort-0}
+monitor = ${env:MONITOR:DisplayPort-2}
 width = 100%
 separator = │
 dpi = 192
@@ -73,8 +73,8 @@ label-padding = 1
 format = <label>
 exec = ~/lib/polybar-spotify/scroll_spotify_status.sh
 
-[bar/lintilla-secondary]
-inherit = bar/lintilla-primary
+[bar/garkbit-secondary]
+inherit = bar/garkbit-primary
 enable-ipc = false
 monitor = ${env:MONITOR:DisplayPort-1}
 tray-position = left
@@ -85,16 +85,16 @@ tray-maxsize = 24
 modules-left = i3
 modules-right =
 
-[bar/lintilla-tertiary]
-inherit = bar/lintilla-primary
+[bar/garkbit-tertiary]
+inherit = bar/garkbit-primary
 enable-ipc = false
 dpi = 192
 height = 34
-modules-right = eth-lintilla fs-root
-monitor = ${env:MONITOR:DisplayPort-2}
+modules-right = eth-garkbit fs-root
+monitor = ${env:MONITOR:DisplayPort-0}
 
-[bar/lintilla-quaternary]
-inherit = bar/lintilla-primary
+[bar/garkbit-quaternary]
+inherit = bar/garkbit-primary
 bottom = true
 enable-ipc = false
 height = 38
@@ -103,7 +103,7 @@ modules-right =
 monitor = ${env:MONITOR:HDMI-A-0}
 
 [bar/allitnil]
-inherit = bar/lintilla-primary
+inherit = bar/garkbit-primary
 height = 28
 dpi = 140
 monitor = ${env:MONITOR:eDP1}
@@ -112,23 +112,6 @@ tray-position = right
 font-0 = "Iosevka:pixelsize=9;4"
 modules-left = i3
 modules-right = keyboard-layout vpncheck wifi battery updates-arch-combined volume-small memory-small cpu-small date time
-
-[bar/garkbit-primary]
-inherit = bar/lintilla-primary
-monitor = ${env:MONITOR:DP1}
-modules-center = mpd
-modules-right = keyboard-layout vpncheck updates-arch-combined volume memory cpu date time
-
-[bar/garkbit-secondary]
-dpi = 96
-height = 22
-inherit = bar/lintilla-primary
-enable-ipc = false
-tray-position = right
-tray-padding = 1
-tray-scale = 1
-monitor = ${env:MONITOR:HDMI2}
-modules-right = eth-garkbit fs-root
 
 [module/i3]
 
@@ -325,13 +308,9 @@ label-disconnected = %ifname% disconnected
 format-connected = <label-connected>
 format-disconnected = <label-disconnected>
 
-[module/eth-lintilla]
-inherit = module/eth
-interface = enp11s0
-
 [module/eth-garkbit]
 inherit = module/eth
-interface = enp2s0
+interface = enp5s0
 
 [module/wifi]
 type = internal/network

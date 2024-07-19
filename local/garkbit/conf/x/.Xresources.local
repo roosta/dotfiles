@@ -1,4 +1,3 @@
-! vim:ft=xdefaults:ts=2:sw=2:fdm=marker
 ! DPI
 Xft.dpi: 192
 *dpi: 192
