@@ -63,7 +63,7 @@ font-3 = "FontAwesome6Free:style=Regular:size=10;4"
 font-4 = "FontAwesome6Brands:style=Regular:size=10;4"
 modules-left = i3
 ; modules-center = mpd
-modules-right = keyboard-layout vpncheck updates-arch-combined volume memory cpu temp-cpu-1 temp-cpu-2 date time
+modules-right = keyboard-layout vpncheck updates-arch-combined volume memory cpu temp-cpu-1 date time
 
 [module/spotify]
 type = custom/script
@@ -77,11 +77,6 @@ exec = ~/lib/polybar-spotify/scroll_spotify_status.sh
 inherit = bar/garkbit-primary
 enable-ipc = false
 monitor = ${env:MONITOR:DisplayPort-1}
-tray-position = left
-tray-padding = 5
-tray-scale = 1
-tray-background = ${colors.xgray2}
-tray-maxsize = 24
 modules-left = i3
 modules-right =
 
@@ -90,6 +85,7 @@ inherit = bar/garkbit-primary
 enable-ipc = false
 dpi = 192
 height = 34
+modules-left = tray i3
 modules-right = eth-garkbit fs-root
 monitor = ${env:MONITOR:DisplayPort-0}
 
@@ -151,6 +147,11 @@ label-urgent = %name%
 label-urgent-padding = 1
 label-urgent-background = ${colors.yellow}
 label-urgent-foreground = ${colors.black}
+
+[module/tray]
+type = internal/tray
+tray-spacing = 5px
+tray-padding = 5px
 
 [module/xwindow]
 type = internal/xwindow
