@@ -102,3 +102,5 @@ inotify-tools
 rofi
 rofi-calc
 git-crypt
+ttf-font-awesome
+dfc
