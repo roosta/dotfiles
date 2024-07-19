@@ -91,7 +91,6 @@ There are a bunch of config files here, and some are not worth mentioning in
 detail, but here are some of my favorites:
 
 - [i3](https://github.com/roosta/etc/tree/master/conf/i3)
-- [firefox](https://github.com/roosta/etc/tree/master/conf/firefox)
 - [git](https://github.com/roosta/etc/tree/master/conf/git)
 - [polybar](https://github.com/roosta/etc/tree/master/conf/polybar)
 - rofi
