@@ -21,8 +21,6 @@ jq
 meld
 ncdu
 mpd
-networkmanager
-network-manager-applet
 nitrogen
 nodejs
 npm
@@ -42,8 +40,6 @@ ripgrep
 rkhunter
 rlwrap
 rustup
-rust-docs
-rust-racer
 samba
 screen
 shellcheck
@@ -91,7 +87,6 @@ neovim
 gvim
 yarn
 ctags
-task
 timew
 inetutils
 clipmenu
@@ -104,3 +99,6 @@ ttf-iosevka-nerd
 ttf-iosevkaterm-nerd
 alacritty
 inotify-tools
+rofi
+rofi-calc
+git-crypt

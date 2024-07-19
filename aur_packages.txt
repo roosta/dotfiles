@@ -4,11 +4,5 @@ dropbox-cli
 figlet-fonts
 git-extras
 neofetch
-themix-full-git
-brave-bin
-themix-theme-oomox-git
-polybar
 spotify
-teiler-git
 toilet
-rofi-calc
