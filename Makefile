@@ -66,7 +66,6 @@ install: user-fs \
 	install-packages \
 	install-aur-packages \
 	save-originals \
-	~/.emacs.d \
 	set-shell \
 	update-src \
 	update-libs \
@@ -160,28 +159,28 @@ update-src:
 link-misc: ~/scripts ~/colors ~/bin/ftl ~/bin/touchpad-toggle ~/bin/tmain ~/bin/tupd
 	@echo -e "\033[0;33mSymlinking misc files...\033[0m"
 
-~/scripts: user-fs update-src
+~/scripts: user-fs
 	-ln -sf $(HOME)/src/scripts $(HOME)
 
-~/colors: user-fs update-src
+~/colors: user-fs
 	-ln -sf $(HOME)/src/colors $(HOME)
 
-~/bin/ftl: user-fs update-src
+~/bin/ftl: user-fs
 	-ln -sf $(HOME)/etc/scripts/ftl.sh $@
 
 ~/bin/touchpad-toggle: user-fs update-src
 	-ln -sf $(HOME)/src/scripts/touchpad-toggle.sh $@
 
-~/bin/tmain: user-fs update-src
+~/bin/tmain: user-fs
 	-ln -sf $(HOME)/scripts/tmux-main.sh $@
 
-~/bin/tmusic: user-fs update-src
+~/bin/tmusic: user-fs
 	-ln -sf $(HOME)/scripts/tmux-music.sh $@
 
-~/bin/tupd: user-fs update-src
+~/bin/tupd: user-fs
 	-ln -sf $(HOME)/scripts/tmux-update-window.sh $@
 
-~/bin/tssh: user-fs update-src
+~/bin/tssh: user-fs
 	-ln -sf $(HOME)/scripts/tmux-ssh.sh $@
 
 link-conf: user-fs
