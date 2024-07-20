@@ -49,6 +49,7 @@ DIRS = \
 		 ~/.local/share \
 		 ~/var/emacs/undo \
 		 ~/.config/dunst \
+		 ~/.local/share/applications \
 		 ~/etc/build
 
 ifneq ("$(wildcard $(VARS))","")
