@@ -408,7 +408,7 @@ Plug 'https://github.com/dhruvasagar/vim-table-mode', { 'for': 'markdown' }
   let g:table_mode_corner='|'
 
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install', 'for': 'markdown' }
-  let g:mkdp_browser = 'ffdev-scaled'
+  let g:mkdp_browser = 'firefox-developer-edition'
 
 Plug 'SidOfc/mkdx', { 'for': 'markdown' }
   let g:mkdx#settings = {
