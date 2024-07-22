@@ -105,3 +105,4 @@ git-crypt
 ttf-font-awesome
 dfc
 calc
+eza

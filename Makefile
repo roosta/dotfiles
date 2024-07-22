@@ -25,7 +25,6 @@
 	update-tmux \
 	save-originals \
 	rustup \
-	exa \
 	update-rust
 HOST ?= $(shell hostname)
 NOW = $(shell date +"%Y-%m-%dT%T")
@@ -277,9 +276,6 @@ rustup:
 	rustup install stable
 	rustup install nightly
 	rustup default stable
-
-exa: install-packages rustup
-	cargo install exa
 
 update-rust:
 	rustup update

@@ -285,8 +285,8 @@ alias dirs='dirs -v'
 if [[ $TERM == 'eterm-color' ]]; then
   alias ls='\ls -lAh'
 else
-  if hash exa 2>/dev/null; then
-    alias ls='exa -aghl --git --group-directories-first -F'
+  if hash eza 2>/dev/null; then
+    alias ls='eza -aghl --git --group-directories-first -F'
   elif hash ls++ 2>/dev/null; then
     alias ls='ls++ -lAhpk --potsf'
   else
