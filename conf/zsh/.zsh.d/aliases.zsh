@@ -503,6 +503,10 @@ alias pacc='paru -Scc'
 # Lists files installed from a given package
 alias pacls='pacman -Ql'
 
+# Show which package in db arg belongs to. Useful to identify which package in
+# db, but not in system, that a file belongs to.
+alias pacfd="pacman -F"
+
 #}}}
 # Audio: {{{1
 
