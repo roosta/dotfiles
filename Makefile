@@ -49,6 +49,7 @@ DIRS = \
 		 ~/var/emacs/undo \
 		 ~/.config/dunst \
 		 ~/.local/share/applications \
+		 ~/BitTorrent/scripts \
 		 ~/etc/build
 
 ifneq ("$(wildcard $(VARS))","")
@@ -182,6 +183,9 @@ link-misc: ~/scripts ~/colors ~/bin/ftl ~/bin/touchpad-toggle ~/bin/tmain ~/bin/
 
 ~/bin/tssh: user-fs
 	-ln -sf $(HOME)/scripts/tmux-ssh.sh $@
+
+~/BitTorrent/scripts/torrent-done.sh: user-fs
+	-ln -sf $(HOME)/scripts/torrent-done.sh $@
 
 link-conf: user-fs
 	@echo -e "\033[0;33mSymlinking conf...\033[0m"
