@@ -107,3 +107,4 @@ dfc
 calc
 evince
 eza
+git-lfs
