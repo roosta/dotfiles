@@ -151,7 +151,7 @@ label-urgent-foreground = ${colors.black}
 [module/tray]
 type = internal/tray
 tray-spacing = 5px
-tray-padding = 5px
+tray-padding = 10px
 
 [module/xwindow]
 type = internal/xwindow
