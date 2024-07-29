@@ -390,6 +390,8 @@ let g:python_host_prog = '/usr/bin/python'
 " }}}
 " Snippets {{{
 
+Plug 'michaelb/sniprun', {'do': 'sh install.sh'}
+
 Plug 'SirVer/ultisnips'
   let g:UltiSnipsExpandTrigger='<a-q>'
   let g:UltiSnipsListSnippets='<a-a>'
