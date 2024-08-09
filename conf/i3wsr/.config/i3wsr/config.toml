@@ -30,7 +30,7 @@ Evince = ""
 Gpick = ""
 
 [aliases.class]
-firefoxdeveloperedition = "Firefox Developer"
+firefox-developer-edition = "Firefox Developer"
 libreoffice-calc = "Calc"
 "^firefox$" = "Firefox"
 "^firefox-media$" = "Firefox Media"
