@@ -11,7 +11,7 @@
 exec discord
 exec thunderbird
 exec firefox
-exec alacritty -e tmain
+# exec alacritty -e tmain
 
 exec_always --no-startup-id $HOME/scripts/launch-polybar.sh
 exec_always --no-startup-id $HOME/src/i3wsr/target/release/i3wsr
