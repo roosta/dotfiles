@@ -422,11 +422,16 @@ Plug 'SidOfc/mkdx', { 'for': 'markdown' }
 " }}}
 " Linting {{{
 
-Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
   " https://github.com/borkdude/clj-kondo/blob/master/doc/editor-integration.md#vim--neovim
   let g:ale_linters = {
-        \ 'clojure': ['clj-kondo']
+        \ 'clojure': ['clj-kondo'],
+        \ 'javascript': ['eslint']
         \}
+
+  " let g:ale_fixers = {
+  "       \ 'javascript': ['prettier'],
+  "       \}
 
 " }}}
 " AI {{{
