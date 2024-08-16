@@ -12,7 +12,7 @@ function join_by {
 function lsg() {
   local cmd pattern
   pattern=$(join_by "|" $@)
-  cmd=$(\ls -lA)
+  cmd=$(\ls -lAh)
   if hash rg 2>/dev/null; then
     rg <<< $cmd "$pattern" --smart-case
   else
