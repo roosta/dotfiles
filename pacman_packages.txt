@@ -108,3 +108,4 @@ calc
 evince
 eza
 git-lfs
+trash-cli
