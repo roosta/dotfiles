@@ -404,6 +404,10 @@ Plug 'SirVer/ultisnips'
 " }}}
 " Markdown {{{
 
+Plug 'https://github.com/preservim/vim-markdown'
+  let g:vim_markdown_folding_style_pythonic = 1
+  " let g:vim_markdown_folding_disabled = 1
+
 " Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
 Plug 'godlygeek/tabular', { 'for': 'markdown' }
 Plug 'https://github.com/dhruvasagar/vim-table-mode', { 'for': 'markdown' }
@@ -734,10 +738,10 @@ nnoremap <leader>ji :BTags<cr>
 nnoremap <leader>q  :Snippets<cr>
 
 " Insert mode completion
-imap <c-x><c-k> <plug>(fzf-complete-word)
-imap <c-x><c-f> <plug>(fzf-complete-path)
-imap <c-x><c-j> <plug>(fzf-complete-file-ag)
-imap <c-x><c-l> <plug>(fzf-complete-line)
+" imap <c-x><c-k> <plug>(fzf-complete-word)
+" imap <c-x><c-f> <plug>(fzf-complete-path)
+" imap <c-x><c-j> <plug>(fzf-complete-file-ag)
+" imap <c-x><c-l> <plug>(fzf-complete-line)
 
 function! s:build_quickfix_list(lines)
   call setqflist(map(copy(a:lines), '{ "filename": v:val, "lnum": 1 }'))
