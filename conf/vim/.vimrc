@@ -447,6 +447,23 @@ Plug 'madox2/vim-ai'
       \ 'max_tokens': 1000,
       \ }}
 
+" Deps
+Plug 'stevearc/dressing.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'MunifTanjim/nui.nvim'
+
+" Optional deps
+Plug 'nvim-tree/nvim-web-devicons' "or Plug 'echasnovski/mini.icons'
+Plug 'HakonHarnes/img-clip.nvim'
+Plug 'zbirenbaum/copilot.lua'
+" Plug 'MeanderingProgrammer/render-markdown.nvim'
+
+" Plug 'yetone/avante.nvim', { 'branch': 'main' }
+
+" Yay, pass source=true if you want to build from source
+Plug 'yetone/avante.nvim', { 'branch': 'main', 'do': { -> avante#build('source=true') } }
+autocmd vimrc FileType Avante set filetype=markdown
+
 " }}}
 " Misc {{{
 
