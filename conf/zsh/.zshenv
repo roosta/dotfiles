@@ -86,4 +86,8 @@ fi
 
 export SSH_AUTH_SOCK=/run/user/$(id -u)/gcr/ssh
 
+
+if [ -f "${HOME}/Private/environment.zsh" ]; then
+	source "${HOME}/Private/environment.zsh"
+fi
 #  vim: set ts=2 sw=2 tw=0 fdm=marker noet :
