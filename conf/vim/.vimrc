@@ -406,7 +406,22 @@ Plug 'SirVer/ultisnips'
 
 Plug 'https://github.com/preservim/vim-markdown'
   let g:vim_markdown_folding_style_pythonic = 1
-  " let g:vim_markdown_folding_disabled = 1
+  let g:vim_markdown_follow_anchor = 1
+  let g:vim_markdown_new_list_item_indent = 0 " Use mkdx
+  let g:vim_markdown_auto_insert_bullets = 0 " use mkdx
+  let g:vim_markdown_fenced_languages = [
+        \ 'clojure',
+        \ 'javascript',
+        \ 'python',
+        \ 'rust',
+        \ 'vim',
+        \ 'sh',
+        \ 'c',
+        \ 'js=javascript',
+        \ 'shell=sh',
+        \ 'css'
+        \]
+
 
 " Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
 Plug 'godlygeek/tabular', { 'for': 'markdown' }
