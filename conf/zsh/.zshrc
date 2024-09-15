@@ -60,7 +60,6 @@ source ~/.zsh.d/prompt.zsh
 source ~/.zsh.d/rationalise_dot.zsh
 
 function zvm_after_init() {
-  [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
   source ~/.zsh.d/keybinds.zsh
 }
 

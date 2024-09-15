@@ -109,3 +109,4 @@ evince
 eza
 git-lfs
 trash-cli
+fzf

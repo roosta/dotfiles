@@ -140,7 +140,8 @@ Plug 'stevearc/oil.nvim'
 " }}}
 " Navigation {{{
 
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+" Use packman
+" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 " Plug 'vifm/vifm.vim'
 
