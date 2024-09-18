@@ -130,7 +130,7 @@ for_window [all] border pixel 1
 ## ---------------------------
 
 assign [class="(?i)google-chrome-unstable"] number $tws_f1
-assign [class="(?i)firefoxdeveloperedition$"] number $tws_f2
+assign [class="(?i)firefox-developer-edition$"] number $tws_f2
 assign [class="(?i)firefox-media$"] number $sws_a
 assign [class="(?i)firefox$"] number $pws_e
 assign [class="(?i)thunderbird"] number $pws_2
