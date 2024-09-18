@@ -48,10 +48,10 @@ export ZSH_CACHE_DIR=$HOME/.cache/zsh
 # Set less default opts
 export LESS="-R --use-color --mouse --jump-target=12 -DP15.236"
 
-export PAGER=less
-export PARU_PAGER=less
+export PAGER="nvimpager"
+export PARU_PAGER="nvimpager"
 
-# alias less=$PAGER
+alias less=$PAGER
 # alias zless=$PAGER
 
 # tell ranger not to use default config
