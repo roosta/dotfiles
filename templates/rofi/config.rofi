@@ -13,7 +13,7 @@ configuration {
   /* Location on screen */
 	location: 1;
 
-	terminal: "kitty";
+	terminal: "alacritty";
 
 	sidebar-mode: true;
 
