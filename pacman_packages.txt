@@ -16,7 +16,6 @@ dfc
 diff-so-fancy
 docker
 dunst
-encfs
 evince
 eza
 fd
@@ -32,6 +31,7 @@ git
 git-crypt
 git-lfs
 gnome-keyring
+gocryptfs
 gparted
 gpick
 gvim
