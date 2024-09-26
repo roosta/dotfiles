@@ -90,7 +90,7 @@ lxqt-policykit-agent &
 # conky -d -c ~/.config/conky/conky-right.conf &
 flameshot &
 
-clipmenud &
+# clipmenud &
 
 # xscreensaver --no-splash &
 
