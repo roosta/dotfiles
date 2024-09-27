@@ -516,7 +516,7 @@ set wildignore+=*/dist-qa/**,*/dist-devtest/**
 set wildignore+=*/export/**
 
 " Swap
-set updatetime=100
+" set updatetime=100
 set directory=~/.cache/vim/swap//
 
 " Undo
