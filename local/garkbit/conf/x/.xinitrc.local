@@ -1,6 +1,6 @@
 # nvidia-settings --load-config-only &
 # /home/roosta/bin/chdisp desk &
-/home/roosta/.screenlayout/garkbit.sh &
+/home/roosta/.screenlayout/main.sh &
 # nm-applet &
 # /home/roosta/src/startpage/start.sh &
 # thunderbird --mail &
