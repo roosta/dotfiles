@@ -20,6 +20,7 @@ text/x-arduino=arduino-arduinoide.desktop
 x-scheme-handler/webcal=google-chrome.desktop
 x-scheme-handler/figma=figma-linux.desktop
 x-scheme-handler/postman=Postman.desktop
+image/png=feh.desktop
 
 [Added Associations]
 image/jpeg=gimp.desktop;feh.desktop;
