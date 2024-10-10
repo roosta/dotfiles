@@ -91,6 +91,7 @@ lxqt-policykit-agent &
 flameshot &
 
 # clipmenud &
+systemctl start clipmenud --user
 
 # xscreensaver --no-splash &
 
