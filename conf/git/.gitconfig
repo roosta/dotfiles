@@ -38,7 +38,7 @@
   templatedir = ~/.git_template
   defaultBranch = main
 [merge]
-  tool = emergeclient
+  # tool = emergeclient
 [commit]
   verbose = true
   gpgsign = true
