@@ -17,15 +17,16 @@ endfunction
 
 
 " Map check function
-" nnoremap <buffer> <C-Q><C-Q> :call <SID>Check()<CR>
-" inoremap <buffer> <C-Q><C-Q> <ESC>:call <SID>Check()<CR>a
+nnoremap <buffer> <C-Q><C-Q> :call <SID>Check()<CR>
+inoremap <buffer> <C-Q><C-Q> <ESC>:call <SID>Check()<CR>a
 
 " Add checkboxes, leave the trailing whitespace!
-" nnoremap <buffer> <C-Q><return> o- [ ] 
-" inoremap <buffer> <C-Q><return> - [ ] 
+nnoremap <buffer> <C-Q><return> o- [ ] 
+inoremap <buffer> <C-Q><return> - [ ] 
 
 
 nnoremap gm :MarkdownPreview<cr>
+nmap <Plug> <Plug>Markdown_OpenUrlUnderCursor
 
 " https://vi.stackexchange.com/questions/21687/how-to-prevent-markdown-folding-of-comments-in-fenced-code
 " Fix folding issue where fenced codeblocks with a hash based comment string
