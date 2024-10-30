@@ -14,10 +14,12 @@
 " unlet! skip_defaults_vim
 " silent! source $VIMRUNTIME/defaults.vim
 
+" my augroup, that I use throughout vimrc
 augroup vimrc
   autocmd!
 augroup END
 
+" Use space as the main leader key, \ as secondary
 let mapleader      = ' '
 let maplocalleader = ' '
 
@@ -296,7 +298,9 @@ Plug 'hrsh7th/cmp-cmdline'
 " =============================================================================
 
 " Run lines/blocks of code independently
+if has('nvim')
 Plug 'michaelb/sniprun', {'do': 'sh install.sh'}
+endif
 
 " Snippet engine, see ~/.vim/mysnippets for my snippets
 Plug 'SirVer/ultisnips'
@@ -523,6 +527,8 @@ autocmd vimrc FileType gitcommit setlocal nofoldenable
 let g:loaded_python_provider=1
 let g:python_host_skip_check=1
 let g:python_host_prog = '/usr/bin/python'
+
+if has('nvim')
 lua <<EOF
 local cmp = require('cmp')
 local cmp_autopairs = require('nvim-autopairs.completion.cmp')
@@ -608,6 +614,7 @@ cmp.setup.cmdline(':', {
   })
 })
 EOF
+endif
 
 " }}}
 " ultisnips: {{{
@@ -620,7 +627,7 @@ let g:UltiSnipsSnippetDirectories=['UltiSnips', 'mysnippets']
 let g:UltiSnipsSnippetStorageDirectoryForUltiSnipsEdit='~/.vim/mysnippets'
 
 " }}}
-" vim-markdown: {{{
+" Markdown: {{{
 
 let g:vim_markdown_folding_style_pythonic = 1
 let g:vim_markdown_follow_anchor = 1
@@ -690,6 +697,7 @@ let g:vim_ai_chat = {
 
 " }}}
 " avante.nvim: {{{
+if has('nvim')
 autocmd vimrc FileType Avante set filetype=markdown
 lua <<EOF
   require('img-clip').setup ({})
@@ -700,6 +708,7 @@ lua <<EOF
   require('avante_lib').load()
   require('avante').setup ({})
 EOF
+endif
 " }}}
 " Clojure: {{{
 
@@ -773,6 +782,7 @@ EOF
 
 "}}}
 " Language server protocol (LSP): {{{
+if has('nvim')
 lua <<EOF
 
 -- Setup language servers.
@@ -828,8 +838,10 @@ vim.api.nvim_create_autocmd('LspAttach', {
 })
 
 EOF
+endif
 " }}}
 " oil.nvim {{{
+if has('nvim')
 lua <<EOF
 require("oil").setup({
   delete_to_trash = true,
@@ -837,14 +849,18 @@ require("oil").setup({
 })
 vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 EOF
+endif
 " }}}
 " nvim-autopairs: {{{
+if has('nvim')
 lua <<EOF
   require("nvim-autopairs").setup({})
 EOF
+endif
 " }}}
 " gx.nvim {{{
 
+if has('nvim')
 lua <<EOF
   require("gx").setup {
     vim.keymap.set({'n', 'x'}, 'gx', '<cmd>Browse<cr>'),
@@ -853,6 +869,7 @@ lua <<EOF
     }
   }
 EOF
+endif
 
 " }}}
 " vim-vue: {{{
