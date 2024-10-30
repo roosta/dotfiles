@@ -33,232 +33,947 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
-" Defaults {{{
 
+" Defaults:
+" =============================================================================
+
+" Sensible defaults
 Plug 'tpope/vim-sensible'
 
-" }}}
-" Edit {{{
+" Edit:
+" =============================================================================
 
+" Sort text object etc using 'gs'
 Plug 'christoomey/vim-sort-motion'
-  let g:sort_motion_flags = 'i'
 
+" Remember cursor position
 Plug 'farmergreg/vim-lastplace'
 
+" Automatically close pairs ()[] etc
 Plug 'windwp/nvim-autopairs'
-
 " Plug 'jiangmiao/auto-pairs'
-"   " Fix for 'å' button on Norwegian keyboards
-"   let g:AutoPairsShortcutFastWrap=''
-"
-"   " Fix issue with mucomplete
-" 	let g:AutoPairsMapSpace = 0
-" 	imap <silent> <expr> <space> pumvisible()
-" 	    \ ? "<space>"
-" 	    \ : "<c-r>=AutoPairsSpace()<cr>"
 
-
+" Easily align text
 Plug 'junegunn/vim-easy-align'
-  xmap ga <Plug>(EasyAlign)
-  nmap ga <Plug>(EasyAlign)
-  let g:easy_align_delimiters = {
-        \ '/': {
-          \ 'pattern': '//\+\|/\*\|\*/',
-          \ 'delimiter_align': 'l',
-          \ 'ignore_groups': ['!Comment']
-          \ }
-        \ }
 
+" Highlight dangling whitespace
 Plug 'ntpeters/vim-better-whitespace'
-  let g:better_whitespace_filetypes_blacklist=['diff', 'gitcommit', 'help', 'nofile', 'git']
 
+" Commenting
 " Plug 'tpope/vim-commentary'
 " Plug 'tyru/caw.vim'
 Plug 'tomtom/tcomment_vim'
 
+" Enable repeating supported plugin maps with '.'
 Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-rsi'
+
+" readline in insert mode
+" Plug 'tpope/vim-rsi'
+
+" Increment dates and timestamps with CTRL-A/CTRL-X
 Plug 'tpope/vim-speeddating'
+
+" Easily surround text objects with delimiters
 Plug 'tpope/vim-surround'
+
+" Additional keybindings, :help unimpaired
 Plug 'tpope/vim-unimpaired'
+
+" Software capslock
 " Plug 'tpope/vim-capslock'
+
+" vimscript development tools
 " Plug 'tpope/vim-scriptease'
 
+" Provides functions to find fenced code blocks and their filetype.
 " Plug 'Shougo/context_filetype.vim'
 
+" Add more text objects to operate on
 Plug 'wellle/targets.vim'
-Plug 'mbbill/undotree'
-  nnoremap <leader>ut :UndotreeToggle<cr>
 
+" Tree style undo history
+Plug 'mbbill/undotree'
+
+" Persist the results of :ilist and related commands via the quickfix list.
 " Plug 'romainl/vim-qlist'
+
+" Expand a selected region with + and _
 Plug 'terryma/vim-expand-region'
+
+" Asynchronous build and test dispatcher
 Plug 'tpope/vim-dispatch'
 
+" Clipboard history, using clipmenu + rofi instead
 " Plug 'bfredl/nvim-miniyank'
-"   nmap p <Plug>(miniyank-autoput)
-"   nmap P <Plug>(miniyank-autoPut)
-"   nmap <c-p> <Plug>(miniyank-cycle)
-"   nmap <c-n> <Plug>(miniyank-cycleback)
 
+" See contents of registers on ", @, and CTRL-R
 Plug 'junegunn/vim-peekaboo'
+
+" Flexible search/replace alternatives, :help abolish
 Plug 'tpope/vim-abolish'
 
+" Sort folds in a file
 " Plug 'obreitwi/vim-sort-folds'
-"   let g:sort_folds_ignore_case = 1
 
+" Granular project configuration, used previously in clojure, since had no
+" need for this. But in complicated build processes like clj it can be handy
 " Plug 'tpope/vim-projectionist'
+
+" Vim sugar for the UNIX shell commands that need it the most. Notably
+" :SudoEdit
 Plug 'tpope/vim-eunuch'
-" Plug 'matze/vim-move' use unimpaired [/]e
+
+" Move selections up and down, use unimpaired instead
+" Plug 'matze/vim-move'
+
+" Swap text selections
 Plug 'tommcdo/vim-exchange'
 
+" Move function arguments left and right
 Plug 'AndrewRadev/sideways.vim'
-  nnoremap <leader>> :SidewaysLeft<cr>
-  nnoremap <leader>< :SidewaysRight<cr>
 
+" Additional word motions, useful with certain casing that vim doesn't
+" recognize
 Plug 'chaoren/vim-wordmotion'
+
+" Edit quickfix entries, and reflect to matched file.
 Plug 'stefandtw/quickfix-reflector.vim'
 
+" Increment text selection
 Plug 'triglav/vim-visual-increment'
+
+" Edit code that's embedded within other code :InlineEdit within a script tag
 Plug 'AndrewRadev/inline_edit.vim'
 
+" Automatically split lines, if you have a long line of something, this will
+" try to split it into multiple lines without hassle
 Plug 'AndrewRadev/splitjoin.vim'
 
-" }}}
-" Files {{{
+" Files:
+" =============================================================================
 
+" netrw improvements
 " Plug 'tpope/vim-vinegar'
+
+" vidir syntax highlighting
 " Plug 'trapd00r/vim-syntax-vidir-ls'
+
+" Plugin for vifm file editor
+" Plug 'vifm/vifm.vim'
+
+" Replace netrw, use vim as a file editor: in bash 'vim PATH' to edit, rename etc
 Plug 'stevearc/oil.nvim'
-" Add new Browse command because netrw is disabled
+
+" Add new Browse command because netrw :Browse is disabled (see oil)
 Plug 'chrishrb/gx.nvim'
 
-  " For config see .vim/plugins/oil.lua
+" Notes:
+" =============================================================================
 
-" }}}
-" Notes {{{
+" See custom plugin ~/.vim/plugin/notes.vim
 
 " Plug 'jceb/vim-orgmode'
 " Plug 'blindFS/vim-taskwarrior'
 
-" }}}
-" Navigation {{{
+" Navigation:
+" =============================================================================
 
-" Use packman
+" Using pacman package instead of this, easier to maintain
 " Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+
+" Fzf functions for
 Plug 'junegunn/fzf.vim'
-" Plug 'vifm/vifm.vim'
 
-" Plug 'haya14busa/incsearch.vim'
-  " let g:incsearch#auto_nohlsearch = 0
-  " map /  <Plug>(incsearch-forward)
-  " map ?  <Plug>(incsearch-backward)
-  " map g/ <Plug>(incsearch-stay)
-  " map n  <Plug>(incsearch-nohl-n)
-  " map N  <Plug>(incsearch-nohl-N)
-  " map *  <Plug>(incsearch-nohl-*)
-  " map #  <Plug>(incsearch-nohl-#)
-  " map g* <Plug>(incsearch-nohl-g*)
-  " map g# <Plug>(incsearch-nohl-g#)
+" fzf for folds (https://github.com/roosta/fzf-folds.vim)
+Plug '~/src/fzf-folds.vim'
 
+" like f and t, just two letters for more accurate positioning
 Plug 'justinmk/vim-sneak'
-  let g:sneak#use_ic_scs = 1
 
+" Mappings for moving around buffer
 " Plug 'easymotion/vim-easymotion'
-"   let g:EasyMotion_smartcase = 1
-"   let g:EasyMotion_startofline = 1 " keep cursor column when JK motion
 
+" Highlight search patterns i.e :%s/text/replacement/g
 Plug 'markonm/traces.vim'
 
-Plug '~/src/fzf-folds.vim'
-nnoremap <leader>jo :Folds<CR>
+" Color:
+" =============================================================================
 
-" }}}
-" Color {{{
-
+" Colorscheme https://github.com/srcery-colors/srcery-vim
 Plug '~/src/srcery-vim'
-  let g:srcery_dim_lisp_paren=0
-  let g:srcery_italic=1
-  let g:srcery_bg = ['NONE', 'NONE']
-  " let g:srcery_hard_black_terminal_bg=0
 
-  " let g:srcery_inverse=0
-  " let g:srcery_inverse_matches=1
-
-  " let g:srcery_undercurl=0
-  " let g:srcery_underline=0
-  " let g:srcery_guisp_fallback='bg'
-
+" Color preview, only useful in truecolor mode
 " Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
-  " let g:Hexokinase_virtualText = '▀'
-  " let g:Hexokinase_optInPatterns = [
-  "      \ 'full_hex',
-  "      \ 'triple_hex',
-  "      \ 'rgb',
-  "      \ 'rgba',
-  "      \ 'hsl',
-  "      \ 'hsla',
-  "      \ ]
 
+" A light and configurable statusline/tabline plugin for Vim
 Plug 'itchyny/lightline.vim'
-  let g:lightline = {
-        \ 'colorscheme': 'srcery',
-        \ 'active': {
-        \   'left': [ [ 'mode', 'paste' ],
-        \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-        \ },
-        \ 'component_function': {
-        \   'cocstatus': 'coc#status'
-        \ },
-        \ 'component': {
-        \   'readonly': '%{&readonly?"🔒":""}',
-        \ }}
 
-" }}}
-" Git {{{
+" Git:
+" =============================================================================
 
+" Git interface for vim
 Plug 'tpope/vim-fugitive'
-  nnoremap <leader>gs :Git<cr>
-  autocmd vimrc FileType gitcommit setlocal nofoldenable
 
+" Reveal the commit messages under the cursor, :GitMessenger, similar to git
+" blame
 Plug 'rhysd/git-messenger.vim'
+
+" Github helpers, notably :GBrowse, need netrw, or replacement, see gx.nvim
 Plug 'tpope/vim-rhubarb'
 
-" }}}
-" Multiplexer {{{
+" Multiplexer:
+" =============================================================================
 
+" Navigate terminal, vim splits with same bindings (CTRL-[H|J|K|L])
 Plug 'christoomey/vim-tmux-navigator'
+
+" Tmux helpers
 " Plug 'tpope/vim-tbone'
 
-" Plug 'jpalardy/vim-slime'
-"   let g:slime_target = 'tmux'
-"   let g:slime_default_config = {'socket_name': 'default', 'target_pane': '2'}
-"   let g:slime_paste_file = '$HOME/.slime_paste'
-"   let g:slime_python_ipython = 1
-
-" }}}
-" Lang {{{
+" Language And Syntax:
+" =============================================================================
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
+" Several syntax files packaged into one plugin.
+" Not used because often syntax plugins will have some custom logic, that can
+" cause issues with other config, and hard to debug.
 " Plug 'sheerun/vim-polyglot'
-"   let g:polyglot_disabled = ['markdown', 'vue']
 
-" i3 {{{
 Plug 'PotatoesMaster/i3-vim-syntax'
-" }}}
-" tmux {{{
 Plug 'tmux-plugins/vim-tmux'
-" }}}
-" Javascript {{{
 Plug 'pangloss/vim-javascript'
-
 " Plug 'othree/yajs.vim'
-
 Plug 'posva/vim-vue'
-  " let g:html_indent_inctags = 'transition'
-  let g:vue_pre_processors = 'detect_on_enter'
-
 " Plug 'leafOfTree/vim-vue-plugin'
+Plug 'sudar/vim-arduino-syntax'
+Plug 'gregjurman/vim-nc'
+Plug 'andreshazard/vim-freemarker'
+Plug 'chr4/nginx.vim'
+" Plug 'vim-scripts/nginx.vim'
+Plug 'rust-lang/rust.vim', { 'for': 'rust' }
+Plug 'cespare/vim-toml',  { 'branch': 'main' }
+" Plug 'racer-rust/vim-racer', { 'for': 'rust' }
+Plug 'mattn/emmet-vim', { 'for': ['html', 'css', 'html.handlebars', 'vue'] }
+
+Plug 'othree/html5.vim'
+Plug 'mustache/vim-mustache-handlebars'
+" Plug 'othree/xml.vim'
+Plug 'guns/vim-sexp', { 'for': 'clojure' }
+Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for': 'clojure' }
+Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
+Plug 'tpope/vim-salve', { 'for': 'clojure' }
+Plug 'guns/vim-clojure-highlight', { 'for': 'clojure' }
+" Plug 'Olical/conjure', {'tag': 'v4.5.0'}
+" Plug 'jmcantrell/vim-virtualenv'
+" Plug 'vim-python/python-syntax'
+Plug 'ludovicchabant/vim-gutentags'
+" Plug 'fladson/vim-kitty', { 'branch': 'main' }
+Plug 'tridactyl/vim-tridactyl'
+Plug 'jdonaldson/vaxe'
+Plug 'jeroenbourgois/vim-actionscript'
+Plug 'mechatroner/rainbow_csv'
+Plug 'NoahTheDuke/vim-just'
+
+" Completion:
+" =============================================================================
+"
+" Completion plugins:
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'lifepillar/vim-mucomplete'
+Plug 'hrsh7th/nvim-cmp'
+
+" nvim-cmp dependencies
+Plug 'neovim/nvim-lspconfig'
+Plug 'quangnguyen30192/cmp-nvim-ultisnips'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
+
+
+" Snippets:
+" =============================================================================
+
+" Run lines/blocks of code independently
+Plug 'michaelb/sniprun', {'do': 'sh install.sh'}
+
+" Snippet engine, see ~/.vim/mysnippets for my snippets
+Plug 'SirVer/ultisnips'
+
+" Alternative snippet plugin
+" Plug 'honza/vim-snippets'
+
+" Markdown:
+" =============================================================================
+
+Plug 'preservim/vim-markdown', {'for': ['markdown', 'Avante']}
+
+" Table of content generator
+" Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
+
+" Table alignment
+" Plug 'godlygeek/tabular', { 'for': 'markdown' }
+
+" Table mode, easily add rows, change markdown tables
+Plug 'https://github.com/dhruvasagar/vim-table-mode', { 'for': 'markdown' }
+
+" Preview markdown document in browser
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install', 'for': 'markdown' }
+
+" Plug 'SidOfc/mkdx', { 'for': 'markdown' }
+
+" Plug 'MeanderingProgrammer/render-markdown.nvim'
+
+" Linting:
+" =============================================================================
+
+Plug 'dense-analysis/ale'
+
+" AI Helpers:
+" =============================================================================
+
+" AI conversation buffer, useful for custom questions, need secrets for api
+" keys.
+Plug 'madox2/vim-ai'
+
+" Code inspection using various models, quickly get suggestion and replace
+Plug 'yetone/avante.nvim', { 'branch': 'main', 'do': { -> avante#build('source=true') } }
+
+" Avante deps:
+Plug 'stevearc/dressing.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'MunifTanjim/nui.nvim'
+
+" Optional avante deps:
+" Plug 'echasnovski/mini.icons'
+
+" Icons for netrw etc
+Plug 'nvim-tree/nvim-web-devicons'
+
+" Sending images to avante
+Plug 'HakonHarnes/img-clip.nvim'
+Plug 'zbirenbaum/copilot.lua'
+
+" Misc:
+" =============================================================================
+
+" Send output from a vim command to a new bufffer (for easy searching for
+" example, ':Bufferize nmap')
+Plug 'AndrewRadev/bufferize.vim'
+
+" Startup benchmark, use 'nvim --startuptime'
+" Plug 'dstein64/vim-startuptime'
+
+" Easy access to vim-tips wiki
+Plug 'DanilaMihailov/vim-tips-wiki'
+
+call plug#end()
+
+"}}}
+" Config: {{{
+" vim-sort-motion: {{{
+
+let g:sort_motion_flags = 'i'
+
+" }}}
+" vim-easy-align: {{{
+
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
+
+" Support additional delimiters
+let g:easy_align_delimiters = {
+      \ '/': {
+      \ 'pattern': '//\+\|/\*\|\*/',
+      \ 'delimiter_align': 'l',
+      \ 'ignore_groups': ['!Comment']
+      \ }
+      \ }
+" }}}
+" vim-better-whitespace: {{{
+
+" Disable better whitespace on these filetypes
+let g:better_whitespace_filetypes_blacklist=['diff', 'gitcommit', 'help', 'nofile', 'git']
+
+" }}}
+" undotree: {{{
+
+nnoremap <leader>ut :UndotreeToggle<cr>
+
+" }}}
+" sideways.vim {{{
+
+nnoremap <leader>> :SidewaysLeft<cr>
+nnoremap <leader>< :SidewaysRight<cr>
+
+" }}}
+" fzf.vim: {{{
+
+" Mapping selecting mappings
+nmap <leader>? <plug>(fzf-maps-n)
+xmap <leader>? <plug>(fzf-maps-x)
+omap <leader>? <plug>(fzf-maps-o)
+
+nnoremap <leader>e :Files<CR>
+nnoremap <leader>bb :Buffers<cr>
+nnoremap <leader>T  :Tags<cr>
+nnoremap <leader>t  :BTags<cr>
+nnoremap <leader>gC :Commits<cr>
+nnoremap <leader>gc :BCommits<cr>
+nnoremap <leader>mm :Marks<cr>
+nnoremap <leader>H  :Helptags<cr>
+nnoremap <leader>/  :Rg<cr>
+nnoremap <leader>:  :Commands<cr>
+nnoremap <leader>ss :BLines<cr>
+nnoremap <leader>ji :BTags<cr>
+nnoremap <leader>q  :Snippets<cr>
+
+" fzf-folds.vim
+nnoremap <leader>jo :Folds<CR>
+
+" Insert mode completion
+" imap <c-x><c-k> <plug>(fzf-complete-word)
+" imap <c-x><c-f> <plug>(fzf-complete-path)
+" imap <c-x><c-j> <plug>(fzf-complete-file-ag)
+" imap <c-x><c-l> <plug>(fzf-complete-line)
+
+function! s:build_quickfix_list(lines)
+  call setqflist(map(copy(a:lines), '{ "filename": v:val, "lnum": 1 }'))
+  copen
+  cc
+endfunction
+
+" This is the default extra key bindings
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-q': function('s:build_quickfix_list'),
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit'
+  \ }
+
+" Vim Spelling Suggestions with fzf
+" https://coreyja.com/vim-spelling-suggestions-fzf/
+function! FzfSpellSink(word)
+  exe 'normal! "_ciw'.a:word
+endfunction
+function! FzfSpell()
+  let suggestions = spellsuggest(expand('<cword>'))
+  return fzf#run({'source': suggestions, 'sink': function('FzfSpellSink'), 'down': 10 })
+endfunction
+nnoremap z= :call FzfSpell()<CR>
+
+" Customize rg command
+" Had an issue where calling :Rg without a query would make fzf search in
+" filenames columns. So if I was searching for a command called Clap and also
+" had a file called clap fzf would match on the filename as well.
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always --smart-case --colors=path:fg:blue --colors=line:fg:yellow -- '.shellescape(<q-args>), 1,
+  \   fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'right:50%:hidden', '?'),
+  \   <bang>0)
+
+" Search in notes directory
+command! -bang NoteFiles call fzf#vim#files('~/notes', <bang>0)
+nnoremap <leader>o :NoteFiles<CR>
+
+"}}}
+" vim-sneak: {{{
+
+let g:sneak#use_ic_scs = 1
+
+" }}}
+" srcery-vim {{{
+
+let g:srcery_dim_lisp_paren=0
+let g:srcery_italic=1
+let g:srcery_bg = ['NONE', 'NONE']
+" let g:srcery_hard_black_terminal_bg=0
+
+" let g:srcery_inverse=0
+" let g:srcery_inverse_matches=1
+
+" let g:srcery_undercurl=0
+" let g:srcery_underline=0
+" let g:srcery_guisp_fallback='bg'
+
+" }}}
+" lightline.vim: {{{
+let g:lightline = {
+      \ 'colorscheme': 'srcery',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'cocstatus': 'coc#status'
+      \ },
+      \ 'component': {
+      \   'readonly': '%{&readonly?"🔒":""}',
+      \ }}
+" }}}
+" vim-fugitive: {{{
+
+nnoremap <leader>gs :Git<cr>
+autocmd vimrc FileType gitcommit setlocal nofoldenable
+
+" }}}
+" nvim-cmp: {{{
+
+let g:loaded_python_provider=1
+let g:python_host_skip_check=1
+let g:python_host_prog = '/usr/bin/python'
+lua <<EOF
+local cmp = require('cmp')
+local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+
+cmp.event:on(
+  'confirm_done',
+  cmp_autopairs.on_confirm_done()
+)
+
+cmp.setup({
+  snippet = {
+    expand = function(args)
+      vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
+    end,
+  },
+  window = {
+    -- completion = cmp.config.window.bordered(),
+    -- documentation = cmp.config.window.bordered(),
+  },
+  mapping = cmp.mapping.preset.insert({
+
+    ['<C-Space>'] = cmp.mapping.confirm {
+      behavior = cmp.ConfirmBehavior.Insert,
+      select = true,
+    },
+
+    ['<Tab>'] = cmp.mapping.confirm {
+      behavior = cmp.ConfirmBehavior.Insert,
+      select = true,
+    },
+    ['<C-j>'] = function(fallback)
+      if not cmp.select_next_item() then
+        if vim.bo.buftype ~= 'prompt' and has_words_before() then
+          cmp.complete()
+        else
+          fallback()
+        end
+      end
+    end,
+
+    ['<C-k>'] = function(fallback)
+      if not cmp.select_prev_item() then
+        if vim.bo.buftype ~= 'prompt' and has_words_before() then
+          cmp.complete()
+        else
+          fallback()
+        end
+      end
+    end,
+  }),
+  sources = cmp.config.sources({
+    { name = 'nvim_lsp' },
+    { name = 'ultisnips' },
+  }, {
+    { name = 'buffer' },
+  })
+})
+
+-- Set configuration for specific filetype.
+cmp.setup.filetype('gitcommit', {
+  sources = cmp.config.sources({
+    { name = 'git' }, -- You can specify the `git` source if [you were installed it](https://github.com/petertriho/cmp-git).
+  }, {
+    { name = 'buffer' },
+  })
+})
+
+-- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline({ '/', '?' }, {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = {
+    { name = 'buffer' }
+  }
+})
+
+-- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline(':', {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = cmp.config.sources({
+    { name = 'path' }
+  }, {
+    { name = 'cmdline' }
+  })
+})
+EOF
+
+" }}}
+" ultisnips: {{{
+
+let g:UltiSnipsExpandTrigger='<a-q>'
+let g:UltiSnipsListSnippets='<a-a>'
+let g:UltiSnipsJumpForwardTrigger='<a-l>'
+let g:UltiSnipsJumpBackwardTrigger='<a-h>'
+let g:UltiSnipsSnippetDirectories=['UltiSnips', 'mysnippets']
+let g:UltiSnipsSnippetStorageDirectoryForUltiSnipsEdit='~/.vim/mysnippets'
+
+" }}}
+" vim-markdown: {{{
+
+let g:vim_markdown_folding_style_pythonic = 1
+let g:vim_markdown_follow_anchor = 1
+" let g:vim_markdown_new_list_item_indent = 0 " Use mkdx
+" let g:vim_markdown_auto_insert_bullets = 0 " use mkdx
+let g:vim_markdown_fenced_languages = [
+      \ 'clojure',
+      \ 'javascript',
+      \ 'python',
+      \ 'rust',
+      \ 'vim',
+      \ 'sh',
+      \ 'c',
+      \ 'js=javascript',
+      \ 'shell=sh',
+      \ 'css'
+      \]
+
+" Builtin syntax options
+let g:markdown_fenced_languages = [
+      \ 'clojure',
+      \ 'javascript',
+      \ 'python',
+      \ 'rust',
+      \ 'vim',
+      \ 'sh',
+      \ 'c',
+      \ 'js=javascript',
+      \ 'shell=sh',
+      \ 'css'
+      \]
+
+let g:markdown_folding = 1
+
+" }}}
+" vim-table-mode: {{{
+
+let g:table_mode_corner='|'
+
+" }}}
+" markdown-preview.nvim: {{{
+
+let g:mkdp_browser = 'firefox-developer-edition'
+
+" }}}
+" ale:  {{{
+
+" https://github.com/borkdude/clj-kondo/blob/master/doc/editor-integration.md#vim--neovim
+let g:ale_linters = {
+      \ 'clojure': ['clj-kondo'],
+      \ 'javascript': ['eslint']
+      \}
+
+" let g:ale_fixers = {
+"       \ 'javascript': ['prettier'],
+"       \}
+
+" }}}
+" vim-ai: {{{
+
+map <leader>jl :Ilist<space>
+let g:vim_ai_chat = {
+    \ 'options': {
+    \ 'model': 'gpt-4',
+    \ 'max_tokens': 1000,
+    \ }}
+
+" }}}
+" avante.nvim: {{{
+autocmd vimrc FileType Avante set filetype=markdown
+lua <<EOF
+  require('img-clip').setup ({})
+  require('copilot').setup ({})
+  -- require('render-markdown').setup ({
+  --     file_types = { 'Avante' },
+  -- })
+  require('avante_lib').load()
+  require('avante').setup ({})
+EOF
+" }}}
+" Clojure: {{{
+
+" This should enable Emacs like indentation
+let g:clojure_fuzzy_indent=1
+let g:clojure_align_multiline_strings = 1
+
+" Add some words which should be indented like defn etc: Compojure/compojure-api, midje and schema stuff mostly.
+let g:clojure_fuzzy_indent_patterns = [
+      \ '^GET',
+      \ '^POST',
+      \ '^PUT',
+      \ '^DELETE',
+      \ '^ANY',
+      \ '^HEAD',
+      \ '^PATCH',
+      \ '^OPTIONS',
+      \ '^def',
+      \ '^fdef',
+      \ '^when-let*',
+      \ ]
+
+" let expand region know about 'form' text objects added by vim-sexp
+" Use :1 to support nesting of around form.
+call expand_region#custom_text_objects('clojure', {
+      \ 'if' :0,
+      \ 'af' :1,
+      \ })
+
+" https://github.com/clojure-vim/clojure.vim#syntax-options
+" https://github.com/clojure-vim/clojure.vim/blob/73b713f79d13d45b0c44d1292f5384ee16117f7d/syntax/clojure.vim#L26
+let g:clojure_syntax_keywords = {
+    \ 'clojureSpecial': ['defgroup', 'defglobal', 'defkeyframes', 'when-let*'],
+    \ }
+
+"}}}
+" Python: {{{
+
+let g:python_highlight_all = 1
+
+"}}}
+" Netrw: {{{
+
+" Change default netrw liststyle
+" let g:netrw_liststyle = 1
+
+" map <C-i> <Plug>(NetrwHideEdit)
+
+" https://gist.github.com/mhanberg/dd9377163be770930e6eedb81b2fe61e
+" Remove C-l binding from netrw, conflicts with nav commands
+augroup vimrc
+  autocmd FileType netrw call s:RemoveNetrwMap()
+augroup END
+
+function s:RemoveNetrwMap()
+  if hasmapto('<Plug>NetrwRefresh')
+    unmap <buffer> <C-l>
+  endif
+endfunction
+
+" Define custom browse command, to replace missing netrw fn. Use gx.nvim
+lua <<EOF
+-- vim.api.nvim_create_user_command(
+--   'Browse',
+--   function (opts)
+--     vim.fn.system { 'xdg-open', opts.fargs[1] }
+--   end,
+--   { nargs = 1 }
+-- )
+EOF
+
+"}}}
+" Language server protocol (LSP): {{{
+lua <<EOF
+
+-- Setup language servers.
+local lspconfig = require('lspconfig')
+-- lspconfig.quick_lint_js.setup {}
+-- lspconfig.pyright.setup {}
+-- lspconfig.tsserver.setup {}
+
+-- lspconfig.rust_analyzer.setup {
+--   -- Server-specific settings. See `:help lspconfig-setup`
+--   settings = {
+--     ['rust-analyzer'] = {},
+--   },
+-- }
+
+
+-- Global mappings.
+-- See `:help vim.diagnostic.*` for documentation on any of the below functions
+vim.keymap.set('n', '<space>q', vim.diagnostic.open_float)
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
+vim.keymap.set('n', '<space>Q', vim.diagnostic.setloclist)
+
+-- Use LspAttach autocommand to only map the following keys
+-- after the language server attaches to the current buffer
+vim.api.nvim_create_autocmd('LspAttach', {
+  group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+  callback = function(ev)
+    -- Enable completion triggered by <c-x><c-o>
+    vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
+
+    -- Buffer local mappings.
+    -- See `:help vim.lsp.*` for documentation on any of the below functions
+    local opts = { buffer = ev.buf }
+    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
+    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+    vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
+    -- vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
+    vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)
+    vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts)
+    vim.keymap.set('n', '<space>wl', function()
+      print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+    end, opts)
+    vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts)
+    vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
+    vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
+    vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+    vim.keymap.set('n', '<space>f', function()
+      vim.lsp.buf.format { async = true }
+    end, opts)
+  end,
+})
+
+EOF
+" }}}
+" oil.nvim {{{
+lua <<EOF
+require("oil").setup({
+  delete_to_trash = true,
+  default_file_explorer = true
+})
+vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+EOF
+" }}}
+" nvim-autopairs: {{{
+lua <<EOF
+  require("nvim-autopairs").setup({})
+EOF
+" }}}
+" gx.nvim {{{
+
+lua <<EOF
+  require("gx").setup {
+    vim.keymap.set({'n', 'x'}, 'gx', '<cmd>Browse<cr>'),
+    handler_options = {
+      search_engine = "duckduckgo"
+    }
+  }
+EOF
+
+" }}}
+" vim-vue: {{{
+
+" let g:html_indent_inctags = 'transition'
+let g:vue_pre_processors = 'detect_on_enter'
+
+" }}}
+" emmet-vim: {{{
+
+let g:user_emmet_leader_key='<C-Q>'
+
+" }}}
+" vim-gutentags: {{{
+"
+let g:gutentags_exclude_filetypes = ['gitcommit', 'gitconfig', 'gitrebase', 'gitsendemail', 'git']
+let g:gutentags_cache_dir = expand('~/.cache/vim/ctags/')
+let g:gutentags_exclude_project_root = ['/etc', 'usr/local']
+command! -nargs=0 GutentagsClearCache call system('rm ' . g:gutentags_cache_dir . '/*')
+
+" }}}
+" Unused/backup: {{{
+" auto-pairs (unused): {{{
+
+" This is for jiangmiao/auto-pairs (vim, not nvim)
+" Fix for 'å' button on Norwegian keyboards
+" let g:AutoPairsShortcutFastWrap=''
+"
+" " Fix issue with mucomplete
+" let g:AutoPairsMapSpace = 0
+" imap <silent> <expr> <space> pumvisible()
+"     \ ? "<space>"
+"     \ : "<c-r>=AutoPairsSpace()<cr>"
+
+" }}}
+" nvim-miniyank (unused): {{{
+
+" nmap p <Plug>(miniyank-autoput)
+" nmap P <Plug>(miniyank-autoPut)
+" nmap <c-p> <Plug>(miniyank-cycle)
+" nmap <c-n> <Plug>(miniyank-cycleback)
+
+" }}}
+" vim-sort-folds (unused): {{{
+
+" let g:sort_folds_ignore_case = 1
+
+" }}}
+" vim-easymotion (unused): {{{
+
+" let g:EasyMotion_smartcase = 1
+" let g:EasyMotion_startofline = 1 " keep cursor column when JK motion
+
+" }}}
+" vim-hexokinase (unused): {{{
+" let g:Hexokinase_virtualText = '▀'
+" let g:Hexokinase_optInPatterns = [
+"      \ 'full_hex',
+"      \ 'triple_hex',
+"      \ 'rgb',
+"      \ 'rgba',
+"      \ 'hsl',
+"      \ 'hsla',
+"      \ ]
+" }}}
+" vim-polyglot (unused): {{{
+
+" let g:polyglot_disabled = ['markdown', 'vue']
+
+" }}}
+" coc.nvim (unused): {{{
+
+" " Use tab for trigger completion with characters ahead and navigate.
+" " NOTE: There's always complete item selected by default, you may want to enable
+" " no select by `"suggest.noselect": true` in your configuration file.
+" " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" " other plugin before putting this into your config.
+" inoremap <silent><expr> <TAB>
+"       \ coc#pum#visible() ? coc#pum#next(1) :
+"       \ CheckBackspace() ? "\<Tab>" :
+"       \ coc#refresh()
+" inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+
+" }}}
+" vim-mucomplete (unused): {{{
+
+" let g:mucomplete#enable_auto_at_startup = 1
+" let g:mucomplete#no_mappings = 1
+"
+"	let g:mucomplete#chains = {
+"	    \ 'default' : ['path', 'omni', 'keyn', 'ulti', 'dict', 'uspl'],
+"	    \ 'haxe' : ['path', 'keyn', 'ulti', 'dict', 'uspl'],
+"	    \ 'gitcommit' : ['path', 'keyn', 'ulti', 'dict', 'uspl'],
+"	    \ 'vim'     : ['path', 'cmd', 'keyn']
+"	    \ }
+"
+"	imap <c-j> <plug>(MUcompleteFwd)
+"	imap <c-k> <plug>(MUcompleteBwd)
+"	imap <Tab> <plug>(MUcompleteFwd)
+"	imap <S-Tab> <plug>(MUcompleteBwd)
+"
+"	inoremap <silent> <plug>(MUcompleteFwdKey) <right>
+"	imap <right> <plug>(MUcompleteCycFwd)
+"	inoremap <silent> <plug>(MUcompleteBwdKey) <left>
+"	imap <left> <plug>(MUcompleteCycBwd)
+"
+"	inoremap <silent> <expr> <plug>UltiExpand
+"	      \ mucomplete#ultisnips#expand_snippet("\<cr>")
+"	imap <plug>MyCR <plug>UltiExpand<plug>AutoPairsReturn
+"	imap <cr> <plug>MyCR
+
+" }}}
+" mkdx (unused): {{{
+let g:mkdx#settings = {
+      \ 'highlight': { 'enable': 1 },
+      \ 'map': { 'prefix': '\' },
+      \ 'tab': { 'enable': 0  }
+      \ }
+" }}}
+" vim-vue-plugin: {{{
+
 " let g:vim_vue_plugin_config = {
 "       \'full_syntax': ['html'],
 "       \}
@@ -275,226 +990,8 @@ Plug 'posva/vim-vue'
 "   endfunction
 
 " }}}
-" Arduino {{{
-Plug 'sudar/vim-arduino-syntax'
-" }}}
-" Gcode / 3D Printing {{{
-Plug 'gregjurman/vim-nc'
-Plug 'andreshazard/vim-freemarker'
-" }}}
-" nginx {{{
-Plug 'chr4/nginx.vim'
-" Plug 'vim-scripts/nginx.vim'
-" }}}
-" Rust {{{
-Plug 'rust-lang/rust.vim', { 'for': 'rust' }
-Plug 'cespare/vim-toml',  { 'branch': 'main' }
-" Plug 'racer-rust/vim-racer', { 'for': 'rust' }
-" }}}
-" HTML/XML {{{
-Plug 'mattn/emmet-vim', { 'for': ['html', 'css', 'html.handlebars', 'vue'] }
-  let g:user_emmet_leader_key='<C-Q>'
-
-Plug 'othree/html5.vim'
-Plug 'mustache/vim-mustache-handlebars'
-" Plug 'othree/xml.vim'
-" }}}
-" Clojure/script {{{
-Plug 'guns/vim-sexp', { 'for': 'clojure' }
-Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for': 'clojure' }
-Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
-Plug 'tpope/vim-salve', { 'for': 'clojure' }
-Plug 'guns/vim-clojure-highlight', { 'for': 'clojure' }
-" Plug 'Olical/conjure', {'tag': 'v4.5.0'}
-" }}}
-" Python {{{
-" Plug 'jmcantrell/vim-virtualenv'
-" Plug 'vim-python/python-syntax'
-Plug 'ludovicchabant/vim-gutentags'
-  let g:gutentags_exclude_filetypes = ['gitcommit', 'gitconfig', 'gitrebase', 'gitsendemail', 'git']
-  let g:gutentags_cache_dir = expand('~/.cache/vim/ctags/')
-  let g:gutentags_exclude_project_root = ['/etc', 'usr/local']
-  command! -nargs=0 GutentagsClearCache call system('rm ' . g:gutentags_cache_dir . '/*')
-" }}}
-" Terminals {{{
-" Plug 'fladson/vim-kitty', { 'branch': 'main' }
-" }}}
-" Firefox {{{
-Plug 'tridactyl/vim-tridactyl'
-" }}}
-" Haxe {{{
-Plug 'jdonaldson/vaxe'
-Plug 'jeroenbourgois/vim-actionscript'
-" }}}
-" CSV {{{
-Plug 'mechatroner/rainbow_csv'
-" }}}
-" Tooling {{{
-Plug 'NoahTheDuke/vim-just'
 " }}}
 " }}}
-" Completion {{{
-" coc.nvim {{{
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-" " Use tab for trigger completion with characters ahead and navigate.
-" " NOTE: There's always complete item selected by default, you may want to enable
-" " no select by `"suggest.noselect": true` in your configuration file.
-" " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
-" " other plugin before putting this into your config.
-" inoremap <silent><expr> <TAB>
-"       \ coc#pum#visible() ? coc#pum#next(1) :
-"       \ CheckBackspace() ? "\<Tab>" :
-"       \ coc#refresh()
-" inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
-" }}}
-" mucomplete {{{
-" Plug 'lifepillar/vim-mucomplete'
-"   let g:mucomplete#enable_auto_at_startup = 1
-"   let g:mucomplete#no_mappings = 1
-"
-" 	let g:mucomplete#chains = {
-" 	    \ 'default' : ['path', 'omni', 'keyn', 'ulti', 'dict', 'uspl'],
-" 	    \ 'haxe' : ['path', 'keyn', 'ulti', 'dict', 'uspl'],
-" 	    \ 'gitcommit' : ['path', 'keyn', 'ulti', 'dict', 'uspl'],
-" 	    \ 'vim'     : ['path', 'cmd', 'keyn']
-" 	    \ }
-"
-" 	imap <c-j> <plug>(MUcompleteFwd)
-" 	imap <c-k> <plug>(MUcompleteBwd)
-" 	imap <Tab> <plug>(MUcompleteFwd)
-" 	imap <S-Tab> <plug>(MUcompleteBwd)
-"
-" 	inoremap <silent> <plug>(MUcompleteFwdKey) <right>
-" 	imap <right> <plug>(MUcompleteCycFwd)
-" 	inoremap <silent> <plug>(MUcompleteBwdKey) <left>
-" 	imap <left> <plug>(MUcompleteCycBwd)
-"
-" 	inoremap <silent> <expr> <plug>UltiExpand
-" 	      \ mucomplete#ultisnips#expand_snippet("\<cr>")
-" 	imap <plug>MyCR <plug>UltiExpand<plug>AutoPairsReturn
-" 	imap <cr> <plug>MyCR
-
-" }}}
-" nvim-cmp {{{
-
-Plug 'neovim/nvim-lspconfig'
-Plug 'quangnguyen30192/cmp-nvim-ultisnips'
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'hrsh7th/cmp-buffer'
-Plug 'hrsh7th/cmp-path'
-Plug 'hrsh7th/cmp-cmdline'
-Plug 'hrsh7th/nvim-cmp'
-
-let g:loaded_python_provider=1
-let g:python_host_skip_check=1
-let g:python_host_prog = '/usr/bin/python'
-
-" }}}
-" }}}
-" Snippets {{{
-
-Plug 'michaelb/sniprun', {'do': 'sh install.sh'}
-
-Plug 'SirVer/ultisnips'
-  let g:UltiSnipsExpandTrigger='<a-q>'
-  let g:UltiSnipsListSnippets='<a-a>'
-  let g:UltiSnipsJumpForwardTrigger='<a-l>'
-  let g:UltiSnipsJumpBackwardTrigger='<a-h>'
-  let g:UltiSnipsSnippetDirectories=['UltiSnips', 'mysnippets']
-  let g:UltiSnipsSnippetStorageDirectoryForUltiSnipsEdit='~/.vim/mysnippets'
-" Plug 'honza/vim-snippets'
-
-" }}}
-" Markdown {{{
-
-Plug 'https://github.com/preservim/vim-markdown', {'for': ['markdown', 'Avante']}
-  let g:vim_markdown_folding_style_pythonic = 1
-  let g:vim_markdown_follow_anchor = 1
-  let g:vim_markdown_new_list_item_indent = 0 " Use mkdx
-  let g:vim_markdown_auto_insert_bullets = 0 " use mkdx
-  let g:vim_markdown_fenced_languages = [
-        \ 'clojure',
-        \ 'javascript',
-        \ 'python',
-        \ 'rust',
-        \ 'vim',
-        \ 'sh',
-        \ 'c',
-        \ 'js=javascript',
-        \ 'shell=sh',
-        \ 'css'
-        \]
-
-
-" Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
-Plug 'godlygeek/tabular', { 'for': 'markdown' }
-Plug 'https://github.com/dhruvasagar/vim-table-mode', { 'for': 'markdown' }
-  let g:table_mode_corner='|'
-
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install', 'for': 'markdown' }
-  let g:mkdp_browser = 'firefox-developer-edition'
-
-Plug 'SidOfc/mkdx', { 'for': 'markdown' }
-  let g:mkdx#settings = {
-        \ 'highlight': { 'enable': 1 },
-        \ 'map': { 'prefix': '\' },
-        \ 'tab': { 'enable': 0  }
-        \ }
-
-" }}}
-" Linting {{{
-
-Plug 'dense-analysis/ale'
-  " https://github.com/borkdude/clj-kondo/blob/master/doc/editor-integration.md#vim--neovim
-  let g:ale_linters = {
-        \ 'clojure': ['clj-kondo'],
-        \ 'javascript': ['eslint']
-        \}
-
-  " let g:ale_fixers = {
-  "       \ 'javascript': ['prettier'],
-  "       \}
-
-" }}}
-" AI {{{
-Plug 'madox2/vim-ai'
-  map <leader>jl :Ilist<space>
-  let g:vim_ai_chat = {
-      \ 'options': {
-      \ 'model': 'gpt-4',
-      \ 'max_tokens': 1000,
-      \ }}
-
-" Deps
-Plug 'stevearc/dressing.nvim'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'MunifTanjim/nui.nvim'
-
-" Optional deps
-Plug 'nvim-tree/nvim-web-devicons' "or Plug 'echasnovski/mini.icons'
-Plug 'HakonHarnes/img-clip.nvim'
-Plug 'zbirenbaum/copilot.lua'
-" Plug 'MeanderingProgrammer/render-markdown.nvim'
-
-" Plug 'yetone/avante.nvim', { 'branch': 'main' }
-
-" Yay, pass source=true if you want to build from source
-Plug 'yetone/avante.nvim', { 'branch': 'main', 'do': { -> avante#build('source=true') } }
-autocmd vimrc FileType Avante set filetype=markdown
-
-" }}}
-" Misc {{{
-
-Plug 'AndrewRadev/bufferize.vim'
-Plug 'dstein64/vim-startuptime'
-Plug 'DanilaMihailov/vim-tips-wiki'
-
-" }}}
-
-call plug#end()
-
-"}}}
 " Settings: {{{1
 
 set shortmess+=Ic
@@ -750,151 +1247,4 @@ function! UpdateAndExit()
 endfunction
 
 " }}}
-" Fzf: {{{
-
-" https://github.com/junegunn/fzf.vim
-
-" Mapping selecting mappings
-nmap <leader>? <plug>(fzf-maps-n)
-xmap <leader>? <plug>(fzf-maps-x)
-omap <leader>? <plug>(fzf-maps-o)
-
-nnoremap <leader>e :Files<CR>
-nnoremap <leader>bb :Buffers<cr>
-nnoremap <leader>T  :Tags<cr>
-nnoremap <leader>t  :BTags<cr>
-nnoremap <leader>gC :Commits<cr>
-nnoremap <leader>gc :BCommits<cr>
-nnoremap <leader>mm :Marks<cr>
-nnoremap <leader>H  :Helptags<cr>
-nnoremap <leader>/  :Rg<cr>
-nnoremap <leader>:  :Commands<cr>
-nnoremap <leader>ss :BLines<cr>
-nnoremap <leader>ji :BTags<cr>
-nnoremap <leader>q  :Snippets<cr>
-
-" Insert mode completion
-" imap <c-x><c-k> <plug>(fzf-complete-word)
-" imap <c-x><c-f> <plug>(fzf-complete-path)
-" imap <c-x><c-j> <plug>(fzf-complete-file-ag)
-" imap <c-x><c-l> <plug>(fzf-complete-line)
-
-function! s:build_quickfix_list(lines)
-  call setqflist(map(copy(a:lines), '{ "filename": v:val, "lnum": 1 }'))
-  copen
-  cc
-endfunction
-
-" This is the default extra key bindings
-let g:fzf_action = {
-  \ 'ctrl-t': 'tab split',
-  \ 'ctrl-q': function('s:build_quickfix_list'),
-  \ 'ctrl-x': 'split',
-  \ 'ctrl-v': 'vsplit'
-  \ }
-
-" Vim Spelling Suggestions with fzf
-" https://coreyja.com/vim-spelling-suggestions-fzf/
-function! FzfSpellSink(word)
-  exe 'normal! "_ciw'.a:word
-endfunction
-function! FzfSpell()
-  let suggestions = spellsuggest(expand('<cword>'))
-  return fzf#run({'source': suggestions, 'sink': function('FzfSpellSink'), 'down': 10 })
-endfunction
-nnoremap z= :call FzfSpell()<CR>
-
-" Customize rg command
-" Had an issue where calling :Rg without a query would make fzf search in
-" filenames columns. So if I was searching for a command called Clap and also
-" had a file called clap fzf would match on the filename as well.
-command! -bang -nargs=* Rg
-  \ call fzf#vim#grep(
-  \   'rg --column --line-number --no-heading --color=always --smart-case --colors=path:fg:blue --colors=line:fg:yellow -- '.shellescape(<q-args>), 1,
-  \   fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'right:50%:hidden', '?'),
-  \   <bang>0)
-
-" Search in notes directory
-command! -bang NoteFiles call fzf#vim#files('~/notes', <bang>0)
-nnoremap <leader>o :NoteFiles<CR>
-
-"}}}
-" Clojure: {{{
-
-" This should enable Emacs like indentation
-let g:clojure_fuzzy_indent=1
-let g:clojure_align_multiline_strings = 1
-
-" Add some words which should be indented like defn etc: Compojure/compojure-api, midje and schema stuff mostly.
-let g:clojure_fuzzy_indent_patterns = [
-      \ '^GET',
-      \ '^POST',
-      \ '^PUT',
-      \ '^DELETE',
-      \ '^ANY',
-      \ '^HEAD',
-      \ '^PATCH',
-      \ '^OPTIONS',
-      \ '^def',
-      \ '^fdef',
-      \ '^when-let*',
-      \ ]
-
-" let expand region know about 'form' text objects added by vim-sexp
-" Use :1 to support nesting of around form.
-call expand_region#custom_text_objects('clojure', {
-      \ 'if' :0,
-      \ 'af' :1,
-      \ })
-
-" https://github.com/clojure-vim/clojure.vim#syntax-options
-" https://github.com/clojure-vim/clojure.vim/blob/73b713f79d13d45b0c44d1292f5384ee16117f7d/syntax/clojure.vim#L26
-let g:clojure_syntax_keywords = {
-    \ 'clojureSpecial': ['defgroup', 'defglobal', 'defkeyframes', 'when-let*'],
-    \ }
-
-"}}}
-" Python: {{{
-
-let g:python_highlight_all = 1
-
-"}}}
-" Netrw: {{{
-
-" Change default netrw liststyle
-" let g:netrw_liststyle = 1
-
-" map <C-i> <Plug>(NetrwHideEdit)
-
-" https://gist.github.com/mhanberg/dd9377163be770930e6eedb81b2fe61e
-" Remove C-l binding from netrw, conflicts with nav commands
-augroup vimrc
-  autocmd FileType netrw call s:RemoveNetrwMap()
-augroup END
-
-function s:RemoveNetrwMap()
-  if hasmapto('<Plug>NetrwRefresh')
-    unmap <buffer> <C-l>
-  endif
-endfunction
-
-"}}}
-" Markdown: {{{
-
-let g:markdown_fenced_languages = [
-      \ 'clojure',
-      \ 'javascript',
-      \ 'python',
-      \ 'rust',
-      \ 'vim',
-      \ 'sh',
-      \ 'c',
-      \ 'js=javascript',
-      \ 'shell=sh',
-      \ 'css'
-      \]
-
-let g:markdown_folding = 1
-
-"}}}
 " vim: fdm=marker:sw=2
