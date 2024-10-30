@@ -129,6 +129,9 @@ Plug 'AndrewRadev/splitjoin.vim'
 " Plug 'tpope/vim-vinegar'
 " Plug 'trapd00r/vim-syntax-vidir-ls'
 Plug 'stevearc/oil.nvim'
+" Add new Browse command because netrw is disabled
+Plug 'chrishrb/gx.nvim'
+
   " For config see .vim/plugins/oil.lua
 
 " }}}
