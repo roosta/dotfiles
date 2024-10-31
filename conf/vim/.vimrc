@@ -652,6 +652,8 @@ let g:vim_markdown_fenced_languages = [
 let g:markdown_fenced_languages = g:vim_markdown_fenced_languages
 let g:markdown_folding = 1
 
+map <Plug> <Plug>Markdown_OpenUrlUnderCursor
+
 " }}}
 " vim-table-mode: {{{
 
@@ -1122,9 +1124,6 @@ set splitright
 
 " history
 set history=10000
-
-" theme
-colorscheme srcery
 
 "}}}
 " Cursor: {{{1
