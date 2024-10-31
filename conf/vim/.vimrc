@@ -649,19 +649,7 @@ let g:vim_markdown_fenced_languages = [
       \]
 
 " Builtin syntax options
-let g:markdown_fenced_languages = [
-      \ 'clojure',
-      \ 'javascript',
-      \ 'python',
-      \ 'rust',
-      \ 'vim',
-      \ 'sh',
-      \ 'c',
-      \ 'js=javascript',
-      \ 'shell=sh',
-      \ 'css'
-      \]
-
+let g:markdown_fenced_languages = g:vim_markdown_fenced_languages
 let g:markdown_folding = 1
 
 " }}}
