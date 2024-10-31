@@ -501,6 +501,8 @@ let g:srcery_bg = ['NONE', 'NONE']
 " let g:srcery_underline=0
 " let g:srcery_guisp_fallback='bg'
 
+colorscheme srcery
+
 " }}}
 " lightline.vim: {{{
 let g:lightline = {
