@@ -633,8 +633,8 @@ let g:UltiSnipsSnippetStorageDirectoryForUltiSnipsEdit='~/.vim/mysnippets'
 
 let g:vim_markdown_folding_style_pythonic = 1
 let g:vim_markdown_follow_anchor = 1
-" let g:vim_markdown_new_list_item_indent = 0 " Use mkdx
-" let g:vim_markdown_auto_insert_bullets = 0 " use mkdx
+let g:vim_markdown_new_list_item_indent = 1
+let g:vim_markdown_auto_insert_bullets = 1
 let g:vim_markdown_fenced_languages = [
       \ 'clojure',
       \ 'javascript',
