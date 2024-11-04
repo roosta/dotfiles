@@ -23,7 +23,9 @@ fpath=(
 	$fpath[@]
 )
 
-# export TERM="xterm-termite"
+# GTK
+export GTK_THEME=Adwaita:dark
+
 export TERMINAL=alacritty
 export BROWSER=firefox
 
