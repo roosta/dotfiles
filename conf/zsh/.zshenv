@@ -23,9 +23,6 @@ fpath=(
 	$fpath[@]
 )
 
-# GTK
-export GTK_THEME=Adwaita:dark
-
 export TERMINAL=alacritty
 export BROWSER=firefox
 
