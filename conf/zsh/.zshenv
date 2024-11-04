@@ -29,12 +29,12 @@ export GTK_THEME=Adwaita:dark
 export TERMINAL=alacritty
 export BROWSER=firefox
 
-# editor
+# Editor
 export EDITOR="nvim"
 export ALTERNATE_EDITOR="nvim"
 export VISUAL="nvim"
 
-# golang lib path
+# Golang lib path
 export GOPATH=$HOME/.go
 
 export ZSH_CACHE_DIR=$HOME/.cache/zsh
@@ -42,8 +42,8 @@ export ZSH_CACHE_DIR=$HOME/.cache/zsh
 # Set less default opts
 export LESS="-R --use-color --mouse --jump-target=12 -DP15.236"
 
-export PAGER="nvimpager"
-export PARU_PAGER="nvimpager"
+export PAGER=less
+export PARU_PAGER=less
 
 alias less=$PAGER
 # alias zless=$PAGER
