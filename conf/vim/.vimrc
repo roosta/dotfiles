@@ -284,6 +284,7 @@ Plug 'NoahTheDuke/vim-just'
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'lifepillar/vim-mucomplete'
 Plug 'hrsh7th/nvim-cmp'
+Plug 'lukas-reineke/cmp-rg'
 
 " nvim-cmp dependencies
 Plug 'neovim/nvim-lspconfig'
@@ -604,6 +605,7 @@ cmp.setup({
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
     { name = 'ultisnips' },
+    { name = "rg" },
   }, {
     { name = 'buffer' },
   })
