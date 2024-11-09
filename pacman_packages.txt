@@ -89,6 +89,7 @@ ttc-iosevka
 ttf-font-awesome
 ttf-iosevka-nerd
 ttf-iosevkaterm-nerd
+ttf-nerd-fonts-symbols
 ufw
 ufw-extras
 unrar
