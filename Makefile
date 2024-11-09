@@ -46,10 +46,8 @@ DIRS = \
 		 ~/.cache/zsh \
 		 ~/backup \
 		 ~/.local/share \
-		 ~/var/emacs/undo \
 		 ~/.config/dunst \
 		 ~/.local/share/applications \
-		 ~/BitTorrent/scripts \
 		 ~/etc/build
 
 ifneq ("$(wildcard $(VARS))","")
@@ -184,9 +182,6 @@ link-misc: ~/scripts ~/colors ~/bin/ftl ~/bin/touchpad-toggle ~/bin/tmain ~/bin/
 ~/bin/tssh: user-fs
 	-ln -sf $(HOME)/scripts/tmux-ssh.sh $@
 
-~/BitTorrent/scripts/torrent-done.sh: user-fs
-	-ln -sf $(HOME)/scripts/torrent-done.sh $@
-
 link-conf: user-fs
 	@echo -e "\033[0;33mSymlinking conf...\033[0m"
 	-stow -R -t ~ -d conf --ignore="md|org|firefox" $(CONF) 2>&1 | grep -v "BUG in find_stowed_path" || true
@@ -284,17 +279,11 @@ rustup:
 update-rust:
 	rustup update
 
-~/.fasd/fasd.log:
-	 -mkdir ~/.fasd && touch ~/.fasd/fasd.log
-
 ~/bin/bakc: update-src
 	ln -s ~/src/bakc/bakc.sh ~/bin/bakc
 
 i3wsr:
 	cargo install i3wsr
-
-npm-packages: links
-	npm install -g tern eslint js-beutify npx
 
 ~/.zplug:
 	curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
