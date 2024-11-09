@@ -61,7 +61,7 @@ update: update-zsh-plugins update-libs update-tmux update-vim update-rust
 links: link-conf link-misc link-local
 
 install: user-fs \
-	install-yay \
+	install-paru \
 	install-packages \
 	install-aur-packages \
 	save-originals \
