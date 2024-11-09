@@ -1,3 +1,0 @@
-{:linters {:expensive-threading {:level :warning}}
- :hooks {:analyze-call {clojure.core/-> hooks.thread-macros/consecutive-threading
-                        clojure.core/->> hooks.thread-macros/consecutive-threading}}}
