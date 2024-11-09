@@ -28,6 +28,7 @@ Bitwig = ""
 Slack = ""
 Evince = ""
 Gpick = ""
+Shortwave = ""
 
 [aliases.class]
 firefox-developer-edition = "Firefox Developer"
@@ -45,6 +46,7 @@ com-eviware-soapui-SoapUI = "SoapUI"
 steam = "Steam"
 jetbrains-idea-ce = "IntelliJ"
 thunderbird = "Thunderbird"
+shortwave = "Shortwave"
 
 [aliases.instance]
 "open.spotify.com" = "Spotify"
