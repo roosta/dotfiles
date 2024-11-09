@@ -1,7 +1,0 @@
-text/html; lynx -assume_charset=%{charset} -display_charset=utf-8 -dump %s; nametemplate=%s.html; copiousoutput
-application/pdf; zathura %s
-image/jpg; feh %s
-image/jpeg; feh %s
-image/pjpeg; feh %s
-image/png; feh %s
-image/gif; feh %s
