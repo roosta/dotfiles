@@ -284,10 +284,6 @@ rustup:
 update-rust:
 	rustup update
 
-~/bin/cht.sh:
-	curl https://cht.sh/:cht.sh > ~/bin/cht.sh
-	chmod +x ~/bin/cht.sh
-
 ~/.fasd/fasd.log:
 	 -mkdir ~/.fasd && touch ~/.fasd/fasd.log
 
