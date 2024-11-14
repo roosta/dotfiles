@@ -40,13 +40,11 @@ fhist() {
 
 fdirs() {
   local dir
-  dir=$(dirs | fzf-tmux)
-  if [ -n "$dir" ]; then
-    index=$(echo "$dir"|cut -f1)
-    cd -$index
-  else
-    return 2
-  fi
+  print -rNC1 -- $dirstack |
+    fzf-tmux -- --read0 --print0 |
+    IFS= read -rd '' dir &&
+    cd -- $dir &&
+    zle -I
 }
 zle -N fdirs # So that it can be used as a shortcut. See keybinds.sh
 
