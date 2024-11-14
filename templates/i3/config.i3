@@ -388,7 +388,7 @@ bindsym $mod+End mode "$mode_system"
 # Focus {{{2
 # https://i3wm.org/docs/userguide.html#vim_like_marks
 
-set $mode_focus Focus Mode: [e] browser, [q] term, [t] mail, [1-5] marks, [m] goto mark, [M] add mark
+set $mode_focus Focus: [E] browser, [Q] term, [T] mail, [1-5] marks, [M] goto mark, [Shift+M] add mark
 
 mode "$mode_focus" {
   # hardcoded focus keybindings
@@ -424,7 +424,7 @@ bindsym $mod+n mode "$mode_focus"
 #}}}
 # Layouts {{{2
 
-set $mode_layout Layouts: [r] procs-radio
+set $mode_layout Layouts: [R] procs-radio
 
 mode "$mode_layout" {
   # hardcoded focus keybindings
