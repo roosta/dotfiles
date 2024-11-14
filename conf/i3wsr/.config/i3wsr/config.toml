@@ -27,7 +27,7 @@ REAPER = ""
 Bitwig = ""
 Slack = ""
 Evince = ""
-Gpick = ""
+Gpick = ""
 Shortwave = ""
 
 [aliases.class]
@@ -50,4 +50,3 @@ shortwave = "Shortwave"
 
 [aliases.instance]
 "open.spotify.com" = "Spotify"
-
