@@ -25,6 +25,7 @@ show_marks yes
 # }}}
 # Workspaces #{{{
 # --------------------
+
 bindsym $mod+q workspace number $pws_q
 bindsym $mod+w workspace number $pws_w
 bindsym $mod+e workspace number $pws_e
@@ -125,6 +126,7 @@ mouse_warping none
 new_window pixel 1
 hide_edge_borders none
 for_window [all] border pixel 1
+
 #}}}
 # Window workspace assignment {{{1
 ## ---------------------------
@@ -291,22 +293,10 @@ bindsym $mod+BackSpace workspace back_and_forth
 # move windows back and forth
 bindsym $mod+Shift+BackSpace move container to workspace back_and_forth
 
-# bindsym $mod+Control+Shift+left move container to output left
-# bindsym $mod+Control+Shift+right move container to output right
-
 bindsym $mod+p focus parent
 bindsym $mod+Shift+p focus child
 
-# screenshot
-# source: https://github.com/Airblader/dotfiles-manjaro
-# bindsym --release Print exec scrot $screenshot
-bindsym --release Print exec teiler
-# bindsym --release Shift+Print exec scrot -s $screenshot
-
-# send a signal to i3status on caps to toggle layout
-# bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
-# bindsym --release Caps_Lock exec killall -USR1 py3status
-# bindsym --release Caps_Lock exec killall -USR1 ~/script/keyboard-layout.sh
+# send a signal to polybar on caps to toggle layout, or capslock
 bindsym --release Caps_Lock exec polybar-msg hook keyboard-layout 1
 bindsym --release Shift+Caps_Lock exec polybar-msg hook keyboard-layout 1
 
@@ -321,6 +311,7 @@ bindsym $mod+bracketright exec dunstctl history-pop
 #}}}
 # Binding modes {{{1
 # Resize {{{2
+
 # resize windows with either vi keys or arrows.
 # shift+movement shrink or grow with larger increments
 set $mode_resize Resize: direction + (shift|control|shift&control)
@@ -372,9 +363,11 @@ mode "$mode_resize" {
   bindsym Escape mode "default"
 }
 bindsym $mod+r mode "$mode_resize"
+
 #}}}
 # System {{{2
 # https://wiki.archlinux.org/index.php/I3#Shutdown.2C_reboot.2C_lock_screen
+
 set $mode_system System: (l) lock, (e) logout, (s) suspend, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
   bindsym l       exec --no-startup-id $locker, mode "default"
@@ -390,24 +383,7 @@ mode "$mode_system" {
 # bind FN sleep key to menu
 bindsym XF86Sleep mode "$mode_system"
 bindsym $mod+End mode "$mode_system"
-#}}}
-# Output {{{2
-# Quickly switch output based on presets
-# Script is in the submodule "scripts". Alternativly http://github.com/roosta/scripts
-set $changeto ~/bin/chdisp
-set $mode_chdisp Layout: (d) desk, (t) TV, (a) all
-mode "$mode_chdisp" {
-  bindsym d exec --no-startup-id $changeto desk, mode "default"
-  bindsym t exec --no-startup-id $changeto tv, mode "default"
-  bindsym a exec --no-startup-id $changeto all, mode "default"
 
-  # back to normal: Enter or Escape
-  bindsym Return mode "default"
-  bindsym Escape mode "default"
-}
-# bind FN home key to menu
-bindsym XF86HomePage mode "$mode_chdisp"
-bindsym $mod+Home mode "$mode_chdisp"
 #}}}
 # Marks {{{2
 # https://i3wm.org/docs/userguide.html#vim_like_marks
@@ -448,6 +424,7 @@ bindsym $mod+n mode "focused"
 #}}}
 # Appearance #{{{1
 # ----------
+
 # generated from template
 # set primary font
 font pango:Iosevka 9
@@ -459,4 +436,5 @@ client.unfocused        $black  $xgray1     $bright_black   $xgray1       $xgray
 client.urgent           $black  $yellow     $black          $yellow       $yellow
 client.placeholder      $black  $hard_black $bright_black   $xgray3       $xgray3
 client.background       $black
+
 #}}}
