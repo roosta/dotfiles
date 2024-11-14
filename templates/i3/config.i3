@@ -385,20 +385,20 @@ bindsym XF86Sleep mode "$mode_system"
 bindsym $mod+End mode "$mode_system"
 
 #}}}
-# Marks {{{2
+# Focus {{{2
 # https://i3wm.org/docs/userguide.html#vim_like_marks
-mode "focused" {
 
+set $mode_focus Focus Mode: [e] browser, [q] term, [t] mail, [1-5] marks, [m] goto mark, [M] add mark
+
+mode "$mode_focus" {
   # hardcoded focus keybindings
-  bindsym b [class="(?i)firefox"] focus
-  bindsym w [class="(?i)termite"] focus
-  # bindsym w [class="(?i)terminal" title="weechat"] focus
-  bindsym m [class="(?i)thunderbird"] focus
-  bindsym z [class="(?i)zathura"] focus
+  bindsym e [class="(?i)firefox"] focus
+  bindsym q [class="(?i)alacritty"] focus
+  bindsym t [class="(?i)thunderbird"] focus
 
   # keybindings for marking and jumping to clients
-  bindsym a exec i3-input -F 'mark %s' -P 'Mark name: '
-  bindsym g exec i3-input -F '[con_mark=%s] focus' -P 'Go to mark: '
+  bindsym shift+m exec i3-input -F 'mark %s' -P 'Mark name: '
+  bindsym m exec i3-input -F '[con_mark=%s] focus' -P 'Go to mark: '
 
   # Assign marks to keys 1-5
   bindsym Shift+1 mark mark1
@@ -419,7 +419,8 @@ mode "focused" {
   bindsym Escape mode "default"
 }
 
-bindsym $mod+n mode "focused"
+bindsym $mod+n mode "$mode_focus"
+
 #}}}
 #}}}
 # Appearance #{{{1
