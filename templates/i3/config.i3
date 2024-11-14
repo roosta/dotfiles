@@ -422,6 +422,22 @@ mode "$mode_focus" {
 bindsym $mod+n mode "$mode_focus"
 
 #}}}
+# Layouts {{{2
+
+set $mode_layout Layouts: [r] procs-radio
+
+mode "$mode_layout" {
+  # hardcoded focus keybindings
+  bindsym r exec ~/.i3/layouts/procs_radio.sh; mode "default"
+
+  # Exit to the default mode
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
+
+bindsym XF86Tools mode "$mode_layout"
+
+#}}}
 #}}}
 # Appearance #{{{1
 # ----------
