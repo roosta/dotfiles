@@ -11,11 +11,20 @@
 exec discord
 exec thunderbird
 exec firefox
-# exec alacritty -e tmain
+exec flameshot
+exec gpick
+exec alacritty -e tmain
+
+# exec nm-applet
+exec --no-startup-id picom
+exec --no-startup-id nitrogen --restore
+exec --no-startup-id pavucontrol
+exec --no-startup-id dunst
+exec --no-startup-id numlockx
+exec --no-startup-id xbindkeys
 
 exec_always --no-startup-id $HOME/scripts/launch-polybar.sh
 exec_always --no-startup-id $HOME/src/i3wsr/target/release/i3wsr
-exec --no-startup-id pavucontrol
 
 # }}}
 # Options {{{
