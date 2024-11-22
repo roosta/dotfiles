@@ -1,8 +1,2 @@
-aspell-nb
 dropbox
 dropbox-cli
-figlet-fonts
-git-extras
-neofetch
-spotify
-toilet

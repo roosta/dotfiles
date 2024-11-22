@@ -3,6 +3,7 @@ arandr
 arch-wiki-docs
 arch-wiki-lite
 aspell-en
+aspell-nb
 atool
 bat
 bottom
