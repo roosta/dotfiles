@@ -377,6 +377,17 @@ call plug#end()
 
 "}}}
 " Config: {{{
+" sniprun: {{{
+
+if has('nvim')
+lua <<EOF
+vim.api.nvim_set_keymap('v', '<leader>r', '<Plug>SnipRun', {silent = true})
+vim.api.nvim_set_keymap('n', '<leader>r', '<Plug>SnipRun', {silent = true})
+vim.api.nvim_set_keymap('n', '<leader>f', '<Plug>SnipRunOperator', {silent = true})
+EOF
+endif
+
+" }}}
 " vim-sort-motion: {{{
 
 let g:sort_motion_flags = 'i'
@@ -842,7 +853,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
       print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
     end, opts)
     vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts)
-    vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
+    -- vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
     vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
     vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
     vim.keymap.set('n', '<space>f', function()
@@ -1208,7 +1219,7 @@ map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans
 \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
 " Quickly toggling relative line number
-map <leader>rn :set rnu!<cr>
+map <leader>ln :set rnu!<cr>
 
 " Go to my note index file
 map <leader>ww :cd ~/notes \| :e index.md<cr>
