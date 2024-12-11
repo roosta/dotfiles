@@ -233,9 +233,6 @@ endif
 ifdef dunst_width
 	sed -ri "/\[global\]/a width = $(dunst_width)" $@
 endif
-ifdef dunst_height
-	sed -ri "/\[global\]/a height = $(dunst_height)" $@
-endif
 ifdef dunst_offset
 	sed -ri "/\[global\]/a offset = $(dunst_offset)" $@
 endif
