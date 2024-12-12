@@ -18,7 +18,7 @@ exec alacritty -e tmain
 # exec nm-applet
 exec --no-startup-id picom
 exec --no-startup-id nitrogen --restore
-exec --no-startup-id pavucontrol
+# exec --no-startup-id pavucontrol
 exec --no-startup-id dunst
 exec --no-startup-id numlockx
 exec --no-startup-id xbindkeys
@@ -163,7 +163,8 @@ assign [class="(?i)pivot"]         number $tws_f2
 assign [class="(?i)discord"]       number $sws_d
 assign [class="(?i)transmission"]  number $sws_s
 
-for_window [class="(?i)pavucontrol"] move scratchpad
+# for_window [class="(?i)pavucontrol"] move scratchpad
+for_window [class="(?i)pavucontrol"] floating enable
 
 ##}}}
 # Window behaviour {{{1
@@ -317,6 +318,8 @@ bindsym $mod+Control+e exec ~/.vim-anywhere/bin/run
 bindsym $mod+bracketleft exec dunstctl close
 bindsym $mod+bracketright exec dunstctl history-pop
 
+# Volume
+bindsym $mod+v exec pavucontrol
 #}}}
 # Binding modes {{{1
 # Resize {{{2
