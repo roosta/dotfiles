@@ -64,6 +64,10 @@ fi
 
 export SSH_AUTH_SOCK=/run/user/$(id -u)/gcr/ssh
 
+# temporary proton audio stutter fix, will improve the situation, but not
+# remover the issue entirely
+export PULSE_LATENCY_MSEC=400
+
 if [ -f "${HOME}/Secrets/environment.zsh" ]; then
 	source "${HOME}/Secrets/environment.zsh"
 fi
