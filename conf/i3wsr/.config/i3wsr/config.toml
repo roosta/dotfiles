@@ -1,10 +1,11 @@
 [general]
-default_icon = ""
+# separator = "  "
 
 [options]
 remove_duplicates = true
 
 [icons]
+default_icon = ""
 "Firefox" = ""
 "Firefox Developer" = ""
 "Firefox Media" = ""
@@ -29,6 +30,7 @@ Slack = ""
 Evince = ""
 Gpick = ""
 Shortwave = ""
+Mixer = ""
 
 [aliases.class]
 firefox-developer-edition = "Firefox Developer"
@@ -47,6 +49,7 @@ steam = "Steam"
 jetbrains-idea-ce = "IntelliJ"
 thunderbird = "Thunderbird"
 shortwave = "Shortwave"
+pavucontrol = "Mixer"
 
 [aliases.instance]
 "open.spotify.com" = "Spotify"
