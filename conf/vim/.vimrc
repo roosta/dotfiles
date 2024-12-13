@@ -312,8 +312,6 @@ Plug 'SirVer/ultisnips'
 " Markdown:
 " =============================================================================
 
-Plug 'preservim/vim-markdown', {'for': ['markdown', 'Avante']}
-
 " Table of content generator
 " Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
 
