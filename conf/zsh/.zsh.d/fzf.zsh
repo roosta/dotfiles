@@ -40,8 +40,13 @@ fhist() {
 
 fdirs() {
   local dir
-  print -rNC1 -- $dirstack |
-    fzf-tmux -- --read0 --print0 |
+  print -rNC1 -- ${(D)dirstack} |
+    fzf-tmux \
+      --read0 \
+      --print0 \
+      --ansi \
+      --preview 'eval eza --color always -aghl --group-directories-first -F {}' \
+      --preview-window 'right:50%' |
     IFS= read -rd '' dir &&
     cd -- $dir &&
     zle -I
@@ -149,7 +154,7 @@ falias() {
   match=$(bat --color=always --decorations=never ~/.zsh.d/aliases.zsh | fzf-tmux +m --reverse)
   out=$(sed -n "s/^alias\s\(\S*\)=.*$/\1/p" <<< "$match")
   if [ -n "$out" ]; then
-    echo "$out"
+    "$out"
   else
     echo "Not an alias!"
     return 1
