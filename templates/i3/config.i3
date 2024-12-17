@@ -16,7 +16,7 @@ exec gpick
 exec alacritty -e tmain
 
 # exec nm-applet
-# exec --no-startup-id picom
+exec --no-startup-id picom
 exec --no-startup-id nitrogen --restore
 # exec --no-startup-id pavucontrol
 exec --no-startup-id dunst
