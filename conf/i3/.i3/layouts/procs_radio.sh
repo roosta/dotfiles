@@ -4,5 +4,5 @@
 # that swallows windows to correct dimensions
 
 i3-msg "workspace number 15; append_layout ~/.i3/layouts/procs_radio.json"
-(alacritty --class Alacritty,htop_monitor --option 'font.size=16'  --command htop &)
+(alacritty --class Alacritty,top_monitor --option 'font.size=16'  --command btop &)
 (GDK_SCALE=1 shortwave &)

@@ -15,7 +15,7 @@
     "swallows": [
        {
            "class": "^Alacritty$",
-           "instance": "^htop_monitor$",
+           "instance": "^top_monitor$",
            "machine": "^garkbit$",
            "title": "^Alacritty$"
        }
