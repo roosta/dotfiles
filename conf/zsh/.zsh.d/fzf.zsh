@@ -152,9 +152,9 @@ fpac() {
 falias() {
   local match;
   match=$(bat --color=always --decorations=never ~/.zsh.d/aliases.zsh | fzf-tmux +m --reverse)
-  out=$(sed -n "s/^alias\s\(\S*\)=.*$/\1/p" <<< "$match")
+  out=$(sed -n "s/^\s*alias [^=]*=[\"']\(.*\)[\"'].*$/\1/p" <<< "$match")
   if [ -n "$out" ]; then
-    "$out"
+    print -z "$out"
   else
     echo "Not an alias!"
     return 1
