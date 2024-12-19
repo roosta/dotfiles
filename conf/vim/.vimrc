@@ -683,7 +683,7 @@ let g:vim_markdown_fenced_languages = [
 let g:markdown_fenced_languages = g:vim_markdown_fenced_languages
 let g:markdown_folding = 1
 
-map <Plug> <Plug>Markdown_OpenUrlUnderCursor
+" map <Plug> <Plug>Markdown_OpenUrlUnderCursor
 
 " }}}
 " vim-table-mode: {{{
