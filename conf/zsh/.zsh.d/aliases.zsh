@@ -66,7 +66,9 @@ alias ps-cpu='ps auxf | sort -nr -k 3 | head -10'
 # create parents, be verbose
 alias mkdir='mkdir -pv'
 
+# use neovim
 alias vim='nvim'
+alias vi="nvim"
 
 #}}}
 # Logging: {{{
@@ -76,30 +78,29 @@ alias log-ssh='journalctl _COMM=sshd'
 #}}}
 # Quick edits: {{{
 
-alias vi="vim"
-alias vigitc="${EDITOR:-vim} ~/.gitconfig"
-alias vissh="${EDITOR:-vim} ~/.ssh/config"
-alias vialias="${EDITOR:-vim} ~/.zsh.d/aliases.zsh"
+alias vigitc="${EDITOR:-vim} ~/etc/conf/git/.gitconfig"
+alias vissh="${EDITOR:-vim} ~/etc/conf/ssh/.ssh/config"
+alias vialias="${EDITOR:-vim} ~/etc/conf/zsh/.zsh.d/aliases.zsh"
 alias vitodo="${EDITOR:-vim} ~/notes/TODOs.md"
 alias viquick="${EDITOR:-vim} ~/notes/quick-notes.md"
-alias vivim="nvim ~/.vimrc"
-alias vixres="${EDITOR:-vim} ~/.Xresources"
-alias vitmux="nvim ~/.tmux.conf"
-alias vixinit="${EDITOR:-vim} ~/.xinitrc"
+alias vivim="${EDITOR:-vim} ~/etc/conf/vim/.vimrc"
+alias vixres="${EDITOR:-vim} ~/etc/conf/x/.Xresources"
+alias vitmux="${EDITOR:-vim} ~/etc/conf/tmux/.tmux.conf"
+alias vixinit="${EDITOR:-vim} ~/etc/conf/x/.xinitrc"
 alias vixinit.local="${EDITOR:-vim} ~/.xinitrc.local"
 alias vibinds="${EDITOR:-vim} ~/.xbindkeysrc"
 alias vigtk="${EDITOR:-vim} ~/.gtkrc-2.0 ~/.config/gtk-3.0/settings.ini ~/.config/gtk-4.0/settings.ini"
 alias vii3="${EDITOR:-vim} ~/etc/templates/i3/config.i3"
 alias vivars="${EDITOR:-vim} ~/etc/templates/i3/variables.i3 ~/etc/local/$(hostname)/variables.mk"
-alias vienv="${EDITOR:-vim} ~/.zshenv"
-alias vizopts="${EDITOR:-vim} ~/.zsh.d/options.zsh"
-alias vizsh="${EDITOR:-vim} ~/.zshrc"
-alias vipoly="${EDITOR:-vim} ~/.config/polybar/config.ini"
+alias vienv="${EDITOR:-vim} ~/etc/conf/zsh/.zshenv"
+alias vizopts="${EDITOR:-vim} ~/etc/conf/zsh/.zsh.d/options.zsh"
+alias vizsh="${EDITOR:-vim} ~/etc/conf/zsh/.zshrc"
+alias vipoly="${EDITOR:-vim} ~/etc/conf/polybar/.config/polybar/config.ini"
 alias vihosts="${EDITOR:-vim} /etc/hosts"
-alias vimime="${EDITOR:-vim} ~/.config/mimeapps.list"
+alias vimime="${EDITOR:-vim} ~/etc/conf/desktop/.config/mimeapps.list"
 alias virofi="${EDITOR:-vim} ~/etc/templates/rofi/config.rofi"
 alias vidunst="${EDITOR:-vim} ~/etc/templates/dunst/config.dunst"
-alias vifzf="${EDITOR:-vim} ~/.zsh.d/fzf.zsh"
+alias vifzf="${EDITOR:-vim} ~/etc/conf/zsh/.zsh.d/fzf.zsh"
 alias vimake="${EDITOR:-vim} ~/etc/Makefile"
 
 #}}}
