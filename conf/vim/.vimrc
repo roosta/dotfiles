@@ -729,7 +729,9 @@ lua <<EOF
   --     file_types = { 'Avante' },
   -- })
   require('avante_lib').load()
-  require('avante').setup ({})
+  require('avante').setup ({
+    -- provider = "gemini", -- Recommend using Claude
+  })
 EOF
 endif
 " }}}
