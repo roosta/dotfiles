@@ -8,8 +8,6 @@
 ! ----------------------------------------
 
 #include ".Xresources.d/fonts.xresources"
-#include ".Xresources.d/urxvt.xresources"
-#include ".Xresources.d/xscreensaver.xresources"
 #include ".Xresources.d/srcery.xresources"
 #include ".Xresources.local"
 
