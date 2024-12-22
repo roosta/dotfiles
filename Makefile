@@ -200,7 +200,7 @@ set-shell:
 # ~/bin/vidir: update-libs
 # 	-ln -s $(HOME)/lib/vidir/bin/vidir $@
 
-~/.i3/config: link-conf ~/etc/local/$(HOST)/variables.mk ~/etc/templates/i3/*.i3
+~/.config/i3/config: link-conf ~/etc/local/$(HOST)/variables.mk ~/etc/templates/i3/*.i3
 	@echo -e "\033[0;33mCreating i3 config...\033[0m"
 	cd ~/etc/templates/i3 && cat *.i3 > $@
 ifdef primary_monitor
@@ -216,7 +216,7 @@ ifdef quaternary_monitor
 	@echo "set \$$quaternary_monitor $(quaternary_monitor)" >> $@
 endif
 
-i3: ~/.i3/config
+i3: ~/.config/i3/config
 	@echo -e "\033[0;33mReload i3 config...\033[0m"
 	i3-msg reload
 	@echo -e "\033[1;32mi3 config reloaded!\033[0m"

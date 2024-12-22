@@ -98,7 +98,7 @@ yankring_history_v2.txt
 tags.lock
 tags.temp
 !**/.gitkeep
-conf/i3/.i3/config
+conf/i3/.config/i3/config
 conf/pip/.pip/bin
 conf/pip/.pip/lib
 conf/pip/.pip/share

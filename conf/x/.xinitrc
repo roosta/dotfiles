@@ -59,6 +59,6 @@ setxkbmap -model pc104 -layout us,no -option grp:caps_toggle -option terminate:c
 systemctl start clipmenud --user
 
 ## Window Manager
-exec i3 -c "$HOME/.i3/config"
+exec i3
 
 # vim:ft=sh:ts=2:sw=2:fdm=marker
