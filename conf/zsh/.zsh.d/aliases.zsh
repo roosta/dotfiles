@@ -79,7 +79,7 @@ alias log-ssh='journalctl _COMM=sshd'
 # Quick edits: {{{
 
 alias vigitc="${EDITOR:-vim} ~/etc/conf/git/.gitconfig"
-alias vissh="${EDITOR:-vim} ~/etc/conf/ssh/.ssh/config"
+alias vissh="${EDITOR:-vim} ~/.ssh/config"
 alias vialias="${EDITOR:-vim} ~/etc/conf/zsh/.zsh.d/aliases.zsh"
 alias vitodo="${EDITOR:-vim} ~/notes/TODOs.md"
 alias viquick="${EDITOR:-vim} ~/notes/quick-notes.md"
