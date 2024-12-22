@@ -13,7 +13,8 @@ exec thunderbird
 exec firefox
 exec flameshot
 exec gpick
-exec alacritty -e tmain
+exec --no-startup-id i3-msg 'workspace $pws_q; exec alacritty -e tmain'
+exec --no-startup-id lxqt-policykit-agent
 
 # exec nm-applet
 exec --no-startup-id picom
@@ -145,7 +146,7 @@ assign [class="(?i)firefox-developer-edition$"] number $tws_f2
 assign [class="(?i)firefox-media$"] number $sws_a
 assign [class="(?i)firefox$"] number $pws_e
 assign [class="(?i)thunderbird"] number $pws_2
-assign [class="(?i)alacritty"] number $pws_q
+# assign [class="(?i)alacritty"] number $pws_q
 
 ## workaround for spotify WS assignment
 ## see: https://github.com/i3/i3/issues/2060
