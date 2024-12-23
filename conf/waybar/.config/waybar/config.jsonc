@@ -95,7 +95,7 @@
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
-        "format": "{icon} {volume}%   {format_source}",
+        "format": "{icon} {volume}%  {format_source}",
         "format-bluetooth": "{volume}% {icon}  {format_source}",
         "format-bluetooth-muted": "  {icon}  {format_source}",
         "format-muted": "  {format_source}",
@@ -124,7 +124,7 @@
       "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
     },
     "custom/power": {
-      "format" : "⏻",
+      "format" : "⏻ ",
       "tooltip": false,
       "menu": "on-click",
       "menu-file": "$HOME/.config/waybar/power-menu.xml", // Menu file in resources folder
