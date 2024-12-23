@@ -66,7 +66,7 @@ button:hover {
 }
 
 #custom-power:hover {
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: @srcery-xgray3;
 }
 
 /* #mode * { */
@@ -162,7 +162,7 @@ label:focus {
 }
 
 #pulseaudio:hover {
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: @srcery-xgray3;
 }
 
 #pulseaudio.muted {
@@ -202,7 +202,7 @@ label:focus {
 }
 
 #tray {
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: @srcery-xgray3
 }
 
 #tray > .passive {
@@ -251,14 +251,14 @@ label:focus {
 }
 
 #language:hover {
-    background: rgba(0, 0, 0, 0.2);;
+    background: @srcery-xgray3;
 }
 #language.no {
     color: @srcery-bright-blue;
 }
 
 #language.no:hover {
-    background: rgba(0, 0, 0, 0.2);;
+    background: @srcery-xgray3;
 }
 
 #keyboard-state {
@@ -275,7 +275,7 @@ label:focus {
 }
 
 #scratchpad {
-    background: rgba(0, 0, 0, 0.2);
+    background: @srcery-xgray3
 }
 
 #scratchpad.empty {
