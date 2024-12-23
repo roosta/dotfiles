@@ -6,11 +6,7 @@
 }
 
 window#waybar {
-    background-color: @srcery-xgray2;
-    /* border-bottom: 3px solid rgba(100, 114, 125, 0.5); */
-    color: @srcery-bright-white;
-    transition-property: background-color;
-    transition-duration: .2s;
+    color: @srcery-white;
 }
 
 window#waybar.hidden {
