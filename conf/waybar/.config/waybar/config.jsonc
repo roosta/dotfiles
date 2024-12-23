@@ -44,11 +44,15 @@
       }
     },
     "sway/mode": {
-      "format": "<span style=\"italic\">{}</span>"
+      "format": "  {}"
     },
     "sway/language": {
       "format": "  {long}",
       "on-click": "swaymsg input type:keyboard xkb_switch_layout next"
+    },
+    "sway/window": {
+      "max-length": 50,
+      "all-outputs" : true
     },
     "sway/scratchpad": {
       "format": "{icon} {count}",
