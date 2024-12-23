@@ -7,6 +7,9 @@
     // "width": 1280, // Waybar width
     // "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
+    // "modules-center": [
+    //   "sway/window"
+    // ],
     "output": "DP-3",
     "name": "primary",
     "include": [
@@ -18,19 +21,17 @@
       "sway/scratchpad",
       "custom/media"
     ],
-    // "modules-center": [
-    //   "sway/window"
-    // ],
     "modules-right": [
-      "privacy",
       "sway/language",
       "keyboard-state",
       "network",
       "pulseaudio",
+      // "custom/updates",
       "cpu",
       "memory",
       "temperature",
       "clock",
+      "privacy",
       "idle_inhibitor",
       "custom/power"
     ],
@@ -47,7 +48,7 @@
       "format": "  {}"
     },
     "sway/language": {
-      "format": "  {long}",
+      "format": " {long}",
       "on-click": "swaymsg input type:keyboard xkb_switch_layout next"
     },
     "sway/window": {
@@ -71,12 +72,12 @@
     "clock": {
         // "timezone": "America/New_York",
         // "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format": "  {:%H:%M}",
+        "format": " {:%H:%M}",
         "tooltip": false,
-        "format-alt": "  {:%A %d. %B %Y    %H:%M}"
+        "format-alt": " {:%A %d. %B %Y   %H:%M}"
     },
     "cpu": {
-      "format": "  {usage}%",
+      "format": " {usage}%",
       "tooltip": false
     },
     "memory": {
@@ -91,13 +92,13 @@
         "format-icons": ["", "", ""]
     },
     "network": {
-        "interface": "tun0",
-        "format-ethernet": "󰱓 VPN",
-        "format-disconnected": "󰅛 VPN",
         // "tooltip-format": "{ipaddr}/{cidr} ",
         // "format-linked": "{ifname} (No IP) ",
         // "format-disconnected": "Disconnected ⚠",
         // "format-alt": "󰛳  {ifname}: {ipaddr}/{cidr}"
+        "interface": "tun0",
+        "format-ethernet": "󰱓 VPN",
+        "format-disconnected": "󰅛 VPN",
         "tooltip-format": "󰛳  {ifname}: {ipaddr}/{cidr}",
         "tooltip-format-disconnected": "Disconnected ⚠"
     },
@@ -108,14 +109,14 @@
         "format-bluetooth-muted": "  {icon}  {format_source}",
         "format-muted": "  {format_source}",
         "format-source": " {volume}%",
-        "format-source-muted": " ",
+        "format-source-muted": "",
         "format-icons": {
-          "headphone": " ",
-          "hands-free": " ",
-          "headset": " " ,
+          "headphone": "",
+          "hands-free": "",
+          "headset": "" ,
           "phone": "" ,
-          "portable": " ",
-          "default": ["", "", " "]
+          "portable": "",
+          "default": ["", "", ""]
         },
         "on-click": "pavucontrol"
     },
@@ -165,6 +166,16 @@
           "tooltip-icon-size": 18
         }
       ]
+    },
+    "custom/updates": {
+      "format": "{icon} {}",
+      "return-type": "json",
+      "format-icons": {
+        "has-updates": "󱍷 ",
+        "updated": "󰂪 "
+      }
+      // "exec-if": "which waybar-module-pacman-updates",
+      // "exec": "waybar-module-pacman-updates --interval-seconds 5 --network-interval-seconds 300"
     }
   },
   // }}}

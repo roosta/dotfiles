@@ -1,12 +1,12 @@
 @import url("../../src/srcery-gui/gtk/srcery.css");
 
 * {
-    font-family: Iosevka Nerd Font, Roboto, Helvetica, Arial, sans-serif;
+    font-family:  Iosevka, Symbols Nerd Font, Roboto, Helvetica, Arial, sans-serif;
     font-size: 13px;
 }
 
 window#waybar {
-    color: @srcery-white;
+    color: @srcery-bright-white;
 }
 
 window#waybar.hidden {
