@@ -18,6 +18,9 @@
       "sway/scratchpad",
       "custom/media"
     ],
+    // "modules-center": [
+    //   "sway/window"
+    // ],
     "modules-right": [
       "privacy",
       "sway/language",
@@ -26,9 +29,6 @@
       "cpu",
       "memory",
       "temperature",
-      "backlight",
-      "battery",
-      "battery#bat2",
       "clock",
       "idle_inhibitor",
       "custom/power"
@@ -172,9 +172,6 @@
       "tray",
       "sway/workspaces"
     ],
-    "modules-center": [
-      "sway/window"
-    ],
     "tray": {
       // "icon-size": 21,
       "spacing": 10
@@ -190,9 +187,6 @@
     ],
     "modules-left": [
       "sway/workspaces"
-    ],
-    "modules-center": [
-      "sway/window"
     ]
   },
   // }}}
