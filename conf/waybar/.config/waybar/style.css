@@ -33,7 +33,7 @@ button:hover {
 }
 
 #workspaces button:hover {
-  background: @srcery-xgray3;
+  background: @srcery-xgray4;
   transition: none;
   box-shadow: inherit;
   text-shadow: inherit;
@@ -62,7 +62,7 @@ button:hover {
 }
 
 #custom-power:hover {
-  background-color: @srcery-xgray3;
+  background-color: @srcery-xgray4;
 }
 
 /* #mode * { */
@@ -158,7 +158,7 @@ label:focus {
 }
 
 #pulseaudio:hover {
-    background-color: @srcery-xgray3;
+    background-color: @srcery-xgray4;
 }
 
 #pulseaudio.muted {
@@ -198,7 +198,7 @@ label:focus {
 }
 
 #tray {
-    background-color: @srcery-xgray3
+    background-color: @srcery-xgray4
 }
 
 #tray > .passive {
@@ -214,7 +214,7 @@ label:focus {
 }
 
 #idle_inhibitor:hover {
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: @srcery-xgray4;
 }
 
 #idle_inhibitor.activated {
@@ -247,14 +247,14 @@ label:focus {
 }
 
 #language:hover {
-    background: @srcery-xgray3;
+    background: @srcery-xgray4;
 }
 #language.no {
     color: @srcery-bright-blue;
 }
 
 #language.no:hover {
-    background: @srcery-xgray3;
+    background: @srcery-xgray4;
 }
 
 #keyboard-state {
@@ -271,7 +271,7 @@ label:focus {
 }
 
 #scratchpad {
-    background: @srcery-xgray3
+    background: @srcery-xgray4
 }
 
 #scratchpad.empty {
