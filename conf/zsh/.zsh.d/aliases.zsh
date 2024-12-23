@@ -91,6 +91,7 @@ alias vixinit.local="${EDITOR:-vim} ~/.xinitrc.local"
 alias vibinds="${EDITOR:-vim} ~/.xbindkeysrc"
 alias vigtk="${EDITOR:-vim} ~/.gtkrc-2.0 ~/.config/gtk-3.0/settings.ini ~/.config/gtk-4.0/settings.ini"
 alias vii3="${EDITOR:-vim} ~/etc/templates/i3/config.i3"
+alias visway="${EDITOR:-vim} ~/etc/templates/sway/config.sway"
 alias vivars="${EDITOR:-vim} ~/etc/templates/i3/variables.i3 ~/etc/local/$(hostname)/variables.mk"
 alias vienv="${EDITOR:-vim} ~/etc/conf/zsh/.zshenv"
 alias vizopts="${EDITOR:-vim} ~/etc/conf/zsh/.zsh.d/options.zsh"
@@ -349,6 +350,14 @@ alias get-class="xprop"
 alias ge-tkey="xev -event keyboard"
 
 # alias getkeycode=xev | awk -F'[ )]+' '/^KeyPress/ { a[NR+2] } NR in a { printf "%-3s %s\n", $5, $8 }'
+
+#}}}
+# Wayland: {{{1
+
+alias find-font='pango-list|grep '
+
+# alias get-class="xprop"
+# alias get-key="xev -event keyboard"
 
 #}}}
 # Miscellaneous: {{{

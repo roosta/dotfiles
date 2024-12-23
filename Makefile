@@ -221,6 +221,16 @@ i3: ~/.config/i3/config
 	i3-msg reload
 	@echo -e "\033[1;32mi3 config reloaded!\033[0m"
 
+
+~/.config/sway/config: link-conf ~/etc/local/$(HOST)/variables.mk ~/etc/templates/sway/*.sway
+	@echo -e "\033[0;33mCreating sway config...\033[0m"
+	cd ~/etc/templates/sway && cat *.sway > $@
+
+sway: ~/.config/sway/config
+	@echo -e "\033[0;33mReload Sway config...\033[0m"
+	swaymsg reload
+	@echo -e "\033[1;32mSway config reloaded!\033[0m"
+
 dunst: ~/.config/dunst/dunstrc
 	@echo -e "\033[0;33mCreating dunst config...\033[0m"
 
@@ -239,17 +249,8 @@ endif
 
 ~/.config/rofi/config.rasi: ~/etc/templates/rofi/config.rofi ~/etc/local/$(HOST)/variables.mk
 	cat ~/etc/templates/rofi/*.rofi > $@
-ifdef bar_height
-	sed -i '0,/}/{s//\n yoffset: $(bar_height);\n}/}' $@
-endif
 ifdef font
 	sed -i '0,/}/{s//\n font: $(font);\n}/}' $@
-endif
-ifneq ($(and $(rofi_height),$(rofi_width)),)
-	echo -e "\nwindow {" >> $@
-	echo "  width: $(rofi_width)px;" >> $@
-	echo "  height: $(rofi_height)px;" >> $@
-	echo "}" >> $@
 endif
 
 rofi: ~/.config/rofi/config.rasi

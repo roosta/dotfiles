@@ -5,7 +5,8 @@
 
 configuration {
 
-	modi: "combi,calc,clipmenu:env CM_LAUNCHER=rofi-script clipmenu";
+	/* modi: "combi,calc,clipmenu:env CM_LAUNCHER=rofi-script clipmenu"; */
+	modi: "combi";
 
   /* Set the modi to combine in combi mode */
 	combi-modi: "window,drun";
@@ -16,15 +17,6 @@ configuration {
 	terminal: "alacritty";
 
 	sidebar-mode: true;
-
-  /* ! Monitor id to show on */
-	m: "-1";
-
-  /*  Override  the  default  DPI setting. If set to 0, it tries to auto-detect */
-  /*  based on X11 screen size (similar to i3 and GTK). If set to 1, it tries to */
-  /*  auto-detect based on the size of the monitor that rofi is displayed on */
-  /*  (similar to latest Qt 5). */
-	dpi: 1;
 
   /* Accept entry */
 	kb-accept-entry: "Return,KP_Enter";
@@ -54,7 +46,12 @@ configuration {
 
   /* Go to the next page */
 	kb-page-next: "Page_Down";
-
 }
 
 @theme "~/src/srcery-gui/rofi/srcery_rofi.rasi"
+
+window {
+  width: 20%;
+  height: 100%;
+}
+

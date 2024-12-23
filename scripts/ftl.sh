@@ -164,6 +164,11 @@ cd "$etc_path" || exit 1
 make i3
 }
 
+make-sway () {
+cd "$etc_path" || exit 1
+make sway
+}
+
 make-rofi () {
 cd "$etc_path" || exit 1
 make rofi
@@ -261,6 +266,7 @@ commands:
   make              default make, runs through everything to update system
   edit              Quick access to common configs
   i3                build i3 configuration (see templates)
+  sway              build sway configuration (see templates)
   rofi              build rofi configuration (see templates, variables)
   link              Symlink config to HOME
   push              push to origin

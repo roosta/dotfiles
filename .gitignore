@@ -99,6 +99,7 @@ tags.lock
 tags.temp
 !**/.gitkeep
 conf/i3/.config/i3/config
+conf/sway/.config/sway/config
 conf/pip/.pip/bin
 conf/pip/.pip/lib
 conf/pip/.pip/share

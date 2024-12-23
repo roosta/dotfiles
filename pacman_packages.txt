@@ -9,7 +9,6 @@ bat
 bottom
 calc
 clamav
-clipmenu
 cmake
 cryptsetup
 ctags
@@ -37,14 +36,12 @@ gparted
 gpick
 gvim
 htop
-i3-wm
 imagemagick
 inetutils
 inkscape
 inotify-tools
 jq
 lm_sensors
-lxqt-policykit
 meld
 mlocate
 mpd
@@ -53,7 +50,6 @@ neovim
 nitrogen
 nodejs
 npm
-numlockx
 openssh
 openvpn
 pacman-contrib
@@ -61,8 +57,6 @@ pandoc
 parallel
 pass
 pavucontrol
-perl-anyevent-i3
-perl-json-xs
 pipewire
 pipewire-alsa
 pipewire-pulse
@@ -75,6 +69,7 @@ rkhunter
 rlwrap
 rofi
 rofi-calc
+rofi-wayland
 rustup
 samba
 screen
@@ -82,6 +77,9 @@ scrot
 shellcheck
 starship
 stow
+sway
+swaybg
+swayidle
 thunderbird
 timew
 tmux
@@ -101,11 +99,10 @@ vifm
 vim-spell-nb
 virt-manager
 w3m
+waybar
+wayland
 wireplumber
-xbindkeys
-xclip
-xorg
-xorg-xinit
+wl-clipboard
 yarn
 zathura
 zathura-pdf-poppler
