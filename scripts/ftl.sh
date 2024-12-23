@@ -193,6 +193,16 @@ run () {
     "diff")
       diff "${@:2}"
       ;;
+    "sway")
+      case "$2" in
+        "make")
+          make-sway
+          ;;
+        *)
+          usage
+          ;;
+      esac
+      ;;
     "i3")
       # if [[ -n "$2" ]]; then
       case "$2" in
