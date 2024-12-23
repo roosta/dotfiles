@@ -8,12 +8,10 @@
 # Startup {{{
 # --------------------
 
-# exec discord
-# exec thunderbird
-# exec firefox
+exec discord
+exec thunderbird
+exec firefox
 exec --no-startup-id swaymsg 'workspace $pws_q; exec alacritty -e tmain'
-# exec --no-startup-id systemctl start clipmenud --user
-
 exec --no-startup-id dunst
 
 # Enable gnome keyring
@@ -236,35 +234,28 @@ hide_edge_borders none
 for_window [all] border pixel 1
 
 #}}}
-# Window workspace assignment {{{1
-## ---------------------------
+# Applications {{{1
+# --------------------
 
-assign [class="(?i)google-chrome-unstable"] number $tws_f1
-assign [class="(?i)firefox-developer-edition$"] number $tws_f2
-assign [class="(?i)firefox-media$"] number $sws_a
-assign [class="(?i)firefox$"] number $pws_e
-assign [class="(?i)thunderbird"] number $pws_2
-# assign [class="(?i)alacritty"] number $pws_q
+assign [app_id="(?i)google-chrome-unstable"] number $tws_f1
+assign [app_id="(?i)firefox-developer-edition$"] number $tws_f2
+assign [app_id="(?i)firefox-media$"] number $sws_a
+assign [app_id="(?i)firefox$"] number $pws_e
+assign [app_id="(?i)thunderbird"] number $pws_2
+assign [app_id="(?i)google-chrome"] number $sws_a
+assign [app_id="(?i)inkscape"] number $pws_3
+assign [app_id="(?i)gimp"] number $pws_3
+assign [app_id="(?i)krita"] number $pws_3
+assign [app_id="(?i)freecad"] number $pws_3
+assign [app_id="(?i)pivot"] number $tws_f2
+assign [app_id="(?i)transmission"] number $sws_s
 
-## workaround for spotify WS assignment
-## see: https://github.com/i3/i3/issues/2060
-## TODO: fix
-for_window [class="Spotify"] move to workspace number $pws_1
-for_window [class="open.spotify.com"] floating disable
-for_window [class="(?i)google-chrome-beta"] move to workspace number $pws_1
-for_window [class="(?i)minecraft.*"]  move to workspace number $pws_w
+# Xwayland apps
+assign [class="(?i)minecraft.*"] number $pws_w
+assign [class="(?i)spotify"] number $pws_1
+assign [class="(?i)discord"] number $sws_d
+assign [class="(?i)steam"] number $pws_3
 
-assign [class="(?i)google-chrome"] number $sws_a
-assign [class="(?i)inkscape"]      number $pws_3
-assign [class="(?i)gimp"]          number $pws_3
-assign [class="(?i)krita"]         number $pws_3
-assign [class="(?i)freecad"]       number $pws_3
-assign [class="(?i)pivot"]         number $tws_f2
-assign [class="(?i)discord"]       number $sws_d
-assign [class="(?i)transmission"]  number $sws_s
-
-for_window [class="(?i)blender" title="(?i).*render"] move to workspace number $sws_d
-for_window [class="(?i)steam"] move to workspace number $pws_3
 
 ##}}}
 # Window behaviour {{{1
@@ -279,28 +270,13 @@ for_window [window_role="Preferences"] floating enable
 for_window [title="Preferences$"] floating enable
 
 # Application spesific
-for_window [class="(?i)Jitsi"] floating enable
-for_window [class="(?i)SessionManager"] floating enable
-for_window [class="(?i)Linphone"] floating enable
 for_window [title="(?i)Friends"] floating enable
-for_window [class="(?i)Pidgin"] floating enable
-for_window [class="(?i)nitrogen"] floating enable
-for_window [class="(?i)pinentry-gtk-2"] floating enable
-for_window [class="(?i)yad"] floating enable
-for_window [class="(?i)kooha"] floating enable
 for_window [class="(?i)discord"] floating disable
-
-## Window size
-for_window [class="(?i)Pidgin"] floating_maximum_size 50 x 75
-for_window [class="(?i)nitrogen"] floating_maximum_size 768 x 2160
-# for_window [id="Open Document"] floating_maximum_size 670 x 470
+for_window [app_id="Open Document"] floating_maximum_size 670 x 470
 for_window [window_role="task_dialog"] floating_maximum_size 670 x 470
-for_window [class="(?i)pavucontrol"] floating enable
+for_window [app_id="(?i)pavucontrol"] floating enable
 
-for_window [class="(?i)pivot"] focus
-
-for_window [shell="xwayland"] title_format "[XWayland] %title"
-
+# for_window [shell="xwayland"] title_format "[XWayland] %title"
 
 #}}}
 # Keybindings {{{1
@@ -523,6 +499,7 @@ mode "$mode_focus" {
   # Exit to the default mode
   bindsym Return mode "default"
   bindsym Escape mode "default"
+
 }
 
 bindsym $mod+n mode "$mode_focus"
@@ -540,6 +517,7 @@ mode "$mode_layout" {
   # Exit to the default mode
   bindsym Return mode "default"
   bindsym Escape mode "default"
+
 }
 
 bindsym XF86Tools mode "$mode_layout"
