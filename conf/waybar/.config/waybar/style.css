@@ -1,7 +1,6 @@
 @import url("../../src/srcery-gui/gtk/srcery.css");
 
 * {
-    /* `otf-font-awesome` is required to be installed for icons */
     font-family: Iosevka Nerd Font, Roboto, Helvetica, Arial, sans-serif;
     font-size: 13px;
 }
@@ -11,7 +10,7 @@ window#waybar {
     /* border-bottom: 3px solid rgba(100, 114, 125, 0.5); */
     color: @srcery-bright-white;
     transition-property: background-color;
-    transition-duration: .3s;
+    transition-duration: .2s;
 }
 
 window#waybar.hidden {
@@ -38,11 +37,14 @@ button:hover {
 }
 
 #workspaces button:hover {
-    background: rgba(0, 0, 0, 0.2);
+  background: @srcery-xgray3;
+  transition: none;
+  box-shadow: inherit;
+  text-shadow: inherit;
 }
 
 #workspaces button.focused {
-    color: @srcery-bright-magenta;
+    background: @srcery-xgray5;
 }
 
 #workspaces button.urgent {
@@ -243,7 +245,7 @@ label:focus {
 
 #language {
     color: @srcery-bright-white;
-    padding: 0 5px;
+    padding: 0 10px;
     font-size: 0.8rem;
     /* min-width: 16px; */
 }
