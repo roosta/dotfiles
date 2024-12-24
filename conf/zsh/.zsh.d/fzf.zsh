@@ -48,7 +48,7 @@ fdirs() {
       --preview 'eval eza --color always -aghl --group-directories-first -F {}' \
       --preview-window 'right:50%' |
     IFS= read -rd '' dir &&
-    cd -- $dir &&
+    cd -- ${dir/#\~/$HOME} &&
     zle -I
 }
 zle -N fdirs # So that it can be used as a shortcut. See keybinds.sh
