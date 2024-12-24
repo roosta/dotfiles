@@ -17,7 +17,7 @@ exec --no-startup-id dunst
 # Enable gnome keyring
 exec --no-startup-id dbus-update-activation-environment DISPLAY XAUTHORITY WAYLAND_DISPLAY
 
-exec_always --no-startup-id $HOME/src/i3wsr/target/release/i3wsr
+exec --no-startup-id $HOME/src/i3wsr/target/release/i3wsr
 
 
 # }}}
