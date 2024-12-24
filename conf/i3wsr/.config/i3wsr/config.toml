@@ -53,5 +53,5 @@ steam = "Steam"
 "^discord$" = "Discord"
 "Gimp-\\d\\.\\d\\d" = "Gimp"
 
-# [aliases.instance]
-# "open.spotify.com" = "Spotify"
+[aliases.instance]
+"open.spotify.com" = "Spotify"
