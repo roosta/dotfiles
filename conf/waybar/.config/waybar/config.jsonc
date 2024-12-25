@@ -213,6 +213,7 @@
   {
     "output": "HDMI-A-1",
     "name": "quaternary",
+    "height": 30,
     "position": "bottom",
     "include": [
       "~/.config/waybar/shared-modules.json"
