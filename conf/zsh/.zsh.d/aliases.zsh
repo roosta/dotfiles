@@ -260,10 +260,9 @@ alias getdate='date +"%Y-%m-%d"'
 #}}}
 # Clipboard: {{{1
 
-# Output from a command with xclip when this is piped in
-# alias copy='xsel -i -p -b'
-alias copy="clipcopy" # see functions
-alias paste="clippaste" # see functions
+# See ~/.zshrc plugins
+alias copy="clipcopy"
+alias paste="clippaste"
 alias empty-clipmenu="clipdel -d \".*\""
 
 #}}}
