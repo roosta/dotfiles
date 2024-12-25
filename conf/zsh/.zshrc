@@ -34,6 +34,8 @@ zplug "zdharma-continuum/fast-syntax-highlighting"
 zplug "urbainvaes/fzf-marks"
 
 zplug "plugins/safe-paste", from:oh-my-zsh
+zplug "plugins/web-search", from:oh-my-zsh
+zplug "lib/clipboard", from:oh-my-zsh
 
 # zplug check returns true if all packages are installed
 # Therefore, when it returns false, run zplug install
