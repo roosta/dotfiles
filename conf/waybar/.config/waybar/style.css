@@ -56,8 +56,9 @@ button:hover {
 
 #custom-power {
   color: @srcery-bright-white;
-  padding-right: 6px;
-  padding-left: 10px;
+  font-size: 15px;
+  padding-right: 8px;
+  padding-left: 8px;
 }
 #power-delimiter {
   background-color: @srcery-bright-white;
