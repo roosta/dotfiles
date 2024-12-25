@@ -53,8 +53,9 @@ button:hover {
     color: @srcery-black;
 }
 
-#mode {
+window#waybar #mode {
     background-color: @srcery-white;
+    color: @srcery-black;
 }
 
 #custom-power {
