@@ -503,14 +503,13 @@ mode "$mode_focus" {
 bindsym $mod+n mode "$mode_focus"
 
 #}}}
-# Layouts {{{2
+# Custom launcher {{{2
 
-# TODO fix
-set $mode_layout Layouts: [R] procs-radio
+set $mode_launcher Launcher: [R] Monitor
 
-mode "$mode_layout" {
+mode "$mode_launcher" {
   # hardcoded focus keybindings
-  # bindsym r exec ~/.i3/layouts/procs_radio.sh; mode "default"
+  bindsym r exec ~/.config/sway/scripts/top_monitor.sh; mode "default"
 
   # Exit to the default mode
   bindsym Return mode "default"
@@ -518,7 +517,7 @@ mode "$mode_layout" {
 
 }
 
-bindsym XF86Tools mode "$mode_layout"
+bindsym XF86Tools mode "$mode_launcher"
 
 #}}}
 #}}}
