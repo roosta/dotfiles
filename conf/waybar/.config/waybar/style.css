@@ -8,6 +8,7 @@
 
 window#waybar {
     color: @srcery-bright-white;
+    background: @srcery-xgray2;
 }
 
 window#waybar.hidden {
@@ -34,14 +35,14 @@ button:hover {
 }
 
 #workspaces button:hover {
-  background: @srcery-xgray4;
+  background: @srcery-xgray3;
   transition: none;
   box-shadow: inherit;
   text-shadow: inherit;
 }
 
 #workspaces button.focused {
-    background: @srcery-xgray5;
+    background: @srcery-xgray4;
 }
 
 #workspaces button.urgent {
@@ -63,7 +64,7 @@ button:hover {
 }
 
 #custom-power:hover {
-  background-color: @srcery-xgray4;
+  background-color: @srcery-xgray3;
 }
 
 /* #mode * { */
@@ -107,7 +108,7 @@ button:hover {
 }
 
 #clock {
-    background-color: @srcery-xgray4;
+    background-color: @srcery-xgray3;
 }
 
 #battery {
@@ -159,7 +160,7 @@ label:focus {
 }
 
 #pulseaudio:hover {
-    background-color: @srcery-xgray4;
+    background-color: @srcery-xgray3;
 }
 
 #pulseaudio.muted {
@@ -199,7 +200,7 @@ label:focus {
 }
 
 #tray {
-    background-color: @srcery-xgray4
+    background-color: @srcery-xgray3
 }
 
 #tray > .passive {
@@ -215,7 +216,7 @@ label:focus {
 }
 
 #idle_inhibitor:hover {
-    background-color: @srcery-xgray4;
+    background-color: @srcery-xgray3;
 }
 
 #idle_inhibitor.activated {
@@ -248,14 +249,14 @@ label:focus {
 }
 
 #language:hover {
-    background: @srcery-xgray4;
+    background: @srcery-xgray3;
 }
 #language.no {
     color: @srcery-bright-blue;
 }
 
 #language.no:hover {
-    background: @srcery-xgray4;
+    background: @srcery-xgray3;
 }
 
 #keyboard-state {
@@ -272,7 +273,7 @@ label:focus {
 }
 
 #scratchpad {
-    background: @srcery-xgray4
+    background: @srcery-xgray3
 }
 
 #scratchpad.empty {
