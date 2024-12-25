@@ -1,5 +1,0 @@
-magit () {
-    emacsclient --eval "(call-interactively #'magit-status)"
-    open -a Emacs
-}
-magit "$@"
