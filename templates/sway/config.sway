@@ -278,6 +278,7 @@ for_window [class="(?i)discord"] floating disable
 for_window [app_id="Open Document"] floating_maximum_size 670 x 470
 for_window [window_role="task_dialog"] floating_maximum_size 670 x 470
 for_window [app_id="(?i)pavucontrol"] floating enable
+for_window [title="(?i)configuration"] floating enable
 
 # for_window [shell="xwayland"] title_format "[XWayland] %title"
 
