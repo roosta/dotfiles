@@ -2,7 +2,8 @@
 
 * {
     font-family:  Iosevka, Symbols Nerd Font, Roboto, Helvetica, Arial, sans-serif;
-    font-size: 13px;
+    font-size: 12px;
+}
 }
 
 window#waybar {
