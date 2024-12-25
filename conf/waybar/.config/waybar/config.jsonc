@@ -141,6 +141,7 @@
         "shutdown": "shutdown",
         "reboot": "reboot",
         "logout": "swaymsg exit",
+        "lock": "swaylock -f -i /home/roosta/backgrounds/footer_lodyas.png -t",
         "suspend": "systemctl suspend",
         "hibernate": "systemctl hibernate"
       }
