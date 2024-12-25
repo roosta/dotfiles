@@ -346,9 +346,8 @@ bindsym $mod+slash split horizontal
 bindsym $mod+minus split vertical
 
 # window layout controls
-bindsym $mod+Control+Shift+t layout stacked
-bindsym $mod+Shift+t layout tabbed
-bindsym $mod+t layout toggle
+bindsym $mod+t layout toggle tabbed stacking split
+bindsym $mod+equal layout toggle splitv splith
 bindsym $mod+f fullscreen toggle
 
 # toggle
