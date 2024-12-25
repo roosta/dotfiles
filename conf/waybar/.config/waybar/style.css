@@ -2,12 +2,15 @@
 
 * {
     font-family:  Iosevka, Symbols Nerd Font, Roboto, Helvetica, Arial, sans-serif;
-    font-size: 12px;
 }
+
+window#waybar.quaternary {
+  font-size: 1rem;
 }
 
 window#waybar {
     color: @srcery-bright-white;
+    font-size: 0.8rem;
     background: @srcery-xgray2;
 }
 
