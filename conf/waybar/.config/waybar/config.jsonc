@@ -18,8 +18,8 @@
     "modules-left": [
       "sway/workspaces",
       "sway/mode",
-      "sway/scratchpad",
-      "custom/media"
+      // "custom/media",
+      "sway/scratchpad"
     ],
     "modules-right": [
       "sway/language",
