@@ -354,9 +354,6 @@ bindsym $mod+f fullscreen toggle
 bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
-# restart sway inplace
-bindsym $mod+Shift+r restart
-
 # reload sway configuration
 bindsym $mod+Shift+c reload
 
