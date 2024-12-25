@@ -348,7 +348,7 @@ alias xrload="xrdb -load ~/.Xresources"
 alias refresh-keyboard='setxkbmap -model pc104 -layout us,no -option grp:caps_toggle -option terminate:ctrl_alt_bksp'
 
 alias get-class="xprop"
-alias ge-tkey="xev -event keyboard"
+alias get-key="xev -event keyboard"
 
 # alias getkeycode=xev | awk -F'[ )]+' '/^KeyPress/ { a[NR+2] } NR in a { printf "%-3s %s\n", $5, $8 }'
 
@@ -357,8 +357,8 @@ alias ge-tkey="xev -event keyboard"
 
 alias find-font='pango-list|grep '
 
-# alias get-class="xprop"
-# alias get-key="xev -event keyboard"
+alias get-props="wlprop"
+alias get-keys="wev -f wl_keyboard"
 
 #}}}
 # Miscellaneous: {{{
