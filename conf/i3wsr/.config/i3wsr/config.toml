@@ -32,6 +32,7 @@ Gpick = ""
 Shortwave = ""
 Mixer = ""
 Gedit =""
+Lutris ="󱎓"
 
 [aliases.app_id]
 firefox-developer-edition = "Firefox Developer"
@@ -47,6 +48,8 @@ jetbrains-idea-ce = "IntelliJ"
 thunderbird = "Thunderbird"
 shortwave = "Shortwave"
 pavucontrol = "Mixer"
+".*(?i)lutris" = "Lutris"
+".*(?i)shortwave" = "Shortwave"
 
 [aliases.class]
 steam = "Steam"
