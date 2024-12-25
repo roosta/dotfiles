@@ -1,1 +1,1 @@
-au BufRead,BufNewFile *.sway,~/.config/sway/config.tmp set filetype=swayconfig
+au BufRead,BufNewFile *.sway,~/.config/sway/config set filetype=swayconfig
