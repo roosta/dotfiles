@@ -16,6 +16,7 @@ exec thunderbird
 exec firefox
 exec --no-startup-id swaymsg 'workspace $pws_q; exec alacritty -e tmain'
 exec --no-startup-id dunst
+exec flameshot
 
 # Enable gnome keyring
 # exec --no-startup-id dbus-update-activation-environment DISPLAY XAUTHORITY WAYLAND_DISPLAY
