@@ -32,9 +32,9 @@ export TERMINAL=alacritty
 export BROWSER=firefox
 
 # Editor
-export EDITOR="nvim"
-export ALTERNATE_EDITOR="nvim"
-export VISUAL="nvim"
+export EDITOR=nvim
+export ALTERNATE_EDITOR=nvim
+export VISUAL=nvim
 
 # Golang lib path
 export GOPATH=$HOME/.go
