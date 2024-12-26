@@ -509,7 +509,7 @@ set $mode_launcher Launcher: [R] Monitor
 
 mode "$mode_launcher" {
   # hardcoded focus keybindings
-  bindsym r exec ~/.config/sway/scripts/top_monitor.sh; mode "default"
+  bindsym r exec swaymsg "workspace number 15; exec alacritty -o 'font.size=16' -e btop; workspace back_and_forth"; mode "default"
 
   # Exit to the default mode
   bindsym Return mode "default"
