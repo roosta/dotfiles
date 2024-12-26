@@ -120,13 +120,13 @@ set $aws_f11 "27:[F11]"
 set $aws_f12 "28:[F12]"
 
 # }}}
-# Output #{{{
+# Outputs #{{{
 # --------------------
 
-output $primary_monitor mode 3840x2160 scale 2 pos 3840 1080 bg ~/backgrounds/qvz1lrfr3iy-samuel-zeller.jpg fill
-output $secondary_monitor mode 3840x2160 scale 2 pos 5760 1080 bg ~/backgrounds/bw2ert-avik-andrew-ridley.jpg fill
-output $tertiary_monitor mode 3840x2160 scale 2 pos 1920 1080 bg ~/backgrounds/zrzlif_r570-neven-krcmarek.jpg fill
-output $quaternary_monitor mode 1920x1080 scale 1 pos 3840 0 bg ~/backgrounds/bamboo.png fill
+output $primary_monitor mode 3840x2160 scale 2 pos 1920 1080 bg ~/backgrounds/qvz1lrfr3iy-samuel-zeller.jpg fill
+output $secondary_monitor mode 3840x2160 scale 2 pos 3840 1080 bg ~/backgrounds/bw2ert-avik-andrew-ridley.jpg fill
+output $tertiary_monitor mode 3840x2160 scale 2 pos 0 1080 bg ~/backgrounds/zrzlif_r570-neven-krcmarek.jpg fill
+output $quaternary_monitor mode 1920x1080 scale 1 pos 1920 0 bg ~/backgrounds/bamboo.png fill
 
 #}}}
 # Workspaces #{{{
