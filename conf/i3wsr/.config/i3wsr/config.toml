@@ -33,6 +33,7 @@ Shortwave = ""
 Mixer = ""
 Gedit =""
 Lutris ="󱎓"
+Minecraft = "󰍳"
 
 [aliases.app_id]
 firefox-developer-edition = "Firefox Developer"
@@ -53,6 +54,7 @@ pavucontrol = "Mixer"
 
 [aliases.class]
 steam = "Steam"
+"(?i)minecraft.*" = "Minecraft"
 "^discord$" = "Discord"
 "Gimp-\\d\\.\\d\\d" = "Gimp"
 
