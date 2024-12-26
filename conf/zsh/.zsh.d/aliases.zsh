@@ -400,6 +400,8 @@ alias pacls='pacman -Ql'
 # db, but not in system, that a file belongs to.
 alias pacfd="pacman -F"
 
+# Shows installed aur packages
+alias listaur="paru -Qm"
 #}}}
 # Audio: {{{1
 
