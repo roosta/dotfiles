@@ -17,7 +17,7 @@ exec firefox
 exec --no-startup-id swaymsg 'workspace $pws_q; exec alacritty -e tmain'
 exec --no-startup-id dunst
 exec flameshot
-
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec_always --no-startup-id $HOME/src/i3wsr/target/release/i3wsr
 
 # }}}

@@ -111,3 +111,5 @@ zsh
 zsh-doc
 zsh-lovers
 zshdb
+polkit
+polkit-gnome
