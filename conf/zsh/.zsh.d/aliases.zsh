@@ -281,12 +281,10 @@ alias extract-tar="tar --one-top-level -zxvf"
 # list open ports
 alias open-ports="netstat -tulanp"
 
-# Use devour for fullscreen pdf in term
-alias pdf="devour zathura"
+alias pdf="zathura"
 
 # alias fehp='feh -g 640x480 -d -S filename'
-alias fehp='devour feh -Z -d -S filename'
-alias mpvp='devour mpv'
+alias feh='swayimg'
 
 # Alias to check disk status, use dfc if present, otherwise use df with some formatting
 # https://github.com/xero/dotfiles/blob/master/zsh/.zsh/aliases.zsh
