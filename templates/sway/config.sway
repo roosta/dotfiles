@@ -276,6 +276,7 @@ for_window [app_id="Open Document"] floating_maximum_size 670 x 470
 for_window [window_role="task_dialog"] floating_maximum_size 670 x 470
 for_window [app_id="(?i)pavucontrol"] floating enable
 for_window [title="(?i)configuration"] floating enable
+for_window [app_id="flameshot"] border pixel 0, floating enable, fullscreen disable, move absolute position 0 0
 
 # for_window [shell="xwayland"] title_format "[XWayland] %title"
 
