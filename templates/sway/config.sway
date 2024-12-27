@@ -281,9 +281,7 @@ for_window [app_id="flameshot"] border pixel 0, floating enable, fullscreen disa
 # for_window [shell="xwayland"] title_format "[XWayland] %title"
 
 #}}}
-# Keybindings {{{1
-# use xev to get keycodes
-# ------------------------
+# Input: {{{
 
 input * {
     xkb_layout "us,no"
@@ -291,9 +289,13 @@ input * {
 }
 
 input <identifier> xkb_model "pc104"
+input type:keyboard xkb_numlock enabled
 
+#}}}
+# Keybindings {{{1
+# ------------------------
 
-# Music
+# Media
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
@@ -301,7 +303,6 @@ bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 bindsym Scroll_Lock exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
-
 
 # Terminal
 bindsym $mod+Return exec $term
@@ -316,23 +317,21 @@ bindsym $mod+Tab exec rofi -show combi -show-icons
 # bindsym $mod+y     exec rofi -show clipmenu
 bindsym $mod+grave exec rofi -show window
 
-# focus vi bindings
+# Focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
-
-bindsym $mod+Shift+h move left
-bindsym $mod+Shift+j move down
-bindsym $mod+Shift+k move up
-bindsym $mod+Shift+l move right
-
-# focus cursor key bindings
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
+# Move windows
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
@@ -342,12 +341,10 @@ bindsym $mod+Shift+Right move right
 bindsym $mod+slash split horizontal
 bindsym $mod+minus split vertical
 
-# window layout controls
+# Toggle
 bindsym $mod+t layout toggle tabbed stacking split
 bindsym $mod+equal layout toggle splitv splith
 bindsym $mod+f fullscreen toggle
-
-# toggle
 bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
@@ -357,8 +354,10 @@ bindsym $mod+Shift+c reload
 # border changing
 bindsym $mod+b border toggle
 
+# Scratchpad
 bindsym $mod+period move scratchpad
 bindsym $mod+comma scratchpad show
+
 # toggle touchpad
 bindsym XF86TouchpadToggle exec --no-startup-id ~/utils/touchpad-toggle.sh
 
@@ -370,11 +369,6 @@ bindsym $mod+Shift+BackSpace move container to workspace back_and_forth
 
 bindsym $mod+p focus parent
 bindsym $mod+Shift+p focus child
-
-# send a signal to polybar on caps to toggle layout, or capslock
-# TODO: Fix
-# bindsym --release Caps_Lock exec polybar-msg hook keyboard-layout 1
-# bindsym --release Shift+Caps_Lock exec polybar-msg hook keyboard-layout 1
 
 # Editing
 # bindsym $mod+Control+e exec ~/.vim-anywhere/bin/run
