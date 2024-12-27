@@ -16,7 +16,7 @@ window#waybar {
 
 window#waybar #window {
   color: @srcery-white;
-  font-size: 0.7rem;
+  font-size: 0.8rem;
 }
 
 window#waybar.quaternary #window {
