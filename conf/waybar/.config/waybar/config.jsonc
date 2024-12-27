@@ -13,7 +13,7 @@
     "output": "DP-3",
     "name": "primary",
     "include": [
-      "~/.config/waybar/shared-modules.json"
+      "~/.config/waybar/shared-modules.jsonc"
     ],
     "modules-left": [
       "sway/workspaces",
@@ -132,20 +132,6 @@
       // "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
       "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
     },
-    "custom/power": {
-      "format" : "󰐥",
-      "tooltip": false,
-      "menu": "on-click",
-      "menu-file": "$HOME/.config/waybar/power-menu.xml", // Menu file in resources folder
-      "menu-actions": {
-        "shutdown": "shutdown",
-        "reboot": "reboot",
-        "logout": "swaymsg exit",
-        "lock": "swaylock -f -i /home/roosta/backgrounds/footer_lodyas.png -t",
-        "suspend": "systemctl suspend",
-        "hibernate": "systemctl hibernate"
-      }
-    },
     "privacy": {
       "icon-spacing": 4,
       "icon-size": 18,
@@ -185,11 +171,14 @@
     "output": "DP-1",
     "name": "secondary",
     "include": [
-      "~/.config/waybar/shared-modules.json"
+      "~/.config/waybar/shared-modules.jsonc"
     ],
     "modules-left": [
       "tray",
       "sway/workspaces"
+    ],
+    "modules-right": [
+      "custom/power"
     ],
     "tray": {
       // "icon-size": 21,
@@ -202,7 +191,7 @@
     "output": "DP-2",
     "name": "tertiary",
     "include": [
-      "~/.config/waybar/shared-modules.json"
+      "~/.config/waybar/shared-modules.jsonc"
     ],
     "modules-left": [
       "sway/workspaces"
@@ -216,7 +205,7 @@
     "height": 30,
     "position": "bottom",
     "include": [
-      "~/.config/waybar/shared-modules.json"
+      "~/.config/waybar/shared-modules.jsonc"
     ],
     "modules-left": [
       "sway/workspaces"
