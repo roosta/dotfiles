@@ -8,6 +8,10 @@
       "urgent": ""
     }
   },
+  "sway/window": {
+    "max-length": 80,
+    "all-outputs" : false
+  },
   "custom/power": {
     "format" : "󰐥",
     "tooltip": false,

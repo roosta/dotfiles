@@ -54,10 +54,6 @@
       "format": " {long}",
       "on-click": "swaymsg input type:keyboard xkb_switch_layout next"
     },
-    "sway/window": {
-      "max-length": 50,
-      "all-outputs" : false
-    },
     "sway/scratchpad": {
       "format": "{icon} {count}",
       "show-empty": false,
@@ -180,6 +176,9 @@
       "tray",
       "sway/workspaces"
     ],
+    "modules-center": [
+      "sway/window"
+    ],
     "modules-right": [
       "custom/power"
     ],
@@ -196,8 +195,11 @@
     "include": [
       "~/.config/waybar/shared-modules.jsonc"
     ],
-    "modules-left": [
+    "modules-right": [
       "sway/workspaces"
+    ],
+    "modules-center": [
+      "sway/window"
     ]
   },
   // }}}
