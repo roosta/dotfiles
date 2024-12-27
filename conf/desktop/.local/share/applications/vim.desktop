@@ -1,9 +1,0 @@
-[Desktop Entry]
-Type=Application
-Categories=Utility;TextEditor;
-Version=1.0
-Name=Terminal Vim
-Comment=Open text files with terminal vim
-Exec=vim %F
-Icon=terminal
-Terminal=true
