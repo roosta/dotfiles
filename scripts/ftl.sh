@@ -193,6 +193,16 @@ run () {
     "diff")
       diff "${@:2}"
       ;;
+    "dunst")
+      case "$2" in
+        "make")
+          make-dunst
+          ;;
+        *)
+          usage
+          ;;
+      esac
+      ;;
     "sway")
       case "$2" in
         "make")
