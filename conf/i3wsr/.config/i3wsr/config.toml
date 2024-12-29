@@ -51,11 +51,11 @@ shortwave = "Shortwave"
 pavucontrol = "Mixer"
 ".*(?i)lutris" = "Lutris"
 ".*(?i)shortwave" = "Shortwave"
+"^discord$" = "Discord"
 
 [aliases.class]
 steam = "Steam"
 "(?i)minecraft.*" = "Minecraft"
-"^discord$" = "Discord"
 "Gimp-\\d\\.\\d\\d" = "Gimp"
 
 [aliases.instance]
