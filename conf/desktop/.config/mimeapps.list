@@ -8,6 +8,7 @@ application/x-extension-xhtml=firefox.desktop
 application/xhtml+xml=firefox.desktop
 image/jpeg=feh.desktop
 image/png=feh.desktop
+image/gif=feh.desktop
 message/rfc822=thunderbird.desktop
 text/html=google-chrome.desktop
 text/plain=nvim.desktop
