@@ -27,8 +27,8 @@
     "modules-right": [
       "sway/language",
       "keyboard-state",
-      "network",
       "pulseaudio",
+      "network",
       // "custom/updates",
       "cpu",
       "memory",
