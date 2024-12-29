@@ -18,12 +18,12 @@
     "menu": "on-click",
     "menu-file": "$HOME/.config/waybar/power-menu.xml", // Menu file in resources folder
     "menu-actions": {
-      "shutdown": "shutdown",
-      "reboot": "reboot",
-      "logout": "swaymsg exit",
-      "lock": "swaylock -f -i /home/roosta/backgrounds/footer_lodyas.png -t",
-      "suspend": "systemctl suspend",
-      "hibernate": "systemctl hibernate"
+      "shutdown": "$HOME/scripts/shutdown.sh",
+      "reboot": "$HOME/scripts/reboot.sh",
+      "logout": "$HOME/scripts/logout.sh",
+      "lock": "$HOME/scripts/lock.sh",
+      "suspend": "$HOME/scripts/suspend.sh",
+      "hibernate": "$HOME/scripts/hibernate.sh"
     }
   }
 }
