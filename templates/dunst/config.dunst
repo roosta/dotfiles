@@ -12,6 +12,9 @@
 # message.
 markup = yes
 
+origin = top-right
+offset = (0, 0)
+
 # The format of the message.  Possible variables are:
 #   %a  appname
 #   %s  summary
