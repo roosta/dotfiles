@@ -400,7 +400,7 @@ alias pacls='pacman -Ql'
 alias pacfd="pacman -F"
 
 # Shows installed aur packages
-alias listaur="paru -Qm"
+alias aurls="paru -Qm"
 #}}}
 # Audio: {{{1
 
