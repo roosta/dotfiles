@@ -48,8 +48,6 @@ set $secondary_monitor DP-1
 set $tertiary_monitor DP-2
 set $quaternary_monitor HDMI-A-1
 
-set $locker swaylock -f -i /home/roosta/backgrounds/footer_lodyas.png -t
-
 # tmux session management
 set $term alacritty
 
@@ -445,13 +443,14 @@ bindsym $mod+r mode "$mode_resize"
 #}}}
 # System {{{2
 
+
 set $mode_system System: (l) lock, (e) logout, (s) suspend, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
-  bindsym l       exec --no-startup-id $locker, mode "default"
-  bindsym e       exec --no-startup-id swaymsg exit, mode "default"
-  bindsym s       exec --no-startup-id $locker && systemctl suspend, mode "default"
-  bindsym r       exec --no-startup-id systemctl reboot, mode "default"
-  bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"
+  bindsym l exec $HOME/scripts/lock.sh, mode "default"
+  bindsym e exec $HOME/scripts/logout.sh, mode "default"
+  bindsym s exec $HOME/scripts/suspend.sh, mode "default"
+  bindsym r exec $HOME/scripts/reboot.sh, mode "default"
+  bindsym Shift+s exec $HOME/scripts/shutdown.sh, mode "default"
 
   # back to normal: Enter or Escape
   bindsym Return mode "default"
