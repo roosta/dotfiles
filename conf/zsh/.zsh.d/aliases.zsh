@@ -219,12 +219,8 @@ fi
 #}}}
 # Security: {{{1
 
-alias check-rootkits="sudo rkhunter --update && sudo rkhunter --check --sk && sudo rkhunter --propupd"
-
-# TODO: Update to use clamd
-# alias scan-home="sudo freshclam && clamscan --recursive=yes --infected -l $HOME/var/log/clamscan.log $HOME"
-# alias scan-root="sudo freshclam && sudo clamscan --recursive=yes --infected -l $HOME/var/log/clamscan.log /"
-# alias scan-here="sudo freshclam && sudo clamscan --recursive=yes --infected -l $HOME/var/log/clamscan.log ."
+alias check-rk="sudo rkhunter --update && sudo rkhunter --check --sk && sudo rkhunter --propupd"
+alias scan="clamdscan --multiscan --fdpass"
 
 #}}}
 # Tmux: {{{1
