@@ -15,9 +15,11 @@ exec discord
 exec thunderbird
 exec firefox
 exec swaymsg 'workspace $pws_q; exec alacritty -e tmain'
-exec dunst
+exec systemctl --user start dunst
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec_always $HOME/src/i3wsr/target/release/i3wsr
+exec swww-daemon
+
 # exec flameshot
 
 # }}}
@@ -50,10 +52,6 @@ set $locker swaylock -f -i /home/roosta/backgrounds/footer_lodyas.png -t
 
 # tmux session management
 set $term alacritty
-
-# set scrot/screenshot file arguments
-# TODO: Fix
-# set $screenshot "$HOME/Pictures/screenshots/screenshot_$(date +%Y-%m-%d@%H-%M-%S).png"
 
 # define palette
 set $black          #1C1B19
