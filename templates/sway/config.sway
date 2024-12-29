@@ -252,11 +252,11 @@ assign [app_id="(?i)krita"] number $pws_3
 assign [app_id="(?i)freecad"] number $pws_3
 assign [app_id="(?i)pivot"] number $tws_f2
 assign [app_id="(?i)transmission"] number $sws_s
+assign [app_id="(?i)discord"] number $sws_d
 
 # Xwayland apps
 assign [class="(?i)minecraft.*"] number $pws_w
 assign [class="(?i)spotify"] number $pws_1
-assign [class="(?i)discord"] number $sws_d
 assign [class="(?i)steam"] number $pws_3
 
 
@@ -274,7 +274,7 @@ for_window [title="Preferences$"] floating enable
 
 # Application spesific
 for_window [title="(?i)Friends"] floating enable
-for_window [class="(?i)discord"] floating disable
+for_window [app_id="(?i)discord"] floating disable
 for_window [app_id="Open Document"] floating_maximum_size 670 x 470
 for_window [window_role="task_dialog"] floating_maximum_size 670 x 470
 for_window [app_id="(?i)pavucontrol"] floating enable
