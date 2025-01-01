@@ -28,7 +28,7 @@
       "sway/language",
       "keyboard-state",
       "pulseaudio",
-      "network",
+      // "network",
       // "custom/updates",
       "cpu",
       "memory",
