@@ -115,7 +115,7 @@ Plug 'junegunn/vim-peekaboo'
 Plug 'tpope/vim-abolish'
 
 " Sort folds in a file
-" Plug 'obreitwi/vim-sort-folds'
+Plug 'obreitwi/vim-sort-folds'
 
 " Granular project configuration, used previously in clojure, since had no
 " need for this. But in complicated build processes like clj it can be handy
