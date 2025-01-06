@@ -253,11 +253,13 @@ assign [app_id="(?i)freecad"] number $pws_3
 assign [app_id="(?i)pivot"] number $tws_f2
 assign [app_id="(?i)transmission"] number $sws_s
 assign [app_id="(?i)discord"] number $sws_d
+assign [app_id="(?i)Lutris"] number $pws_w
+assign [app_id="(?i)virt-manager"] number $sws_s
 
 # Xwayland apps
 assign [class="(?i)minecraft.*"] number $pws_w
 assign [class="(?i)spotify"] number $pws_1
-assign [class="(?i)steam"] number $pws_3
+assign [class="(?i)steam"] number $pws_w
 
 
 ##}}}
