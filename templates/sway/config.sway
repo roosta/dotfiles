@@ -242,8 +242,8 @@ for_window [all] border pixel 1
 
 assign [app_id="(?i)google-chrome-unstable"] number $tws_f1
 assign [app_id="(?i)firefox-developer-edition$"] number $tws_f2
-assign [app_id="(?i)firefox-media$"] number $sws_a
-assign [app_id="(?i)firefox$"] number $pws_e
+# assign [app_id="(?i)firefox-media$"] number $sws_a
+# assign [app_id="(?i)firefox$"] number $pws_e
 assign [app_id="(?i)thunderbird"] number $pws_2
 assign [app_id="(?i)google-chrome"] number $sws_a
 assign [app_id="(?i)inkscape"] number $pws_3
