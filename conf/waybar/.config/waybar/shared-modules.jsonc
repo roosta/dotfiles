@@ -12,6 +12,10 @@
     "max-length": 80,
     "all-outputs" : false
   },
+  "tray": {
+    // "icon-size": 21,
+    "spacing": 10
+  },
   "custom/power": {
     "format" : "󰐥",
     "tooltip": false,
