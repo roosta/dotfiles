@@ -64,7 +64,7 @@ transparency = 0
 idle_threshold = 120
 
 # Which monitor should the notifications be displayed on.
-#monitor = 0
+monitor = "DP-3"
 
 # Display notification on focused monitor.  Possible modes are:
 #   mouse: follow mouse pointer
