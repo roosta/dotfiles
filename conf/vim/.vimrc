@@ -875,9 +875,19 @@ require("oil").setup({
   default_file_explorer = true,
   view_options = {
     show_hidden = true
+  },
+  keymaps = {
+    ["<C-s>"] = false,
+    ["<C-l>"] = false,
+    ["<C-h>"] = false,
+    ["gv"] = { "actions.select", opts = { horizontal = true } },
+    ["gh"] = { "actions.select", opts = { vertical = true } },
+    ["gr"] = "actions.refresh",
   }
 })
+
 vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+
 EOF
 endif
 " }}}
