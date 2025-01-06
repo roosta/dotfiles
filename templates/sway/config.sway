@@ -314,7 +314,7 @@ bindsym Scroll_Lock exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 bindsym $mod+Return exec $term
 
 # kill focused window
-bindsym $mod+c kill
+bindsym $mod+Escape kill
 
 # Launchers
 bindsym $mod+Tab exec rofi -show combi -show-icons
