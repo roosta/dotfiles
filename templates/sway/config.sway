@@ -13,7 +13,7 @@ include ~/etc/conf/sway/.config/sway/config.d/*
 
 exec discord
 exec thunderbird
-exec firefox
+exec swaymsg "workspace $pws_e; exec firefox; workspace back_and_forth"; mode "default"
 exec swaymsg 'workspace $pws_q; exec alacritty -e tmain'
 exec systemctl --user start dunst
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
