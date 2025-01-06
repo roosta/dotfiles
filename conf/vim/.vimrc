@@ -276,6 +276,7 @@ Plug 'jdonaldson/vaxe'
 Plug 'jeroenbourgois/vim-actionscript'
 Plug 'mechatroner/rainbow_csv'
 Plug 'NoahTheDuke/vim-just'
+Plug 'hjson/vim-hjson'
 
 " Completion:
 " =============================================================================
