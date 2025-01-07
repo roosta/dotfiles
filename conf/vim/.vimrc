@@ -539,9 +539,9 @@ autocmd vimrc FileType gitcommit setlocal nofoldenable
 " }}}
 " nvim-cmp: {{{
 
-let g:loaded_python_provider=1
-let g:python_host_skip_check=1
-let g:python_host_prog = '/usr/bin/python'
+" let g:loaded_python_provider=1
+" let g:python_host_skip_check=1
+" let g:python_host_prog = '/usr/bin/python'
 
 if has('nvim')
 lua <<EOF
