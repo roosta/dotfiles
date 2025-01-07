@@ -548,6 +548,10 @@ lua <<EOF
 local cmp = require('cmp')
 local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 
+local t = function(str)
+    return vim.api.nvim_replace_termcodes(str, true, true, true)
+end
+
 cmp.event:on(
   'confirm_done',
   cmp_autopairs.on_confirm_done()
@@ -555,9 +559,7 @@ cmp.event:on(
 
 cmp.setup({
   snippet = {
-    expand = function(args)
-      vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
-    end,
+    expand = function(args) vim.fn["UltiSnips#Anon"](args.body) end
   },
   window = {
     -- completion = cmp.config.window.bordered(),
@@ -568,20 +570,20 @@ cmp.setup({
     ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), {'i', 'c'}),
     ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), {'i', 'c'}),
     ['<C-e>'] = cmp.mapping({ i = cmp.mapping.close(), c = cmp.mapping.close() }),
-    ['<CR>'] = cmp.mapping.confirm {
-      behavior = cmp.ConfirmBehavior.Insert,
-      select = true,
-    },
-    -- ['<CR>'] = cmp.mapping({
-    --   i = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false }),
-    --   c = function(fallback)
-    --     if cmp.visible() then
-    --       cmp.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = false })
-    --     else
-    --       fallback()
-    --     end
-    --   end
-    -- }),
+    -- ['<CR>'] = cmp.mapping.confirm {
+    --   behavior = cmp.ConfirmBehavior.Insert,
+    --   select = true,
+    -- },
+    ['<CR>'] = cmp.mapping({
+      i = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false }),
+      c = function(fallback)
+        if cmp.visible() then
+          cmp.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = false })
+        else
+          fallback()
+        end
+      end
+    }),
     ["<Tab>"] = cmp.mapping({
       c = function()
         if cmp.visible() then
@@ -683,33 +685,41 @@ cmp.setup.filetype('gitcommit', {
   })
 })
 
--- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
-cmp.setup.cmdline({ '/', '?' }, {
-  mapping = cmp.mapping.preset.cmdline(),
-  sources = {
-    { name = 'buffer' }
-  }
+-- Use buffer source for `/`.
+cmp.setup.cmdline('/', {
+    completion = { autocomplete = false },
+    sources = {
+        -- { name = 'buffer' }
+        { name = 'buffer', opts = { keyword_pattern = [=[[^[:blank:]].*]=] } }
+    }
 })
 
--- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+-- Use cmdline & path source for ':'.
 cmp.setup.cmdline(':', {
-  mapping = cmp.mapping.preset.cmdline(),
-  sources = cmp.config.sources({
-    { name = 'path' }
-  }, {
-    { name = 'cmdline' }
-  })
+    completion = { autocomplete = false },
+    sources = cmp.config.sources({
+        { name = 'path' }
+        }, {
+        { name = 'cmdline' }
+    })
 })
+
 EOF
 endif
 
 " }}}
 " ultisnips: {{{
+let g:UltiSnipsExpandTrigger = '<Plug>(ultisnips_expand)'
+let g:UltiSnipsJumpForwardTrigger = '<Plug>(ultisnips_jump_forward)'
+let g:UltiSnipsJumpBackwardTrigger = '<Plug>(ultisnips_jump_backward)'
+let g:UltiSnipsListSnippets = '<c-x><c-s>'
+let g:UltiSnipsRemoveSelectModeMappings = 0
 
-let g:UltiSnipsExpandTrigger='<a-q>'
-let g:UltiSnipsListSnippets='<a-a>'
-let g:UltiSnipsJumpForwardTrigger='<a-l>'
-let g:UltiSnipsJumpBackwardTrigger='<a-h>'
+" let g:UltiSnipsExpandTrigger='<a-q>'
+" let g:UltiSnipsListSnippets='<a-a>'
+" let g:UltiSnipsJumpForwardTrigger='<a-l>'
+" let g:UltiSnipsJumpBackwardTrigger='<a-h>'
+
 let g:UltiSnipsSnippetDirectories=['UltiSnips', 'mysnippets']
 let g:UltiSnipsSnippetStorageDirectoryForUltiSnipsEdit='~/.vim/mysnippets'
 
