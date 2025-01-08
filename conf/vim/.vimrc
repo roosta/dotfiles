@@ -344,7 +344,9 @@ Plug 'dense-analysis/ale'
 Plug 'madox2/vim-ai'
 
 " Code inspection using various models, quickly get suggestion and replace
-Plug 'yetone/avante.nvim', { 'branch': 'main', 'do': { -> avante#build('source=true') } }
+Plug 'yetone/avante.nvim', { 'branch': 'main', 'do': 'make' }
+
+" Plug 'yetone/avante.nvim', { 'branch': 'main', 'do': { -> avante#build('source=true') } }
 
 " Avante deps:
 Plug 'stevearc/dressing.nvim'
@@ -359,7 +361,6 @@ Plug 'nvim-tree/nvim-web-devicons'
 
 " Sending images to avante
 Plug 'HakonHarnes/img-clip.nvim'
-Plug 'zbirenbaum/copilot.lua'
 
 " Misc:
 " =============================================================================
@@ -788,7 +789,6 @@ if has('nvim')
 autocmd vimrc FileType Avante set filetype=markdown
 lua <<EOF
   require('img-clip').setup ({})
-  require('copilot').setup ({})
   -- require('render-markdown').setup ({
   --     file_types = { 'Avante' },
   -- })
