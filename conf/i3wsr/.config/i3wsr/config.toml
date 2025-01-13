@@ -34,6 +34,8 @@ Mixer = ""
 Gedit =""
 Lutris ="󱎓"
 Minecraft = "󰍳"
+Software = "󰀻"
+Flatseal = ""
 
 [aliases.app_id]
 firefox-developer-edition = "Firefox Developer"
@@ -51,7 +53,10 @@ shortwave = "Shortwave"
 pavucontrol = "Mixer"
 ".*(?i)lutris" = "Lutris"
 ".*(?i)shortwave" = "Shortwave"
-"^discord$" = "Discord"
+".*(?i)discord" = "Discord"
+"(?i)org.gnome.software" = "Software"
+".*(?i)flatseal" = "Flatseal"
+gpick="Gpick"
 
 [aliases.class]
 steam = "Steam"
