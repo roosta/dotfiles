@@ -79,6 +79,7 @@ alias log-ssh='journalctl _COMM=sshd'
 # Quick edits: {{{
 
 alias vialias="${EDITOR:-vim} ~/etc/conf/zsh/.zsh.d/aliases.zsh"
+alias vibar="${EDITOR:-vim} ~/etc/conf/waybar/.config/waybar/config.jsonc ~/etc/conf/waybar/.config/waybar/style.css"
 alias vibinds="${EDITOR:-vim} ~/.xbindkeysrc"
 alias vidunst="${EDITOR:-vim} ~/etc/templates/dunst/config.dunst"
 alias vienv="${EDITOR:-vim} ~/etc/conf/zsh/.zshenv"
@@ -98,7 +99,7 @@ alias vitmux="${EDITOR:-vim} ~/etc/conf/tmux/.tmux.conf"
 alias vitodo="${EDITOR:-vim} ~/notes/TODOs.md"
 alias vivars="${EDITOR:-vim} ~/etc/templates/i3/variables.i3 ~/etc/local/$(hostname)/variables.mk"
 alias vivim="${EDITOR:-vim} ~/etc/conf/vim/.vimrc"
-alias vibar="${EDITOR:-vim} ~/etc/conf/waybar/.config/waybar/config.jsonc ~/etc/conf/waybar/.config/waybar/style.css"
+alias viws="${EDITOR:-vim} ~/etc/conf/i3wsr/.config/i3wsr/config.toml"
 alias vixinit-local="${EDITOR:-vim} ~/.xinitrc.local"
 alias vixinit="${EDITOR:-vim} ~/etc/conf/x/.xinitrc"
 alias vixres="${EDITOR:-vim} ~/etc/conf/x/.Xresources"
