@@ -269,7 +269,7 @@ Plug 'guns/vim-clojure-highlight', { 'for': 'clojure' }
 " Plug 'Olical/conjure', {'tag': 'v4.5.0'}
 " Plug 'jmcantrell/vim-virtualenv'
 " Plug 'vim-python/python-syntax'
-Plug 'ludovicchabant/vim-gutentags'
+" Plug 'ludovicchabant/vim-gutentags'
 " Plug 'fladson/vim-kitty', { 'branch': 'main' }
 Plug 'tridactyl/vim-tridactyl'
 Plug 'jdonaldson/vaxe'
