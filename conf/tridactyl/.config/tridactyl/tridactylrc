@@ -1,6 +1,7 @@
 " https://github.com/tridactyl/tridactyl/blob/master/.tridactylrc
 
 unbind <C-y>
+unbind <C-l>
 unbind <C-f>
 unbind <C-h>
 unbind <C-j>
