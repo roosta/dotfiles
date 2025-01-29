@@ -24,7 +24,6 @@ fd
 feh
 firefox
 firefox-developer-edition
-flameshot
 fzf
 gawk
 gdb

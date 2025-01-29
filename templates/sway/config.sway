@@ -20,8 +20,6 @@ exec swaymsg 'workspace $pws_q; exec alacritty -e tmain'
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec swww-daemon
 
-# exec flameshot
-
 # }}}
 # Options {{{
 # --------------------
@@ -273,7 +271,6 @@ for_window [window_role="bubble"] floating enable
 for_window [title="Preferences$"] floating enable
 for_window [window_role="Preferences"] floating enable
 for_window [title="Preferences$"] floating enable
-# for_window [floating] border pixel 0
 
 # Application spesific
 for_window [title="(?i)Friends"] floating enable
@@ -282,9 +279,10 @@ for_window [app_id="Open Document"] floating_maximum_size 670 x 470
 for_window [window_role="task_dialog"] floating_maximum_size 670 x 470
 for_window [app_id="(?i)pavucontrol"] floating enable
 for_window [title="(?i)configuration"] floating enable
-for_window [app_id="flameshot"] border pixel 0, floating enable, fullscreen disable, move absolute position 0 0
+for_window [title="(?i)^.*PassFF.*$"] floating enable
 
 # for_window [shell="xwayland"] title_format "[XWayland] %title"
+# for_window [floating] border pixel 0
 
 #}}}
 # Input: {{{
