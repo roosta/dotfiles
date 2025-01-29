@@ -223,6 +223,9 @@ Plug 'rhysd/git-messenger.vim'
 " Github helpers, notably :GBrowse, need netrw, or replacement, see gx.nvim
 Plug 'tpope/vim-rhubarb'
 
+" Plug
+Plug 'sindrets/diffview.nvim'
+
 " Multiplexer:
 " =============================================================================
 
