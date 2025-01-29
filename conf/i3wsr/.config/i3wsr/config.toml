@@ -1,11 +1,11 @@
 [general]
+default_icon = ""
 # separator = "  "
 
 [options]
 remove_duplicates = true
 
 [icons]
-default_icon = ""
 "Firefox" = ""
 "Firefox Developer" = ""
 "Firefox Media" = ""
