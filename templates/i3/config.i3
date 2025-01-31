@@ -8,17 +8,17 @@
 # Startup {{{
 # --------------------
 
-exec discord
-exec thunderbird
+# exec discord
+# exec thunderbird
 exec firefox
-exec flameshot
-exec gpick
-exec --no-startup-id i3-msg 'workspace $pws_q; exec alacritty -e tmain'
+# exec flameshot
+# exec gpick
+exec --no-startup-id i3-msg 'workspace $pws_q; exec alacritty'
 exec --no-startup-id lxqt-policykit-agent
 
 # exec nm-applet
-exec --no-startup-id picom
-exec --no-startup-id nitrogen --restore
+# exec --no-startup-id picom
+# exec --no-startup-id nitrogen --restore
 # exec --no-startup-id pavucontrol
 exec --no-startup-id dunst
 exec --no-startup-id numlockx
