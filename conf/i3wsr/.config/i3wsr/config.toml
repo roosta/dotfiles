@@ -57,6 +57,7 @@ pavucontrol = "Mixer"
 ".*(?i)discord" = "Discord"
 "(?i)org.gnome.software" = "Software"
 ".*(?i)flatseal" = "Flatseal"
+"xyz.chatboxapp.app" = "Chatbox"
 gpick="Gpick"
 
 [aliases.class]
