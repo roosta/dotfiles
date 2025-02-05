@@ -3,8 +3,8 @@ Name=Spotify Web
 GenericName=Music Player
 Comment=Spotify running as a chrome app
 Icon=spotify-client
-Exec=google-chrome-beta %U --app="https://open.spotify.com"
-TryExec=google-chrome-beta
+Exec=flatpak run com.google.Chrome %U --app="https://open.spotify.com"
+TryExec=flatpak
 Terminal=false
 Type=Application
 Categories=Audio;Music;Player;AudioVideo;
