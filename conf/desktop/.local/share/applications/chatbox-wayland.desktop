@@ -2,7 +2,7 @@
 Type=Application
 Name=Chatbox Wayland
 Comment=A desktop client for multiple cutting-edge AI models
-Exec=/opt/Chatbox/Chatbox-1.9.5-x86_64.AppImage --ozone-platform-hint=auto
+Exec=Chatbox --ozone-platform-hint=auto
 X-AppImage-Version=1.9.5
 Icon=xyz.chatboxapp.app
 Terminal=false
