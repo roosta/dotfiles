@@ -11,6 +11,7 @@ if [ -z "$WAYLAND_DISPLAY" ] && [ -n "$XDG_VTNR" ] && [ "$XDG_VTNR" -eq 1 ] ; th
   export XDG_CURRENT_DESKTOP=sway
   export XDG_SESSION_DESKTOP=sway
   export ELECTRON_OZONE_PLATFORM_HINT=wayland
+  export MOZ_ENABLE_WAYLAND=1
   exec sway
   # exec sway > ~/.cache/sway.log 2>&1
 fi
