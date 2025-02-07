@@ -59,6 +59,7 @@ pavucontrol = "Mixer"
 ".*(?i)flatseal" = "Flatseal"
 "xyz.chatboxapp.app" = "Chatbox"
 gpick="Gpick"
+spotify="Spotify"
 
 [aliases.class]
 steam = "Steam"
