@@ -309,7 +309,7 @@ endif
 
 " Snippet engine, see ~/.vim/mysnippets for my snippets
 Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
+" Plug 'honza/vim-snippets'
 
 " Markdown:
 " =============================================================================
