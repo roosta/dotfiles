@@ -22,7 +22,7 @@ exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec swww-daemon
 exec swayidle -w \
 	timeout 900 'swaymsg "output * power off"' \
-	resume 'swaymsg "output * power on"'
+	resume 'swaymsg "output * power on" && swww restore'
 
 # }}}
 # Options {{{
