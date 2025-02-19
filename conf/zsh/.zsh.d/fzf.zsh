@@ -78,13 +78,12 @@ cdfile() {
 
 # Fuzzy match file and open with EDITOR
 e() {
+  local file
   if [ "$#" -eq 0 ]; then
-    local file
-    file=$(fd -tf --color=always --strip-cwd-prefix | fzf-tmux --ansi)
+    file=$(fd -tf --color=always --strip-cwd-prefix | fzf-tmux --ansi --preview 'bat --color=always --style=numbers {}' --preview-window 'right:60%')
     [ -n "$file" ] && sleep 0.1 && vim "$file"
   elif [ "$#" -eq 1 ] && [ -d "$1"  ]; then
-    local file
-    file=$(fd -tf --base-directory="$1" --color=always --strip-cwd-prefix | fzf-tmux --ansi)
+    file=$(fd -tf --base-directory="$1" --color=always --strip-cwd-prefix | fzf-tmux --ansi --preview "bat --color=always --style=numbers ${1}/{}" --preview-window 'right:60%')
     echo "$file"
     [ -n "$file" ] && vim -c "cd $1" -- "${1}/$file"
   elif [ "$#" -eq 1 ] && [ -f "$1" ]; then
