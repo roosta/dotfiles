@@ -13,7 +13,7 @@ include ~/etc/conf/sway/.config/sway/config.d/*
 
 exec_always $HOME/src/i3wsr/target/release/i3wsr
 
-exec discord
+exec flatpak run com.discordapp.Discord
 exec thunderbird
 exec steam-runtime
 exec swaymsg "workspace $pws_e; exec firefox; workspace back_and_forth"; mode "default"
