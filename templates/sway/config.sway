@@ -23,7 +23,7 @@ exec swww-daemon
 exec swaync
 exec swayidle -w \
 	timeout 900 'swaymsg "output * power off"' \
-	resume 'swaymsg "output * power on" && swww restore'
+	resume 'swaymsg "output * power on"'
 
 # }}}
 # Options {{{
