@@ -121,7 +121,7 @@ window#waybar #mode {
     margin-right: 0;
 }
 
-#clock {
+#clock:hover {
     background-color: @srcery-xgray3;
 }
 
