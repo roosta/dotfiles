@@ -17,7 +17,7 @@ ctags
 dfc
 diff-so-fancy
 docker
-dunst
+swaync
 evince
 eza
 fd

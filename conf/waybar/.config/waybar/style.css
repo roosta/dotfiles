@@ -312,3 +312,13 @@ label:focus {
 
 #privacy-item.audio-out {
 }
+
+#custom-notification {
+  font-size: 15px;
+  padding-right: 8px;
+  padding-left: 8px;
+}
+
+#custom-notification:hover {
+  background-color: @srcery-xgray3;
+}

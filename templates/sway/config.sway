@@ -20,6 +20,7 @@ exec swaymsg "workspace $pws_e; exec firefox; workspace back_and_forth"; mode "d
 exec swaymsg "workspace $pws_q; exec alacritty -e tmain"
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec swww-daemon
+exec swaync
 exec swayidle -w \
 	timeout 900 'swaymsg "output * power off"' \
 	resume 'swaymsg "output * power on" && swww restore'
@@ -384,6 +385,9 @@ bindsym $mod+bracketright exec dunstctl history-pop
 
 # Volume
 bindsym $mod+v exec pavucontrol
+
+# Swaync
+bindsym $mod+Shift+n exec swaync-client -t -sw
 
 #}}}
 # Binding modes {{{1
