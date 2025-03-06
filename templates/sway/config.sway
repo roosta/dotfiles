@@ -19,7 +19,6 @@ exec steam-runtime
 exec swaymsg "workspace $pws_e; exec firefox; workspace back_and_forth"; mode "default"
 exec swaymsg "workspace $pws_q; exec alacritty -e tmain"
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec swww-daemon
 exec swaync
 exec swayidle -w \
 	timeout 900 'swaymsg "output * power off"' \
@@ -119,16 +118,10 @@ set $aws_f12 "28:[F12]"
 # --------------------
 
 # outputs
-output $primary_monitor mode 3840x2160 scale 2 pos 1920 1080
-output $secondary_monitor mode 3840x2160 scale 2 pos 3840 1080
-output $tertiary_monitor mode 3840x2160 scale 2 pos 0 1080
-output $quaternary_monitor mode 1920x1080 scale 1 pos 1920 0
-
-# background
-exec_always swww img -o $primary_monitor ~/backgrounds/primary.jpg
-exec_always swww img -o $secondary_monitor ~/backgrounds/secondary.jpg
-exec_always swww img -o $tertiary_monitor ~/backgrounds/tertiary.jpg
-exec_always swww img -o $quaternary_monitor ~/backgrounds/live/retro2_live.gif
+output $primary_monitor mode 3840x2160 scale 2 pos 1920 1080 bg ~/backgrounds/primary.jpg fill
+output $secondary_monitor mode 3840x2160 scale 2 pos 3840 1080 bg ~/backgrounds/secondary.jpg fill
+output $tertiary_monitor mode 3840x2160 scale 2 pos 0 1080 bg ~/backgrounds/tertiary.jpg fill
+output $quaternary_monitor mode 1920x1080 scale 1 pos 1920 0 bg ~/backgrounds/bamboo.png fill
 
 #}}}
 # Workspaces #{{{
