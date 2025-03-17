@@ -330,7 +330,7 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install', 'for': 'ma
 
 " Plug 'SidOfc/mkdx', { 'for': 'markdown' }
 
-Plug 'MeanderingProgrammer/render-markdown.nvim'
+" Plug 'MeanderingProgrammer/render-markdown.nvim'
 
 " Linting:
 " =============================================================================
@@ -728,14 +728,6 @@ let g:UltiSnipsSnippetStorageDirectoryForUltiSnipsEdit='~/.vim/mysnippets'
 " }}}
 " Markdown: {{{
 
-if has('nvim')
-lua <<EOF
-  require('render-markdown').setup ({
-      file_types = { 'Avante', "markdown" },
-  })
-EOF
-endif
-
 let g:vim_markdown_folding_style_pythonic = 1
 let g:vim_markdown_follow_anchor = 1
 let g:vim_markdown_new_list_item_indent = 1
@@ -750,11 +742,7 @@ let g:vim_markdown_fenced_languages = [
       \ 'c',
       \ 'js=javascript',
       \ 'shell=sh',
-      \ 'css',
-      \ 'html',
-      \ 'html',
-      \ 'json',
-      \ 'vue',
+      \ 'css'
       \]
 
 " Builtin syntax options
@@ -802,6 +790,9 @@ if has('nvim')
 autocmd vimrc FileType Avante TSBufEnable highlight
 lua <<EOF
   require('img-clip').setup ({})
+  -- require('render-markdown').setup ({
+  --     file_types = { 'Avante' },
+  -- })
   require('avante_lib').load()
   require('avante').setup ({
     provider = "claude",
