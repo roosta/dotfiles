@@ -733,16 +733,20 @@ let g:vim_markdown_follow_anchor = 1
 let g:vim_markdown_new_list_item_indent = 1
 let g:vim_markdown_auto_insert_bullets = 1
 let g:vim_markdown_fenced_languages = [
+      \ 'c',
       \ 'clojure',
+      \ 'css',
+      \ 'html',
+      \ 'html',
       \ 'javascript',
+      \ 'js=javascript',
+      \ 'json',
       \ 'python',
       \ 'rust',
-      \ 'vim',
       \ 'sh',
-      \ 'c',
-      \ 'js=javascript',
       \ 'shell=sh',
-      \ 'css'
+      \ 'vim',
+      \ 'vue'
       \]
 
 " Builtin syntax options
