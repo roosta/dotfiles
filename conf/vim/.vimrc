@@ -799,7 +799,7 @@ let g:vim_ai_chat = {
 " }}}
 " avante.nvim: {{{
 if has('nvim')
-" autocmd vimrc FileType Avante set filetype=markdown
+autocmd vimrc FileType Avante TSBufEnable highlight
 lua <<EOF
   require('img-clip').setup ({})
   require('avante_lib').load()
