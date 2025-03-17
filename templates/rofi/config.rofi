@@ -9,7 +9,7 @@ configuration {
 	modi: "combi";
 
   /* Set the modi to combine in combi mode */
-	combi-modi: "window,drun";
+	combi-modi: "window,drun,menu:~/scripts/rofi-menu.sh";
 
   /* Location on screen */
 	location: 1;

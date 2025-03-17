@@ -310,10 +310,10 @@ bindsym $mod+Escape kill
 
 # Launchers
 bindsym $mod+Tab exec rofi -show combi -show-icons
-
-# TODO Fix
-# bindsym $mod+y     exec rofi -show clipmenu
 bindsym $mod+grave exec rofi -show menu -modes "menu:~/scripts/rofi-menu.sh" -show-icons
+
+# Clipboard
+# bindsym $mod+y     exec rofi -show clipmenu
 
 # Focus
 bindsym $mod+h focus left
