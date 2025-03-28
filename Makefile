@@ -20,7 +20,6 @@
 	link-conf \
 	link-local \
 	set-shell \
-	i3 \
 	rofi \
 	update-tmux \
 	save-originals \
@@ -198,28 +197,6 @@ set-shell:
 
 # ~/bin/vidir: update-libs
 # 	-ln -s $(HOME)/lib/vidir/bin/vidir $@
-
-~/.config/i3/config: link-conf ~/etc/local/$(HOST)/variables.mk ~/etc/templates/i3/*.i3
-	@echo -e "\033[0;33mCreating i3 config...\033[0m"
-	cd ~/etc/templates/i3 && cat *.i3 > $@
-ifdef primary_monitor
-	@echo "set \$$primary_monitor $(primary_monitor)" >> $@
-endif
-ifdef secondary_monitor
-	@echo "set \$$secondary_monitor $(secondary_monitor)" >> $@
-endif
-ifdef tertiary_monitor
-	@echo "set \$$tertiary_monitor $(tertiary_monitor)" >> $@
-endif
-ifdef quaternary_monitor
-	@echo "set \$$quaternary_monitor $(quaternary_monitor)" >> $@
-endif
-
-i3: ~/.config/i3/config
-	@echo -e "\033[0;33mReload i3 config...\033[0m"
-	i3-msg reload
-	@echo -e "\033[1;32mi3 config reloaded!\033[0m"
-
 
 ~/.config/sway/config: link-conf ~/etc/local/$(HOST)/variables.mk ~/etc/templates/sway/*.sway
 	@echo -e "\033[0;33mCreating sway config...\033[0m"
