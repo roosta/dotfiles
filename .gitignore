@@ -1,0 +1,127 @@
+# temporary files
+build
+*tmp*
+*cache*
+*deprecated*
+*.old
+*.bak
+*.log
+*.*~
+*.swp
+.DS_Store
+backup/*
+/**/tmp
+*.retry
+*.cache
+**/tags
+*.jar
+# */**/fonts.dir
+# */**/fonts.scale
+*/**/autoload
+*/**/port.lock
+*.blacklist
+*.gen
+**/log/**
+
+# ranger
+*bookmarks*
+**/__init__.py
+*history*
+*tagged*
+
+# vim/ish
+**/.vim/undo/*
+**/plugged/**
+.netrwhist
+*backup/*
+**/.vim/spell/*
+**/.vimperator/info/**
+
+# shell
+.bash_history
+**/.zsh.d/plugins/*
+fasd.data
+
+# GUI
+*/**/bookmarks
+*/**/gtkfilechooser.ini
+
+# fonts
+*PragmataPro*
+*Envy*
+
+# auth
+**/ssh/id*
+**/ssh/known_hosts
+**/subversion/auth/**
+**/svn/.subversion/auth/**
+**/gnupg/secring.gpg
+**/gnupg/random*
+**/gnupg/*~
+
+# Comms
+*/**/*.pem
+**/centerim/*/
+**/centerim/pid
+**/mutt/cache/*
+**/mutt/smime/cetificates/*
+**/mutt/smime/keys/*
+
+# IntelliJ
+**/.IntelliJIdea15/config/eval/*
+**/.IntelliJIdea15/plugins/**
+usage.statistics.xml
+statistics.application.usages.xml
+feature.usage.statistics.xml
+ClojureUsageStatistics.xml
+dimensions.xml
+extensionsRootType.xml
+availables.xml
+ClojureUsageStatisticsSettings.xml
+recentProjects.xml
+
+#gimp
+tags.xml
+gimpswap.*
+# tool-options
+# pluginrc
+# sessionrc
+# menurc
+
+**/icons/
+parasiterc
+!**/inkscape/icons
+**/subversion/README.txt
+**/svn/*/README.txt
+**/.tmux/plugins
+yankring_history_v2.txt
+tags.lock
+tags.temp
+!**/.gitkeep
+conf/i3/.config/i3/config
+conf/sway/.config/sway/config
+conf/pip/.pip/bin
+conf/pip/.pip/lib
+conf/pip/.pip/share
+lock.png
+
+.lastupdate
+conf/teiler/.config/teiler/uploader
+vifminfo
+vifm-help.txt
+conf/rofi/.config/rofi/config
+rofi-example.config
+conf/spacemacs/.spacemacs.d/custom.el
+swap
+spacemacs.env
+.spacemacs.env
+history
+lookup-key-example.el
+places
+request
+.lsp-session-v1
+conf/vifm/.vifm/vifminfo.json
+conf/rofi/.config/rofi/config.rasi
+conf/lein/.lein/self-installs
+
+spotify_backup
