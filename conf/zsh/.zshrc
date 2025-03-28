@@ -16,9 +16,9 @@ source ~/.zplug/init.zsh
 
 # (If the defer tag is given 2 or above, run after compinit command)
 zplug 'zplug/zplug', hook-build:'zplug --self-manage'
-zplug "Tarrasch/zsh-bd"
+# zplug "Tarrasch/zsh-bd"
 zplug 'wfxr/forgit'
-zplug "mafredri/zsh-async", from:github
+# zplug "mafredri/zsh-async", from:github
 # zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
 # zplug "b4b4r07/enhancd", use:init.sh
 # zplug "roosta/fif"
@@ -34,8 +34,7 @@ zplug "zdharma-continuum/fast-syntax-highlighting"
 zplug "urbainvaes/fzf-marks"
 
 zplug "plugins/safe-paste", from:oh-my-zsh
-zplug "plugins/web-search", from:oh-my-zsh
-zplug "lib/clipboard", from:oh-my-zsh
+# zplug "plugins/web-search", from:oh-my-zsh
 
 # zplug check returns true if all packages are installed
 # Therefore, when it returns false, run zplug install
