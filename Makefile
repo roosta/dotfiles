@@ -37,10 +37,6 @@ DIRS = \
 		 ~/mnt \
 		 ~/tmp \
 		 ~/bin \
-		 ~/opt \
-		 ~/sbin \
-		 ~/var/log \
-		 ~/var/vim/undo \
 		 ~/.cache/vim/backup \
 		 ~/.cache/zsh \
 		 ~/backup \
@@ -171,14 +167,8 @@ link-misc: ~/scripts ~/colors ~/bin/ftl ~/bin/touchpad-toggle ~/bin/tmain ~/bin/
 ~/bin/tmain: user-fs
 	-ln -sf $(HOME)/scripts/tmux-main.sh $@
 
-~/bin/tmusic: user-fs
-	-ln -sf $(HOME)/scripts/tmux-music.sh $@
-
 ~/bin/tupd: user-fs
 	-ln -sf $(HOME)/scripts/tmux-update-window.sh $@
-
-~/bin/tssh: user-fs
-	-ln -sf $(HOME)/scripts/tmux-ssh.sh $@
 
 link-conf: user-fs
 	@echo -e "\033[0;33mSymlinking conf...\033[0m"
@@ -194,9 +184,6 @@ set-shell:
 
 ~/.dircolors: update-libs
 	-ln -s $(HOME)/lib/LS_COLORS/LS_COLORS $@
-
-# ~/bin/vidir: update-libs
-# 	-ln -s $(HOME)/lib/vidir/bin/vidir $@
 
 ~/.config/sway/config: link-conf ~/etc/local/$(HOST)/variables.mk ~/etc/templates/sway/*.sway
 	@echo -e "\033[0;33mCreating sway config...\033[0m"
