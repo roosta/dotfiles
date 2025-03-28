@@ -186,6 +186,7 @@ set-shell:
 	-ln -s $(HOME)/lib/LS_COLORS/LS_COLORS $@
 
 ~/.config/sway/config: link-conf ~/etc/local/$(HOST)/variables.mk ~/etc/templates/sway/*.sway
+	@mkdir -p $(@D)
 	@echo -e "\033[0;33mCreating sway config...\033[0m"
 	cd ~/etc/templates/sway && cat *.sway > $@
 
