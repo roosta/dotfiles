@@ -46,7 +46,6 @@ DIRS = \
 		 ~/.cache/zsh \
 		 ~/backup \
 		 ~/.local/share \
-		 ~/.config/dunst \
 		 ~/.local/share/applications \
 		 ~/etc/build
 
@@ -54,7 +53,7 @@ ifneq ("$(wildcard $(VARS))","")
 include $(VARS)
 endif
 
-default: links update i3 rofi dunst
+default: links update sway rofi
 
 update: update-zsh-plugins update-libs update-tmux update-vim update-rust
 
@@ -230,22 +229,6 @@ sway: ~/.config/sway/config
 	@echo -e "\033[0;33mReload Sway config...\033[0m"
 	swaymsg reload
 	@echo -e "\033[1;32mSway config reloaded!\033[0m"
-
-dunst: ~/.config/dunst/dunstrc
-	@echo -e "\033[0;33mCreating dunst config...\033[0m"
-
-~/.config/dunst/dunstrc: ~/etc/templates/dunst/config.dunst ~/etc/local/$(HOST)/variables.mk
-	@mkdir -p $(@D)
-	cat ~/etc/templates/dunst/config.dunst > ~/.config/dunst/dunstrc
-ifdef font
-	sed -ri '/\[global\]/a font = $(font)' $@
-endif
-ifdef dunst_width
-	sed -ri "/\[global\]/a width = $(dunst_width)" $@
-endif
-ifdef dunst_offset
-	sed -ri "/\[global\]/a offset = $(dunst_offset)" $@
-endif
 
 ~/.config/rofi/config.rasi: ~/etc/templates/rofi/config.rofi ~/etc/local/$(HOST)/variables.mk
 	cat ~/etc/templates/rofi/*.rofi > $@
