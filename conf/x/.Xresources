@@ -9,7 +9,6 @@
 
 #include ".Xresources.d/fonts.xresources"
 #include ".Xresources.d/srcery.xresources"
-#include ".Xresources.local"
 
 !Xcursor.theme: Numix-Cursor
 
