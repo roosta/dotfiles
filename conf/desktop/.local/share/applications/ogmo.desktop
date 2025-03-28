@@ -1,6 +1,0 @@
-[Desktop Entry]
-Name=Ogmo Editor
-Comment=OGMO Editor is a free, open source, project oriented level editor made for indie game developers by indie game developers.
-Exec=/home/roosta/opt/ogmo/ogmoeditor
-Type=Application
-StartupNotify=true

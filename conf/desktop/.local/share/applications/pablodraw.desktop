@@ -1,7 +1,0 @@
-[Desktop Entry]
-Name=PabloDraw
-GenericName=ASCII Art editor
-Exec=pablodraw %F 
-Terminal=false
-Type=Application
-Categories=ASCII;ANSI;Editor;

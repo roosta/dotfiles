@@ -1,9 +1,0 @@
-[Desktop Entry]
-Type=Application
-Categories=Utility;Graphics;
-Version=1.0
-Name=picoCAD
-Comment=A tiny modeller for tiny models
-Exec=/home/roosta/lib/picocad/picocad-102/picocad-102.bin/linux/picocad
-Icon=terminal
-Terminal=true
