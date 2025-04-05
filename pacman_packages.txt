@@ -80,9 +80,6 @@ scrot
 shellcheck
 starship
 stow
-sway
-swaybg
-swayidle
 thunderbird
 timew
 tmux
@@ -114,3 +111,12 @@ zsh
 zsh-doc
 zsh-lovers
 zshdb
+libnewt
+hyprpaper
+uwsm
+hyprland
+xdg-desktop-portal-hyprland
+hypridle
+hyprlock
+hyprland-protocols
+hyprpolkitagent
