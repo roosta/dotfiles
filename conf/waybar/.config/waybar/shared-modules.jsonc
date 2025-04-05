@@ -1,19 +1,17 @@
 {
-  "sway/workspaces": {
-    "disable-scroll": true,
+  "hyprland/workspaces": {
     "all-outputs": false,
-    "warp-on-scroll": false,
+    "sort-by": "default",
     "format": "{name}",
     "format-icons": {
       "urgent": ""
     }
   },
-  "sway/window": {
+  "hyprland/window": {
     "max-length": 80,
-    "all-outputs" : false
+    "separate-outputs": true
   },
   "tray": {
-    // "icon-size": 21,
     "spacing": 10
   },
   "custom/power": {

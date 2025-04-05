@@ -46,23 +46,24 @@ button:hover {
     color: @srcery-bright-white;
 }
 
-#workspaces button:hover {
+#workspaces button.active:hover, button.visible:hover {
   background: @srcery-xgray3;
   transition: none;
   box-shadow: inherit;
   text-shadow: inherit;
 }
 
-#workspaces button.focused {
+#workspaces button.active {
     background: @srcery-xgray4;
 }
+
 
 #workspaces button.urgent {
     background-color: @srcery-yellow;
     color: @srcery-black;
 }
 
-window#waybar #mode {
+window#waybar #submap {
     background-color: @srcery-white;
     color: @srcery-black;
 }

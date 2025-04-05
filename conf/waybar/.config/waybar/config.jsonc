@@ -16,16 +16,16 @@
       "~/.config/waybar/shared-modules.jsonc"
     ],
     "modules-center": [
-      "sway/window"
+      "hyprland/window"
     ],
     "modules-left": [
-      "sway/workspaces",
-      "sway/mode",
+      "hyprland/workspaces",
+      "hyprland/submap"
       // "custom/media",
-      "sway/scratchpad"
+      // "sway/scratchpad"
     ],
     "modules-right": [
-      "sway/language",
+      "hyprland/language",
       "keyboard-state",
       "pulseaudio",
       // "network",
@@ -48,10 +48,11 @@
         "unlocked": ""
       }
     },
-    "sway/mode": {
-      "format": "  {}"
+    "hyprland/submap": {
+      "format": "   {} "
     },
-    "sway/language": {
+
+    "hyprland/language": {
       "format": " {long}",
       "on-click": "swaymsg input type:keyboard xkb_switch_layout next"
     },
@@ -193,15 +194,16 @@
   {
     "output": "DP-1",
     "name": "secondary",
+    "height": 24,
     "include": [
       "~/.config/waybar/shared-modules.jsonc"
     ],
     "modules-left": [
       "tray",
-      "sway/workspaces"
+      "hyprland/workspaces"
     ],
     "modules-center": [
-      "sway/window"
+      "hyprland/window"
     ],
     "modules-right": [
       "custom/power"
@@ -216,10 +218,10 @@
       "~/.config/waybar/shared-modules.jsonc"
     ],
     "modules-right": [
-      "sway/workspaces"
+      "hyprland/workspaces"
     ],
     "modules-center": [
-      "sway/window"
+      "hyprland/window"
     ]
   },
   // }}}
@@ -233,10 +235,10 @@
       "~/.config/waybar/shared-modules.jsonc"
     ],
     "modules-left": [
-      "sway/workspaces"
+      "hyprland/workspaces"
     ],
     "modules-center": [
-      "sway/window"
+      "hyprland/window"
     ]
   }
   // }}}
