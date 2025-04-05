@@ -66,7 +66,6 @@ function zvm_after_init() {
   source <(fzf --zsh)
 }
 
-
 # }}}
 #  vim: set ts=2 sw=2 tw=0 fdm=marker et :
 
