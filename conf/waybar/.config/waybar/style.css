@@ -8,6 +8,10 @@ window#waybar.quaternary {
   font-size: 1rem;
 }
 
+/* window#waybar.fullscreen { */
+/*   background: @srcery-xgray1; */
+/* } */
+
 window#waybar {
     color: @srcery-bright-white;
     font-size: 0.8rem;
