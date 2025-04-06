@@ -3,18 +3,12 @@
 	update \
 	links \
 	install \
-	min \
-	min-update \
-	min-install \
-	min-links \
 	install-yay \
 	install-aur-packages \
 	install-packages \
 	user-fs \
 	update-zsh-plugins \
 	update-libs \
-	init-vim \
-	update-vim \
 	update-src \
 	link-misc \
 	link-conf \
@@ -37,7 +31,6 @@ DIRS = \
 		 ~/mnt \
 		 ~/tmp \
 		 ~/bin \
-		 ~/.cache/vim/backup \
 		 ~/.cache/zsh \
 		 ~/backup \
 		 ~/.local/share \
@@ -66,28 +59,6 @@ install: user-fs \
 	~/.tmux/plugins/tpm \
 	links \
 	~/.zplug cleanup
-
-min: min-install \
-	save-originals \
-	user-fs \
-	update-libs \
-	set-shell \
-	min-links \
-	~/src/srcery-vim \
-	~/src/srcery-terminal \
-	update-zsh-plugins \
-	init-vim \
-	~/.tmux/plugins/tpm \
-	update-tmux \
-	cleanup
-
-min-update: update-libs update-zsh-plugins update-tmux update-vim
-
-min-install:
-	xargs sudo apt-get install -y < min_packages.txt
-
-min-links:
-	stow -R -t ~ -d conf zsh git tmux vim bash nvim
 
 cleanup:
 	@echo -e "\033[0;33mCleaning up...\033[0m"
@@ -132,17 +103,18 @@ update-zsh-plugins: ~/.zplug
 update-libs:
 	./scripts/git_update.sh ~/lib ~/etc/lib_repositories.txt
 
-init-vim: ~/.vim/autoload/plug.vim
-	@echo -e "\033[0;33mInitialize Vim...\033[0m"
-	vim -c "exec InstallAndExit()"
-
-update-vim: ~/.vim/autoload/plug.vim
-	@echo -e "\033[0;33mUpdating Vim packages...\033[0m"
-	vim -c "exec UpdateAndExit()"
-
-~/.vim/autoload/plug.vim:
-	@echo -e "\033[0;33mGetting plugin manager for Vim...\033[0m"
-	curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+# .PHONY:  init-vim update-vim
+# init-vim: ~/.vim/autoload/plug.vim
+# 	@echo -e "\033[0;33mInitialize Vim...\033[0m"
+# 	vim -c "exec InstallAndExit()"
+#
+# update-vim: ~/.vim/autoload/plug.vim
+# 	@echo -e "\033[0;33mUpdating Vim packages...\033[0m"
+# 	vim -c "exec UpdateAndExit()"
+#
+# ~/.vim/autoload/plug.vim:
+# 	@echo -e "\033[0;33mGetting plugin manager for Vim...\033[0m"
+# 	curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 update-src:
 	@echo -e "\033[0;33mUpdate src...\033[0m"
