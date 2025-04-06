@@ -35,6 +35,7 @@ backup/*
 .netrwhist
 *backup/*
 **/.vim/spell/*
+**/nvim/spell/*
 **/.vimperator/info/**
 
 # shell
