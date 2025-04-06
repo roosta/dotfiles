@@ -78,33 +78,33 @@ alias log-ssh='journalctl _COMM=sshd'
 #}}}
 # Quick edits: {{{
 
-alias vialias="${EDITOR:-vim} ~/etc/conf/zsh/.zsh.d/aliases.zsh"
-alias vibar="${EDITOR:-vim} ~/etc/conf/waybar/.config/waybar/config.jsonc ~/etc/conf/waybar/.config/waybar/style.css"
-alias vibinds="${EDITOR:-vim} ~/.xbindkeysrc"
-alias vidunst="${EDITOR:-vim} ~/etc/templates/dunst/config.dunst"
-alias vienv="${EDITOR:-vim} ~/etc/conf/zsh/.zshenv"
-alias vifzf="${EDITOR:-vim} ~/etc/conf/zsh/.zsh.d/fzf.zsh"
-alias vigitc="${EDITOR:-vim} ~/etc/conf/git/.gitconfig"
-alias vigtk="${EDITOR:-vim} ~/.gtkrc-2.0 ~/.config/gtk-3.0/settings.ini ~/.config/gtk-4.0/settings.ini"
-alias vihosts="${EDITOR:-vim} /etc/hosts"
-alias vimake="${EDITOR:-vim} ~/etc/Makefile"
-alias vimime="${EDITOR:-vim} ~/etc/conf/desktop/.config/mimeapps.list"
-alias viquick="${EDITOR:-vim} ~/notes/quick-notes.md"
-alias virofi="${EDITOR:-vim} ~/etc/templates/rofi/config.rofi"
-alias vissh="${EDITOR:-vim} ~/.ssh/config"
-alias visway="${EDITOR:-vim} ~/etc/templates/sway/config.sway"
-alias vihypr="${EDITOR:-vim} ~/etc/conf/hyprland/.config/hypr/hyprland.conf"
-alias viterm="${EDITOR:-vim} ~/etc/conf/kitty/.config/kitty/kitty.conf"
-alias vitmux="${EDITOR:-vim} ~/etc/conf/tmux/.tmux.conf"
-alias vitodo="${EDITOR:-vim} ~/notes/TODOs.md"
-alias vivars="${EDITOR:-vim} ~/etc/templates/i3/variables.i3 ~/etc/local/$(hostname)/variables.mk"
-alias vivim="${EDITOR:-vim} ~/etc/conf/vim/.vimrc"
-alias viws="${EDITOR:-vim} ~/etc/conf/i3wsr/.config/i3wsr/config.toml"
-alias vixinit-local="${EDITOR:-vim} ~/.xinitrc.local"
-alias vixinit="${EDITOR:-vim} ~/etc/conf/x/.xinitrc"
-alias vixres="${EDITOR:-vim} ~/etc/conf/x/.Xresources"
-alias vizopts="${EDITOR:-vim} ~/etc/conf/zsh/.zsh.d/options.zsh"
-alias vizsh="${EDITOR:-vim} ~/etc/conf/zsh/.zshrc"
+alias vialias="${EDITOR:-nvim} ~/etc/conf/zsh/.zsh.d/aliases.zsh"
+alias vibar="${EDITOR:-nvim} ~/etc/conf/waybar/.config/waybar/config.jsonc ~/etc/conf/waybar/.config/waybar/style.css"
+alias vibinds="${EDITOR:-nvim} ~/.xbindkeysrc"
+alias vidunst="${EDITOR:-nvim} ~/etc/templates/dunst/config.dunst"
+alias vienv="${EDITOR:-nvim} ~/etc/conf/zsh/.zshenv"
+alias vifzf="${EDITOR:-nvim} ~/etc/conf/zsh/.zsh.d/fzf.zsh"
+alias vigitc="${EDITOR:-nvim} ~/etc/conf/git/.gitconfig"
+alias vigtk="${EDITOR:-nvim} ~/.gtkrc-2.0 ~/.config/gtk-3.0/settings.ini ~/.config/gtk-4.0/settings.ini"
+alias vihosts="${EDITOR:-nvim} /etc/hosts"
+alias vimake="${EDITOR:-nvim} ~/etc/Makefile"
+alias vimime="${EDITOR:-nvim} ~/etc/conf/desktop/.config/mimeapps.list"
+alias viquick="${EDITOR:-nvim} ~/notes/quick-notes.md"
+alias virofi="${EDITOR:-nvim} ~/etc/templates/rofi/config.rofi"
+alias vissh="${EDITOR:-nvim} ~/.ssh/config"
+alias visway="${EDITOR:-nvim} ~/etc/templates/sway/config.sway"
+alias vihypr="${EDITOR:-nvim} ~/etc/conf/hyprland/.config/hypr/hyprland.conf"
+alias viterm="${EDITOR:-nvim} ~/etc/conf/kitty/.config/kitty/kitty.conf"
+alias vitmux="${EDITOR:-nvim} ~/etc/conf/tmux/.tmux.conf"
+alias vitodo="${EDITOR:-nvim} ~/notes/TODOs.md"
+alias vivars="${EDITOR:-nvim} ~/etc/templates/i3/variables.i3 ~/etc/local/$(hostname)/variables.mk"
+alias vivim="${EDITOR:-nvim} ~/etc/conf/nvim/.config/nvim/"
+alias viws="${EDITOR:-nvim} ~/etc/conf/i3wsr/.config/i3wsr/config.toml"
+alias vixinit-local="${EDITOR:-nvim} ~/.xinitrc.local"
+alias vixinit="${EDITOR:-nvim} ~/etc/conf/x/.xinitrc"
+alias vixres="${EDITOR:-nvim} ~/etc/conf/x/.Xresources"
+alias vizopts="${EDITOR:-nvim} ~/etc/conf/zsh/.zsh.d/options.zsh"
+alias vizsh="${EDITOR:-nvim} ~/etc/conf/zsh/.zshrc"
 
 #}}}
 # Find: {{{1
@@ -198,7 +198,7 @@ alias -g P="2>&1| pygmentize -l pytb"
 # Suffix: {{{1
 
 # example: type 'test.yml' opens vim with test.clj as active buffer.
-alias -s {yml,json,txt,tex,css,ts,js,html,md,handlebars,hbs}=vim
+alias -s {yml,json,txt,tex,css,ts,js,html,md,handlebars,hbs}=nvim
 alias -s {com,net,org}=firefox
 
 #}}}
@@ -321,7 +321,7 @@ alias image-dimensions="identify -format 'width: %w\nheight: %h\n'"
 # Git: {{{1
 # --------
 
-alias vigit="vim -c 'Git'"
+alias vigit="nvim -c 'Git'"
 
 # if hash hub 2>/dev/null; then
 #   alias git='hub'
