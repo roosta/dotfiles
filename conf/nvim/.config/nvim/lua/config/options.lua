@@ -54,7 +54,7 @@ if vim.fn.getcwd():find('^' .. vim.fn.expand('~/src')) then
 end
 
 if vim.fn.executable('rg') == 1 then
-  vim.opt.grepprg = "rg --vimgrep --no-heading --smart-case"
+  vim.opt.grepprg = "rg --vimgrep --no-heading --smart-case --hidden --glob '!**/.git/*'"
 end
 
 vim.opt.termguicolors = true
