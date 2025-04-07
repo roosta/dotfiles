@@ -175,7 +175,11 @@ return {
           { name = 'cmdline' }
         })
       })
-
+      cmp.setup({
+        sources = cmp.config.sources({
+          { name = 'render-markdown' },
+        }),
+      })
   end,
 
 }
