@@ -1,5 +1,5 @@
 {
-  "ale": { "branch": "master", "commit": "2883260ade25f2b173a68ad185c314b1e3b72a61" },
+  "ale": { "branch": "master", "commit": "22185c4c5c8b8ff52c701020c309a4cefc3a04fa" },
   "avante.nvim": { "branch": "main", "commit": "1c36cfc8120681ffe3261cba83f00338630da606" },
   "bufferize.vim": { "branch": "main", "commit": "ec7c4445a97f19e5784a6fb6ad3c3d4a8ff505ac" },
   "cmp-buffer": { "branch": "main", "commit": "b74fab3656eea9de20a9b8116afa3cfc4ec09657" },
@@ -59,7 +59,6 @@
   "vim-peekaboo": { "branch": "master", "commit": "cc4469c204099c73dd7534531fa8ba271f704831" },
   "vim-rhubarb": { "branch": "master", "commit": "386daa2e9d98e23e27ad089afcbe5c5a903e488d" },
   "vim-sneak": { "branch": "master", "commit": "18b1faf020e6a66c1ce09b3ff5e6b6feb182973b" },
-  "vim-snippets": { "branch": "master", "commit": "f0a3184d9f90b96b044d5914625a25c554d7f301" },
   "vim-sort-folds": { "branch": "master", "commit": "f51d6ad5dc60d9fb6d25f19b58f3d68b6fb708fc" },
   "vim-sort-motion": { "branch": "master", "commit": "c8782be8f7da414c6442b3ba4b6abb0345d392d9" },
   "vim-speeddating": { "branch": "master", "commit": "c17eb01ebf5aaf766c53bab1f6592710e5ffb796" },
