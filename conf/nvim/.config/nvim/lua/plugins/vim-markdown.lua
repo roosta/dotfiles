@@ -13,6 +13,7 @@ return {
     vim.g.markdown_folding = 1
     vim.g.vim_markdown_folding_style_pythonic = 1
     vim.g.vim_markdown_follow_anchor = 1
+    vim.g.vim_markdown_conceal_code_blocks = 0
 
     -- Disable gx command, use gx.nvim
     vim.keymap.set('n', '<Plug>', '<Plug>Markdown_OpenUrlUnderCursor')
