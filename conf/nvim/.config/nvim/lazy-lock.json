@@ -58,6 +58,7 @@
   "vim-markdown": { "branch": "master", "commit": "8f6cb3a6ca4e3b6bcda0730145a0b700f3481b51" },
   "vim-mustache-handlebars": { "branch": "master", "commit": "0153fe03a919add2d6cf2d41b2d5b6e1188bc0e0" },
   "vim-peekaboo": { "branch": "master", "commit": "cc4469c204099c73dd7534531fa8ba271f704831" },
+  "vim-repeat": { "branch": "master", "commit": "65846025c15494983dafe5e3b46c8f88ab2e9635" },
   "vim-rhubarb": { "branch": "master", "commit": "386daa2e9d98e23e27ad089afcbe5c5a903e488d" },
   "vim-sneak": { "branch": "master", "commit": "18b1faf020e6a66c1ce09b3ff5e6b6feb182973b" },
   "vim-sort-folds": { "branch": "master", "commit": "f51d6ad5dc60d9fb6d25f19b58f3d68b6fb708fc" },
