@@ -10,11 +10,9 @@ return {
     dev = true,
     lazy = false,
     priority = 1000,
-    opts = {
-      srcery_dim_lisp_parens = 0,
-      srcery_italic = 1,
-    },
     config = function()
+      vim.g.srcery_dim_lisp_parens = 0
+      vim.g.srcery_italic = 1
       vim.cmd([[colorscheme srcery]])
     end,
 }
