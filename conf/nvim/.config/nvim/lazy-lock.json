@@ -1,6 +1,6 @@
 {
   "ale": { "branch": "master", "commit": "22185c4c5c8b8ff52c701020c309a4cefc3a04fa" },
-  "avante.nvim": { "branch": "main", "commit": "1c36cfc8120681ffe3261cba83f00338630da606" },
+  "avante.nvim": { "branch": "main", "commit": "d76a158b61fc818a5af7b440b6b397f595021686" },
   "bufferize.vim": { "branch": "main", "commit": "ec7c4445a97f19e5784a6fb6ad3c3d4a8ff505ac" },
   "cmp-buffer": { "branch": "main", "commit": "b74fab3656eea9de20a9b8116afa3cfc4ec09657" },
   "cmp-cmdline": { "branch": "main", "commit": "d250c63aa13ead745e3a40f61fdd3470efde3923" },
