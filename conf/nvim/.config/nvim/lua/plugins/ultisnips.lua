@@ -6,9 +6,9 @@
 
 return {
   "SirVer/ultisnips",
-  dependencies = {
-    "honza/vim-snippets"
-  },
+  -- dependencies = {
+  --   "honza/vim-snippets"
+  -- },
   event = "InsertEnter",
   init = function()
     vim.g.UltiSnipsExpandTrigger = '<Plug>(ultisnips_expand)'
