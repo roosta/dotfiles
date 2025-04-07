@@ -3,7 +3,6 @@
 -- ┘ ┆└┘ ┘ ┆┆└┘ ┆ ┴─┘o┆└┘└┘ ┆┘ ┆
 -- ─────────────────────────────────────────────────────────────────────────
 -- Use your Neovim like using Cursor AI IDE!
-
 return {
   "yetone/avante.nvim",
   event = "VeryLazy",
@@ -40,5 +39,14 @@ return {
         },
       },
     },
-  }
+  },
+  init = function()
+    vim.api.nvim_create_autocmd("FileType", {
+      pattern = "Avante",
+      callback = function()
+        vim.cmd("TSBufEnable highlight")
+      end,
+      group = "initgroup"
+    })
+  end
 }
