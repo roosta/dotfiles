@@ -71,4 +71,7 @@ vim.keymap.set({ 'n', 'i', 'v' }, '<F1>', '<Nop>', {
   silent = true,
 })
 
+-- toggle treesitter
+vim.keymap.set('n', '<leader>ts', ':TSToggle highlight<cr>', { noremap = true, silent = true, desc = "Toggle Treesitter" })
+
 --  vim: set ts=2 sw=2 tw=0 fdm=marker et :
