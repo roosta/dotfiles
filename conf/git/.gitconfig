@@ -5,12 +5,13 @@
 [core]
   editor = nvim
   excludesfile = ~/.globalignore
+  pager = delta
 [push]
   default = simple
+[interactive]
+    diffFilter = delta --color-only
 [credential]
   helper = cache --timeout=3600
-[diff]
-  external = difft
 [alias]
   s         = status
   b         = branch
@@ -33,6 +34,11 @@
   amend     = commit --amend
   last      = cat-file commit HEAD
   last-sha  = rev-parse --short HEAD
+
+  # difftastic
+  dlog = -c diff.external=difft log --ext-diff
+  dshow = -c diff.external=difft show --ext-diff
+  ddiff = -c diff.external=difft diff
 [init]
   # templatedir = ~/.git_template
   defaultBranch = main
@@ -50,3 +56,33 @@
   required = true
 [pull]
   rebase = false
+[delta]
+  xgray2 = "#303030"
+  navigate = true  # use n and N to move between diff sections
+  dark = true      # or light = true, or omit for auto-detection
+  syntax-theme = srcery
+  ; line-numbers = true
+  hunk-header-decoration-style = xgray2 box ul
+  hunk-header-line-number-style = "#918175"
+  file-style = "#2C78BF"
+  plus-style = syntax "#294229"
+  line-numbers-plus-style = "#519F50"
+  line-numbers-minus-style = "#EF2F27"
+  line-numbers-zero-style = "#918175"
+  file-decoration-style = xgray2 underline overline
+  commit-style = raw
+  minus-style = syntax "#4F2321"
+  side-by-side = true
+  line-numbers-left-style = xgray2
+  line-numbers-right-style = xgray2
+  minus-emph-style = syntax "#EF2F27"
+
+  ; plus-non-emph-style = "#2B3F2B"
+  ; line-numbers-left-style = "#918175"
+
+  ; plus-style = syntax "#001a00"
+  ; plus-emph-style = syntax "#2B3F2B"
+
+[merge]
+  conflictstyle = zdiff3
+
