@@ -6,8 +6,8 @@
 
 return {
   "nvim-treesitter/nvim-treesitter",
-  event = "VeryLazy",
   build = ":TSUpdate",
+  lazy = true,
   config = function()
     require("nvim-treesitter.configs").setup {
       ensure_installed = { "vue", "javascript", "rust", "lua", "vim", "json", "toml" },
