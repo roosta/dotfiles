@@ -20,6 +20,7 @@ return {
   },
   dependencies = {
     'stevearc/dressing.nvim',
+    "nvim-treesitter/nvim-treesitter",
     'nvim-lua/plenary.nvim',
     'MunifTanjim/nui.nvim',
     'nvim-tree/nvim-web-devicons',
@@ -45,6 +46,7 @@ return {
       pattern = "Avante",
       callback = function()
         vim.cmd("TSBufEnable highlight")
+        vim.call('lightline#disable')
       end,
       group = "initgroup"
     })
