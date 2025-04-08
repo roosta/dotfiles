@@ -142,6 +142,7 @@ return {
         sources = cmp.config.sources({
           { name = 'nvim_lsp' },
           { name = 'ultisnips' },
+          { name = 'render-markdown' },
           { name = 'path' }
         }, {
           { name = 'buffer' },
@@ -174,11 +175,6 @@ return {
         }, {
           { name = 'cmdline' }
         })
-      })
-      cmp.setup({
-        sources = cmp.config.sources({
-          { name = 'render-markdown' },
-        }),
       })
   end,
 
