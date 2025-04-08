@@ -5,13 +5,12 @@
 [core]
   editor = nvim
   excludesfile = ~/.globalignore
-  pager = diff-so-fancy | less -RFX
 [push]
   default = simple
 [credential]
   helper = cache --timeout=3600
 [diff]
-  tool = vimdiff
+  external = difft
 [alias]
   s         = status
   b         = branch
@@ -35,10 +34,8 @@
   last      = cat-file commit HEAD
   last-sha  = rev-parse --short HEAD
 [init]
-  templatedir = ~/.git_template
+  # templatedir = ~/.git_template
   defaultBranch = main
-[merge]
-  # tool = emergeclient
 [commit]
   verbose = true
   gpgsign = true
@@ -46,9 +43,6 @@
   path = ~/.gitconfig.local
 [github]
   user = roosta
-[diff-so-fancy]
-  rulerWidth = 47
-	first-run = false
 [filter "lfs"]
   clean = git-lfs clean -- %f
   smudge = git-lfs smudge -- %f
