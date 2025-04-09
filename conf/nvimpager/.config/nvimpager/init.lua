@@ -1,8 +1,23 @@
--- Disable folding by default
+-- ┌───────────────────────────────────────┐ --
+-- │ ┏┓┓┓ ┳o┏┏┓┳━┓┳━┓┏━┓┳━┓┳━┓             │ --
+-- │ ┃┃┃┃┏┛┃┃┃┃┃━┛┃━┫┃ ┳┣━ ┃┳┛             │ --
+-- │ ┇┗┛┗┛ ┇┛ ┇┇  ┛ ┇┇━┛┻━┛┇┗┛             │ --
+-- └───────────────────────────────────────┘ --
+-- ----------------------------------------- --
+-- Author: Daniel Berg                       --
+-- Email: mail@roosta.sh                     --
+-- Repository: https://github.com/roosta/etc --
+-- ----------------------------------------- --
 vim.opt.foldenable = false
-
--- Use system clipboard for all operations
 vim.opt.clipboard = "unnamedplus"
-
--- use srcery colorscheme
-vim.cmd([[colorscheme srcery]])
+vim.opt.shiftround = true
+vim.opt.shiftwidth = 2
+vim.opt.tabstop = 2
+vim.opt.scrolloff = 4
+vim.opt.sidescrolloff = 8
+vim.opt.linebreak = true
+vim.opt.laststatus = 3
+vim.opt.showmode = false
+vim.opt.showcmd = false
+vim.opt.runtimepath:append(",~/src/srcery-vim")
+vim.cmd("colorscheme srcery")
