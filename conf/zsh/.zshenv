@@ -45,9 +45,9 @@ export ZSH_CACHE_DIR=$HOME/.cache/zsh
 export LESS="-R --use-color --mouse --jump-target=12 -DP15.236"
 
 export PAGER=nvimpager
-export PARU_PAGER=nvimpager
+export PARU_PAGER=$PAGER
+export MANPAGER=$PAGER
 
-alias less=$PAGER
 # alias zless=$PAGER
 
 # set site.USERBASE for pip user installs
