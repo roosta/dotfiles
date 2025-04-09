@@ -56,32 +56,29 @@
   required = true
 [pull]
   rebase = false
+
+; https://github.com/dandavison/delta/blob/main/themes.gitconfig
 [delta]
   xgray2 = "#303030"
+  white = "#918175"
+  dark-green = "#294229"
+  green = "#519F50"
+  red = "#EF2F27"
+  dark-red = "#4F2321"
   navigate = true  # use n and N to move between diff sections
-  dark = true      # or light = true, or omit for auto-detection
   syntax-theme = srcery
-  ; line-numbers = true
   hunk-header-decoration-style = xgray2 box ul
-  hunk-header-line-number-style = "#918175"
-  file-style = "#2C78BF"
-  plus-style = syntax "#294229"
-  line-numbers-plus-style = "#519F50"
-  line-numbers-minus-style = "#EF2F27"
-  line-numbers-zero-style = "#918175"
+  hunk-header-line-number-style = white
+  plus-style = syntax dark-green
+  line-numbers-plus-style = green
+  line-numbers-minus-style = red
+  line-numbers-zero-style = white
   file-decoration-style = xgray2 underline overline
   commit-style = raw
-  minus-style = syntax "#4F2321"
-  side-by-side = true
+  minus-style = syntax dark-red
   line-numbers-left-style = xgray2
   line-numbers-right-style = xgray2
-  minus-emph-style = syntax "#EF2F27"
-
-  ; plus-non-emph-style = "#2B3F2B"
-  ; line-numbers-left-style = "#918175"
-
-  ; plus-style = syntax "#001a00"
-  ; plus-emph-style = syntax "#2B3F2B"
+  minus-emph-style = syntax dark-red
 
 [merge]
   conflictstyle = zdiff3
