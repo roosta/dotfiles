@@ -1,6 +1,6 @@
 {
   "Comment.nvim": { "branch": "master", "commit": "e30b7f2008e52442154b66f7c519bfd2f1e32acb" },
-  "ale": { "branch": "master", "commit": "22185c4c5c8b8ff52c701020c309a4cefc3a04fa" },
+  "ale": { "branch": "master", "commit": "366de225fdd9ddef29a5b947c419303278af0c01" },
   "avante.nvim": { "branch": "main", "commit": "7e31317fbc3061c7fea586b598b0a9865423b976" },
   "bufferize.vim": { "branch": "main", "commit": "ec7c4445a97f19e5784a6fb6ad3c3d4a8ff505ac" },
   "cmp-buffer": { "branch": "main", "commit": "b74fab3656eea9de20a9b8116afa3cfc4ec09657" },
@@ -44,6 +44,7 @@
   "ultisnips": { "branch": "master", "commit": "dbc458e110bb49299da76ec53f8b09b4f6dce28a" },
   "undotree": { "branch": "master", "commit": "b951b87b46c34356d44aa71886aecf9dd7f5788a" },
   "vaxe": { "branch": "master", "commit": "b300742c88bf8cbd3aa3df81c9aa2fe6cb901697" },
+  "vim": { "branch": "main", "commit": "f13f5dfbb784deddbc1d8195f34dfd9ec73e2295" },
   "vim-abolish": { "branch": "master", "commit": "dcbfe065297d31823561ba787f51056c147aa682" },
   "vim-better-whitespace": { "branch": "master", "commit": "86a0579b330b133b8181b8e088943e81c26a809e" },
   "vim-easy-align": { "branch": "master", "commit": "9815a55dbcd817784458df7a18acacc6f82b1241" },
@@ -58,6 +59,7 @@
   "vim-kitty": { "branch": "main", "commit": "fd6df8b8396ffb7ea099dc6aecfbc7cf2bab0b2f" },
   "vim-markdown": { "branch": "master", "commit": "8f6cb3a6ca4e3b6bcda0730145a0b700f3481b51" },
   "vim-mustache-handlebars": { "branch": "master", "commit": "0153fe03a919add2d6cf2d41b2d5b6e1188bc0e0" },
+  "vim-one": { "branch": "master", "commit": "187f5c85b682c1933f8780d4d419c55d26a82e24" },
   "vim-peekaboo": { "branch": "master", "commit": "cc4469c204099c73dd7534531fa8ba271f704831" },
   "vim-repeat": { "branch": "master", "commit": "65846025c15494983dafe5e3b46c8f88ab2e9635" },
   "vim-rhubarb": { "branch": "master", "commit": "386daa2e9d98e23e27ad089afcbe5c5a903e488d" },
