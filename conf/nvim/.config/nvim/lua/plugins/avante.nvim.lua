@@ -41,14 +41,4 @@ return {
       },
     },
   },
-  init = function()
-    vim.api.nvim_create_autocmd("FileType", {
-      pattern = "Avante",
-      callback = function()
-        vim.cmd("TSBufEnable highlight")
-        vim.call('lightline#disable')
-      end,
-      group = "initgroup"
-    })
-  end
 }
