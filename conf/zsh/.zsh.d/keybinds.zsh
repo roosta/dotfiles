@@ -5,10 +5,6 @@
 # Use vim keybinds
 bindkey -v
 
-# 10ms for key sequences
-# make keymode indication more responsive
-# KEYTIMEOUT=1
-
 # Bind up arrow, down arrow to zsh-history-substring-search
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
@@ -20,5 +16,6 @@ bindkey -M vicmd 'j' history-substring-search-down
 # invoke vim to edit command-line
 bindkey '^e' edit-command-line
 
-# Fzf over recent dirs
-bindkey '^f' fdirs
+# see fzf.zsh
+bindkey '^f' edit
+bindkey '^x' fdirs

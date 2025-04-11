@@ -69,10 +69,10 @@ flib() {
 # Requirements: fzf, fd
 #
 # Usage:
-#   e - Fuzzy find files in current directory and open in $EDITOR
-#   e <file> .. - Open specified file(s) in $EDITOR
-#   e <multiple args> - Pass all arguments to $EDITOR
-e() {
+#   edit - Fuzzy find files in current directory and open in $EDITOR
+#   edit <file> .. - Open specified file(s) in $EDITOR
+#   edit <multiple args> - Pass all arguments to $EDITOR
+edit() {
   if [ "$#" -eq 0 ]; then
     local files=$(fd --type file --color=always --strip-cwd-prefix)
     fzf \
@@ -84,13 +84,15 @@ e() {
     ${EDITOR:-nvim} "$@"
   fi
 }
+zle -N edit # So that it can be used as a shortcut. See keybinds.sh
+alias e=edit
 
-# Open file in notes
-o() {
-  local file
-  file=$(find ~/notes -name '*.md' | fzf -d "/" --query="$1" --with-nth "5..")  &&
-    [ -n "$file" ] && vim -c "cd ~/notes" -- "$file"
-  }
+# Open file in ~/notes
+open_note() {
+  local file=$(find ~/notes -name '*.md' | fzf -d "/" --query="$1" --with-nth "5..")
+  [ -n "$file" ] && vim -c "cd ~/notes" -- "$file"
+}
+alias o=open_note
 
 # fsha - get git commit sha
 # example usage: git rebase -i `fsha`
