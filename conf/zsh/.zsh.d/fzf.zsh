@@ -6,14 +6,9 @@
 
 # Respecting .gitignore, .hgignore, and svn:ignore
 # Setting rg as the default source for fzf
-export FZF_DEFAULT_COMMAND='rg \
-  --colors=path:fg:blue \
-  --colors=line:fg:yellow \
+export FZF_DEFAULT_COMMAND='fd --type f \
   --hidden \
-  --smart-case \
-  --follow \
-  --ignore-file ~/.globalignore \
-  --files'
+  --color=always'
 
 export FZF_DEFAULT_OPTS="
 --ansi
@@ -28,7 +23,8 @@ export FZF_DEFAULT_OPTS="
 
 # To apply the command to CTRL-T as well
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-
+export FZF_ALT_C_COMMAND="fd --type dir --hidden --color=always"
+export FZF_ALT_C_OPTS="--preview 'tree -a --gitignore -C {} | head -200'"
 #}}}
 # Functions {{{
 
