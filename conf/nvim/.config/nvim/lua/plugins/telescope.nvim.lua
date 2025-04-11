@@ -29,6 +29,10 @@ return {
         }
       }
     })
+    -- fzf
+    telescope.load_extension('fzf')
+
+
     -- git
     vim.keymap.set("n", "<leader>gC", builtin.git_commits, { desc = "Telescope project commits", silent = true })
     vim.keymap.set("n", "<leader>gc", builtin.git_bcommits, { desc = "Telescope buffer commits", silent = true })

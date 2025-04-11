@@ -39,6 +39,7 @@
   "splitjoin.vim": { "branch": "main", "commit": "9e64404c1c778326098f37551fc23f2a1fd8e1d3" },
   "tabular": { "branch": "master", "commit": "12437cd1b53488e24936ec4b091c9324cafee311" },
   "targets.vim": { "branch": "master", "commit": "6325416da8f89992b005db3e4517aaef0242602e" },
+  "telescope-fzf-native.nvim": { "branch": "main", "commit": "1f08ed60cafc8f6168b72b80be2b2ea149813e55" },
   "telescope.nvim": { "branch": "master", "commit": "a4ed82509cecc56df1c7138920a1aeaf246c0ac5" },
   "traces.vim": { "branch": "master", "commit": "261602a6ee8d40d13522242ec5671456a230c17e" },
   "ultisnips": { "branch": "master", "commit": "dbc458e110bb49299da76ec53f8b09b4f6dce28a" },
