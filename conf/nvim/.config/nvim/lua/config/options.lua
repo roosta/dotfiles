@@ -9,18 +9,14 @@ vim.g.maplocalleader = '\\'
 
 -- General
 vim.opt.scrolloff = 7
-vim.opt.shortmess:append("Ic")
 vim.opt.cursorline = true
-vim.opt.synmaxcol = 2048
 vim.opt.spelllang = { "en_us", "nb" }
-vim.opt.showtabline = 1
 vim.opt.undofile = true
 vim.opt.relativenumber = true
 vim.opt.number = true
 vim.opt.matchtime = 2
 vim.opt.showmatch = true
 vim.opt.clipboard:append('unnamedplus')
--- vim.opt.undofile = true
 
 -- Indentation
 vim.opt.expandtab = true
@@ -42,8 +38,7 @@ vim.opt.breakindent = true
 vim.opt.showbreak = '↳ '
 
 -- Status
-vim.opt.showmode = false
-vim.opt.showcmd = true
+-- vim.opt.showmode = false
 
 -- Local rc
 -- https://vimtricks.com/p/local-vimrc-files/
