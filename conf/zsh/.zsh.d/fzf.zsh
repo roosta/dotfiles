@@ -35,14 +35,15 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 # fhist - repeat history
 fhist() {
-  print -z $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf-tmux +s --tac | sed 's/ *[0-9]* *//')
+  print -z $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed 's/ *[0-9]* *//')
 }
 
 fdirs() {
   local dir
   print -rNC1 -- ${(D)dirstack} |
-    fzf-tmux \
+    fzf \
       --read0 \
+      --scheme=path \
       --print0 \
       --ansi \
       --preview 'eval eza --color always -aghl --group-directories-first -F {}' \
@@ -55,7 +56,7 @@ zle -N fdirs # So that it can be used as a shortcut. See keybinds.sh
 
 flib() {
   local dir
-  dir=$(ls -1 ~/lib | fzf-tmux)
+  dir=$(ls -1 ~/lib | fzf)
   if [ -n "$dir" ]; then
     cd $HOME/lib/$dir
   else
@@ -66,7 +67,7 @@ flib() {
 # cddir - including hidden directories
 cddir() {
   local dir
-  dir=$(find ${1:-.} -type d 2> /dev/null | fzf-tmux +m) && cd "$dir"
+  dir=$(find ${1:-.} -type d 2> /dev/null | fzf +m) && cd "$dir"
 }
 
 # cdfile - cd into the directory of the selected file
@@ -100,7 +101,7 @@ _e() {
     SUDO_EDITOR="vim" sudoedit $@
   else
     local file
-    file=$(fzf-tmux --query="$1")
+    file=$(fzf --query="$1")
     [ -n "$file" ] && SUDO_EDITOR="vim" sudoedit "$file"
   fi
 }
@@ -117,7 +118,7 @@ o() {
 fsha() {
   local commits commit
   commits=$(git log --graph --color=always --pretty=oneline --format="%C(auto)%h%d %s %C(black)%C(white)%cr" --abbrev-commit) &&
-    commit=$(echo "$commits" | fzf-tmux +s +m -e --ansi) &&
+    commit=$(echo "$commits" | fzf +s +m -e --ansi) &&
     echo -n $(echo "$commit" | \grep -oe "[0-9a-f]\{5,32\}")
   }
 
@@ -142,7 +143,7 @@ faur() {
 # Search with pacman, and install on select. Supports multiple
 # selections, and preview using pacman -Si
 fpac() {
-  local pkg=$(pacman -Ssq | fzf-tmux --multi --query "$1" --preview="pacman -Si {}")
+  local pkg=$(pacman -Ssq | fzf --multi --query "$1" --preview="pacman -Si {}")
   if [[ $pkg ]]; then
     sudo pacman -S - <<< $pkg
   fi
@@ -150,7 +151,7 @@ fpac() {
 
 falias() {
   local match;
-  match=$(bat --color=always --decorations=never ~/.zsh.d/aliases.zsh | fzf-tmux +m --reverse)
+  match=$(bat --color=always --decorations=never ~/.zsh.d/aliases.zsh | fzf +m --reverse)
   out=$(sed -n "s/^\s*alias [^=]*=[\"']\(.*\)[\"'].*$/\1/p" <<< "$match")
   if [ -n "$out" ]; then
     print -z "$out"
