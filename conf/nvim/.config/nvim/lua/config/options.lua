@@ -38,7 +38,6 @@ vim.opt.hlsearch = true
 vim.opt.wrap = true
 vim.opt.linebreak = true
 vim.opt.breakat = ' ^I!@*-+;:,./?' -- Define extra break chars
-vim.opt.cpoptions:append('n') -- Don't show linenumbers on break
 vim.opt.breakindent = true
 vim.opt.showbreak = '↳ '
 
