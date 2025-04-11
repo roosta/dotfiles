@@ -1,7 +1,9 @@
 # ┬─┐┬ ┐┌─┐┌─┐┐ ┬  ┬─┐o┌┐┐┬─┐┬─┐┬─┐
 # ├─ │ │┌─┘┌─┘└┌┘──├─ │││││ │├─ │┬┘
 # ┆  ┆─┘└─┘└─┘ ┆   ┆  ┆┆└┘┆─┘┴─┘┆└┘
+# -----------------------------------------------------------------------------
 # Options {{{
+
 # Respecting .gitignore, .hgignore, and svn:ignore
 # Setting rg as the default source for fzf
 export FZF_DEFAULT_COMMAND='rg \
@@ -15,8 +17,6 @@ export FZF_DEFAULT_COMMAND='rg \
 
 export FZF_DEFAULT_OPTS="
 --ansi
---color='fg:15,bg:0,hl:5,fg+:15,bg+:235,hl+:13'
---color='info:11,prompt:5,spinner:11,pointer:10,marker:208,header:15'
 --bind='alt-k:preview-up,alt-p:preview-up'
 --bind='alt-j:preview-down,alt-n:preview-down'
 --bind='ctrl-r:toggle-all'
@@ -25,19 +25,15 @@ export FZF_DEFAULT_OPTS="
 --bind='ctrl-a:select-all'
 --bind='alt-w:toggle-preview-wrap'
 "
-# export FZF_COMPLETION_TRIGGER='~~'
 
 # To apply the command to CTRL-T as well
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-# export FZF_CTRL_T_OPTS="--preview '(bat -O ansi -l {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
+
 #}}}
 # Functions {{{
 
-# fhist - repeat history
-fhist() {
-  print -z $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed 's/ *[0-9]* *//')
-}
-
+# Parses dirstack, and presents is a fzf window, I truncate the $HOME path to
+# "~", bound to ctrl-f, see keybinds.zsh
 fdirs() {
   local dir
   print -rNC1 -- ${(D)dirstack} |
@@ -46,7 +42,8 @@ fdirs() {
       --scheme=path \
       --print0 \
       --ansi \
-      --preview 'eval eza --color always -aghl --group-directories-first -F {}' \
+      --preview 'eval eza --color always -aghl \
+                  --group-directories-first -F {}' \
       --preview-window 'right:50%' |
     IFS= read -rd '' dir &&
     cd -- ${dir/#\~/$HOME} &&
@@ -54,6 +51,9 @@ fdirs() {
 }
 zle -N fdirs # So that it can be used as a shortcut. See keybinds.sh
 
+# I keep a ~/lib dir for when I need to build extenal repos from source, or
+# reference it's source code. This makes it quick to navigate to a dir in that
+# location.
 flib() {
   local dir
   dir=$(ls -1 ~/lib | fzf)
@@ -64,45 +64,24 @@ flib() {
   fi
 }
 
-# cddir - including hidden directories
-cddir() {
-  local dir
-  dir=$(find ${1:-.} -type d 2> /dev/null | fzf +m) && cd "$dir"
-}
-
-# cdfile - cd into the directory of the selected file
-cdfile() {
-  local file
-  local dir
-  file=$(fzf +m -q "$1") && dir=$(dirname "$file") && cd "$dir"
-}
-
-# Fuzzy match file and open with EDITOR
+# Fuzzy match file and open with $EDITOR
+#
+# Requirements: fzf, fd
+#
+# Usage:
+#   e - Fuzzy find files in current directory and open in $EDITOR
+#   e <file> .. - Open specified file(s) in $EDITOR
+#   e <multiple args> - Pass all arguments to $EDITOR
 e() {
-  local file
   if [ "$#" -eq 0 ]; then
-    file=$(fd -tf --color=always --strip-cwd-prefix | fzf-tmux --ansi --preview 'bat --color=always --style=numbers {}' --preview-window 'right:60%')
-    [ -n "$file" ] && sleep 0.1 && vim "$file"
-  elif [ "$#" -eq 1 ] && [ -d "$1"  ]; then
-    file=$(fd -tf --base-directory="$1" --color=always --strip-cwd-prefix | fzf-tmux --ansi --preview "bat --color=always --style=numbers ${1}/{}" --preview-window 'right:60%')
-    echo "$file"
-    [ -n "$file" ] && vim -c "cd $1" -- "${1}/$file"
-  elif [ "$#" -eq 1 ] && [ -f "$1" ]; then
-    vim "$1"
+    local files=$(fd --type file --color=always --strip-cwd-prefix)
+    fzf \
+      --ansi \
+      --preview-window 'right:60%' --multi \
+      --bind 'enter:become(${EDITOR:-nvim} {+})' \
+      --preview 'bat --color=always --style=numbers {}' <<< $files
   else
-    vim "$@"
-  fi
-}
-
-# Set sudo editor to vim and call sudoedit
-# fuzzy edit readonly files
-_e() {
-  if [ "$#" -ne 0 ]; then
-    SUDO_EDITOR="vim" sudoedit $@
-  else
-    local file
-    file=$(fzf --query="$1")
-    [ -n "$file" ] && SUDO_EDITOR="vim" sudoedit "$file"
+    ${EDITOR:-nvim} "$@"
   fi
 }
 
@@ -122,17 +101,8 @@ fsha() {
     echo -n $(echo "$commit" | \grep -oe "[0-9a-f]\{5,32\}")
   }
 
-# Search apt for query, and install selected package
-fapt() {
-  local pkg=$(apt-cache search $1 | fzf --no-multi -q $1 --ansi --preview="apt-cache show {1}" | awk '{ print $1 }')
-
-  if [[ $pkg ]]; then
-    sudo apt-get install $pkg
-  fi
-}
-
-# Search AUR and official repos using yay and install on
-# select. Supports multiple selections and preview using yay -Si
+# Search AUR and official repos using yay and install on select. Supports
+# multiple selections and preview using paru -Si
 faur() {
   local pkg=$(paru -Slq | fzf --multi --query "$1" --preview 'paru -Si {1}')
   if [[ $pkg ]]; then
@@ -149,6 +119,8 @@ fpac() {
   fi
 }
 
+# Search aliases.zsh, and output match to cmd # Expand the alias instead of
+# outputing the alias itself, useful for referece.
 falias() {
   local match;
   match=$(bat --color=always --decorations=never ~/.zsh.d/aliases.zsh | fzf +m --reverse)
