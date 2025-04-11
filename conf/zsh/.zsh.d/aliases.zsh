@@ -109,9 +109,7 @@ alias vizsh="${EDITOR:-nvim} ~/etc/conf/zsh/.zshrc"
 #}}}
 # Find: {{{1
 
-alias ag="ag --smart-case --color-line-number '0;37' --color-match '1;35' --color-path '0;34' --hidden -p ~/.globalignore"
-alias rg="rg --smart-case --colors 'match:fg:magenta' --colors 'match:style:bold' --colors 'line:fg:white' --colors 'path:fg:blue' --colors 'column:fg:8'"
-
+alias rg="rg --smart-case --hidden"
 alias sgrep='grep -R -n -H -C 5 --exclude-dir={.git,.svn,CVS} '
 
 # grep command history quickly
