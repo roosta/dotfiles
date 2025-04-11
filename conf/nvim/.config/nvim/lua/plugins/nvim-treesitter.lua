@@ -16,6 +16,7 @@ return {
         enable = true
       },
     }
+    vim.treesitter.language.register("bash", "zsh")
   end
 }
 
