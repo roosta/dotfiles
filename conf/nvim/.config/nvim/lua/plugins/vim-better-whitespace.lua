@@ -13,5 +13,6 @@ return {
   "ntpeters/vim-better-whitespace",
   config = function()
     vim.g.better_whitespace_filetypes_blacklist = { "diff", "gitcommit", "help", "nofile", "git" }
+    vim.keymap.set('n', '<leader>st', ':StripWhitespace<cr>', { silent = true, desc = "Strip trailing whitespace" })
   end
 }
