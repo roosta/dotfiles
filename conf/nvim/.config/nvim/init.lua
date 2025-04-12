@@ -4,8 +4,7 @@
 -- ┃ ┇┗┛┻━┛┛━┛┗┛ ┇┛ ┇                      ┃ --
 -- ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛ --
 -- ----------------------------------------- --
--- Author: Daniel Berg                       --
--- Email: mail@roosta.sh                     --
+-- Maintainer: Daniel Berg <mail@roosta.sh>  --
 -- Repository: https://github.com/roosta/etc --
 -- ----------------------------------------- --
 

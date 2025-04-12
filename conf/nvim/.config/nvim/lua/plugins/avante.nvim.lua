@@ -12,9 +12,6 @@ return {
     hints = { enabled = false },
     claude = {
       model = 'claude-3-7-sonnet-20250219',
-      -- Disable tools for now (it's enabled by default) as it's causing rate-limit
-      -- problems with Claude, see more here:
-      -- https://github.com/yetone/avante.nvim/issues/1384
       disable_tools = true,
     },
   },
