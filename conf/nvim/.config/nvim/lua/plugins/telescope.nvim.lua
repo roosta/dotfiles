@@ -29,9 +29,6 @@ return {
         }
       }
     })
-    -- fzf
-    telescope.load_extension('fzf')
-
 
     -- git
     vim.keymap.set("n", "<leader>gC", builtin.git_commits, { desc = "Telescope project commits", silent = true })
@@ -53,6 +50,7 @@ return {
     vim.keymap.set("n", "<leader>?", builtin.keymaps, { desc = "Telescope normal keymappings", silent = true })
     vim.keymap.set("n", "z=", builtin.spell_suggest, { noremap = true, desc = "Telescope spell suggestions", silent = true })
 
+    -- Find note files in $HOME/notes
     vim.keymap.set("n", "<leader>o", function()
       require("telescope.builtin").find_files({
         cwd = "~/notes",
