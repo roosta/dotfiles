@@ -8,7 +8,6 @@ return {
   "dense-analysis/ale",
   config = function()
     vim.g.ale_linters = {
-      lua = {'lua_language_server'},
       javascript = {'eslint'}
     }
   end
