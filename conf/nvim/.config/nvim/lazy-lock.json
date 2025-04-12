@@ -32,7 +32,7 @@
   "plenary.nvim": { "branch": "master", "commit": "857c5ac632080dba10aae49dba902ce3abf91b35" },
   "quickfix-reflector.vim": { "branch": "master", "commit": "6a6a9e28e1713b9e9db99eec1e6672e5666c01b9" },
   "rainbow_csv": { "branch": "master", "commit": "3dbbfd7d17536aebfb80f571255548495574c32b" },
-  "render-markdown.nvim": { "branch": "main", "commit": "05e6a6d119f90b99829ecb7eb85428a226c0c05f" },
+  "render-markdown.nvim": { "branch": "main", "commit": "8bb0d4725cc4909a603158d44ff28b6158ad9278" },
   "rust.vim": { "branch": "master", "commit": "889b9a7515db477f4cb6808bef1769e53493c578" },
   "sideways.vim": { "branch": "main", "commit": "1dc47d2e0ba04da0f5e654f6b3bd65ce9ca8ce9f" },
   "sniprun": { "branch": "master", "commit": "151ada2c984aee1feb45c7e3c2abb19f597ecbd0" },
