@@ -9,7 +9,7 @@
 -- ----------------------------------------- --
 
 -- Define a augroup for general use
-local initgroup = vim.api.nvim_create_augroup("initgroup", { clear = true })
+vim.api.nvim_create_augroup("initgroup", { clear = true })
 
 -- Load modules
 require("config.options")
