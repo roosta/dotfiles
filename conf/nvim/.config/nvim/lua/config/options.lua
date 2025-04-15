@@ -33,12 +33,8 @@ vim.opt.hlsearch = true
 -- Linebreak
 vim.opt.wrap = true
 vim.opt.linebreak = true
-vim.opt.breakat = ' ^I!@*-+;:,./?' -- Define extra break chars
 vim.opt.breakindent = true
 vim.opt.showbreak = '↳ '
-
--- Status
--- vim.opt.showmode = false
 
 -- Local rc
 -- https://vimtricks.com/p/local-vimrc-files/
@@ -48,7 +44,8 @@ if vim.fn.getcwd():find('^' .. vim.fn.expand('~/src')) then
 end
 
 if vim.fn.executable('rg') == 1 then
-  vim.opt.grepprg = "rg --vimgrep --no-heading --smart-case --hidden --glob '!**/.git/*'"
+  vim.opt.grepprg =
+    "rg --vimgrep --no-heading --smart-case --hidden --glob '!**/.git/*'"
 end
 
 vim.opt.termguicolors = true
@@ -56,4 +53,5 @@ vim.opt.termguicolors = true
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 
+vim.opt.textwidth = 80
 --  vim: set ts=2 sw=2 tw=0 fdm=marker et :
