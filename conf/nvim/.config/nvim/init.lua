@@ -15,6 +15,7 @@ vim.api.nvim_create_augroup("initgroup", { clear = true })
 require("config.options")
 require("config.commands")
 require("config.keymaps")
+require("config.lsp")
 
  -- plugin management
 -- see lua/plugins for individual config files
