@@ -38,11 +38,11 @@ return {
     vim.keymap.set("n", "<leader>e", builtin.find_files, { desc = "Telescope find files", silent = true })
     vim.keymap.set("n", "<leader>/", builtin.live_grep, { desc = "Telescope live grep", silent = true })
     vim.keymap.set("n", "<leader>ss", builtin.current_buffer_fuzzy_find, { desc = "Telescope current buffer find", silent = true })
-    vim.keymap.set("n", "<leader>*", builtin.grep_string, { desc = "Telescope current buffer find", silent = true })
 
     -- jump
-    vim.keymap.set("n", "<leader>jI", builtin.tags, { desc = "Telescope project tags", silent = true })
-    vim.keymap.set("n", "<leader>jI", builtin.current_buffer_tags, { desc = "Telescope buffer tags", silent = true })
+    vim.keymap.set("n", "<leader>jI", builtin.lsp_workspace_symbols, { desc = "Telescope project symbols", silent = true })
+    vim.keymap.set("n", "<leader>ji", builtin.lsp_document_symbols, { desc = "Telescope buffer symbols", silent = true })
+    vim.keymap.set("n", "<leader>jj", builtin.treesitter, { desc = "Telescope treesitter", silent = true })
     vim.keymap.set("n", "<leader>mm", builtin.marks, { desc = "Telescope marks", silent = true })
     vim.keymap.set("n", "<leader>:", builtin.commands, { desc = "Telescope commands", silent = true })
     vim.keymap.set("n", "<leader>bb", builtin.buffers, { desc = "Telescope buffers", silent = true })
