@@ -184,6 +184,6 @@ alias paste="wl-paste"
 # example: type 'test.yml' opens vim with test.clj as active buffer.
 
 alias -s {yml,json,txt,tex,css,ts,js,html,md,handlebars,hbs}=nvim
-alias -s {com,net,org,sh,io}=firefox
+alias -s {com,net,org,io}=firefox
 
 # }}}
