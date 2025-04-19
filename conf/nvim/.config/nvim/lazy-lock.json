@@ -17,6 +17,7 @@
   "html5.vim": { "branch": "master", "commit": "485f2cd62162c81e56d8604b4c630f0b5ef69d1f" },
   "img-clip.nvim": { "branch": "main", "commit": "08a02e14c8c0d42fa7a92c30a98fd04d6993b35d" },
   "inline_edit.vim": { "branch": "main", "commit": "c87c49ab7583321065df63ef15d989d0d8208beb" },
+  "kitty-scrollback.nvim": { "branch": "main", "commit": "6c24f1979afe4c6b0310117b76d59d672224afd7" },
   "lazy.nvim": { "branch": "main", "commit": "6c3bda4aca61a13a9c63f1c1d1b16b9d3be90d7a" },
   "lightline.vim": { "branch": "master", "commit": "e358557e1a9f9fc860416c8eb2e34c0404078155" },
   "lspkind-nvim": { "branch": "master", "commit": "d79a1c3299ad0ef94e255d045bed9fa26025dab6" },
