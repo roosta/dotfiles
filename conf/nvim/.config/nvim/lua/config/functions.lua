@@ -2,10 +2,11 @@
 -- ├─ │ │││││   │ ││ ││││└─┐
 -- ┆  ┆─┘┆└┘└─┘ ┆ ┆┘─┘┆└┘──┘
 -- ─────────────────────────────────────────────────────────────────────────────
+-- Helper functions used in either keymaps or modes
 
 local functions = {}
 
--- Helper function for toggling colorcolumn
+-- Toggle colorcolumn
 function functions.toggle_colorcolumn(col)
   if vim.o.colorcolumn == "" then
     vim.o.colorcolumn = tostring(col)
@@ -44,7 +45,7 @@ function functions.append_modeline()
   if comment_string and comment_string ~= "" then
     commented_modeline = comment_string:gsub('%%s', modeline)
   else
-    -- Default to a common comment style if none is defined
+    -- no commentstring
     commented_modeline = "# " .. modeline
   end
 
