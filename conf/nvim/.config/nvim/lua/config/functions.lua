@@ -17,9 +17,10 @@ end
 
 -- Put current date
 function functions.put_date()
-  local timestamp = os.date('%a %Y-%m-%d %H:%M:%S%z')
+  local timestamp = tostring(os.date('%a %Y-%m-%d %H:%M:%S%z'))
   vim.api.nvim_put({timestamp}, 'l', true, true)
 end
+
 
 -- Append modeline after last line in buffer.
 function functions.append_modeline()
