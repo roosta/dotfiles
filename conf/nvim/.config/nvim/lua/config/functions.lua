@@ -7,12 +7,13 @@ local functions = {}
 
 -- Helper function for toggling colorcolumn
 function functions.toggle_colorcolumn(col)
-  if vim.opt.colorcolumn:get()[1] == nil then
-    vim.opt.colorcolumn = col
+  if vim.o.colorcolumn == "" then
+    vim.o.colorcolumn = tostring(col)
   else
-    vim.opt.colorcolumn = ""
+    vim.o.colorcolumn = ""
   end
 end
+
 
 -- Put current date
 function functions.put_date()
