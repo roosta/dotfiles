@@ -19,7 +19,7 @@ end, { expr = true })
 
 -- Toggle hlseach on and of
 vim.keymap.set('n', '<leader>sc', function()
-    vim.opt.hlsearch = not vim.opt.hlsearch:get()
+    vim.o.hlsearch = not vim.o.hlsearch
 end, { silent = true })
 
 -- switch to last buffer used.
