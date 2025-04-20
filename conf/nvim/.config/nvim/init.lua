@@ -17,8 +17,8 @@ require("config.commands")
 require("config.keymaps")
 require("config.lsp")
 
- -- plugin management
--- see lua/plugins for individual config files
+-- plugin management
+-- See ./lua/plugins for individual config files
 require("config.lazy")
 
 --  vim: set ts=2 sw=2 tw=0 fdm=marker et :
