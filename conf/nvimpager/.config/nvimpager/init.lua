@@ -21,5 +21,5 @@ vim.opt.showmode = false
 vim.opt.showcmd = false
 vim.opt.runtimepath:append(",~/src/srcery-vim")
 vim.opt.termguicolors = true
-
-vim.cmd("colorscheme srcery")
+vim.opt.modeline = false
+vim.cmd([[colorscheme srcery]])
