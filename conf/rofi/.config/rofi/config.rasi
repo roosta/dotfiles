@@ -1,19 +1,23 @@
-/* ┳━┓┏━┓┳━┓o */
-/* ┃┳┛┃ ┃┣━ ┃ */
-/* ┇┗┛┛━┛┇  ┇ */
+/**
+┌───────────────────────────────────────────┐
+│ ┳━┓┏━┓┳━┓o  ┏━┓┏━┓┏┓┓┳━┓o┏━┓              │
+│ ┃┳┛┃ ┃┣━ ┃  ┃  ┃ ┃┃┃┃┣━ ┃┃ ┳              │
+│ ┇┗┛┛━┛┇  ┇  ┗━┛┛━┛┇┗┛┇  ┇┇━┛              │
+└───────────────────────────────────────────┘
+- Maintainer: Daniel Berg <mail@roosta.sh>  -
+- Repo: https://github.com/roosta/etc       -
+---------------------------------------------
+**/
 
 configuration {
 
   /* modi: "combi,calc,clipmenu:env CM_LAUNCHER=rofi-script clipmenu"; */
-  modi: "combi";
-
-  /* Set the modi to combine in combi mode */
-  combi-modi: "window,drun,menu:~/scripts/rofi-menu.sh";
+  modes: "drun,window,menu:~/scripts/rofi-menu.sh";
 
   /* Location on screen */
   location: 1;
 
-  terminal: "alacritty";
+  terminal: "kitty";
 
   sidebar-mode: true;
 
@@ -46,14 +50,8 @@ configuration {
   /* Go to the next page */
   kb-page-next: "Page_Down";
 
-  font: "Iosevka 9";
 }
 
-@theme "~/src/srcery-gui/rofi/srcery_rofi.rasi"
+@theme "theme.rasi"
 
-window {
-  width: 20%;
-  height: 100%;
-}
-
-/* vim: set ts=2 sw=2 tw=0 fdm=marker ft=css et :*/
+/* vim: set ts=2 sw=2 tw=0 fdm=marker et :*/

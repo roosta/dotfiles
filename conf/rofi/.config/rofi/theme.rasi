@@ -1,0 +1,176 @@
+// ┌───────────────────────────────────────────┐
+// │ ┳━┓┏━┓┳━┓o  ┏┓┓┳ ┳┳━┓┏┏┓┳━┓               │
+// │ ┃┳┛┃ ┃┣━ ┃   ┃ ┃━┫┣━ ┃┃┃┣━                │
+// │ ┇┗┛┛━┛┇  ┇   ┇ ┇ ┻┻━┛┛ ┇┻━┛               │
+// └───────────────────────────────────────────┘
+// - Maintainer: Daniel Berg <mail@roosta.sh>  -
+// - Repo: https://github.com/roosta/etc       -
+// ---------------------------------------------
+
+@import "~/src/srcery-gui/rofi/srcery_colors.rasi"
+
+* {
+  // spacing: 2;
+  font: "Iosevka 9";
+  background-color: @xgray1;
+}
+
+window {
+  // @magenta, @blue
+  background-image: linear-gradient(45, #E02C6D, #2C78BF);
+  padding:    3;
+  background: @xgray1;
+  width: 30%;
+  height: 100%;
+}
+
+mainbox {
+  // padding: 12;
+}
+
+message {
+  margin: 12px 0 0;
+  // border:  1px 0px 0px ;
+  // padding: 1px 0px 0px ;
+}
+
+textbox {
+  highlight: @red;
+  text-color: @brightwhite;
+}
+
+listview {
+  fixed-height: false;
+  background-color: transparent;
+  scrollbar: true;
+  margin: 12px;
+  padding: 0;
+  // margin: 8px 0 0;
+}
+
+element {
+  // border:  0;
+  padding: 8;
+  border-radius: 2px;
+}
+
+element-icon {
+  size: 2em;
+  margin: 0px 4px 0 0px;
+  background-color: transparent;
+  vertical-align: 0.5;
+}
+
+element-text {
+  background-color: inherit;
+  text-color:       inherit;
+}
+element normal.normal {
+  background-color: @xgray1;
+  text-color:       @brightwhite;
+}
+
+element normal.urgent {
+  background-color: @orange;
+  text-color:       @black;
+}
+
+element normal.active {
+  background-color: @xgray1;
+  text-color:       @yellow;
+}
+
+element selected.normal {
+  background-color: @xgray4;
+  text-color:       @brightwhite;
+}
+
+element selected.urgent {
+  background-color: @brightorange;
+  text-color:       @black;
+}
+
+element selected.active {
+  background-color: @xgray4;
+  text-color:       @yellow;
+}
+
+element alternate.normal {
+  background-color: @xgray1;
+  text-color:       @brightwhite;
+}
+
+element alternate.urgent {
+  background-color: @orange;
+  text-color:       @black;
+}
+
+element alternate.active {
+  background-color: @xgray3;
+  text-color:       @yellow;
+}
+
+scrollbar {
+  width: 6px;
+  handle-color: @xgray3;
+  handle-width: 6px;
+  padding: 0 0 0 6px;
+}
+
+button {
+  text-color: @brightblack;
+  padding: 5px;
+  background-color: @xgray2;
+  border-radius: 2px;
+  margin: 0 2px;
+  cursor: pointer;
+}
+
+button selected {
+  background-color: @xgray4;
+  text-color:       @brightwhite;
+}
+
+mode-switcher {
+  background-color: @xgray1;
+  padding: 8px;
+  border-radius: 2px;
+  border: 4px;
+  border-color: @xgray2;
+}
+overlay {
+  background: @red;
+}
+
+inputbar {
+  text-color: @brightwhite;
+  margin: 12px 12px 0 12px;
+  background-color: @xgray3;
+  padding: 2px ;
+  border: 3px solid;
+  border-radius: 2px;
+  border-color: @xgray3;
+  spacing:    8px;
+  // children:   [ prompt,textbox-prompt-colon,entry,case-indicator ];
+  children:   [ prompt, entry ];
+}
+
+entry {
+  text-color: @brightwhite;
+  placeholder: "Search...";
+  border-radius: 2px;
+  padding: 8;
+  placeholder-color: @brightblack;
+}
+
+prompt, entry, element-text, element-icon {
+    vertical-align: 0.5;
+}
+
+prompt {
+  text-color: @brightwhite;
+  padding: 8;
+  background-color: @xgray3;
+}
+
+// vim: set ts=2 sw=2 tw=80 fdm=marker ft=rasi et :
