@@ -1,53 +1,112 @@
+/**
+┌───────────────────────────────────────────┐
+│ ┓ ┳┳━┓┓ ┳┳━┓┳━┓┳━┓  ┓━┓┏┓┓┓ ┳┳  ┳━┓       │
+│ ┃┃┃┃━┫┗┏┛┃━┃┃━┫┃┳┛  ┗━┓ ┃ ┗┏┛┃  ┣━        │
+│ ┗┻┇┛ ┇ ┇ ┇━┛┛ ┇┇┗┛  ━━┛ ┇  ┇ ┇━┛┻━┛       │
+└───────────────────────────────────────────┘
+- Maintainer: Daniel Berg <mail@roosta.sh>  -
+- Repo: https://github.com/roosta/etc       -
+---------------------------------------------
+**/
+
+/* https://github.com/srcery-colors/srcery-gui/blob/master/gtk/srcery.css */
 @import url("../../src/srcery-gui/gtk/srcery.css");
 
 * {
-    font-family:  Iosevka, Symbols Nerd Font, Roboto, Helvetica, Arial, sans-serif;
+  /* https://github.com/be5invis/Iosevka */
+  font-family:  Iosevka, Symbols Nerd Font, Roboto, Helvetica, Arial, sans-serif;
 }
 
-window#waybar.quaternary {
-  font-size: 1rem;
-}
-
-/* window#waybar.fullscreen { */
-/*   background: @srcery-xgray1; */
-/* } */
-
+/* Bar, outputs */
 window#waybar {
-    color: @srcery-bright-white;
-    font-size: 0.8rem;
-    background: @srcery-xgray2;
+  color: @srcery-bright-white;
+  background: @srcery-xgray2;
 }
 
-window#waybar #window {
-  color: @srcery-white;
-  font-size: 0.8rem;
-}
-
-window#waybar.quaternary #window {
-  font-size: 1rem;
+window#waybar.quaternary * {
+  font-size: 1.5rem;
 }
 
 window#waybar.hidden {
-    opacity: 0.2;
+  opacity: 0.2;
 }
 
+/* Groups */
+#window,
+#indicators,
+#audio,
+#meters {
+  margin: 4px 2px;
+  padding: 0 8px;
+  border-radius: 2px;
+  background: @srcery-xgray4;
+}
+
+/* items */
+#backlight,
+#battery,
+#clock,
+#cpu,
+#custom-media,
+#custom-notification,
+#custom-rofi
+#disk,
+#idle_inhibitor,
+#keyboard-state,
+#language,
+#memory,
+#mode,
+#network,
+#privacy,
+#pulseaudio,
+#scratchpad,
+#temperature,
+#tray,
+#wireplumber {
+  padding: 0 2px;
+  margin: 0px 4px;
+  color: @srcery-bright-white;
+}
+
+
 button {
-    /* Use box-shadow instead of border so the text isn't offset */
-    /* box-shadow: inset 0 -3px transparent; */
-    /* Avoid rounded borders under each button name */
-    border: none;
-    border-radius: 0;
+  /* Use box-shadow instead of border so the text isn't offset */
+  box-shadow: inset 0 -3px transparent;
+  /* Avoid rounded borders under each button name */
+  border: none;
+  border-radius: 0px;
 }
 
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 button:hover {
-    background: inherit;
-    /* box-shadow: inset 0 -3px #ffffff; */
+  /* background: inherit; */
+  /* box-shadow: inset 0 -3px #ffffff; */
+}
+
+@keyframes blink {
+  to {
+    background-color: #ffffff;
+    color: #000000;
+  }
+}
+
+/* Hyprland: {{{ */
+
+window#waybar #window {
+  color: @srcery-bright-white;
+  font-size: 0.75rem;
+}
+
+#workspaces {
+  margin: 4px 2px;
 }
 
 #workspaces button {
-    padding: 0 5px;
-    color: @srcery-bright-white;
+  padding: 2px 8px 0px 8px;
+  margin: 0 2px 0px 2px;
+  color: @srcery-white;
+  border-radius: 2px;
+  font-size: 1rem;
 }
 
 #workspaces button.active:hover, button.visible:hover {
@@ -58,26 +117,79 @@ button:hover {
 }
 
 #workspaces button.active {
-    background: @srcery-xgray4;
+  background: @srcery-xgray4;
+  color: @srcery-bright-magenta;
 }
 
 
 #workspaces button.urgent {
-    background-color: @srcery-yellow;
-    color: @srcery-black;
+  color: @srcery-yellow;
 }
 
 window#waybar #submap {
-    background-color: @srcery-white;
-    color: @srcery-black;
+  background-color: @srcery-white;
+  color: @srcery-black;
 }
+
+/* window#waybar.fullscreen { */
+/*   background: @srcery-xgray1; */
+/* } */
+
+
+/* }}} */
+/* Indicators: {{{  */
+
+#privacy { }
+#network { }
+#idle_inhibitor { }
+
+#indicators {
+  background: @srcery-xgray4;
+}
+
+#network.disconnected {
+  color: @srcery-bright-orange;
+  font-weight: bold;
+}
+
+
+#idle_inhibitor:hover {
+  background-color: @srcery-xgray3;
+}
+
+#idle_inhibitor.activated {
+  color: @srcery-magenta;
+}
+
+#privacy-item {
+  color: @srcery-bright-white;
+}
+
+#privacy-item.screenshare {
+  color: @srcery-bright-orange;
+}
+
+#privacy-item.audio-in {
+  color: @srcery-yellow;
+}
+
+#privacy-item.audio-out {
+}
+
+#custom-notification {
+}
+
+#custom-notification:hover {
+  background-color: @srcery-xgray3;
+}
+
+/* }}} */
+/* Menus: {{{ */
 
 #custom-power {
   color: @srcery-bright-white;
-  font-size: 15px;
-  padding-right: 8px;
-  padding-left: 8px;
 }
+
 #power-delimiter {
   background-color: @srcery-bright-white;
 }
@@ -86,244 +198,137 @@ window#waybar #submap {
   background-color: @srcery-xgray3;
 }
 
-/* #mode * { */
-/*   color: @srcery-black; */
-/* } */
-
-#clock,
-#battery,
-#cpu,
-#memory,
-#disk,
-#temperature,
-#backlight,
-#network,
-#pulseaudio,
-#wireplumber,
-#custom-media,
-#tray,
-#mode,
-#idle_inhibitor,
-#scratchpad,
-#power-profiles-daemon,
-#mpd {
-    padding: 0 10px;
-    color: @srcery-bright-white;
+#custom-rofi {
+  border-radius: 2px;
+  padding: 0px 8px;
+  margin: 4px 0 4px 4px;
+}
+#custom-rofi:hover {
+  background-color: @srcery-xgray4;
 }
 
-#window,
-#workspaces {
-    margin: 0 4px;
-}
+/* }}} */
+/* Clock {{{ */
 
-/* If workspaces is the leftmost module, omit left margin */
-.modules-left > widget:first-child > #workspaces {
-    margin-left: 0;
-}
-
-/* If workspaces is the rightmost module, omit right margin */
-.modules-right > widget:last-child > #workspaces {
-    margin-right: 0;
+#clock {
+  font-size: 0.8rem;
 }
 
 #clock:hover {
-    background-color: @srcery-xgray3;
+  background-color: @srcery-xgray3;
 }
 
-#battery {
-    background-color: #ffffff;
-    color: #000000;
-}
+/* }}} */
+/* Audio: {{{ */
 
-#battery.charging, #battery.plugged {
-    color: #ffffff;
-    background-color: #26A65B;
-}
-
-@keyframes blink {
-    to {
-        background-color: #ffffff;
-        color: #000000;
-    }
-}
-
-label:focus {
-    background-color: #000000;
-}
-
-#cpu {
-    color: @srcery-bright-white;
-}
-
-#memory {
-}
-
-#disk {
-    background-color: #964B00;
-}
-
-#backlight {
-    background-color: #90b1b1;
-}
-
-#network {
-}
-
-#network.disconnected {
-    color: @srcery-bright-orange;
-    font-weight: bold;
-}
-
-#pulseaudio {
-    color: @srcery-bright-white;
-}
+#audio { }
+#pulseaudio { }
 
 #pulseaudio:hover {
-    background-color: @srcery-xgray3;
+  background-color: @srcery-xgray3;
 }
 
-#pulseaudio.muted {
-    background-color: @srcery-white;
-    color: @srcery-black;
+#pulseaudio.module.output.muted {
+  color: @srcery-orange;
+  /* padding-right: 2px; */
 }
 
-#wireplumber {
-    background-color: #fff0f5;
-    color: #000000;
+#pulseaudio.module.input.source-muted {
+  color: @srcery-bright-yellow;
 }
 
-#wireplumber.muted {
-    background-color: #f53c3c;
+#pulseaudio-slider {
+  padding: 0;
 }
 
-#custom-media {
-    color: @srcery-bright-white;
-    background-color: transparent;
-    min-width: 100px;
+#pulseaudio-slider slider {
+  min-height: 0px;
+  min-width: 0px;
+  opacity: 0;
+  background-image: none;
+  border: none;
+  box-shadow: none;
 }
 
-#custom-media.custom-spotify {
-    background-color: #66cc99;
+#pulseaudio-slider trough {
+  min-height: 10px;
+  min-width: 80px;
+  border-radius: 2px;
+  background-color: @srcery-black;
 }
 
-#custom-media.custom-vlc {
-    background-color: #ffa000;
+#pulseaudio-slider highlight {
+  min-width: 10px;
+  border-radius: 2px;
+  background-color: @srcery-bright-green;
 }
 
-#temperature {
-}
+/* }}} */
+/* Keyboard {{{ */
 
-#temperature.critical {
-    color: @srcery-bright-orange;
-    font-weight: bold;
-}
-
-#tray {
-    background-color: @srcery-xgray3
-}
-
-#tray > .passive {
-    -gtk-icon-effect: dim;
-}
-
-#tray > .needs-attention {
-    -gtk-icon-effect: highlight;
-    background-color: #eb4d4b;
-}
-
-#idle_inhibitor {
-}
-
-#idle_inhibitor:hover {
-    background-color: @srcery-xgray3;
-}
-
-#idle_inhibitor.activated {
-    background-color: @srcery-white;
-    color: @srcery-black;
-}
-
-#mpd {
-    background-color: #66cc99;
-    color: #2a5c45;
-}
-
-#mpd.disconnected {
-    background-color: #f53c3c;
-}
-
-#mpd.stopped {
-    background-color: #90b1b1;
-}
-
-#mpd.paused {
-    background-color: #51a37a;
-}
-
-#language {
-    color: @srcery-bright-white;
-    padding: 0 10px;
-    font-size: 0.8rem;
-    /* min-width: 16px; */
-}
+#language { }
 
 #language:hover {
-    background: @srcery-xgray3;
+  background: @srcery-xgray3;
 }
-#language.no {
-    color: @srcery-bright-blue;
+
+#language > label {
+  color: @srcery-bright-blue;
 }
 
 #language.no:hover {
-    background: @srcery-xgray3;
+  background: @srcery-xgray3;
 }
 
 #keyboard-state {
-    color: @srcery-bright-white;
-    margin: 0 5px;
+  color: @srcery-bright-white;
+  font-size: 1.4em;
 }
 
 #keyboard-state > label {
-    padding: 0 5px;
 }
 
 #keyboard-state > label.locked {
-    color: @srcery-yellow;
+  color: @srcery-yellow;
 }
 
-#scratchpad {
-    background: @srcery-xgray3
+/* }}} */
+/*  Meters {{{ */
+
+#meters {
+  margin-right: 4px;
+
+}
+#temperature { }
+
+#temperature.critical {
+  color: @srcery-red;
 }
 
-#scratchpad.empty {
+#cpu {
+  color: @srcery-bright-blue;
 }
 
-#privacy {
-    padding: 0;
+#memory {
+  color: @srcery-bright-green;
 }
 
-#privacy-item {
-    padding: 0 5px;
-    color: @srcery-bright-white;
+/* }}} */
+/* Tray: {{{ */
+
+#tray {
+  background-color: @srcery-xgray3
 }
 
-#privacy-item.screenshare {
-    color: @srcery-bright-orange;
+#tray > .passive {
+  -gtk-icon-effect: dim;
 }
 
-#privacy-item.audio-in {
-    color: @srcery-yellow;
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+  background-color: @srcery-bright-magenta;
 }
 
-#privacy-item.audio-out {
-}
+/* }}} */
 
-#custom-notification {
-  font-size: 15px;
-  padding-right: 8px;
-  padding-left: 8px;
-}
-
-#custom-notification:hover {
-  background-color: @srcery-xgray3;
-}
+/* vim: set ts=2 sw=2 tw=80 fdm=marker et : */
