@@ -7,6 +7,7 @@
 return {
   "MeanderingProgrammer/render-markdown.nvim",
   ft = { "markdown", "Avante" },
+  lazy = true,
   opts = {
     file_types = { "markdown", "Avante" },
     -- heading = { border = true },
