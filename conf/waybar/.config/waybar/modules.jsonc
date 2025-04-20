@@ -1,0 +1,306 @@
+// ┌───────────────────────────────────────────┐
+// │ ┓ ┳┳━┓┓ ┳┳━┓┳━┓┳━┓  ┏┏┓┏━┓┳━┓┳ ┓┳  ┳━┓┓━┓ │
+// │ ┃┃┃┃━┫┗┏┛┃━┃┃━┫┃┳┛  ┃┃┃┃ ┃┃ ┃┃ ┃┃  ┣━ ┗━┓ │
+// │ ┗┻┇┛ ┇ ┇ ┇━┛┛ ┇┇┗┛  ┛ ┇┛━┛┇━┛┇━┛┇━┛┻━┛━━┛ │
+// └───────────────────────────────────────────┘
+// - Maintainer: Daniel Berg <mail@roosta.sh>  -
+// - Repo: https://github.com/roosta/etc       -
+// ---------------------------------------------
+{
+  // Hyprland: {{{
+  // --------------------------------------------------------------------------
+
+  "hyprland/workspaces": {
+    "all-outputs": false,
+    "sort-by": "default",
+    "format": "<span size=\"medium\">{icon}</span> <span color=\"#FCE8C3\">{windows}</span>",
+    "format-empty": "{icon}",
+    "window-rewrite-default": "",
+    "format-icons": {
+      "urgent": ""
+    },
+    "format-icons": {
+      "1": "󰬘",
+      "2": "󰬞",
+      "3": "󰬌",
+      "4": "󰎤",
+      "5": "󰎧",
+      "6": "󰎪",
+      "7": "󰎭",
+      "8": "󰬈",
+      "9": "󰬚",
+      "10": "󰬋",
+      "11": "󱊫",
+      "12": "󱊬",
+      "13": "󱊭",
+      "14": "󱊮",
+      "15": "󱊯",
+      "16": "󱊰",
+      "17": "󱊱",
+      "18": "󱊲",
+      "19": "󰎱",
+      "20": "󰎳",
+      "21": "󰎶",
+      "22": "󰎹",
+      "23": "󰎼",
+      "24": "󰎡"
+    },
+    "window-rewrite": {
+      "class<firefox.*>": "",
+      "class<thunderbird>": "",
+      "class<.*chrome.*>": "",
+      "class<spotify>": "",
+      "class<libreoffice-calc>": "",
+      "class<gimp.*>": "",
+      "class<org.gnome.Nautilus>": "",
+      "class<.*discord>": "",
+      "class<alacritty>": "",
+      "class<kitty>": "",
+      "class<steam>": "",
+      "class<reaper>": "",
+      "class<.*bitwig.*>": "",
+      "class<slack>": "",
+      "class<evince>": "",
+      "class<gpick>": "",
+      "class<.*shortwave>": "",
+      "class<pavucontrol>": "",
+      "class<gedit>": "",
+      "class<.*lutris>": "󱎓",
+      "class<.*minecraft>": "󰍳",
+      "class<org.gnome.software>": "󰀻",
+      "class<.*flatseal>": "",
+      "class<.*chatboxapp.*>": "󱜸",
+      "class<com.obsproject.studio>": ""
+    }
+  },
+
+  "hyprland/window": {
+    "max-length": 80,
+    "icon": true,
+    "icon-size": 15,
+    "format": "{title}",
+    "separate-outputs": true
+  },
+
+  "tray": {
+    "spacing": 5,
+    "icon-size": 15
+  },
+
+  "hyprland/submap": {
+    "format": "   {} "
+  },
+
+  // TODO: Convert
+  "sway/scratchpad": {
+    "format": "{icon} {count}",
+    "show-empty": false,
+    "format-icons": ["", " "],
+    "tooltip": true,
+    "tooltip-format": "{app}: {title}"
+  },
+
+  // }}}
+  // Meters: {{{
+  // --------------------------------------------------------------------------
+
+  "group/meters": {
+    "orientation": "horizontal",
+    "modules": [
+      "cpu",
+      "memory",
+      "temperature"
+    ]
+  },
+  "cpu": {
+    "interval": 1,
+    "format": "{icon}",
+    "rotate": 270,
+    "format-icons": ["󰝦","󰪞","󰪟","󰪠","󰪡","󰪢","󰪣","󰪤","󰪥"]
+  },
+  "memory": {
+    "interval": 1,
+    "rotate": 270,
+    "format": "{icon}",
+    "format-icons": ["󰝦","󰪞","󰪟","󰪠","󰪡","󰪢","󰪣","󰪤","󰪥"],
+    "max-length": 10
+  },
+  "temperature": {
+    "thermal-zone": 2,
+    "format-critical": "{icon}",
+    "interval": 1,
+    "rotate": 270,
+    "critical-threshold": 90,
+    "format": "{icon}",
+    "format-icons": ["󰝦","󰪞","󰪟","󰪠","󰪡","󰪢","󰪣","󰪤","󰪥"]
+  },
+
+  // }}}
+  // Custom: {{{
+  // --------------------------------------------------------------------------
+  "custom/power": {
+    "format" : "󰐥",
+    "tooltip": false,
+    "menu": "on-click",
+    "menu-file": "$HOME/.config/waybar/power-menu.xml", // Menu file in resources folder
+    "menu-actions": {
+      "shutdown": "$HOME/scripts/shutdown.sh",
+      "reboot": "$HOME/scripts/reboot.sh",
+      "logout": "$HOME/scripts/logout.sh",
+      "lock": "$HOME/scripts/lock.sh",
+      "suspend": "$HOME/scripts/suspend.sh",
+      "hibernate": "$HOME/scripts/hibernate.sh"
+    }
+  },
+  "custom/rofi": {
+    "format": "",
+    "on-click": "rofi -show combi -show-icons"
+  },
+
+  "custom/notification": {
+    "tooltip": false,
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "<span foreground='#EF2F27'><sup></sup></span>",
+      "none": "",
+      "dnd-notification": "<span foreground='#EF2F27'><sup></sup></span>",
+      "dnd-none": "",
+      "inhibited-notification": "<span foreground='#EF2F27'><sup></sup></span>",
+      "inhibited-none": "",
+      "dnd-inhibited-notification": "<span foreground='#EF2F27'><sup></sup></span>",
+      "dnd-inhibited-none": ""
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+  },
+
+  // TODO: Fix
+  "custom/updates": {
+    // "exec-if": "which waybar-module-pacman-updates",
+    // "exec": "waybar-module-pacman-updates --interval-seconds 5 --network-interval-seconds 300"
+    "format": "{icon} {}",
+    "return-type": "json",
+    "format-icons": {
+      "has-updates": "󱍷 ",
+      "updated": "󰂪 "
+    }
+  },
+
+  // }}}
+  // Indicators: {{{
+  // --------------------------------------------------------------------------
+
+  "group/indicators": {
+    "orientation": "horizontal",
+    "modules": [
+      "keyboard-state",
+      "hyprland/language",
+      "privacy",
+      "idle_inhibitor",
+      "custom/notification"
+    ]
+  },
+
+  "hyprland/language": {
+    "format-en": "",
+    "format-no": "<span color=\"#FBB829\">󰌏</span>",
+    "on-click": "hyprctl switchxkblayout keychron-keychron-q6 next"
+  },
+
+  "keyboard-state": {
+    "capslock": true,
+    "format": "{icon}",
+    "format-icons": {
+      "locked": "󰌎",
+      "unlocked": ""
+    }
+  },
+
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "",
+      "deactivated": ""
+    }
+  },
+  // }}}
+  // Audio: {{{
+
+  "group/audio": {
+    "orientation": "horizontal",
+    "modules": [
+      "pulseaudio#output",
+      "pulseaudio/slider",
+      "pulseaudio#input"
+    ]
+  },
+
+  "pulseaudio#input": {
+    "format": "{format_source}",
+    "format-source": "",
+    "format-source-muted": "",
+    "on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
+    "on-click-right": "pavucontrol"
+
+  },
+  "pulseaudio#output": {
+    "format": "{icon}",
+    "format-muted": " ",
+    "format-source": "",
+    "format-icons": {
+      "headset": "" ,
+      "default": "󰓃"
+    },
+    "on-click": "~/scripts/toggle-sinks.sh 'alsa_output.usb-SteelSeries_SteelSeries_Arctis_7-00.stereo-game' 'alsa_output.pci-0000_00_1b.0.analog-stereo'",
+    "on-click-right": "pavucontrol",
+    "on-click-middle": "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
+
+  },
+  "pulseaudio/slider": {
+    "min": 0,
+    "max": 100,
+    "orientation": "horizontal"
+  },
+
+  "privacy": {
+    "icon-spacing": 4,
+    "icon-size": 18,
+    "transition-duration": 250,
+    "modules": [
+      {
+        "type": "screenshare",
+        "tooltip": true,
+        "tooltip-icon-size": 24
+      },
+      {
+        "type": "audio-out",
+        "tooltip": true,
+        "tooltip-icon-size": 24
+      },
+      {
+        "type": "audio-in",
+        "tooltip": true,
+        "tooltip-icon-size": 18
+      }
+    ]
+  },
+
+  // }}}
+  // Various: {{{
+
+  "clock": {
+      // "timezone": "America/New_York",
+      // "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+      "format": "{:%H:%M}",
+      "tooltip": false,
+      "format-alt": " {:%A %d. %B %Y   %H:%M}"
+  }
+
+  // }}}
+}
+
+// vim: set ts=2 sw=2 tw=80 fdm=marker et :

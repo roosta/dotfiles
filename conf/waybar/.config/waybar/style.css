@@ -296,7 +296,7 @@ window#waybar #submap {
 /*  Meters {{{ */
 
 #meters {
-  margin-right: 4px;
+  margin-right: 8px;
 
 }
 #temperature { }

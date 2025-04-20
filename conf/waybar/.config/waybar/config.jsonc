@@ -1,236 +1,36 @@
+// ┌───────────────────────────────────────────┐
+// │ ┓ ┳┳━┓┓ ┳┳━┓┳━┓┳━┓  ┏━┓┏━┓┏┓┓┳━┓o┏━┓      │
+// │ ┃┃┃┃━┫┗┏┛┃━┃┃━┫┃┳┛  ┃  ┃ ┃┃┃┃┣━ ┃┃ ┳      │
+// │ ┗┻┇┛ ┇ ┇ ┇━┛┛ ┇┇┗┛  ┗━┛┛━┛┇┗┛┇  ┇┇━┛      │
+// └───────────────────────────────────────────┘
+// - Maintainer: Daniel Berg <mail@roosta.sh>  -
+// - Repo: https://github.com/roosta/etc       -
+// ---------------------------------------------
 [
-// Primary {{{
-  {
-    // "layer": "top", // Waybar at top layer
-    // "position": "bottom", // Waybar position (top|bottom|left|right)
-    // "height": 10, // Waybar height (to be removed for auto height)
-    // "width": 1280, // Waybar width
-    // "spacing": 4, // Gaps between modules (4px)
-    // Choose the order of the modules
-    // "modules-center": [
-    //   "sway/window"
-    // ],
+  { // Primary monitor
+    // ------------------------------------------------------------------------
     "output": "DP-3",
     "name": "primary",
     "include": [
-      "~/.config/waybar/shared-modules.jsonc"
+      "~/.config/waybar/modules.jsonc"
     ],
     "modules-center": [
       "clock"
     ],
-    "group/indicators": {
-      "orientation": "horizontal",
-      "modules": [
-        "keyboard-state",
-        "hyprland/language",
-        "privacy",
-        "idle_inhibitor",
-        "custom/notification"
-      ]
-    },
-    "group/audio": {
-      "orientation": "horizontal",
-      "modules": [
-        "pulseaudio#output",
-        "pulseaudio/slider",
-        "pulseaudio#input"
-      ]
-    },
-    "group/meters": {
-      "orientation": "horizontal",
-      "modules": [
-        "cpu",
-        "memory",
-        "temperature"
-      ]
-    },
     "modules-left": [
       "custom/rofi",
       "hyprland/workspaces",
       "hyprland/submap",
       "hyprland/window"
-      // "custom/media",
-      // "sway/scratchpad"
     ],
     "modules-right": [
       "group/indicators",
       "group/audio",
       "group/meters"
-      // "network",
-      // "custom/updates",
-      // "custom/power"
-    ],
-    // Modules configuration
-    "keyboard-state": {
-      "capslock": true,
-      "format": "{icon}",
-      "format-icons": {
-        "locked": "󰌎",
-        "unlocked": ""
-      }
-    },
-    "custom/rofi": {
-      "format": "",
-      "on-click": "rofi -show combi -show-icons"
-    },
-    "hyprland/submap": {
-      "format": "   {} "
-    },
-
-    "hyprland/language": {
-      "format-en": "",
-      "format-no": "<span color=\"#FBB829\">󰌏</span>",
-      "on-click": "hyprctl switchxkblayout keychron-keychron-q6 next"
-    },
-    "sway/scratchpad": {
-      "format": "{icon} {count}",
-      "show-empty": false,
-      "format-icons": ["", " "],
-      "tooltip": true,
-      "tooltip-format": "{app}: {title}"
-    },
-    "idle_inhibitor": {
-      "format": "{icon}",
-      "format-icons": {
-        "activated": "",
-        "deactivated": ""
-      }
-    },
-    "clock": {
-        // "timezone": "America/New_York",
-        // "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format": "{:%H:%M}",
-        "tooltip": false,
-        "format-alt": " {:%A %d. %B %Y   %H:%M}"
-    },
-    "cpu": {
-      "interval": 1,
-      "format": "{icon}",
-      "rotate": 270,
-      "format-icons": ["󰝦","󰪞","󰪟","󰪠","󰪡","󰪢","󰪣","󰪤","󰪥"]
-    },
-    "memory": {
-      "interval": 1,
-      "rotate": 270,
-      "format": "{icon}",
-      "format-icons": ["󰝦","󰪞","󰪟","󰪠","󰪡","󰪢","󰪣","󰪤","󰪥"],
-      "max-length": 10
-    },
-    "temperature": {
-      "thermal-zone": 2,
-      "format-critical": "{icon}",
-      "interval": 1,
-      "rotate": 270,
-      "critical-threshold": 90,
-      "format": "{icon}",
-      "format-icons": ["󰝦","󰪞","󰪟","󰪠","󰪡","󰪢","󰪣","󰪤","󰪥"]
-    },
-    "network": {
-        // "tooltip-format": "{ipaddr}/{cidr} ",
-        // "format-linked": "{ifname} (No IP) ",
-        // "format-disconnected": "Disconnected ⚠",
-        // "format-alt": "󰛳  {ifname}: {ipaddr}/{cidr}"
-        "interface": "tun0",
-        "format-ethernet": "󰱓 VPN",
-        "format-disconnected": "󰅛 VPN",
-        "tooltip-format": "󰛳  {ifname}: {ipaddr}/{cidr}",
-        "tooltip-format-disconnected": "Disconnected ⚠"
-    },
-
-    "pulseaudio#input": {
-        "format": "{format_source}",
-        "format-source": "",
-        "format-source-muted": "",
-        "on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
-        "on-click-right": "pavucontrol"
-
-    },
-    "pulseaudio#output": {
-        "format": "{icon}",
-        "format-muted": " ",
-        "format-source": "",
-        "format-icons": {
-          "headset": "" ,
-          "default": "󰓃"
-        },
-        "on-click": "~/scripts/toggle-sinks.sh 'alsa_output.usb-SteelSeries_SteelSeries_Arctis_7-00.stereo-game' 'alsa_output.pci-0000_00_1b.0.analog-stereo'",
-        "on-click-right": "pavucontrol",
-        "on-click-middle": "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
-
-    },
-    "pulseaudio/slider": {
-      "min": 0,
-      "max": 100,
-      "orientation": "horizontal"
-    },
-    "custom/media": {
-      "format": "{icon} {}",
-      "return-type": "json",
-      "max-length": 40,
-      "format-icons": {
-        "spotify": "",
-        "default": "🎜"
-      },
-      "escape": true,
-      // "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
-      "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
-    },
-    "privacy": {
-      "icon-spacing": 4,
-      "icon-size": 18,
-      "transition-duration": 250,
-      "modules": [
-        {
-          "type": "screenshare",
-          "tooltip": true,
-          "tooltip-icon-size": 24
-        },
-        {
-          "type": "audio-out",
-          "tooltip": true,
-          "tooltip-icon-size": 24
-        },
-        {
-          "type": "audio-in",
-          "tooltip": true,
-          "tooltip-icon-size": 18
-        }
-      ]
-    },
-    "custom/updates": {
-      "format": "{icon} {}",
-      "return-type": "json",
-      "format-icons": {
-        "has-updates": "󱍷 ",
-        "updated": "󰂪 "
-      }
-      // "exec-if": "which waybar-module-pacman-updates",
-      // "exec": "waybar-module-pacman-updates --interval-seconds 5 --network-interval-seconds 300"
-    },
-    "custom/notification": {
-      "tooltip": false,
-      "format": "{icon}",
-      "format-icons": {
-        "notification": "<span foreground='#EF2F27'><sup></sup></span>",
-        "none": "",
-        "dnd-notification": "<span foreground='#EF2F27'><sup></sup></span>",
-        "dnd-none": "",
-        "inhibited-notification": "<span foreground='#EF2F27'><sup></sup></span>",
-        "inhibited-none": "",
-        "dnd-inhibited-notification": "<span foreground='#EF2F27'><sup></sup></span>",
-        "dnd-inhibited-none": ""
-      },
-      "return-type": "json",
-      "exec-if": "which swaync-client",
-      "exec": "swaync-client -swb",
-      "on-click": "swaync-client -t -sw",
-      "on-click-right": "swaync-client -d -sw",
-      "escape": true
-    }
+    ]
   },
-  // }}}
-  // Secondary {{{
-  {
+  { // Secondary
+    // ------------------------------------------------------------------------
     "output": "DP-1",
     "name": "secondary",
     "height": 24,
@@ -246,13 +46,12 @@
       "custom/power"
     ]
   },
-  // }}}
-  // Tertiary {{{
-  {
+  { // Tertiary Monitor
+    // ------------------------------------------------------------------------
     "output": "DP-2",
     "name": "tertiary",
     "include": [
-      "~/.config/waybar/shared-modules.jsonc"
+      "~/.config/waybar/modules.jsonc"
     ],
     "modules-right": [
       "hyprland/workspaces"
@@ -261,15 +60,14 @@
       "hyprland/window"
     ]
   },
-  // }}}
-  // Quaternary {{{
-  {
+  { // Quaternary Monitor
+    // ------------------------------------------------------------------------
     "output": "HDMI-A-1",
     "name": "quaternary",
     "height": 30,
     "position": "bottom",
     "include": [
-      "~/.config/waybar/shared-modules.jsonc"
+      "~/.config/waybar/modules.jsonc"
     ],
     "modules-left": [
       "hyprland/workspaces",
@@ -279,7 +77,6 @@
       "clock"
     ]
   }
-  // }}}
 ]
 
 // vim: set ts=2 sw=2 tw=0 fdm=marker et :
