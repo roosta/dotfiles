@@ -1,28 +1,27 @@
-/* vim: set ts=2 sw=2 tw=0 fdm=marker ft=css et :*/
 /* ┳━┓┏━┓┳━┓o */
 /* ┃┳┛┃ ┃┣━ ┃ */
 /* ┇┗┛┛━┛┇  ┇ */
 
 configuration {
 
-	/* modi: "combi,calc,clipmenu:env CM_LAUNCHER=rofi-script clipmenu"; */
-	modi: "combi";
+  /* modi: "combi,calc,clipmenu:env CM_LAUNCHER=rofi-script clipmenu"; */
+  modi: "combi";
 
   /* Set the modi to combine in combi mode */
-	combi-modi: "window,drun,menu:~/scripts/rofi-menu.sh";
+  combi-modi: "window,drun,menu:~/scripts/rofi-menu.sh";
 
   /* Location on screen */
-	location: 1;
+  location: 1;
 
-	terminal: "alacritty";
+  terminal: "alacritty";
 
-	sidebar-mode: true;
+  sidebar-mode: true;
 
   /* Accept entry */
-	kb-accept-entry: "Return,KP_Enter";
+  kb-accept-entry: "Return,KP_Enter";
 
   /* Delete till the end of line */
-	kb-remove-to-eol: "Control+q";
+  kb-remove-to-eol: "Control+q";
 
   /* Delete previous char */
   kb-remove-char-back: "BackSpace";
@@ -30,22 +29,24 @@ configuration {
   kb-mode-complete: "Alt+q";
 
   /* Switch to the next mode. */
-	kb-mode-next: "Shift+Right,Control+Tab,Control+l";
+  kb-mode-next: "Shift+Right,Control+Tab,Control+l";
 
   /* ! Switch to the previous mode. */
-	kb-mode-previous: "Shift+Left,Control+Shift+Tab,Control+h";
+  kb-mode-previous: "Shift+Left,Control+Shift+Tab,Control+h";
 
   /* Select previous entry */
-	kb-row-up: "Up,Control+k,Shift+Tab";
+  kb-row-up: "Up,Control+k,Shift+Tab";
 
   /* Select next entry */
-	kb-row-down: "Down,Control+j";
+  kb-row-down: "Down,Control+j";
 
   /* Go to the previous page */
-	kb-page-prev: "Page_Up";
+  kb-page-prev: "Page_Up";
 
   /* Go to the next page */
-	kb-page-next: "Page_Down";
+  kb-page-next: "Page_Down";
+
+  font: "Iosevka 9";
 }
 
 @theme "~/src/srcery-gui/rofi/srcery_rofi.rasi"
@@ -55,3 +56,4 @@ window {
   height: 100%;
 }
 
+/* vim: set ts=2 sw=2 tw=0 fdm=marker ft=css et :*/
