@@ -98,3 +98,4 @@ zsh
 zsh-doc
 zsh-lovers
 zshdb
+papirus-icon-theme
