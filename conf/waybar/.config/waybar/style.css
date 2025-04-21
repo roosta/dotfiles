@@ -31,89 +31,114 @@ window#waybar.hidden {
   opacity: 0.2;
 }
 
+
+/* spacer to more easily control spacing irregularities */
+#custom-gap {
+  font-size: 8px;
+}
+
+box {
+  margin: 2px 2px;
+}
+
 /* Groups */
 #window,
 #indicators,
 #audio,
+#datetime,
+#tray,
+#submap,
 #meters {
-  margin: 4px 2px;
-  padding: 0 8px;
+  margin: 0;
+  padding: 0 6px;
   border-radius: 2px;
   background: @srcery-xgray4;
 }
 
-/* items */
+/* modules */
 #backlight,
 #battery,
 #clock,
-#cpu,
 #custom-media,
-#custom-notification,
+#custom-power,
 #custom-rofi
-#disk,
 #idle_inhibitor,
+#disk,
 #keyboard-state,
 #language,
-#memory,
 #mode,
 #network,
 #privacy,
 #pulseaudio,
 #scratchpad,
+#cpu,
 #temperature,
-#tray,
+#memory,
 #wireplumber {
-  padding: 0 2px;
-  margin: 0px 4px;
+  padding: 0 4px;
+  margin: 0;
   color: @srcery-bright-white;
 }
 
-
 button {
-  /* Use box-shadow instead of border so the text isn't offset */
-  box-shadow: inset 0 -3px transparent;
-  /* Avoid rounded borders under each button name */
   border: none;
-  border-radius: 0px;
+  transition-property: background-color;
+  transition-duration: 0.2s;
 }
 
-/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
-button:hover {
-  /* background: inherit; */
-  /* box-shadow: inset 0 -3px #ffffff; */
-}
-
+/* unused atm */
 @keyframes blink {
   to {
-    background-color: #ffffff;
-    color: #000000;
+    background-color: @srcery-bright-white;
+    color: @srcery-black;
   }
 }
 
-/* Hyprland: {{{ */
+tooltip {
+  background: @srcery-xgray2;
+  border-radius: 2px;
+  border: 1px solid @srcery-xgray3;
+}
 
-window#waybar #window {
+tooltip label {
   color: @srcery-bright-white;
+}
+
+/* Hyprland: {{{ */
+/* -------------------------------------------------------------------------- */
+window#waybar #window {
   font-size: 0.75rem;
 }
 
+#workspaces button:first-child {
+  margin-left: 0;
+}
+
+#workspaces button:last-child {
+  margin-right: 0;
+}
+
 #workspaces {
-  margin: 4px 2px;
+  margin: 0px;
 }
 
 #workspaces button {
   padding: 2px 8px 0px 8px;
-  margin: 0 2px 0px 2px;
+  margin: 0 2px;
+  background-color: @srcery-xgray3;
   color: @srcery-white;
   border-radius: 2px;
   font-size: 1rem;
 }
 
+#workspaces button:hover {
+  background: @srcery-xgray4;
+}
+
 #workspaces button.active:hover, button.visible:hover {
-  background: @srcery-xgray3;
-  transition: none;
   box-shadow: inherit;
   text-shadow: inherit;
+  background: @srcery-xgray5;
 }
 
 #workspaces button.active {
@@ -127,8 +152,9 @@ window#waybar #window {
 }
 
 window#waybar #submap {
-  background-color: @srcery-white;
-  color: @srcery-black;
+  font-size: 0.8rem;
+  background-color: @srcery-black;
+  color: @srcery-bright-white;
 }
 
 /* window#waybar.fullscreen { */
@@ -138,27 +164,16 @@ window#waybar #submap {
 
 /* }}} */
 /* Indicators: {{{  */
+/* -------------------------------------------------------------------------- */
 
 #privacy { }
 #network { }
-#idle_inhibitor { }
-
-#indicators {
-  background: @srcery-xgray4;
-}
+#indicators * {
+  padding: 0 2px; }
 
 #network.disconnected {
   color: @srcery-bright-orange;
   font-weight: bold;
-}
-
-
-#idle_inhibitor:hover {
-  background-color: @srcery-xgray3;
-}
-
-#idle_inhibitor.activated {
-  color: @srcery-magenta;
 }
 
 #privacy-item {
@@ -176,50 +191,113 @@ window#waybar #submap {
 #privacy-item.audio-out {
 }
 
-#custom-notification {
+#language {
+  color: @srcery-yellow;
+  font-size: 1.2rem;
+  padding: 0 2px 0 4px;
 }
 
-#custom-notification:hover {
-  background-color: @srcery-xgray3;
+#language > label {
+  color: @srcery-bright-blue;
+}
+
+#keyboard-state {
+  color: @srcery-bright-white;
+  font-size: 1.2em;
+}
+
+#keyboard-state > label {
+}
+
+#keyboard-state > label.locked {
+  color: @srcery-yellow;
 }
 
 /* }}} */
-/* Menus: {{{ */
+/* Buttons: {{{ */
+/* -------------------------------------------------------------------------- */
+
+#idle_inhibitor {
+  font-size: 0.8rem;
+}
+
+#idle_inhibitor.activated {
+  color: @srcery-magenta;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+
+#idle_inhibitor:hover {
+  background-color: @srcery-xgray3;
+}
 
 #custom-power {
-  color: @srcery-bright-white;
+  margin: 0;
 }
 
 #power-delimiter {
   background-color: @srcery-bright-white;
 }
 
-#custom-power:hover {
-  background-color: @srcery-xgray3;
+#custom-rofi {
+  margin: 0;
 }
 
-#custom-rofi {
+#idle_inhibitor {
+  margin: 0;
+}
+
+#custom-notification {
+  margin: 0;
+}
+
+#custom-rofi,
+#custom-power,
+#custom-notification,
+#idle_inhibitor {
   border-radius: 2px;
   padding: 0px 8px;
-  margin: 4px 0 4px 4px;
-}
-#custom-rofi:hover {
   background-color: @srcery-xgray4;
 }
 
+#custom-rofi:hover, #custom-power:hover, #custom-notification:hover, #idle_inhibitor:hover {
+  background-color: @srcery-xgray5;
+  transition-property: background-color;
+  transition-duration: 0.2s;
+}
+
+#custom-notification {
+}
+
+
 /* }}} */
 /* Clock {{{ */
+/* -------------------------------------------------------------------------- */
 
-#clock {
+#datetime {
+}
+
+#click.module.time {
   font-size: 0.8rem;
 }
 
-#clock:hover {
-  background-color: @srcery-xgray3;
+#clock.module.weekday {
+  font-size: 0.8rem;
+  color: @srcery-white;
 }
+
+#clock.module.date {
+  font-size: 0.8rem;
+  color: @srcery-white;
+}
+
+#clock { }
+
 
 /* }}} */
 /* Audio: {{{ */
+/* -------------------------------------------------------------------------- */
 
 #audio { }
 #pulseaudio { }
@@ -230,7 +308,6 @@ window#waybar #submap {
 
 #pulseaudio.module.output.muted {
   color: @srcery-orange;
-  /* padding-right: 2px; */
 }
 
 #pulseaudio.module.input.source-muted {
@@ -238,7 +315,7 @@ window#waybar #submap {
 }
 
 #pulseaudio-slider {
-  padding: 0;
+  padding: 0 4px;
 }
 
 #pulseaudio-slider slider {
@@ -264,61 +341,41 @@ window#waybar #submap {
 }
 
 /* }}} */
-/* Keyboard {{{ */
-
-#language { }
-
-#language:hover {
-  background: @srcery-xgray3;
-}
-
-#language > label {
-  color: @srcery-bright-blue;
-}
-
-#language.no:hover {
-  background: @srcery-xgray3;
-}
-
-#keyboard-state {
-  color: @srcery-bright-white;
-  font-size: 1.4em;
-}
-
-#keyboard-state > label {
-}
-
-#keyboard-state > label.locked {
-  color: @srcery-yellow;
-}
-
-/* }}} */
 /*  Meters {{{ */
+/* -------------------------------------------------------------------------- */
 
-#meters {
-  margin-right: 8px;
+#meters * {
+  padding: 0 4px;
 
 }
-#temperature { }
+#meters {
+  font-size: 1.2rem;
+}
+#temperature {
+  color: @srcery-bright-blue;
+  padding-left: 2px;
+
+}
 
 #temperature.critical {
   color: @srcery-red;
 }
 
 #cpu {
-  color: @srcery-bright-blue;
+  color: @srcery-bright-green;
 }
 
 #memory {
-  color: @srcery-bright-green;
+  color: @srcery-bright-cyan;
+  padding-left: 0;
+  font-size: 1.3rem;
 }
 
 /* }}} */
 /* Tray: {{{ */
+/* -------------------------------------------------------------------------- */
 
-#tray {
-  background-color: @srcery-xgray3
-}
+#tray { }
 
 #tray > .passive {
   -gtk-icon-effect: dim;

@@ -15,31 +15,43 @@
       "~/.config/waybar/modules.jsonc"
     ],
     "modules-center": [
-      "clock"
+      "idle_inhibitor",
+      "custom/gap",
+      "group/datetime",
+      "custom/gap",
+      "custom/notification"
     ],
     "modules-left": [
       "custom/rofi",
+      "custom/gap",
       "hyprland/workspaces",
-      "hyprland/submap",
+      "custom/gap",
       "hyprland/window"
     ],
     "modules-right": [
+      "hyprland/submap",
+      "custom/gap",
       "group/indicators",
+      "custom/gap",
       "group/audio",
-      "group/meters"
+      "custom/gap",
+      "group/meters",
+      "custom/gap",
+      "tray",
+      "custom/gap",
+      "custom/power"
     ]
   },
   { // Secondary
     // ------------------------------------------------------------------------
     "output": "DP-1",
     "name": "secondary",
-    "height": 24,
     "include": [
-      "~/.config/waybar/shared-modules.jsonc"
+      "~/.config/waybar/modules.jsonc"
     ],
     "modules-left": [
-      "tray",
       "hyprland/workspaces",
+      "custom/gap",
       "hyprland/window"
     ],
     "modules-right": [
@@ -54,27 +66,27 @@
       "~/.config/waybar/modules.jsonc"
     ],
     "modules-right": [
+      "hyprland/window",
+      "custom/gap",
       "hyprland/workspaces"
     ],
     "modules-center": [
-      "hyprland/window"
     ]
   },
   { // Quaternary Monitor
     // ------------------------------------------------------------------------
     "output": "HDMI-A-1",
     "name": "quaternary",
-    "height": 30,
     "position": "bottom",
     "include": [
       "~/.config/waybar/modules.jsonc"
     ],
     "modules-left": [
       "hyprland/workspaces",
+      "custom/gap",
       "hyprland/window"
     ],
     "modules-right": [
-      "clock"
     ]
   }
 ]

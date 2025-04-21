@@ -6,6 +6,7 @@
 // - Maintainer: Daniel Berg <mail@roosta.sh>  -
 // - Repo: https://github.com/roosta/etc       -
 // ---------------------------------------------
+
 {
   // Hyprland: {{{
   // --------------------------------------------------------------------------
@@ -83,12 +84,12 @@
   },
 
   "tray": {
-    "spacing": 5,
-    "icon-size": 15
+    "spacing": 6,
+    "icon-size": 16
   },
 
   "hyprland/submap": {
-    "format": "   {} "
+    "format": "  {}"
   },
 
   // TODO: Convert
@@ -116,27 +117,50 @@
     "interval": 1,
     "format": "{icon}",
     "rotate": 270,
-    "format-icons": ["󰝦","󰪞","󰪟","󰪠","󰪡","󰪢","󰪣","󰪤","󰪥"]
+    "format-icons": [
+      "󰝦",
+      "󰪞",
+      "󰪟",
+      "󰪠",
+      "󰪡",
+      "󰪢",
+      "<span color='#FBB829'>󰪣</span>",
+      "<span color='#FF8700'>󰪤</span>",
+      "<span color='#FF5F00'>󰪥</span>"
+    ]
   },
   "memory": {
     "interval": 1,
     "rotate": 270,
     "format": "{icon}",
-    "format-icons": ["󰝦","󰪞","󰪟","󰪠","󰪡","󰪢","󰪣","󰪤","󰪥"],
+    "format-icons": [
+      "󰋙",
+      "󰫃",
+      "󰫄",
+      "󰫅",
+      "󰫆",
+      "<span color='#FF8700'>󰫇</span>",
+      "<span color='#EF2F27'>󰫈</span>"
+    ],
     "max-length": 10
   },
   "temperature": {
     "thermal-zone": 2,
     "format-critical": "{icon}",
     "interval": 1,
-    "rotate": 270,
+    // "rotate": 270,
     "critical-threshold": 90,
     "format": "{icon}",
-    "format-icons": ["󰝦","󰪞","󰪟","󰪠","󰪡","󰪢","󰪣","󰪤","󰪥"]
+    "format-icons": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
 
   // }}}
-  // Custom: {{{
+  // Buttons: {{{
   // --------------------------------------------------------------------------
   "custom/power": {
     "format" : "󰐥",
@@ -153,8 +177,9 @@
     }
   },
   "custom/rofi": {
-    "format": "",
-    "on-click": "rofi -show combi -show-icons"
+    "format": "󰕰",
+    "tooltip": false,
+    "on-click": "rofi -show drun -show-icons"
   },
 
   "custom/notification": {
@@ -178,6 +203,62 @@
     "escape": true
   },
 
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "",
+      "deactivated": ""
+    }
+  },
+
+  // }}}
+  // Indicators: {{{
+  // --------------------------------------------------------------------------
+
+  "group/indicators": {
+    "orientation": "horizontal",
+    "modules": [
+      "keyboard-state",
+      "hyprland/language",
+      "privacy"
+    ]
+  },
+
+  "hyprland/language": {
+    "format-en": "",
+    "format-no": ""
+    // "on-click": "hyprctl switchxkblayout keychron-keychron-q6 next"
+  },
+
+  "keyboard-state": {
+    "capslock": true,
+    "format": "{icon}",
+    "format-icons": {
+      "locked": "󰪛",
+      "unlocked": ""
+    }
+  },
+
+  "privacy": {
+    "icon-spacing": 2,
+    "transition-duration": 250,
+    "icon-size": 15,
+    "modules": [
+      {
+        "type": "audio-out",
+        "tooltip": true
+      },
+      {
+        "type": "screenshare",
+        "tooltip": true
+      },
+      {
+        "type": "audio-in",
+        "tooltip": true
+      }
+    ]
+  },
+
   // TODO: Fix
   "custom/updates": {
     // "exec-if": "which waybar-module-pacman-updates",
@@ -191,51 +272,15 @@
   },
 
   // }}}
-  // Indicators: {{{
-  // --------------------------------------------------------------------------
-
-  "group/indicators": {
-    "orientation": "horizontal",
-    "modules": [
-      "keyboard-state",
-      "hyprland/language",
-      "privacy",
-      "idle_inhibitor",
-      "custom/notification"
-    ]
-  },
-
-  "hyprland/language": {
-    "format-en": "",
-    "format-no": "<span color=\"#FBB829\">󰌏</span>",
-    "on-click": "hyprctl switchxkblayout keychron-keychron-q6 next"
-  },
-
-  "keyboard-state": {
-    "capslock": true,
-    "format": "{icon}",
-    "format-icons": {
-      "locked": "󰌎",
-      "unlocked": ""
-    }
-  },
-
-  "idle_inhibitor": {
-    "format": "{icon}",
-    "format-icons": {
-      "activated": "",
-      "deactivated": ""
-    }
-  },
-  // }}}
   // Audio: {{{
+  // --------------------------------------------------------------------------
 
   "group/audio": {
     "orientation": "horizontal",
     "modules": [
       "pulseaudio#output",
-      "pulseaudio/slider",
-      "pulseaudio#input"
+      "pulseaudio#input",
+      "pulseaudio/slider"
     ]
   },
 
@@ -266,41 +311,74 @@
     "orientation": "horizontal"
   },
 
-  "privacy": {
-    "icon-spacing": 4,
-    "icon-size": 18,
-    "transition-duration": 250,
+  // }}}
+  // Clock: {{{
+  // --------------------------------------------------------------------------
+
+  "group/datetime": {
+    "orientation": "horizontal",
     "modules": [
-      {
-        "type": "screenshare",
-        "tooltip": true,
-        "tooltip-icon-size": 24
-      },
-      {
-        "type": "audio-out",
-        "tooltip": true,
-        "tooltip-icon-size": 24
-      },
-      {
-        "type": "audio-in",
-        "tooltip": true,
-        "tooltip-icon-size": 18
-      }
+      "clock#weekday",
+      "clock#time",
+      "clock#date"
     ]
+
+  },
+  "clock#time": {
+    "format": "{:%H:%M}",
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode": "month",
+      "weeks-pos": "right",
+      "on-scroll": 1,
+      "format": {
+        "months": "<span color='#FBB829'><b>{}</b></span>",
+        "days": "<span color='#FCE8C3'><b>{}</b></span>",
+        "weeks": "<span color='#2BE4D0'><b>W{}</b></span>",
+        "weekdays": "<span color='#FED06E'><b>{}</b></span>",
+        "today":"<span color='#FF5C8F'><b><u>{}</u></b></span>"
+      }
+    }
+  },
+  "clock#weekday": {
+    "format": "{:%a}",
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode": "month",
+      "weeks-pos": "right",
+      "on-scroll": 1,
+      "format": {
+        "months": "<span color='#FBB829'><b>{}</b></span>",
+        "days": "<span color='#FCE8C3'><b>{}</b></span>",
+        "weeks": "<span color='#2BE4D0'><b>W{}</b></span>",
+        "weekdays": "<span color='#FED06E'><b>{}</b></span>",
+        "today":"<span color='#FF5C8F'><b><u>{}</u></b></span>"
+      }
+    }
   },
 
+  "clock#date": {
+    "format": "{:%d-%m}",
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode": "month",
+      "weeks-pos": "right",
+      "on-scroll": 1,
+      "format": {
+        "months": "<span color='#FBB829'><b>{}</b></span>",
+        "days": "<span color='#FCE8C3'><b>{}</b></span>",
+        "weeks": "<span color='#2BE4D0'><b>W{}</b></span>",
+        "weekdays": "<span color='#FED06E'><b>{}</b></span>",
+        "today":"<span color='#FF5C8F'><b><u>{}</u></b></span>"
+      }
+    }
+  },
   // }}}
-  // Various: {{{
 
-  "clock": {
-      // "timezone": "America/New_York",
-      // "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-      "format": "{:%H:%M}",
-      "tooltip": false,
-      "format-alt": " {:%A %d. %B %Y   %H:%M}"
+  "custom/gap": {
+    "format": " "
   }
 
-  // }}}
 }
 
 // vim: set ts=2 sw=2 tw=80 fdm=marker et :
