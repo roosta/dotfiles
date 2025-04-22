@@ -24,9 +24,8 @@ set searchurls.!img https://www.google.com/search?tbm=isch&q=
 set hintfiltermode vimperator-reflow
 set hintnames numeric
 
-set editorcmd alacritty -e "nvim" "%f" "+normal!%lGzv%c|"
+set editorcmd kitty -e "nvim" "%f" "+normal!%lGzv%c|"
 
 colors srcery
-" set theme srcery
 
 " vim: set filetype=tridactyl:
