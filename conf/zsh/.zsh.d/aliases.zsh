@@ -147,8 +147,8 @@ alias aurls="paru -Qm" # list aur packages
 # ------------------------------------------------------------------------------
 
 alias vialias="${EDITOR:-nvim} ~/etc/conf/zsh/.zsh.d/aliases.zsh"
-alias vibar="${EDITOR:-nvim} ~/etc/conf/waybar/.config/waybar/config.jsonc \
-  ~/etc/conf/waybar/.config/waybar/style.css"
+alias vibar="${EDITOR:-nvim} ~/etc/conf/waybar/.config/waybar/modules.jsonc \
+  ~/etc/conf/waybar/.config/waybar/style.css ~/etc/conf/waybar/.config/waybar/config.jsonc"
 alias vienv="${EDITOR:-nvim} ~/etc/conf/zsh/.zshenv"
 alias vifzf="${EDITOR:-nvim} ~/etc/conf/zsh/.zsh.d/fzf.zsh"
 alias vigit="${EDITOR:-nvim} ~/etc/conf/git/.gitconfig"
