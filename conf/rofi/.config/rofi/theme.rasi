@@ -1,37 +1,33 @@
-// ┌───────────────────────────────────────────┐
-// │ ┳━┓┏━┓┳━┓o  ┏┓┓┳ ┳┳━┓┏┏┓┳━┓               │
-// │ ┃┳┛┃ ┃┣━ ┃   ┃ ┃━┫┣━ ┃┃┃┣━                │
-// │ ┇┗┛┛━┛┇  ┇   ┇ ┇ ┻┻━┛┛ ┇┻━┛               │
-// └───────────────────────────────────────────┘
-// - Maintainer: Daniel Berg <mail@roosta.sh>  -
-// - Repo: https://github.com/roosta/etc       -
-// ---------------------------------------------
+/**
+┌───────────────────────────────────────────┐
+│ ┳━┓┏━┓┳━┓o  ┏┓┓┳ ┳┳━┓┏┏┓┳━┓               │
+│ ┃┳┛┃ ┃┣━ ┃   ┃ ┃━┫┣━ ┃┃┃┣━                │
+│ ┇┗┛┛━┛┇  ┇   ┇ ┇ ┻┻━┛┛ ┇┻━┛               │
+└───────────────────────────────────────────┘
+- Maintainer: Daniel Berg <mail@roosta.sh>  -
+- Repo: https://github.com/roosta/etc       -
+---------------------------------------------
+**/
 
 @import "~/src/srcery-gui/rofi/srcery_colors.rasi"
 
 * {
-  // spacing: 2;
-  font: "Iosevka 9";
+  font: "Iosevka Nerd Font 9";
   background-color: @xgray1;
 }
 
 window {
-  // @magenta, @blue
+  /* @magenta, @blue */
   background-image: linear-gradient(45, #E02C6D, #2C78BF);
-  padding:    3;
+  padding: 3;
   background: @xgray1;
-  width: 30%;
-  height: 100%;
+  width: 20%;
+  height: 55%;
 }
-
-mainbox {
-  // padding: 12;
-}
+mainbox { }
 
 message {
   margin: 12px 0 0;
-  // border:  1px 0px 0px ;
-  // padding: 1px 0px 0px ;
 }
 
 textbox {
@@ -41,17 +37,14 @@ textbox {
 
 listview {
   fixed-height: false;
-  background-color: transparent;
   scrollbar: true;
   margin: 12px;
   padding: 0;
-  // margin: 8px 0 0;
 }
 
 element {
-  // border:  0;
-  padding: 8;
-  border-radius: 2px;
+  padding: 6px;
+  border-radius: 4px;
 }
 
 element-icon {
@@ -111,16 +104,18 @@ element alternate.active {
 }
 
 scrollbar {
-  width: 6px;
-  handle-color: @xgray3;
-  handle-width: 6px;
-  padding: 0 0 0 6px;
+  width: 4px;
+  handle-color: @xgray4;
+  handle-width: 4px;
+  background-color: @xgray2;
+  margin: 0 0 0 4px;
 }
 
 button {
   text-color: @brightblack;
   padding: 5px;
-  background-color: @xgray2;
+  border: 1px solid;
+  border-color: @xgray3;
   border-radius: 2px;
   margin: 0 2px;
   cursor: pointer;
@@ -128,18 +123,17 @@ button {
 
 button selected {
   background-color: @xgray4;
-  text-color:       @brightwhite;
+  border-color: @xgray5;
+  text-color: @brightwhite;
 }
 
 mode-switcher {
   background-color: @xgray1;
   padding: 8px;
-  border-radius: 2px;
-  border: 4px;
-  border-color: @xgray2;
 }
-overlay {
-  background: @red;
+
+window overlay {
+  color: @red;
 }
 
 inputbar {
@@ -150,9 +144,8 @@ inputbar {
   border: 3px solid;
   border-radius: 2px;
   border-color: @xgray3;
-  spacing:    8px;
-  // children:   [ prompt,textbox-prompt-colon,entry,case-indicator ];
-  children:   [ prompt, entry ];
+  /* prompt,textbox-prompt-colon,entry,case-indicator */
+  children: [ prompt, entry ];
 }
 
 entry {
@@ -173,4 +166,4 @@ prompt {
   background-color: @xgray3;
 }
 
-// vim: set ts=2 sw=2 tw=80 fdm=marker ft=rasi et :
+/* vim: set ts=2 sw=2 tw=80 fdm=marker ft=css et : */
