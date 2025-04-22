@@ -11,11 +11,20 @@
 
 configuration {
 
-  /* modi: "combi,calc,clipmenu:env CM_LAUNCHER=rofi-script clipmenu"; */
   modes: "drun,window,menu:~/scripts/rofi-menu.sh";
 
-  /* Location on screen */
   location: 1;
+
+  /* drun-display-format: "{name} [<span weight='light' size='small'><i>({generic})</i></span>]\n[{categories}]"; */
+  /* drun-show-actions: true; */
+
+  show-icons: true;
+
+  window-format: "<span text_transform='capitalize'>{c}</span>\n<span size='small'><i>{t}</i></span>";
+
+  matching: "fuzzy";
+
+  hover-select: true;
 
   terminal: "kitty";
 
@@ -50,8 +59,11 @@ configuration {
   /* Go to the next page */
   kb-page-next: "Page_Down";
 
+
+  me-select-entry: "";
+  me-accept-entry: "MousePrimary";
 }
 
 @theme "theme.rasi"
 
-/* vim: set ts=2 sw=2 tw=0 fdm=marker et :*/
+/* vim: set ts=2 sw=2 tw=0 fdm=marker ft=css et :*/
