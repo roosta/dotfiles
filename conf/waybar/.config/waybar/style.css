@@ -86,11 +86,9 @@ button {
   transition-duration: 0.2s;
 }
 
-/* unused atm */
 @keyframes blink {
   to {
-    background-color: @srcery-bright-white;
-    color: @srcery-black;
+    background-color: @srcery-xgray5;
   }
 }
 
@@ -108,6 +106,7 @@ tooltip label {
 /* -------------------------------------------------------------------------- */
 window#waybar #window {
   font-size: 0.75rem;
+  background: @srcery-xgray3;
 }
 
 window#waybar.empty #window {
@@ -160,6 +159,11 @@ window#waybar.empty #workspaces button.empty {
 
 #workspaces button.urgent {
   color: @srcery-yellow;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: steps(12);
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 
 window#waybar #submap {
