@@ -14,6 +14,7 @@
 
 * {
   /* https://github.com/be5invis/Iosevka */
+  /* https://github.com/ryanoasis/nerd-fonts */
   font-family:  Iosevka, Symbols Nerd Font, Roboto, Helvetica, Arial, sans-serif;
 }
 
@@ -43,7 +44,6 @@ box {
 
 /* Groups */
 #window,
-#indicators,
 #audio,
 #datetime,
 #tray,
@@ -184,7 +184,8 @@ window#waybar #submap {
 #privacy { }
 #network { }
 #indicators * {
-  padding: 0 2px; }
+  padding: 0 2px;
+}
 
 #network.disconnected {
   color: @srcery-bright-orange;
@@ -208,8 +209,6 @@ window#waybar #submap {
 
 #language {
   color: @srcery-yellow;
-  font-size: 1.2rem;
-  padding: 0 2px 0 4px;
 }
 
 #language > label {
@@ -218,7 +217,6 @@ window#waybar #submap {
 
 #keyboard-state {
   color: @srcery-bright-white;
-  font-size: 1.2em;
 }
 
 #keyboard-state > label {

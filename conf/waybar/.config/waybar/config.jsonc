@@ -29,9 +29,8 @@
       "hyprland/window"
     ],
     "modules-right": [
-      "hyprland/submap",
-      "custom/gap",
       "group/indicators",
+      "hyprland/submap",
       "custom/gap",
       "group/audio",
       "custom/gap",
