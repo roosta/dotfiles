@@ -19,6 +19,7 @@ configuration {
   /* drun-show-actions: true; */
 
   show-icons: true;
+  icon-theme: "Papirus-Dark";
 
   window-format: "<span text_transform='capitalize'>{c}</span>\n<span size='small'><i>{t}</i></span>";
 
