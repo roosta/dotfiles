@@ -7,6 +7,8 @@
 // - Repo: https://github.com/roosta/etc       -
 // ---------------------------------------------
 
+// Helper to more easily control item spacing
+// See css for spesific size (font-size)
 {
   "custom/gap": {
     "format": " "
@@ -87,6 +89,21 @@
     "separate-outputs": true
   },
 
+  "custom/trayicon": {
+    "format": "󱊔"
+  },
+  "group/tray": {
+    "orientation": "horizontal",
+    "drawer": {
+      "transition-duration": 300,
+      "children-class": "tray-child",
+      "transition-left-to-right": false
+    },
+    "modules": [
+      "custom/trayicon",
+      "tray"
+    ]
+  },
   "tray": {
     "spacing": 6,
     "icon-size": 16
