@@ -117,7 +117,7 @@ window#waybar.empty #window {
 
 /* Remove padding for empty workspace buttons */
 window#waybar.empty #workspaces button.empty,
-window#waybar #workspaces button.persistent {
+window#waybar.empty #workspaces button.persistent.empty {
   padding-right: 2px;
   padding-top: 0;
 }
