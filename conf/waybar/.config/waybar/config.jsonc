@@ -15,9 +15,9 @@
       "~/.config/waybar/modules.jsonc"
     ],
     "modules-center": [
-      "idle_inhibitor",
-      "custom/gap",
       "group/datetime",
+      "custom/gap",
+      "idle_inhibitor",
       "custom/gap",
       "custom/notification"
     ],
