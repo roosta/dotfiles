@@ -22,6 +22,7 @@ backup/*
 *.blacklist
 *.gen
 **/log/**
+.DS_Store
 
 # ranger
 *bookmarks*
@@ -34,14 +35,11 @@ backup/*
 **/plugged/**
 .netrwhist
 *backup/*
-**/.vim/spell/*
+.vim/spell/*
 **/nvim/spell/*
-**/.vimperator/info/**
 
 # shell
 .bash_history
-**/.zsh.d/plugins/*
-fasd.data
 
 # GUI
 */**/bookmarks
@@ -52,13 +50,10 @@ fasd.data
 *Envy*
 
 # auth
-**/ssh/id*
-**/ssh/known_hosts
-**/subversion/auth/**
-**/svn/.subversion/auth/**
-**/gnupg/secring.gpg
-**/gnupg/random*
-**/gnupg/*~
+.ssh/**
+.subversion/**
+.gnupg/**
+id_rsa
 
 # Comms
 */**/*.pem
@@ -81,38 +76,23 @@ availables.xml
 ClojureUsageStatisticsSettings.xml
 recentProjects.xml
 
-#gimp
 tags.xml
 gimpswap.*
-# tool-options
-# pluginrc
-# sessionrc
-# menurc
 
 **/icons/
 parasiterc
-!**/inkscape/icons
-**/subversion/README.txt
-**/svn/*/README.txt
-**/.tmux/plugins
 yankring_history_v2.txt
 tags.lock
 tags.temp
 !**/.gitkeep
-conf/i3/.config/i3/config
-conf/sway/.config/sway/config
-conf/pip/.pip/bin
-conf/pip/.pip/lib
-conf/pip/.pip/share
+.pip/bin
+.pip/lib
+.pip/share
 lock.png
 
 .lastupdate
-conf/teiler/.config/teiler/uploader
 vifminfo
 vifm-help.txt
-conf/rofi/.config/rofi/config
-rofi-example.config
-conf/spacemacs/.spacemacs.d/custom.el
 swap
 spacemacs.env
 .spacemacs.env
@@ -121,7 +101,9 @@ lookup-key-example.el
 places
 request
 .lsp-session-v1
-conf/vifm/.vifm/vifminfo.json
-conf/lein/.lein/self-installs
 
 spotify_backup
+
+.vim/.netrwhist
+/doc/tags
+/doc/tags
