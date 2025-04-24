@@ -1,0 +1,10 @@
+# nvidia-settings --load-config-only &
+# /home/roosta/bin/chdisp desk &
+/home/roosta/.screenlayout/main.sh &
+# nm-applet &
+# /home/roosta/src/startpage/start.sh &
+# thunderbird --mail &
+# conky -d -q -c ~/.config/conky/conky-rss.conf &
+# conky -d -q -c ~/.config/conky/conky-stats.conf &
+# mopidy &
+# vim:ft=sh:ts=2:sw=2:fdm=marker

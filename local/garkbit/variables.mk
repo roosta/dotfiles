@@ -1,0 +1,10 @@
+primary_monitor   = "DP-3"
+secondary_monitor = "DP-1"
+tertiary_monitor  = "DP-2"
+quaternary_monitor = "HDMI-A-1"
+resolution_height = 2160
+resolution_width = 3840
+bar_height = 34
+font = "Iosevka 9"
+dunst_width = (0, 300)
+# dunst_offset = (0, $$(( $(bar_height) / 2 )))

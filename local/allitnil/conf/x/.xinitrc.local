@@ -1,0 +1,4 @@
+. $HOME/bin/touchpad-toggle &
+. $HOME/.screenlayout/main.sh &
+xss-lock -- i3lock -t -n -i /home/roosta/backgrounds/footer_lodyas.png &
+nm-applet &
