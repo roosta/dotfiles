@@ -17,8 +17,6 @@
     "modules-center": [
       "group/datetime",
       "custom/gap",
-      "idle_inhibitor",
-      "custom/gap",
       "custom/notification"
     ],
     "modules-left": [
@@ -31,6 +29,7 @@
     "modules-right": [
       "group/indicators",
       "hyprland/submap",
+      "idle_inhibitor",
       "custom/gap",
       "group/audio",
       "custom/gap",
