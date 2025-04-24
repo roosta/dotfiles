@@ -32,7 +32,6 @@ alias rg="rg --smart-case --hidden"
 alias fd='fd --hidden'
 
 # }}}
-
 # Aliases: {{{
 # ------------------------------------------------------------------------------
 
@@ -77,7 +76,6 @@ check_disks() {
 alias disks='check_disks'
 
 # }}}
-
 # Custom: {{{
 # ------------------------------------------------------------------------------
 
@@ -141,8 +139,10 @@ alias pacls='pacman -Ql' # list package files
 alias pacfd="pacman -F" # find file in repos
 alias aurls="paru -Qm" # list aur packages
 
-# }}}
+# reload config if the process supports the signal
+alias reload='killall -SIGUSR2'
 
+# }}}
 # Quick edits: {{{
 # ------------------------------------------------------------------------------
 
@@ -166,11 +166,11 @@ alias vizsh="${EDITOR:-nvim} ~/etc/conf/zsh/.zshrc"
 alias vizshd="${EDITOR:-nvim} ~/etc/conf/zsh/.zsh.d"
 
 # }}}
-
-# Global:
+# Global: {{{
 # ------------------------------------------------------------------------------
 # These work as a replacement inline, not just beginning of command
 # |& short hand for piping stdout and stderr
+
 alias -g NL=/dev/null
 alias -g EH='|& head'
 alias -g TL='|& tail'
@@ -179,6 +179,7 @@ alias -g X='| xargs'
 alias -g copy="|wl-copy"
 alias paste="wl-paste"
 
+#}}}
 # Suffix: {{{
 # ------------------------------------------------------------------------------
 # example: type 'test.yml' opens vim with test.clj as active buffer.
@@ -187,3 +188,5 @@ alias -s {yml,json,txt,tex,css,ts,js,html,md,handlebars,hbs}=nvim
 alias -s {com,net,org,io}=firefox
 
 # }}}
+
+# vim: set ts=2 sw=2 tw=80 fdm=marker et :
