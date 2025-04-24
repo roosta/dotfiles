@@ -1,8 +1,0 @@
-zsh
-stow
-tmux
-vim
-exuberant-ctags
-parallel
-gawk
-neovim
