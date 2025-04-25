@@ -79,6 +79,13 @@ alias disks='check_disks'
 # Custom: {{{
 # ------------------------------------------------------------------------------
 
+# Dotfiles in git bare repo
+# https://wiki.archlinux.org/title/Dotfiles
+# https://www.atlassian.com/git/tutorials/dotfiles
+alias dot='/usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"'
+alias dotfiles='/usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"'
+alias dotsync='dot pull --recurse-submodules'
+
 alias suk="sudo -K" # Clear cached sudo pass
 alias ps-cpu-full='ps auxf | sort -nr -k 3'
 alias ps-cpu='ps auxf | sort -nr -k 3 | head -10'
