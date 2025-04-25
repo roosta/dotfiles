@@ -48,7 +48,12 @@ fi
 # forgit {{{
 
 if zplug check wfxr/forgit; then
+
   # export FORGIT_PAGER="forgit-pager"
+
+  # Enables `git forgit ...` commands
+  PATH="$PATH:$FORGIT_INSTALL_DIR/bin"
+
 fi
 
 
