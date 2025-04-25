@@ -7,3 +7,6 @@
 [submodule ".config/srcery/srcery-terminal"]
 	path = .config/srcery/srcery-terminal
 	url = https://github.com/srcery-colors/srcery-terminal.git
+[submodule ".config/srcery/srcery-gui"]
+	path = .config/srcery/srcery-gui
+	url = https://github.com/srcery-colors/srcery-gui.git
