@@ -1,3 +1,6 @@
 [submodule ".dotfiles/dotfiles"]
 	path = .dotfiles/dotfiles
 	url = https://github.com/roosta/dotfiles.git
+[submodule "scripts"]
+	path = scripts
+	url = https://github.com/roosta/scripts.git
