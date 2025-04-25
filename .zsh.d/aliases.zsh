@@ -153,24 +153,24 @@ alias reload='killall -SIGUSR2'
 # Quick edits: {{{
 # ------------------------------------------------------------------------------
 
-alias vialias="${EDITOR:-nvim} ~/etc/conf/zsh/.zsh.d/aliases.zsh"
-alias vibar="${EDITOR:-nvim} ~/etc/conf/waybar/.config/waybar/modules.jsonc \
-  ~/etc/conf/waybar/.config/waybar/style.css ~/etc/conf/waybar/.config/waybar/config.jsonc"
-alias vienv="${EDITOR:-nvim} ~/etc/conf/zsh/.zshenv"
-alias vifzf="${EDITOR:-nvim} ~/etc/conf/zsh/.zsh.d/fzf.zsh"
-alias vigit="${EDITOR:-nvim} ~/etc/conf/git/.gitconfig"
+alias vialias="${EDITOR:-nvim} ~/.zsh.d/aliases.zsh"
+alias vibar="${EDITOR:-nvim} ~/.config/waybar/modules.jsonc \
+  ~/.config/waybar/style.css ~/.config/waybar/config.jsonc"
+alias vienv="${EDITOR:-nvim} ~/.zshenv"
+alias vifzf="${EDITOR:-nvim} ~/.zsh.d/fzf.zsh"
+alias vigit="${EDITOR:-nvim} ~/.gitconfig"
 alias vigtk="${EDITOR:-nvim} ~/.gtkrc-2.0 ~/.config/gtk-3.0/settings.ini \
   ~/.config/gtk-4.0/settings.ini"
-alias vihypr="${EDITOR:-nvim} ~/etc/conf/hyprland/.config/hypr/hyprland.conf"
+alias vihypr="${EDITOR:-nvim} ~/.config/hypr/hyprland.conf"
 alias viquick="${EDITOR:-nvim} ~/notes/quick-notes.md"
-alias virofi="${EDITOR:-nvim} ~/etc/templates/rofi/config.rofi"
+alias virofi="${EDITOR:-nvim} ~/.config/rofi/config.rasi \
+  ~/.config/rofi/theme.rasi"
 alias vissh="${EDITOR:-nvim} ~/.ssh/config"
-alias viterm="${EDITOR:-nvim} ~/etc/conf/kitty/.config/kitty/kitty.conf"
+alias viterm="${EDITOR:-nvim} ~/.config/kitty/kitty.conf"
 alias vitodo="${EDITOR:-nvim} ~/notes/TODOs.md"
-alias vivim="${EDITOR:-nvim} ~/etc/conf/nvim/.config/nvim/"
-alias viws="${EDITOR:-nvim} ~/etc/conf/i3wsr/.config/i3wsr/config.toml"
-alias vizsh="${EDITOR:-nvim} ~/etc/conf/zsh/.zshrc"
-alias vizshd="${EDITOR:-nvim} ~/etc/conf/zsh/.zsh.d"
+alias vivim="${EDITOR:-nvim} ~/.config/nvim/"
+alias vizsh="${EDITOR:-nvim} ~/.zshrc"
+alias vizshd="${EDITOR:-nvim} ~/.zsh.d"
 
 # }}}
 # Global: {{{
