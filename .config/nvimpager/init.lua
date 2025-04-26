@@ -19,7 +19,7 @@ vim.opt.linebreak = true
 vim.opt.laststatus = 3
 vim.opt.showmode = false
 vim.opt.showcmd = false
-vim.opt.runtimepath:append(",~/src/srcery-vim")
+vim.opt.runtimepath:append("~/src/srcery-vim")
 vim.opt.termguicolors = true
 vim.opt.modeline = false
 vim.cmd([[colorscheme srcery]])
