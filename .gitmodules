@@ -13,3 +13,6 @@
 [submodule ".config/srcery/srcery-textmate"]
 	path = .config/srcery/srcery-textmate
 	url = https://github.com/srcery-colors/srcery-textmate.git
+[submodule ".config/srcery/srcery-vivid"]
+	path = .config/srcery/srcery-vivid
+	url = https://github.com/srcery-colors/srcery-vivid.git
