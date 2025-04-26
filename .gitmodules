@@ -16,3 +16,6 @@
 [submodule ".config/srcery/srcery-vivid"]
 	path = .config/srcery/srcery-vivid
 	url = https://github.com/srcery-colors/srcery-vivid.git
+[submodule ".config/srcery/srcery-wallpaper"]
+	path = .config/srcery/srcery-wallpaper
+	url = https://github.com/srcery-colors/srcery-wallpaper.git
