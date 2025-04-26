@@ -1,5 +1,0 @@
-#!/bin/bash
-# Config file for bakc
-
-bakc__backup_path=~/backup
-bakc__file_suffix=$(date +"%Y-%m-%d@%T")
