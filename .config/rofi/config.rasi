@@ -23,7 +23,7 @@ configuration {
 
   window-format: "<span text_transform='capitalize'>{c}</span>\n<span size='small'><i>{t}</i></span>";
 
-  matching: "fuzzy";
+  /* matching: "fuzzy"; */
 
   hover-select: true;
 
