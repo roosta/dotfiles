@@ -50,20 +50,23 @@ zplug load
 for fn (~/.zsh.d/functions/*)  autoload -Uz $fn
 
 source ~/.config/srcery/srcery-terminal/linux_vc/srcery_linux_vc.sh
+source ~/.zsh.d/utils.zsh
 source ~/.zsh.d/aliases.zsh
 source ~/.zsh.d/colored_man_pages.zsh
 source ~/.zsh.d/completion.zsh
 source ~/.zsh.d/dirstack.zsh
-source ~/.zsh.d/fzf.zsh
 source ~/.zsh.d/options.zsh
 source ~/.zsh.d/plugins.zsh
 source ~/.zsh.d/prompt.zsh
 source ~/.zsh.d/rationalise_dot.zsh
 
 function zvm_after_init() {
-  source ~/.zsh.d/keybinds.zsh
   source /home/roosta/.config/broot/launcher/bash/br
-  source <(fzf --zsh)
+  if require_binary fzf "Fzf is required for many zsh helper functions"; then
+    source <(fzf --zsh)
+    source ~/.zsh.d/fzf.zsh
+  fi
+  source ~/.zsh.d/keybinds.zsh
 }
 
 # }}}

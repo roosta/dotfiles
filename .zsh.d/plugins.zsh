@@ -16,11 +16,12 @@ if zplug check b4b4r07/enhancd; then
 fi
 
 # }}}
-# ls_colors: {{{
+# LS_COLORS: {{{
 
-if  [[ -f $HOME/.dircolors ]]; then
-  eval $(dircolors -b $HOME/.dircolors)
+if require_binary vivid "Vivid is required to set LS_COLOR theme"; then
+  export LS_COLORS="$(vivid generate ~/src/srcery-vivid/srcery.yml)"
 fi
+
 
 # }}}
 # zsh-vi-mode {{{

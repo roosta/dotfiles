@@ -17,5 +17,7 @@ bindkey -M vicmd 'j' history-substring-search-down
 bindkey '^e' edit-command-line
 
 # see fzf.zsh
-bindkey '^f' edit
-bindkey '^x' fdirs
+if require_binary fzf "Some keybinds disabled due to missing fzf bin"; then
+  bindkey '^f' edit
+  bindkey '^x' fdirs
+fi
