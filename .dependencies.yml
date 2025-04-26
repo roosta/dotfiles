@@ -1,334 +1,379 @@
+# System dependencies and configuration
+# Last updated: 2025-04-26
+
+# Git repositories to clone/update
 repositories:
-  - name: srcery-vim
-    url: git@github.com:srcery-colors/srcery-vim.git
-    description: Vim colorscheme, I dogfood the theme, so I keep a local copy
-    branch: main
-    path: ~/src/srcery-vi
+  # Personal projects
   - name: colors
     url: git@github.com:roosta/colors.git
     description: My color palettes I use when designing and general color work
     branch: main
     path: ~/colors
+
+  # Development tools
+  - name: shellcheck.wiki
+    url: https://github.com/koalaman/shellcheck.wiki.git
+    description: Looking up shellcheck errors using a zsh fn, zs .zsh.d/functions/scerr
+    branch: master
+    path: ~/lib/shellcheck.wiki
+
+  # Themes and customization
+  - name: srcery-vim
+    url: git@github.com:srcery-colors/srcery-vim.git
+    description: Vim colorscheme, I dogfood the theme, so I keep a local copy
+    branch: main
+    path: ~/src/srcery-vi
+
+  # Utilities
   - name: figlet-fonts
     url: https://github.com/xero/figlet-fonts.git
     description: Additional figlet fonts for some flair in my scripts
     branch: master
     path: ~/lib/figlet-fonts
-  - name: shellcheck.wiki
-    url: https://github.com/koalaman/shellcheck.wiki.git
-    description: looking up shellcheck errors using a zsh fn, zs .zsh.d/functions/scerr
-    path: ~/lib/shellcheck.wiki
 
+# Packages to install
 packages:
-  - name: aspell-en
-    description: English dictionary for aspell
-    aur: false
-  - name: aspell-nb
-    description: Norwegian Bokmål dictionary for aspell
-    aur: false
-  - name: atool
-    description: A script for managing file archives of various types
-    aur: false
-  - name: bat
-    description: Cat clone with syntax highlighting and git integration
-    aur: false
-  - name: btop
-    description: A monitor of system resources, bpytop ported to C++
-    aur: false
-  - name: calc
-    description: A monitor of system resources, bpytop ported to C++
-    aur: false
-  - name: clamav
-    description: Anti-virus toolkit for Unix
-    aur: false
-  - name: clang
-    description: C language family frontend for LLVM
-    aur: false
-  - name: cmake
-    description: A cross-platform open-source make system
-    aur: false
-  - name: cryptsetup
-    description: Userspace setup tool for transparent encryption of block devices using dm-crypt
-    aur: false
-  - name: dfc
-    description: Display file system space usage using graphs and colors
-    aur: false
-  - name: difftastic
-    description: An experimental diff tool that compares files based on their syntax
-    aur: false
-  - name: docker
-    description: Pack, ship and run any application as a lightweight container
-    aur: false
-  - name: evince
-    description: Document viewer (PDF, PostScript, XPS, djvu, dvi, tiff, cbr, cbz, cb7, cbt)
-    aur: false
-  - name: eza
-    description: A modern replacement for ls (community fork of exa)
-    aur: false
-  - name: fd
-    description: Simple, fast and user-friendly alternative to find
-    aur: false
-  - name: firefox
-    description: Fast, Private & Safe Web Browser
-    aur: false
-  - name: firefox-developer-edition
-    description: Fast, Private & Safe Web Browser (Developer Edition)
-    aur: false
-  - name: fzf
-    description: Command-line fuzzy finder
-    aur: false
-  - name: gawk
-    description: GNU version of awk
-    aur: false
-  - name: gdb
-    description: The GNU Debugger
-    aur: false
-  - name: gimp
-    description: GNU Image Manipulation Program
-    aur: false
-  - name: git
-    description: the fast distributed version control system
-    aur: false
-  - name: git-crypt
-    description: Transparent file encryption in Git
-    aur: false
-  - name: git-delta
-    description: Syntax-highlighting pager for git and diff output
-    aur: false
-  - name: git-lfs
-    description: Git extension for versioning large files
-    aur: false
-  - name: gnome-keyring
-    description: Stores passwords and encryption keys
-    aur: false
-  - name: gocryptfs
-    description: Encrypted overlay filesystem written in Go.
-    aur: false
-  - name: gpick
-    description: Advanced color picker written in C++ using GTK+ toolkit
-    aur: false
-  - name: hypridle
-    description: hyprland’s idle daemon
-    aur: false
-  - name: hyprland
-    description: a highly customizable dynamic tiling Wayland compositor
-    aur: false
-  - name: hyprland-protocols
-    description: Wayland protocol extensions for Hyprland
-    aur: false
-  - name: hyprlock
-    description: hyprland’s GPU-accelerated screen locking utility
-    aur: false
-  - name: hyprpaper
-    description: a blazing fast wayland wallpaper utility with IPC controls
-    aur: false
-  - name: hyprpolkitagent
-    description: Simple polkit authentication agent for Hyprland, written in QT/QML
-    aur: false
-  - name: imagemagick
-    description: An image viewing/manipulation program
-    aur: false
-  - name: inetutils
-    description: A collection of common network programs
-    aur: false
-  - name: inkscape
-    description: Professional vector graphics editor
-    aur: false
-  - name: inotify-tools
-    description: inotify-tools is a C library and a set of command-line programs for Linux providing a simple interface to inotify.
-    aur: false
-  - name: jq
-    description: Command-line JSON processor
-    aur: false
-  - name: lm_sensors
-    description: Collection of user space tools for general SMBus access and hardware monitoring
-    aur: false
-  - name: lua-language-server
-    description: Lua Language Server coded by Lua
-    aur: false
-  - name: mlocate
-    description: Alternative to locate, faster and compatible with mlocate's database.
-    aur: false
-  - name: mpd
-    description: Flexible, powerful, server-side application for playing music
-    aur: false
-  - name: ncdu
-    description: Disk usage analyzer with an ncurses interface
-    aur: false
-  - name: neovim
-    description: Fork of Vim aiming to improve user experience, plugins, and GUIs
-    aur: false
-  - name: nodejs
-    description: Evented I/O for V8 javascript ("Current" release)
-    aur: false
-  - name: npm
-    description: JavaScript package manager
-    aur: false
-  - name: openssh
-    description: SSH protocol implementation for remote login, command execution and file transfer
-    aur: false
-  - name: pacman-contrib
-    description: Contributed scripts and tools for pacman systems
-    aur: false
-  - name: pandoc
-    description: Conversion between documentation formats
-    aur: false
-  - name: papirus-icon-theme
-    description: Papirus icon theme
-    aur: false
-  - name: parallel
-    description: A shell tool for executing jobs in parallel
-    aur: false
-  - name: pass
-    description: Stores, retrieves, generates, and synchronizes passwords securely
-    aur: false
-  - name: pavucontrol
-    description: PulseAudio Volume Control
-    aur: false
-  - name: pipewire
-    description: Low-latency audio/video router and processor
-    aur: false
-  - name: pipewire-alsa
-    description: Low-latency audio/video router and processor - ALSA configuration
-    aur: false
-  - name: pipewire-pulse
-    description: Low-latency audio/video router and processor - PulseAudio replacement
-    aur: false
-  - name: playerctl
-    description: mpris media player controller and lib for spotify, vlc, audacious, bmp, xmms2, and others.
-    aur: false
-  - name: polkit
-    description: Application development toolkit for controlling system-wide privileges
-    aur: false
-  - name: polkit-gnome
-    description: Legacy polkit authentication agent for GNOME
-    aur: false
-  - name: pyright
-    description: Type checker for the Python language
-    aur: false
-  - name: qemu
-    description: A basic QEMU setup for headless environments
-    aur: false
-  - name: remmina
-    description: Remote desktop client written in GTK+
-    aur: false
-  - name: kitty
-    description: A modern, hackable, featureful, OpenGL-based terminal emulator
-    aur: false
-  - name: ripgrep
-    description: A search tool that combines the usability of ag with the raw speed of grep
-    aur: false
-  - name: rkhunter
-    description: Checks machines for the presence of rootkits and other unwanted tools.
-    aur: false
-  - name: rofi-wayland
-    description: A window switcher, run dialog and dmenu replacement - fork with wayland support
-    aur: false
-  - name: rustup
-    description: The Rust toolchain installer
-    aur: false
-  - name: samba
-    description: SMB Fileserver and AD Domain server
-    aur: false
-  - name: shellcheck
-    description: Shell script analysis tool
-    aur: false
-  - name: starship
-    description: The cross-shell prompt for astronauts
-    aur: false
-  - name: swaync
-    description: A simple GTK based notification daemon for Sway
-    aur: false
-  - name: thunderbird
-    description: Standalone mail and news reader from mozilla.org
-    aur: false
-  - name: timew
-    description: Timewarrior, A command line time tracking application
-    aur: false
-  - name: tmux
-    description: Terminal multiplexer
-    aur: false
-  - name: trash-cli
-    description: Command line trashcan (recycle bin) interface
-    aur: false
-  - name: ttc-iosevka
-    description: Typeface family designed for coding, terminal use and technical documents
-    aur: false
-  - name: ttf-font-awesome
-    description: Iconic font designed for Bootstrap
-    aur: false
-  - name: ttf-iosevka-nerd
-    description: Patched font Iosevka from nerd fonts library
-    aur: false
-  - name: ttf-iosevkaterm-nerd
-    description: Patched font Iosevka Term from nerd fonts library
-    aur: false
-  - name: ttf-nerd-fonts-symbols
-    description: High number of extra glyphs from popular 'iconic fonts'
-    aur: false
-  - name: ufw
-    description: Uncomplicated and easy to use CLI tool for managing a netfilter firewall
-    aur: false
-  - name: ufw-extras
-    description: Extra configuration files for UFW
-    aur: false
-  - name: unrar
-    description: The RAR uncompression program
-    aur: false
-  - name: unzip
-    description: For extracting and viewing files in .zip archives
-    aur: false
-  - name: uwsm
-    description: A standalone Wayland session manager
-    aur: false
-  - name: vim-spell-nb
-    description: Language files for Vim spell checking (nb)
-    aur: false
-  - name: virt-manager
-    description: Desktop user interface for managing virtual machines
-    aur: false
-  - name: waybar
-    description: Highly customizable Wayland bar for Sway and Wlroots based compositors
-    aur: false
-  - name: wayland
-    description: A computer display server protocol
-    aur: false
-  - name: wireplumber
-    description: Session / policy manager implementation for PipeWire
-    aur: false
-  - name: wl-clipboard
-    description: Command-line copy/paste utilities for Wayland
-    aur: false
-  - name: xdg-desktop-portal-hyprland
-    description: xdg-desktop-portal backend for hyprland
-    aur: false
-  - name: yarn
-    description: Fast, reliable, and secure dependency management
-    aur: false
-  - name: yq
-    description: Command-line YAML, XML, TOML processor - jq wrapper for YAML/XML/TOML documents
-    aur: false
-  - name: zip
-    description: Compressor/archiver for creating and modifying zipfiles
-    aur: false
-  - name: zsh
-    description: A very advanced and programmable command interpreter (shell) for UNIX
-    aur: false
-  - name: zsh-doc
-    description: Info, HTML and PDF format of the ZSH documentation
-    aur: false
-  - name: zsh-lovers
-    description: A collection of tips, tricks and examples for the Z shell.
-    aur: false
-  - name: zshdb
-    description: A debugger for zsh scripts
-    aur: false
-  - name: dropbox
-    description: A free service that lets you bring your photos, docs, and videos anywhere and share them easily.
-    aur: true
-  - name: dropbox-cli
-    description: Command line interface for Dropbox
-    aur: true
-  - name: nvimpager
-    description: Use nvim as a pager to view manpages, diffs, etc with nvim's syntax highlighting
-    aur: true
+  # Core system utilities
+  core:
+    - name: cryptsetup
+      description: Userspace setup tool for transparent encryption of block devices using dm-crypt
+      aur: false
+    - name: gawk
+      description: GNU version of awk
+      aur: false
+    - name: git
+      description: The fast distributed version control system
+      aur: false
+    - name: inetutils
+      description: A collection of common network programs
+      aur: false
+    - name: mlocate
+      description: Alternative to locate, faster and compatible with mlocate's database.
+      aur: false
+    - name: openssh
+      description: SSH protocol implementation for remote login, command execution and file transfer
+      aur: false
+    - name: pacman-contrib
+      description: Contributed scripts and tools for pacman systems
+      aur: false
+    - name: parallel
+      description: A shell tool for executing jobs in parallel
+      aur: false
+    - name: polkit
+      description: Application development toolkit for controlling system-wide privileges
+      aur: false
+    - name: polkit-gnome
+      description: Legacy polkit authentication agent for GNOME
+      aur: false
+    - name: ufw
+      description: Uncomplicated and easy to use CLI tool for managing a netfilter firewall
+      aur: false
+    - name: ufw-extras
+      description: Extra configuration files for UFW
+      aur: false
+    - name: zip
+      description: Compressor/archiver for creating and modifying zipfiles
+      aur: false
+    - name: unzip
+      description: For extracting and viewing files in .zip archives
+      aur: false
+    - name: unrar
+      description: The RAR uncompression program
+      aur: false
+
+  # Shell and terminal
+  shell:
+    - name: kitty
+      description: A modern, hackable, featureful, OpenGL-based terminal emulator
+      aur: false
+    - name: starship
+      description: The cross-shell prompt for astronauts
+      aur: false
+    - name: tmux
+      description: Terminal multiplexer
+      aur: false
+    - name: zsh
+      description: A very advanced and programmable command interpreter (shell) for UNIX
+      aur: false
+    - name: zsh-doc
+      description: Info, HTML and PDF format of the ZSH documentation
+      aur: false
+    - name: zsh-lovers
+      description: A collection of tips, tricks and examples for the Z shell.
+      aur: false
+    - name: zshdb
+      description: A debugger for zsh scripts
+      aur: false
+
+  # CLI tools and utilities
+  cli_tools:
+    - name: atool
+      description: A script for managing file archives of various types
+      aur: false
+    - name: bat
+      description: Cat clone with syntax highlighting and git integration
+      aur: false
+    - name: btop
+      description: A monitor of system resources, bpytop ported to C++
+      aur: false
+    - name: calc
+      description: Arbitrary precision console calculator
+      aur: false
+    - name: dfc
+      description: Display file system space usage using graphs and colors
+      aur: false
+    - name: difftastic
+      description: An experimental diff tool that compares files based on their syntax
+      aur: false
+    - name: eza
+      description: A modern replacement for ls (community fork of exa)
+      aur: false
+    - name: fd
+      description: Simple, fast and user-friendly alternative to find
+      aur: false
+    - name: fzf
+      description: Command-line fuzzy finder
+      aur: false
+    - name: git-crypt
+      description: Transparent file encryption in Git
+      aur: false
+    - name: git-delta
+      description: Syntax-highlighting pager for git and diff output
+      aur: false
+    - name: git-lfs
+      description: Git extension for versioning large files
+      aur: false
+    - name: inotify-tools
+      description: inotify-tools is a C library and a set of command-line programs for Linux providing a simple interface to inotify.
+      aur: false
+    - name: jq
+      description: Command-line JSON processor
+      aur: false
+    - name: ncdu
+      description: Disk usage analyzer with an ncurses interface
+      aur: false
+    - name: nvimpager
+      description: Use nvim as a pager to view manpages, diffs, etc with nvim's syntax highlighting
+      aur: true
+    - name: pass
+      description: Stores, retrieves, generates, and synchronizes passwords securely
+      aur: false
+    - name: playerctl
+      description: mpris media player controller and lib for spotify, vlc, audacious, bmp, xmms2, and others.
+      aur: false
+    - name: ripgrep
+      description: A search tool that combines the usability of ag with the raw speed of grep
+      aur: false
+    - name: shellcheck
+      description: Shell script analysis tool
+      aur: false
+    - name: timew
+      description: Timewarrior, A command line time tracking application
+      aur: false
+    - name: trash-cli
+      description: Command line trashcan (recycle bin) interface
+      aur: false
+    - name: wl-clipboard
+      description: Command-line copy/paste utilities for Wayland
+      aur: false
+    - name: yq
+      description: Command-line YAML, XML, TOML processor - jq wrapper for YAML/XML/TOML documents
+      aur: false
+
+  # Wayland and desktop environment
+  desktop:
+    - name: hyprland
+      description: A highly customizable dynamic tiling Wayland compositor
+      aur: false
+    - name: hyprland-protocols
+      description: Wayland protocol extensions for Hyprland
+      aur: false
+    - name: hypridle
+      description: Hyprland's idle daemon
+      aur: false
+    - name: hyprlock
+      description: Hyprland's GPU-accelerated screen locking utility
+      aur: false
+    - name: hyprpaper
+      description: A blazing fast wayland wallpaper utility with IPC controls
+      aur: false
+    - name: hyprpolkitagent
+      description: Simple polkit authentication agent for Hyprland, written in QT/QML
+      aur: false
+    - name: rofi-wayland
+      description: A window switcher, run dialog and dmenu replacement - fork with wayland support
+      aur: false
+    - name: swaync
+      description: A simple GTK based notification daemon for Sway
+      aur: false
+    - name: uwsm
+      description: A standalone Wayland session manager
+      aur: false
+    - name: waybar
+      description: Highly customizable Wayland bar for Sway and Wlroots based compositors
+      aur: false
+    - name: wayland
+      description: A computer display server protocol
+      aur: false
+    - name: xdg-desktop-portal-hyprland
+      description: xdg-desktop-portal backend for hyprland
+      aur: false
+
+  # Audio and media
+  audio:
+    - name: mpd
+      description: Flexible, powerful, server-side application for playing music
+      aur: false
+    - name: pavucontrol
+      description: PulseAudio Volume Control
+      aur: false
+    - name: pipewire
+      description: Low-latency audio/video router and processor
+      aur: false
+    - name: pipewire-alsa
+      description: Low-latency audio/video router and processor - ALSA configuration
+      aur: false
+    - name: pipewire-pulse
+      description: Low-latency audio/video router and processor - PulseAudio replacement
+      aur: false
+    - name: wireplumber
+      description: Session / policy manager implementation for PipeWire
+      aur: false
+
+  # Development tools
+  development:
+    - name: clang
+      description: C language family frontend for LLVM
+      aur: false
+    - name: cmake
+      description: A cross-platform open-source make system
+      aur: false
+    - name: docker
+      description: Pack, ship and run any application as a lightweight container
+      aur: false
+    - name: gdb
+      description: The GNU Debugger
+      aur: false
+    - name: lua-language-server
+      description: Lua Language Server coded by Lua
+      aur: false
+    - name: neovim
+      description: Fork of Vim aiming to improve user experience, plugins, and GUIs
+      aur: false
+    - name: nodejs
+      description: Evented I/O for V8 javascript ("Current" release)
+      aur: false
+    - name: npm
+      description: JavaScript package manager
+      aur: false
+    - name: pandoc
+      description: Conversion between documentation formats
+      aur: false
+    - name: pyright
+      description: Type checker for the Python language
+      aur: false
+    - name: rustup
+      description: The Rust toolchain installer
+      aur: false
+    - name: yarn
+      description: Fast, reliable, and secure dependency management
+      aur: false
+
+  # Applications
+  applications:
+    - name: dropbox
+      description: A free service that lets you bring your photos, docs, and videos anywhere and share them easily.
+      aur: true
+    - name: dropbox-cli
+      description: Command line interface for Dropbox
+      aur: true
+    - name: evince
+      description: Document viewer (PDF, PostScript, XPS, djvu, dvi, tiff, cbr, cbz, cb7, cbt)
+      aur: false
+    - name: firefox
+      description: Fast, Private & Safe Web Browser
+      aur: false
+    - name: firefox-developer-edition
+      description: Fast, Private & Safe Web Browser (Developer Edition)
+      aur: false
+    - name: gimp
+      description: GNU Image Manipulation Program
+      aur: false
+    - name: gpick
+      description: Advanced color picker written in C++ using GTK+ toolkit
+      aur: false
+    - name: imagemagick
+      description: An image viewing/manipulation program
+      aur: false
+    - name: inkscape
+      description: Professional vector graphics editor
+      aur: false
+    - name: remmina
+      description: Remote desktop client written in GTK+
+      aur: false
+    - name: thunderbird
+      description: Standalone mail and news reader from mozilla.org
+      aur: false
+
+  # Security and system monitoring
+  security:
+    - name: clamav
+      description: Anti-virus toolkit for Unix
+      aur: false
+    - name: gnome-keyring
+      description: Stores passwords and encryption keys
+      aur: false
+    - name: gocryptfs
+      description: Encrypted overlay filesystem written in Go.
+      aur: false
+    - name: lm_sensors
+      description: Collection of user space tools for general SMBus access and hardware monitoring
+      aur: false
+    - name: rkhunter
+      description: Checks machines for the presence of rootkits and other unwanted tools.
+      aur: false
+
+  # Virtualization
+  virtualization:
+    - name: qemu
+      description: A basic QEMU setup for headless environments
+      aur: false
+    - name: virt-manager
+      description: Desktop user interface for managing virtual machines
+      aur: false
+    - name: samba
+      description: SMB Fileserver and AD Domain server
+      aur: false
+
+  # Fonts and themes
+  appearance:
+    - name: papirus-icon-theme
+      description: Papirus icon theme
+      aur: false
+    - name: ttc-iosevka
+      description: Typeface family designed for coding, terminal use and technical documents
+      aur: false
+    - name: ttf-font-awesome
+      description: Iconic font designed for Bootstrap
+      aur: false
+    - name: ttf-iosevka-nerd
+      description: Patched font Iosevka from nerd fonts library
+      aur: false
+    - name: ttf-iosevkaterm-nerd
+      description: Patched font Iosevka Term from nerd fonts library
+      aur: false
+    - name: ttf-nerd-fonts-symbols
+      description: High number of extra glyphs from popular 'iconic fonts'
+      aur: false
+
+  # Language support
+  language:
+    - name: aspell-en
+      description: English dictionary for aspell
+      aur: false
+    - name: aspell-nb
+      description: Norwegian Bokmål dictionary for aspell
+      aur: false
+    - name: vim-spell-nb
+      description: Language files for Vim spell checking (nb)
+      aur: false
