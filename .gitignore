@@ -1,6 +1,8 @@
 # Ignore everything, to add something you have to forcibly add it with `-f`
 # Used in conjunction showUntrackedFiles = no, so that tools like forgit works
-# as expected.
-# ref: https://github.com/wfxr/forgit/issues/68
+# as expected when using a bare repo in home.
+# Refs:
+# https://github.com/wfxr/forgit/issues/68
+# https://stackoverflow.com/questions/987142/make-gitignore-ignore-everything-except-a-few-files
 
 /*
