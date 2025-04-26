@@ -10,7 +10,7 @@
 **/
 
 /* https://github.com/srcery-colors/srcery-gui/blob/master/gtk/srcery.css */
-@import url("../../src/srcery-gui/gtk/srcery.css");
+@import url("../srcery/srcery-gui/gtk/srcery.css");
 
 * {
   /* https://github.com/be5invis/Iosevka */

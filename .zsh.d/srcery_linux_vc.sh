@@ -1,1 +1,0 @@
-../../../../src/srcery-terminal/linux_vc/srcery_linux_vc.sh

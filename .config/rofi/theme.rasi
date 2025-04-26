@@ -9,7 +9,7 @@
 ---------------------------------------------
 **/
 
-@import "~/src/srcery-gui/rofi/srcery_colors.rasi"
+@import "~/.config/srcery/srcery-gui/rofi/srcery_colors.rasi"
 
 * {
   font: "Iosevka Nerd Font 9";

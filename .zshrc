@@ -49,7 +49,7 @@ zplug load
 
 for fn (~/.zsh.d/functions/*)  autoload -Uz $fn
 
-source ~/.zsh.d/srcery_linux_vc.sh
+source ~/.config/srcery/srcery-terminal/linux_vc/srcery_linux_vc.sh
 source ~/.zsh.d/aliases.zsh
 source ~/.zsh.d/colored_man_pages.zsh
 source ~/.zsh.d/completion.zsh
