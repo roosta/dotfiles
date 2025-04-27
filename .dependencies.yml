@@ -299,6 +299,15 @@ packages:
     - name: firefox-developer-edition
       description: Fast, Private & Safe Web Browser (Developer Edition)
       aur: false
+    - name: firefox-tridactyl
+      description: Replace Firefox's control mechanism with one modelled on Vim
+      aur: false
+    - name: firefox-extension-passff
+      description: zx2c4 pass manager addon for firefox
+      aur: false
+    - name: passff-host
+      description: PassFF native messaging host application for Firefox, Chromium, Chrome, Vivaldi
+      aur: false
     - name: gimp
       description: GNU Image Manipulation Program
       aur: false
