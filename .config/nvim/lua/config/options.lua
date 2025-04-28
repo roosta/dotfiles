@@ -53,5 +53,5 @@ vim.opt.termguicolors = true
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 
-vim.opt.textwidth = 80
+-- vim.opt.textwidth = 80
 --  vim: set ts=2 sw=2 tw=0 fdm=marker et :
