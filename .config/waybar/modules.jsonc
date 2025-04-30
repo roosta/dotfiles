@@ -241,6 +241,7 @@
     "modules": [
       "keyboard-state",
       "hyprland/language",
+      "systemd-failed-units",
       "privacy"
     ]
   },
@@ -290,6 +291,13 @@
       "has-updates": "󱍷 ",
       "updated": "󰂪 "
     }
+  },
+
+  "systemd-failed-units": {
+    "hide-on-ok": true,
+    "format": "",
+    "system": true,
+    "user": true
   },
 
   // }}}

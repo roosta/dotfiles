@@ -211,10 +211,6 @@ window#waybar #submap {
   color: @srcery-yellow;
 }
 
-#language > label {
-  color: @srcery-bright-blue;
-}
-
 #keyboard-state {
   color: @srcery-bright-white;
 }
@@ -224,6 +220,12 @@ window#waybar #submap {
 
 #keyboard-state > label.locked {
   color: @srcery-yellow;
+}
+
+#systemd-failed-units {
+  color: @srcery-bright-red;
+  font-weight: bold;
+  margin-left: 0.5rem;
 }
 
 /* }}} */
