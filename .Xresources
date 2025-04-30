@@ -1,0 +1,17 @@
+! ┌─────────────────────────────────────────┐
+! │░█░█░█▀▄░█▀▀░█▀▀░█▀█░█░█░█▀▄░█▀▀░█▀▀░█▀▀░│
+! │░▄▀▄░█▀▄░█▀▀░▀▀█░█░█░█░█░█▀▄░█░░░█▀▀░▀▀█░│
+! │░▀░▀░▀░▀░▀▀▀░▀▀▀░▀▀▀░▀▀▀░▀░▀░▀▀▀░▀▀▀░▀▀▀░│
+! └─────────────────────────────────────────┘
+! Roosta <mail@roosta.sh>
+! https://github.com/roosta/etc
+! ----------------------------------------
+
+#include "~/.config/srcery/srcery-terminal/xresources/srcery.xresources"
+
+#define FONT_NORMAL     xft:Iosevka Nerd Font:size=9:style=Regular:antialias=true:hinting=true
+#define FONT_BOLD       xft:Iosevka Nerd Font:size=9:style=Bold:antialias=true:hinting=true
+#define FONT_ITALIC     xft:Iosevka Nerd Font:size=9:style=Italic:antialias=true:hinting=true
+#define FONT_BOLDITALIC xft:Iosevka Nerd Font:size=9:style=Bold Italic:antialias=true:hinting=true
+
+! vim:ft=xdefaults:ts=2:sw=2:fdm=marker
