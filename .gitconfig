@@ -1,7 +1,5 @@
-[user]
-  email = mail@roosta.sh
-  user = roosta
-  name = Daniel Berg
+[include]
+  path = ~/.gituser
 [core]
   editor = nvim
   excludesfile = ~/.globalignore
