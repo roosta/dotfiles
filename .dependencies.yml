@@ -1,5 +1,5 @@
 # System dependencies and configuration
-# Last updated: 2025-04-26
+# Last updated: 2025-05-04
 
 # Git repositories to clone/update
 repositories:
@@ -22,7 +22,7 @@ repositories:
     url: git@github.com:srcery-colors/srcery-vim.git
     description: Vim colorscheme, I dogfood the theme, so I keep a local copy
     branch: main
-    path: ~/src/srcery-vi
+    path: ~/src/srcery-vim
 
   # Utilities
   - name: figlet-fonts
@@ -47,7 +47,7 @@ packages:
     - name: inetutils
       description: A collection of common network programs
       aur: false
-    - name: mlocate
+    - name: plocate
       description: Alternative to locate, faster and compatible with mlocate's database.
       aur: false
     - name: openssh
@@ -65,12 +65,6 @@ packages:
     - name: polkit-gnome
       description: Legacy polkit authentication agent for GNOME
       aur: false
-    - name: ufw
-      description: Uncomplicated and easy to use CLI tool for managing a netfilter firewall
-      aur: false
-    - name: ufw-extras
-      description: Extra configuration files for UFW
-      aur: false
     - name: zip
       description: Compressor/archiver for creating and modifying zipfiles
       aur: false
@@ -79,6 +73,12 @@ packages:
       aur: false
     - name: unrar
       description: The RAR uncompression program
+      aur: false
+    - name: rsync
+      description: A fast and versatile file copying tool for remote and local files
+      aur: false
+    - name: vulkan-tools
+      description: Vulkan tools and utilities
       aur: false
 
   # Shell and terminal
@@ -103,6 +103,9 @@ packages:
       aur: false
     - name: zshdb
       description: A debugger for zsh scripts
+      aur: false
+    - name: vivid
+      description: LS_COLORS manager with multiple themes
       aur: false
 
   # CLI tools and utilities
@@ -143,9 +146,6 @@ packages:
     - name: git-lfs
       description: Git extension for versioning large files
       aur: false
-    - name: inotify-tools
-      description: inotify-tools is a C library and a set of command-line programs for Linux providing a simple interface to inotify.
-      aur: false
     - name: jq
       description: Command-line JSON processor
       aur: false
@@ -182,6 +182,76 @@ packages:
     - name: svgcleaner
       description: An application that cleans svg images from unnecessary data in batch mode.
       aur: false
+    - name: chafa
+      description: Image-to-text converter supporting a wide range of symbols and palettes, transparency, animations, etc.
+      aur: false
+    - name: choose
+      description: A human-friendly and fast alternative to cut and (sometimes) awk
+      aur: false
+    - name: entr
+      description: Run arbitrary commands when files change
+      aur: false
+    - name: diff-so-fancy
+      description: Good-looking diffs with diff-highlight and more
+      aur: false
+    - name: gloriousctl
+      description: A utility to adjust the settings of Model O/D mice on Linux
+      aur: false
+    - name: hexyl
+      description: Colored command-line hex viewer
+      aur: false
+    - name: htop
+      description: Interactive process viewer
+      aur: false
+    - name: inxi
+      description: Full featured CLI system information tool
+      aur: false
+    - name: jp2a
+      description: A small utility for converting JPG images to ASCII
+      aur: false
+    - name: libnotify
+      description: Library for sending desktop notifications
+      aur: false
+    - name: neofetch
+      description: A CLI system information tool written in BASH that supports displaying images.
+      aur: false
+    - name: perl-image-exiftool
+      description: Reader and rewriter of EXIF information that supports raw files
+      aur: false
+    - name: procs
+      description: A modern replacement for ps written in Rust
+      aur: false
+    - name: progress
+      description: Shows running coreutils basic commands and displays stats
+      aur: false
+    - name: recode
+      description: Converts files between various character sets and usages
+      aur: false
+    - name: rlwrap
+      description: Adds readline-style editing and history to programs
+      aur: false
+    - name: rocm-smi-lib
+      description: ROCm System Management Interface Library
+      aur: false
+    - name: swappy
+      description: A Wayland native snapshot editing tool
+      aur: false
+    - name: satty
+      description: Modern screenshot annotation tool, inspired by Swappy and Flameshot
+      aur: false
+    - name: speedtest-cli
+      description: Command line interface for testing internet bandwidth using speedtest.net
+      aur: false
+    - name: termdown
+      description: Countdown timer and stopwatch in your terminal
+      aur: false
+    - name: tldr
+      description: Command line client for tldr, a collection of simplified man pages.
+      aur: false
+    - name: toilet
+      description: Free replacement for the FIGlet utility
+      aur: false
+
 
   # Wayland and desktop environment
   desktop:
@@ -199,6 +269,9 @@ packages:
       aur: false
     - name: hyprpaper
       description: A blazing fast wayland wallpaper utility with IPC controls
+      aur: false
+    - name: hyprpicker
+      description: A wlroots-compatible Wayland color picker that does not suck
       aur: false
     - name: hyprpolkitagent
       description: Simple polkit authentication agent for Hyprland, written in QT/QML
@@ -221,9 +294,39 @@ packages:
     - name: xdg-desktop-portal-hyprland
       description: xdg-desktop-portal backend for hyprland
       aur: false
+    - name: xdg-desktop-portal-gtk
+      description: A backend implementation for xdg-desktop-portal using GTK
+      aur: false
+    - name: xdg-desktop-portal-wlr
+      description: xdg-desktop-portal backend for wlroots
+      aur: false
+    - name: libappindicator-gtk3
+      description: Allow applications to extend a menu via Ayatana indicators in Unity, KDE or Systray (GTK+ 3 library)
+      aur: false
+    - name: zenity
+      description: Allow applications to extend a menu via Ayatana indicators in Unity, KDE or Systray (GTK+ 3 library)
+      aur: false
+    - name: glaze
+      description: An Extremely fast, In-Memory JSON and Interface Library for Modern C++
+      aur: false
+    - name: nwg-displays
+      description: Output management utility for sway and Hyprland Wayland compositors
+      aur: false
+    - name: qt6-wayland
+      description: Provides APIs for Wayland
+      aur: false
+    - name: slurp
+      description: Select a region in a Wayland compositor
+      aur: false
+    - name: wev
+      description: A tool for debugging wayland events on a Wayland window, analagous to the X11 tool xev
+      aur: false
+    - name: wf-recorder
+      description: Screen recorder for wlroots-based compositors such as sway
+      aur: false
 
-  # Audio and media
-  audio:
+  # Multimedia (audio, video playback etc)
+  multimedia:
     - name: mpd
       description: Flexible, powerful, server-side application for playing music
       aur: false
@@ -239,9 +342,38 @@ packages:
     - name: pipewire-pulse
       description: Low-latency audio/video router and processor - PulseAudio replacement
       aur: false
+    - name: pipewire-jack
+      description: Low-latency audio/video router and processor - JACK replacement
+      aur: false
     - name: wireplumber
       description: Session / policy manager implementation for PipeWire
       aur: false
+    - name: alsa-utils
+      description: Advanced Linux Sound Architecture - Utilities
+      aur: false
+    - name: cava
+      description: Console-based Audio Visualizer with support for multiple backends
+      aur: false
+    - name: mpv
+      description: a free, open source, and cross-platform media player
+      aur: false
+    - name: shortwave
+      description: Internet radio player
+      aur: false
+    - name: slack-desktop
+      description: Slack Desktop (Beta) for Linux
+      aur: true
+    - name: spotify-launcher
+      description: Client for spotify's apt repository in Rust for Arch Linux
+      aur: false
+    - name: v4l2loopback-dkms
+      description: v4l2-loopback device – module sources
+      optional: true
+      aur: false
+    - name: vlc
+      description: Multi-platform MPEG, VCD/DVD, and DivX player
+      aur: false
+      optional: true
 
   # Development tools
   development:
@@ -260,6 +392,12 @@ packages:
     - name: lua-language-server
       description: Lua Language Server coded by Lua
       aur: false
+    - name: vue-language-server
+      description: Language server for Vue
+      aur: false
+    - name: bash-language-server
+      description: Bash language server implementation based on Tree Sitter and its grammar for Bash
+      aur: false
     - name: neovim
       description: Fork of Vim aiming to improve user experience, plugins, and GUIs
       aur: false
@@ -269,7 +407,10 @@ packages:
     - name: npm
       description: JavaScript package manager
       aur: false
-    - name: pandoc
+    - name: npm-check-updates
+      description: Find newer versions of dependencies than what your package.json or bower.json allows
+      aur: false
+    - name: pandoc-cli
       description: Conversion between documentation formats
       aur: false
     - name: pyright
@@ -281,6 +422,79 @@ packages:
     - name: yarn
       description: Fast, reliable, and secure dependency management
       aur: false
+    - name: arch-wiki-docs
+      description: Pages from Arch Wiki optimized for offline browsing
+      aur: false
+    - name: arch-wiki-lite
+      description: Arch Wiki without HTML. 1/9 as big, easily searched & viewable on console
+      aur: false
+    - name: cargo-outdated
+      description: A cargo subcommand for displaying when Rust dependencies are out of date
+      aur: false
+    - name: ldtk
+      description: Modern and efficient 2D level editor with a strong focus on user-friendliness
+      aur: true
+    - name: ldd
+      description: Linker from the LLVM project
+      aur: false
+    - name: luarocks
+      description: Deployment and management system for Lua modules
+      aur: false
+    - name: luarocks
+      description: Deployment and management system for Lua modules
+      aur: false
+    - name: marksman
+      description: Write Markdown with code assist and intelligence in the comfort of your favourite editor.
+      aur: false
+    - name: maven
+      description: Java project management and project comprehension tool
+      aur: false
+    - name: intellij-idea-community-edition
+      description: IDE for Java, Groovy and other programming languages with advanced refactoring features
+      aur: false
+    - name: ollama
+      description: Create, run and share large language models (LLMs)
+      aur: false
+    - name: pkgfile
+      description: A tool to search for files in official repository packages
+      aur: false
+    - name: pnpm
+      description: Fast, disk space efficient package manager
+      aur: false
+    - name: podman
+      description: Tool and library for running OCI-based containers in pods
+      aur: false
+    - name: pyright
+      description: Type checker for the Python language
+      aur: false
+    - name: python-pip
+      description: The PyPA recommended tool for installing Python packages
+      aur: false
+    - name: python-pynvim
+      description: Python client for Neovim
+      aur: false
+    - name: tree-sitter
+      description: Incremental parsing library
+      aur: false
+    - name: tree-sitter-bash
+      description: Bash grammar for tree-sitter
+      aur: false
+    - name: tree-sitter-javascript
+      description: JavaScript grammar for tree-sitter
+      aur: false
+    - name: tree-sitter-python
+      description: Python grammar for tree-sitter
+      aur: false
+    - name: tree-sitter-rust
+      description: Rust grammar for tree-sitter
+      aur: false
+    - name: uv
+      description: An extremely fast Python package installer and resolver written in Rust
+      aur: false
+    - name: yarn
+      description: Fast, reliable, and secure dependency management
+      aur: false
+
 
   # Applications
   applications:
@@ -290,6 +504,9 @@ packages:
     - name: dropbox-cli
       description: Command line interface for Dropbox
       aur: true
+    - name: python-gpgme
+      description: Python bindings for GPGme
+      aur: false
     - name: evince
       description: Document viewer (PDF, PostScript, XPS, djvu, dvi, tiff, cbr, cbz, cb7, cbt)
       aur: false
@@ -326,6 +543,39 @@ packages:
     - name: thunderbird
       description: Standalone mail and news reader from mozilla.org
       aur: false
+    - name: flatpak
+      description: Linux application sandboxing and distribution framework (formerly xdg-app)
+      aur: false
+    - name: flatpak-xdg-utils
+      description: Utilities for containerized apps to launch programs outside the container
+      aur: false
+    - name: gnome-software
+      description: Allows you to find and install new apps
+      aur: false
+    - name: grim
+      description: Screenshot utility for Wayland
+      aur: false
+    - name: gthumb
+      description: Image browser and viewer for the GNOME Desktop
+      aur: false
+    - name: gucharmap
+      description: Gnome Unicode Charmap
+      aur: false
+    - name: libreoffice-fresh
+      description: LibreOffice branch which contains new features and program enhancements
+      aur: false
+    - name: nautilus
+      description: Default file manager for GNOME
+      aur: false
+    - name: syncthing
+      description: Open Source Continuous Replication / Cluster Synchronization Thing
+      aur: false
+    - name: zathura
+      description: Minimalistic document viewer
+      aur: false
+    - name: zathura-pdf-poppler
+      description: Adds pdf support to zathura by using the poppler engine
+      aur: false
 
   # Security and system monitoring
   security:
@@ -344,11 +594,32 @@ packages:
     - name: rkhunter
       description: Checks machines for the presence of rootkits and other unwanted tools.
       aur: false
+    - name: nethogs
+      description: A net top tool which displays traffic used per process instead of per IP or interface
+      aur: false
+    - name: seahorse
+      description: GNOME application for managing PGP keys.
+      aur: false
+    - name: sniffnet
+      description: Application to comfortably monitor your network traffic
+      aur: false
+    - name: whois
+      description: Intelligent WHOIS client
+      aur: false
+    - name: ufw
+      description: Uncomplicated and easy to use CLI tool for managing a netfilter firewall
+      aur: false
+    - name: ufw-extras
+      description: Extra configuration files for UFW
+      aur: false
 
   # Virtualization
   virtualization:
-    - name: qemu
+    - name: qemu-base
       description: A basic QEMU setup for headless environments
+      aur: false
+    - name: qemu-full
+      description: A full QEMU setup
       aur: false
     - name: virt-manager
       description: Desktop user interface for managing virtual machines
@@ -377,6 +648,12 @@ packages:
     - name: ttf-nerd-fonts-symbols
       description: High number of extra glyphs from popular 'iconic fonts'
       aur: false
+    - name: noto-fonts-cjk
+      description: Google Noto CJK fonts
+      aur: false
+    - name: noto-fonts-emoji
+      description: Google Noto emoji fonts
+      aur: false
 
   # Language support
   language:
@@ -389,3 +666,41 @@ packages:
     - name: vim-spell-nb
       description: Language files for Vim spell checking (nb)
       aur: false
+
+  # Laptop spesific
+  laptop:
+    - name: brightnessctl
+      description: Lightweight brightness control tool
+      aur: false
+
+  # Linux gaming
+  gaming:
+    - name: steam
+      description: Valve's digital software delivery system
+      aur: false
+    - name: gamemode
+      description: A daemon/lib combo that allows games to request a set of optimisations be temporarily applied to the host OS
+      aur: false
+    - name: gamescope
+      description: SteamOS session compositing window manager
+      aur: false
+    - name: libretro
+      description: libretro emulators and frontend
+      group: true
+      aur: false
+    - name: wowup
+      description: World of Warcraft addon updater
+      aur: true
+    - name: umu-launcher
+      description: This is the Unified Launcher for Windows Games on Linux, to run Proton with fixes outside of Steam
+      aur: false
+    - name: vkd3d
+      description: Direct3D 12 to Vulkan translation library By WineHQ
+      aur: false
+    - name: wine
+      description: A compatibility layer for running Windows programs
+      aur: false
+    - name: winetricks
+      description: Script to install various redistributable runtime libraries in Wine.
+      aur: false
+
