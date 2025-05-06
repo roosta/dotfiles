@@ -6,8 +6,9 @@
   pager = delta
 [push]
   default = simple
+  autoSetupRemote = true
 [interactive]
-    diffFilter = delta --color-only
+  diffFilter = delta --color-only
 [credential]
   helper = cache --timeout=3600
 [alias]
@@ -32,11 +33,10 @@
   amend     = commit --amend
   last      = cat-file commit HEAD
   last-sha  = rev-parse --short HEAD
-
-  # difftastic
   dlog = -c diff.external=difft log --ext-diff
   dshow = -c diff.external=difft show --ext-diff
   ddiff = -c diff.external=difft diff
+  pushf = push --force-with-lease --force-if-includes # don't clobber other commits
 [init]
   # templatedir = ~/.git_template
   defaultBranch = main
@@ -80,4 +80,9 @@
 
 [merge]
   conflictstyle = zdiff3
-
+[diff]
+  submodule = log
+[fetch]
+  ; automatically delete your local copy of origin/foo when that branch is
+  ; deleted on the remote (usually because the PR/MR merged)
+  prune = true
