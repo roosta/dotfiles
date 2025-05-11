@@ -90,6 +90,7 @@ alias dotsync='dot pull --recurse-submodules'
 # `dot config --local core.worktree $HOME`
 alias dotvim="GIT_DIR=$HOME/.dotfiles GIT_WORK_TREE=$HOME nvim -c 'Git'"
 
+alias gitvi="vim -c 'Git'" # Fugitive on startup
 alias suk="sudo -K" # Clear cached sudo pass
 alias ps-cpu-full='ps auxf | sort -nr -k 3'
 alias ps-cpu='ps auxf | sort -nr -k 3 | head -10'
@@ -157,13 +158,12 @@ alias reload='killall -SIGUSR2'
 # Quick edits: {{{
 # ------------------------------------------------------------------------------
 
-alias vigit="vim -c 'Git'"
 alias vialias="${EDITOR:-nvim} ~/.zsh.d/aliases.zsh"
 alias vibar="${EDITOR:-nvim} ~/.config/waybar/modules.jsonc \
   ~/.config/waybar/style.css ~/.config/waybar/config.jsonc"
 alias vienv="${EDITOR:-nvim} ~/.zshenv"
 alias vifzf="${EDITOR:-nvim} ~/.zsh.d/fzf.zsh"
-alias vigitc="${EDITOR:-nvim} ~/.gitconfig"
+alias vigit="${EDITOR:-nvim} ~/.gitconfig"
 alias vigtk="${EDITOR:-nvim} ~/.gtkrc-2.0 ~/.config/gtk-3.0/settings.ini \
   ~/.config/gtk-4.0/settings.ini"
 alias vihypr="${EDITOR:-nvim} ~/.config/hypr/hyprland.conf"
