@@ -21,7 +21,7 @@
 /* Bar, outputs */
 window#waybar {
   color: @srcery-bright-white;
-  background: @srcery-xgray2;
+  background: @srcery-black;
 }
 
 window#waybar.quaternary * {
@@ -39,20 +39,19 @@ window#waybar.hidden {
 }
 
 box {
-  margin: 2px 2px;
+  margin: 2px;
 }
 
 /* Groups */
 #window,
 #audio,
-#datetime,
 #tray,
 #submap,
 #meters {
   margin: 0;
   padding: 0 6px;
   border-radius: 2px;
-  background: @srcery-xgray4;
+  background: @srcery-xgray1;
 }
 
 /* modules */
@@ -88,14 +87,14 @@ button {
 
 @keyframes blink {
   to {
-    background-color: @srcery-xgray5;
+    background-color: @srcery-xgray4;
   }
 }
 
 tooltip {
   background: @srcery-xgray2;
   border-radius: 2px;
-  border: 1px solid @srcery-xgray3;
+  border: 1px solid @srcery-xgray2;
 }
 
 tooltip label {
@@ -106,7 +105,7 @@ tooltip label {
 /* -------------------------------------------------------------------------- */
 window#waybar #window {
   font-size: 0.75rem;
-  background: @srcery-xgray3;
+  background: none;
 }
 
 window#waybar.empty #window {
@@ -137,22 +136,25 @@ window#waybar.empty #workspaces button.persistent.empty {
 #workspaces button {
   padding: 2px 8px 0px 8px;
   margin: 0 2px;
-  background-color: @srcery-xgray3;
+  background-color: @srcery-xgray1;
   color: @srcery-white;
   border-radius: 2px;
   font-size: 1rem;
 }
 
+#workspaces button.active {
+  background: @srcery-xgray2;
+}
 #workspaces button:hover {
-  background: @srcery-xgray4;
+  background: @srcery-xgray2;
 }
 
 #workspaces button.active:hover, button.visible:hover {
-  background: @srcery-xgray5;
+  background: @srcery-xgray3;
 }
 
 #workspaces button.active {
-  background: @srcery-xgray4;
+  background: @srcery-xgray2;
   color: @srcery-bright-magenta;
 }
 
@@ -273,11 +275,11 @@ window#waybar #submap {
 #idle_inhibitor {
   border-radius: 2px;
   padding: 0px 8px;
-  background-color: @srcery-xgray4;
+  background-color: @srcery-xgray1;
 }
 
 #custom-rofi:hover, #custom-power:hover, #custom-notification:hover, #idle_inhibitor:hover {
-  background-color: @srcery-xgray5;
+  background-color: @srcery-xgray3;
   transition-property: background-color;
   transition-duration: 0.2s;
 }

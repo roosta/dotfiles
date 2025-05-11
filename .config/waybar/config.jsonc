@@ -15,9 +15,7 @@
       "~/.config/waybar/modules.jsonc"
     ],
     "modules-center": [
-      "group/datetime",
-      "custom/gap",
-      "custom/notification"
+      "group/datetime"
     ],
     "modules-left": [
       "custom/rofi",
@@ -29,6 +27,8 @@
     "modules-right": [
       "group/indicators",
       "hyprland/submap",
+      "custom/notification",
+      "custom/gap",
       "idle_inhibitor",
       "custom/gap",
       "group/audio",
