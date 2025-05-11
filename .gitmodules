@@ -22,3 +22,30 @@
 [submodule ".config/srcery/srcery-web"]
 	path = .config/srcery/srcery-web
 	url = https://github.com/srcery-colors/srcery-web.git
+[submodule ".zsh.d/plugins/zsh-vi-mode"]
+	path = .zsh.d/plugins/zsh-vi-mode
+	url = https://github.com/jeffreytse/zsh-vi-mode
+[submodule ".zsh.d/plugins/fif"]
+	path = .zsh.d/plugins/fif
+	url = https://github.com/roosta/fif
+[submodule ".zsh.d/plugins/fzf-tab"]
+	path = .zsh.d/plugins/fzf-tab
+	url = https://github.com/Aloxaf/fzf-tab
+[submodule ".zsh.d/plugins/zsh-history-substring-search"]
+	path = .zsh.d/plugins/zsh-history-substring-search
+	url = https://github.com/zsh-users/zsh-history-substring-search
+[submodule ".zsh.d/plugins/zsh-completions"]
+	path = .zsh.d/plugins/zsh-completions
+	url = https://github.com/zsh-users/zsh-completions
+[submodule ".zsh.d/plugins/forgit"]
+	path = .zsh.d/plugins/forgit
+	url = https://github.com/wfxr/forgit
+[submodule ".zsh.d/plugins/zsh-autosuggestions"]
+	path = .zsh.d/plugins/zsh-autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions
+[submodule ".zsh.d/plugins/fast-syntax-highlighting"]
+	path = .zsh.d/plugins/fast-syntax-highlighting
+	url = https://github.com/zdharma-continuum/fast-syntax-highlighting
+[submodule ".zsh.d/plugins/fzf-marks"]
+	path = .zsh.d/plugins/fzf-marks
+	url = https://github.com/urbainvaes/fzf-marks
