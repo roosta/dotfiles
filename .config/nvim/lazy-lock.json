@@ -33,6 +33,7 @@
   "render-markdown.nvim": { "branch": "main", "commit": "a1b0988f5ab26698afb56b9c2f0525a4de1195c1" },
   "rust.vim": { "branch": "master", "commit": "889b9a7515db477f4cb6808bef1769e53493c578" },
   "sideways.vim": { "branch": "main", "commit": "3b353b19972a1138261d939055aff4844b9c472f" },
+  "snacks.nvim": { "branch": "main", "commit": "bc0630e43be5699bb94dadc302c0d21615421d93" },
   "sniprun": { "branch": "master", "commit": "46f5a08df8b7b798d8c37d2b249af6b9ea8e75a3" },
   "splitjoin.vim": { "branch": "main", "commit": "6af1cdcae4b46a90dbcd59ce0ca3543f34c7732c" },
   "targets.vim": { "branch": "master", "commit": "6325416da8f89992b005db3e4517aaef0242602e" },
