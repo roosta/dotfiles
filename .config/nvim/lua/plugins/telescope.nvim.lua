@@ -67,7 +67,7 @@ return {
       desc = "Telescope treesitter",
       silent = true,
     })
-    vim.keymap.set("n", "<leader>mm", builtin.marks, {
+    vim.keymap.set("n", "<leader>m", builtin.marks, {
       desc = "Telescope marks",
       silent = true,
     })
