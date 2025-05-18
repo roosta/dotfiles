@@ -11,6 +11,7 @@ return {
     lazy = false,
     priority = 1000,
     config = function()
+      -- vim.g.srcery_bg = { "NONE", "NONE" }
       vim.g.srcery_dim_lisp_parens = 0
       vim.g.srcery_italic = 1
       vim.cmd([[colorscheme srcery]])
