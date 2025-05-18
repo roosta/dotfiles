@@ -347,14 +347,13 @@
   "group/datetime": {
     "orientation": "horizontal",
     "modules": [
-      "clock#weekday",
-      "clock#time",
-      "clock#date"
+      "clock#time"
     ]
 
   },
   "clock#time": {
     "format": "{:%H:%M}",
+    "format-alt": "{:%A, %B %d, %Y (%R)}",
     "tooltip-format": "<tt><small>{calendar}</small></tt>",
     "calendar": {
       "mode": "month",
@@ -370,38 +369,12 @@
     }
   },
   "clock#weekday": {
-    "format": "{:%a}",
-    "tooltip-format": "<tt><small>{calendar}</small></tt>",
-    "calendar": {
-      "mode": "month",
-      "weeks-pos": "right",
-      "on-scroll": 1,
-      "format": {
-        "months": "<span color='#FBB829'><b>{}</b></span>",
-        "days": "<span color='#FCE8C3'><b>{}</b></span>",
-        "weeks": "<span color='#2BE4D0'><b>W{}</b></span>",
-        "weekdays": "<span color='#FED06E'><b>{}</b></span>",
-        "today":"<span color='#FF5C8F'><b><u>{}</u></b></span>"
-      }
-    }
+    "format": "{:%a}"
   },
 
   "clock#date": {
-    "format": "{:%d-%m}",
-    "tooltip-format": "<tt><small>{calendar}</small></tt>",
-    "calendar": {
-      "mode": "month",
-      "weeks-pos": "right",
-      "on-scroll": 1,
-      "format": {
-        "months": "<span color='#FBB829'><b>{}</b></span>",
-        "days": "<span color='#FCE8C3'><b>{}</b></span>",
-        "weeks": "<span color='#2BE4D0'><b>W{}</b></span>",
-        "weekdays": "<span color='#FED06E'><b>{}</b></span>",
-        "today":"<span color='#FF5C8F'><b><u>{}</u></b></span>"
-      }
-    }
-  },
+    "format": "{:%d-%m}"
+  }
   // }}}
 }
 
