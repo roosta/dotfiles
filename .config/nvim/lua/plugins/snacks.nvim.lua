@@ -2,6 +2,8 @@
 -- └─┐││││─┤│  ├┴┐└─┐ ││││┌┘││││
 -- ──┘┆└┘┘ ┆└─┘┆ ┘──┘o┆└┘└┘ ┆┘ ┆
 -- ─────────────────────────────────────────────────────────────────────────
+-- 🍿 A collection of QoL plugins for Neovim 
+
 return {
   "folke/snacks.nvim",
   priority = 1000,
@@ -22,7 +24,52 @@ return {
           { section = "startup" },
         },
       },
-      preset = {}
+      preset = {
+        keys = {
+          {
+            icon = " ",
+            key = "n",
+            desc = "New File",
+            action = ":ene | startinsert",
+          },
+          {
+            icon = " ",
+            key = "f",
+            desc = "Find File",
+            action = function()
+              require("telescope.builtin").find_files()
+            end
+          },
+          {
+            icon = " ",
+            key = "g",
+            desc = "Find Text",
+            action = function()
+              require("telescope.builtin").live_grep()
+            end,
+          },
+          {
+            icon = " ",
+            key = "r",
+            desc = "Recent Files",
+            action = function()
+              require("telescope.builtin").oldfiles()
+            end,
+          },
+          {
+            icon = " ",
+            key = "c",
+            desc = "Config",
+            action = function()
+              require("telescope.builtin").find_files({
+                cwd = vim.fn.stdpath('config'),
+              })
+            end,
+          },
+          { icon = "󰒲 ", key = "L", desc = "Lazy", action = ":Lazy", enabled = package.loaded.lazy ~= nil },
+          { icon = " ", key = "q", desc = "Quit", action = ":qa" },
+        },
+      }
     },
     input = { enabled = true },
     picker = { enabled = true },
