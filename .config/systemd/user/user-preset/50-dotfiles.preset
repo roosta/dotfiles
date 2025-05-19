@@ -1,0 +1,5 @@
+enable hypridle.service
+enable hyprpaper.service
+enable hyprpolkitagent.service
+enable swaync.service
+enable waybar.service
