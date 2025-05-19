@@ -31,6 +31,40 @@ repositories:
     branch: master
     path: ~/lib/figlet-fonts
 
+flatpak:
+  - name: Zen
+    application: app.zen_browser.zen
+    description: Stay focused, browse faster
+  - name: Discord
+    application: com.discordapp.Discord
+    description: Talk, play, hang out
+  - name: Flatseal
+    application: com.github.tchx84.Flatseal
+    description: Manage Flatpak permissions
+  - name: Google Chrome
+    application: com.google.Chrome
+    description: The browser built to be yours
+  - name: Google Chrome (unstable)
+    application: com.google.ChromeDev
+    description: The web browser from Google
+  - name: OBS Studio
+    application: com.obsproject.Studio
+    description: Live stream and record videos
+  - name: Lutris
+    application: net.lutris.Lutris
+    description: Video game preservation platform
+  - name: Floorp
+    application: one.ablaze.floorp
+    description: A Firefox-based, flexible browser developed in Japan with a variety of features.
+  - name:  Dolphin Emulator
+    application: org.DolphinEmu.dolphin-emu
+    description: GameCube / Wii / Triforce Emulator
+  - name: Prism Launcher
+    application: org.prismlauncher.PrismLauncher
+    description: Custom Minecraft Launcher to easily manage multiple Minecraft installations at once
+
+
+
 # Packages to install
 packages:
   # Core system utilities
