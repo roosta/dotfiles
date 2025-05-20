@@ -1,1 +1,1 @@
-vim.g.markdown_folding = 1
+-- vim.g.markdown_folding = 1
