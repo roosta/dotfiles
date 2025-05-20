@@ -86,7 +86,7 @@ alias e=edit
 # Open file in ~/notes
 open_note() {
   local file=$(find ~/notes -name '*.md' | fzf -d "/" --query="$1" --with-nth "5..")
-  [ -n "$file" ] && vim -c "cd ~/notes" -- "$file"
+  [ -n "$file" ] && vim -c "cd $HOME/notes" -- "$file"
 }
 alias o=open_note
 
