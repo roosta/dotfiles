@@ -4,7 +4,7 @@
 ! │░▀░▀░▀░▀░▀▀▀░▀▀▀░▀▀▀░▀▀▀░▀░▀░▀▀▀░▀▀▀░▀▀▀░│
 ! └─────────────────────────────────────────┘
 ! Roosta <mail@roosta.sh>
-! https://github.com/roosta/etc
+! https://github.com/roosta/dotfiles
 ! ----------------------------------------
 
 #include "~/.config/srcery/srcery-terminal/xresources/srcery.xresources"

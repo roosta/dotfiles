@@ -4,7 +4,7 @@
 # │█▀▀▀▀▀▀▀▀▀░░░░▀▀▀░▀▀▀░▀░▀░▀░▀░▀▀▀░░░░▀▀▀▀▀▀▀▀▀█│
 # │█▀▀▀▀▀▀▀▀▀───────────────────────────▀▀▀▀▀▀▀▀▀█│
 # ├┤ Author : Daniel Berg <mail@roosta.sh>       ├┤
-# ├┤ Github : https://github.com/roosta/etc      ├┤
+# ├┤ Github : https://github.com/roosta/dotfiles ├┤
 # ┆└─────────────────────────────────────────────┘┆
 
 
