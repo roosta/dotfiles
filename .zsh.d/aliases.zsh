@@ -173,7 +173,7 @@ alias virofi="${EDITOR:-nvim} ~/.config/rofi/config.rasi \
 alias vissh="${EDITOR:-nvim} ~/.ssh/config"
 alias viterm="${EDITOR:-nvim} ~/.config/kitty/kitty.conf"
 alias vitodo="${EDITOR:-nvim} ~/notes/TODOs.md"
-alias vivim="${EDITOR:-nvim} ~/.config/nvim/"
+alias vivim="${EDITOR:-nvim} -c 'cd ~/.config/nvim' ~/.config/nvim/"
 alias vizsh="${EDITOR:-nvim} ~/.zshrc"
 alias vizshd="${EDITOR:-nvim} ~/.zsh.d"
 
