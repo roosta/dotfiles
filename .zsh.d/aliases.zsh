@@ -41,6 +41,10 @@ alias mutt='neomutt'
 alias vim='nvim'
 alias vi="nvim"
 
+if hash dust 2>/dev/null; then
+  alias du="dust"
+fi
+
 # Check for various ls replacements before falling back to ls
 if [[ $TERM == 'eterm-color' ]]; then
   alias ls='\ls -lAh'
@@ -144,7 +148,7 @@ alias get-keys="wev -f wl_keyboard"
 alias find-font='pango-list|rg '
 alias zref="exec zsh" # reload zshrc
 alias :q="exit" # :)
-alias cl='clear -x' # keep scrollback
+alias clear!="printf '\033[2J\033[3J\033[1;1H'"
 alias pacown='pacman -Qo' # which package owns arg
 alias pacorph='paru -Rns $(pacman -Qtdq)' # clear orphans
 alias pacls='pacman -Ql' # list package files
@@ -189,12 +193,14 @@ alias -g TL='|& tail'
 alias -g PG='|& $PAGER'
 alias -g X='| xargs'
 alias -g copy="|wl-copy"
+
+# except past which doesn't make sense to pipe to, but want it next to copy
 alias paste="wl-paste"
 
 #}}}
 # Suffix: {{{
 # ------------------------------------------------------------------------------
-# example: type 'test.yml' opens vim with test.clj as active buffer.
+# example: type 'test.yml' opens vim with test.yml as active buffer.
 
 alias -s {yml,json,txt,tex,css,ts,js,html,md,handlebars,hbs}=nvim
 alias -s {com,net,org,io}=firefox
