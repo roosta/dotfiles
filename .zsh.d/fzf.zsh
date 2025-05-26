@@ -12,13 +12,13 @@ export FZF_DEFAULT_COMMAND='fd --type f \
 
 export FZF_DEFAULT_OPTS="
 --ansi
---bind='alt-k:preview-up,alt-p:preview-up'
---bind='alt-j:preview-down,alt-n:preview-down'
+--bind='alt-p:preview-up,alt-up,alt-p:preview-up'
+--bind='alt-n:preview-down,alt-down,alt-n:preview-down'
+--bind='alt-w:toggle-preview-wrap'
+--bind='ctrl-space:toggle-preview'
 --bind='ctrl-r:toggle-all'
 --bind='ctrl-s:toggle-sort'
---bind='ctrl-p:toggle-preview'
---bind='ctrl-a:select-all'
---bind='alt-w:toggle-preview-wrap'
+--bind='ctrl-a:toggle-all'
 "
 
 # To apply the command to CTRL-T as well
