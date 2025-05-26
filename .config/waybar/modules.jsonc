@@ -347,7 +347,7 @@
       "headset": "" ,
       "default": "󰓃"
     },
-    "on-click": "$HOME/scripts/toggle-sinks.sh",
+    "on-click": "$HOME/scripts/switch-audio.sh toggle",
     "on-click-right": "pavucontrol",
     "on-click-middle": "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
 
