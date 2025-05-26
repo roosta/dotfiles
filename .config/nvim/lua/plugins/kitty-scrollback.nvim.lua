@@ -9,14 +9,9 @@ return {
   lazy = true,
   cmd = { "KittyScrollbackGenerateKittens", "KittyScrollbackCheckHealth", "KittyScrollbackGenerateCommandLineEditing" },
   event = { "User KittyScrollbackLaunch" },
+  -- version = "*", -- latest stable version, may have breaking changes if major version changed
+  -- version = "^6.0.0", -- pin major version, include fixes and features that do not have breaking changes
   config = function()
-    vim.api.nvim_create_autocmd({ 'FileType' }, {
-      group = vim.api.nvim_create_augroup('KittyScrollbackNvimFileType', { clear = true }),
-      pattern = { 'kitty-scrollback' },
-      callback = function()
-        require('render-markdown').disable()
-        return true
-      end,
-    })
+    require("kitty-scrollback").setup()
   end,
 }
