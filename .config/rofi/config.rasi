@@ -59,6 +59,7 @@ configuration {
 
   /* Go to the next page */
   kb-page-next: "Page_Down";
+  kb-cancel: "MouseSecondary,Escape";
 
 
   me-select-entry: "";

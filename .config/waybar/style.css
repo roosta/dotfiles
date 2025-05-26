@@ -24,10 +24,6 @@ window#waybar {
   background: @srcery-black;
 }
 
-window#waybar.quaternary * {
-  font-size: 1.5rem;
-}
-
 window#waybar.hidden {
   opacity: 0.2;
 }

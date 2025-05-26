@@ -22,7 +22,7 @@ window {
   padding: 3;
   background: @xgray1;
   width: 20%;
-  height: 55%;
+  height: 100%;
 }
 mainbox { }
 

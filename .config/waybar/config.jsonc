@@ -9,7 +9,7 @@
 [
   { // Primary monitor
     // ------------------------------------------------------------------------
-    "output": "DP-3",
+    "output": ["DP-1", "HDMI-A-2"],
     "name": "primary",
     "include": [
       "~/.config/waybar/modules.jsonc"
@@ -42,24 +42,8 @@
   },
   { // Secondary
     // ------------------------------------------------------------------------
-    "output": "DP-1",
-    "name": "secondary",
-    "include": [
-      "~/.config/waybar/modules.jsonc"
-    ],
-    "modules-left": [
-      "hyprland/workspaces",
-      "custom/gap",
-      "hyprland/window"
-    ],
-    "modules-right": [
-      "custom/power"
-    ]
-  },
-  { // Tertiary Monitor
-    // ------------------------------------------------------------------------
     "output": "DP-2",
-    "name": "tertiary",
+    "name": "secondary",
     "include": [
       "~/.config/waybar/modules.jsonc"
     ],
@@ -67,24 +51,22 @@
       "hyprland/window",
       "custom/gap",
       "hyprland/workspaces"
-    ],
-    "modules-center": [
     ]
   },
-  { // Quaternary Monitor
+  { // Tertiary Monitor
     // ------------------------------------------------------------------------
     "output": "HDMI-A-1",
-    "name": "quaternary",
-    "position": "bottom",
+    "name": "tertiary",
     "include": [
       "~/.config/waybar/modules.jsonc"
+    ],
+    "modules-right": [
+      "custom/power"
     ],
     "modules-left": [
       "hyprland/workspaces",
       "custom/gap",
       "hyprland/window"
-    ],
-    "modules-right": [
     ]
   }
 ]
