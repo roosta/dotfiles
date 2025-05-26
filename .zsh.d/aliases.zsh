@@ -43,6 +43,10 @@ alias mutt='neomutt'
 alias vim='nvim'
 alias vi="nvim"
 
+alias paste="wl-paste"
+alias copy="wl-copy"
+
+
 if hash dust 2>/dev/null; then
   alias du="dust"
 fi
@@ -98,7 +102,8 @@ alias dotsync='dot pull --recurse-submodules'
 alias dotvim="GIT_DIR=$HOME/.dotfiles GIT_WORK_TREE=$HOME nvim -c 'Git'"
 
 alias gitvi="vim -c 'Git'" # Fugitive on startup
-alias suk="sudo -K" # Clear cached sudo pass
+alias clear_="sudo -K" # Clear cached sudo pass
+alias clear!="printf '\033[2J\033[3J\033[1;1H'" # clear kitty scrollback buffer
 alias ps-cpu-full='ps auxf | sort -nr -k 3'
 alias ps-cpu='ps auxf | sort -nr -k 3 | head -10'
 alias log-ssh='journalctl _COMM=sshd'
@@ -151,7 +156,6 @@ alias get-keys="wev -f wl_keyboard"
 alias find-font='pango-list|rg '
 alias zref="exec zsh" # reload zshrc
 alias :q="exit" # :)
-alias clear!="printf '\033[2J\033[3J\033[1;1H'"
 alias pacown='pacman -Qo' # which package owns arg
 alias pacorph='paru -Rns $(pacman -Qtdq)' # clear orphans
 alias pacls='pacman -Ql' # list package files
@@ -191,21 +195,22 @@ alias vizshd="${EDITOR:-nvim} ~/.zsh.d"
 # |& short hand for piping stdout and stderr
 
 alias -g NL=/dev/null
-alias -g EH='|& head'
-alias -g TL='|& tail'
-alias -g PG='|& $PAGER'
+alias -g SK="&& sudo -K" # clear sudo cache on command success 
+alias -g G='| rg'
+alias -g H='|& head'
+alias -g T='|& tail'
+alias -g A='| tee -a' # append to file
+alias -g P='|& $PAGER'
 alias -g X='| xargs'
-alias -g copy="|wl-copy"
-
-# except past which doesn't make sense to pipe to, but want it next to copy
-alias paste="wl-paste"
+alias -g C="| wl-copy"
+alias -g J='| jq .'
 
 #}}}
 # Suffix: {{{
 # ------------------------------------------------------------------------------
 # example: type 'test.yml' opens vim with test.yml as active buffer.
 
-alias -s {yml,json,txt,tex,css,ts,js,html,md,handlebars,hbs}=nvim
+alias -s {yml,json,txt,tex,css,ts,js,html,md,handlebars,hbs}="${EDITOR:-nvim}"
 alias -s {com,net,org,io}=firefox
 
 # }}}
