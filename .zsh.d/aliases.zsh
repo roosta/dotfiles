@@ -11,6 +11,8 @@
 
 # Defaults: {{{
 # ------------------------------------------------------------------------------
+# Aliases that shadow the original command, except with added "default" options,
+# use `which ALIAS` to see what it resolves to.
 
 alias jobs='jobs -l' # show pid
 alias ncdu='ncdu --color dark'
@@ -90,6 +92,7 @@ alias dot='/usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"'
 alias dotfiles='/usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"'
 alias dotsync='dot pull --recurse-submodules'
 
+# Use fugitive with git bare repo (dotfiles)
 # Additional dotfile local git config needed
 # `dot config --local core.worktree $HOME`
 alias dotvim="GIT_DIR=$HOME/.dotfiles GIT_WORK_TREE=$HOME nvim -c 'Git'"
