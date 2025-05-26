@@ -2,7 +2,7 @@
 Version=1.0
 Name=Firefox Media Browser
 GenericName=Web Browser
-Exec=/usr/lib/firefox/firefox -P media --class firefox-media %u
+Exec=/usr/lib/firefox/firefox -P media --name firefox-media %u
 Icon=firefox
 Terminal=false
 Type=Application
