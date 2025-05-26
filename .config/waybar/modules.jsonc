@@ -166,7 +166,8 @@
     "max-length": 10
   },
   "temperature": {
-    "thermal-zone": 2,
+    // "thermal-zone": 2,
+    "hwmon-path": "/sys/class/hwmon/hwmon0/temp1_input",
     "format-critical": "{icon}",
     "interval": 1,
     // "rotate": 270,
@@ -200,7 +201,7 @@
   "custom/rofi": {
     "format": "󰕰",
     "tooltip": false,
-    "on-click": "rofi -show drun -show-icons"
+    "on-click": "$HOME/scripts/launcher.sh"
   },
 
   "custom/notification": {
@@ -343,7 +344,7 @@
       "headset": "" ,
       "default": "󰓃"
     },
-    "on-click": "~/scripts/toggle-sinks.sh 'alsa_output.usb-SteelSeries_SteelSeries_Arctis_7-00.stereo-game' 'alsa_output.pci-0000_00_1b.0.analog-stereo'",
+    "on-click": "$HOME/scripts/toggle-sinks.sh",
     "on-click-right": "pavucontrol",
     "on-click-middle": "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
 
