@@ -21,8 +21,8 @@ return {
         -- { section = "header" },
         {
           { section = "keys", gap = 1, padding = 1 },
-          { section = "projects", gap = 1, padding = 1, pane = 2, title = "Projects", icon = "󰳏" },
-          { section = "startup" },
+          -- { section = "projects", gap = 1, padding = 1, pane = 2, title = "Projects", icon = "󰳏" },
+          -- { section = "startup" },
         },
       },
       preset = {
