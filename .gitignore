@@ -6,5 +6,3 @@
 # https://stackoverflow.com/questions/987142/make-gitignore-ignore-everything-except-a-few-files
 
 /*
-!.config
-!.local
