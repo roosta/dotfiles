@@ -37,6 +37,7 @@ alias fd='fd --hidden'
 # Aliases: {{{
 # ------------------------------------------------------------------------------
 
+alias _="sudo"
 alias feh='swayimg'
 alias awk='gawk'
 alias mutt='neomutt'
