@@ -56,7 +56,7 @@
       "class<firefox>": "<span color='#FF8700'></span>",
       "class<firefox-media>": "<span color='#519F50'></span>",
       "class<firefox-developer-edition>": "<span color='#2C78BF'></span>",
-      "class<thunderbird>": "",
+      "class<thunderbird>": "",
       "class<.*jellyfin.*>": "󰼁",
       "class<.*chrome.*>": "",
       "class<spotify>": "",
