@@ -19,14 +19,14 @@
 
   "hyprland/workspaces": {
     "all-outputs": false,
+    "show-special": true,
     "sort-by": "default",
     "format": "<span size=\"medium\">{icon}</span> <span color=\"#FCE8C3\">{windows}</span>",
     "format-empty": "{icon}",
     "window-rewrite-default": "",
     "format-icons": {
-      "urgent": ""
-    },
-    "format-icons": {
+      "urgent": "",
+      "special": "",
       "1": "󰬘",
       "2": "󰬞",
       "3": "󰬌",
