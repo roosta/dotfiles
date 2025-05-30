@@ -87,6 +87,10 @@ check_disks() {
 }
 alias disks='check_disks'
 
+# list filestypes by extension in cwd
+# https://stackoverflow.com/a/7170782
+alias ftls="find . -type f | awk -F. '!a[$NF]++{print $NF}'"
+
 # }}}
 # Custom: {{{
 # ------------------------------------------------------------------------------
