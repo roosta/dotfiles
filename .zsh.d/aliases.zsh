@@ -114,7 +114,7 @@ alias ps-cpu-full='ps auxf | sort -nr -k 3'
 alias ps-cpu='ps auxf | sort -nr -k 3 | head -10'
 alias log-ssh='journalctl _COMM=sshd'
 alias dut='du --human-readable -t' # threshold=SIZE
-alias lspath='echo -e ${PATH//:/\\n}'
+alias lspath='echo -e ${PATH//:/\\n}' # print whats on $PATH
 alias lsfpath='tr " " "\n" <<< $fpath'
 alias psgrep='ps aux|head -n 1 && ps aux|rg'
 alias lsr='\ls -Atr' # lists most recent last
