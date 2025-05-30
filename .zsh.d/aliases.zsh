@@ -12,7 +12,8 @@
 # Defaults: {{{
 # ------------------------------------------------------------------------------
 # Aliases that shadow the original command, except with added "default" options,
-# use `which ALIAS` to see what it resolves to.
+# use `which ALIAS` to see what it resolves to and `\ls` to get the unaliased
+# command.
 
 alias jobs='jobs -l' # show pid
 alias ncdu='ncdu --color dark'
@@ -74,6 +75,7 @@ check_disks() {
     dfc -W -q mount
   else
     # Otherwise, use a formatted output with lsblk and df
+    # Artwork by https://github.com/xero, yanked from dotfiles long ago
     echo "╓───── m o u n t . p o i n t s"
     echo "╙────────────────────────────────────── ─ ─ "
     lsblk -a
@@ -83,8 +85,6 @@ check_disks() {
     df -h
   fi
 }
-
-# Create the alias that calls the function
 alias disks='check_disks'
 
 # }}}
@@ -171,24 +171,25 @@ alias reload='killall -SIGUSR2'
 # Quick edits: {{{
 # ------------------------------------------------------------------------------
 
-alias vialias="${EDITOR:-nvim} ~/.zsh.d/aliases.zsh"
-alias vibar="${EDITOR:-nvim} ~/.config/waybar/modules.jsonc \
-  ~/.config/waybar/style.css ~/.config/waybar/config.jsonc"
-alias vienv="${EDITOR:-nvim} ~/.zshenv"
-alias vifzf="${EDITOR:-nvim} ~/.zsh.d/fzf.zsh"
-alias vigit="${EDITOR:-nvim} ~/.gitconfig"
-alias vigtk="${EDITOR:-nvim} ~/.gtkrc-2.0 ~/.config/gtk-3.0/settings.ini \
-  ~/.config/gtk-4.0/settings.ini"
-alias vihypr="${EDITOR:-nvim} ~/.config/hypr/hyprland.conf"
-alias viquick="${EDITOR:-nvim} ~/notes/quick-notes.md"
-alias virofi="${EDITOR:-nvim} ~/.config/rofi/config.rasi \
-  ~/.config/rofi/theme.rasi"
-alias vissh="${EDITOR:-nvim} ~/.ssh/config"
-alias viterm="${EDITOR:-nvim} ~/.config/kitty/kitty.conf"
-alias vitodo="${EDITOR:-nvim} ~/notes/TODOs.md"
-alias vivim="${EDITOR:-nvim} -c 'cd ~/.config/nvim' ~/.config/nvim/"
-alias vizsh="${EDITOR:-nvim} ~/.zshrc"
-alias vizshd="${EDITOR:-nvim} ~/.zsh.d"
+alias vialias="${EDITOR:-nvim} $HOME/.zsh.d/aliases.zsh"
+alias vibar="${EDITOR:-nvim} $HOME/.config/waybar/modules.jsonc \
+  $HOME/.config/waybar/style.css $HOME/.config/waybar/config.jsonc"
+alias vienv="${EDITOR:-nvim} $HOME/.zshenv"
+alias vifzf="${EDITOR:-nvim} $HOME/.zsh.d/fzf.zsh"
+alias vigit="${EDITOR:-nvim} $HOME/.gitconfig"
+alias vigtk="${EDITOR:-nvim} $HOME/.gtkrc-2.0 \
+  $HOME/.config/gtk-3.0/settings.ini \
+  $HOME/.config/gtk-4.0/settings.ini"
+alias vihypr="${EDITOR:-nvim} $HOME/.config/hypr/hyprland.conf"
+alias viquick="${EDITOR:-nvim} $HOME/notes/quick-notes.md"
+alias virofi="${EDITOR:-nvim} $HOME/.config/rofi/config.rasi \
+  $HOME/.config/rofi/theme.rasi"
+alias vissh="${EDITOR:-nvim} $HOME/.ssh/config"
+alias viterm="${EDITOR:-nvim} $HOME/.config/kitty/kitty.conf"
+alias vitodo="${EDITOR:-nvim} $HOME/notes/TODOs.md"
+alias vivim="${EDITOR:-nvim} -c 'cd $HOME/.config/nvim' $HOME/.config/nvim/"
+alias vizsh="${EDITOR:-nvim} $HOME/.zshrc"
+alias vizshd="${EDITOR:-nvim} $HOME/.zsh.d"
 
 # }}}
 # Global: {{{
