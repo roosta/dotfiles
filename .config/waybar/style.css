@@ -56,7 +56,7 @@ box {
 #clock,
 #custom-media,
 #custom-power,
-#custom-rofi
+#custom-app-menu
 #idle_inhibitor,
 #disk,
 #keyboard-state,
@@ -253,7 +253,7 @@ window#waybar #submap {
   background-color: @srcery-bright-white;
 }
 
-#custom-rofi {
+#custom-app-menu {
   margin: 0;
 }
 
@@ -265,7 +265,7 @@ window#waybar #submap {
   margin: 0;
 }
 
-#custom-rofi,
+#custom-app-menu,
 #custom-power,
 #custom-notification,
 #idle_inhibitor {
@@ -274,7 +274,7 @@ window#waybar #submap {
   background-color: @srcery-xgray1;
 }
 
-#custom-rofi:hover, #custom-power:hover, #custom-notification:hover, #idle_inhibitor:hover {
+#custom-app-menu:hover, #custom-power:hover, #custom-notification:hover, #idle_inhibitor:hover {
   background-color: @srcery-xgray3;
   transition-property: background-color;
   transition-duration: 0.2s;

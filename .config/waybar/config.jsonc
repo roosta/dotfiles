@@ -18,7 +18,7 @@
       "group/datetime"
     ],
     "modules-left": [
-      "custom/rofi",
+      "custom/app-menu",
       "custom/gap",
       "hyprland/workspaces",
       "custom/gap",

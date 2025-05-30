@@ -201,10 +201,11 @@
       "hibernate": "$HOME/scripts/hibernate.sh"
     }
   },
-  "custom/rofi": {
-    "format": "󰕰",
+  // See ~/.config/rofi/app-menu.rasi
+  "custom/app-menu": {
+    "format": "󰣇",
     "tooltip": false,
-    "on-click": "$HOME/scripts/launcher.sh"
+    "on-click": "rofi -show drun -config app-menu"
   },
 
   "custom/notification": {
