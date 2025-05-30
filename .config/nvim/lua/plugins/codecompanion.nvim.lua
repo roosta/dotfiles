@@ -6,12 +6,21 @@
 
 return {
   "olimorris/codecompanion.nvim",
+  lazy = true,
   dependencies = {
     "nvim-lua/plenary.nvim",
     "nvim-treesitter/nvim-treesitter",
     "ravitemer/codecompanion-history.nvim"
   },
+  keys = {
+    { "<leader>aa", ":CodeCompanionActions<CR>", silent = true },
+  },
   opts = {
+    display = {
+      action_palette = {
+        provider = "telescope",
+      },
+    },
     extensions = {
         history = {
             enabled = true,
