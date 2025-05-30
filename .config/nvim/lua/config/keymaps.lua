@@ -78,4 +78,10 @@ vim.keymap.set('n', '<leader>ts', ':TSToggle highlight<cr>', {
   desc = "Toggle Treesitter",
 })
 
+-- help :virtcol
+vim.keymap.set('n', '<Leader>vc', function()
+  local col = vim.fn.virtcol('.')
+  print("Visual column: " .. col)
+end, { desc = "Show visual column position" })
+
 --  vim: set ts=2 sw=2 tw=0 fdm=marker et :
