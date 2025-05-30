@@ -50,6 +50,7 @@ if [[ -s '/usr/share/doc/pkgfile/command-not-found.zsh' ]]; then
 fi
 
 if [ -f "$ZSH_PLUGIN_PATH/forgit/forgit.plugin.zsh" ]; then
+  export FORGIT_GLO_FORMAT="%C(auto)%h%d %s %C(brightblack)%cr%Creset"
   source "$HOME/.zsh.d/plugins/forgit/forgit.plugin.zsh"
 
   # Enables `git forgit ...` commands
