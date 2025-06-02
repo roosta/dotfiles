@@ -1,0 +1,20 @@
+/**
+┌────────────────────────────────────────────┐
+│ ┳━┓┳━┓┳━┓  ┏┏┓┳━┓┏┓┓┳ ┓                    │
+│ ┃━┫┃━┛┃━┛━━┃┃┃┣━ ┃┃┃┃ ┃                    │
+│ ┛ ┇┇  ┇    ┛ ┇┻━┛┇┗┛┇━┛                    │
+└────────────────────────────────────────────┘
+- Maintainer: Daniel Berg <mail@roosta.sh>  -
+- Repo: https://github.com/roosta/dotfiles  -
+---------------------------------------------
+**/
+
+configuration {
+  modes: "drun,window,actions:~/scripts/app-menu.sh,display:~/scripts/display-menu.sh";
+}
+
+@theme "keybinds.rasi"
+@theme "options.rasi"
+@theme "srcery-theme.rasi"
+
+/* vim: set ts=2 sw=2 tw=0 fdm=marker ft=rasi et :*/
