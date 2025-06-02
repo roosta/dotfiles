@@ -187,8 +187,7 @@ alias vigtk="${EDITOR:-nvim} $HOME/.gtkrc-2.0 \
   $HOME/.config/gtk-4.0/settings.ini"
 alias vihypr="${EDITOR:-nvim} $HOME/.config/hypr/hyprland.conf"
 alias viquick="${EDITOR:-nvim} $HOME/notes/quick-notes.md"
-alias virofi="${EDITOR:-nvim} $HOME/.config/rofi/config.rasi \
-  $HOME/.config/rofi/theme.rasi"
+alias virofi="${EDITOR:-nvim} $HOME/.config/rofi"
 alias vissh="${EDITOR:-nvim} $HOME/.ssh/config"
 alias viterm="${EDITOR:-nvim} $HOME/.config/kitty/kitty.conf"
 alias vitodo="${EDITOR:-nvim} $HOME/notes/TODOs.md"
