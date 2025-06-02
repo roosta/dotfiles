@@ -1,0 +1,20 @@
+items:
+  - script: ~/scripts/switch-display.sh
+    description: Switch to desk
+    icon: video-display
+    args: ["desk"]
+
+  - script: ~/scripts/switch-display.sh
+    description: Switch to TV
+    icon: video-display
+    args: ["tv"]
+
+  - script: ~/scripts/switch-display.sh
+    description: Switch to mirror
+    icon: video-display
+    args: ["mirror"]
+
+  - script: ~/scripts/switch-display.sh
+    description: Switch to all
+    icon: video-display
+    args: ["all"]

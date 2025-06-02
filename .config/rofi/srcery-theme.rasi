@@ -9,6 +9,16 @@
 ---------------------------------------------
 **/
 
+configuration {
+  // https://github.com/PapirusDevelopmentTeam/papirus-icon-theme
+  icon-theme: "Papirus-Dark";
+  show-icons: true;
+
+  window-format: "<span text_transform='capitalize'>{c}</span>\n<span size='small'><i>{t}</i></span>";
+  hover-select: true;
+  sidebar-mode: true;
+}
+
 @import "~/.config/srcery/srcery-gui/rofi/srcery_colors.rasi"
 
 * {
@@ -21,7 +31,7 @@ window {
   background-image: linear-gradient(45, #E02C6D, #2C78BF);
   padding: 3;
   background: @xgray1;
-  width: 20%;
+  width: 25%;
   height: 50%;
 }
 mainbox { }
@@ -50,13 +60,18 @@ element {
 element-icon {
   size: 2em;
   margin: 0px 4px 0 0px;
-  background-color: transparent;
   vertical-align: 0.5;
+  background-color: transparent;
+  cursor: pointer;
+}
+element-icon.active {
+  background-color: @yellow;
 }
 
 element-text {
   background-color: inherit;
   text-color:       inherit;
+  cursor: pointer;
 }
 element normal.normal {
   background-color: @xgray1;
@@ -166,4 +181,4 @@ prompt {
   background-color: @xgray3;
 }
 
-/* vim: set ts=2 sw=2 tw=80 fdm=marker ft=css et : */
+/* vim: set ts=2 sw=2 tw=80 fdm=marker ft=rasi et : */
