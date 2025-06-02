@@ -358,6 +358,9 @@ packages:
     - name: wf-recorder
       description: Screen recorder for wlroots-based compositors such as sway
       aur: false
+    - name: rose-pine-hyprcursor
+      description: rose pine themed cursor for hyprland
+      aur: true
 
   # Multimedia (audio, video playback etc)
   multimedia:
