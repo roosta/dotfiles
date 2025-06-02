@@ -25,7 +25,6 @@
     "format-empty": "{icon}",
     "window-rewrite-default": "",
     "format-icons": {
-      "urgent": "",
       "special": "",
       "1": "󰬘",
       "2": "󰬞",
