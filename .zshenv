@@ -26,7 +26,7 @@ fpath=(
 # GTK
 # export GTK_THEME=Adwaita:dark
 # export ADW_DISABLE_PORTAL=1
-# export GDK_SCALE=2
+export GDK_SCALE=2
 
 export TERMINAL=alacritty
 export BROWSER=firefox
