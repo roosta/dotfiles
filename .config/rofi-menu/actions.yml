@@ -1,0 +1,14 @@
+# Script menu for some common actions
+items:
+  - script: ~/scripts/screenshot.sh
+    description: Take a screenshot
+    icon: image-x-generic
+
+  - script: ~/scripts/colorpicker.sh
+    description: Pick a color
+    icon: applications-graphics
+    args: ["--format", "hex"]
+
+  - script: ~/scripts/monitor.sh
+    description: Start monitor
+    icon: utilities-system-monitor
