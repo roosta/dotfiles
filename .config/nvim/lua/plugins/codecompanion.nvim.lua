@@ -20,6 +20,12 @@ return {
       action_palette = {
         provider = "telescope",
       },
+      chat = {
+        window = {
+          layout = "horizontal",
+          height = 0.6,
+        }
+      }
     },
     extensions = {
         history = {
