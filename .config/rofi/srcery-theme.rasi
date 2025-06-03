@@ -32,7 +32,7 @@ window {
   background-image: linear-gradient(45, #E02C6D, #2C78BF);
   padding: 3;
   background: @xgray1;
-  width: 30%;
+  width: 20%;
   height: 50%;
 }
 mainbox { }

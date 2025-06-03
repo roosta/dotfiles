@@ -19,4 +19,8 @@ configuration {
 @theme "options.rasi"
 @theme "srcery-theme.rasi"
 
+window {
+  width: 20%;
+}
+
 /* vim: set ts=2 sw=2 tw=0 fdm=marker ft=rasi et :*/
