@@ -10,10 +10,10 @@
 **/
 
 configuration {
-  location: 1;
   /* matching: "fuzzy"; */
   /* scroll-method: 1; */
   terminal: "kitty";
+
 }
 
 /* vim: set ts=2 sw=2 tw=0 fdm=marker ft=rasi et :*/

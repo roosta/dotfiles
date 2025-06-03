@@ -1,20 +1,20 @@
 items:
   - script: ~/scripts/switch-display.sh
-    description: Switch to desk
-    icon: video-display
+    description: Desk
+    icon: input-keyboard
     args: ["desk"]
 
   - script: ~/scripts/switch-display.sh
-    description: Switch to TV
-    icon: video-display
+    description: Television (TV)
+    icon: input-gaming
     args: ["tv"]
 
   - script: ~/scripts/switch-display.sh
-    description: Switch to mirror
-    icon: video-display
+    description: Mirror to TV
+    icon: preferences-desktop-remote-desktop
     args: ["mirror"]
 
   - script: ~/scripts/switch-display.sh
-    description: Switch to all
+    description: Enable All
     icon: video-display
     args: ["all"]

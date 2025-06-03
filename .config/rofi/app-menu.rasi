@@ -10,7 +10,9 @@
 **/
 
 configuration {
-  modes: "drun,window,actions:~/scripts/app-menu.sh,display:~/scripts/display-menu.sh";
+  combi-modes: "drun,actions:~/scripts/app-menu.sh";
+  modes: "combi,window";
+  location: 1;
 }
 
 @theme "keybinds.rasi"
