@@ -11,34 +11,35 @@
     // ------------------------------------------------------------------------
     "output": "DP-1",
     "name": "center",
+    "spacing": 0,
     "include": [
       "~/.config/waybar/modules.jsonc"
     ],
     "fixed-center": true,
     "modules-center": [
-      "group/datetime"
+      "clock",
+      "custom/notification"
     ],
     "modules-left": [
-      "custom/app-menu",
-      "custom/gap",
+      "custom/app-menu-left",
       "hyprland/workspaces",
-      "custom/gap",
       "hyprland/window"
     ],
     "modules-right": [
-      "group/indicators",
       "hyprland/submap",
-      "custom/notification",
-      "custom/gap",
+      "gamemode",
+      "systemd-failed-units",
+      "privacy",
+      "keyboard-state",
+      "hyprland/language",
       "idle_inhibitor",
-      "custom/gap",
-      "group/audio",
-      "custom/gap",
-      "group/meters",
-      "custom/gap",
+      "pulseaudio#input",
+      "group/audio-output",
+      "cpu",
+      "memory",
+      "temperature",
       "group/tray",
-      "custom/gap",
-      "custom/settings-menu"
+      "custom/settings-menu-right"
     ]
   },
   { // Left monitor
@@ -48,10 +49,13 @@
     "include": [
       "~/.config/waybar/modules.jsonc"
     ],
+    "modules-left": [
+      "custom/settings-menu-left"
+    ],
     "modules-right": [
       "hyprland/window",
-      "custom/gap",
-      "hyprland/workspaces"
+      "hyprland/workspaces",
+      "custom/app-menu-right"
     ]
   },
   { // Right Monitor
@@ -62,16 +66,14 @@
       "~/.config/waybar/modules.jsonc"
     ],
     "modules-right": [
-      "group/tray",
-      "custom/gap",
-      "custom/settings-menu"
+      "custom/settings-menu-right"
     ],
 
+    "modules-center": [
+    ],
     "modules-left": [
-      "custom/app-menu",
-      "custom/gap",
+      "custom/app-menu-left",
       "hyprland/workspaces",
-      "custom/gap",
       "hyprland/window"
     ]
   },
@@ -79,34 +81,35 @@
     // ------------------------------------------------------------------------
     "output": "HDMI-A-2",
     "name": "tv",
-    "fixed-center": true,
+    "spacing": 0,
     "include": [
       "~/.config/waybar/modules.jsonc"
     ],
+    "fixed-center": true,
     "modules-center": [
-      "group/datetime"
+      "custom/notification",
+      "clock"
     ],
     "modules-left": [
-      "custom/app-menu",
-      "custom/gap",
+      "custom/app-menu-left",
       "hyprland/workspaces",
-      "custom/gap",
       "hyprland/window"
     ],
     "modules-right": [
-      "group/indicators",
       "hyprland/submap",
-      "custom/notification",
-      "custom/gap",
+      "gamemode",
+      "systemd-failed-units",
+      "privacy",
+      "keyboard-state",
+      "hyprland/language",
       "idle_inhibitor",
-      "custom/gap",
-      "group/audio",
-      "custom/gap",
-      "group/meters",
-      "custom/gap",
+      "pulseaudio#input",
+      "group/audio-output",
+      "cpu",
+      "memory",
+      "temperature",
       "group/tray",
-      "custom/gap",
-      "custom/settings-menu"
+      "custom/settings-menu-right"
     ]
   }
 ]

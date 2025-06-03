@@ -6,13 +6,16 @@
 // - Maintainer: Daniel Berg <mail@roosta.sh>  -
 // - Repo: https://github.com/roosta/dotfiles  -
 // ---------------------------------------------
-
-// Helper to more easily control item spacing
-// See css for spesific size (font-size)
 {
-  "custom/gap": {
-    "format": " "
-  },
+  // // Helper to more easily control item spacing
+  // // See css for spesific size (font-size)
+  // "custom/gap": {
+  //   "format": " "
+  // },
+  // "custom/right-divider": {
+  //   "format": "❯"
+  //
+  // },
 
   // Hyprland: {{{
   // --------------------------------------------------------------------------
@@ -21,7 +24,9 @@
     "all-outputs": false,
     "show-special": true,
     "sort-by": "default",
-    "format": "<span size=\"medium\">{icon}</span> <span color=\"#FCE8C3\">{windows}</span>",
+    // "format": "<span color=\"#FCE8C3\">{windows}</span>",
+    "format": "<span size=\"medium\">{icon}</span> <span size=\"medium\" color=\"#FCE8C3\">{windows}</span>",
+    // "format": "<span size=\"large\">{icon}</span>",
     "format-empty": "{icon}",
     "window-rewrite-default": "",
     "format-icons": {
@@ -84,15 +89,15 @@
   },
 
   "hyprland/window": {
-    "max-length": 80,
+    "max-length": 120,
     "icon": true,
-    "icon-size": 15,
+    "icon-size": 18,
     "format": "{title}",
     "separate-outputs": true
   },
 
   "custom/trayicon": {
-    "format": "󱊔"
+    "format": "󱊖"
   },
   "group/tray": {
     "orientation": "horizontal",
@@ -107,8 +112,8 @@
     ]
   },
   "tray": {
-    "spacing": 6,
-    "icon-size": 16
+    "spacing": 10,
+    "icon-size": 18
   },
 
   "hyprland/submap": {
@@ -128,18 +133,11 @@
   // Meters: {{{
   // --------------------------------------------------------------------------
 
-  "group/meters": {
-    "orientation": "horizontal",
-    "modules": [
-      "cpu",
-      "memory",
-      "temperature"
-    ]
-  },
   "cpu": {
     "interval": 1,
     "format": "{icon}",
     "rotate": 270,
+    "on-click": "$HOME/scripts/monitor.sh",
     "format-icons": [
       "󰝦",
       "󰪞",
@@ -156,6 +154,7 @@
     "interval": 1,
     "rotate": 270,
     "format": "{icon}",
+    "on-click": "$HOME/scripts/monitor.sh",
     "format-icons": [
       "󰋙",
       "󰫃",
@@ -171,6 +170,7 @@
     // "thermal-zone": 2,
     "hwmon-path": "/sys/class/hwmon/hwmon0/temp1_input",
     "format-critical": "{icon}",
+    "on-click": "$HOME/scripts/monitor.sh",
     "interval": 1,
     // "rotate": 270,
     "critical-threshold": 90,
@@ -179,7 +179,7 @@
       "",
       "",
       "",
-      ""
+      "<span color='#FF5F00'></span>"
     ]
   },
 
@@ -187,17 +187,34 @@
   // Buttons: {{{
   // --------------------------------------------------------------------------
   // See ~/.config/rofi/app-menu.rasi
-  "custom/app-menu": {
+  "custom/app-menu-left": {
     "format": "󰣇",
     "tooltip": false,
-    "on-click": "rofi -show combi -config app-menu"
+    "on-click": "rofi -show combi -config app-menu -location 1"
+  },
+
+  "custom/app-menu-right": {
+    "format": "󰣇",
+    "tooltip": false,
+    "on-click": "rofi -show combi -config app-menu -location 3"
   },
 
   // See ~/.config/rofi/settings-menu.rasi
-  "custom/settings-menu": {
+  "custom/settings-menu-left": {
     "format": "",
     "tooltip": false,
-    "on-click": "rofi -show display -config settings-menu"
+    "on-click": "rofi -show display -config settings-menu -location 1"
+  },
+  "custom/settings-menu-right": {
+    "format": "",
+    "tooltip": false,
+    "on-click": "rofi -show display -config settings-menu -location 3"
+  },
+
+  "custom/audio-menu": {
+    "format": "",
+    "tooltip": false,
+    "on-click": "rofi -show audio -config settings-menu"
   },
 
   "custom/notification": {
@@ -229,38 +246,28 @@
     }
   },
 
+  "hyprland/language": {
+    "format-no": "<span color=\"#FBB829\"></span>",
+    "format-en": "",
+    "on-click": "hyprctl switchxkblayout keychron-keychron-q6 next"
+  },
+
+
   // }}}
   // Indicators: {{{
   // --------------------------------------------------------------------------
-
-  "group/indicators": {
-    "orientation": "horizontal",
-    "modules": [
-      "keyboard-state",
-      "hyprland/language",
-      "systemd-failed-units",
-      "privacy",
-      "gamemode"
-    ]
-  },
-
-  "hyprland/language": {
-    "format-en": "",
-    "format-no": ""
-    // "on-click": "hyprctl switchxkblayout keychron-keychron-q6 next"
-  },
 
   "keyboard-state": {
     "capslock": true,
     "format": "{icon}",
     "format-icons": {
-      "locked": "󰪛",
-      "unlocked": ""
+      "locked": "󰌾",
+      "unlocked": "󰌿"
     }
   },
 
   "privacy": {
-    "icon-spacing": 2,
+    "icon-spacing": 0,
     "transition-duration": 250,
     "icon-size": 15,
     "modules": [
@@ -305,8 +312,8 @@
     "hide-not-running": true,
     "use-icon": true,
     "icon-name": "input-gaming-symbolic",
-    "icon-spacing": 4,
-    "icon-size": 20,
+    "icon-spacing": 0,
+    "icon-size": 15,
     "tooltip": true,
     "tooltip-format": "Games running: {count}"
   },
@@ -314,16 +321,18 @@
   // }}}
   // Audio: {{{
   // --------------------------------------------------------------------------
-
-  "group/audio": {
+  "group/audio-output": {
     "orientation": "horizontal",
+    "drawer": {
+      "transition-duration": 300,
+      "children-class": "tray-child",
+      "transition-left-to-right": false
+    },
     "modules": [
       "pulseaudio#output",
-      "pulseaudio#input",
       "pulseaudio/slider"
     ]
   },
-
   "pulseaudio#input": {
     "format": "{format_source}",
     "format-source": "",
@@ -335,14 +344,14 @@
   "pulseaudio#output": {
     "format": "{icon}",
     "format-muted": " ",
-    "format-source": "",
     "format-icons": {
-      "headset": "" ,
-      "default": "󰓃"
+      "headset": "  " ,
+      "default": " 󰓃 ",
+      "hdmi": " 󰍹 "
     },
-    "on-click": "$HOME/scripts/switch-audio.sh toggle",
     "on-click-right": "pavucontrol",
-    "on-click-middle": "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
+    "on-click": "rofi -show audio -config settings-menu"
+    // "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
 
   },
   "pulseaudio/slider": {
@@ -355,16 +364,9 @@
   // Clock: {{{
   // --------------------------------------------------------------------------
 
-  "group/datetime": {
-    "orientation": "horizontal",
-    "modules": [
-      "clock#time"
-    ]
-
-  },
-  "clock#time": {
-    "format": "{:%H:%M}",
-    "format-alt": "{:%A, %B %d, %Y (%R)}",
+  "clock": {
+    "format": "<b>{:%R</b><small> ◆ </small>%a, %d/%m}",
+    "format-alt": "{:%R<small> ◆ </small>%A<small> ◆ </small>%d %B, %Y}",
     "tooltip-format": "<tt><small>{calendar}</small></tt>",
     "calendar": {
       "mode": "month",
@@ -378,14 +380,15 @@
         "today":"<span color='#FF5C8F'><b><u>{}</u></b></span>"
       }
     }
-  },
-  "clock#weekday": {
-    "format": "{:%a}"
-  },
-
-  "clock#date": {
-    "format": "{:%d-%m}"
   }
+
+  // "clock#weekday": {
+  //   "format": "{:%a}"
+  // },
+  //
+  // "clock#date": {
+  //   "format": "{:%d-%m}"
+  // }
   // }}}
 }
 
