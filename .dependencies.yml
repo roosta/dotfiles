@@ -246,8 +246,8 @@ packages:
     - name: libnotify
       description: Library for sending desktop notifications
       aur: false
-    - name: neofetch
-      description: A CLI system information tool written in BASH that supports displaying images.
+    - name: macchina
+      description: A system information fetcher, with an (unhealthy) emphasis on performance.
       aur: false
     - name: perl-image-exiftool
       description: Reader and rewriter of EXIF information that supports raw files
