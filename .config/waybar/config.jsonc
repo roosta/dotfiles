@@ -38,7 +38,7 @@
       "custom/gap",
       "group/tray",
       "custom/gap",
-      "custom/power"
+      "custom/settings-menu"
     ]
   },
   { // Left monitor
@@ -64,7 +64,7 @@
     "modules-right": [
       "group/tray",
       "custom/gap",
-      "custom/power"
+      "custom/settings-menu"
     ],
 
     "modules-left": [
@@ -106,7 +106,7 @@
       "custom/gap",
       "group/tray",
       "custom/gap",
-      "custom/power"
+      "custom/settings-menu"
     ]
   }
 ]

@@ -186,25 +186,18 @@
   // }}}
   // Buttons: {{{
   // --------------------------------------------------------------------------
-  "custom/power": {
-    "format" : "󰐥",
-    "tooltip": false,
-    "menu": "on-click",
-    "menu-file": "$HOME/.config/waybar/power-menu.xml", // Menu file in resources folder
-    "menu-actions": {
-      "shutdown": "$HOME/scripts/shutdown.sh",
-      "reboot": "$HOME/scripts/reboot.sh",
-      "logout": "$HOME/scripts/logout.sh",
-      "lock": "$HOME/scripts/lock.sh",
-      "suspend": "$HOME/scripts/suspend.sh",
-      "hibernate": "$HOME/scripts/hibernate.sh"
-    }
-  },
   // See ~/.config/rofi/app-menu.rasi
   "custom/app-menu": {
     "format": "󰣇",
     "tooltip": false,
-    "on-click": "rofi -show drun -config app-menu"
+    "on-click": "rofi -show combi -config app-menu"
+  },
+
+  // See ~/.config/rofi/settings-menu.rasi
+  "custom/settings-menu": {
+    "format": "",
+    "tooltip": false,
+    "on-click": "rofi -show display -config settings-menu"
   },
 
   "custom/notification": {
