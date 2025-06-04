@@ -23,6 +23,7 @@
     "modules-left": [
       "custom/app-menu-left",
       "hyprland/workspaces",
+      "custom/divider",
       "hyprland/window"
     ],
     "modules-right": [
@@ -87,12 +88,13 @@
     ],
     "fixed-center": true,
     "modules-center": [
-      "custom/notification",
-      "clock"
+      "clock",
+      "custom/notification"
     ],
     "modules-left": [
       "custom/app-menu-left",
       "hyprland/workspaces",
+      "custom/divider",
       "hyprland/window"
     ],
     "modules-right": [

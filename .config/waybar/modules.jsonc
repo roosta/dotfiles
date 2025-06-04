@@ -7,15 +7,10 @@
 // - Repo: https://github.com/roosta/dotfiles  -
 // ---------------------------------------------
 {
-  // // Helper to more easily control item spacing
-  // // See css for spesific size (font-size)
-  // "custom/gap": {
-  //   "format": " "
-  // },
-  // "custom/right-divider": {
-  //   "format": "❯"
-  //
-  // },
+
+  "custom/divider": {
+    "format": "<small> ◊ </small>"
+  },
 
   // Hyprland: {{{
   // --------------------------------------------------------------------------
@@ -365,8 +360,8 @@
   // --------------------------------------------------------------------------
 
   "clock": {
-    "format": "<b>{:%R</b><small> ◆ </small>%a, %d/%m}",
-    "format-alt": "{:%R<small> ◆ </small>%A<small> ◆ </small>%d %B, %Y}",
+    "format": "<b>{:%R</b><small> ◊ </small>%a, %d/%m}",
+    "format-alt": "{:%R<small> ◊ </small>%A<small> ◊ </small>%d %B, %Y}",
     "tooltip-format": "<tt><small>{calendar}</small></tt>",
     "calendar": {
       "mode": "month",
