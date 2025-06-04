@@ -1,16 +1,16 @@
 items:
   - script: ~/scripts/switch-display.sh
-    description: Desk
+    description: Switch to Desk Displays
     icon: input-keyboard
     args: ["desk"]
 
   - script: ~/scripts/switch-display.sh
-    description: Television (TV)
+    description: Switch to Television (TV)
     icon: input-gaming
     args: ["tv"]
 
   - script: ~/scripts/switch-display.sh
-    description: Mirror to TV
+    description: Desk & Right Mirror to TV
     icon: preferences-desktop-remote-desktop
     args: ["mirror"]
 
