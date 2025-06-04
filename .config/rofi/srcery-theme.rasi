@@ -33,6 +33,7 @@ window {
   padding: 3;
   background: @xgray1;
   width: 20%;
+  border-radius: 4px;
   height: 50%;
 }
 mainbox { }
