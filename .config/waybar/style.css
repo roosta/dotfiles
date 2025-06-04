@@ -68,7 +68,7 @@ box {
 #wireplumber {
   padding: 4px 8px;
   margin: 0;
-  border-radius: 0;
+  border-radius: 2px;
   /* padding: 0px 6px; */
   /* background-color: @srcery-xgray1; */
   color: @srcery-bright-white;
@@ -87,9 +87,9 @@ button {
 }
 
 tooltip {
-  background: @srcery-xgray2;
+  background: @srcery-xgray1;
   border-radius: 2px;
-  border: 1px solid @srcery-xgray2;
+  border: 1px solid @srcery-xgray3;
 }
 
 tooltip label {
@@ -154,7 +154,7 @@ window#waybar.empty #workspaces button.persistent.empty {
   /* margin: 0 3px 0 0; */
   /* background-color: @srcery-xgray1; */
   color: @srcery-bright-white;
-  border-radius: 0px;
+  border-radius: 2px;
   /* font-size: 1rem; */
 }
 
