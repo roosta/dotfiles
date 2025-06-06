@@ -84,7 +84,7 @@
   },
 
   "hyprland/window": {
-    "max-length": 120,
+    "max-length": 100,
     "icon": true,
     "icon-size": 18,
     "format": "{title}",
