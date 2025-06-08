@@ -62,6 +62,10 @@ flatpak:
   - name: Prism Launcher
     application: org.prismlauncher.PrismLauncher
     description: Custom Minecraft Launcher to easily manage multiple Minecraft installations at once
+  - name: Jellyfin
+    application: com.github.iwalton3.jellyfin-media-player
+    description: Desktop client for Jellyfin media server
+
 
 
 
@@ -284,6 +288,12 @@ packages:
       aur: false
     - name: toilet
       description: Free replacement for the FIGlet utility
+      aur: false
+    - name: bluez
+      description: Daemons for the bluetooth protocol stack
+      aur: false
+    - name: bluez-utils
+      description: Development and debugging utilities for the bluetooth protocol stack
       aur: false
 
 
