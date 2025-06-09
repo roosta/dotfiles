@@ -53,6 +53,10 @@
     "modules-left": [
       "custom/settings-menu-left"
     ],
+    "modules-center": [
+      "clock",
+      "custom/notification"
+    ],
     "modules-right": [
       "hyprland/window",
       "hyprland/workspaces",
@@ -71,6 +75,8 @@
     ],
 
     "modules-center": [
+      "clock",
+      "custom/notification"
     ],
     "modules-left": [
       "custom/app-menu-left",
