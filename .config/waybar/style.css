@@ -130,12 +130,12 @@ window#waybar #window {
 /* } */
 
 /* Remove padding for empty workspace buttons */
-window#waybar.empty #workspaces button.empty,
-window#waybar.empty #workspaces button.persistent.empty {
-  padding-right: 2px;
-  padding-bottom: 0;
-  padding-top: 0;
-}
+/* window#waybar.empty #workspaces button.empty, */
+/* window#waybar.empty #workspaces button.persistent.empty { */
+/*   padding-right: 2px; */
+/*   padding-bottom: 0; */
+/*   padding-top: 0; */
+/* } */
 
 /* Remove spacing margin for last and first child to avoid double up padding */
 #workspaces button:first-child {
