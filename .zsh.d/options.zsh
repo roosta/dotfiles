@@ -51,10 +51,7 @@ setopt CORRECT
 # Do not exit on end-of-file.  Require the use of exit or logout instead
 setopt IGNORE_EOF
 
-# ┬ ┬o┐─┐┌┐┐┌─┐┬─┐┐ ┬
-# │─┤│└─┐ │ │ ││┬┘└┌┘
-# ┆ ┴┆──┘ ┆ ┘─┘┆└┘ ┆
-
+# History
 HISTFILE=~/.histfile
 HISTSIZE=500000
 SAVEHIST=500000
@@ -92,3 +89,9 @@ autoload -Uz vcs_info
 
 autoload -z edit-command-line
 zle -N edit-command-line
+
+# Use vim keybinds
+bindkey -v
+
+# invoke vim to edit command-line with ctrl+e
+bindkey '^e' edit-command-line
