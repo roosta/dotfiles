@@ -85,37 +85,10 @@ autoload run-help-svk
 #unalias run-help
 alias help=run-help
 
-# remove empty whitespace on righthand side of prompt
-#ZLE_RPROMPT_INDENT=0
-
-# Set up 256 color support.
-# see spectrum.zsh
-if (( C == 256 )); then
-    autoload spectrum && spectrum
-fi
-
 # Autoload some useful utilities.
 autoload -Uz zmv
 autoload -Uz zargs
 autoload -Uz vcs_info
 
-# set title
-case $TERM in
-  *xterm*|*rxvt*|*screen*)
-    # Special function precmd, executed before displaying each prompt.
-    function precmd() {
-    # Set the terminal title to the current working directory.
-    print -Pn "\e]0;%n@%m:%~\a"
-    # Get the current git branch into the prompt.
-    vcs_info
-  }
-  # Special function preexec, executed before running each command.
-  function preexec () {
-  # Set the terminal title to the curently running command.
-  print -Pn "\e]2;[${2:q}]\a"
-}
-esac
-
 autoload -z edit-command-line
 zle -N edit-command-line
-
