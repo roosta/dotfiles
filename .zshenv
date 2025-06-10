@@ -28,7 +28,7 @@ fpath=(
 # export ADW_DISABLE_PORTAL=1
 export GDK_SCALE=2
 
-export TERMINAL=alacritty
+export TERMINAL=kitty
 export BROWSER=firefox
 
 # Editor
