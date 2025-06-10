@@ -39,8 +39,6 @@ export VISUAL=nvim
 # Golang lib path
 export GOPATH=$HOME/.go
 
-export ZSH_CACHE_DIR=$HOME/.cache/zsh
-
 # Set less default opts
 export LESS="-R --use-color --mouse --jump-target=12 -DP15.236"
 
