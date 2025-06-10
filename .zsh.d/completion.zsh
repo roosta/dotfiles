@@ -2,14 +2,15 @@
 # ┏━┛┗━┓┃━┫  ┃  ┃ ┃┃┃┃┃━┛┃  ┣━  ┃ ┃┃ ┃┃┃┃
 # ┗━┛━━┛┇ ┻  ┗━┛┛━┛┛ ┇┇  ┇━┛┻━┛ ┇ ┇┛━┛┇┗┛
 
+autoload -Uz compinit
+compinit -u
+
+# autoload -U ~/.zsh.d/completion/*(:t)
+
 fpath=($HOME/.zsh.d/completion $fpath)
 
 # add forgit completions
 fpath=($FORGIT_INSTALL_DIR/completions $fpath)
-
-autoload -Uz compinit
-compinit -u
-# autoload -U ~/.zsh.d/completion/*(:t)
 
 # complete hidden files
 # https://unix.stackexchange.com/questions/308315/how-can-i-configure-zsh-completion-to-show-hidden-files-and-folders/366137 
