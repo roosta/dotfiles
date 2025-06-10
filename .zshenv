@@ -25,7 +25,6 @@ fpath=(
 
 # GTK
 # export GTK_THEME=Adwaita:dark
-# export ADW_DISABLE_PORTAL=1
 export GDK_SCALE=2
 
 export TERMINAL=kitty
@@ -45,7 +44,6 @@ export LESS="-R --use-color --mouse --jump-target=12 -DP15.236"
 export PAGER=nvimpager
 export PARU_PAGER=$PAGER
 export MANPAGER=$PAGER
-
 # alias zless=$PAGER
 
 # set site.USERBASE for pip user installs
@@ -61,10 +59,6 @@ if hash ruby 2>/dev/null; then
 fi
 
 export SSH_AUTH_SOCK=/run/user/$(id -u)/gcr/ssh
-
-# temporary proton audio stutter fix, will improve the situation, but not
-# remover the issue entirely
-# export PULSE_LATENCY_MSEC=400
 
 if [ -f "${HOME}/Secrets/environment.zsh" ]; then
 	source "${HOME}/Secrets/environment.zsh"
