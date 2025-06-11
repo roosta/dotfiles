@@ -40,7 +40,7 @@ for plugin in "$ZSH_CONFIG_PATH"/plugins/*/*.plugin.zsh; do
   case "$name" in
     "forgit")
       # Enables `git forgit ...` commands
-      PATH="$PATH:$ZSH_PLUGIN_PATH/forgit/bin"
+      PATH="$PATH:$ZSH_CONFIG_PATH/plugins/forgit/bin"
       ;;
     "zsh-vi-mode")
       ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
