@@ -23,7 +23,7 @@ return {
       chat = {
         window = {
           layout = "horizontal",
-          height = 0.6,
+          height = 0.5,
         }
       }
     },
@@ -37,10 +37,10 @@ return {
     },
     strategies = {
       chat = {
-        adapter = "anthropic",
+        adapter = "openai",
       },
       inline = {
-        adapter = "anthropic",
+        adapter = "openai",
       },
     },
   }
