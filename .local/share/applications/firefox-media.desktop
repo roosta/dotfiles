@@ -2,7 +2,7 @@
 Version=1.0
 Name=Firefox Media Browser
 GenericName=Web Browser
-Exec=/home/roosta/scripts/media-browser.sh %u
+Exec=media-browser %u
 Icon=firefox
 Terminal=false
 Type=Application
@@ -15,8 +15,8 @@ Actions=new-window;new-private-window
 
 [Desktop Action new-window]
 Name=Open a New Window
-Exec=/home/roosta/scripts/media-browser.sh --new-window %u
+Exec=media-browser --new-window %u
 
 [Desktop Action new-private-window]
 Name=Open a New Private Window
-Exec=/home/roosta/scripts/media-browser.sh --private-window %u
+Exec=media-browser --private-window %u
