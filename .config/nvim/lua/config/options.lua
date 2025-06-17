@@ -43,15 +43,25 @@ if vim.fn.getcwd():find('^' .. vim.fn.expand('~/src')) then
   vim.opt.exrc = true
 end
 
+-- Set rg with opts as grepprg
 if vim.fn.executable('rg') == 1 then
   vim.opt.grepprg =
     "rg --vimgrep --no-heading --smart-case --hidden --glob '!**/.git/*'"
 end
 
+-- Truecolor
 vim.opt.termguicolors = true
 
+-- Set split directions
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 
--- vim.opt.textwidth = 80
+-- Nyxt macros
+-- https://nyxt.atlas.engineer/
+vim.opt.lispwords:append({
+  "define-key",
+  "define-configuration",
+  "define-mode",
+})
+
 --  vim: set ts=2 sw=2 tw=0 fdm=marker et :
