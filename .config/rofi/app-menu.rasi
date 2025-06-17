@@ -10,8 +10,7 @@
 **/
 
 configuration {
-  combi-modes: "drun,actions:~/scripts/app-menu.sh";
-  modes: "combi,window";
+  modes: "drun,window,actions:~/scripts/action-menu.sh";
   location: 1;
 }
 
