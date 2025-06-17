@@ -184,13 +184,13 @@
   "custom/app-menu-left": {
     "format": "󰣇",
     "tooltip": false,
-    "on-click": "rofi -show combi -config app-menu -location 1"
+    "on-click": "rofi -show drun -config app-menu -location 1"
   },
 
   "custom/app-menu-right": {
     "format": "󰣇",
     "tooltip": false,
-    "on-click": "rofi -show combi -config app-menu -location 3"
+    "on-click": "rofi -show drun -config app-menu -location 3"
   },
 
   // See ~/.config/rofi/settings-menu.rasi
