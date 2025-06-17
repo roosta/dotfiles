@@ -1,0 +1,124 @@
+{
+  "menus": [
+    {
+      "root": {
+        "type": "submenu",
+        "name": "Media Menu",
+        "icon": "visibility",
+        "iconTheme": "material-symbols-rounded",
+        "children": [
+          {
+            "type": "submenu",
+            "data": {},
+            "name": "Apps",
+            "icon": "apps",
+            "iconTheme": "material-symbols-rounded",
+            "children": [
+              {
+                "type": "command",
+                "data": {
+                  "command": "flatpak run net.lutris.Lutris",
+                  "delayed": false
+                },
+                "name": "Lutris",
+                "icon": "lutris",
+                "iconTheme": "simple-icons"
+              },
+              {
+                "type": "command",
+                "data": {
+                  "command": "flatpak run com.github.iwalton3.jellyfin-media-player",
+                  "delayed": false
+                },
+                "name": "Jellyfin",
+                "icon": "jellyfin",
+                "iconTheme": "simple-icons"
+              },
+              {
+                "type": "command",
+                "data": {
+                  "command": "steam",
+                  "delayed": false
+                },
+                "name": "Steam",
+                "icon": "steam",
+                "iconTheme": "simple-icons"
+              },
+              {
+                "type": "command",
+                "data": {
+                  "command": "media-browser",
+                  "delayed": false
+                },
+                "name": "Media Browser",
+                "icon": "firefox",
+                "iconTheme": "simple-icons"
+              }
+            ]
+          },
+          {
+            "type": "hotkey",
+            "data": {
+              "hotkey": "KeyL",
+              "delayed": true
+            },
+            "name": "+10",
+            "icon": "forward_10",
+            "iconTheme": "material-symbols-rounded",
+            "angle": 72
+          },
+          {
+            "type": "command",
+            "data": {
+              "command": "hyprctl dispatch closewindow activewindow",
+              "delayed": true
+            },
+            "name": "Close Window",
+            "icon": "close",
+            "iconTheme": "material-symbols-rounded",
+            "angle": 144
+          },
+          {
+            "type": "command",
+            "data": {
+              "command": "hyprctl dispatch fullscreen activewindow",
+              "delayed": true
+            },
+            "name": "Fullscreen",
+            "icon": "fullscreen",
+            "iconTheme": "material-symbols-rounded",
+            "angle": 216
+          },
+          {
+            "type": "hotkey",
+            "data": {
+              "hotkey": "KeyJ",
+              "delayed": true
+            },
+            "name": "-10",
+            "icon": "replay_10",
+            "iconTheme": "material-symbols-rounded",
+            "angle": 288
+          }
+        ]
+      },
+      "shortcut": "",
+      "shortcutID": "media-menu",
+      "centered": false,
+      "warpMouse": false,
+      "anchored": false
+    }
+  ],
+  "templates": [
+    {
+      "type": "command",
+      "data": {
+        "command": "media-browser",
+        "delayed": false
+      },
+      "name": "Media Browser",
+      "icon": "smart_display",
+      "iconTheme": "material-symbols-rounded"
+    }
+  ]
+}
