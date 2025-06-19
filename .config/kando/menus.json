@@ -70,13 +70,22 @@
           {
             "type": "command",
             "data": {
+              "command": "hyprctl dispatch workspace empty",
+              "delayed": false
+            },
+            "name": "New Workspace",
+            "icon": "add_box",
+            "iconTheme": "material-symbols-rounded"
+          },
+          {
+            "type": "command",
+            "data": {
               "command": "hyprctl dispatch closewindow activewindow",
               "delayed": true
             },
             "name": "Close Window",
             "icon": "close",
-            "iconTheme": "material-symbols-rounded",
-            "angle": 144
+            "iconTheme": "material-symbols-rounded"
           },
           {
             "type": "command",
@@ -86,8 +95,7 @@
             },
             "name": "Fullscreen",
             "icon": "fullscreen",
-            "iconTheme": "material-symbols-rounded",
-            "angle": 216
+            "iconTheme": "material-symbols-rounded"
           },
           {
             "type": "hotkey",
