@@ -37,7 +37,7 @@ path            = "~/.assets/srcery_glyph.utf8ans"
 
 [randomize]
 key_color       = true
-separator_color = false
+separator_color = true
 pool            = "base"
 
 [keys]
