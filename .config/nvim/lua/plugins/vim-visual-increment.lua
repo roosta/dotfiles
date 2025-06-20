@@ -6,5 +6,6 @@
 -- mode
 
 return {
+  lazy = false,
   "triglav/vim-visual-increment",
 }
