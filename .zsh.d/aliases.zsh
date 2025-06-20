@@ -33,6 +33,8 @@ alias chgrp='chgrp --preserve-root'
 alias mkdir='mkdir --parents --verbose'
 alias rg="rg --smart-case --hidden"
 alias fd='fd --hidden'
+alias grep="rg"
+alias cat="bat"
 
 # }}}
 # Aliases: {{{
