@@ -13,3 +13,14 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end
   end,
 })
+
+vim.lsp.config('qmlls', {
+  cmd = { "-E" },
+})
+-- https://github.com/neovim/nvim-lspconfig/tree/master/lsp
+vim.lsp.enable('pyright')
+vim.lsp.enable('lua_ls')
+vim.lsp.enable('qmlls')
+
+vim.keymap.set('n', 'gl', vim.diagnostic.open_float, {desc = 'Show diagnostics under cursor'})
+vim.keymap.set('n', '<leader>dl', vim.diagnostic.setloclist, {desc = 'Open location list for diagnostics'})
