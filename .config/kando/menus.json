@@ -17,7 +17,7 @@
               {
                 "type": "command",
                 "data": {
-                  "command": "flatpak run net.lutris.Lutris",
+                  "command": "lutris",
                   "delayed": false
                 },
                 "name": "Lutris",
