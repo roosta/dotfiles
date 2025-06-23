@@ -15,7 +15,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 })
 
 vim.lsp.config('qmlls', {
-  cmd = { "-E" },
+  cmd = {"qmlls6", "-E"}
 })
 -- https://github.com/neovim/nvim-lspconfig/tree/master/lsp
 vim.lsp.enable('pyright')
