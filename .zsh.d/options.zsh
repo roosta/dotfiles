@@ -2,6 +2,9 @@
 # ┏━┛┗━┓┃━┫  ┃ ┃┃━┛ ┃ ┃┃ ┃┃┃┃┗━┓
 # ┗━┛━━┛┇ ┻  ┛━┛┇   ┇ ┇┛━┛┇┗┛━━┛
 
+# Use vim keybinds
+bindkey -v
+
 # try to avoid the 'zsh: no matches found...'
 setopt nonomatch
 
@@ -86,12 +89,4 @@ alias help=run-help
 autoload -Uz zmv
 autoload -Uz zargs
 autoload -Uz vcs_info
-
-autoload -z edit-command-line
-zle -N edit-command-line
-
-# Use vim keybinds
-bindkey -v
-
-# invoke vim to edit command-line with ctrl+e
-bindkey '^e' edit-command-line
+autoload -Uz edit-command-line
