@@ -5,6 +5,7 @@
 autoload -Uz compinit
 compinit -u
 
+# Manually added completions, try to use upstream if possible
 # autoload -U ~/.zsh.d/completion/*(:t)
 
 fpath=($HOME/.zsh.d/completion $fpath)
