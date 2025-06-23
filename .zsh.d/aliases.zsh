@@ -61,7 +61,7 @@ if [[ $TERM == 'eterm-color' ]]; then
   alias ls='\ls -lAh'
 else
   if hash eza 2>/dev/null; then
-    alias ls='eza -aghl --git --group-directories-first -F'
+    alias ls='eza -aghl --git --group-directories-first -F $eza_params'
   elif hash ls++ 2>/dev/null; then
     alias ls='ls++ -lAhpk --potsf'
   else
