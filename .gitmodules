@@ -49,3 +49,6 @@
 [submodule ".zsh.d/plugins/fzf-marks"]
 	path = .zsh.d/plugins/fzf-marks
 	url = https://github.com/urbainvaes/fzf-marks
+[submodule ".config/srcery/srcery-palette"]
+	path = .config/srcery/srcery-palette
+	url = https://github.com/srcery-colors/srcery-palette.git
