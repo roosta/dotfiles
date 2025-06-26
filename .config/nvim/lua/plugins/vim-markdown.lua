@@ -7,7 +7,7 @@
 
 return {
   "preservim/vim-markdown",
-  ft = "markdown",
+  ft = {"markdown", "codecompanion"},
   config = function()
     vim.g.markdown_folding = 1
     vim.g.vim_markdown_folding_style_pythonic = 1
