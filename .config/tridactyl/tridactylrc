@@ -28,4 +28,6 @@ set editorcmd kitty "nvim" "%f" "+normal!%lGzv%c|"
 
 colors srcery
 
+sidebaropen http://tau.local:3100/
+
 " vim: set filetype=tridactyl:
