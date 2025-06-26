@@ -37,10 +37,12 @@ return {
     },
     strategies = {
       chat = {
-        adapter = "openai",
+        -- adapter = "openai",
+        adapter = "anthropic",
       },
       inline = {
-        adapter = "openai",
+        -- adapter = "openai",
+        adapter = "anthropic",
       },
     },
   }
