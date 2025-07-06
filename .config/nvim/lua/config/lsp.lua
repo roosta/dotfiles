@@ -25,4 +25,4 @@ vim.lsp.enable('svelte')
 vim.lsp.enable('ts_ls')
 
 vim.keymap.set('n', 'gl', vim.diagnostic.open_float, {desc = 'Show diagnostics under cursor'})
-vim.keymap.set('n', '<leader>dl', vim.diagnostic.setloclist, {desc = 'Open location list for diagnostics'})
+vim.keymap.set('n', '<leader>gq', vim.diagnostic.setloclist, {desc = 'Open location list for diagnostics'})
