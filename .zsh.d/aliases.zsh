@@ -110,7 +110,7 @@ alias dotsync='dot pull --recurse-submodules'
 alias dotvim="GIT_DIR=$HOME/.dotfiles GIT_WORK_TREE=$HOME nvim -c 'Git'"
 
 alias gitvi="vim -c 'Git'" # Fugitive on startup
-alias clear_="sudo -K" # Clear cached sudo pass
+alias suk="sudo -K" # Clear cached sudo pass
 alias clear!="printf '\033[2J\033[3J\033[1;1H'" # clear kitty scrollback buffer
 alias ps-cpu-full='ps auxf | sort -nr -k 3'
 alias ps-cpu='ps auxf | sort -nr -k 3 | head -10'
