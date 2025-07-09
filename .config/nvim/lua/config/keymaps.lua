@@ -18,9 +18,7 @@ vim.keymap.set('n', 'k', function()
 end, { expr = true })
 
 -- Toggle hlseach on and of
-vim.keymap.set('n', '<leader>sc', function()
-    vim.o.hlsearch = not vim.o.hlsearch
-end, { silent = true })
+vim.keymap.set('n', '<leader>sc', ':noh<cr>', { silent = true })
 
 -- switch to last buffer used.
 vim.keymap.set('n', '<leader><tab>', ":b#<cr>")
