@@ -1,5 +1,5 @@
-import "root:/widgets"
-import "root:/config"
+import "../widgets"
+import "../config"
 import Quickshell
 
 Scope {
@@ -13,7 +13,7 @@ Scope {
       color: Appearance.color.srcery.black
 
       anchors {
-        top: true
+        bottom: true
         left: true
         right: true
       }

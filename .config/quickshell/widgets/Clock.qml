@@ -1,8 +1,7 @@
-// Clock.qml
 import QtQuick
-import QtQuick.Layouts
-import "root:/services"
-import "root:/config"
+// import QtQuick.Layouts
+import "../services"
+import "../config"
 
 Text {
   font {
