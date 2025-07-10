@@ -1,6 +1,5 @@
-import "../widgets"
-import "../config"
 import Quickshell
+import "../../config"
 
 Scope {
 
