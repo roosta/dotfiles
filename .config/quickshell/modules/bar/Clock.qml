@@ -1,7 +1,7 @@
 import QtQuick
 // import QtQuick.Layouts
-import "../services"
-import "../config"
+import "../../services"
+import "../../config"
 
 Text {
   font {
