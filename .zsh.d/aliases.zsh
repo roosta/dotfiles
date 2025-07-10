@@ -47,6 +47,7 @@ alias mutt='neomutt'
 alias vim='nvim'
 alias vi="nvim"
 alias suser='systemctl --user'
+alias spot='spotify_player'
 
 alias paste="wl-paste"
 alias copy="wl-copy"

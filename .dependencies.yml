@@ -413,6 +413,9 @@ packages:
     - name: spotify-launcher
       description: Client for spotify's apt repository in Rust for Arch Linux
       aur: false
+    - name: spotify-player
+      description: A command driven spotify player
+      aur: false
     - name: v4l2loopback-dkms
       description: v4l2-loopback device – module sources
       optional: true
