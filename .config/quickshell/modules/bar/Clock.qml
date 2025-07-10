@@ -1,7 +1,7 @@
 import QtQuick
 // import QtQuick.Layouts
-import "../../services"
-import "../../config"
+import qs.services
+import qs.config
 
 Text {
   font {
@@ -9,6 +9,6 @@ Text {
     pixelSize: Appearance?.font.size.normal ?? 15
   }
 
-  color: Appearance?.color.srcery.brightWhite
+  color: Appearance.srcery.brightWhite
   text: Time.time
 }

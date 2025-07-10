@@ -2,16 +2,18 @@ pragma Singleton
 
 import Quickshell
 import QtQuick
-import "../../srcery/srcery-gui/qt"
 
 Singleton {
   id: root
 
-  // readonly property Srcery rounding: Rounding {}
-  // readonly property Spacing spacing: Spacing {}
-  // readonly property Padding padding: Padding {}
+  readonly property Spacing spacing: Spacing {}
   readonly property Font font: Font {}
-  readonly property Color color: Color {}
+  readonly property Bar bar: Bar {}
+  readonly property Srcery srcery: Srcery {}
+
+  component Bar: QtObject {
+    readonly property int height: 32
+  }
 
   component FontFamily: QtObject {
     readonly property string main: "Iosevka"
@@ -28,7 +30,11 @@ Singleton {
     readonly property FontSize size: FontSize {}
   }
 
-  component Color: QtObject {
-    readonly property Srcery srcery: Srcery {}
+  component Spacing: QtObject {
+    readonly property int p0: 2
+    readonly property int p1: 4
+    readonly property int p2: 8
+    readonly property int p3: 12
+    readonly property int p4: 16
   }
 }

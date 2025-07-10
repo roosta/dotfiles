@@ -1,15 +1,21 @@
+import QtQuick
+import QtQuick.Layouts
 import Quickshell
-import "../../config"
+import qs.config
+pragma ComponentBehavior: Bound
 
 Scope {
+  id: bar
+  property bool transparent: Config.bar.transparent
 
   Variants {
     model: Quickshell.screens
 
     PanelWindow {
-      property var modelData
+      id: barRoot
+      required property ShellScreen modelData
+      color: "transparent"
       screen: modelData
-      color: Appearance.color.srcery.black
 
       anchors {
         bottom: true
@@ -17,11 +23,118 @@ Scope {
         right: true
       }
 
-      implicitHeight: 30
+      implicitHeight: Appearance.bar.height
 
-      Clock {
-        anchors.centerIn: parent
+      Item {
+        id: barContent
+        anchors {
+          right: parent.right
+          left: parent.left
+          top: parent.top
+          bottom: parent.bottom
+          margins: Appearance.spacing.p1
+        }
+        Rectangle {
+          id: barBackground
+
+          color: bar.transparent ? "transparent" : Appearance.srcery.gray1
+          anchors {
+            fill: parent
+          }
+        }
+        Loader {
+          anchors.fill: parent
+          sourceComponent: {
+            if (barRoot.modelData.name === "DP-2") {
+              return leftBar
+            } else if (barRoot.modelData.name === "HDMI-A-1"){
+              return rightBar
+            } else {
+              return primaryBar
+            }
+          }
+        }
       }
+      Component {
+        id: primaryBar
+        Rectangle {
+          color: "transparent"
+
+          RowLayout {
+            id: leftSection
+            anchors {
+              top: parent.top
+              left: parent.left
+              bottom: parent.bottom
+            }
+            Workspaces { 
+              show: 10
+              screen: barRoot.screen
+            }
+          }
+          RowLayout {
+            id: centerSection
+            anchors.centerIn: parent
+            Clock { }
+          }
+          RowLayout {
+            id: rightSection
+            anchors.right: parent.right
+          } 
+        }
+      }
+
+      Component {
+        id: rightBar
+        Rectangle {
+          color: "transparent"
+          RowLayout {
+            id: leftSection
+            anchors {
+              top: parent.top
+              left: parent.left
+              bottom: parent.bottom
+            }
+            Workspaces {
+              show: 4
+              screen: barRoot.screen
+            }
+          }
+          RowLayout {
+            id: centerSection
+            anchors.centerIn: parent
+            // Clock { }
+          }
+        }
+      }
+      Component {
+        id: leftBar
+        Rectangle {
+          color: "transparent"
+
+          RowLayout {
+            id: leftSection
+            anchors.left: parent.left
+          }
+          RowLayout {
+            id: centerSection
+            anchors.centerIn: parent
+          }
+          RowLayout {
+            id: rightSection
+            anchors {
+              top: parent.top
+              right: parent.right
+              bottom: parent.bottom
+            }
+            Workspaces {
+              show: 4
+              screen: barRoot.screen
+            }
+          }
+        }
+      }
+
     }
   }
 }
