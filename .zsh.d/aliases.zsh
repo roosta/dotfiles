@@ -205,7 +205,7 @@ alias vizshd="${EDITOR:-nvim} $HOME/.zsh.d"
 # |& short hand for piping stdout and stderr
 
 alias -g NL=/dev/null
-alias -g K="&& sudo -K" # clear sudo cache on command success 
+alias -g SK="&& sudo -K" # clear sudo cache on command success 
 alias -g G='| rg'
 alias -g H='|& head'
 alias -g T='|& tail'
