@@ -17,6 +17,7 @@ vim.opt.number = true
 vim.opt.matchtime = 2
 vim.opt.showmatch = true
 vim.opt.clipboard:append('unnamedplus')
+vim.opt.shortmess:append('Ic')
 
 -- Indentation
 vim.opt.expandtab = true
