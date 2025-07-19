@@ -33,6 +33,7 @@ application/x-extension-rss=userapp-Thunderbird-LQQJ32.desktop
 text/calendar=userapp-Thunderbird-KF3H32.desktop
 application/x-extension-ics=userapp-Thunderbird-KF3H32.desktop
 x-scheme-handler/webcals=userapp-Thunderbird-KF3H32.desktop
+x-scheme-handler/kando=kando.desktop
 
 [Added Associations]
 application/pdf=org.gnome.Evince.desktop;
