@@ -83,6 +83,28 @@ edit() {
 zle -N edit # So that it can be used as a shortcut. See keybinds.sh
 alias e=edit
 
+# Fuzzy match over dotfiles
+# 
+# Requirements: fzf, dotfile git tracking
+# https://wiki.archlinux.org/title/Dotfiles#Tracking_dotfiles_directly_with_Git
+#
+# Will skip submodules, as those are my dependencies, and not something I want
+# to edit.
+fdot() {
+  if [ "$#" -eq 0 ]; then
+    /usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME" \
+      ls-files --full-name "$HOME" | \
+      while read -r file; do
+        [ -f "$file" ] && echo "$file"
+      done | \
+        fzf --ansi --preview-window 'right:60%' --multi \
+        --bind 'enter:become(${EDITOR:-nvim} {+})' \
+        --preview 'bat --color=always --style=numbers {}'
+    else
+      echo "fzf.zsh: fdot doesn't support arguments"
+  fi
+}
+
 # Open file in ~/notes
 open_note() {
   local file=$(find ~/notes -name '*.md' | fzf -d "/" --query="$1" --with-nth "5..")
