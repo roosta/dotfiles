@@ -117,16 +117,14 @@
       "anchored": false
     }
   ],
-  "templates": [
+  "collections": [
     {
-      "type": "command",
-      "data": {
-        "command": "media-browser",
-        "delayed": false
-      },
-      "name": "Media Browser",
-      "icon": "smart_display",
-      "iconTheme": "material-symbols-rounded"
+      "name": "Favorites",
+      "icon": "favorite",
+      "iconTheme": "material-symbols-rounded",
+      "tags": [
+        "favs"
+      ]
     }
   ]
 }
