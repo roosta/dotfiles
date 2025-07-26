@@ -95,10 +95,10 @@ fdot() {
     /usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME" \
       ls-files --full-name "$HOME" | \
       while read -r file; do
-        [ -f "$file" ] && echo "$file"
+        [ -f "$HOME/$file" ] && echo "$file"
       done | \
         fzf --ansi --preview-window 'right:60%' --multi \
-        --bind 'enter:become(${EDITOR:-nvim} {+})' \
+        --bind 'enter:become(${EDITOR:-nvim} $HOME/{+})' \
         --preview 'bat --color=always --style=numbers {}'
     else
       echo "fzf.zsh: fdot doesn't support arguments"
