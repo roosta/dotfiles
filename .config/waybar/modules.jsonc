@@ -339,7 +339,7 @@
     "format": "{icon}",
     "format-muted": " ",
     "format-icons": {
-      "headset": "  " ,
+      "headset": "  " ,
       "default": " 󰓃 ",
       "hdmi": " 󰍹 "
     },
