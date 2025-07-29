@@ -9,6 +9,6 @@ items:
     icon: applications-graphics
     args: ["--format", "hex"]
 
-  - script: ~/scripts/monitor.sh
+  - script: ~/scripts/system-monitor.sh
     description: Start monitor
     icon: utilities-system-monitor
