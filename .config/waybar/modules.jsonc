@@ -131,7 +131,7 @@
     "interval": 1,
     "format": "{icon}",
     "rotate": 270,
-    "on-click": "$HOME/scripts/monitor.sh",
+    "on-click": "$HOME/scripts/system-monitor.sh",
     "format-icons": [
       "󰝦",
       "󰪞",
@@ -148,7 +148,7 @@
     "interval": 1,
     "rotate": 270,
     "format": "{icon}",
-    "on-click": "$HOME/scripts/monitor.sh",
+    "on-click": "$HOME/scripts/system-monitor.sh",
     "format-icons": [
       "󰋙",
       "󰫃",
@@ -164,7 +164,7 @@
     // "thermal-zone": 2,
     "hwmon-path": "/sys/class/hwmon/hwmon0/temp1_input",
     "format-critical": "{icon}",
-    "on-click": "$HOME/scripts/monitor.sh",
+    "on-click": "$HOME/scripts/system-monitor.sh",
     "interval": 1,
     // "rotate": 270,
     "critical-threshold": 90,
