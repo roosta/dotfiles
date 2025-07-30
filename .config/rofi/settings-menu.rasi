@@ -10,7 +10,7 @@
 **/
 
 configuration {
-  modes: "display:~/scripts/display-menu.sh,audio:~/scripts/audio-menu.sh,power:~/scripts/power-menu.sh";
+  modes: "power:~/scripts/power-menu.sh";
   location: 3;
 }
 
