@@ -24,8 +24,8 @@ window#waybar {
   background: @srcery-black;
   font-size: 15px;
 }
- window#waybar.wall {
-  font-size: 24px;
+ window#waybar.tv {
+  font-size: 18px;
 }
 
 window#waybar.hidden {
