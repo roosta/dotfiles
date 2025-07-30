@@ -197,12 +197,12 @@
   "custom/settings-menu-left": {
     "format": "",
     "tooltip": false,
-    "on-click": "rofi -show display -config settings-menu -location 1"
+    "on-click": "rofi -show power -config settings-menu -location 1"
   },
   "custom/settings-menu-right": {
     "format": "",
     "tooltip": false,
-    "on-click": "rofi -show display -config settings-menu -location 3"
+    "on-click": "rofi -show power -config settings-menu -location 3"
   },
 
   "custom/audio-menu": {
