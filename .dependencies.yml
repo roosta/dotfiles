@@ -439,15 +439,16 @@ packages:
     - name: gdb
       description: The GNU Debugger
       aur: false
-    - name: lua-language-server
-      description: Lua Language Server coded by Lua
-      aur: false
-    - name: vue-language-server
-      description: Language server for Vue
-      aur: false
-    - name: bash-language-server
-      description: Bash language server implementation based on Tree Sitter and its grammar for Bash
-      aur: false
+    # Use Mason.nvim
+    # - name: lua-language-server
+    #   description: Lua Language Server coded by Lua
+    #   aur: false
+    # - name: vue-language-server
+    #   description: Language server for Vue
+    #   aur: false
+    # - name: bash-language-server
+    #   description: Bash language server implementation based on Tree Sitter and its grammar for Bash
+    #   aur: false
     - name: neovim
       description: Fork of Vim aiming to improve user experience, plugins, and GUIs
       aur: false
@@ -543,6 +544,9 @@ packages:
       aur: false
     - name: yarn
       description: Fast, reliable, and secure dependency management
+      aur: false
+    - name: nvm
+      description: Node Version Manager - Simple bash script to manage multiple active node.js versions
       aur: false
 
 

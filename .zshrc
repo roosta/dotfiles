@@ -20,6 +20,7 @@ scripts=(
   "$ZSH_CONFIG_PATH/options.zsh"
   "$ZSH_CONFIG_PATH/rationalise_dot.zsh"
   "$ZSH_CONFIG_PATH/plugins.zsh"
+  "/usr/share/nvm/init-nvm.sh"
 )
 for script in "${scripts[@]}"; do
   source "$script"
