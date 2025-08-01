@@ -75,6 +75,7 @@ return {
     input = { enabled = true },
     picker = { enabled = true },
     image = { enabled = true },
+    notifier = { enabled = true },
     bigfile = { enabled = true },
     -- indent = { enabled = true },
     statuscolumn = {
