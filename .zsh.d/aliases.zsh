@@ -171,6 +171,7 @@ alias pacorph='paru -Rns $(pacman -Qtdq)' # clear orphans
 alias pacls='pacman -Ql' # list package files
 alias pacfd="pacman -F" # find file in repos
 alias aurls="paru -Qm" # list aur packages
+alias ff="firefox"
 
 # reload config if the process supports the signal
 alias reload='killall -SIGUSR2'
