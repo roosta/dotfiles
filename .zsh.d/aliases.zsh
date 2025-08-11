@@ -51,6 +51,7 @@ alias spot='spotify_player'
 
 alias paste="wl-paste"
 alias copy="wl-copy"
+alias reway="systemctl --user restart waybar.service"
 
 
 if hash dust 2>/dev/null; then
