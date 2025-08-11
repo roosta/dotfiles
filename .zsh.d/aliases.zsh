@@ -197,7 +197,7 @@ alias vissh="${EDITOR:-nvim} $HOME/.ssh/config"
 alias viterm="${EDITOR:-nvim} $HOME/.config/kitty/kitty.conf"
 alias vitodo="${EDITOR:-nvim} $HOME/notes/TODOs.md"
 alias vivim="${EDITOR:-nvim} -c 'cd $HOME/.config/nvim' $HOME/.config/nvim/"
-alias vizsh="${EDITOR:-nvim} $HOME/.zshrc"
+alias vizsh="${EDITOR:-nvim} -c 'cd $HOME/.zsh.d' $HOME/.zshrc"
 alias vizshd="${EDITOR:-nvim} $HOME/.zsh.d"
 
 # }}}
