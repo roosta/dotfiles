@@ -8,4 +8,4 @@ choice is [Arch Linux](https://www.archlinux.org/).
 
 ## License
 
-[MIT](LICENSE)
+[GPLv3](LICENSE)
