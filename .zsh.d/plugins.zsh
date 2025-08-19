@@ -3,15 +3,19 @@
 # ┆  ┆─┘┆─┘┆─┘┆┆└┘──┘
 # -------------------
 
-if require_binary starship "Starship is required for prompt"; then
+if require_binary starship; then
   eval "$(starship init zsh)"
 fi
 
 function init_fzf() {
-  if require_binary fzf "Fzf is required for many zsh helper functions"; then
+  if require_binary fzf fd; then
     source <(fzf --zsh)
     source "$ZSH_CONFIG_PATH/fzf.zsh"
-    bindkey '^f' edit
+
+    # ~/.zsh.d/functions + ~/scripts
+    zle -N fzf_edit
+    alias e=fzf_edit
+    bindkey '^f' fzf_edit
     bindkey '^x' fdirs
   fi
 }
@@ -22,7 +26,7 @@ if [[ -s '/usr/share/doc/pkgfile/command-not-found.zsh' ]]; then
 fi
 
 # LS_COLORS using vivid
-if require_binary vivid "Vivid is required to set LS_COLOR theme"; then
+if require_binary vivid; then
   export LS_COLORS="$(vivid generate $HOME/.config/srcery/srcery-vivid/srcery.yml)"
 fi
 
