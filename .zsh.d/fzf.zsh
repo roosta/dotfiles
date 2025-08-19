@@ -1,7 +1,7 @@
 # ┬─┐┬ ┐┌─┐┌─┐┐ ┬  ┬─┐o┌┐┐┬─┐┬─┐┬─┐
 # ├─ │ │┌─┘┌─┘└┌┘──├─ │││││ │├─ │┬┘
 # ┆  ┆─┘└─┘└─┘ ┆   ┆  ┆┆└┘┆─┘┴─┘┆└┘
-# -----------------------------------------------------------------------------
+# ---------------------------------
 # Options {{{
 
 # Respecting .gitignore, .hgignore, and svn:ignore
@@ -45,7 +45,7 @@ fdirs() {
     cd -- ${dir/#\~/$HOME} &&
     zle -I
 }
-zle -N fdirs # So that it can be used as a shortcut. See keybinds.sh
+zle -N fdirs # So that it can be used as a shortcut.
 
 # I keep a ~/lib dir for when I need to build extenal repos from source, or
 # reference it's source code. This makes it quick to navigate to a dir in that
@@ -59,29 +59,6 @@ flib() {
     return 2
   fi
 }
-
-# Fuzzy match file and open with $EDITOR
-#
-# Requirements: fzf, fd
-#
-# Usage:
-#   edit - Fuzzy find files in current directory and open in $EDITOR
-#   edit <file> .. - Open specified file(s) in $EDITOR
-#   edit <multiple args> - Pass all arguments to $EDITOR
-edit() {
-  if [ "$#" -eq 0 ]; then
-    local files=$(fd --type file --color=always --strip-cwd-prefix)
-    fzf \
-      --ansi \
-      --preview-window 'right:60%' --multi \
-      --bind 'enter:become(${EDITOR:-nvim} {+})' \
-      --preview 'bat --color=always --style=numbers {}' <<< $files
-  else
-    ${EDITOR:-nvim} "$@"
-  fi
-}
-zle -N edit # So that it can be used as a shortcut. See keybinds.sh
-alias e=edit
 
 # Fuzzy match over dotfiles
 # 
