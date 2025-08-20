@@ -117,13 +117,13 @@ fpac() {
 }
 
 # Search aliases.zsh, and output match to cmd # Expand the alias instead of
-# outputing the alias itself, useful for referece.
+# outputing the alias itself, useful for reference.
 falias() {
   local match;
   match=$(bat --color=always --decorations=never ~/.zsh.d/aliases.zsh | fzf +m --reverse)
   out=$(sed -n "s/^\s*alias [^=]*=[\"']\(.*\)[\"'].*$/\1/p" <<< "$match")
   if [ -n "$out" ]; then
-    print -z "$out"
+    print -z "$out "
   else
     echo "Not an alias!"
     return 1
