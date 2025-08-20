@@ -13,6 +13,6 @@ Singleton {
   component Bar: QtObject {
     readonly property bool transparent: true
     property int innerHeight: 30
-}
+  }
 
 }
