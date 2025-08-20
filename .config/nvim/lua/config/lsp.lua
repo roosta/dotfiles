@@ -22,6 +22,7 @@ vim.lsp.enable('qmlls')
 vim.lsp.enable('svelte')
 vim.lsp.enable('ts_ls')
 vim.lsp.enable('bashls')
+vim.lsp.enable('marksman')
 vim.lsp.config('vtsls', {
   filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
 })
