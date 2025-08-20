@@ -3,11 +3,9 @@ import qs.config
 import QtQuick
 
 Text {
-  required property string className
   font {
-    family: Appearance.font.family.symbols
-    pointSize: Appearance.font.size.normal
+    family: Appearance.font.symbols
+    pointSize: Appearance.font.size1
   }
-  text: className
   color: Appearance.srcery.brightWhite
 }

@@ -5,8 +5,8 @@ import qs.config
 
 Text {
   font {
-    family: Appearance?.font.family.main ?? "sans-serif"
-    pixelSize: Appearance?.font.size.normal ?? 15
+    family: Appearance.font.main
+    pixelSize: Appearance.font.size2
   }
 
   color: Appearance.srcery.brightWhite

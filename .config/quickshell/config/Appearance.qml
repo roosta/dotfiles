@@ -12,22 +12,17 @@ Singleton {
   readonly property Srcery srcery: Srcery {}
 
   component Bar: QtObject {
-    readonly property int height: 32
-  }
-
-  component FontFamily: QtObject {
-    readonly property string main: "Iosevka"
-    readonly property string symbols: "Symbols Nerd Font"
-  }
-
-  component FontSize: QtObject {
-    readonly property int normal: 15
-    readonly property int large: 18
+    readonly property int height: 40
   }
 
   component Font: QtObject {
-    readonly property FontFamily family: FontFamily {}
-    readonly property FontSize size: FontSize {}
+    readonly property string main: "Iosevka"
+    readonly property string symbols: "Symbols Nerd Font"
+    readonly property int size0: 8
+    readonly property int size1: 12
+    readonly property int size2: 16
+    readonly property int size3: 20
+    readonly property int size4: 24
   }
 
   component Spacing: QtObject {
