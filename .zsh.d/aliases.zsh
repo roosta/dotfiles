@@ -17,7 +17,7 @@
 
 alias jobs='jobs -l' # show pid
 alias ncdu='ncdu --color dark'
-alias tree="tree -ahC --gitignore" # hidden(all), human, color
+alias tree="tree -ahC" # hidden(all), human, color
 alias free='free --human'
 alias locate='locate --ignore-case'
 alias du='du --human-readable'
@@ -190,7 +190,8 @@ alias vigit="${EDITOR:-nvim} $HOME/.gitconfig"
 alias vigtk="${EDITOR:-nvim} $HOME/.gtkrc-2.0 \
   $HOME/.config/gtk-3.0/settings.ini \
   $HOME/.config/gtk-4.0/settings.ini"
-alias vihypr="${EDITOR:-nvim} $HOME/.config/hypr/hyprland.conf"
+alias vihypr="${EDITOR:-nvim} -c 'cd $HOME/.config/hypr' \
+  $HOME/.config/hypr/hyprland.conf"
 alias viquick="${EDITOR:-nvim} $HOME/notes/quick-notes.md"
 alias virofi="${EDITOR:-nvim} $HOME/.config/rofi"
 alias vissh="${EDITOR:-nvim} $HOME/.ssh/config"
