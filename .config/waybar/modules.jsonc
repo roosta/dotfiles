@@ -18,13 +18,13 @@
   "hyprland/workspaces": {
     "all-outputs": false,
     "show-special": true,
-    // "format": "<span size=\"medium\">{icon}</span> <span size=\"medium\" color=\"#FCE8C3\">{windows}</span>",
+    "format": "<span size=\"medium\">{icon}</span> <span size=\"medium\" color=\"#FCE8C3\">{windows}</span>",
     // "format": "<span color=\"#FCE8C3\">{windows}</span>",
-    "format": "{icon}",
+    // "format": "{icon}",
     "format-empty": "{icon}",
     "window-rewrite-default": "",
     "format-icons": {
-      "special": "",
+      "special": ""
       // "active": "",
       // "default": ""
       // "1": "󰬘",
