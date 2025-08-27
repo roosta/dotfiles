@@ -1,6 +1,6 @@
 {
   "locale": "auto",
-  "showIntroductionDialog": true,
+  "showIntroductionDialog": false,
   "menuTheme": "clean-circle",
   "darkMenuTheme": "clean-circle",
   "menuThemeColors": {
