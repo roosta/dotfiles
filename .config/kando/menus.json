@@ -46,6 +46,18 @@
               },
               {
                 "type": "command",
+                "name": "Files",
+                "icon": "file-item.svg",
+                "iconTheme": "kando",
+                "data": {
+                  "command": "nautilus",
+                  "detached": true,
+                  "isolated": false,
+                  "delayed": false
+                }
+              },
+              {
+                "type": "command",
                 "data": {
                   "command": "media-browser",
                   "delayed": false
@@ -114,7 +126,8 @@
       "shortcutID": "media-menu",
       "centered": false,
       "warpMouse": false,
-      "anchored": false
+      "anchored": false,
+      "conditions": {}
     }
   ],
   "collections": [
