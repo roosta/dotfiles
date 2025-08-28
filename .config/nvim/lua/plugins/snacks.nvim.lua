@@ -74,7 +74,7 @@ return {
     },
     input = { enabled = true },
     picker = { enabled = true },
-    image = { enabled = true },
+    image = { enabled = false },
     notifier = { enabled = true },
     bigfile = { enabled = true },
     -- indent = { enabled = true },
