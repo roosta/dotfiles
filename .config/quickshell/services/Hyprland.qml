@@ -1,5 +1,5 @@
 // GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007
-// https://github.com/caelestia-dots/shell/blob/fa39593ca497c27ca8631091a75d883e4e3c46f2/services/Hyprland.qml
+// Source: https://github.com/caelestia-dots/shell/blob/8155e5b8735fd2473bdec8f56c7ba7fa1b66b081/services/Hyprland.qml
 pragma Singleton
 
 import Quickshell

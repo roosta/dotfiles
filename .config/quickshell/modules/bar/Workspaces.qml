@@ -1,4 +1,5 @@
 import QtQuick
+import Quickshell.Widgets
 import Quickshell
 import QtQuick.Layouts
 import qs.services 
@@ -20,11 +21,9 @@ Rectangle {
 
   implicitWidth: layout.implicitWidth + Appearance.spacing.p2
   Layout.fillHeight: true
-
-  radius: 10
+  radius: 3
   Item {
     id: inner
-
     anchors.fill: parent
     RowLayout {
       id: layout
@@ -40,14 +39,14 @@ Rectangle {
         }
       }
     }
-    MouseArea {
-      anchors.fill: parent
-      onPressed: event => {
-        const ws = layout.childAt(event.x, event.y).index + root.groupOffset + 1;
-        if (Hyprland.activeWsId !== ws) {
-          Hyprland.dispatch(`workspace ${ws}`);
-        }
-      }
-    }
+    // MouseArea {
+    //   anchors.fill: parent
+    //   onPressed: event => {
+    //     const ws = layout.childAt(event.x, event.y).index + root.groupOffset + 1;
+    //     if (Hyprland.activeWsId !== ws) {
+    //       Hyprland.dispatch(`workspace ${ws}`);
+    //     }
+    //   }
+    // }
   }
 }

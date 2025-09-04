@@ -6,7 +6,7 @@ pragma ComponentBehavior: Bound
 
 Scope {
   id: bar
-  property bool transparent: Config.bar.transparent
+  property bool transparent: Appearance.bar.transparent
 
   Variants {
     model: Quickshell.screens
@@ -25,35 +25,31 @@ Scope {
 
       implicitHeight: Appearance.bar.height
 
-      Item {
+      Rectangle {
         id: barContent
+        color: bar.transparent ? "transparent" : Appearance.srcery.gray1
         anchors {
           right: parent.right
           left: parent.left
           top: parent.top
           bottom: parent.bottom
-          margins: Appearance.spacing.p1
         }
         Rectangle {
-          id: barBackground
-
-          color: bar.transparent ? "transparent" : Appearance.srcery.gray1
-          anchors {
-            fill: parent
-          }
-        }
-        Loader {
           anchors.fill: parent
-          sourceComponent: {
-            if (barRoot.modelData.name === "DP-2") {
-              return leftBar
-            } else if (barRoot.modelData.name === "HDMI-A-1"){
-              return rightBar
-            } else {
-              return primaryBar
+          anchors.margins: Appearance.spacing.p1
+          color: "transparent"
+          Loader {
+            anchors.fill: parent
+            sourceComponent: {
+              if (barRoot.modelData.name === "DP-2") {
+                return leftBar
+              } else if (barRoot.modelData.name === "HDMI-A-1"){
+                return rightBar
+              } else {
+                return primaryBar
+              }
             }
-          }
-        }
+          }}
       }
       Component {
         id: primaryBar
@@ -68,14 +64,14 @@ Scope {
               bottom: parent.bottom
             }
             Workspaces { 
-              show: 10
+              show: 6
               screen: barRoot.screen
             }
           }
           RowLayout {
             id: centerSection
             anchors.centerIn: parent
-            Clock { }
+            // Clock { }
           }
           RowLayout {
             id: rightSection
