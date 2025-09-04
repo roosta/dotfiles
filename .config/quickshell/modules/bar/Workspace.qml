@@ -1,55 +1,92 @@
 pragma ComponentBehavior: Bound
-import Quickshell
+// import Quickshell
 import QtQuick
 import QtQuick.Layouts
-import qs.services
-import qs.config
-import qs.widgets
 
-Item {
+// import Qt5Compat.GraphicalEffects
+import QtQuick.Controls
+import Quickshell.Widgets
+// import qs.services
+import qs.config
+// import qs.widgets
+
+Button {
   id: root
   required property int groupOffset
   required property var occupied
   required property int index
   required property int activeWsId
-  readonly property real size: childrenRect.height + (occupied ? 7 : 0)
   readonly property bool isOccupied: occupied[ws] ?? false
   readonly property int ws: groupOffset + index + 1
   readonly property bool isWorkspace: true
 
-  Layout.preferredWidth: childrenRect.width
-  Layout.preferredHeight: childrenRect.height
+  property int buttonSize: 26
+  property real iconSize: buttonSize * 0.69
 
-  Loader {
-    active: !root.isOccupied
-    sourceComponent: indicator
-  }
-  Component {
-    id: indicator
-    Text {
-      // Additional whitespace for proper center alignment
-      text: "  "
-      color: root.activeWsId === root.ws ? Appearance.srcery.brightWhite : Appearance.srcery.gray6
+  property var color: activeWsId === ws
+    ? Appearance.srcery.brightWhite
+    : Appearance.srcery.gray6
+
+  property var backgroundColor: activeWsId === ws
+    ? Appearance.srcery.gray4
+    : "transparent"
+
+  background: Rectangle {
+    id: wsBackground
+    implicitWidth: childrenRect.width
+    implicitHeight: childrenRect.height
+    radius: 5
+    color: root.backgroundColor
+
+    Behavior on implicitWidth {
+      animation: NumberAnimation {
+        duration: Appearance.animationCurves.expressiveEffectsDuration
+        easing.type: Easing.BezierSpline
+        easing.bezierCurve: Appearance.animationCurves.expressiveEffects
+
+      }
     }
-  }
-  RowLayout {
-    Repeater {
-      model: ScriptModel {
-        values: {
-          const topLevels = Hyprland.toplevels.values.filter(c => c.workspace?.id === root.ws)
-          const classes = Hyprland.toplevels.values
-            .filter(c => c.workspace?.id === root.ws)
-            .map(c => c.lastIpcObject.class)
-            return [...new Set(classes)]
+    Loader {
+      active: !root.isOccupied
+      sourceComponent: indicator
+    }
+    Component {
+      id: indicator
+      Item {
+        implicitWidth: root.iconSize + Appearance.spacing.p2
+        implicitHeight: root.iconSize + Appearance.spacing.p2
+        Rectangle {
+          anchors.centerIn: parent
+          width: root.buttonSize * 0.25
+          height: width
+          radius: width / 2
+          color: root.color
         }
       }
+    }
 
-      Icon {
-        required property var modelData
-        text: {
-          return Icons.getAppCategoryIcon(modelData, Icons.defaultIcon)
-        } 
-      }
+    Loader {
+      active: root.isOccupied
+      sourceComponent: iconGroup
+    }
+    Component {
+      id: iconGroup
+      RowLayout {
+        spacing: 0
+        Repeater {
+          model: Icons.getAppIcons(root.ws)
+          Item {
+            required property var modelData
+            id: appIcon
+            Layout.preferredWidth: root.iconSize + Appearance.spacing.p2
+            Layout.preferredHeight: root.iconSize + Appearance.spacing.p2
+            IconImage {
+              source: appIcon.modelData 
+              anchors.centerIn: parent
+              implicitSize: root.iconSize
+            }
+          }
+        }}
     }
   }
 }
