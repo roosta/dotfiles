@@ -105,6 +105,7 @@ alias ftls="find . -type f | awk -F. '!a[$NF]++{print $NF}'"
 alias dot='/usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"'
 alias dotfiles='/usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"'
 alias dotsync='dot pull --recurse-submodules'
+alias dotvars="GIT_DIR=$HOME/.dotfiles/ GIT_WORK_TREE=$HOME"
 
 # Use fugitive with git bare repo (dotfiles)
 # Additional dotfile local git config needed
