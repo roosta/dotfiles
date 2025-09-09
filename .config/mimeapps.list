@@ -1,3 +1,19 @@
+; https://wiki.archlinux.org/title/XDG_MIME_Applications#Format
+;
+; - Added Associations indicates that the applications support opening that MIME
+;   type. For example, bar.desktop and baz.desktop can open JPEG images. This might
+;   affect the application list you see when right-clicking a file in a file
+;   browser.
+;
+; - Removed Associations indicates that the applications do not support that
+;   MIME type. For example, baz.desktop cannot open H.264 video.
+;
+; - Default Applications indicates that the applications should be the default
+;   choice for opening that MIME type. For example, JPEG images should be opened
+;   with foo.desktop. This implicitly adds an association between the application
+;   and the MIME type. If there are multiple applications, they are tried in
+;   order.
+
 [Default Applications]
 application/pdf=org.gnome.Evince.desktop
 application/rss+xml=org.mozilla.Thunderbird.desktop
@@ -55,8 +71,8 @@ image/jpeg=gimp.desktop;swayimg.desktop;
 image/png=gimp.desktop;swayimg.desktop;
 image/svg+xml=inkscape.desktop;
 image/svg+xml=org.inkscape.Inkscape.desktop;nvim.desktop;inkscape.desktop;
-message/rfc822=thunderbird.desktop;
-text/calendar=thunderbird.desktop;
+message/rfc822=org.mozilla.Thunderbird.desktop;
+text/calendar=org.mozilla.Thunderbird.desktop;
 text/html=firefox.desktop;
 text/plain=nvim.desktop;
 video/H264=mpv.desktop;
@@ -65,7 +81,7 @@ x-scheme-handler/feed=org.mozilla.Thunderbird.desktop;
 x-scheme-handler/ftp=firefox.desktop;
 x-scheme-handler/http=firefox.desktop;
 x-scheme-handler/https=firefox.desktop;
-x-scheme-handler/mailto=org.mozilla.Thunderbird.desktop;thunderbird.desktop;
+x-scheme-handler/mailto=org.mozilla.Thunderbird.desktop;
 x-scheme-handler/mid=org.mozilla.Thunderbird.desktop.desktop;
 x-scheme-handler/news=org.mozilla.Thunderbird.desktop;
 x-scheme-handler/nntp=org.mozilla.Thunderbird.desktop;
