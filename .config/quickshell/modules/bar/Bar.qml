@@ -64,7 +64,7 @@ Scope {
               bottom: parent.bottom
             }
             Workspaces { 
-              show: 6
+              show: 5
               screen: barRoot.screen
             }
           }
