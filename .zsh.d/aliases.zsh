@@ -105,12 +105,12 @@ alias ftls="find . -type f | awk -F. '!a[$NF]++{print $NF}'"
 alias dot='/usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"'
 alias dotfiles='/usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"'
 alias dotsync='dot pull --recurse-submodules'
-alias dotvars="GIT_DIR=$HOME/.dotfiles/ GIT_WORK_TREE=$HOME"
+alias dotenv="GIT_DIR=$HOME/.dotfiles/ GIT_WORK_TREE=$HOME"
 
 # Use fugitive with git bare repo (dotfiles)
 # Additional dotfile local git config needed
 # `dot config --local core.worktree $HOME`
-alias dotvim="GIT_DIR=$HOME/.dotfiles GIT_WORK_TREE=$HOME nvim -c 'Git'"
+alias dotvim="dotenv nvim -c 'Git'"
 
 alias gitvi="vim -c 'Git'" # Fugitive on startup
 alias suk="sudo -K" # Clear cached sudo pass
