@@ -6,6 +6,7 @@ import QtQuick.Layouts
 // import Qt5Compat.GraphicalEffects
 import QtQuick.Controls
 import Quickshell.Widgets
+import Quickshell.Hyprland
 // import qs.services
 import qs.config
 // import qs.widgets
@@ -30,6 +31,8 @@ Button {
   property var backgroundColor: activeWsId === ws
     ? Appearance.srcery.gray4
     : "transparent"
+
+  onPressed: Hyprland.dispatch(`workspace ${index + groupOffset + 1}`)
 
   background: Rectangle {
     id: wsBackground
