@@ -148,6 +148,12 @@ packages:
 
   # CLI tools and utilities
   cli_tools:
+    - name: pre-commit
+      description: A framework for managing and maintaining multi-language pre-commit hooks
+      aur: false
+    - name: gitleaks
+      description: Audit Git repos for secrets and keys
+      aur: false
     - name: atool
       description: A script for managing file archives of various types
       aur: false
