@@ -35,7 +35,7 @@ Button {
     id: wsBackground
     implicitWidth: childrenRect.width
     implicitHeight: childrenRect.height
-    radius: 5
+    radius: Appearance.bar.radius
     color: root.backgroundColor
 
     Behavior on implicitWidth {
