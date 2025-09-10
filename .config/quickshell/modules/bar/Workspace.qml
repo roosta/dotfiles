@@ -22,7 +22,7 @@ Button {
   readonly property bool isWorkspace: true
 
   property int buttonSize: 26
-  property real iconSize: buttonSize * 0.69
+  property int iconSize: 16
 
   property var color: activeWsId === ws
     ? Appearance.srcery.brightWhite
@@ -39,7 +39,7 @@ Button {
     implicitWidth: childrenRect.width
     implicitHeight: childrenRect.height
     radius: Appearance.bar.radius
-    color: root.backgroundColor
+    color: "transparent"
 
     Behavior on implicitWidth {
       animation: NumberAnimation {
