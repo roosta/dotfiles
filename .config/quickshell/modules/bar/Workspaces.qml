@@ -10,7 +10,7 @@ pragma ComponentBehavior: Bound
 
 Rectangle {
   id: root
-  color: Appearance.srcery.gray2
+  color: Appearance.srcery.gray1
   required property int show
   required property ShellScreen screen
   readonly property var occupied: HyprlandData.workspaces.reduce((acc, curr) => {
