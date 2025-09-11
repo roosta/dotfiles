@@ -77,7 +77,7 @@ Button {
       RowLayout {
         spacing: 0
         Repeater {
-          model: Icons.getAppIcons(root.ws)
+          model: Icons.getWsIcons(root.ws)
           Item {
             required property var modelData
             id: appIcon

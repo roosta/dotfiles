@@ -14,7 +14,12 @@ Singleton {
     return arr.sort((a,b) => 
       arr.filter(v => v===a).length - arr.filter(v => v===b).length).pop();
   }
-  function getAppIcons(wsid: int): var {
+  function getWindowIcon(appId) {
+    const icon = DesktopEntries.heuristicLookup(appId)?.icon
+    return Quickshell.iconPath(icon, root.defaultIcon)
+  }
+
+  function getWsIcons(wsid: int): var {
     const classes = HyprlandData.windowList.filter(w => {
       return w.workspace.id == wsid
     }).map(w => w?.class)
