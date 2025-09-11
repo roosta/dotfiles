@@ -28,9 +28,9 @@ Button {
     ? Appearance.srcery.brightWhite
     : Appearance.srcery.gray6
 
-  property var backgroundColor: activeWsId === ws
-    ? Appearance.srcery.gray4
-    : "transparent"
+  // property var backgroundColor: activeWsId === ws
+  //   ? Appearance.srcery.gray4
+  //   : "transparent"
 
   onPressed: Hyprland.dispatch(`workspace ${index + groupOffset + 1}`)
 
