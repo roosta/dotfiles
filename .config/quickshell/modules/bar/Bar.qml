@@ -67,23 +67,20 @@ Scope {
               left: parent.left
               bottom: parent.bottom
             }
-            // Workspaces { 
-            //   show: 5
-            //   screen: barRoot.screen
-            // }
+            ActiveWindow {
+              Layout.fillWidth: true
+              Layout.fillHeight: true
+            }
           }
           RowLayout {
             id: centerSection
-            // anchors.centerIn: parent
-            // Clock { }
             anchors {
               top: parent.top
-            bottom: parent.bottom
-            horizontalCenter: parent.horizontalCenter
+              bottom: parent.bottom
+              horizontalCenter: parent.horizontalCenter
             }
             Workspaces { 
               show: 5
-              screen: barRoot.screen
             }
           }
           RowLayout {
@@ -106,7 +103,6 @@ Scope {
             }
             Workspaces {
               show: 4
-              screen: barRoot.screen
             }
           }
           RowLayout {
@@ -138,7 +134,6 @@ Scope {
             }
             Workspaces {
               show: 4
-              screen: barRoot.screen
             }
           }
         }

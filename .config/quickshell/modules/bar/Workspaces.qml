@@ -12,12 +12,11 @@ Rectangle {
   id: root
   color: Appearance.srcery.gray1
   required property int show
-  required property ShellScreen screen
   readonly property var occupied: HyprlandData.workspaces.reduce((acc, curr) => {
     acc[curr.id] = curr?.windows > 0;
     return acc;
   }, {})
-  readonly property HyprlandMonitor monitor: Hyprland.monitorFor(screen)
+  readonly property HyprlandMonitor monitor: Hyprland.monitorFor(root.QsWindow.window?.screen)
   readonly property Toplevel activeWindow: ToplevelManager.activeToplevel
 
   // readonly property bool onSpecial: Hyprland.monitorFor(screen)?.lastIpcObject.specialWorkspace.name !== ""
@@ -99,7 +98,7 @@ Rectangle {
             let wsId = groupOffset + index + 1;
             let isOccupied = occupied[wsId] ?? false;
             if (isOccupied) {
-              let iconCount = Icons.getAppIcons(wsId).length;
+              let iconCount = Icons.getWsIcons(wsId).length;
               return iconCount * (iconSize + Appearance.spacing.p2);
             } else {
               return iconSize + Appearance.spacing.p2;

@@ -45,16 +45,17 @@ Singleton {
     readonly property bool transparent: false
     readonly property int radius: 0
     readonly property real borderWidth: 1
+    readonly property int textLength: 80
   }
 
   component Font: QtObject {
     readonly property string main: "Iosevka"
     readonly property string symbols: "Symbols Nerd Font"
-    readonly property int size0: 8
+    readonly property int size0: 10
     readonly property int size1: 12
-    readonly property int size2: 16
-    readonly property int size3: 20
-    readonly property int size4: 24
+    readonly property int size2: 14
+    readonly property int size3: 16
+    readonly property int size4: 18
   }
 
   component Spacing: QtObject {
