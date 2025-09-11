@@ -41,7 +41,7 @@ Singleton {
   }
 
   component Bar: QtObject {
-    readonly property int height: 35
+    readonly property int height: 34
     readonly property bool transparent: false
     readonly property int radius: 0
     readonly property real borderWidth: 1

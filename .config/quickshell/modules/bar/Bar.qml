@@ -67,15 +67,24 @@ Scope {
               left: parent.left
               bottom: parent.bottom
             }
+            // Workspaces { 
+            //   show: 5
+            //   screen: barRoot.screen
+            // }
+          }
+          RowLayout {
+            id: centerSection
+            // anchors.centerIn: parent
+            // Clock { }
+            anchors {
+              top: parent.top
+            bottom: parent.bottom
+            horizontalCenter: parent.horizontalCenter
+            }
             Workspaces { 
               show: 5
               screen: barRoot.screen
             }
-          }
-          RowLayout {
-            id: centerSection
-            anchors.centerIn: parent
-            // Clock { }
           }
           RowLayout {
             id: rightSection
