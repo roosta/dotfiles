@@ -27,7 +27,9 @@ Scope {
 
       Rectangle {
         id: barContent
-        color: bar.transparent ? "transparent" : Appearance.srcery.gray1
+        color: bar.transparent ? "transparent" : Appearance.srcery.black
+        border.width: Appearance.bar.borderWidth
+        border.color: Appearance.srcery.gray2
         anchors {
           right: parent.right
           left: parent.left
@@ -36,8 +38,10 @@ Scope {
         }
         Rectangle {
           anchors.fill: parent
-          anchors.margins: Appearance.spacing.p1
+          anchors.topMargin: Appearance.bar.borderWidth
           color: "transparent"
+          border.pixelAligned: true
+
           Loader {
             anchors.fill: parent
             sourceComponent: {
