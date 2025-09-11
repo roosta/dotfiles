@@ -41,9 +41,9 @@ Scope {
           Loader {
             anchors.fill: parent
             sourceComponent: {
-              if (barRoot.modelData.name === "DP-2") {
+              if (barRoot.modelData?.name === "DP-2") {
                 return leftBar
-              } else if (barRoot.modelData.name === "HDMI-A-1"){
+              } else if (barRoot.modelData?.name === "HDMI-A-1"){
                 return rightBar
               } else {
                 return primaryBar
