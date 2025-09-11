@@ -22,7 +22,7 @@ Button {
   readonly property bool isWorkspace: true
 
   property int buttonSize: 26
-  property int iconSize: 16
+  property int iconSize: 18
 
   property var color: activeWsId === ws
     ? Appearance.srcery.brightWhite
