@@ -12,13 +12,11 @@ return {
     require("nvim-treesitter.configs").setup {
       ensure_installed = { "vue", "javascript", "rust", "lua", "vim", "json", "toml", "css" },
       ignore_install = {}, -- List of parsers to ignore installing
-      modules = {
-        highlight = {
-          enable = true
-        },
-        indent = {
-          enable = true
-        }
+      highlight = {
+        enable = true,
+      },
+      indent = {
+        enable = true
       }
     }
     vim.treesitter.language.register("bash", "zsh")
