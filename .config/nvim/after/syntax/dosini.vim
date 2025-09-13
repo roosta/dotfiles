@@ -4,8 +4,8 @@
 "
 " Put the file in $VIM/after/syntax/dosini.vim
 "
-syn region dosiniSection start="^\[" end="\(\n\+\[\)\@=" contains=dosiniLabel,dosiniHeader,dosiniComment keepend fold
-setlocal foldmethod=syntax
+" syn region dosiniSection start="^\[" end="\(\n\+\[\)\@=" contains=dosiniLabel,dosiniHeader,dosiniComment keepend fold
+" setlocal foldmethod=syntax
 
 " Uncomment to start with folds open
 "setlocal foldlevel=20

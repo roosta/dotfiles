@@ -1,2 +1,2 @@
 " disable auto comment insert. see :help fo-table
-set formatoptions-=cro
+" set formatoptions-=cro
