@@ -87,7 +87,7 @@ Item {
           if (root.activeWindow?.activated) {
             return root.truncate(root.activeWindow?.title)
           }
-          return "Workspace"
+          return `Workspace ${HyprlandData.activeWorkspace?.id}`
         }
       }
     }
