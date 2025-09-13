@@ -65,4 +65,13 @@ vim.opt.lispwords:append({
   "define-mode",
 })
 
+-- Disable auto comment insert
+-- :help fo-table
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "*",
+  callback = function()
+    vim.opt_local.formatoptions:remove({ 'c', 'r', 'o' })
+  end
+})
+
 --  vim: set ts=2 sw=2 tw=0 fdm=marker et :
