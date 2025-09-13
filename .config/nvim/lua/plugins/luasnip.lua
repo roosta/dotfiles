@@ -6,8 +6,10 @@ return {
 	build = "make install_jsregexp",
   dependencies = { "rafamadriz/friendly-snippets" },
   config = function()
-    require("luasnip.loaders.from_vscode").lazy_load()
     local ls = require("luasnip")
+    require("luasnip.loaders.from_vscode").lazy_load()
+    require("luasnip.loaders.from_vscode").lazy_load({ paths = { "./snippets/vscode" } })
+    require("luasnip.loaders.from_snipmate").lazy_load({ paths = { "./snippets/snipmate" } })
 
     vim.keymap.set({"i"}, "<C-K>", function() ls.expand() end, {silent = true})
     vim.keymap.set({"i", "s"}, "<C-L>", function() ls.jump( 1) end, {silent = true})
