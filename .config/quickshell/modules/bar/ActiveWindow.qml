@@ -15,22 +15,50 @@ Item {
   property string activeWindowAddress: `0x${activeWindow?.HyprlandToplevel?.address}`
   property bool focusingThisMonitor: HyprlandData.activeWorkspace?.monitor == monitor?.name
 
-  property int iconSize: 24
+  property int iconSize: 20
+
+  function capitalize(val) {
+    return String(val).charAt(0).toUpperCase() + String(val).slice(1);
+  }
+  function log(val) {
+    console.log(JSON.stringify(val, null, 2)) 
+    return val
+  }
+  property var logme: log(HyprlandData.windowList)
+  function truncate(text) {
+    if (typeof text !== "string") {
+      console.warn("Not a string!") 
+      return
+    } 
+    if (text && text.length >= Appearance.bar.textLength) {
+      return `${text.substring(0, Appearance.bar.textLength)} ...`
+    } 
+    return text
+  }
 
   implicitWidth: rowLayout.implicitWidth
   RowLayout {
-    anchors.centerIn: parent
     id: rowLayout
-    IconImage {
-      id: windowIcon
-      source: Icons.getWindowIcon(root.activeWindow?.appId)
-      implicitSize: root.iconSize
+    anchors.centerIn: parent
+    Rectangle {
+      Layout.fillHeight: true
+      implicitWidth: root.iconSize + Appearance.spacing.p1
+      implicitHeight: root.iconSize + Appearance.spacing.p1
+      radius: 2
+      color: Appearance.srcery.gray3
+      IconImage {
+        id: windowIcon
+        anchors.centerIn: parent
+        source: Icons.getWindowIcon(root.activeWindow?.appId)
+        implicitSize: root.iconSize
+      }
     }
     ColumnLayout {
       id: colLayout
       spacing: -4
       Text {
 
+        elide: Text.ElideRight
         Layout.fillWidth: true
         font {
           family: Appearance.font.main
@@ -39,7 +67,7 @@ Item {
 
         color: Appearance.srcery.brightBlack
         text: {
-          if (root.focusingThisMonitor && root.activeWindow?.activated) {
+          if (root.activeWindow?.activated) {
             return root.activeWindow?.appId
           } else {
             return "Desktop"
@@ -54,21 +82,10 @@ Item {
           pixelSize: Appearance.font.size1
         }
 
-        function truncate(text) {
-          if (typeof text !== "string") {
-            console.warn("Not a string!") 
-            return
-          } 
-          if (text && text.length >= Appearance.bar.textLength) {
-            return `${text.substring(0, Appearance.bar.textLength)} ...`
-          } 
-          return text
-        }
-
         color: Appearance.srcery.white
         text: {
-          if (root.focusingThisMonitor && root.activeWindow?.activated) {
-            return truncate(root.activeWindow?.title)
+          if (root.activeWindow?.activated) {
+            return root.truncate(root.activeWindow?.title)
           }
           return "Workspace"
         }
