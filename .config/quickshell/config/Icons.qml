@@ -21,8 +21,9 @@ Singleton {
 
   function getWsIcons(wsid: int): var {
     const classes = HyprlandData.windowList.filter(w => {
-      return w.workspace.id == wsid
+      return w.workspace.id === wsid
     }).map(w => w?.class)
+    // console.log(classes)
     const uniq = [...new Set(classes)]
     const icons = uniq.map(i => DesktopEntries.heuristicLookup(i)?.icon)
     return icons.map(i => Quickshell.iconPath(i, root.defaultIcon))

@@ -24,7 +24,7 @@ Item {
     console.log(JSON.stringify(val, null, 2)) 
     return val
   }
-  property var logme: log(HyprlandData.windowList)
+  // property var logme: log(HyprlandData.windowList)
   function truncate(text) {
     if (typeof text !== "string") {
       console.warn("Not a string!") 

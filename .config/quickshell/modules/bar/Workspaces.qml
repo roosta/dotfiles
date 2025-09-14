@@ -11,22 +11,21 @@ pragma ComponentBehavior: Bound
 Rectangle {
   id: root
   color: Appearance.srcery.gray1
-  required property int show
-  readonly property var occupied: HyprlandData.workspaces.reduce((acc, curr) => {
-    acc[curr.id] = curr?.windows > 0;
+  required property string monitorId
+  property var workspaces: HyprlandData.workspacesByMonitor[monitorId] ?? []
+  readonly property var occupied: workspaces.reduce((acc, ws) => {
+    acc[ws.id] = ws?.windows > 0;
     return acc;
   }, {})
-  readonly property HyprlandMonitor monitor: Hyprland.monitorFor(root.QsWindow.window?.screen)
+  readonly property HyprlandMonitor monitor: Hyprland
+    .monitorFor(root.QsWindow.window?.screen)
   readonly property Toplevel activeWindow: ToplevelManager.activeToplevel
-
-  // readonly property bool onSpecial: Hyprland.monitorFor(screen)?.lastIpcObject.specialWorkspace.name !== ""
-  readonly property int activeWsId: monitor?.activeWorkspace?.id ?? 1
-  readonly property int groupOffset: Math.floor((activeWsId - 1) / show) * show
-  readonly property int activeIndex: (activeWsId - groupOffset - 1)
-
+  readonly property int activeWorkspaceId: monitor?.activeWorkspace?.id ?? 1
+  
   implicitWidth: layout.implicitWidth + Appearance.spacing.p2
   Layout.fillHeight: true
   radius: Appearance.bar.radius
+
   Item {
     id: inner
     anchors.fill: parent
@@ -43,8 +42,10 @@ Rectangle {
       property real targetWidth: 0
 
       function updateIndicator() {
-        let x = Appearance.spacing.p1;
-        let targetIdx = root.activeIndex;
+        let x = Appearance.spacing.p1
+        let targetIdx = root.workspaces.findIndex(w => {
+          return w.id === root.activeWorkspaceId
+        });
 
         for (let i = 0; i < targetIdx && i < workspaceRepeater.count; i++) {
           let item = workspaceRepeater.itemAt(i);
@@ -54,6 +55,7 @@ Rectangle {
         }
 
         let activeItem = workspaceRepeater.itemAt(targetIdx);
+
         if (activeItem) {
           targetX = x;
           targetWidth = activeItem.calculatedWidth;
@@ -62,17 +64,21 @@ Rectangle {
 
       Behavior on x {
         NumberAnimation {
-          duration: Appearance.animationCurves.expressiveDefaultSpatialDuration
+          duration: Appearance.animationCurves
+            .expressiveDefaultSpatialDuration
           easing.type: Easing.BezierSpline
-          easing.bezierCurve: Appearance.animationCurves.expressiveDefaultSpatial
+          easing.bezierCurve: Appearance.animationCurves
+            .expressiveDefaultSpatial
         }
       }
 
       Behavior on width {
         NumberAnimation {
-          duration: Appearance.animationCurves.expressiveDefaultSpatialDuration
+          duration: Appearance.animationCurves
+            .expressiveDefaultSpatialDuration
           easing.type: Easing.BezierSpline
-          easing.bezierCurve: Appearance.animationCurves.expressiveDefaultSpatial
+          easing.bezierCurve: Appearance.animationCurves
+            .expressiveDefaultSpatial
         }
       }
 
@@ -86,19 +92,19 @@ Rectangle {
       z: 2
       anchors.centerIn: parent
       Repeater {
-        model: root.show
+        model: root.workspaces
         id: workspaceRepeater
 
         Workspace {
           occupied: root.occupied
-          groupOffset: root.groupOffset
-          activeWsId: root.activeWsId
+          activeWorkspaceId: root.activeWorkspaceId
+          required property var modelData;
+          workspaceId: modelData?.id
 
           property real calculatedWidth: {
-            let wsId = groupOffset + index + 1;
-            let isOccupied = occupied[wsId] ?? false;
+            let isOccupied = occupied[workspaceId] ?? false;
             if (isOccupied) {
-              let iconCount = Icons.getWsIcons(wsId).length;
+              let iconCount = Icons.getWsIcons(workspaceId).length;
               return iconCount * (iconSize + Appearance.spacing.p2);
             } else {
               return iconSize + Appearance.spacing.p2;
@@ -112,7 +118,8 @@ Rectangle {
 
   }
 
-  onActiveIndexChanged: activeIndicator.updateIndicator()
+  onActiveWorkspaceIdChanged: activeIndicator.updateIndicator()
+  onWorkspacesChanged: activeIndicator.updateIndicator()
   Component.onCompleted: {
     activeIndicator.updateIndicator();
   }

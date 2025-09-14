@@ -1,5 +1,6 @@
 // GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007
-// https://github.com/end-4/dots-hyprland/blob/703697e1c40b66619fb224043891aade47494bb3/.config/quickshell/ii/services/HyprlandData.qml
+// Based on https://github.com/end-4/dots-hyprland/blob/703697e1c40b66619fb224043891aade47494bb3/.config/quickshell/ii/services/HyprlandData.qml
+// Modified 2025 by Daniel Berg <mail@roosta.sh>
 pragma Singleton
 pragma ComponentBehavior: Bound
 
@@ -7,6 +8,7 @@ import QtQuick
 import Quickshell
 import Quickshell.Io
 import Quickshell.Hyprland
+import qs.utils
 
 /**
  * Provides access to some Hyprland data not available in Quickshell.Hyprland.
@@ -19,6 +21,7 @@ Singleton {
   property var workspaces: []
   property var workspaceIds: []
   property var workspaceById: ({})
+  property var workspacesByMonitor: ({})
   property var activeWorkspace: null
   property var monitors: []
   property var layers: ({})
@@ -106,13 +109,16 @@ Singleton {
     stdout: StdioCollector {
       id: workspacesCollector
       onStreamFinished: {
-        root.workspaces = JSON.parse(workspacesCollector.text);
-        let tempWorkspaceById = {};
+        const workspaces = JSON.parse(workspacesCollector.text)
+          .sort((a, b) => a.id - b.id);
+        root.workspaces = workspaces
+        root.workspacesByMonitor = Functions.groupBy(workspaces, x => x.monitor)
+        let byId = {};
         for (var i = 0; i < root.workspaces.length; ++i) {
           var ws = root.workspaces[i];
-          tempWorkspaceById[ws.id] = ws;
+          byId[ws.id] = ws;
         }
-        root.workspaceById = tempWorkspaceById;
+        root.workspaceById = byId
         root.workspaceIds = root.workspaces.map(ws => ws.id);
       }
     }
