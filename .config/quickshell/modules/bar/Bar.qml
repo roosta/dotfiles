@@ -43,11 +43,13 @@ Scope {
           border.pixelAligned: true
 
           Loader {
+            id: barLoader
             anchors.fill: parent
+            property string monitorId: barRoot.modelData.name
             sourceComponent: {
-              if (barRoot.modelData?.name === "DP-2") {
+              if (barRoot.modelData?.name === Config.monitors?.left) {
                 return leftBar
-              } else if (barRoot.modelData?.name === "HDMI-A-1"){
+              } else if (barRoot.modelData?.name === Config.monitors?.right){
                 return rightBar
               } else {
                 return primaryBar
@@ -66,7 +68,7 @@ Scope {
               top: parent.top
               left: parent.left
               bottom: parent.bottom
-              leftMargin: Appearance.spacing.p1
+              leftMargin: 5
             }
             ActiveWindow {
               Layout.fillWidth: true
@@ -81,7 +83,7 @@ Scope {
               horizontalCenter: parent.horizontalCenter
             }
             Workspaces { 
-              show: 5
+              monitorId: barLoader.monitorId
             }
           }
           RowLayout {
@@ -103,7 +105,7 @@ Scope {
               bottom: parent.bottom
             }
             Workspaces {
-              show: 4
+              monitorId: barLoader.monitorId
             }
           }
           RowLayout {
@@ -134,12 +136,11 @@ Scope {
               bottom: parent.bottom
             }
             Workspaces {
-              show: 4
+              monitorId: barLoader.monitorId
             }
           }
         }
       }
-
     }
   }
 }

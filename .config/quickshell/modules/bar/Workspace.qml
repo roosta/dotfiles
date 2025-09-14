@@ -13,26 +13,21 @@ import qs.config
 
 Button {
   id: root
-  required property int groupOffset
   required property var occupied
-  required property int index
-  required property int activeWsId
-  readonly property bool isOccupied: occupied[ws] ?? false
-  readonly property int ws: groupOffset + index + 1
+  required property int workspaceId
+  required property int activeWorkspaceId
+  readonly property bool isOccupied: occupied[workspaceId] ?? false
   readonly property bool isWorkspace: true
 
   property int buttonSize: 26
   property int iconSize: 18
 
-  property var color: activeWsId === ws
+  property var color: activeWorkspaceId === workspaceId
     ? Appearance.srcery.brightWhite
     : Appearance.srcery.gray6
 
-  // property var backgroundColor: activeWsId === ws
-  //   ? Appearance.srcery.gray4
-  //   : "transparent"
 
-  onPressed: Hyprland.dispatch(`workspace ${index + groupOffset + 1}`)
+  onPressed: Hyprland.dispatch(`workspace ${workspaceId}`)
 
   background: Rectangle {
     id: wsBackground
@@ -77,7 +72,7 @@ Button {
       RowLayout {
         spacing: 0
         Repeater {
-          model: Icons.getWsIcons(root.ws)
+          model: Icons.getWsIcons(root.workspaceId)
           Item {
             required property var modelData
             id: appIcon
