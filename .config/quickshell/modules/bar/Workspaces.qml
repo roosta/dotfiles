@@ -8,9 +8,12 @@ import qs.services
 import qs.config
 pragma ComponentBehavior: Bound
 
-Rectangle {
+BorderRectangle {
   id: root
-  color: Appearance.srcery.gray1
+  leftBorder: 1
+  rightBorder: 1
+  borderColor: Appearance.srcery.gray2
+  color: Appearance.srcery.black
   required property string monitorId
   property var workspaces: HyprlandData.workspacesByMonitor[monitorId] ?? []
   readonly property var occupied: workspaces.reduce((acc, ws) => {
