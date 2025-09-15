@@ -1,0 +1,63 @@
+snippet i18n
+  i18n: {
+    messages: {
+      en: {
+        ${1}
+      },
+      no: {
+        ${2}
+      }
+    }
+  },
+
+snippet vvbase
+  <template>
+    <div>
+    </div>
+  </template>
+
+  <script>
+  export default {
+    name: "${1}",
+  }
+  </script>
+
+  <style lang="scss" scoped>
+
+  </style>
+
+snippet style-scoped
+  <style lang="scss" scoped>
+    ${1}
+  </style>
+
+snippet style-global
+  <style lang="scss">
+    ${1}
+  </style>
+
+snippet reqprop
+  ${1}: {
+    required: true,
+    type: ${2},
+  },
+
+snippet optprop
+  ${1}: {
+    required: false,
+    type: ${2},
+    default() {
+      return {
+        ${3}
+      }
+    }
+  }
+
+snippet br
+  <br />
+
+snippet dbg
+  console.log("${1}: ", ${2});
+
+snippet dbgv
+  console.log("${1}: ", ${1});
