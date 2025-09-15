@@ -49,7 +49,13 @@ Item {
       IconImage {
         id: windowIcon
         anchors.centerIn: parent
-        source: Icons.getWindowIcon(root.activeWindow?.appId)
+        source: {
+          if (root.activeWindow?.activated) {
+            Icons.getWindowIcon(root.activeWindow?.appId)
+          } else {
+            return Icons.getIcon("workspace")
+          }
+        }
         implicitSize: root.iconSize
       }
     }
