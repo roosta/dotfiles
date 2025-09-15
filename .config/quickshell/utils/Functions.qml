@@ -1,5 +1,6 @@
 pragma Singleton
 import Quickshell
+import qs.config
 
 Singleton {
   id: root
@@ -25,5 +26,33 @@ Singleton {
       // Return the accumulator for the next iteration
       return acc;
     }, {});
+  }
+
+  
+  /**
+   * Truncate string s, not width aware, takes n length or defaults
+   * to Appearance
+   * @param {String} s - Text to truncate
+   * @param {Number} n - String max length, ellipsis will be inserted past 
+   *                     this, defaults to Appearance.bar.textLength
+   * @returns {String} 
+   */
+  function truncate(text, n = Appearance.bar.textLength) {
+    if (typeof text !== "string") {
+      console.warn("Not a string!") 
+      return
+    } 
+    if (text && text.length >= n) {
+      return `${text.substring(0, n)} ...`
+    } 
+    return text
+  }
+  /**
+   * Capitalize string, doesn't handle multiple words
+   * @param {String} s - String to capitalize
+   * @returns {String} Capitalized string
+   */
+  function capitalize(s) {
+    return String(s).charAt(0).toUpperCase() + String(s).slice(1);
   }
 }
