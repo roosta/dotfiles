@@ -1,0 +1,12 @@
+{
+  "Debug logging": {
+    "prefix": "logd",
+    "body": "console.log(JSON.stringify(${1:value}, null, 2))$0",
+    "description": "Pretty print value for inspection"
+  },
+  "Logging function": {
+    "prefix": "logv",
+    "body": "function log(val) {\n\tconsole.log(JSON.stringify(val, null, 2))\n\treturn val\n}\nproperty var logme: log(${1:value})\n$0",
+    "description": "Create a temporary logging function to inspect variables"
+  }
+}
