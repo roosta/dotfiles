@@ -1,5 +1,6 @@
 import qs.services
 import qs.config
+import qs.utils
 import QtQuick
 // import QtQuick.Controls
 import QtQuick.Layouts
@@ -16,25 +17,6 @@ Item {
   property bool focusingThisMonitor: HyprlandData.activeWorkspace?.monitor == monitor?.name
 
   property int iconSize: 20
-
-  function capitalize(val) {
-    return String(val).charAt(0).toUpperCase() + String(val).slice(1);
-  }
-  function log(val) {
-    console.log(JSON.stringify(val, null, 2)) 
-    return val
-  }
-  // property var logme: log(HyprlandData.windowList)
-  function truncate(text) {
-    if (typeof text !== "string") {
-      console.warn("Not a string!") 
-      return
-    } 
-    if (text && text.length >= Appearance.bar.textLength) {
-      return `${text.substring(0, Appearance.bar.textLength)} ...`
-    } 
-    return text
-  }
 
   implicitWidth: rowLayout.implicitWidth
   RowLayout {
@@ -91,7 +73,7 @@ Item {
         color: Appearance.srcery.white
         text: {
           if (root.activeWindow?.activated) {
-            return root.truncate(root.activeWindow?.title)
+            return Functions.truncate(root.activeWindow?.title)
           }
           return `Workspace ${HyprlandData.activeWorkspace?.id}`
         }
