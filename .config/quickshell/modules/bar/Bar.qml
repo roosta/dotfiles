@@ -45,7 +45,7 @@ Scope {
           Loader {
             id: barLoader
             anchors.fill: parent
-            property string monitorId: barRoot.modelData.name
+            property string monitorId: barRoot.modelData?.name ?? "fallback"
             sourceComponent: {
               if (barRoot.modelData?.name === Config.monitors?.left) {
                 return leftBar

@@ -69,14 +69,16 @@ Singleton {
     stdout: StdioCollector {
       id: clientsCollector
       onStreamFinished: {
-        root.windowList = JSON.parse(clientsCollector.text)
-        let tempWinByAddress = {};
-        for (var i = 0; i < root.windowList.length; ++i) {
-          var win = root.windowList[i];
-          tempWinByAddress[win.address] = win;
+        if (clientsCollector?.text) {
+          root.windowList = JSON.parse(clientsCollector.text)
+          let tempWinByAddress = {};
+          for (var i = 0; i < root.windowList.length; ++i) {
+            var win = root.windowList[i];
+            tempWinByAddress[win.address] = win;
+          }
+          root.windowByAddress = tempWinByAddress;
+          root.addresses = root.windowList.map(win => win.address);
         }
-        root.windowByAddress = tempWinByAddress;
-        root.addresses = root.windowList.map(win => win.address);
       }
     }
   }
@@ -87,7 +89,9 @@ Singleton {
     stdout: StdioCollector {
       id: monitorsCollector
       onStreamFinished: {
-        root.monitors = JSON.parse(monitorsCollector.text);
+        if (monitorsCollector?.text) {
+          root.monitors = JSON.parse(monitorsCollector.text);
+        }
       }
     }
   }
@@ -98,7 +102,9 @@ Singleton {
     stdout: StdioCollector {
       id: layersCollector
       onStreamFinished: {
-        root.layers = JSON.parse(layersCollector.text);
+        if (layersCollector?.text) {
+          root.layers = JSON.parse(layersCollector.text);
+        }
       }
     }
   }
@@ -109,17 +115,19 @@ Singleton {
     stdout: StdioCollector {
       id: workspacesCollector
       onStreamFinished: {
-        const workspaces = JSON.parse(workspacesCollector.text)
+        if (workspacesCollector?.text) {
+          const workspaces = JSON.parse(workspacesCollector.text)
           .sort((a, b) => a.id - b.id);
-        root.workspaces = workspaces
-        root.workspacesByMonitor = Functions.groupBy(workspaces, x => x.monitor)
-        let byId = {};
-        for (var i = 0; i < root.workspaces.length; ++i) {
-          var ws = root.workspaces[i];
-          byId[ws.id] = ws;
+          root.workspaces = workspaces
+          root.workspacesByMonitor = Functions.groupBy(workspaces, x => x.monitor)
+          let byId = {};
+          for (var i = 0; i < root.workspaces.length; ++i) {
+            var ws = root.workspaces[i];
+            byId[ws.id] = ws;
+          }
+          root.workspaceById = byId
+          root.workspaceIds = root.workspaces.map(ws => ws.id);
         }
-        root.workspaceById = byId
-        root.workspaceIds = root.workspaces.map(ws => ws.id);
       }
     }
   }
@@ -130,7 +138,9 @@ Singleton {
     stdout: StdioCollector {
       id: activeWorkspaceCollector
       onStreamFinished: {
-        root.activeWorkspace = JSON.parse(activeWorkspaceCollector.text);
+        if (activeWorkspaceCollector?.text) {
+          root.activeWorkspace = JSON.parse(activeWorkspaceCollector.text);
+        }
       }
     }
   }
