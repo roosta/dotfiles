@@ -16,18 +16,19 @@ Item {
   property string activeWindowAddress: `0x${activeWindow?.HyprlandToplevel?.address}`
   property bool focusingThisMonitor: HyprlandData.activeWorkspace?.monitor == monitor?.name
 
-  property int iconSize: 20
+  property int iconSize: 26
 
   implicitWidth: rowLayout.implicitWidth
   RowLayout {
     id: rowLayout
-    anchors.centerIn: parent
-    Rectangle {
-      Layout.fillHeight: true
-      implicitWidth: root.iconSize + Appearance.spacing.p1
-      implicitHeight: root.iconSize + Appearance.spacing.p1
-      radius: 2
-      color: Appearance.srcery.gray3
+    // anchors.centerIn: parent
+    BorderRectangle {
+      implicitWidth: Appearance.bar.height
+      implicitHeight: Appearance.bar.height
+      Layout.topMargin: 1
+      color: Appearance.srcery.black
+      rightBorder: 1
+      borderColor: Appearance.srcery.gray3
       IconImage {
         id: windowIcon
         anchors.centerIn: parent
