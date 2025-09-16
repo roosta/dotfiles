@@ -68,7 +68,7 @@ Scope {
               top: parent.top
               left: parent.left
               bottom: parent.bottom
-              leftMargin: Appearance.spacing.p1
+              right: parent.right
             }
             ActiveWindow {
               Layout.fillWidth: true
