@@ -20,7 +20,7 @@ Button {
   readonly property bool isWorkspace: true
 
   property int buttonSize: 26
-  property int iconSize: 18
+  property int iconSize: 16
 
   property var color: activeWorkspaceId === workspaceId
     ? Appearance.srcery.brightWhite
@@ -51,8 +51,8 @@ Button {
     Component {
       id: indicator
       Item {
-        implicitWidth: root.iconSize + Appearance.spacing.p2
-        implicitHeight: root.iconSize + Appearance.spacing.p2
+        implicitWidth: root.iconSize + Appearance.spacing.p3
+        implicitHeight: root.iconSize + Appearance.spacing.p3
         Rectangle {
           anchors.centerIn: parent
           width: root.buttonSize * 0.25
@@ -76,8 +76,8 @@ Button {
           Item {
             required property var modelData
             id: appIcon
-            Layout.preferredWidth: root.iconSize + Appearance.spacing.p2
-            Layout.preferredHeight: root.iconSize + Appearance.spacing.p2
+            Layout.preferredWidth: root.iconSize + Appearance.spacing.p3
+            Layout.preferredHeight: root.iconSize + Appearance.spacing.p3
             IconImage {
               source: appIcon.modelData 
               anchors.centerIn: parent

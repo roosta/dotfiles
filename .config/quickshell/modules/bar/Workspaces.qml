@@ -25,8 +25,9 @@ BorderRectangle {
   readonly property Toplevel activeWindow: ToplevelManager.activeToplevel
   readonly property int activeWorkspaceId: monitor?.activeWorkspace?.id ?? 1
   
-  implicitWidth: layout.implicitWidth + Appearance.spacing.p2
+  implicitWidth: layout.implicitWidth + Appearance.spacing.p3 + Appearance.bar.borderWidth * 2
   Layout.fillHeight: true
+  Layout.topMargin: Appearance.bar.borderWidth
   radius: Appearance.bar.radius
 
   Item {
@@ -34,18 +35,20 @@ BorderRectangle {
     anchors.fill: parent
 
     // Moving active workspace indicator rectangle
-    Rectangle {
+    BorderRectangle {
       id: activeIndicator
-      z: 1
-      radius: Appearance.bar.radius
-      color: Appearance.srcery.gray4
-      height: parent.height - Appearance.spacing.p2
+      z: 2
+      // radius: (parent.height - Appearance.spacing.p3) / 2
+      color: Appearance.srcery.black
+      borderColor: Appearance.srcery.gray4
+      borderWidth: 1
+      height: parent.height - Appearance.spacing.p3 + Appearance.bar.borderWidth
 
       property real targetX: 0
       property real targetWidth: 0
 
       function updateIndicator() {
-        let x = Appearance.spacing.p1
+        let x = Appearance.spacing.p1 + Appearance.bar.borderWidth
         let targetIdx = root.workspaces.findIndex(w => {
           return w.id === root.activeWorkspaceId
         });
@@ -91,7 +94,7 @@ BorderRectangle {
     }
     RowLayout {
       id: layout
-      spacing: Appearance.spacing.p2
+      spacing: Appearance.spacing.p1
       z: 2
       anchors.centerIn: parent
       Repeater {
@@ -108,9 +111,9 @@ BorderRectangle {
             let isOccupied = occupied[workspaceId] ?? false;
             if (isOccupied) {
               let iconCount = Icons.getWsIcons(workspaceId).length;
-              return iconCount * (iconSize + Appearance.spacing.p2);
+              return iconCount * (iconSize + Appearance.spacing.p3);
             } else {
-              return iconSize + Appearance.spacing.p2;
+              return iconSize + Appearance.spacing.p3;
             }
           }
 

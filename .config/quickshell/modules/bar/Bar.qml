@@ -25,11 +25,13 @@ Scope {
 
       implicitHeight: Appearance.bar.height
 
-      Rectangle {
+      BorderRectangle {
         id: barContent
-        color: bar.transparent ? "transparent" : Appearance.srcery.black
-        border.width: Appearance.bar.borderWidth
-        border.color: Appearance.srcery.gray2
+        color: Appearance.srcery.black
+        borderColor: Appearance.srcery.gray2
+        topBorder: 1
+        // border.width: Appearance.bar.borderWidth
+        // border.color: Appearance.srcery.gray2
         anchors {
           right: parent.right
           left: parent.left
@@ -38,9 +40,7 @@ Scope {
         }
         Rectangle {
           anchors.fill: parent
-          anchors.topMargin: Appearance.bar.borderWidth
           color: "transparent"
-          border.pixelAligned: true
 
           Loader {
             id: barLoader
@@ -68,7 +68,7 @@ Scope {
               top: parent.top
               left: parent.left
               bottom: parent.bottom
-              leftMargin: 5
+              leftMargin: Appearance.spacing.p1
             }
             ActiveWindow {
               Layout.fillWidth: true
