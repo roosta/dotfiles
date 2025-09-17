@@ -44,20 +44,20 @@ Item {
     }
     ColumnLayout {
       id: colLayout
-      spacing: -4
+      spacing: -2
       Text {
 
         elide: Text.ElideRight
         Layout.fillWidth: true
         font {
-          family: Appearance.font.main
+          family: Appearance.font.light
           pixelSize: Appearance.font.size1
         }
 
         color: Appearance.srcery.brightBlack
         text: {
           if (root.activeWindow?.activated) {
-            return root.activeWindow?.appId
+            return Functions.capitalize(root.activeWindow?.appId)
           } else {
             return "Desktop"
           }
