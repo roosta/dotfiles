@@ -27,7 +27,11 @@ Button {
     : Appearance.srcery.gray6
 
 
-  onPressed: Hyprland.dispatch(`workspace ${workspaceId}`)
+    onPressed: {
+      if (workspaceId !== activeWorkspaceId) {
+        Hyprland.dispatch(`workspace ${workspaceId}`)
+      }
+    }
 
   background: Rectangle {
     id: wsBackground

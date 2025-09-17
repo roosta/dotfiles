@@ -6,13 +6,13 @@ import QtQuick
 Singleton {
   id: root
 
-  readonly property Spacing spacing: Spacing {}
-  readonly property Font font: Font {}
-  readonly property Bar bar: Bar {}
-  readonly property Srcery srcery: Srcery {}
-  readonly property AnimationCurves animationCurves: AnimationCurves {}
+  property QtObject spacing
+  property QtObject font
+  property QtObject bar
+  property QtObject srcery
+  property QtObject animationCurves
 
-  component Srcery: QtObject {
+  srcery: QtObject {
     readonly property color black: "#121110"
     readonly property color red: "#EF2F27"
     readonly property color green: "#519F50"
@@ -40,7 +40,7 @@ Singleton {
     readonly property color gray6: "#504D47"
   }
 
-  component Bar: QtObject {
+  bar: QtObject {
     readonly property int height: 40
     readonly property bool transparent: false
     readonly property int radius: 0
@@ -48,9 +48,10 @@ Singleton {
     readonly property int textLength: 80
   }
 
-  component Font: QtObject {
+  font: QtObject {
     readonly property string main: "Iosevka"
     readonly property string symbols: "Symbols Nerd Font"
+    readonly property string light: "Iosevka Light"
     readonly property int size0: 10
     readonly property int size1: 12
     readonly property int size2: 14
@@ -58,7 +59,7 @@ Singleton {
     readonly property int size4: 18
   }
 
-  component Spacing: QtObject {
+  spacing: QtObject {
     readonly property int p0: 3
     readonly property int p1: 6
     readonly property int p2: 8
@@ -67,7 +68,7 @@ Singleton {
   }
 
   // https://github.com/end-4/dots-hyprland/blob/703697e1c40b66619fb224043891aade47494bb3/.config/quickshell/ii/modules/common/Appearance.qml#L225-L242
-  component AnimationCurves: QtObject {
+  animationCurves: QtObject {
     readonly property list<real> expressiveFastSpatial: [0.42, 1.67, 0.21, 0.90, 1, 1] // Default, 350ms
     readonly property list<real> expressiveDefaultSpatial: [0.38, 1.21, 0.22, 1.00, 1, 1] // Default, 500ms
     readonly property list<real> expressiveSlowSpatial: [0.39, 1.29, 0.35, 0.98, 1, 1] // Default, 650ms
