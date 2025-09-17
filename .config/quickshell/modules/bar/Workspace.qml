@@ -36,14 +36,6 @@ Button {
     radius: Appearance.bar.radius
     color: "transparent"
 
-    Behavior on implicitWidth {
-      animation: NumberAnimation {
-        duration: Appearance.animationCurves.expressiveEffectsDuration
-        easing.type: Easing.BezierSpline
-        easing.bezierCurve: Appearance.animationCurves.expressiveEffects
-
-      }
-    }
     Loader {
       active: !root.isOccupied
       sourceComponent: indicator
@@ -82,6 +74,28 @@ Button {
               source: appIcon.modelData 
               anchors.centerIn: parent
               implicitSize: root.iconSize
+
+              // opacity: 0
+              // scale: 0.8
+              //
+              // Component.onCompleted: {
+              //   opacity = 1
+              //   scale = 1
+              // }
+              //
+              // Behavior on opacity {
+              //   NumberAnimation {
+              //     duration: 300
+              //     easing.type: Easing.OutCubic
+              //   }
+              // }
+              //
+              // Behavior on scale {
+              //   NumberAnimation {
+              //     duration: 300
+              //     easing.type: Easing.OutCubic
+              //   }
+              // }
             }
           }
         }}
