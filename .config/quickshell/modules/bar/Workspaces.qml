@@ -25,6 +25,12 @@ BorderRectangle {
   readonly property Toplevel activeWindow: ToplevelManager.activeToplevel
   readonly property int activeWorkspaceId: monitor?.activeWorkspace?.id ?? 1
   
+  Behavior on implicitWidth {
+    NumberAnimation {
+      duration: 200
+      easing.type: Easing.InOutCubic
+    }
+  }
   implicitWidth: layout.implicitWidth + Appearance.spacing.p3 + Appearance.bar.borderWidth * 2
   Layout.fillHeight: true
   Layout.topMargin: Appearance.bar.borderWidth
@@ -129,4 +135,5 @@ BorderRectangle {
   Component.onCompleted: {
     activeIndicator.updateIndicator();
   }
+
 }
