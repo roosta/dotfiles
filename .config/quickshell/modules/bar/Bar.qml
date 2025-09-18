@@ -77,11 +77,15 @@ Scope {
           }
           RowLayout {
             id: centerSection
+            spacing: Appearance.spacing.p1
             anchors {
               top: parent.top
               bottom: parent.bottom
               horizontalCenter: parent.horizontalCenter
             }
+
+            LauncherButton {}
+
             Workspaces { 
               monitorId: barLoader.monitorId
             }
@@ -89,6 +93,8 @@ Scope {
           RowLayout {
             id: rightSection
             anchors.right: parent.right
+
+            // Clock { }
           } 
         }
       }
