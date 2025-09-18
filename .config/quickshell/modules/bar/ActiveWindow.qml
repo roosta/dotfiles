@@ -25,9 +25,9 @@ Item {
     BorderRectangle {
       implicitWidth: Appearance.bar.height
       implicitHeight: Appearance.bar.height
-      Layout.topMargin: 1
+      Layout.topMargin: Appearance.bar.borderWidth
       color: Appearance.srcery.black
-      rightBorder: 1
+      rightBorder: Appearance.bar.borderWidth
       borderColor: Appearance.srcery.gray3
       IconImage {
         id: windowIcon
@@ -47,8 +47,6 @@ Item {
       spacing: -2
       Text {
 
-        elide: Text.ElideRight
-        Layout.fillWidth: true
         font {
           family: Appearance.font.light
           pixelSize: Appearance.font.size1
@@ -65,7 +63,8 @@ Item {
       }
       Text {
         id: window
-        Layout.fillWidth: true
+        // Layout.fillWidth: true
+        elide: Text.ElideRight
         font {
           family: Appearance.font.main
           pixelSize: Appearance.font.size1
@@ -74,7 +73,7 @@ Item {
         color: Appearance.srcery.white
         text: {
           if (root.activeWindow?.activated) {
-            return Functions.truncate(root.activeWindow?.title)
+            return root.activeWindow?.title
           }
           return `Workspace ${HyprlandData.activeWorkspace?.id}`
         }
