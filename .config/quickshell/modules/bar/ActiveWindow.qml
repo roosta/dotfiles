@@ -18,10 +18,11 @@ Item {
 
   property int iconSize: 26
 
-  implicitWidth: rowLayout.implicitWidth
+  Layout.fillWidth: true
+  Layout.fillHeight: true
   RowLayout {
     id: rowLayout
-    // anchors.centerIn: parent
+    anchors.fill: parent
     BorderRectangle {
       implicitWidth: Appearance.bar.height
       implicitHeight: Appearance.bar.height
@@ -44,6 +45,7 @@ Item {
     }
     ColumnLayout {
       id: colLayout
+      Layout.fillWidth: true
       spacing: -2
       Text {
 
@@ -63,10 +65,11 @@ Item {
       }
       Text {
         id: window
-        // Layout.fillWidth: true
         elide: Text.ElideRight
+        Layout.fillWidth: true
+        Layout.rightMargin: Appearance.spacing.p5
         font {
-          family: Appearance.font.main
+          family: Appearance.font.light
           pixelSize: Appearance.font.size1
         }
 
@@ -80,5 +83,4 @@ Item {
       }
     }
   }
-  
 }

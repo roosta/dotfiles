@@ -63,41 +63,38 @@ Scope {
           color: "transparent"
 
           RowLayout {
-            id: leftSection
             anchors {
               top: parent.top
               left: parent.left
               bottom: parent.bottom
               right: parent.right
             }
-            ActiveWindow {
+            RowLayout {
+              id: leftSection
               Layout.fillWidth: true
               Layout.fillHeight: true
+              ActiveWindow {
+              }
             }
+            RowLayout {
+              id: centerSection
+              spacing: Appearance.spacing.p1
+
+              LauncherButton {}
+
+              Workspaces { 
+                monitorId: barLoader.monitorId
+              }
+
+              NotificationButton {}
+            }
+            RowLayout {
+              id: rightSection
+
+              // Clock { }
+            }} 
           }
-          RowLayout {
-            id: centerSection
-            spacing: Appearance.spacing.p1
-            anchors {
-              top: parent.top
-              bottom: parent.bottom
-              horizontalCenter: parent.horizontalCenter
-            }
-
-            LauncherButton {}
-
-            Workspaces { 
-              monitorId: barLoader.monitorId
-            }
-          }
-          RowLayout {
-            id: rightSection
-            anchors.right: parent.right
-
-            // Clock { }
-          } 
         }
-      }
 
       Component {
         id: rightBar
