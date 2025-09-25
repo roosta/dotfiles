@@ -23,15 +23,15 @@ Button {
   property int iconSize: 16
 
   property var color: activeWorkspaceId === workspaceId
-    ? Appearance.srcery.brightWhite
-    : Appearance.srcery.gray6
+  ? Appearance.srcery.brightWhite
+  : Appearance.srcery.gray6
 
 
-    onPressed: {
-      if (workspaceId !== activeWorkspaceId) {
-        Hyprland.dispatch(`workspace ${workspaceId}`)
-      }
+  onPressed: {
+    if (workspaceId !== activeWorkspaceId) {
+      Hyprland.dispatch(`workspace ${workspaceId}`)
     }
+  }
 
   background: Rectangle {
     id: wsBackground
@@ -102,7 +102,8 @@ Button {
               // }
             }
           }
-        }}
+        }
+      }
     }
   }
 }

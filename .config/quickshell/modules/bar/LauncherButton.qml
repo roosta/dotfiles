@@ -22,10 +22,12 @@ Button {
   implicitHeight: parent.height - Appearance.spacing.p3
 
   background: BorderRectangle {
+    id: outerRect
     color: Appearance.srcery.black
     borderColor: Appearance.srcery.gray3
     borderWidth: Appearance.bar.borderWidth
     BorderRectangle {
+      id: innerRect
       anchors.centerIn: parent
       implicitWidth: parent.width * 0.5
       implicitHeight: parent.height * 0.5
@@ -33,7 +35,39 @@ Button {
       color: Appearance.srcery.black
       rotation: 45
       borderColor: Appearance.srcery.gray3
-
     }
   }
+
+  states: [
+
+    State {
+      name: "pressed"
+      when: root.pressed
+      PropertyChanges { innerRect.rotation: 0 }
+      PropertyChanges { innerRect.color: Appearance.srcery.brightWhite }
+      PropertyChanges { outerRect.borderColor: Appearance.srcery.brightBlack }
+      PropertyChanges { innerRect.borderColor: Appearance.srcery.brightWhite }
+    },
+    State {
+      name: "hovered"
+      when: root.hovered
+      PropertyChanges { outerRect.borderColor: Appearance.srcery.gray6 }
+      PropertyChanges { innerRect.rotation: 0 }
+      PropertyChanges { innerRect.borderColor: Appearance.srcery.brightWhite }
+    }
+  ]
+
+  transitions: [
+    Transition {
+      NumberAnimation { 
+        properties: "rotation"
+        duration: 200
+        easing.type: Easing.InOutCubic
+      }
+      ColorAnimation { 
+        duration: 50
+        easing.type: Easing.OutQuad 
+      }
+    }
+  ]
 }
