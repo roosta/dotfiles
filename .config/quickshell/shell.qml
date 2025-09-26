@@ -2,8 +2,10 @@
 //@ pragma IconTheme candy-icons
 
 import Quickshell
-import "modules/bar"
+import qs.modules.bar
+import qs.modules.launcher
 
 ShellRoot {
-  Bar {}
+  Bar { }
+  Launcher { }
 }

@@ -6,6 +6,7 @@ import Quickshell.Wayland
 import QtQuick.Layouts
 import qs.services 
 import qs.config
+import qs.components
 pragma ComponentBehavior: Bound
 
 BorderRectangle {

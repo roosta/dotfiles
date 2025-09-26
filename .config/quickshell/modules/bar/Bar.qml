@@ -1,18 +1,18 @@
 import QtQuick
 import QtQuick.Layouts
 import Quickshell
+import qs.components
 import qs.config
 pragma ComponentBehavior: Bound
 
 Scope {
   id: bar
-  property bool transparent: Appearance.bar.transparent
 
   Variants {
     model: Quickshell.screens
 
     PanelWindow {
-      id: barRoot
+      id: panel
       required property ShellScreen modelData
       color: "transparent"
       screen: modelData
@@ -24,6 +24,13 @@ Scope {
       }
 
       implicitHeight: Appearance.bar.height
+      property string monitorId: modelData?.name ?? "FALLBACK"
+
+      anchors {
+        bottom: true
+        left: true
+        right: true
+      }
 
       BorderRectangle {
         id: barContent
@@ -45,105 +52,104 @@ Scope {
           Loader {
             id: barLoader
             anchors.fill: parent
-            property string monitorId: barRoot.modelData?.name ?? "fallback"
             sourceComponent: {
-              if (barRoot.modelData?.name === Config.monitors?.left) {
+              if (panel.monitorId === Config.monitors?.left) {
                 return leftBar
-              } else if (barRoot.modelData?.name === Config.monitors?.right){
+              } else if (panel.monitorId === Config.monitors?.right){
                 return rightBar
               } else {
                 return primaryBar
               }
             }
           }}
-      }
-      Component {
-        id: primaryBar
-        Rectangle {
-          color: "transparent"
+        }
+        Component {
+          id: primaryBar
+          Rectangle {
+            color: "transparent"
 
-          RowLayout {
-            anchors {
-              top: parent.top
-              left: parent.left
-              bottom: parent.bottom
-              right: parent.right
-            }
             RowLayout {
-              id: leftSection
-              Layout.fillWidth: true
-              Layout.fillHeight: true
-              ActiveWindow {
+              anchors {
+                top: parent.top
+                left: parent.left
+                bottom: parent.bottom
+                right: parent.right
+              }
+              RowLayout {
+                id: leftSection
+                Layout.fillWidth: true
+                Layout.fillHeight: true
+                ActiveWindow {
+                }
+              }
+              RowLayout {
+                id: centerSection
+                spacing: Appearance.spacing.p1
+
+                LauncherButton { }
+
+                Workspaces { 
+                  monitorId: panel.monitorId
+                }
+
+                NotificationButton {}
+              }
+              RowLayout {
+                id: rightSection
+
+                // Clock { }
+              }} 
+            }
+          }
+
+          Component {
+            id: rightBar
+            Rectangle {
+              color: "transparent"
+              RowLayout {
+                id: leftSection
+                anchors {
+                  top: parent.top
+                  left: parent.left
+                  bottom: parent.bottom
+                }
+                Workspaces {
+                  monitorId: panel.monitorId
+                }
+              }
+              RowLayout {
+                id: centerSection
+                anchors.centerIn: parent
+                // Clock { }
               }
             }
-            RowLayout {
-              id: centerSection
-              spacing: Appearance.spacing.p1
+          }
+          Component {
+            id: leftBar
+            Rectangle {
+              color: "transparent"
 
-              LauncherButton {}
-
-              Workspaces { 
-                monitorId: barLoader.monitorId
+              RowLayout {
+                id: leftSection
+                anchors.left: parent.left
               }
-
-              NotificationButton {}
-            }
-            RowLayout {
-              id: rightSection
-
-              // Clock { }
-            }} 
-          }
-        }
-
-      Component {
-        id: rightBar
-        Rectangle {
-          color: "transparent"
-          RowLayout {
-            id: leftSection
-            anchors {
-              top: parent.top
-              left: parent.left
-              bottom: parent.bottom
-            }
-            Workspaces {
-              monitorId: barLoader.monitorId
-            }
-          }
-          RowLayout {
-            id: centerSection
-            anchors.centerIn: parent
-            // Clock { }
-          }
-        }
-      }
-      Component {
-        id: leftBar
-        Rectangle {
-          color: "transparent"
-
-          RowLayout {
-            id: leftSection
-            anchors.left: parent.left
-          }
-          RowLayout {
-            id: centerSection
-            anchors.centerIn: parent
-          }
-          RowLayout {
-            id: rightSection
-            anchors {
-              top: parent.top
-              right: parent.right
-              bottom: parent.bottom
-            }
-            Workspaces {
-              monitorId: barLoader.monitorId
+              RowLayout {
+                id: centerSection
+                anchors.centerIn: parent
+              }
+              RowLayout {
+                id: rightSection
+                anchors {
+                  top: parent.top
+                  right: parent.right
+                  bottom: parent.bottom
+                }
+                Workspaces {
+                  monitorId: panel.monitorId
+                }
+              }
             }
           }
         }
       }
     }
-  }
-}
