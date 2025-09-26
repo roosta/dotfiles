@@ -33,12 +33,13 @@ Button {
     }
   }
 
-  background: Rectangle {
+  background: BorderRectangle {
     id: wsBackground
     implicitWidth: childrenRect.width
     implicitHeight: childrenRect.height
     radius: Appearance.bar.radius
-    color: "transparent"
+    color: Appearance.srcery.black
+    borderColor: Appearance.srcery.gray4
 
     Loader {
       active: !root.isOccupied
@@ -106,4 +107,11 @@ Button {
       }
     }
   }
+  states: [
+    State {
+      name: "hovered"
+      when: root.hovered
+      PropertyChanges { wsBackground.topBorder: Appearance.bar.borderWidth }
+    }
+  ]
 }

@@ -41,13 +41,13 @@ BorderRectangle {
     anchors.fill: parent
 
     // Moving active workspace indicator rectangle
-    BorderRectangle {
+    Rectangle {
       id: activeIndicator
-      z: 2
+      z: 3
       // radius: (parent.height - Appearance.spacing.p3) / 2
-      color: Appearance.srcery.black
-      borderColor: Appearance.srcery.gray4
-      borderWidth: 1
+      color: "transparent"
+      border.color: Appearance.srcery.gray4
+      border.width: 1
       height: parent.height - Appearance.spacing.p3 + Appearance.bar.borderWidth
 
       property real targetX: 0
