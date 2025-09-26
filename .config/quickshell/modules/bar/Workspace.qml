@@ -19,8 +19,8 @@ Button {
   readonly property bool isOccupied: occupied[workspaceId] ?? false
   readonly property bool isWorkspace: true
 
-  property int buttonSize: 26
-  property int iconSize: 16
+  property int buttonSize: 26 * Config.scale
+  property int iconSize: 16 * Config.scale
 
   property var color: activeWorkspaceId === workspaceId
   ? Appearance.srcery.brightWhite

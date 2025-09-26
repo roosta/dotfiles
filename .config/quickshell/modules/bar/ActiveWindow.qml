@@ -16,7 +16,7 @@ Item {
   property string activeWindowAddress: `0x${activeWindow?.HyprlandToplevel?.address}`
   property bool focusingThisMonitor: HyprlandData.activeWorkspace?.monitor == monitor?.name
 
-  property int iconSize: 26
+  property int iconSize: 26 * Config.scale
 
   Layout.fillWidth: true
   Layout.fillHeight: true
