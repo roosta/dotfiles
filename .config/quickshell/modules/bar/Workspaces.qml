@@ -47,7 +47,7 @@ BorderRectangle {
       // radius: (parent.height - Appearance.spacing.p3) / 2
       color: "transparent"
       border.color: Appearance.srcery.gray4
-      border.width: 1
+      border.width: Appearance.bar.borderWidth
       height: parent.height - Appearance.spacing.p3 + Appearance.bar.borderWidth
 
       property real targetX: 0

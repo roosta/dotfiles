@@ -5,6 +5,7 @@ import QtQuick
 
 Singleton {
   id: root
+  readonly property real scale: 1.0
   readonly property QtObject monitors: QtObject {
     readonly property string left: "DP-2"
     readonly property string right: "HDMI-A-1"

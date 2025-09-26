@@ -41,11 +41,10 @@ Singleton {
   }
 
   bar: QtObject {
-    readonly property int height: 40
+    readonly property int height: 40 * Config.scale
     readonly property bool transparent: false
     readonly property int radius: 0
-    readonly property real borderWidth: 1
-    readonly property int textLength: 80
+    readonly property real borderWidth: 1 * Config.scale
   }
 
   font: QtObject {
@@ -53,20 +52,20 @@ Singleton {
     readonly property string symbols: "Symbols Nerd Font"
     readonly property string light: "Iosevka Light"
     readonly property string extraLight: "Iosevka Extralight"
-    readonly property int size0: 10
-    readonly property int size1: 12
-    readonly property int size2: 14
-    readonly property int size3: 16
-    readonly property int size4: 18
+    readonly property int size0: 10 * Config.scale
+    readonly property int size1: 12 * Config.scale
+    readonly property int size2: 14 * Config.scale
+    readonly property int size3: 16 * Config.scale
+    readonly property int size4: 18 * Config.scale
   }
 
   spacing: QtObject {
-    readonly property int p0: 3
-    readonly property int p1: 6
-    readonly property int p2: 8
-    readonly property int p3: 12
-    readonly property int p4: 16
-    readonly property int p5: 24
+    readonly property int p0: 3 * Config.scale
+    readonly property int p1: 6 * Config.scale
+    readonly property int p2: 8 * Config.scale
+    readonly property int p3: 12 * Config.scale
+    readonly property int p4: 16 * Config.scale
+    readonly property int p5: 24 * Config.scale
   }
 
   // https://github.com/end-4/dots-hyprland/blob/703697e1c40b66619fb224043891aade47494bb3/.config/quickshell/ii/modules/common/Appearance.qml#L225-L242
