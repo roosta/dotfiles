@@ -11,6 +11,7 @@ Singleton {
   property QtObject bar
   property QtObject srcery
   property QtObject animationCurves
+  property QtObject launcher
 
   srcery: QtObject {
     readonly property color black: "#121110"
@@ -45,6 +46,11 @@ Singleton {
     readonly property bool transparent: false
     readonly property int radius: 0
     readonly property real borderWidth: 1 * Config.scale
+  }
+
+  launcher: QtObject {
+    readonly property int height: 800 * Config.scale
+    readonly property int width: 800 * Config.scale
   }
 
   font: QtObject {
