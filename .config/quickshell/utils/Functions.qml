@@ -55,4 +55,17 @@ Singleton {
   function capitalize(s) {
     return String(s).charAt(0).toUpperCase() + String(s).slice(1);
   }
+
+
+  /**
+   * Transparentizes a color by a given percentage.
+   * Source: https://github.com/end-4/dots-hyprland/blob/f324fc7c104cd99932e172caf435f4109725f805/.config/quickshell/ii/modules/common/functions/ColorUtils.qml#L103-L113
+   * @param {string} color - The color (any Qt.color-compatible string).
+   * @param {number} percentage - The amount to transparentize (0-1).
+   * @returns {Qt.rgba} The resulting color.
+   */
+  function transparentize(color, percentage = 1) {
+    var c = Qt.color(color);
+    return Qt.rgba(c.r, c.g, c.b, c.a * (1 - percentage));
+  }
 }
