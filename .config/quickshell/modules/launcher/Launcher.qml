@@ -2,17 +2,23 @@ import Quickshell
 import QtQuick
 import qs.config
 import qs
+import qs.utils
 
 PanelWindow {
   id: root
-  color: "transparent"
   visible: GlobalState.launcherOpen
-  
-  implicitHeight: Appearance.launcher.height
-  implicitWidth: Appearance.launcher.width
-  
+  color: Functions.transparentize("#000", 0.8)
+  anchors {
+    bottom: true
+    left: true
+    right: true
+    top: true
+  }
+
   Rectangle {
-    anchors.fill: parent
+    anchors.centerIn: parent
+    implicitHeight: Appearance.launcher.height
+    implicitWidth: Appearance.launcher.width
     color: Appearance.srcery.black
     border.width: 1
     border.color: Appearance.srcery.gray3
