@@ -79,8 +79,7 @@ Scope {
                 id: leftSection
                 Layout.fillWidth: true
                 Layout.fillHeight: true
-                ActiveWindow {
-                }
+                ActiveWindow { }
               }
               RowLayout {
                 id: centerSection
@@ -106,50 +105,73 @@ Scope {
             id: rightBar
             Rectangle {
               color: "transparent"
+
               RowLayout {
-                id: leftSection
                 anchors {
                   top: parent.top
                   left: parent.left
                   bottom: parent.bottom
-                }
-                Workspaces {
-                  monitorId: panel.monitorId
-                }
-              }
-              RowLayout {
-                id: centerSection
-                anchors.centerIn: parent
-                // Clock { }
-              }
-            }
-          }
-          Component {
-            id: leftBar
-            Rectangle {
-              color: "transparent"
-
-              RowLayout {
-                id: leftSection
-                anchors.left: parent.left
-              }
-              RowLayout {
-                id: centerSection
-                anchors.centerIn: parent
-              }
-              RowLayout {
-                id: rightSection
-                anchors {
-                  top: parent.top
                   right: parent.right
-                  bottom: parent.bottom
                 }
-                Workspaces {
-                  monitorId: panel.monitorId
+                RowLayout {
+                  id: leftSection
+                  spacing: Appearance.spacing.p1
+                  Layout.leftMargin: Appearance.spacing.p1
+
+                  LauncherButton { }
+
+                  Workspaces { 
+                    monitorId: panel.monitorId
+                  }
+
                 }
+                RowLayout {
+                  id: centerSection
+                  spacing: Appearance.spacing.p1
+
+                }
+                RowLayout {
+                  id: rightSection
+
+                }} 
               }
             }
+            Component {
+              id: leftBar
+              Rectangle {
+                color: "transparent"
+
+                RowLayout {
+                  anchors {
+                    top: parent.top
+                    left: parent.left
+                    bottom: parent.bottom
+                    right: parent.right
+                  }
+                  RowLayout {
+                    id: leftSection
+                    Layout.fillWidth: true
+                    Layout.fillHeight: true
+                    // ActiveWindow { }
+                  }
+                  RowLayout {
+                    id: centerSection
+                    spacing: Appearance.spacing.p1
+
+                    // NotificationButton {}
+                  }
+                  RowLayout {
+                    id: rightSection
+                    spacing: Appearance.spacing.p1
+                    Layout.rightMargin: Appearance.spacing.p1
+                    Workspaces { 
+                      monitorId: panel.monitorId
+                    }
+                    LauncherButton { }
+                    // Clock { }
+                  }} 
+                }
+              }
           }
         }
       }
-    }
