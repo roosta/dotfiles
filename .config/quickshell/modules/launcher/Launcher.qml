@@ -15,6 +15,13 @@ PanelWindow {
     top: true
   }
 
+  MouseArea {
+    anchors.fill: parent
+    onClicked: {
+      GlobalState.closeLauncher()
+    }
+  }
+
   Rectangle {
     anchors.centerIn: parent
     implicitHeight: Appearance.launcher.height
@@ -23,5 +30,11 @@ PanelWindow {
     border.width: 1
     border.color: Appearance.srcery.gray3
 
+    MouseArea {
+      anchors.fill: parent
+      onClicked: {
+        // Consume the click event to prevent it from reaching the parent MouseArea
+      }
+    }
   }
 }
