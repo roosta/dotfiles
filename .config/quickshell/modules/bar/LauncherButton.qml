@@ -15,7 +15,6 @@ import Quickshell.Widgets
 
 Button {
   id: root
-  property int size: 20
 
   // color: Appearance.srcery.brightWhite
 
