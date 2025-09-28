@@ -3,11 +3,13 @@ import QtQuick
 import qs.config
 import qs
 import qs.utils
+import qs.components
 
-PanelWindow {
+NamedPanel {
   id: root
+  name: "launcher"
   visible: GlobalState.launcherOpen
-  color: Functions.transparentize("#000", 0.8)
+
   anchors {
     bottom: true
     left: true
