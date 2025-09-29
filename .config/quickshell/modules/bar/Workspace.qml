@@ -112,7 +112,7 @@ Button {
     State {
       name: "hovered"
       when: root.hovered
-      PropertyChanges { wsBackground.topBorder: Appearance.bar.borderWidth }
+      PropertyChanges { wsBackground.bottomBorder: Appearance.bar.borderWidth }
     }
   ]
 }
