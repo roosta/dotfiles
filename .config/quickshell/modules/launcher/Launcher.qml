@@ -5,16 +5,15 @@ import qs
 import qs.utils
 import qs.components
 
-NamedPanel {
+Item {
   id: root
-  name: "launcher"
   visible: GlobalState.launcherOpen
 
   anchors {
-    bottom: true
-    left: true
-    right: true
-    top: true
+    bottom: parent.bottom
+    left: parent.left
+    right: parent.right
+    top: parent.top
   }
 
   MouseArea {
