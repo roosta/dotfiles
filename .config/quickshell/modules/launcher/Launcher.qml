@@ -12,7 +12,7 @@ Item {
   anchors.horizontalCenter: parent.horizontalCenter
   anchors.bottomMargin: Appearance.bar.height
   implicitWidth: Appearance.launcher.width
-  implicitHeight: GlobalState.launcherOpen ? Appearance.launcher.height : 0
+  implicitHeight: 0
 
   // MouseArea {
   //   anchors.fill: parent
@@ -21,6 +21,22 @@ Item {
   //   }
   // }
 
+  states: [
+    State {
+      name: "active"
+      when: GlobalState.launcherOpen
+      PropertyChanges { root.implicitHeight: Appearance.launcher.height }
+    }
+  ]
+  transitions: [
+    Transition {
+      NumberAnimation { 
+        properties: "implicitHeight"
+        duration: 200
+        easing.type: Easing.InOutCubic
+      }
+    }
+  ]
   BorderRectangle {
     anchors.fill: parent
     color: Appearance.srcery.black

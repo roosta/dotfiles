@@ -9,7 +9,7 @@ Item {
   id: root
   required property string monitorId
 
-  z: 2
+  z: 1
   implicitHeight: Appearance.bar.height
 
   anchors {
