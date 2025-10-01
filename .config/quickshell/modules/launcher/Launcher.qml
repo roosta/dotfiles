@@ -7,35 +7,34 @@ import qs.components
 
 Item {
   id: root
-  visible: GlobalState.launcherOpen
+  visible: height > 0
+  anchors.bottom: parent.bottom
+  anchors.horizontalCenter: parent.horizontalCenter
+  anchors.bottomMargin: Appearance.bar.height
+  implicitWidth: Appearance.launcher.width
+  implicitHeight: GlobalState.launcherOpen ? Appearance.launcher.height : 0
 
-  anchors {
-    bottom: parent.bottom
-    left: parent.left
-    right: parent.right
-    top: parent.top
-  }
+  // MouseArea {
+  //   anchors.fill: parent
+  //   onClicked: {
+  //     GlobalState.closeLauncher()
+  //   }
+  // }
 
-  MouseArea {
+  BorderRectangle {
     anchors.fill: parent
-    onClicked: {
-      GlobalState.closeLauncher()
-    }
-  }
-
-  Rectangle {
-    anchors.centerIn: parent
-    implicitHeight: Appearance.launcher.height
-    implicitWidth: Appearance.launcher.width
     color: Appearance.srcery.black
-    border.width: 1
-    border.color: Appearance.srcery.gray3
+    borderColor: Appearance.srcery.gray3
+    topBorder: 1
+    leftBorder: 1
+    rightBorder: 1
 
-    MouseArea {
-      anchors.fill: parent
-      onClicked: {
-        // Consume the click event to prevent it from reaching the parent MouseArea
-      }
-    }
+
+    // MouseArea {
+    //   anchors.fill: parent
+    //   onClicked: {
+    //     // Consume the click event to prevent it from reaching the parent MouseArea
+    //   }
+    // }
   }
 }

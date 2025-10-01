@@ -4,9 +4,11 @@
 import Quickshell
 import qs.modules.bar
 import qs.modules.launcher
+import QtQuick
 import Quickshell.Wayland
 import qs.components
 import qs.config
+import qs
 
 ShellRoot {
   Variants {
@@ -33,7 +35,13 @@ ShellRoot {
         // color: "#68a8e440"
         color: "transparent"
         screen: scope.modelData
-        // implicitHeight: Appearance.bar.height
+
+        // MouseArea {
+        //   anchors.fill: parent
+        //   onClicked: {
+        //     GlobalState.closeLauncher()
+        //   }
+        // }
 
         WlrLayershell.exclusionMode: ExclusionMode.Ignore
         anchors {
