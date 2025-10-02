@@ -10,7 +10,7 @@ Item {
   visible: height > 0
   anchors.bottom: parent.bottom
   anchors.horizontalCenter: parent.horizontalCenter
-  anchors.bottomMargin: Appearance.bar.height
+  anchors.bottomMargin: Appearance.bar.height + Appearance.spacing.p1
   implicitWidth: Appearance.launcher.width
   implicitHeight: 0
 
@@ -37,13 +37,14 @@ Item {
       }
     }
   ]
-  BorderRectangle {
+  Rectangle {
     anchors.fill: parent
     color: Appearance.srcery.black
-    borderColor: Appearance.srcery.gray3
-    topBorder: 1
-    leftBorder: 1
-    rightBorder: 1
+    border.color: Appearance.srcery.gray3
+    border.width: Appearance.bar.borderWidth
+    // topBorder: 1
+    // leftBorder: 1
+    // rightBorder: 1
 
 
     // MouseArea {

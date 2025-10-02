@@ -7,6 +7,7 @@ import qs.modules.launcher
 import QtQuick
 import Quickshell.Wayland
 import qs.components
+import qs.utils
 import qs.config
 import qs
 
@@ -24,7 +25,6 @@ ShellRoot {
         screen: scope.modelData
         anchors.bottom: true
         implicitWidth: 1
-        color: "transparent"
         implicitHeight: 1
         exclusiveZone: Appearance.bar.height
       }
@@ -32,24 +32,9 @@ ShellRoot {
       NamedPanel {
         id: main
         name: "main"
-        // color: "#68a8e440"
-        color: "transparent"
         screen: scope.modelData
 
-        // MouseArea {
-        //   anchors.fill: parent
-        //   onClicked: {
-        //     GlobalState.closeLauncher()
-        //   }
-        // }
-
         WlrLayershell.exclusionMode: ExclusionMode.Ignore
-        anchors {
-          bottom: true
-          left: true
-          right: true
-          top: true
-        }
 
         mask: Region {
           id: mask
@@ -60,11 +45,36 @@ ShellRoot {
           intersection: Intersection.Xor
         }
 
-        Bar {
-          id: bar
-          monitorId: scope.monitorId 
+        anchors {
+          bottom: true
+          left: true
+          right: true
+          top: true
         }
-        Launcher { }
+        Rectangle {
+          id: content
+          color: "transparent"
+          states: [
+            State {
+              name: "launcher-open"
+              when: GlobalState.launcherOpen
+              PropertyChanges { content.color: Functions.transparentize("#000", 0.8) }
+            }
+          ]
+          // color: Functions.transparentize("#000", 0.56)
+          anchors.fill: parent
+          // MouseArea {
+          //   anchors.fill: parent
+          //   onClicked: {
+          //     GlobalState.closeLauncher()
+          //   }
+          // }
+          Bar {
+            id: bar
+            monitorId: scope.monitorId 
+          }
+          Launcher { }
+        }
       }
     }
   }
