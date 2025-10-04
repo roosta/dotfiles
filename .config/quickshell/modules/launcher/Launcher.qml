@@ -8,32 +8,40 @@ import qs.components
 Item {
   id: root
   required property string monitorId
-  visible: height > 0
-  anchors.bottom: parent.bottom
-  anchors.horizontalCenter: parent.horizontalCenter
+  visible: launcher.height > 0
+  anchors.fill: parent
   anchors.bottomMargin: Appearance.bar.height + Appearance.spacing.p1
-  implicitWidth: Appearance.launcher.width
-  implicitHeight: 0
+
+  MouseArea {
+    anchors.fill: parent
+    onClicked: {
+      console.log("I clicked outside")
+      GlobalState.closeLauncher()
+    }
+  }
 
   states: [
     State {
-      name: "active"
+      name: "launcher-open"
       when: GlobalState.launcherOpen && GlobalState.activeMonitorId === root.monitorId
-      PropertyChanges { root.implicitHeight: Appearance.launcher.height }
+      PropertyChanges { content.color: Functions.transparentize("#000", 0.7) }
     }
   ]
   transitions: [
     Transition {
-      NumberAnimation { 
-        properties: "implicitHeight"
-        duration: 200
-        easing.type: Easing.InOutCubic
+      ColorAnimation { 
+        duration: 300
+        easing.type: Easing.OutQuad 
       }
     }
   ]
   BorderRectangle {
-    anchors.fill: parent
+    id: launcher
+    implicitWidth: Appearance.launcher.width
     gradientAngle: 45
+    anchors.bottom: parent.bottom
+    implicitHeight: 0
+    anchors.horizontalCenter: parent.horizontalCenter
     color: Appearance.srcery.black
     borderWidth: 1
     gradient: Gradient {
@@ -42,6 +50,22 @@ Item {
       GradientStop { position: 1; color: Appearance.srcery.blue }
     }
 
+    states: [
+      State {
+        name: "active"
+        when: GlobalState.launcherOpen && GlobalState.activeMonitorId === root.monitorId
+        PropertyChanges { launcher.implicitHeight: Appearance.launcher.height }
+      }
+    ]
+    transitions: [
+      Transition {
+        NumberAnimation { 
+          properties: "implicitHeight"
+          duration: 200
+          easing.type: Easing.InOutCubic
+        }
+      }
+    ]
     MouseArea {
       anchors.fill: parent
       onClicked: {

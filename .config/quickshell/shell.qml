@@ -41,8 +41,29 @@ ShellRoot {
           x: 0
           y: 0
           width: main.width
-          height: main.height - Appearance.bar.height
-          intersection: Intersection.Xor
+          height: main.height
+          intersection: {
+            if (GlobalState.launcherOpen) {
+              Intersection.Combine
+            } else {
+              Intersection.Xor
+            }
+          }
+          regions: [
+            Region {
+              x: bar.x
+              y: bar.y
+              width: bar.width
+              height: bar.height
+              intersection: {
+                if (GlobalState.launcherOpen) {
+                  Intersection.Combine
+                } else {
+                  Intersection.Subtract
+                }
+              }
+            }
+          ]
         }
 
         anchors {
@@ -54,35 +75,15 @@ ShellRoot {
         Rectangle {
           id: content
           color: "transparent"
-
-          MouseArea {
-            anchors.fill: parent
-            // onClicked: {
-            //   GlobalState.toggleLauncher(main.screen)
-            // }
-          }
-          states: [
-            State {
-              name: "launcher-open"
-              when: GlobalState.launcherOpen && GlobalState.activeMonitorId === scope.monitorId
-              PropertyChanges { content.color: Functions.transparentize("#000", 0.7) }
-            }
-          ]
-          transitions: [
-            Transition {
-              ColorAnimation { 
-                duration: 300
-                easing.type: Easing.OutQuad 
-              }
-            }
-          ]
-          // color: Functions.transparentize("#000", 0.56)
           anchors.fill: parent
+          // color: Functions.transparentize("#000", 0.56)
+          
           Bar {
             id: bar
             monitorId: scope.monitorId 
           }
           Launcher { 
+            id: launcher
             monitorId: scope.monitorId
           }
         }
