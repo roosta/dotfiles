@@ -6,21 +6,25 @@ import QtQuick
 Singleton {
   id: root
   property bool launcherOpen: false
+  property string activeMonitorId: ""
+  
   function openLauncher(screen) {
     if (screen) {
-      console.log("Handle screen")
+      activeMonitorId = screen.name
     }
     launcherOpen = true
   }
+  
   function closeLauncher() {
     launcherOpen = false
+    activeMonitorId = ""
   }
+  
   function toggleLauncher(screen = null) {
     if (launcherOpen) {
       closeLauncher()
     } else {
       openLauncher(screen)
     }
-
   }
 }

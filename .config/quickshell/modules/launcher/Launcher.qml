@@ -7,6 +7,7 @@ import qs.components
 
 Item {
   id: root
+  required property string monitorId
   visible: height > 0
   anchors.bottom: parent.bottom
   anchors.horizontalCenter: parent.horizontalCenter
@@ -17,7 +18,7 @@ Item {
   states: [
     State {
       name: "active"
-      when: GlobalState.launcherOpen
+      when: GlobalState.launcherOpen && GlobalState.activeMonitorId === root.monitorId
       PropertyChanges { root.implicitHeight: Appearance.launcher.height }
     }
   ]

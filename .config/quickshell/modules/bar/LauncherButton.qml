@@ -17,13 +17,13 @@ Button {
   id: root
 
   // color: Appearance.srcery.brightWhite
-
+  required property string monitorId
   Layout.topMargin: Appearance.bar.borderWidth
   implicitWidth: parent.height - Appearance.spacing.p3
   implicitHeight: parent.height - Appearance.spacing.p3
 
   onPressed: {
-    GlobalState.launcherOpen = !GlobalState.launcherOpen
+    GlobalState.toggleLauncher(root.QsWindow.window?.screen)
   }
 
   background: BorderRectangle {
@@ -47,7 +47,7 @@ Button {
 
     State {
       name: "active"
-      when: GlobalState.launcherOpen
+      when: GlobalState.launcherOpen && GlobalState.activeMonitorId === root.monitorId
       PropertyChanges { innerRect.rotation: 0 }
       PropertyChanges { outerRect.borderColor: Appearance.srcery.brightWhite }
       PropertyChanges { innerRect.borderColor: Appearance.srcery.brightWhite }
