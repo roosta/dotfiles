@@ -71,7 +71,7 @@ Item {
             id: centerSection
             spacing: Appearance.spacing.p1
 
-            LauncherButton { }
+            LauncherButton { monitorId: root.monitorId }
 
             Workspaces { 
               monitorId: root.monitorId
@@ -104,7 +104,7 @@ Item {
               spacing: Appearance.spacing.p1
               Layout.leftMargin: Appearance.spacing.p1
 
-              LauncherButton { }
+              LauncherButton { monitorId: root.monitorId }
 
               Workspaces { 
                 monitorId: root.monitorId
@@ -153,7 +153,7 @@ Item {
                 Workspaces { 
                   monitorId: root.monitorId
                 }
-                LauncherButton { }
+                LauncherButton { monitorId: root.monitorId }
                 // Clock { }
               }} 
             }

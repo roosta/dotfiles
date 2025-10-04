@@ -58,13 +58,13 @@ ShellRoot {
           MouseArea {
             anchors.fill: parent
             onClicked: {
-              GlobalState.closeLauncher()
+              GlobalState.toggleLauncher(main.screen)
             }
           }
           states: [
             State {
               name: "launcher-open"
-              when: GlobalState.launcherOpen
+              when: GlobalState.launcherOpen && GlobalState.activeMonitorId === scope.monitorId
               PropertyChanges { content.color: Functions.transparentize("#000", 0.7) }
             }
           ]
@@ -82,7 +82,9 @@ ShellRoot {
             id: bar
             monitorId: scope.monitorId 
           }
-          Launcher { }
+          Launcher { 
+            monitorId: scope.monitorId
+          }
         }
       }
     }
