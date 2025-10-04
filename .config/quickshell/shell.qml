@@ -54,21 +54,30 @@ ShellRoot {
         Rectangle {
           id: content
           color: "transparent"
+
+          MouseArea {
+            anchors.fill: parent
+            onClicked: {
+              GlobalState.closeLauncher()
+            }
+          }
           states: [
             State {
               name: "launcher-open"
               when: GlobalState.launcherOpen
-              PropertyChanges { content.color: Functions.transparentize("#000", 0.8) }
+              PropertyChanges { content.color: Functions.transparentize("#000", 0.7) }
+            }
+          ]
+          transitions: [
+            Transition {
+              ColorAnimation { 
+                duration: 300
+                easing.type: Easing.OutQuad 
+              }
             }
           ]
           // color: Functions.transparentize("#000", 0.56)
           anchors.fill: parent
-          // MouseArea {
-          //   anchors.fill: parent
-          //   onClicked: {
-          //     GlobalState.closeLauncher()
-          //   }
-          // }
           Bar {
             id: bar
             monitorId: scope.monitorId 
