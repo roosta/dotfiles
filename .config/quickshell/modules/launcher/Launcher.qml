@@ -14,13 +14,6 @@ Item {
   implicitWidth: Appearance.launcher.width
   implicitHeight: 0
 
-  // MouseArea {
-  //   anchors.fill: parent
-  //   onClicked: {
-  //     GlobalState.closeLauncher()
-  //   }
-  // }
-
   states: [
     State {
       name: "active"
@@ -37,21 +30,23 @@ Item {
       }
     }
   ]
-  Rectangle {
+  BorderRectangle {
     anchors.fill: parent
+    rotation: 45
     color: Appearance.srcery.black
-    border.color: Appearance.srcery.gray3
-    border.width: Appearance.bar.borderWidth
-    // topBorder: 1
-    // leftBorder: 1
-    // rightBorder: 1
+    borderWidth: 1
+    gradient: Gradient {
+      orientation: Gradient.Horizontal
+      GradientStop { position: 0; color: Appearance.srcery.magenta }
+      GradientStop { position: 1; color: Appearance.srcery.blue }
+    }
 
+    MouseArea {
+      anchors.fill: parent
+      onClicked: {
+        // Consume the click event to prevent it from reaching the parent MouseArea
+      }
+    }
 
-    // MouseArea {
-    //   anchors.fill: parent
-    //   onClicked: {
-    //     // Consume the click event to prevent it from reaching the parent MouseArea
-    //   }
-    // }
   }
 }
