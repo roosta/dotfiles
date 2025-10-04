@@ -57,9 +57,9 @@ ShellRoot {
 
           MouseArea {
             anchors.fill: parent
-            onClicked: {
-              GlobalState.toggleLauncher(main.screen)
-            }
+            // onClicked: {
+            //   GlobalState.toggleLauncher(main.screen)
+            // }
           }
           states: [
             State {

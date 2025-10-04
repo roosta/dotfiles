@@ -19,7 +19,12 @@ Singleton {
   // icon aliases, if a class/appid matches key, use value
   // in cases where there isn't a good icon match
   aliases: {
-    "spotify": "spotify"
+    "spotify-launcher": "spotify"
+  }
+  function getAliasIcon(id) {
+    const match = Object.entries(root.aliases)
+    .find(([k, v]) => k.includes(id.toLowerCase()))
+    return match?.[1]
   }
 
   // Choose the class with the most occurrences
@@ -35,7 +40,7 @@ Singleton {
 
 
   function getWindowIcon(appId) {
-    const icon = DesktopEntries.heuristicLookup(appId)?.icon
+    const icon = getAliasIcon(appId) ?? DesktopEntries.heuristicLookup(appId)?.icon
     return Quickshell.iconPath(icon, root.icons.missing)
   }
 
@@ -48,10 +53,8 @@ Singleton {
     }).map(w => w?.class)
     const uniq = [...new Set(classes)]
     const icons = uniq.map(id => {
-      const alias = Object.entries(root.aliases)
-        .find(([k, v]) => k.includes(id.toLowerCase()))
-      if (alias) { return alias[1] }
-      return DesktopEntries.heuristicLookup(id)?.icon
+      const alias = getAliasIcon(id)
+      return getAliasIcon(id) ?? DesktopEntries.heuristicLookup(id)?.icon
     })
     return icons.map(icon => Quickshell.iconPath(icon, root.icons.missing))
   }
