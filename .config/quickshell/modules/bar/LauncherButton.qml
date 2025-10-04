@@ -49,7 +49,6 @@ Button {
       name: "active"
       when: GlobalState.launcherOpen
       PropertyChanges { innerRect.rotation: 0 }
-      PropertyChanges { innerRect.color: Appearance.srcery.brightWhite }
       PropertyChanges { outerRect.borderColor: Appearance.srcery.brightWhite }
       PropertyChanges { innerRect.borderColor: Appearance.srcery.brightWhite }
     },
