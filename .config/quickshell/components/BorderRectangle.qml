@@ -1,7 +1,6 @@
 import QtQuick
 
 // Rectangle that supports separate borders and support for angled gradient borders
-// Adjust rotation to adjust the angle of the gradient
 Item {
   id: root
   property alias color: innerRect.color
@@ -15,13 +14,13 @@ Item {
   property int topBorder : borderWidth
   property int bottomBorder : borderWidth
   property int radius: 0
-  property alias rotation: colorRect.rotation
+  property alias gradientAngle: colorRect.rotation
 
   clip: true
 
   // Calculate the size needed for a rotated (gradient) rectangle to fit inside content rectangle
   function gradientSize() {
-    const rad = rotation * Math.PI / 180
+    const rad = gradientAngle * Math.PI / 180
     const absCos = Math.abs(Math.cos(rad));
     const absSin = Math.abs(Math.sin(rad));
     const width = borderRect.width * absCos + borderRect.height * absSin;

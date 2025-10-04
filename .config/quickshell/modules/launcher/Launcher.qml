@@ -32,7 +32,7 @@ Item {
   ]
   BorderRectangle {
     anchors.fill: parent
-    rotation: 45
+    gradientAngle: 45
     color: Appearance.srcery.black
     borderWidth: 1
     gradient: Gradient {
