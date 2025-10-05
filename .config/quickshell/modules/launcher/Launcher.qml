@@ -1,5 +1,7 @@
 import Quickshell
 import QtQuick
+import QtQuick.Controls
+import QtQuick.Layouts
 import qs.config
 import qs
 import qs.utils
@@ -11,6 +13,25 @@ Item {
   visible: launcher.height > 0
   anchors.fill: parent
   anchors.bottomMargin: Appearance.bar.height + Appearance.spacing.p1
+
+  // Handle focus and clearing based on launcher state
+  Connections {
+    target: GlobalState
+    
+    function onLauncherOpenChanged() {
+      if (GlobalState.launcherOpen && GlobalState.activeMonitorId === root.monitorId) {
+        search.forceActiveFocus()
+      } else if (!GlobalState.launcherOpen) {
+        search.text = ""
+      }
+    }
+    
+    function onActiveMonitorIdChanged() {
+      if (GlobalState.launcherOpen && GlobalState.activeMonitorId === root.monitorId) {
+        search.forceActiveFocus()
+      }
+    }
+  }
 
   MouseArea {
     anchors.fill: parent
@@ -71,6 +92,15 @@ Item {
         // Consume the click event to prevent it from reaching the parent MouseArea
       }
     }
-
+    ColumnLayout {
+      anchors.fill: parent
+      anchors.margins: Appearance.spacing.p4
+      spacing: Appearance.spacing.p4
+      AppList { }
+      SearchField {
+        id: search
+        Keys.onEscapePressed: GlobalState.closeLauncher()
+      }
+    }
   }
 }
