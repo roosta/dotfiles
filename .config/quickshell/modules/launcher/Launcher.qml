@@ -17,7 +17,7 @@ Item {
   // Handle focus and clearing based on launcher state
   Connections {
     target: GlobalState
-    
+
     function onLauncherOpenChanged() {
       if (GlobalState.launcherOpen && GlobalState.activeMonitorId === root.monitorId) {
         search.forceActiveFocus()
@@ -25,7 +25,7 @@ Item {
         search.text = ""
       }
     }
-    
+
     function onActiveMonitorIdChanged() {
       if (GlobalState.launcherOpen && GlobalState.activeMonitorId === root.monitorId) {
         search.forceActiveFocus()
@@ -94,14 +94,26 @@ Item {
     }
     ColumnLayout {
       anchors.fill: parent
-      anchors.margins: Appearance.spacing.p4
-      spacing: Appearance.spacing.p4
+      // spacing: Appearance.spacing.p4
       AppList { 
         search: search
       }
-      SearchField {
-        id: search
-        Keys.onEscapePressed: GlobalState.closeLauncher()
+      BorderRectangle {
+        Layout.alignment: Qt.AlignHCenter
+        Layout.fillWidth: true
+        color: Appearance.srcery.black
+        topBorder: 1
+        Layout.leftMargin: Appearance.bar.borderWidth
+        Layout.rightMargin: Appearance.bar.borderWidth
+        Layout.bottomMargin: Appearance.bar.borderWidth
+        borderColor: Appearance.srcery.gray3
+        Layout.preferredHeight: search.implicitHeight + Appearance.spacing.p2 * 2
+        SearchField {
+          id: search
+          anchors.centerIn: parent
+          anchors.margins: Appearance.spacing.p4
+          Keys.onEscapePressed: GlobalState.closeLauncher()
+        }
       }
     }
   }

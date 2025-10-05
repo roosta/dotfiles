@@ -9,6 +9,11 @@ Rectangle {
   required property SearchField search
   Layout.fillWidth: true
   Layout.fillHeight: true
+  
+  Layout.topMargin: Appearance.spacing.p4
+  Layout.leftMargin: Appearance.spacing.p4
+  Layout.rightMargin: Appearance.spacing.p4
+  // Layout.bottomMargin: -5
   color: "transparent"
   clip: true
   ListView {
