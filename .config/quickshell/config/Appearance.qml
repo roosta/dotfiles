@@ -51,6 +51,7 @@ Singleton {
   launcher: QtObject {
     readonly property int height: 800 * Config.scale
     readonly property int width: 500 * Config.scale
+    readonly property int itemHeight: 50 * Config.scale
   }
 
   font: QtObject {
