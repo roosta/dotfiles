@@ -1,6 +1,7 @@
 import QtQuick
 
 // Rectangle that supports separate borders and support for angled gradient borders
+// Originally based on this: https://stackoverflow.com/a/59324531/4306379
 Item {
   id: root
   property alias color: innerRect.color
