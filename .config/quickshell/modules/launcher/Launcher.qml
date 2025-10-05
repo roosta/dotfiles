@@ -96,7 +96,9 @@ Item {
       anchors.fill: parent
       anchors.margins: Appearance.spacing.p4
       spacing: Appearance.spacing.p4
-      AppList { }
+      AppList { 
+        search: search
+      }
       SearchField {
         id: search
         Keys.onEscapePressed: GlobalState.closeLauncher()
