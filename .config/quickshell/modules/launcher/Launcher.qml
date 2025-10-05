@@ -15,7 +15,6 @@ Item {
   MouseArea {
     anchors.fill: parent
     onClicked: {
-      console.log("I clicked outside")
       GlobalState.closeLauncher()
     }
   }
