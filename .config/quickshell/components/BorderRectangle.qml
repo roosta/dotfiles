@@ -6,7 +6,8 @@ Item {
   id: root
   property alias color: innerRect.color
 
-  property alias gradient: colorRect.gradient
+  property alias borderGradient: colorRect.gradient
+  property alias gradient: innerRect.gradient
   property int borderWidth: 0
   property alias borderColor : colorRect.color
 

@@ -4,10 +4,8 @@ import qs.utils
 import qs.components
 import qs
 import QtQuick
-// import QtQuick.Controls
-import QtQuick.Layouts
-
 import QtQuick.Controls
+import QtQuick.Layouts
 import Quickshell
 import Quickshell.Hyprland
 import Quickshell.Wayland

@@ -64,7 +64,7 @@ Item {
     anchors.horizontalCenter: parent.horizontalCenter
     color: Appearance.srcery.black
     borderWidth: 1
-    gradient: Gradient {
+    borderGradient: Gradient {
       orientation: Gradient.Horizontal
       GradientStop { position: 0; color: Appearance.srcery.magenta }
       GradientStop { position: 1; color: Appearance.srcery.blue }
