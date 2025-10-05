@@ -35,6 +35,9 @@ ShellRoot {
         screen: scope.modelData
 
         WlrLayershell.exclusionMode: ExclusionMode.Ignore
+        WlrLayershell.keyboardFocus: GlobalState.launcherOpen
+          ? WlrKeyboardFocus.OnDemand
+          : WlrKeyboardFocus.None
 
         mask: Region {
           id: mask
