@@ -17,7 +17,7 @@ TextField {
   placeholderTextColor: Appearance.srcery.gray3
   font.family: Appearance.font.light
   font.pointSize: Appearance.font.size1
-  implicitWidth: parent.width - Appearance.spacing.p2 * 2
+  implicitWidth: parent.width - Appearance.spacing.p4 * 2
   placeholderText: " Search..."
   background: Rectangle {
     color: "transparent"
