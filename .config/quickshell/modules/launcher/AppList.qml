@@ -16,6 +16,8 @@ Rectangle {
   // Layout.bottomMargin: -5
   color: "transparent"
   clip: true
+
+
   ListView {
     anchors.left: parent.left
     anchors.right: parent.right

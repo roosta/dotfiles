@@ -94,7 +94,7 @@ Item {
     }
     ColumnLayout {
       anchors.fill: parent
-      // spacing: Appearance.spacing.p4
+      spacing: 0
       AppList { 
         search: search
       }
@@ -107,7 +107,7 @@ Item {
         Layout.rightMargin: Appearance.bar.borderWidth
         Layout.bottomMargin: Appearance.bar.borderWidth
         borderColor: Appearance.srcery.gray3
-        Layout.preferredHeight: search.implicitHeight + Appearance.spacing.p2 * 2
+        Layout.preferredHeight: search.implicitHeight + Appearance.spacing.p4 * 2
         SearchField {
           id: search
           anchors.centerIn: parent
