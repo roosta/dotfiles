@@ -1,8 +1,10 @@
 pragma ComponentBehavior: Bound
 import Quickshell
 import QtQuick.Layouts
+import QtQuick.Templates
 import QtQuick
 import qs.config
+import qs.components
 import qs.services
 
 Rectangle {
@@ -11,8 +13,8 @@ Rectangle {
   Layout.fillHeight: true
   
   Layout.topMargin: Appearance.bar.borderWidth
-  Layout.leftMargin: Appearance.spacing.p4
-  Layout.rightMargin: Appearance.spacing.p4
+  Layout.leftMargin: Appearance.spacing.p4 + Appearance.bar.borderWidth
+  Layout.rightMargin: Appearance.spacing.p4 + Appearance.bar.borderWidth
   // Layout.bottomMargin: -5
   color: "transparent"
   clip: true
@@ -23,10 +25,30 @@ Rectangle {
     anchors.right: parent.right
     anchors.top: parent.top
     anchors.bottom: parent.bottom
-    anchors.topMargin: Appearance.spacing.p4 - Appearance.bar.borderWidth
+    anchors.topMargin: Appearance.spacing.p4
+    anchors.bottomMargin: Appearance.spacing.p4
     spacing: Appearance.spacing.p2
     model: AppSearch.list
     delegate: AppItem { }
 
+    ScrollBar.vertical: ScrollBar {
+      id: scroll
+
+      implicitWidth: Appearance.spacing.p0
+      contentItem: BorderRectangle {
+        anchors.left: parent.left
+        anchors.right: parent.right
+        color: Appearance.srcery.gray3
+
+        MouseArea {
+          id: mouse
+
+          anchors.fill: parent
+          cursorShape: Qt.PointingHandCursor
+          hoverEnabled: true
+          acceptedButtons: Qt.NoButton
+        }
+      }
+    }
   }
 }
