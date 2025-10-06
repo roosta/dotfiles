@@ -102,7 +102,7 @@ Item {
         Layout.alignment: Qt.AlignHCenter
         Layout.fillWidth: true
         color: Appearance.srcery.black
-        topBorder: 1
+        topBorder: Appearance.bar.borderWidth
         Layout.leftMargin: Appearance.bar.borderWidth
         Layout.rightMargin: Appearance.bar.borderWidth
         Layout.bottomMargin: Appearance.bar.borderWidth

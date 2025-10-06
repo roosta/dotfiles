@@ -10,7 +10,7 @@ Rectangle {
   Layout.fillWidth: true
   Layout.fillHeight: true
   
-  Layout.topMargin: Appearance.spacing.p4
+  Layout.topMargin: Appearance.bar.borderWidth
   Layout.leftMargin: Appearance.spacing.p4
   Layout.rightMargin: Appearance.spacing.p4
   // Layout.bottomMargin: -5
@@ -23,6 +23,7 @@ Rectangle {
     anchors.right: parent.right
     anchors.top: parent.top
     anchors.bottom: parent.bottom
+    anchors.topMargin: Appearance.spacing.p4 - Appearance.bar.borderWidth
     spacing: Appearance.spacing.p2
     model: AppSearch.list
     delegate: AppItem { }
