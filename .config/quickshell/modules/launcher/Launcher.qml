@@ -12,36 +12,20 @@ Item {
   id: root
   required property string monitorId
   visible: launcher.height > 0
+
   anchors.fill: parent
   anchors.bottomMargin: Appearance.bar.height + Appearance.spacing.p1
   property bool monitorIsFocused: (Hyprland.focusedMonitor?.id === monitorId)
-
-  // Handle focus and clearing based on launcher state
-  Connections {
-    target: GlobalState
-
-    function onLauncherOpenChanged() {
-      if (GlobalState.launcherOpen && GlobalState.activeMonitorId === root.monitorId) {
-        search.forceActiveFocus()
-      } else if (!GlobalState.launcherOpen) {
-        search.text = ""
-      }
-    }
-
-    function onActiveMonitorIdChanged() {
-      if (GlobalState.launcherOpen && GlobalState.activeMonitorId === root.monitorId) {
-        search.forceActiveFocus()
-      }
-    }
-  }
-
 
   GlobalShortcut {
     name: "toggleLauncher"
     description: "Toggles launcher"
 
     onPressed: {
-      GlobalState.toggleLauncher(Hyprland.focusedMonitor?.name)
+
+      if (Hyprland.focusedMonitor?.name === root.monitorId) {
+        GlobalState.toggleLauncher(Hyprland.focusedMonitor?.name)
+      }
     }
   }
   // HyprlandFocusGrab {
@@ -132,6 +116,7 @@ Item {
         Layout.preferredHeight: search.implicitHeight + Appearance.spacing.p4 * 2
         SearchField {
           id: search
+          monitorId: root.monitorId
           anchors.centerIn: parent
           anchors.margins: Appearance.spacing.p4
           Keys.onEscapePressed: GlobalState.closeLauncher()

@@ -4,6 +4,7 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 import qs.config
+import qs
 // import qs
 // import qs.utils
 // import qs.components
@@ -13,6 +14,7 @@ TextField {
   id: root
   // Layout.alignment: Qt.AlignHCenter
   renderType: TextField.NativeRendering
+  required property string monitorId
   cursorVisible: !readOnly
   placeholderTextColor: Appearance.srcery.gray3
   font.family: Appearance.font.light
@@ -25,7 +27,20 @@ TextField {
 
   }
 
-  // Component.onCompleted: forceActiveFocus()
+  Component.onCompleted: forceActiveFocus()
+
+  Connections {
+    target: GlobalState
+  
+    function onLauncherOpenChanged() {
+      if (GlobalState.launcherOpen && GlobalState.activeMonitorId === root.monitorId) {
+        root.forceActiveFocus();
+      } else {
+        root.text = ""
+      }
+    }
+  }
+
   cursorDelegate: Rectangle {
     id: cursor
     property bool disableBlink
