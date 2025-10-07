@@ -54,3 +54,6 @@
 [submodule ".config/srcery/srcery-palette"]
 	path = .config/srcery/srcery-palette
 	url = https://github.com/srcery-colors/srcery-palette.git
+[submodule ".local/share/icons/candy-icons"]
+	path = .local/share/icons/candy-icons
+	url = https://github.com/EliverLara/candy-icons.git
