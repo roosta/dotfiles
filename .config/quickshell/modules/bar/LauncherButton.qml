@@ -21,7 +21,7 @@ Button {
   implicitHeight: parent.height - Appearance.spacing.p3
 
   onPressed: {
-    GlobalState.toggleLauncher(root.QsWindow.window?.screen)
+    GlobalState.toggleLauncher(root.QsWindow.window?.screen?.name)
   }
 
   background: BorderRectangle {

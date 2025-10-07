@@ -2,6 +2,7 @@ import Quickshell
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
+import Quickshell.Hyprland
 import qs.config
 import qs
 import qs.utils
@@ -13,6 +14,7 @@ Item {
   visible: launcher.height > 0
   anchors.fill: parent
   anchors.bottomMargin: Appearance.bar.height + Appearance.spacing.p1
+  property bool monitorIsFocused: (Hyprland.focusedMonitor?.id === monitorId)
 
   // Handle focus and clearing based on launcher state
   Connections {
@@ -33,6 +35,26 @@ Item {
     }
   }
 
+
+  GlobalShortcut {
+    name: "toggleLauncher"
+    description: "Toggles launcher"
+
+    onPressed: {
+      GlobalState.toggleLauncher(Hyprland.focusedMonitor?.name)
+    }
+  }
+  // HyprlandFocusGrab {
+  //   id: grab
+  //   windows: [root]
+  //   property bool canBeActive: root.monitorIsFocused
+  //   active: false
+  //   onCleared: () => {
+  //     if (!active) {
+  //       GlobalState.closeLauncher();
+  //     }
+  //   }
+  // }
   MouseArea {
     anchors.fill: parent
     onClicked: {

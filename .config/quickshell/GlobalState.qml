@@ -8,9 +8,9 @@ Singleton {
   property bool launcherOpen: false
   property string activeMonitorId: ""
   
-  function openLauncher(screen) {
-    if (screen) {
-      activeMonitorId = screen.name
+  function openLauncher(id) {
+    if (id) {
+      activeMonitorId = id
     }
     launcherOpen = true
   }
@@ -20,11 +20,11 @@ Singleton {
     activeMonitorId = ""
   }
   
-  function toggleLauncher(screen = null) {
+  function toggleLauncher(id = null) {
     if (launcherOpen) {
       closeLauncher()
     } else {
-      openLauncher(screen)
+      openLauncher(id)
     }
   }
 }
