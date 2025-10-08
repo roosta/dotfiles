@@ -8,6 +8,7 @@ import qs.components
 import qs.services
 
 Rectangle {
+  id: root
   required property SearchField search
   Layout.fillWidth: true
   Layout.fillHeight: true
@@ -19,8 +20,8 @@ Rectangle {
   color: "transparent"
   clip: true
 
-
   ListView {
+    id: list
     anchors.left: parent.left
     anchors.right: parent.right
     anchors.top: parent.top
@@ -28,7 +29,13 @@ Rectangle {
     anchors.topMargin: Appearance.spacing.p4
     anchors.bottomMargin: Appearance.spacing.p4
     spacing: Appearance.spacing.p2
-    model: AppSearch.list
+    // model: AppSearch.list
+    model: ScriptModel {
+      id: model
+      onValuesChanged: list.currentIndex = 0
+      values: AppSearch.fuzzyQuery(root.search.text)
+    }
+
     delegate: AppItem { }
 
     ScrollBar.vertical: ScrollBar {
