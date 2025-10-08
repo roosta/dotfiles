@@ -12,6 +12,7 @@ Singleton {
   property QtObject srcery
   property QtObject animationCurves
   property QtObject launcher
+  property QtObject durations
 
   srcery: QtObject {
     readonly property color black: "#121110"
@@ -75,6 +76,10 @@ Singleton {
     readonly property int p5: 24 * Config.scale
   }
 
+  durations: QtObject {
+    readonly property int normal: 400
+    readonly property int small: 200
+  }
   // https://github.com/end-4/dots-hyprland/blob/703697e1c40b66619fb224043891aade47494bb3/.config/quickshell/ii/modules/common/Appearance.qml#L225-L242
   animationCurves: QtObject {
     readonly property list<real> expressiveFastSpatial: [0.42, 1.67, 0.21, 0.90, 1, 1] // Default, 350ms
