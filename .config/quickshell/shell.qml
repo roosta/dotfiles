@@ -6,6 +6,7 @@ import qs.modules.bar
 import qs.modules.launcher
 import QtQuick
 import Quickshell.Wayland
+import Quickshell.Hyprland
 import qs.components
 import qs.utils
 import qs.config
@@ -36,9 +37,17 @@ ShellRoot {
 
         WlrLayershell.exclusionMode: ExclusionMode.Ignore
         WlrLayershell.keyboardFocus: GlobalState.launcherOpen
-          ? WlrKeyboardFocus.OnDemand
-          : WlrKeyboardFocus.None
+        ? WlrKeyboardFocus.OnDemand
+        : WlrKeyboardFocus.None
 
+        HyprlandFocusGrab {
+          id: grab
+          windows: [main]
+          active: GlobalState.launcherOpen && GlobalState.activeMonitorId === scope.monitorId
+          onCleared: {
+            GlobalState.closeLauncher();
+          }
+        }
         mask: Region {
           id: mask
           x: 0
@@ -80,7 +89,7 @@ ShellRoot {
           color: "transparent"
           anchors.fill: parent
           // color: Functions.transparentize("#000", 0.56)
-          
+
           Bar {
             id: bar
             monitorId: scope.monitorId 

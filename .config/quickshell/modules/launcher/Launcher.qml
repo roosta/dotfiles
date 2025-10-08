@@ -28,17 +28,6 @@ Item {
       }
     }
   }
-  // HyprlandFocusGrab {
-  //   id: grab
-  //   windows: [root]
-  //   property bool canBeActive: root.monitorIsFocused
-  //   active: false
-  //   onCleared: () => {
-  //     if (!active) {
-  //       GlobalState.closeLauncher();
-  //     }
-  //   }
-  // }
   MouseArea {
     anchors.fill: parent
     onClicked: {
