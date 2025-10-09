@@ -91,6 +91,7 @@ Item {
       anchors.fill: parent
       spacing: 0
       AppList { 
+        id: list
         search: search
       }
       BorderRectangle {
