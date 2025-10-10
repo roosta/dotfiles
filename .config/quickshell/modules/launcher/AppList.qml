@@ -9,7 +9,7 @@ import qs.services
 
 Rectangle {
   id: root
-  required property SearchField search
+  required property Input search
   Layout.fillWidth: true
   Layout.fillHeight: true
 

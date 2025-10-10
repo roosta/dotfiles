@@ -104,7 +104,7 @@ Item {
         Layout.bottomMargin: Appearance.bar.borderWidth
         borderColor: Appearance.srcery.gray3
         Layout.preferredHeight: search.implicitHeight + Appearance.spacing.p4 * 2
-        SearchField {
+        Input {
           id: search
           monitorId: root.monitorId
           anchors.centerIn: parent

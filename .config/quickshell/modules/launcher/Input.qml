@@ -10,11 +10,11 @@ import qs
 // import qs.components
 
 TextField {
+  required property string monitorId
   color: Appearance.srcery.brightWhite
   id: root
   // Layout.alignment: Qt.AlignHCenter
   renderType: TextField.NativeRendering
-  required property string monitorId
   cursorVisible: !readOnly
   placeholderTextColor: Appearance.srcery.gray3
   font.family: Appearance.font.light
