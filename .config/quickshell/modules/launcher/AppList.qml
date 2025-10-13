@@ -68,7 +68,9 @@ Item {
           contentItem: BorderRectangle {
             anchors.left: parent.left
             anchors.right: parent.right
-            color: Appearance.srcery.gray3
+            borderWidth: 1
+            color: Appearance.srcery.black
+            borderColor: Appearance.srcery.gray3
 
             MouseArea {
               id: mouse
