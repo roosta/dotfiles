@@ -6,6 +6,7 @@ import QtQuick
 import qs.config
 import qs.components
 import qs.services
+import qs.utils
 import qs
 
 Item {
@@ -34,20 +35,13 @@ Item {
       Layout.fillWidth: true
       Layout.fillHeight: true
 
-      Layout.topMargin: Appearance.bar.borderWidth
-      Layout.leftMargin: Appearance.spacing.p4 + Appearance.bar.borderWidth
-      Layout.rightMargin: Appearance.spacing.p4 + Appearance.bar.borderWidth
+      Layout.margins: Appearance.spacing.p4 + Appearance.bar.borderWidth
       color: "transparent"
       clip: true
 
       ListView {
         id: list
-
         anchors.fill: parent
-        anchors.topMargin: Appearance.spacing.p4
-        anchors.bottomMargin: Appearance.spacing.p4
-        orientation: Qt.Vertical
-        spacing: Appearance.spacing.p2
         highlightFollowsCurrentItem: true
         delegate: AppItem { }
         highlight: Rectangle {
