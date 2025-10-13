@@ -11,7 +11,7 @@ Item {
   required property DesktopEntry modelData
   anchors.left: parent?.left
   anchors.right: parent?.right
-  // anchors.rightMargin: Appearance.spacing.p2 + Appearance.spacing.p0
+  anchors.rightMargin: Appearance.spacing.p2 + Appearance.spacing.p1
   implicitHeight: Appearance.launcher.itemHeight
   Rectangle {
     anchors.fill: parent
