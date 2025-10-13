@@ -1,3 +1,4 @@
+pragma ComponentBehavior: Bound
 import Quickshell
 import QtQuick
 import QtQuick.Controls
@@ -7,6 +8,7 @@ import qs.config
 import qs
 import qs.utils
 import qs.components
+import qs.services
 
 Item {
   id: root
@@ -87,31 +89,8 @@ Item {
         // Consume the click event to prevent it from reaching the parent MouseArea
       }
     }
-    ColumnLayout {
-      anchors.fill: parent
-      spacing: 0
-      AppList { 
-        id: list
-        search: search
-      }
-      BorderRectangle {
-        Layout.alignment: Qt.AlignHCenter
-        Layout.fillWidth: true
-        color: Appearance.srcery.black
-        topBorder: Appearance.bar.borderWidth
-        Layout.leftMargin: Appearance.bar.borderWidth
-        Layout.rightMargin: Appearance.bar.borderWidth
-        Layout.bottomMargin: Appearance.bar.borderWidth
-        borderColor: Appearance.srcery.gray3
-        Layout.preferredHeight: search.implicitHeight + Appearance.spacing.p4 * 2
-        Input {
-          id: search
-          monitorId: root.monitorId
-          anchors.centerIn: parent
-          anchors.margins: Appearance.spacing.p4
-          Keys.onEscapePressed: GlobalState.closeLauncher()
-        }
-      }
+    AppList {
+      monitorId: root.monitorId
     }
   }
 }
