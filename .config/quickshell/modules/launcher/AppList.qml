@@ -64,7 +64,7 @@ Item {
         ScrollBar.vertical: ScrollBar {
           id: scroll
 
-          implicitWidth: Appearance.spacing.p0
+          implicitWidth: Appearance.spacing.p1
           contentItem: BorderRectangle {
             anchors.left: parent.left
             anchors.right: parent.right
@@ -159,7 +159,6 @@ Item {
         id: field
         anchors.centerIn: parent
         anchors.margins: Appearance.spacing.p4
-        Keys.onEscapePressed: GlobalState.closeLauncher()
         // Layout.alignment: Qt.AlignHCenter
         renderType: TextField.NativeRendering
         cursorVisible: !readOnly
@@ -173,6 +172,9 @@ Item {
           border.color: Appearance.srcery.gray3
         }
 
+        Keys.onEscapePressed: GlobalState.closeLauncher()
+        Keys.onUpPressed: list.decrementCurrentIndex()
+        Keys.onDownPressed: list.incrementCurrentIndex()
         Component.onCompleted: forceActiveFocus()
 
         cursorDelegate: Rectangle {
