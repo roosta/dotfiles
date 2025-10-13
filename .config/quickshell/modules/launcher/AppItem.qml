@@ -11,13 +11,13 @@ Item {
   required property DesktopEntry modelData
   anchors.left: parent?.left
   anchors.right: parent?.right
-  anchors.rightMargin: Appearance.spacing.p2 + Appearance.spacing.p0
+  // anchors.rightMargin: Appearance.spacing.p2 + Appearance.spacing.p0
   implicitHeight: Appearance.launcher.itemHeight
-  BorderRectangle {
+  Rectangle {
     anchors.fill: parent
-    color: Appearance.srcery.black
-    borderWidth: Appearance.bar.borderWidth
-    borderColor: Appearance.srcery.gray3
+    color: "transparent"
+    // border.width: 1
+    // border.color: Appearance.srcery.white
     RowLayout {
       anchors.fill: parent
       Layout.margins: Appearance.spacing.p2
