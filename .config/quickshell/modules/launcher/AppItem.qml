@@ -5,6 +5,7 @@ import QtQuick
 import qs
 import qs.config
 import qs.components
+import qs.services
 
 Item {
   id: root
@@ -21,6 +22,10 @@ Item {
     HoverHandler {
       id: hover
       cursorShape: Qt.PointingHandCursor
+    }
+    onClicked: {
+      AppSearch.launch(root.modelData)
+      GlobalState.closeLauncher()
     }
   }
   Rectangle {
