@@ -8,18 +8,19 @@ import qs.services
 Singleton {
   id: root
 
-  property QtObject icons
   property var aliases
+  property var icons
 
-  icons: QtObject {
-    property string missing: "image-missing"
-    property string workspace: "workspace-switcher-top-left"
+  icons: {
+    "missing": "image-missing",
+    "workspace": "workspace-switcher-top-left"
   }
 
   // icon aliases, if a class/appid matches key, use value
   // in cases where there isn't a good icon match
   aliases: {
-    "spotify-launcher": "spotify"
+    "spotify-launcher": "spotify",
+    "kando": "input-mouse"
   }
   function getAliasIcon(id) {
     const match = Object.entries(root.aliases)
@@ -28,7 +29,7 @@ Singleton {
   }
 
   // Choose the class with the most occurrences
-  function mostOccuringClass(arr){
+  function mostOccuringClass(arr) {
     return arr.sort((a,b) => 
     arr.filter(v => v===a).length - arr.filter(v => v===b).length).pop();
   }
@@ -38,6 +39,10 @@ Singleton {
     return Quickshell.iconPath(icon, root.icons.missing)
   }
 
+  function getEntryIcon(entry) {
+    const icon = getAliasIcon(entry.id) ?? entry?.icon
+    return Quickshell.iconPath(icon, root.icons.missing)
+  }
 
   function getWindowIcon(appId) {
     const icon = getAliasIcon(appId) ?? DesktopEntries.heuristicLookup(appId)?.icon
