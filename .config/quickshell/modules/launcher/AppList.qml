@@ -174,6 +174,13 @@ Item {
         Keys.onUpPressed: list.decrementCurrentIndex()
         Keys.onDownPressed: list.incrementCurrentIndex()
         Component.onCompleted: forceActiveFocus()
+        onAccepted: {
+          const currentItem = list?.currentItem;
+          if (currentItem) {
+            AppSearch.launch(currentItem.modelData);
+            GlobalState.closeLauncher()
+          }
+        }
 
         // https://github.com/caelestia-dots/shell/blob/fe4ebb79b6162d7e5e4e9a00d8a39ff10876fb8c/modules/launcher/Content.qml#L109
         Keys.onPressed: event => {
