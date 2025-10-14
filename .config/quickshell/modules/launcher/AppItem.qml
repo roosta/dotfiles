@@ -24,7 +24,7 @@ Item {
       cursorShape: Qt.PointingHandCursor
     }
     onClicked: {
-      AppSearch.launch(root.modelData)
+      Apps.launch(root.modelData)
       GlobalState.closeLauncher()
     }
   }
