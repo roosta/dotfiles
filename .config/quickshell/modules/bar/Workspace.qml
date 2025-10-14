@@ -7,7 +7,7 @@ import QtQuick.Layouts
 import QtQuick.Controls
 import Quickshell.Widgets
 import Quickshell.Hyprland
-// import qs.services
+import qs.services
 import qs.config
 import qs.components
 // import qs.widgets
@@ -70,7 +70,7 @@ Button {
       RowLayout {
         spacing: 0
         Repeater {
-          model: Icons.getWsIcons(root.workspaceId)
+          model: Apps.getWsIcons(root.workspaceId)
           Item {
             required property var modelData
             id: appIcon

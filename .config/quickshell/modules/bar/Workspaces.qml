@@ -117,7 +117,7 @@ BorderRectangle {
           property real calculatedWidth: {
             let isOccupied = occupied[workspaceId] ?? false;
             if (isOccupied) {
-              let iconCount = Icons.getWsIcons(workspaceId).length;
+              let iconCount = Apps.getWsIcons(workspaceId).length;
               return iconCount * (iconSize + Appearance.spacing.p3);
             } else {
               return iconSize + Appearance.spacing.p3;

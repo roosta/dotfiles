@@ -47,7 +47,7 @@ Item {
       spacing: 0
       IconImage {
         id: icon
-        source: Quickshell.iconPath(root.modelData?.icon, Icons.icons.missing)
+        source: Quickshell.iconPath(root.modelData?.icon, Apps.icons.missing)
         Layout.margins: Appearance.spacing.p2
         implicitWidth: icon.height
         Layout.fillHeight: true
