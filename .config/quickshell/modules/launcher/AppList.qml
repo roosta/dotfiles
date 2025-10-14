@@ -159,6 +159,7 @@ Item {
           model: Config.favorites
           Button {
             id: fav
+
             required property string modelData
             property DesktopEntry entry: Apps.getEntry(modelData)
             Layout.alignment: Qt.AlignHCenter
@@ -168,6 +169,24 @@ Item {
             // Layout.margins: Appearance.spacing.p2
             //
 
+
+            ToolTip {
+              id: control
+              font: Appearance.font.main
+              delay: 600
+              timeout: 4000
+              text: fav.entry?.name
+              visible: fav.hovered
+              contentItem: Text {
+                text: control.text
+                font: control.font
+                color: Appearance.srcery.brightWhite
+              }
+
+              background: Rectangle {
+                color: Appearance.srcery.gray1
+              }
+            }
             onPressed: {
               Apps.launch(entry)
               GlobalState.closeLauncher()
