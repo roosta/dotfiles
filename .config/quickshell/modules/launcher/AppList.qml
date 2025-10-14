@@ -178,7 +178,7 @@ Item {
               IconImage {
                 id: favicon
                 anchors.centerIn: parent
-                source: Quickshell.iconPath(fav.entry?.icon, Icons.icons.missing)
+                source: Quickshell.iconPath(fav.entry?.icon, Apps.icons.missing)
                 // implicitHeight: parent.height / 2
                 implicitWidth: parent.height - Appearance.spacing.p2 * 2
                 implicitHeight: parent.height - Appearance.spacing.p2 * 2

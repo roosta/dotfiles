@@ -36,9 +36,9 @@ Item {
         anchors.centerIn: parent
         source: {
           if (root.activeWindow?.activated) {
-            Icons.getWindowIcon(root.activeWindow?.appId)
+            Apps.getWindowIcon(root.activeWindow?.appId)
           } else {
-            return Icons.getIcon("workspace")
+            return Apps.getIcon("workspace")
           }
         }
         implicitSize: root.iconSize
