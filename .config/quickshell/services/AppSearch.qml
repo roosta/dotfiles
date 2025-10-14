@@ -5,11 +5,13 @@
 pragma Singleton
 import Quickshell
 import qs.utils
+import qs.config
 
 Singleton {
   id: root
+
   readonly property list<DesktopEntry> list: Array.from(DesktopEntries.applications.values)
-  .sort((a, b) => a.name.localeCompare(b.name))
+    .sort((a, b) => a.name.localeCompare(b.name))
 
   readonly property var preppedNames: list.map(a => ({
     name: Fuzzy.prepare(`${a.name} `),
@@ -24,4 +26,18 @@ Singleton {
       return r.obj.entry
     });
   }
+
+  function launch(entry: DesktopEntry) {
+    if (entry.runInTerminal)
+    Quickshell.execDetached({
+      command: [Config.shell, "-c", ...Config.terminal, ...entry.command],
+      workingDirectory: entry.workingDirectory
+    });
+    else
+    Quickshell.execDetached({
+      command: [Config.shell, "-c", ...entry.command],
+      workingDirectory: entry.workingDirectory
+    });
+  }
+
 }
