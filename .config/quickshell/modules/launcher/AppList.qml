@@ -54,7 +54,7 @@ Item {
         model: ScriptModel {
           id: model
           onValuesChanged: list.currentIndex = 0
-          values: AppSearch.fuzzyQuery(field.text)
+          values: Apps.fuzzyQuery(field.text)
         }
 
         ScrollBar.vertical: ScrollBar {
@@ -177,7 +177,7 @@ Item {
         onAccepted: {
           const currentItem = list?.currentItem;
           if (currentItem) {
-            AppSearch.launch(currentItem.modelData);
+            Apps.launch(currentItem.modelData);
             GlobalState.closeLauncher()
           }
         }
