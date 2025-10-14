@@ -50,8 +50,8 @@ Singleton {
   }
 
   launcher: QtObject {
-    readonly property int height: 600 * Config.scale
-    readonly property int width: 500 * Config.scale
+    readonly property int height: itemHeight * 15 * Config.scale
+    readonly property int width: 600 * Config.scale
     readonly property int itemHeight: 50 * Config.scale
   }
 

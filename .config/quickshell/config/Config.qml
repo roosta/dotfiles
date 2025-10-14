@@ -1,5 +1,7 @@
 pragma Singleton
 pragma ComponentBehavior: Bound
+
+import Quickshell.Io
 import Quickshell
 import QtQuick
 
@@ -14,4 +16,14 @@ Singleton {
     readonly property string center: "DP-1"
     readonly property string tv: "HDMI-A-2"
   }
+
+  // Move to something interactive via the menu, but this'll do for now
+  property var favorites: [
+    "firefox",
+    "firefox-media",
+    "steam",
+    "com.github.iwalton3.jellyfin-media-player",
+    "net.lutris.Lutris",
+    "com.discordapp.Discord"
+  ]
 }

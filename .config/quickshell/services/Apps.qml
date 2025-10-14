@@ -27,6 +27,10 @@ Singleton {
     });
   }
 
+  function getEntry(id) {
+    return DesktopEntries.byId(id)
+  }
+
   function launch(entry: DesktopEntry) {
     if (entry.runInTerminal)
     Quickshell.execDetached({
