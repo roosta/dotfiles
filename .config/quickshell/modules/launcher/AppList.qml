@@ -167,6 +167,11 @@ Item {
             Layout.preferredWidth: favicon.width + Appearance.spacing.p2 * 2
             // Layout.margins: Appearance.spacing.p2
             //
+
+            onPressed: {
+              Apps.launch(entry)
+              GlobalState.closeLauncher()
+            }
             HoverHandler {
               id: hover
               cursorShape: Qt.PointingHandCursor
