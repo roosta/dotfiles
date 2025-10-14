@@ -13,9 +13,27 @@ Item {
   anchors.right: parent?.right
   anchors.rightMargin: Appearance.spacing.p2 + Appearance.spacing.p1
   implicitHeight: Appearance.launcher.itemHeight
+  MouseArea {
+    id: mouse
+    anchors.fill: parent
+    hoverEnabled: true
+
+    HoverHandler {
+      id: hover
+      cursorShape: Qt.PointingHandCursor
+    }
+  }
   Rectangle {
     anchors.fill: parent
-    color: "transparent"
+    color: mouse.containsMouse ? Appearance.srcery.gray1 : Appearance.srcery.black
+    
+
+    Behavior on color {
+      ColorAnimation {
+        duration: 150
+        easing.type: Easing.OutQuad
+      }
+    }
     // border.width: 1
     // border.color: Appearance.srcery.white
     RowLayout {
