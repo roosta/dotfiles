@@ -173,6 +173,24 @@ Item {
         Keys.onDownPressed: list.incrementCurrentIndex()
         Component.onCompleted: forceActiveFocus()
 
+        // https://github.com/caelestia-dots/shell/blob/fe4ebb79b6162d7e5e4e9a00d8a39ff10876fb8c/modules/launcher/Content.qml#L109
+        Keys.onPressed: event => {
+          if (event.modifiers & Qt.ControlModifier) {
+            if (event.key === Qt.Key_J) {
+              list.incrementCurrentIndex();
+              event.accepted = true;
+            } else if (event.key === Qt.Key_K) {
+              list.decrementCurrentIndex();
+              event.accepted = true;
+            }
+          } else if (event.key === Qt.Key_Tab) {
+            list.incrementCurrentIndex();
+            event.accepted = true;
+          } else if (event.key === Qt.Key_Backtab || (event.key === Qt.Key_Tab && (event.modifiers & Qt.ShiftModifier))) {
+            list.decrementCurrentIndex();
+            event.accepted = true;
+          }
+        }
         cursorDelegate: Rectangle {
           id: cursor
           property bool disableBlink
