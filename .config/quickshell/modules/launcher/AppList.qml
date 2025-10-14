@@ -57,7 +57,7 @@ Item {
 
         ScrollBar.vertical: ScrollBar {
           id: scroll
-
+          padding: 0
           implicitWidth: Appearance.spacing.p1
           contentItem: BorderRectangle {
             anchors.left: parent.left
