@@ -18,7 +18,7 @@ Item {
     target: GlobalState
 
     function onLauncherOpenChanged() {
-      if (GlobalState.launcherOpen && GlobalState.activeMonitorId === field.monitorId) {
+      if (GlobalState.launcherOpen && GlobalState.activeMonitorId === root.monitorId) {
         field.forceActiveFocus();
       } else {
         field.text = ""
