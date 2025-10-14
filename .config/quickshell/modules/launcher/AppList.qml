@@ -42,6 +42,7 @@ Item {
       ListView {
         id: list
         anchors.fill: parent
+        reuseItems: true
         highlightFollowsCurrentItem: true
         delegate: AppItem { }
         highlight: Rectangle {
@@ -76,68 +77,68 @@ Item {
             }
           }
         }
-        add: Transition {
-          NumberAnimation {
-            properties: "opacity,scale"
-            easing.type: Easing.InCubic
-            duration: Appearance.durations.normal
-            from: 0
-            to: 1
-          }
-        }
-
-        move: Transition {
-          NumberAnimation {
-            properties: "y"
-            easing.type: Easing.InOutCubic
-            duration: Appearance.durations.normal
-          }
-
-          NumberAnimation {
-            properties: "opacity,scale"
-            easing.type: Easing.InOutCubic
-            duration: Appearance.durations.normal
-            to: 1
-          }
-        }
-        remove: Transition {
-          NumberAnimation {
-            properties: "opacity,scale"
-            easing.type: Easing.OutCubic
-            duration: Appearance.durations.normal
-            from: 0
-            to: 1
-          }
-        }
-
-        addDisplaced: Transition {
-          NumberAnimation {
-            property: "y"
-            easing.type: Easing.InOutCubic
-            duration: Appearance.durations.small
-          }
-          NumberAnimation {
-            properties: "opacity,scale"
-            to: 1
-            easing.type: Easing.InOutCubic
-            duration: Appearance.durations.normal
-          }
-        }
-
-        displaced: Transition {
-          NumberAnimation {
-            property: "y"
-            easing.type: Easing.InOutCubic
-            duration: Appearance.durations.normal
-          }
-          NumberAnimation {
-            properties: "opacity,scale"
-            to: 1
-
-            easing.type: Easing.InOutCubic
-            duration: Appearance.durations.normal
-          }
-        }
+        // add: Transition {
+        //   NumberAnimation {
+        //     properties: "opacity,scale"
+        //     easing.type: Easing.InCubic
+        //     duration: Appearance.durations.normal
+        //     from: 0
+        //     to: 1
+        //   }
+        // }
+        //
+        // move: Transition {
+        //   NumberAnimation {
+        //     properties: "y"
+        //     easing.type: Easing.InOutCubic
+        //     duration: Appearance.durations.normal
+        //   }
+        //
+        //   NumberAnimation {
+        //     properties: "opacity,scale"
+        //     easing.type: Easing.InOutCubic
+        //     duration: Appearance.durations.normal
+        //     to: 1
+        //   }
+        // }
+        // remove: Transition {
+        //   NumberAnimation {
+        //     properties: "opacity,scale"
+        //     easing.type: Easing.OutCubic
+        //     duration: Appearance.durations.normal
+        //     from: 0
+        //     to: 1
+        //   }
+        // }
+        //
+        // addDisplaced: Transition {
+        //   NumberAnimation {
+        //     property: "y"
+        //     easing.type: Easing.InOutCubic
+        //     duration: Appearance.durations.small
+        //   }
+        //   NumberAnimation {
+        //     properties: "opacity,scale"
+        //     to: 1
+        //     easing.type: Easing.InOutCubic
+        //     duration: Appearance.durations.normal
+        //   }
+        // }
+        //
+        // displaced: Transition {
+        //   NumberAnimation {
+        //     property: "y"
+        //     easing.type: Easing.InOutCubic
+        //     duration: Appearance.durations.normal
+        //   }
+        //   NumberAnimation {
+        //     properties: "opacity,scale"
+        //     to: 1
+        //
+        //     easing.type: Easing.InOutCubic
+        //     duration: Appearance.durations.normal
+        //   }
+        // }
       }
     }
     BorderRectangle {
