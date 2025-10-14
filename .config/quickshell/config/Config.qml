@@ -24,6 +24,8 @@ Singleton {
     "steam",
     "com.github.iwalton3.jellyfin-media-player",
     "net.lutris.Lutris",
-    "com.discordapp.Discord"
+    "com.discordapp.Discord",
+    "kando",
+    "org.mozilla.thunderbird"
   ]
 }

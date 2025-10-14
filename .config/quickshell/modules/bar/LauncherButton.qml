@@ -24,6 +24,11 @@ Button {
     GlobalState.toggleLauncher(root.monitorId)
   }
 
+  HoverHandler {
+    id: hover
+    cursorShape: Qt.PointingHandCursor
+  }
+
   background: BorderRectangle {
     id: outerRect
     color: Appearance.srcery.black

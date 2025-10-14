@@ -166,6 +166,11 @@ Item {
             Layout.fillHeight: true
             Layout.preferredWidth: favicon.width + Appearance.spacing.p2 * 2
             // Layout.margins: Appearance.spacing.p2
+            //
+            HoverHandler {
+              id: hover
+              cursorShape: Qt.PointingHandCursor
+            }
             background: Rectangle {
               id: bg
               color: "transparent"
@@ -184,8 +189,13 @@ Item {
 
             states: [
               State {
+                name: "pressed"
+                when: fav.pressed
+                PropertyChanges { bg.color: Appearance.srcery.gray2 }
+              },
+              State {
                 name: "hovered"
-                when: fav.hovered
+                when: fav.hovered && !fav.pressed
                 PropertyChanges { bg.color: Appearance.srcery.gray1 }
               }
             ]
