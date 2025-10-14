@@ -60,7 +60,7 @@ Item {
     implicitHeight: 0
     anchors.horizontalCenter: parent.horizontalCenter
     color: Appearance.srcery.black
-    borderWidth: 1
+    borderWidth: Appearance.bar.borderWidth
     borderGradient: Gradient {
       orientation: Gradient.Horizontal
       GradientStop { position: 0; color: Appearance.srcery.magenta }
