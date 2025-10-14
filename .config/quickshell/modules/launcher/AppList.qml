@@ -47,6 +47,7 @@ Item {
         delegate: AppItem { }
         highlight: Rectangle {
           color: "transparent"
+          z: 2
           border.color: Appearance.srcery.gray3
           border.width: Appearance.bar.borderWidth
         }
