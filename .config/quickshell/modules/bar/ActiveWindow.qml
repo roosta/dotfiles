@@ -36,7 +36,7 @@ Item {
         anchors.centerIn: parent
         source: {
           if (root.activeWindow?.activated) {
-            Apps.getWindowIcon(root.activeWindow?.appId)
+            Apps.lookupIcon(root.activeWindow?.appId)
           } else {
             return Apps.getIcon("workspace")
           }

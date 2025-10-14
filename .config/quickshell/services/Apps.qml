@@ -34,8 +34,9 @@ Singleton {
     arr.filter(v => v===a).length - arr.filter(v => v===b).length).pop();
   }
 
-  function getIcon(k) {
-    const icon = root.icons[k]
+  // 
+  function getIcon(key) {
+    const icon = root.icons[key]
     return Quickshell.iconPath(icon, root.icons.missing)
   }
 
@@ -44,7 +45,7 @@ Singleton {
     return Quickshell.iconPath(icon, root.icons.missing)
   }
 
-  function getWindowIcon(appId) {
+  function lookupIcon(appId) {
     const icon = getAliasIcon(appId) ?? DesktopEntries.heuristicLookup(appId)?.icon
     return Quickshell.iconPath(icon, root.icons.missing)
   }
