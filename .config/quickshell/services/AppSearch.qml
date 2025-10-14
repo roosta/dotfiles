@@ -30,14 +30,13 @@ Singleton {
   function launch(entry: DesktopEntry) {
     if (entry.runInTerminal)
     Quickshell.execDetached({
-      command: [Config.shell, "-c", ...Config.terminal, ...entry.command],
+      command: [Config.terminal, ...entry.command],
       workingDirectory: entry.workingDirectory
     });
     else
     Quickshell.execDetached({
-      command: [Config.shell, "-c", ...entry.command],
+      command: entry.command,
       workingDirectory: entry.workingDirectory
     });
   }
-
 }
