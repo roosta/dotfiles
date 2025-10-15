@@ -2,32 +2,44 @@ import QtQuick
 import QtQuick.Layouts
 import qs.services
 import qs.config
+import qs.components
 
-Item {
-  implicitWidth: childrenRect.width + Appearance.spacing.p2
-  implicitHeight: Appearance.bar.height
-  ColumnLayout {
-    anchors.verticalCenter: parent.verticalCenter
-    spacing: -4
-    Text {
-      Layout.alignment: Qt.AlignRight
-      font {
-        family: Appearance.font.light
-        pixelSize: Appearance.font.size2
+BorderRectangle {
+  implicitWidth: childrenRect.width
+  implicitHeight: Appearance.bar.height - Appearance.bar.borderWidth
+  // topBorder: Appearance.bar.borderWidth
+  rightBorder: Appearance.bar.borderWidth
+  Layout.topMargin: Appearance.bar.borderWidth
+  borderColor: Appearance.srcery.gray3
+  color: Appearance.srcery.black
+  Rectangle {
+    implicitWidth: childrenRect.width + Appearance.spacing.p1
+    implicitHeight: parent.height
+    color: "transparent"
+    ColumnLayout {
+      implicitHeight: Appearance.bar.height - Appearance.spacing.p1 * 2
+      spacing: -4
+      anchors.verticalCenter: parent.verticalCenter
+      Text {
+        Layout.alignment: Qt.AlignRight
+        font {
+          family: Appearance.font.main
+          pixelSize: Appearance.font.size3
+        }
+
+        color: Appearance.srcery.brightWhite
+        text: Time.time
       }
+      Text {
+        Layout.alignment: Qt.AlignRight
+        font {
+          family: Appearance.font.light
+          pixelSize: Appearance.font.size1
+        }
 
-      color: Appearance.srcery.brightWhite
-      text: Time.time
-    }
-    Text {
-      Layout.alignment: Qt.AlignRight
-      font {
-        family: Appearance.font.extraLight
-        pixelSize: Appearance.font.size2
+        color: Appearance.srcery.white
+        text: Time.date
       }
-
-      color: Appearance.srcery.white
-      text: Time.date
     }
   }
 
