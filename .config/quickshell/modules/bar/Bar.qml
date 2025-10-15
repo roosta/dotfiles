@@ -85,8 +85,9 @@ Item {
               Layout.fillHeight: true
               Layout.fillWidth: true
               RowLayout {
+                spacing: Appearance.spacing.p1
                 anchors.right: parent.right
-                anchors.rightMargin: Appearance.spacing.p2
+                anchors.rightMargin: Appearance.spacing.p1
                 Clock { }
                 TrayButton { }
               }
