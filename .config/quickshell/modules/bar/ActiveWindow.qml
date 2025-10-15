@@ -16,9 +16,6 @@ Item {
   readonly property Toplevel activeWindow: ToplevelManager.activeToplevel
   property string activeWindowAddress: `0x${activeWindow?.HyprlandToplevel?.address}`
   property bool focusingThisMonitor: HyprlandData.activeWorkspace?.monitor == monitor?.name
-
-  property int iconSize: 26 * Config.scale
-
   Layout.fillWidth: true
   Layout.fillHeight: true
   RowLayout {
@@ -41,7 +38,7 @@ Item {
             return Apps.getIcon("workspace")
           }
         }
-        implicitSize: root.iconSize
+        implicitSize: parent.height - Appearance.spacing.p3
       }
     }
     ColumnLayout {
