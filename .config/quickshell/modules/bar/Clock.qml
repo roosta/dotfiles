@@ -3,12 +3,16 @@ import QtQuick
 import qs.services
 import qs.config
 
-Text {
-  font {
-    family: Appearance.font.main
-    pixelSize: Appearance.font.size2
-  }
+Item {
+  implicitWidth: childrenRect.width + Appearance.spacing.p2
+  implicitHeight: Appearance.bar.height
+  Text {
+    anchors.verticalCenter: parent.verticalCenter
+    font {
+      family: Appearance.font.extraLight
+      pixelSize: 24
+    }
 
-  color: Appearance.srcery.brightWhite
-  text: Time.time
-}
+    color: Appearance.srcery.white
+    text: Time.time
+  }}

@@ -54,18 +54,12 @@ Item {
       id: primaryBar
       Rectangle {
         color: "transparent"
+        anchors.fill: parent
 
         RowLayout {
-          anchors {
-            top: parent.top
-            left: parent.left
-            bottom: parent.bottom
-            right: parent.right
-          }
+          anchors.fill: parent
           RowLayout {
             id: leftSection
-            Layout.fillWidth: true
-            Layout.fillHeight: true
             Loader {
               Layout.fillWidth: true
               Layout.fillHeight: true
@@ -87,8 +81,13 @@ Item {
           }
           RowLayout {
             id: rightSection
-
-            // Clock { }
+            Item {
+              Layout.fillHeight: true
+              Layout.fillWidth: true
+              Clock {
+                anchors.right: parent.right
+              }
+            }
           }
         } 
       }
@@ -125,46 +124,46 @@ Item {
           }
           RowLayout {
             id: rightSection
+          }
+        } 
+      }
+    }
+    Component {
+      id: leftBar
+      Rectangle {
+        color: "transparent"
 
+        RowLayout {
+          anchors {
+            top: parent.top
+            left: parent.left
+            bottom: parent.bottom
+            right: parent.right
+          }
+          RowLayout {
+            id: leftSection
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+            // ActiveWindow { }
+          }
+          RowLayout {
+            id: centerSection
+            spacing: Appearance.spacing.p1
+
+            // NotificationButton {}
+          }
+          RowLayout {
+            id: rightSection
+            spacing: Appearance.spacing.p1
+            Layout.rightMargin: Appearance.spacing.p1
+            Workspaces { 
+              monitorId: root.monitorId
+            }
+            LauncherButton { monitorId: root.monitorId }
+            // Clock { }
           }} 
         }
       }
-      Component {
-        id: leftBar
-        Rectangle {
-          color: "transparent"
-
-          RowLayout {
-            anchors {
-              top: parent.top
-              left: parent.left
-              bottom: parent.bottom
-              right: parent.right
-            }
-            RowLayout {
-              id: leftSection
-              Layout.fillWidth: true
-              Layout.fillHeight: true
-              // ActiveWindow { }
-            }
-            RowLayout {
-              id: centerSection
-              spacing: Appearance.spacing.p1
-
-              // NotificationButton {}
-            }
-            RowLayout {
-              id: rightSection
-              spacing: Appearance.spacing.p1
-              Layout.rightMargin: Appearance.spacing.p1
-              Workspaces { 
-                monitorId: root.monitorId
-              }
-              LauncherButton { monitorId: root.monitorId }
-              // Clock { }
-            }} 
-          }
-        }
-      }
+    }
 
 
