@@ -89,12 +89,48 @@ Item {
             id: rightSection
 
             // Clock { }
+          }
+        } 
+      }
+    }
+
+    Component {
+      id: rightBar
+      Rectangle {
+        color: "transparent"
+
+        RowLayout {
+          anchors {
+            top: parent.top
+            left: parent.left
+            bottom: parent.bottom
+            right: parent.right
+          }
+          RowLayout {
+            id: leftSection
+            spacing: Appearance.spacing.p1
+            Layout.leftMargin: Appearance.spacing.p1
+
+            LauncherButton { monitorId: root.monitorId }
+
+            Workspaces { 
+              monitorId: root.monitorId
+            }
+
+          }
+          RowLayout {
+            id: centerSection
+            spacing: Appearance.spacing.p1
+
+          }
+          RowLayout {
+            id: rightSection
+
           }} 
         }
       }
-
       Component {
-        id: rightBar
+        id: leftBar
         Rectangle {
           color: "transparent"
 
@@ -107,63 +143,28 @@ Item {
             }
             RowLayout {
               id: leftSection
-              spacing: Appearance.spacing.p1
-              Layout.leftMargin: Appearance.spacing.p1
-
-              LauncherButton { monitorId: root.monitorId }
-
-              Workspaces { 
-                monitorId: root.monitorId
-              }
-
+              Layout.fillWidth: true
+              Layout.fillHeight: true
+              // ActiveWindow { }
             }
             RowLayout {
               id: centerSection
               spacing: Appearance.spacing.p1
 
+              // NotificationButton {}
             }
             RowLayout {
               id: rightSection
-
+              spacing: Appearance.spacing.p1
+              Layout.rightMargin: Appearance.spacing.p1
+              Workspaces { 
+                monitorId: root.monitorId
+              }
+              LauncherButton { monitorId: root.monitorId }
+              // Clock { }
             }} 
           }
         }
-        Component {
-          id: leftBar
-          Rectangle {
-            color: "transparent"
-
-            RowLayout {
-              anchors {
-                top: parent.top
-                left: parent.left
-                bottom: parent.bottom
-                right: parent.right
-              }
-              RowLayout {
-                id: leftSection
-                Layout.fillWidth: true
-                Layout.fillHeight: true
-                // ActiveWindow { }
-              }
-              RowLayout {
-                id: centerSection
-                spacing: Appearance.spacing.p1
-
-                // NotificationButton {}
-              }
-              RowLayout {
-                id: rightSection
-                spacing: Appearance.spacing.p1
-                Layout.rightMargin: Appearance.spacing.p1
-                Workspaces { 
-                  monitorId: root.monitorId
-                }
-                LauncherButton { monitorId: root.monitorId }
-                // Clock { }
-              }} 
-            }
-          }
-        }
+      }
 
 
