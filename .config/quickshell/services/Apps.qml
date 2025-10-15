@@ -31,23 +31,23 @@ Singleton {
   }
 
   // Choose the class with the most occurrences
-  function mostOccuringClass(arr) {
+  function mostOccuringClass(arr: var): var {
     return arr.sort((a,b) => 
     arr.filter(v => v===a).length - arr.filter(v => v===b).length).pop();
   }
 
   // 
-  function getIcon(key) {
+  function getIcon(key: string): string {
     const icon = root.icons[key]
     return Quickshell.iconPath(icon, root.icons.missing)
   }
 
-  function getEntryIcon(entry) {
+  function getEntryIcon(entry: DesktopEntry): string {
     const icon = getAliasIcon(entry.id) ?? entry?.icon
     return Quickshell.iconPath(icon, root.icons.missing)
   }
 
-  function lookupIcon(appId) {
+  function lookupIcon(appId: string): string {
     const icon = getAliasIcon(appId) ?? getEntry(appId)?.icon
     return Quickshell.iconPath(icon, root.icons.missing)
   }
@@ -83,20 +83,21 @@ Singleton {
     });
   }
 
-  function getEntry(id) {
+  function getEntry(id: string): DesktopEntry {
     return DesktopEntries.heuristicLookup(id)
   }
 
-  function launch(entry: DesktopEntry) {
-    if (entry.runInTerminal)
-    Quickshell.execDetached({
-      command: [Config.terminal, ...entry.command],
-      workingDirectory: entry.workingDirectory
-    });
-    else
-    Quickshell.execDetached({
-      command: entry.command,
-      workingDirectory: entry.workingDirectory
-    });
+  function launch(entry: DesktopEntry): void {
+    if (entry.runInTerminal) {
+      Quickshell.execDetached({
+        command: [Config.terminal, ...entry.command],
+        workingDirectory: entry.workingDirectory
+      });
+    } else {
+      Quickshell.execDetached({
+        command: entry.command,
+        workingDirectory: entry.workingDirectory
+      });
+    }
   }
 }
