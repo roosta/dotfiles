@@ -8,6 +8,8 @@ import qs.services
 Singleton {
   id: root
 
+  readonly property bool ready: DesktopEntries.applications.values.length > 0
+
   property var aliases
   property var icons
 
@@ -46,7 +48,7 @@ Singleton {
   }
 
   function lookupIcon(appId) {
-    const icon = getAliasIcon(appId) ?? DesktopEntries.heuristicLookup(appId)?.icon
+    const icon = getAliasIcon(appId) ?? getEntry(appId)?.icon
     return Quickshell.iconPath(icon, root.icons.missing)
   }
 
@@ -64,13 +66,13 @@ Singleton {
     })
     return icons.map(icon => Quickshell.iconPath(icon, root.icons.missing))
   }
-  readonly property list<DesktopEntry> list: Array.from(DesktopEntries.applications.values)
-  .sort((a, b) => a.name.localeCompare(b.name))
+  readonly property list<DesktopEntry> list: ready ? 
+    Array.from(DesktopEntries.applications.values).sort((a, b) => a.name.localeCompare(b.name)) : 
+    []
 
-  readonly property var preppedNames: list.map(a => ({
-    name: Fuzzy.prepare(`${a.name} `),
-    entry: a
-  }))
+  readonly property var preppedNames: ready ? 
+    list.map(a => ({ name: Fuzzy.prepare(`${a.name} `), entry: a })) : 
+    []
 
   function fuzzyQuery(search: string): var { // Idk why list<DesktopEntry> doesn't work
     return Fuzzy.go(search, preppedNames, {
@@ -82,7 +84,7 @@ Singleton {
   }
 
   function getEntry(id) {
-    return DesktopEntries.byId(id)
+    return DesktopEntries.heuristicLookup(id)
   }
 
   function launch(entry: DesktopEntry) {

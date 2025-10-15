@@ -10,6 +10,7 @@ import Quickshell.Hyprland
 import qs.components
 import qs.utils
 import qs.config
+import qs.services
 import qs
 
 ShellRoot {
@@ -94,9 +95,13 @@ ShellRoot {
             id: bar
             monitorId: scope.monitorId 
           }
-          Launcher { 
-            id: launcher
-            monitorId: scope.monitorId
+          Loader {
+            active: Apps.ready
+            anchors.fill: parent
+            sourceComponent: Launcher { 
+              id: launcher
+              monitorId: scope.monitorId
+            }
           }
         }
       }

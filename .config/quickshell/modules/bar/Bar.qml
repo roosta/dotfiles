@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Layouts
 import Quickshell
 import qs.components
+import qs.services
 import qs.config
 pragma ComponentBehavior: Bound
 
@@ -65,7 +66,12 @@ Item {
             id: leftSection
             Layout.fillWidth: true
             Layout.fillHeight: true
-            ActiveWindow { }
+            Loader {
+              Layout.fillWidth: true
+              Layout.fillHeight: true
+              active: Apps.ready
+              sourceComponent: ActiveWindow { }
+            }
           }
           RowLayout {
             id: centerSection
