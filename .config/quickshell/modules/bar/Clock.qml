@@ -1,18 +1,34 @@
 import QtQuick
-// import QtQuick.Layouts
+import QtQuick.Layouts
 import qs.services
 import qs.config
 
 Item {
   implicitWidth: childrenRect.width + Appearance.spacing.p2
   implicitHeight: Appearance.bar.height
-  Text {
+  ColumnLayout {
     anchors.verticalCenter: parent.verticalCenter
-    font {
-      family: Appearance.font.extraLight
-      pixelSize: 24
-    }
+    spacing: -4
+    Text {
+      Layout.alignment: Qt.AlignRight
+      font {
+        family: Appearance.font.light
+        pixelSize: Appearance.font.size2
+      }
 
-    color: Appearance.srcery.white
-    text: Time.time
-  }}
+      color: Appearance.srcery.brightWhite
+      text: Time.time
+    }
+    Text {
+      Layout.alignment: Qt.AlignRight
+      font {
+        family: Appearance.font.extraLight
+        pixelSize: Appearance.font.size2
+      }
+
+      color: Appearance.srcery.white
+      text: Time.date
+    }
+  }
+
+}
