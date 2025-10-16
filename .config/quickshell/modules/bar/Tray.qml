@@ -13,7 +13,14 @@ BorderRectangle {
   borderColor: Appearance.srcery.gray3
   borderWidth: Appearance.bar.borderWidth
   Layout.topMargin: Appearance.bar.borderWidth
-  implicitWidth: layout.implicitWidth
+  implicitWidth: {
+
+    if (root.active) {
+      return layout.implicitWidth + Appearance.spacing.p3
+    } else {
+      return layout.implicitWidth
+    }
+  }
   implicitHeight: Appearance.bar.height - Appearance.spacing.p3
   property bool active: false
 
@@ -57,7 +64,7 @@ BorderRectangle {
 
   RowLayout {
     id: layout
-    spacing: Appearance.spacing.p2
+    spacing: Appearance.spacing.p3
     Button {
       id: button
       implicitHeight: root.height
