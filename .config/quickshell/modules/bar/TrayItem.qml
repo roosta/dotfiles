@@ -15,16 +15,26 @@ MouseArea {
   implicitHeight: Appearance.font.size3
   
   onClicked: event => {
-    if (event.button === Qt.LeftButton)
-      modelData.activate();
-    else
-      modelData.secondaryActivate();
+    switch (event.button) {
+      case Qt.LeftButton:
+        modelData.activate();
+      break;
+      case Qt.RightButton:
+        const win = root.QsWindow?.window
+        if (modelData.hasMenu) {
+          modelData.display(
+            win,
+            win.width - Appearance.spacing.p1,
+            win.height - Appearance.bar.height - Appearance.spacing.p1
+          );
+        }
+      break;
+    }
+    event.accepted = true;
   }
   IconImage {
     id: icon
     anchors.fill: parent
     source: root.modelData.icon
-    // Layout.margins: Appearance.spacing.p2
-    // implicitWidth: icon.height
   }
 }

@@ -1,4 +1,5 @@
 //@ pragma Env QS_NO_RELOAD_POPUP=1
+//@ pragma UseQApplication
 //@ pragma IconTheme candy-icons
 
 pragma ComponentBehavior: Bound
