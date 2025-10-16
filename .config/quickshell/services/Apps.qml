@@ -10,24 +10,19 @@ Singleton {
 
   readonly property bool ready: DesktopEntries.applications.values.length > 0
 
-  property var aliases
+  readonly property list<DesktopEntry> list: ready ? 
+    Array.from(DesktopEntries.applications.values).sort((a, b) => a.name.localeCompare(b.name)) : 
+    []
+
+  readonly property var preppedNames: ready ? 
+    list.map(a => ({ name: Fuzzy.prepare(`${a.name} `), entry: a })) : 
+    []
+
   property var icons
 
   icons: {
     "missing": "image-missing",
     "workspace": "workspace-switcher-top-left"
-  }
-
-  // icon aliases, if a class/appid matches key, use value
-  // in cases where there isn't a good icon match
-  aliases: {
-    "spotify-launcher": "spotify",
-    "kando": "input-mouse"
-  }
-  function getAliasIcon(id) {
-    const match = Object.entries(root.aliases)
-    .find(([k, v]) => k.includes(id.toLowerCase()))
-    return match?.[1]
   }
 
   // Choose the class with the most occurrences
@@ -43,12 +38,12 @@ Singleton {
   }
 
   function getEntryIcon(entry: DesktopEntry): string {
-    const icon = getAliasIcon(entry.id) ?? entry?.icon
+    const icon = Config.getAlias(entry.id) ?? entry?.icon
     return Quickshell.iconPath(icon, root.icons.missing)
   }
 
   function lookupIcon(appId: string): string {
-    const icon = getAliasIcon(appId) ?? getEntry(appId)?.icon
+    const icon = Config.getAlias(appId) ?? getEntry(appId)?.icon
     return Quickshell.iconPath(icon, root.icons.missing)
   }
 
@@ -61,18 +56,11 @@ Singleton {
     }).map(w => w?.class)
     const uniq = [...new Set(classes)]
     const icons = uniq.map(id => {
-      const alias = getAliasIcon(id)
-      return getAliasIcon(id) ?? DesktopEntries.heuristicLookup(id)?.icon
+      const alias = Config.getAlias(id)
+      return Config.getAlias(id) ?? DesktopEntries.heuristicLookup(id)?.icon
     })
     return icons.map(icon => Quickshell.iconPath(icon, root.icons.missing))
   }
-  readonly property list<DesktopEntry> list: ready ? 
-    Array.from(DesktopEntries.applications.values).sort((a, b) => a.name.localeCompare(b.name)) : 
-    []
-
-  readonly property var preppedNames: ready ? 
-    list.map(a => ({ name: Fuzzy.prepare(`${a.name} `), entry: a })) : 
-    []
 
   function fuzzyQuery(search: string): var { // Idk why list<DesktopEntry> doesn't work
     return Fuzzy.go(search, preppedNames, {
@@ -82,6 +70,7 @@ Singleton {
       return r.obj.entry
     });
   }
+
 
   function getEntry(id: string): DesktopEntry {
     return DesktopEntries.heuristicLookup(id)
