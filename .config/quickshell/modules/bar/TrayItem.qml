@@ -1,6 +1,7 @@
 pragma ComponentBehavior: Bound
 
 import qs.config
+import qs.services
 
 import Quickshell.Widgets
 import Quickshell.Services.SystemTray
@@ -35,6 +36,15 @@ MouseArea {
   IconImage {
     id: icon
     anchors.fill: parent
-    source: root.modelData.icon
+    source: {
+      // TODO: make better
+      // NOTE: spotify tray icon doesn't load properly, qs sprews out a bunch
+      // of warnings, but it isn't null, it is an icon path, just cant load it
+      if (root.modelData.id === "spotify-client") {
+        return Apps.lookupIcon("spotify")
+
+      }
+      return root.modelData.icon
+    }
   }
 }
