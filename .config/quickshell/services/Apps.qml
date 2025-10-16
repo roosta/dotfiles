@@ -18,9 +18,7 @@ Singleton {
     list.map(a => ({ name: Fuzzy.prepare(`${a.name} `), entry: a })) : 
     []
 
-  property var icons
-
-  icons: {
+  readonly property var icons: {
     "missing": "image-missing",
     "workspace": "workspace-switcher-top-left"
   }

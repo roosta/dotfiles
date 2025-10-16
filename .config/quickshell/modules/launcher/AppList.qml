@@ -52,7 +52,7 @@ Item {
           border.width: Appearance.bar.borderWidth
         }
         model: ScriptModel {
-          id: model
+          id: listData
           onValuesChanged: list.currentIndex = 0
           values: Apps.fuzzyQuery(field.text)
         }
