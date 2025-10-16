@@ -23,7 +23,7 @@ BorderRectangle {
       Text {
         Layout.alignment: Qt.AlignRight
         font {
-          family: Appearance.font.main
+          family: Appearance.font.light
           pixelSize: Appearance.font.size3
         }
 
