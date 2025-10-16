@@ -1,19 +1,11 @@
-// import qs.services
 pragma ComponentBehavior: Bound
 import qs.config
-// import qs.utils
 import qs.components
 import QtQuick
-// import QtQuick.Controls
 import QtQuick.Layouts
-// import QtQuick.Shapes
 import Quickshell.Services.SystemTray
 
 import QtQuick.Controls
-// import Quickshell
-// import Quickshell.Hyprland
-// import Quickshell.Wayland
-// import Quickshell.Widgets
 
 BorderRectangle {
   id: root
@@ -25,33 +17,13 @@ BorderRectangle {
   implicitHeight: Appearance.bar.height - Appearance.spacing.p3
   property bool active: false
 
-    // MouseArea {
-    //   anchors.fill: parent
-    //   hoverEnabled: true
-    //   id: mouse
-    //   cursorShape: Qt.PointingHandCursor
-    //   onClicked: {
-    //     if (!root.active) {
-    //       root.active = true
-    //     }
-    //   }
-    // }
-  states: [
-    State {
-      name: "active"
-      when: root.active
-      PropertyChanges { indicator.color: Appearance.srcery.white }
-      PropertyChanges {  indicator.text: "❯" }
-    },
-    State {
-      name: "hovered"
-      when: button.hovered
-      PropertyChanges { buttonBg.borderColor: Appearance.srcery.gray6 }
-      PropertyChanges { indicator.color: Appearance.srcery.white }
+  Behavior on implicitWidth {
+    NumberAnimation {
+      duration: 200
+      easing.type: Easing.InOutCubic
     }
-  ]
-
-  RowLayout {
+  }
+    RowLayout {
     id: layout
     spacing: Appearance.spacing.p2
     Button {
@@ -66,6 +38,38 @@ BorderRectangle {
         id: hover
         cursorShape: Qt.PointingHandCursor
       }
+      states: [
+        State {
+          name: "default"
+          when: !root.active && !button.hovered
+          PropertyChanges { indicator.color: Appearance.srcery.brightBlack }
+          PropertyChanges { indicator.text: SystemTray.items.values.length }
+          PropertyChanges { buttonBg.borderColor: Appearance.srcery.gray3 }
+        },
+        State {
+          name: "hovered"
+          when: !root.active && button.hovered
+          PropertyChanges { indicator.color: Appearance.srcery.white }
+          PropertyChanges { indicator.text: SystemTray.items.values.length }
+          PropertyChanges { buttonBg.borderColor: Appearance.srcery.gray6 }
+        },
+        State {
+          name: "active"
+          when: root.active && !button.hovered
+          PropertyChanges { indicator.color: Appearance.srcery.white }
+          PropertyChanges { indicator.text: "❯" }
+          PropertyChanges { buttonBg.borderColor: Appearance.srcery.gray3 }
+        },
+        State {
+          name: "activeHovered"
+          when: root.active && button.hovered
+          PropertyChanges { indicator.color: Appearance.srcery.white }
+          PropertyChanges { indicator.text: "❯" }
+          PropertyChanges { buttonBg.borderColor: Appearance.srcery.gray6 }
+        }
+      ]
+
+
       background: BorderRectangle {
         id: buttonBg
         color: Appearance.srcery.black
@@ -74,7 +78,6 @@ BorderRectangle {
         Text {
           anchors.centerIn: parent
           id: indicator
-          text: SystemTray.items.values.length
           color: Appearance.srcery.brightBlack
           font {
             family: Appearance.font.light
