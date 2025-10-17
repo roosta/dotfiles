@@ -18,6 +18,10 @@ BorderRectangle {
   property PwNode sink: Pipewire.defaultAudioSink
   property PwNode source: Pipewire.defaultAudioSource
 
+  PwObjectTracker {
+    objects: [root.sink, root.source]
+  }
+
   implicitWidth: {
     if (root.active) {
       return layout.implicitWidth + Appearance.spacing.p3
@@ -153,9 +157,10 @@ BorderRectangle {
       id: volumeSlider
       visible: root.active
       implicitWidth: 120
-      from: 1
-      value: 25
-      to: 100
+      from: 0
+      value: root.sink?.audio.volume ?? 0
+      onMoved: root.sink.audio.volume = value
+      to: 1
       HoverHandler {
         cursorShape: Qt.PointingHandCursor
       }
