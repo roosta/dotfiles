@@ -21,18 +21,18 @@ BorderRectangle {
       return layout.implicitWidth
     }
   }
-  MouseArea {
-    anchors.fill: parent
-  }
+
   implicitHeight: Appearance.bar.height - Appearance.spacing.p3
   property bool active: false
 
   onActiveChanged: {
     if (root.active) {
       timer.restart()
-
     }
   }
+
+  // Automatically close after 30 seconds
+  // TODO: Should be open when menu is visible, or inside mouse area
   Timer {
     id: timer
     interval: 1000 * 30
@@ -50,28 +50,24 @@ BorderRectangle {
     State {
       name: "default"
       when: !root.active && !button.hovered
-      PropertyChanges { indicator.color: Appearance.srcery.brightBlack }
       PropertyChanges { indicator.text: SystemTray.items.values.length }
       PropertyChanges { buttonBg.borderColor: Appearance.srcery.gray3 }
     },
     State {
       name: "hovered"
       when: !root.active && button.hovered
-      PropertyChanges { indicator.color: Appearance.srcery.white }
       PropertyChanges { indicator.text: SystemTray.items.values.length }
       PropertyChanges { buttonBg.borderColor: Appearance.srcery.gray6 }
     },
     State {
       name: "active"
       when: root.active && !button.hovered
-      PropertyChanges { indicator.color: Appearance.srcery.white }
       PropertyChanges { indicator.text: "❯" }
       PropertyChanges { buttonBg.borderColor: Appearance.srcery.gray3 }
     },
     State {
       name: "activeHovered"
       when: root.active && button.hovered
-      PropertyChanges { indicator.color: Appearance.srcery.white }
       PropertyChanges { root.borderColor: Appearance.srcery.gray6 }
       PropertyChanges { indicator.text: "❯" }
       PropertyChanges { buttonBg.borderColor: Appearance.srcery.gray6 }
@@ -101,7 +97,7 @@ BorderRectangle {
         Text {
           anchors.centerIn: parent
           id: indicator
-          color: Appearance.srcery.brightBlack
+          color: Appearance.srcery.white
           font {
             family: Appearance.font.light
             pixelSize: Appearance.font.size3
