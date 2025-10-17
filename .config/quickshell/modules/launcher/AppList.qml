@@ -21,8 +21,12 @@ Item {
     function onLauncherOpenChanged() {
       if (GlobalState.launcherOpen && GlobalState.activeMonitorId === root.monitorId) {
         field.forceActiveFocus();
+        list.highlightMoveDuration = 1000
       } else {
         field.text = ""
+        list.highlightMoveDuration = 0
+        list.positionViewAtBeginning()
+        list.currentIndex = 0
       }
     }
   }
@@ -53,7 +57,10 @@ Item {
         }
         model: ScriptModel {
           id: listData
-          onValuesChanged: list.currentIndex = 0
+          onValuesChanged: {
+            list.currentIndex = 0
+            list.positionViewAtBeginning()
+          }
           values: Apps.fuzzyQuery(field.text)
         }
 
