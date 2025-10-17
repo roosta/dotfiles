@@ -32,8 +32,12 @@ Singleton {
   ]
 
   function getSinkIcon(sink) {
-    const obj = outputs.find(o => o.name == sink.name);
-    if (obj) { return obj.icon } 
+    if (sink) {
+      const obj = outputs.find(o => o.name == sink.name);
+      if (obj) { return obj.icon } 
+    } else {
+      return ""
+    }
   }
 
   // icon aliases, if a class/appid matches key, use value

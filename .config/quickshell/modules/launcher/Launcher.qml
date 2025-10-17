@@ -18,7 +18,11 @@ Item {
   anchors.fill: parent
   anchors.bottomMargin: Appearance.bar.height + Appearance.spacing.p1
   property bool monitorIsFocused: (Hyprland.focusedMonitor?.id === monitorId)
+  property string query: ""
+  property int currentIndex: 0
+  property ListWrapper currentList: appList.item
 
+  state: "apps"
   GlobalShortcut {
     name: "toggleLauncher"
     description: "Toggles launcher"
@@ -72,6 +76,29 @@ Item {
         name: "active"
         when: GlobalState.launcherOpen && GlobalState.activeMonitorId === root.monitorId
         PropertyChanges { launcher.implicitHeight: Appearance.launcher.height }
+      },
+      State {
+        name: "apps"
+
+        PropertyChanges {
+          // root.implicitWidth: Config.launcher.sizes.itemWidth
+          // root.implicitHeight: Math.min(root.maxHeight, appList.implicitHeight > 0 ? appList.implicitHeight : empty.implicitHeight)
+          appList.active: true
+        }
+
+        // AnchorChanges {
+        //   anchors.left: root.parent.left
+        //   anchors.right: root.parent.right
+        // }
+      },
+      State {
+        name: "audio"
+
+        // PropertyChanges {
+        //   root.implicitWidth: Math.max(Config.launcher.sizes.itemWidth * 1.2, wallpaperList.implicitWidth)
+        //   root.implicitHeight: Config.launcher.sizes.wallpaperHeight
+        //   wallpaperList.active: true
+        // }
       }
     ]
     transitions: [
@@ -89,8 +116,38 @@ Item {
         // Consume the click event to prevent it from reaching the parent MouseArea
       }
     }
-    AppList {
-      monitorId: root.monitorId
+
+    ColumnLayout {
+      anchors.fill: parent
+      spacing: 0
+      Loader {
+        id: appList
+        active: true
+        Layout.fillWidth: true
+        Layout.fillHeight: true
+        sourceComponent: AppList {
+          monitorId: root.monitorId
+          searchQuery: root.query
+        }
+      }
+      LauncherField {
+        onTextChanged: root.query = text
+        onIncrementCurrentIndex: {
+          root.currentList.list.incrementCurrentIndex()
+        }
+        onDecrementCurrentIndex: {
+          root.currentList.list.decrementCurrentIndex()
+        }
+        onAccepted: {
+          const currentItem = root.currentList.list?.currentItem;
+          if (currentItem) {
+            Apps.launch(currentItem.modelData);
+            GlobalState.closeLauncher()
+          }
+        }
+      }
+
+
     }
   }
 }
