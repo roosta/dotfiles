@@ -21,9 +21,25 @@ BorderRectangle {
       return layout.implicitWidth
     }
   }
+  MouseArea {
+    anchors.fill: parent
+  }
   implicitHeight: Appearance.bar.height - Appearance.spacing.p3
   property bool active: false
 
+  onActiveChanged: {
+    if (root.active) {
+      timer.restart()
+
+    }
+  }
+  Timer {
+    id: timer
+    interval: 1000 * 30
+    onTriggered: {
+      root.active = false
+    }
+  }
   Behavior on implicitWidth {
     NumberAnimation {
       duration: 200
