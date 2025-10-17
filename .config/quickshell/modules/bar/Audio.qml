@@ -112,7 +112,7 @@ BorderRectangle {
     BorderRectangle {
       id: srcBtn
       visible: root.active
-      implicitWidth: parent.height * 0.5
+      implicitWidth: childrenRect.width
       implicitHeight: implicitWidth
       color: Appearance.srcery.black
       states: [
@@ -148,6 +148,45 @@ BorderRectangle {
         }
       }
 
+    }
+    Slider {
+      id: volumeSlider
+      visible: root.active
+      implicitWidth: 120
+      from: 1
+      value: 25
+      to: 100
+      HoverHandler {
+        cursorShape: Qt.PointingHandCursor
+      }
+      background: Rectangle {
+        x: volumeSlider.leftPadding
+        y: volumeSlider.topPadding + volumeSlider.availableHeight / 2 - height / 2
+        implicitWidth: 200
+        implicitHeight: 10
+        width: volumeSlider.availableWidth
+        height: implicitHeight
+        color: Appearance.srcery.gray3
+
+        Rectangle {
+          width: volumeSlider.visualPosition * parent.width
+          height: parent.height
+          gradient: Gradient {
+            orientation: Gradient.Horizontal
+            GradientStop { position: 1; color: Appearance.srcery.magenta }
+            GradientStop { position: 0; color: Appearance.srcery.blue }
+          }
+        }
+      }
+      handle: Rectangle {
+        x: volumeSlider.leftPadding + volumeSlider.visualPosition * (volumeSlider.availableWidth - width)
+        y: volumeSlider.topPadding + volumeSlider.availableHeight / 2 - height / 2
+        implicitWidth: 16
+        implicitHeight: parent.height
+        radius: 0
+        color: volumeSlider.pressed ? Appearance.srcery.brightMagenta : Appearance.srcery.magenta
+        // border.color: Appearance.srcery.magenta
+      }
     }
     // Repeater {
     //   id: items
