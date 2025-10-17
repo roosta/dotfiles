@@ -116,8 +116,8 @@ BorderRectangle {
     BorderRectangle {
       id: srcBtn
       visible: root.active
-      implicitWidth: childrenRect.width
-      implicitHeight: implicitWidth
+      implicitWidth: srcBtnText.implicitWidth
+      implicitHeight: srcBtnText.implicitHeight
       color: Appearance.srcery.black
       states: [
         State {
@@ -168,7 +168,7 @@ BorderRectangle {
         x: volumeSlider.leftPadding
         y: volumeSlider.topPadding + volumeSlider.availableHeight / 2 - height / 2
         implicitWidth: 200
-        implicitHeight: 10
+        implicitHeight: Appearance.spacing.p3
         width: volumeSlider.availableWidth
         height: implicitHeight
         color: Appearance.srcery.gray3
@@ -186,8 +186,8 @@ BorderRectangle {
       handle: Rectangle {
         x: volumeSlider.leftPadding + volumeSlider.visualPosition * (volumeSlider.availableWidth - width)
         y: volumeSlider.topPadding + volumeSlider.availableHeight / 2 - height / 2
-        implicitWidth: 16
-        implicitHeight: parent.height
+        implicitWidth: Appearance.spacing.p4
+        implicitHeight: Appearance.spacing.p3
         radius: 0
         color: volumeSlider.pressed ? Appearance.srcery.brightMagenta : Appearance.srcery.magenta
         // border.color: Appearance.srcery.magenta
