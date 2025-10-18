@@ -10,11 +10,11 @@ import qs.services
 // import qs.utils
 import qs
 
-ListWrapper {
+Item {
   id: root
   required property string monitorId
   required property string searchQuery
-  list: list
+  property alias list: list
   anchors.fill: parent
 
   Connections {
