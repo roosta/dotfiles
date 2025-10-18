@@ -48,7 +48,16 @@ Item {
         anchors.fill: parent
         reuseItems: true
         highlightFollowsCurrentItem: true
-        delegate: AppItem { }
+        delegate: ListItem { 
+          required property DesktopEntry modelData
+          iconSource: Apps.getEntryIcon(modelData)
+          name: modelData?.name ?? ""
+          description: (modelData?.comment || modelData?.genericName || modelData?.name) ?? ""
+          onClicked: {
+            Apps.launch(modelData)
+            GlobalState.closeLauncher()
+          }
+        }
         highlight: Rectangle {
           color: "transparent"
           z: 2

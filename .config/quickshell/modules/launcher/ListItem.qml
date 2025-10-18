@@ -4,16 +4,19 @@ import QtQuick.Layouts
 import QtQuick
 import qs
 import qs.config
-import qs.components
-import qs.services
+// import qs.components
+// import qs.services
 
 Item {
   id: root
-  required property DesktopEntry modelData
+  required property string name
+  required property string description
   anchors.left: parent?.left
   anchors.right: parent?.right
   anchors.rightMargin: Appearance.spacing.p2 + Appearance.spacing.p1
   implicitHeight: Appearance.launcher.itemHeight
+  signal clicked()
+  property alias iconSource: icon.source
   MouseArea {
     id: mouse
     anchors.fill: parent
@@ -24,8 +27,7 @@ Item {
       cursorShape: Qt.PointingHandCursor
     }
     onClicked: {
-      Apps.launch(root.modelData)
-      GlobalState.closeLauncher()
+      root.clicked()
     }
   }
   Rectangle {
@@ -47,7 +49,6 @@ Item {
       spacing: 0
       IconImage {
         id: icon
-        source: Apps.getEntryIcon(root.modelData)
         Layout.margins: Appearance.spacing.p2
         implicitWidth: icon.height
         Layout.fillHeight: true
@@ -58,7 +59,7 @@ Item {
         Layout.fillWidth: true
         Text {
           id: name
-          text: root.modelData?.name ?? ""
+          text: root.name
           color: Appearance.srcery.brightWhite
           font {
             family: Appearance.font.main
@@ -68,7 +69,7 @@ Item {
         Text {
           color: Appearance.srcery.white
           elide: Text.ElideRight
-          text: (root.modelData?.comment || root.modelData?.genericName || root.modelData?.name) ?? ""
+          text: root.description
           Layout.fillWidth: true
           font {
             family: Appearance.font.light
