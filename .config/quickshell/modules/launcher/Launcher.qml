@@ -20,9 +20,13 @@ Item {
   property bool monitorIsFocused: (Hyprland.focusedMonitor?.id === monitorId)
   property string query: ""
   property int currentIndex: 0
-  property ListWrapper currentList: appList.item
-
-  state: "apps"
+  states: [
+    State {
+      name: "launcher-open"
+      when: GlobalState.launcherOpen && GlobalState.activeMonitorId === root.monitorId
+      PropertyChanges { content.color: Functions.transparentize("#000", 0.7) }
+    }
+  ]
   GlobalShortcut {
     name: "toggleLauncher"
     description: "Toggles launcher"
@@ -41,13 +45,6 @@ Item {
     }
   }
 
-  states: [
-    State {
-      name: "launcher-open"
-      when: GlobalState.launcherOpen && GlobalState.activeMonitorId === root.monitorId
-      PropertyChanges { content.color: Functions.transparentize("#000", 0.7) }
-    }
-  ]
   transitions: [
     Transition {
       ColorAnimation { 
@@ -76,31 +73,9 @@ Item {
         name: "active"
         when: GlobalState.launcherOpen && GlobalState.activeMonitorId === root.monitorId
         PropertyChanges { launcher.implicitHeight: Appearance.launcher.height }
-      },
-      State {
-        name: "apps"
-
-        PropertyChanges {
-          // root.implicitWidth: Config.launcher.sizes.itemWidth
-          // root.implicitHeight: Math.min(root.maxHeight, appList.implicitHeight > 0 ? appList.implicitHeight : empty.implicitHeight)
-          appList.active: true
-        }
-
-        // AnchorChanges {
-        //   anchors.left: root.parent.left
-        //   anchors.right: root.parent.right
-        // }
-      },
-      State {
-        name: "audio"
-
-        // PropertyChanges {
-        //   root.implicitWidth: Math.max(Config.launcher.sizes.itemWidth * 1.2, wallpaperList.implicitWidth)
-        //   root.implicitHeight: Config.launcher.sizes.wallpaperHeight
-        //   wallpaperList.active: true
-        // }
       }
     ]
+
     transitions: [
       Transition {
         NumberAnimation { 
@@ -119,10 +94,60 @@ Item {
 
     ColumnLayout {
       anchors.fill: parent
+      id: layout
       spacing: 0
+
+      property QtObject currentList: {
+        switch(state) {
+          case "audio":
+          return audioList.item
+          default:
+          return appList.item
+        }
+      }
+      state: {
+        if (root.query.startsWith(`${Config.prefix}audio `)) {
+          return "audio"
+        } else {
+          return "apps"
+        }
+      }
+      states: [
+        State {
+          name: "apps"
+          PropertyChanges {
+            // root.implicitWidth: Config.launcher.sizes.itemWidth
+            // root.implicitHeight: Math.min(root.maxHeight, appList.implicitHeight > 0 ? appList.implicitHeight : empty.implicitHeight)
+            appList.active: true
+            appList.visible: true
+            audioList.active: false
+            audioList.visible: false
+          }
+
+          // AnchorChanges {
+          //   anchors.left: root.parent.left
+          //   anchors.right: root.parent.right
+          // }
+        },
+        State {
+          name: "audio"
+          when: root.query.startsWith(`${Config.prefix}audio `)
+
+          PropertyChanges {
+            // root.implicitWidth: Math.max(Config.launcher.sizes.itemWidth * 1.2, wallpaperList.implicitWidth)
+            // root.implicitHeight: Config.launcher.sizes.wallpaperHeight
+            audioList.active: true
+            audioList.visible: true
+            appList.active: false
+            appList.visible: false
+          }
+        }
+
+      ]
       Loader {
         id: appList
         active: true
+        visible: true
         Layout.fillWidth: true
         Layout.fillHeight: true
         sourceComponent: AppList {
@@ -130,16 +155,28 @@ Item {
           searchQuery: root.query
         }
       }
+      Loader {
+        id: audioList
+        active: false
+        visible: false
+        Layout.fillWidth: true
+        Layout.fillHeight: true
+        sourceComponent: AudioList {
+          monitorId: root.monitorId
+          searchQuery: root.query
+        }
+      }
       LauncherField {
         onTextChanged: root.query = text
+        monitorId: root.monitorId
         onIncrementCurrentIndex: {
-          root.currentList.list.incrementCurrentIndex()
+          layout.currentList.list.incrementCurrentIndex()
         }
         onDecrementCurrentIndex: {
-          root.currentList.list.decrementCurrentIndex()
+          layout.currentList.list.decrementCurrentIndex()
         }
         onAccepted: {
-          const currentItem = root.currentList.list?.currentItem;
+          const currentItem = layout.currentList.list?.currentItem;
           if (currentItem) {
             Apps.launch(currentItem.modelData);
             GlobalState.closeLauncher()

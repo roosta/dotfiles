@@ -10,6 +10,7 @@ import qs
 
 BorderRectangle {
   id: root
+  required property string monitorId
   property alias text: field.text
   Layout.alignment: Qt.AlignHCenter
   Layout.fillWidth: true
