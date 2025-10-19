@@ -100,18 +100,23 @@ Item {
       property QtObject currentList: {
         switch(state) {
           case "audio":
-          return audioLoader.item
+            return audioLoader.item
+          case "display":
+            return displayLoader.item
           default:
-          return appLoader.item
+            return appLoader.item
         }
       }
       state: {
-        if (root.query.startsWith(`${Config.prefix}audio `)) {
+        if (root.query.startsWith(Config.audioPrefix)) {
           return "audio"
+        } else if (root.query.startsWith(Config.displayPrefix)){
+          return "display"
         } else {
           return "apps"
         }
       }
+      // TODO: Cleanup
       states: [
         State {
           name: "apps"
@@ -122,6 +127,8 @@ Item {
             appLoader.visible: true
             audioLoader.active: false
             audioLoader.visible: false
+            displayLoader.active: false
+            displayLoader.visible: false
           }
 
           // AnchorChanges {
@@ -131,15 +138,27 @@ Item {
         },
         State {
           name: "audio"
-          when: root.query.startsWith(`${Config.prefix}audio `)
+          when: root.query.startsWith(Config.audioPrefix)
 
           PropertyChanges {
-            // root.implicitWidth: Math.max(Config.launcher.sizes.itemWidth * 1.2, wallpaperList.implicitWidth)
-            // root.implicitHeight: Config.launcher.sizes.wallpaperHeight
             audioLoader.active: true
             audioLoader.visible: true
             appLoader.active: false
             appLoader.visible: false
+            displayLoader.active: false
+            displayLoader.visible: false
+          }
+        },
+        State {
+          name: "display"
+          when: root.query.startsWith(Config.displayPrefix)
+          PropertyChanges {
+            displayLoader.active: true
+            displayLoader.visible: true
+            appLoader.active: false
+            appLoader.visible: false
+            audioLoader.active: false
+            audioLoader.visible: false
           }
         }
 
@@ -188,7 +207,7 @@ Item {
             GlobalState.closeLauncher()
           }
           model: {
-            const q = root.query.replace(`${Config.audioPrefix} `, "")
+            const q = root.query.replace(Config.audioPrefix, "")
             Audio.fuzzyQuery(q)
           }
           delegate: LauncherItem { 
@@ -197,6 +216,36 @@ Item {
             name: modelData.name
             description: modelData.description
             onClicked: audioList.accept(modelData)
+          }
+        }
+      }
+      Loader {
+        id: displayLoader
+        active: false
+        visible: false
+        Layout.fillWidth: true
+        Layout.fillHeight: true
+        sourceComponent: LauncherList {
+          id: displayList
+          monitorId: root.monitorId
+          searchQuery: root.query
+          signal accept(entry: var)
+          onAccept: (entry) => {
+            Quickshell.execDetached({
+              command: entry.script,
+            });
+            GlobalState.closeLauncher()
+          }
+          model: {
+            const q = root.query.replace(Config.displayPrefix, "")
+            Display.fuzzyQuery(q)
+          }
+          delegate: LauncherItem { 
+            required property var modelData
+            iconSource: Quickshell.iconPath(modelData.iconId)
+            name: modelData.name
+            description: modelData.description
+            onClicked: displayList.accept(modelData)
           }
         }
       }

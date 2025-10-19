@@ -13,14 +13,47 @@ Singleton {
   readonly property string terminal: "kitty"
   readonly property string shell: "zsh"
   readonly property string prefix: "/"
-  readonly property QtObject monitors: QtObject {
+  readonly property QtObject displays: QtObject {
     readonly property string left: "DP-2"
     readonly property string right: "HDMI-A-1"
     readonly property string center: "DP-1"
     readonly property string tv: "HDMI-A-2"
   }
-  readonly property string audioPrefix: "/audio"
+  readonly property string audioPrefix: "/audio "
   readonly property string audioScript : `${Paths.home}/scripts/switch-audio.sh`
+  readonly property string displayScript : `${Paths.home}/scripts/switch-display.sh`
+  readonly property string displayPrefix: "/display "
+
+  readonly property var displayLayouts: [
+    {
+      id: 0,
+      name: "Desk",
+      description: "Switch to Desk Displays",
+      script: [displayScript, "desk"],
+      iconId: "input-keyboard"
+    },
+    {
+      id: 1,
+      name: "Television (TV)",
+      description: "Switch to Television (TV)",
+      script: [displayScript, "tv"],
+      iconId: "input-gaming"
+    },
+    {
+      id: 2,
+      name: "Mirror",
+      description: "Desk & Right Mirror to TV",
+      script: [displayScript, "mirror"],
+      iconId: "preferences-desktop-remote-desktop"
+    },
+    {
+      id: 3,
+      name: "All",
+      description: "Enable all displays in-row",
+      script: [displayScript, "all"],
+      iconId: "video-display"
+    }
+  ]
 
   readonly property var outputs: [
     {
