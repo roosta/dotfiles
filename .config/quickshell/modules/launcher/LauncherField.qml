@@ -12,6 +12,7 @@ BorderRectangle {
   id: root
   required property string monitorId
   property alias text: field.text
+  property alias mode: control.currentValue
   Layout.alignment: Qt.AlignHCenter
   Layout.fillWidth: true
   color: Appearance.srcery.black
@@ -33,6 +34,7 @@ BorderRectangle {
         field.forceActiveFocus();
       } else {
         field.text = ""
+        control.currentValue = "apps"
       }
     }
   }
@@ -42,7 +44,8 @@ BorderRectangle {
     anchors.margins: Appearance.spacing.p4
     ComboBox {
       id: control
-      model: Object.entries(Config.menus).map(([k, v]) => v.name)
+      currentValue: "apps"
+      model: Object.entries(Config.menus).map(([k, v]) => k)
       Layout.fillHeight: true
 
       HoverHandler {

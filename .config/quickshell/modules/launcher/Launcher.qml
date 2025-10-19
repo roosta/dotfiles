@@ -107,15 +107,7 @@ Item {
             return appLoader.item
         }
       }
-      state: {
-        if (root.query.startsWith(Config.menus.audio.prefix)) {
-          return "audio"
-        } else if (root.query.startsWith(Config.menus.display.prefix)){
-          return "display"
-        } else {
-          return "apps"
-        }
-      }
+      state: field.mode
       // TODO: Cleanup
       states: [
         State {
@@ -138,8 +130,6 @@ Item {
         },
         State {
           name: "audio"
-          when: root.query.startsWith(Config.menus.audio.prefix)
-
           PropertyChanges {
             audioLoader.active: true
             audioLoader.visible: true
@@ -151,7 +141,6 @@ Item {
         },
         State {
           name: "display"
-          when: root.query.startsWith(Config.menus.display.prefix)
           PropertyChanges {
             displayLoader.active: true
             displayLoader.visible: true
@@ -250,6 +239,7 @@ Item {
         }
       }
       LauncherField {
+        id: field
         onTextChanged: root.query = text
         monitorId: root.monitorId
         onIncrementCurrentIndex: {
