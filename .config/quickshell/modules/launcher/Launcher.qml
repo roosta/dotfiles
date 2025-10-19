@@ -108,9 +108,9 @@ Item {
         }
       }
       state: {
-        if (root.query.startsWith(Config.audioPrefix)) {
+        if (root.query.startsWith(Config.menus.audio.prefix)) {
           return "audio"
-        } else if (root.query.startsWith(Config.displayPrefix)){
+        } else if (root.query.startsWith(Config.menus.display.prefix)){
           return "display"
         } else {
           return "apps"
@@ -138,7 +138,7 @@ Item {
         },
         State {
           name: "audio"
-          when: root.query.startsWith(Config.audioPrefix)
+          when: root.query.startsWith(Config.menus.audio.prefix)
 
           PropertyChanges {
             audioLoader.active: true
@@ -151,7 +151,7 @@ Item {
         },
         State {
           name: "display"
-          when: root.query.startsWith(Config.displayPrefix)
+          when: root.query.startsWith(Config.menus.display.prefix)
           PropertyChanges {
             displayLoader.active: true
             displayLoader.visible: true
@@ -207,7 +207,7 @@ Item {
             GlobalState.closeLauncher()
           }
           model: {
-            const q = root.query.replace(Config.audioPrefix, "")
+            const q = root.query.replace(Config.menus.audio.prefix, "")
             Audio.fuzzyQuery(q)
           }
           delegate: LauncherItem { 
@@ -237,7 +237,7 @@ Item {
             GlobalState.closeLauncher()
           }
           model: {
-            const q = root.query.replace(Config.displayPrefix, "")
+            const q = root.query.replace(Config.menus.display.prefix, "")
             Display.fuzzyQuery(q)
           }
           delegate: LauncherItem { 

@@ -19,38 +19,50 @@ Singleton {
     readonly property string center: "DP-1"
     readonly property string tv: "HDMI-A-2"
   }
-  readonly property string audioPrefix: "/audio "
-  readonly property string audioScript : `${Paths.home}/scripts/switch-audio.sh`
-  readonly property string displayScript : `${Paths.home}/scripts/switch-display.sh`
-  readonly property string displayPrefix: "/display "
-
+  readonly property var menus: {
+    "display": {
+      "name": "Display",
+      "prefix": "/display ",
+      "script": `${Paths.home}/scripts/switch-display.sh`
+    },
+    "audio": {
+      "name": "Audio",
+      "prefix": "/audio ",
+      "script": `${Paths.home}/scripts/switch-audio.sh`
+    },
+    "apps": {
+      "name": "Apps",
+      "prefix": "",
+      "script": null
+    }
+  }
   readonly property var displayLayouts: [
     {
       id: 0,
       name: "Desk",
       description: "Switch to Desk Displays",
-      script: [displayScript, "desk"],
+      script: [menus.display.script, "desk"],
       iconId: "input-keyboard"
     },
     {
       id: 1,
       name: "Television (TV)",
       description: "Switch to Television (TV)",
-      script: [displayScript, "tv"],
+      script: [menus.display.script, "tv"],
       iconId: "input-gaming"
     },
     {
       id: 2,
       name: "Mirror",
       description: "Desk & Right Mirror to TV",
-      script: [displayScript, "mirror"],
+      script: [menus.display.script, "mirror"],
       iconId: "preferences-desktop-remote-desktop"
     },
     {
       id: 3,
       name: "All",
       description: "Enable all displays in-row",
-      script: [displayScript, "all"],
+      script: [menus.display.script, "all"],
       iconId: "video-display"
     }
   ]
@@ -63,7 +75,7 @@ Singleton {
       description: "Switch audio output to Speakers",
       iconId: "audio-speakers",
       name: "Speakers",
-      script: [audioScript, "speakers"]
+      script: [menus.audio.script, "speakers"]
     },
     {
       id: 1,
@@ -72,7 +84,7 @@ Singleton {
       description: "Switch audio output to Headphones",
       iconId: "audio-headphones",
       name: "Headphones",
-      script: [audioScript, "headphones"]
+      script: [menus.audio.script, "headphones"]
     },
     {
       id: 2,
@@ -81,7 +93,7 @@ Singleton {
       description: "Switch audio output to Television (TV)" ,
       iconId: "video-display",
       name: "Television (TV)",
-      script: [audioScript, "tv"]
+      script: [menus.audio.script, "tv"]
     }
   ] 
 
