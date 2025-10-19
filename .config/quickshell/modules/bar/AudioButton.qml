@@ -1,9 +1,9 @@
 pragma ComponentBehavior: Bound
 import qs.config
+import qs.services
 import qs.components
 import QtQuick
 import QtQuick.Layouts
-import Quickshell.Services.Pipewire
 
 import QtQuick.Controls
 
@@ -13,14 +13,6 @@ BorderRectangle {
   borderColor: Appearance.srcery.gray3
   borderWidth: Appearance.bar.borderWidth
   Layout.topMargin: Appearance.bar.borderWidth
-
-  property bool ready: Pipewire.defaultAudioSink?.ready ?? false
-  property PwNode sink: Pipewire.defaultAudioSink
-  property PwNode source: Pipewire.defaultAudioSource
-
-  PwObjectTracker {
-    objects: [root.sink, root.source]
-  }
 
   implicitWidth: {
     if (root.active) {
@@ -58,13 +50,13 @@ BorderRectangle {
     State {
       name: "default"
       when: !root.active && !button.hovered
-      PropertyChanges { indicator.text: Config.getSinkIcon(sink) }
+      PropertyChanges { indicator.text: Config.getSinkIcon(Audio.sink) }
       PropertyChanges { buttonBg.borderColor: Appearance.srcery.gray3 }
     },
     State {
       name: "hovered"
       when: !root.active && button.hovered
-      PropertyChanges { indicator.text: Config.getSinkIcon(sink) }
+      PropertyChanges { indicator.text: Config.getSinkIcon(Audio.sink) }
       PropertyChanges { buttonBg.borderColor: Appearance.srcery.gray6 }
     },
     State {
@@ -145,7 +137,7 @@ BorderRectangle {
         anchors.centerIn: parent
         color: Appearance.srcery.white
         id: srcBtnText
-        text: Config.getSinkIcon(root.sink)
+        text: Config.getSinkIcon(Audio.sink)
         font {
           family: Appearance.font.light
           pixelSize: Appearance.font.size3
@@ -158,8 +150,8 @@ BorderRectangle {
       visible: root.active
       implicitWidth: 120
       from: 0
-      value: root.sink?.audio.volume ?? 0
-      onMoved: root.sink.audio.volume = value
+      value: Audio.sink?.audio.volume ?? 0
+      onMoved: Audio.sink.audio.volume = value
       to: 1
       HoverHandler {
         cursorShape: Qt.PointingHandCursor

@@ -100,7 +100,7 @@ Item {
       property QtObject currentList: {
         switch(state) {
           case "audio":
-          return audioList.item
+          return audioLoader.item
           default:
           return appLoader.item
         }
@@ -120,8 +120,8 @@ Item {
             // root.implicitHeight: Math.min(root.maxHeight, appLoader.implicitHeight > 0 ? appLoader.implicitHeight : empty.implicitHeight)
             appLoader.active: true
             appLoader.visible: true
-            audioList.active: false
-            audioList.visible: false
+            audioLoader.active: false
+            audioLoader.visible: false
           }
 
           // AnchorChanges {
@@ -169,12 +169,27 @@ Item {
         }
       }
       Loader {
-        id: audioList
+        id: audioLoader
         active: false
         visible: false
         Layout.fillWidth: true
         Layout.fillHeight: true
-        sourceComponent: Item {}
+        sourceComponent: LauncherList {
+          id: audioList
+          monitorId: root.monitorId
+          searchQuery: root.query
+          // model: Apps.fuzzyQuery(root.query)
+          delegate: LauncherItem { 
+            required property DesktopEntry modelData
+            iconSource: Apps.getEntryIcon(modelData)
+            name: modelData?.name ?? ""
+            description: (modelData?.comment || modelData?.genericName || modelData?.name) ?? ""
+            onClicked: {
+              Apps.launch(modelData)
+              GlobalState.closeLauncher()
+            }
+          }
+        }
       }
       LauncherField {
         onTextChanged: root.query = text
