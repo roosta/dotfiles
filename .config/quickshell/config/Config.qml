@@ -32,7 +32,7 @@ Singleton {
     },
     "apps": {
       "name": "Apps",
-      "prefix": "",
+      "prefix": "/apps",
       "script": null
     }
   }
