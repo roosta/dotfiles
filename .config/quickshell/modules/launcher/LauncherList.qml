@@ -14,9 +14,17 @@ Item {
   id: root
   required property string monitorId
   required property string searchQuery
+  property alias model: list.model
   property alias list: list
+  property alias delegate: list.delegate
+
+  default property alias contents: launcherList.children
   anchors.fill: parent
 
+  onModelChanged: {
+    list.currentIndex = 0
+    list.positionViewAtBeginning()
+  }
   Connections {
     target: GlobalState
 
@@ -32,10 +40,10 @@ Item {
   }
 
   ColumnLayout {
+    id: launcherList
     anchors.fill: parent
     spacing: 0
     Rectangle {
-      id: appList
       Layout.fillWidth: true
       Layout.fillHeight: true
 
@@ -48,31 +56,12 @@ Item {
         anchors.fill: parent
         reuseItems: true
         highlightFollowsCurrentItem: true
-        delegate: ListItem { 
-          required property DesktopEntry modelData
-          iconSource: Apps.getEntryIcon(modelData)
-          name: modelData?.name ?? ""
-          description: (modelData?.comment || modelData?.genericName || modelData?.name) ?? ""
-          onClicked: {
-            Apps.launch(modelData)
-            GlobalState.closeLauncher()
-          }
-        }
         highlight: Rectangle {
           color: "transparent"
           z: 2
           border.color: Appearance.srcery.gray3
           border.width: Appearance.bar.borderWidth
         }
-        model: ScriptModel {
-          id: listData
-          onValuesChanged: {
-            list.currentIndex = 0
-            list.positionViewAtBeginning()
-          }
-          values: Apps.fuzzyQuery(root.searchQuery)
-        }
-
         ScrollBar.vertical: ScrollBar {
           id: scroll
           padding: 0
@@ -94,6 +83,7 @@ Item {
             }
           }
         }
+
         // add: Transition {
         //   NumberAnimation {
         //     properties: "opacity,scale"
@@ -156,100 +146,6 @@ Item {
         //     duration: Appearance.durations.normal
         //   }
         // }
-      }
-    }
-    BorderRectangle {
-      id: favorites
-      implicitHeight: Appearance.launcher.itemHeight + Appearance.spacing.p2
-      Layout.fillWidth: true
-      color: Appearance.srcery.black
-      Layout.leftMargin: Appearance.bar.borderWidth
-      Layout.rightMargin: Appearance.bar.borderWidth
-
-      topBorder: 1
-      borderColor: Appearance.srcery.gray3
-      RowLayout {
-        anchors.fill: parent
-
-        Repeater {
-          model: Config.favorites
-          Button {
-            id: fav
-
-            required property string modelData
-            property DesktopEntry entry: Apps.getEntry(modelData)
-            Layout.alignment: Qt.AlignHCenter
-            Layout.margins: Appearance.spacing.p2
-            Layout.fillHeight: true
-            Layout.preferredWidth: favicon.width + Appearance.spacing.p2 * 2
-            // Layout.margins: Appearance.spacing.p2
-            //
-
-
-            ToolTip {
-              id: control
-              font: Appearance.font.main
-              delay: 600
-              timeout: 4000
-              text: fav.entry?.name
-              visible: fav.hovered
-              contentItem: Text {
-                text: control.text
-                font: control.font
-                color: Appearance.srcery.brightWhite
-              }
-
-              background: Rectangle {
-                color: Appearance.srcery.gray1
-              }
-            }
-            onPressed: {
-              Apps.launch(entry)
-              GlobalState.closeLauncher()
-            }
-            HoverHandler {
-              id: hover
-              cursorShape: Qt.PointingHandCursor
-            }
-            background: Rectangle {
-              id: bg
-              color: "transparent"
-              radius: 5
-              IconImage {
-                id: favicon
-                anchors.centerIn: parent
-                source: Apps.getEntryIcon(fav.entry)
-                // implicitHeight: parent.height / 2
-                implicitWidth: parent.height - Appearance.spacing.p2 * 2
-                implicitHeight: parent.height - Appearance.spacing.p2 * 2
-                // implicitWidth: favicon.height
-                // Layout.fillHeight: true
-              }
-            }
-
-            states: [
-              State {
-                name: "pressed"
-                when: fav.pressed
-                PropertyChanges { bg.color: Appearance.srcery.gray2 }
-              },
-              State {
-                name: "hovered"
-                when: fav.hovered && !fav.pressed
-                PropertyChanges { bg.color: Appearance.srcery.gray1 }
-              }
-            ]
-            transitions: [
-              Transition {
-                ColorAnimation { 
-                  duration: 50
-                  easing.type: Easing.OutQuad 
-                }
-              }
-            ]
-
-          }
-        }
       }
     }
   }

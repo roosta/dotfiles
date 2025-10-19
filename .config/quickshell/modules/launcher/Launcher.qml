@@ -102,7 +102,7 @@ Item {
           case "audio":
           return audioList.item
           default:
-          return appList.item
+          return appLoader.item
         }
       }
       state: {
@@ -117,9 +117,9 @@ Item {
           name: "apps"
           PropertyChanges {
             // root.implicitWidth: Config.launcher.sizes.itemWidth
-            // root.implicitHeight: Math.min(root.maxHeight, appList.implicitHeight > 0 ? appList.implicitHeight : empty.implicitHeight)
-            appList.active: true
-            appList.visible: true
+            // root.implicitHeight: Math.min(root.maxHeight, appLoader.implicitHeight > 0 ? appLoader.implicitHeight : empty.implicitHeight)
+            appLoader.active: true
+            appLoader.visible: true
             audioList.active: false
             audioList.visible: false
           }
@@ -138,21 +138,34 @@ Item {
             // root.implicitHeight: Config.launcher.sizes.wallpaperHeight
             audioList.active: true
             audioList.visible: true
-            appList.active: false
-            appList.visible: false
+            appLoader.active: false
+            appLoader.visible: false
           }
         }
 
       ]
       Loader {
-        id: appList
+        id: appLoader
         active: true
         visible: true
         Layout.fillWidth: true
         Layout.fillHeight: true
-        sourceComponent: AppList {
+        sourceComponent: LauncherList {
+          id: appList
           monitorId: root.monitorId
           searchQuery: root.query
+          model: Apps.fuzzyQuery(root.query)
+          delegate: LauncherItem { 
+            required property DesktopEntry modelData
+            iconSource: Apps.getEntryIcon(modelData)
+            name: modelData?.name ?? ""
+            description: (modelData?.comment || modelData?.genericName || modelData?.name) ?? ""
+            onClicked: {
+              Apps.launch(modelData)
+              GlobalState.closeLauncher()
+            }
+          }
+          Favorites {}
         }
       }
       Loader {
@@ -161,10 +174,7 @@ Item {
         visible: false
         Layout.fillWidth: true
         Layout.fillHeight: true
-        sourceComponent: AudioList {
-          monitorId: root.monitorId
-          searchQuery: root.query
-        }
+        sourceComponent: Item {}
       }
       LauncherField {
         onTextChanged: root.query = text
