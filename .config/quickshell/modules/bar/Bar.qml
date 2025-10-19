@@ -40,9 +40,9 @@ Item {
         id: barLoader
         anchors.fill: parent
         sourceComponent: {
-          if (root.monitorId === Config.monitors?.left) {
+          if (root.monitorId === Config.displays?.left) {
             return leftBar
-          } else if (root.monitorId === Config.monitors?.right){
+          } else if (root.monitorId === Config.displays?.right){
             return rightBar
           } else {
             return primaryBar
