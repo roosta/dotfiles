@@ -196,6 +196,9 @@ BorderRectangle {
         } else if (event.key === Qt.Key_Backtab || (event.key === Qt.Key_Tab && (event.modifiers & Qt.ShiftModifier))) {
           root.decrementCurrentIndex();
           event.accepted = true;
+        } else if (event.key == Qt.Key_Backspace && text === "" && control.currentValue !== Config.defaultMode) {
+          control.currentValue = Config.defaultMode
+          event.accepted = true
         }
       }
       cursorDelegate: Rectangle {
