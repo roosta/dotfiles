@@ -89,8 +89,8 @@ Item {
                 anchors.right: parent.right
                 anchors.rightMargin: Appearance.spacing.p1
                 Clock { }
-                Tray { }
-                Audio { }
+                TrayButton { }
+                AudioButton { }
               }
             }
           }
