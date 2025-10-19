@@ -60,7 +60,7 @@ Singleton {
     return icons.map(icon => Quickshell.iconPath(icon, root.icons.missing))
   }
 
-  function fuzzyQuery(search: string): var { // Idk why list<DesktopEntry> doesn't work
+  function fuzzyQuery(search: string): var {
     return Fuzzy.go(search, preppedNames, {
       all: true,
       key: "name"

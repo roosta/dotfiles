@@ -5,6 +5,8 @@ pragma ComponentBehavior: Bound
 import Quickshell
 import QtQuick
 import Quickshell.Services.Pipewire
+import qs.config
+import qs.utils
 
 Singleton {
   id: root
@@ -17,42 +19,34 @@ Singleton {
     objects: [root.sink, root.source]
   }
 
-  // readonly property var speakers: {
-  //   "args": ["speakers"],
-  //   "description": "Switch audio output to Speakers",
-  //   "icon": "audio-speakers",
-  //   "name": "Speakers",
-  //   "script": "~/scripts/switch-audio.sh"
-  // }
-  // readonly property 
-  // readonly property var audio: [ 
-  //   {
-  //     "args": ["headphones"],
-  //     "description": "Switch audio output to Headphones",
-  //     "icon": "audio-headphones",
-  //     "name": "Headphones",
-  //     "script": "~/scripts/switch-audio.sh"
-  //   },
-  //   {
-  //     "args": ["tv"],
-  //     "description": "Switch audio output to Television (TV)" ,
-  //     "icon": "video-display",
-  //     "name": "Television (TV)",
-  //     "script": "~/scripts/switch-audio.sh"
-  //   },
-  //   {
-  //     "args": ["mute-output"],
-  //     "description": "Toggle Default Output Sink",
-  //     "icon": "audio-volume-muted",
-  //     "name": "Mute output",
-  //     "script": "~/scripts/switch-audio.sh"
-  //   },
-  //   {
-  //     "args": ["mute-input"],
-  //     "description": "Mute Default Input Sink",
-  //     "icon": "microphone-sensitivity-muted",
-  //     "name": "Mute input",
-  //     "script": "~/scripts/switch-audio.sh"
-  //   }
-  // ]
+  readonly property var preppedOutputs: ready ? 
+    Config.outputs.map(a => ({ name: Fuzzy.prepare(`${a.name} `), entry: a })) : 
+    []
+
+  function fuzzyQuery(search: string): var {
+    return Fuzzy.go(search, preppedOutputs, {
+      all: true,
+      key: "name"
+    }).map(r => {
+      return r.obj.entry
+    });
+  }
+
+  readonly property var options: [
+    {
+      id: 3,
+      args: ["mute-output"],
+      description: "Toggle Default Output Sink",
+      icon: "audio-volume-muted",
+      name: "Mute output",
+      script: ["~/scripts/switch-audio.sh", "mute-output"]
+    },
+    {
+      id: 4,
+      description: "Mute Default Input Sink",
+      icon: "microphone-sensitivity-muted",
+      name: "Mute input",
+      script: ["~/scripts/switch-audio.sh", "mute-input"]
+    }
+  ]
 }

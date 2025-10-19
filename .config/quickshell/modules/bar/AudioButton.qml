@@ -148,11 +148,11 @@ BorderRectangle {
     Slider {
       id: volumeSlider
       visible: root.active
-      implicitWidth: 120
-      from: 0
+      implicitWidth: Appearance.bar.sliderWidth
+      from: 0.0
       value: Audio.sink?.audio.volume ?? 0
       onMoved: Audio.sink.audio.volume = value
-      to: 1
+      to: 1.0
       HoverHandler {
         cursorShape: Qt.PointingHandCursor
       }
