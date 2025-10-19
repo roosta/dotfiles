@@ -19,6 +19,7 @@ Singleton {
     readonly property string center: "DP-1"
     readonly property string tv: "HDMI-A-2"
   }
+  readonly property string defaultMode: "apps"
   readonly property var menus: {
     "display": {
       "name": "Display",

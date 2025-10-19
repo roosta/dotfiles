@@ -109,6 +109,7 @@ Item {
       }
       state: field.mode
       // TODO: Cleanup
+      // Set it up so that I dont hard code this, but get it from config
       states: [
         State {
           name: "apps"

@@ -34,7 +34,7 @@ BorderRectangle {
         field.forceActiveFocus();
       } else {
         field.text = ""
-        control.currentValue = "apps"
+        control.currentValue = Config.defaultMode
       }
     }
   }
@@ -44,7 +44,7 @@ BorderRectangle {
     anchors.margins: Appearance.spacing.p4
     ComboBox {
       id: control
-      currentValue: "apps"
+      currentValue: Config.defaultMode
       model: Object.entries(Config.menus).map(([k, v]) => k)
       Layout.fillHeight: true
 
