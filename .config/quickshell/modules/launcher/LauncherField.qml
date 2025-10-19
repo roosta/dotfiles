@@ -159,6 +159,15 @@ BorderRectangle {
       font.pointSize: Appearance.font.size1
       implicitWidth: parent.width - Appearance.spacing.p4 * 2 + Appearance.bar.borderWidth * 2
       placeholderText: " Search..."
+      onTextChanged: {
+        const m = Object.entries(Config.menus).find(([k, v]) => {
+          return text.startsWith(v.prefix)
+        })
+        if (m) {
+          control.currentValue = m[0]
+          text = ""
+        }
+      }
       background: Rectangle {
         color: "transparent"
         border.color: Appearance.srcery.gray3
