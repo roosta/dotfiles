@@ -1,7 +1,7 @@
 pragma ComponentBehavior: Bound
 import Quickshell
 import QtQuick
-import QtQuick.Controls
+// import QtQuick.Controls
 import QtQuick.Layouts
 import Quickshell.Hyprland
 import qs.config
@@ -136,8 +136,8 @@ Item {
           PropertyChanges {
             // root.implicitWidth: Math.max(Config.launcher.sizes.itemWidth * 1.2, wallpaperList.implicitWidth)
             // root.implicitHeight: Config.launcher.sizes.wallpaperHeight
-            audioList.active: true
-            audioList.visible: true
+            audioLoader.active: true
+            audioLoader.visible: true
             appLoader.active: false
             appLoader.visible: false
           }
@@ -155,15 +155,17 @@ Item {
           monitorId: root.monitorId
           searchQuery: root.query
           model: Apps.fuzzyQuery(root.query)
+          signal accept(entry: DesktopEntry)
+          onAccept: (entry) => {
+            Apps.launch(entry)
+            GlobalState.closeLauncher()
+          }
           delegate: LauncherItem { 
             required property DesktopEntry modelData
             iconSource: Apps.getEntryIcon(modelData)
             name: modelData?.name ?? ""
             description: (modelData?.comment || modelData?.genericName || modelData?.name) ?? ""
-            onClicked: {
-              Apps.launch(modelData)
-              GlobalState.closeLauncher()
-            }
+            onClicked: appList.accept(modelData)
           }
           Favorites {}
         }
@@ -178,16 +180,23 @@ Item {
           id: audioList
           monitorId: root.monitorId
           searchQuery: root.query
-          // model: Apps.fuzzyQuery(root.query)
+          signal accept(entry: var)
+          onAccept: (entry) => {
+            Quickshell.execDetached({
+              command: entry.script,
+            });
+            GlobalState.closeLauncher()
+          }
+          model: {
+            const q = root.query.replace(`${Config.audioPrefix} `, "")
+            Audio.fuzzyQuery(q)
+          }
           delegate: LauncherItem { 
-            required property DesktopEntry modelData
-            iconSource: Apps.getEntryIcon(modelData)
-            name: modelData?.name ?? ""
-            description: (modelData?.comment || modelData?.genericName || modelData?.name) ?? ""
-            onClicked: {
-              Apps.launch(modelData)
-              GlobalState.closeLauncher()
-            }
+            required property var modelData
+            iconSource: Quickshell.iconPath(modelData.iconId)
+            name: modelData.name
+            description: modelData.description
+            onClicked: audioList.accept(modelData)
           }
         }
       }
@@ -203,9 +212,8 @@ Item {
         onAccepted: {
           const currentItem = layout.currentList.list?.currentItem;
           if (currentItem) {
-            Apps.launch(currentItem.modelData);
-            GlobalState.closeLauncher()
-          }
+            layout.currentList.accept(currentItem.modelData)
+          } 
         }
       }
 

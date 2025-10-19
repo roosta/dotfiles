@@ -47,6 +47,7 @@ Singleton {
     readonly property bool transparent: false
     readonly property int radius: 0
     readonly property real borderWidth: 1 * Config.scale
+    readonly property int sliderWidth: 120 * Config.scale
   }
 
   launcher: QtObject {
