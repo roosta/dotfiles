@@ -12,7 +12,6 @@ BorderRectangle {
   id: root
   required property string monitorId
   property alias text: field.text
-  property alias mode: control.currentValue
   Layout.alignment: Qt.AlignHCenter
   Layout.fillWidth: true
   color: Appearance.srcery.black
@@ -25,7 +24,6 @@ BorderRectangle {
   signal decrementCurrentIndex()
   signal incrementCurrentIndex()
   signal accepted()
-
   Connections {
     target: GlobalState
 
@@ -34,17 +32,20 @@ BorderRectangle {
         field.forceActiveFocus();
       } else {
         field.text = ""
-        control.currentValue = Config.defaultMode
       }
     }
   }
+
   RowLayout {
     anchors.fill: parent
     anchors.centerIn: parent
     anchors.margins: Appearance.spacing.p4
     ComboBox {
       id: control
-      currentValue: Config.defaultMode
+      currentValue: GlobalState.launcherMode
+      onCurrentValueChanged: {
+        GlobalState.launcherMode = currentValue
+      }
       model: Object.entries(Config.menus).map(([k, v]) => k)
       Layout.fillHeight: true
 
@@ -164,7 +165,7 @@ BorderRectangle {
           return text.startsWith(v.prefix)
         })
         if (m) {
-          control.currentValue = m[0]
+          GlobalState.launcherMode = m[0]
           text = ""
         }
       }
@@ -196,8 +197,8 @@ BorderRectangle {
         } else if (event.key === Qt.Key_Backtab || (event.key === Qt.Key_Tab && (event.modifiers & Qt.ShiftModifier))) {
           root.decrementCurrentIndex();
           event.accepted = true;
-        } else if (event.key == Qt.Key_Backspace && text === "" && control.currentValue !== Config.defaultMode) {
-          control.currentValue = Config.defaultMode
+        } else if (event.key == Qt.Key_Backspace && text === "" && GlobalState.launcherMode !== Config.defaultMode) {
+          GlobalState.launcherMode = Config.defaultMode
           event.accepted = true
         }
       }

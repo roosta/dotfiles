@@ -2,6 +2,7 @@ pragma ComponentBehavior: Bound
 import qs.config
 import qs.services
 import qs.components
+import qs
 import QtQuick
 import QtQuick.Layouts
 
@@ -13,6 +14,8 @@ BorderRectangle {
   borderColor: Appearance.srcery.gray3
   borderWidth: Appearance.bar.borderWidth
   Layout.topMargin: Appearance.bar.borderWidth
+
+  required property string monitorId
 
   implicitWidth: {
     if (root.active) {
@@ -123,6 +126,9 @@ BorderRectangle {
         id: srcMouse
         hoverEnabled: true
         anchors.fill: parent
+        onClicked: {
+          GlobalState.openLauncher(root.monitorId, "audio")
+        }
       }
 
       transitions: [
