@@ -90,7 +90,9 @@ Item {
                 anchors.rightMargin: Appearance.spacing.p1
                 Clock { }
                 TrayButton { }
-                AudioButton { }
+                AudioButton { 
+                  monitorId: root.monitorId
+                }
               }
             }
           }

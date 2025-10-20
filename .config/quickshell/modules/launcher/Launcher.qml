@@ -107,7 +107,7 @@ Item {
             return appLoader.item
         }
       }
-      state: field.mode
+      state: GlobalState.launcherMode
       // TODO: Cleanup
       // Set it up so that I dont hard code this, but get it from config
       states: [
