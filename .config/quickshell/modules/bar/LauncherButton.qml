@@ -57,7 +57,7 @@ Button {
     },
     State {
       name: "hovered"
-      when: root.hovered
+      when: hover.hovered
       PropertyChanges { outerRect.borderColor: Appearance.srcery.gray6 }
       PropertyChanges { innerRect.borderColor: Appearance.srcery.brightWhite }
     }
