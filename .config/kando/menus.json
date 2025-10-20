@@ -1,4 +1,5 @@
 {
+  "version": "2.1.0",
   "menus": [
     {
       "root": {
@@ -46,15 +47,15 @@
               },
               {
                 "type": "command",
-                "name": "Files",
-                "icon": "file-item.svg",
-                "iconTheme": "kando",
                 "data": {
                   "command": "nautilus",
                   "detached": true,
                   "isolated": false,
                   "delayed": false
-                }
+                },
+                "name": "Files",
+                "icon": "file-item.svg",
+                "iconTheme": "kando"
               },
               {
                 "type": "command",
@@ -125,9 +126,10 @@
       "shortcut": "",
       "shortcutID": "media-menu",
       "centered": false,
-      "warpMouse": false,
       "anchored": false,
-      "conditions": {}
+      "hoverMode": false,
+      "conditions": {},
+      "tags": []
     }
   ],
   "collections": [
