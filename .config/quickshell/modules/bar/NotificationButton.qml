@@ -19,26 +19,86 @@ Button {
   implicitWidth: parent.height - Appearance.spacing.p3
   implicitHeight: parent.height - Appearance.spacing.p3
 
+  HoverHandler {
+    id: hover
+    cursorShape: Qt.PointingHandCursor
+  }
+
+  states: [
+    State {
+      name: "hovered"
+      when: hover.hovered && !root.pressed
+      PropertyChanges { rect.borderColor: Appearance.srcery.gray6 }
+      PropertyChanges { trianglePath.strokeColor: Appearance.srcery.brightWhite }
+
+      // PropertyChanges { triangle.opacity: 0.0 }
+      // PropertyChanges { exclamation.opacity: 1.0 }
+    },
+    State {
+      name: "pressed"
+      when: root.pressed
+      PropertyChanges { rect.borderColor: Appearance.srcery.white }
+      PropertyChanges { trianglePath.strokeColor: Appearance.srcery.brightWhite }
+
+    }
+
+  ]
+
+  transitions: [
+    Transition {
+      NumberAnimation { 
+        properties: "opacity"
+        duration: 200
+        easing.type: Easing.InOutCubic
+      }
+      ColorAnimation { 
+        duration: 50
+        easing.type: Easing.OutQuad 
+      }
+    }
+  ]
   background: BorderRectangle {
+    id: rect
     color: Appearance.srcery.black
     borderColor: Appearance.srcery.gray3
     borderWidth: Appearance.bar.borderWidth
     anchors.fill: parent
 
     Shape {
+      id: triangle
       anchors.centerIn: parent
-      id: shape
+      opacity: 1.0
       width: Appearance.bar.iconSize
       height: Appearance.bar.iconSize
+      ShapePath {
+        strokeWidth: 1
+        id: trianglePath
+        strokeColor: Appearance.srcery.gray3
+        fillColor: Appearance.srcery.black
+        PathSvg { 
+          id: svg
+          path: "M 10 1.7 L 18.3 16.3 L 1.7 16.3 Z"
+          // Main rectangle: M(move) -> L(lines) -> Z(close)
+          // path: "M 8 2.7 L 12 2.7 L 12 12.7 L 8 12.7 Z M 8 14.7 L 12 14.7 L 12 17.3 L 8 17.3 Z"
+        }
+      }
+    }
+    Shape {
+      anchors.centerIn: parent
+      id: exclamation
+      width: Appearance.bar.iconSize
+      height: Appearance.bar.iconSize
+      opacity: 0.0
       ShapePath {
         strokeWidth: 1
         strokeColor: Appearance.srcery.gray3
         fillColor: Appearance.srcery.black
         PathSvg { 
-          path: "M 10 1.7 L 18.3 16.3 L 1.7 16.3 Z"
+          path: "M 8 2.7 L 12 2.7 L 12 12.7 L 8 12.7 Z M 8 14.7 L 12 14.7 L 12 17.3 L 8 17.3 Z"
         }
       }
     }
+
   }
 
 }
