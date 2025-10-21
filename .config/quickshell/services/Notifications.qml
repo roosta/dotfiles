@@ -13,9 +13,9 @@ Singleton {
   id: root
   property var data: []
   Process {
-    id: getNotifications
+    id: subProc
     command: ["swaync-client", "-s"]
-    running: true
+    Component.onCompleted: running = true
 
     stdout: SplitParser {
       id: collector
@@ -25,5 +25,13 @@ Singleton {
         }
       }
     }
+  }
+  Process {
+    id: toggleProc
+    command: ["swaync-client", "-t", "-sw"]
+    running: false
+  }
+  function toggleNc() {
+    toggleProc.running = true
   }
 }
