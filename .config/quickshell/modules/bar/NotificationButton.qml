@@ -19,36 +19,47 @@ Button {
   implicitWidth: parent.height - Appearance.spacing.p3
   implicitHeight: parent.height - Appearance.spacing.p3
 
+  property bool active: Notifications?.data?.count ?? false
+
   HoverHandler {
     id: hover
     cursorShape: Qt.PointingHandCursor
   }
-
+  
   onPressed: {
     Notifications.toggleNc()
   }
   states: [
-    // State {
-    //   name: "active"
-    //   when:
-    //
-    // }
+    State {
+      name: "active"
+      when: root.active && !root.hovered && !root.pressed
+      PropertyChanges { triangle.opacity: 0.0 }
+      PropertyChanges { exclamation.opacity: 1.0 }
+      PropertyChanges { rect.borderColor: Appearance.srcery.brightBlack }
+    },
+    State {
+      name: "activeHovered"
+      when: root.active && root.hovered && !root.pressed
+      PropertyChanges { triangle.opacity: 0.0 }
+      PropertyChanges { exclamation.opacity: 1.0 }
+      PropertyChanges { exclamationPath.strokeColor: Appearance.srcery.brightWhite }
+      PropertyChanges { rect.borderColor: Appearance.srcery.brightBlack }
+    },
     State {
       name: "hovered"
-      when: hover.hovered && !root.pressed
+      when: hover.hovered && !root.pressed && !root.active
       PropertyChanges { rect.borderColor: Appearance.srcery.gray6 }
       PropertyChanges { trianglePath.strokeColor: Appearance.srcery.brightWhite }
 
-      // PropertyChanges { triangle.opacity: 0.0 }
-      // PropertyChanges { exclamation.opacity: 1.0 }
-    },
-    State {
-      name: "pressed"
-      when: root.pressed && !hover.hovered
-      PropertyChanges { rect.borderColor: Appearance.srcery.white }
-      PropertyChanges { trianglePath.strokeColor: Appearance.srcery.brightWhite }
-
     }
+    // ,
+    // State {
+    //   name: "pressed"
+    //   when: root.pressed && !hover.hovered && !root.active
+    //   PropertyChanges { rect.borderColor: Appearance.srcery.white }
+    //   PropertyChanges { trianglePath.strokeColor: Appearance.srcery.brightWhite }
+    //
+    // }
 
   ]
 
@@ -86,8 +97,6 @@ Button {
         PathSvg { 
           id: svg
           path: "M 10 1.7 L 18.3 16.3 L 1.7 16.3 Z"
-          // Main rectangle: M(move) -> L(lines) -> Z(close)
-          // path: "M 8 2.7 L 12 2.7 L 12 12.7 L 8 12.7 Z M 8 14.7 L 12 14.7 L 12 17.3 L 8 17.3 Z"
         }
       }
     }
@@ -99,7 +108,8 @@ Button {
       opacity: 0.0
       ShapePath {
         strokeWidth: 1
-        strokeColor: Appearance.srcery.gray3
+        id: exclamationPath
+        strokeColor: Appearance.srcery.white
         fillColor: Appearance.srcery.black
         PathSvg { 
           path: "M 8 2.7 L 12 2.7 L 12 12.7 L 8 12.7 Z M 8 14.7 L 12 14.7 L 12 17.3 L 8 17.3 Z"
