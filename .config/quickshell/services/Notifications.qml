@@ -11,7 +11,7 @@ import QtQuick
 
 Singleton {
   id: root
-  property var data: []
+  property var data: {}
   Process {
     id: subProc
     command: ["swaync-client", "-s"]
