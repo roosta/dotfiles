@@ -24,7 +24,15 @@ Button {
     cursorShape: Qt.PointingHandCursor
   }
 
+  onPressed: {
+    Notifications.toggleNc()
+  }
   states: [
+    // State {
+    //   name: "active"
+    //   when:
+    //
+    // }
     State {
       name: "hovered"
       when: hover.hovered && !root.pressed
@@ -36,7 +44,7 @@ Button {
     },
     State {
       name: "pressed"
-      when: root.pressed
+      when: root.pressed && !hover.hovered
       PropertyChanges { rect.borderColor: Appearance.srcery.white }
       PropertyChanges { trianglePath.strokeColor: Appearance.srcery.brightWhite }
 
