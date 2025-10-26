@@ -109,15 +109,18 @@ Singleton {
 
   // icon aliases, if a class/appid matches key, use value
   // in cases where there isn't a good icon match
-  readonly property var aliases: {
-    "spotify-launcher": "spotify",
-    "kando": "input-mouse"
-  }
+  readonly property var aliases: [
+    ["spotify-launcher", "spotify"],
+    ["kando", "input-mouse"],
+    [/Minecraft.*/, "minecraft"],
+    [/^steam_app_(\d+)$/, "steam_icon_$1"]
+  ]
 
   function getAlias(id) {
-    const match = Object.entries(root.aliases)
-    .find(([k, v]) => k.includes(id.toLowerCase()))
-    return match?.[1]
+    const t = aliases.reduce((acc, [re, s]) => {
+      return acc.replace(re, s)
+    }, id) 
+    return t !== id ? t : null
   }
 
   // Move to something interactive via the menu, but this'll do for now
