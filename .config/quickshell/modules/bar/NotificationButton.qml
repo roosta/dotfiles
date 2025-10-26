@@ -35,7 +35,7 @@ Button {
       when: root.active && !root.hovered && !root.pressed
       PropertyChanges { triangle.opacity: 0.0 }
       PropertyChanges { exclamation.opacity: 1.0 }
-      PropertyChanges { rect.borderColor: Appearance.srcery.brightBlack }
+      PropertyChanges { rect.borderColor: Appearance.srcery.gray5 }
     },
     State {
       name: "activeHovered"
