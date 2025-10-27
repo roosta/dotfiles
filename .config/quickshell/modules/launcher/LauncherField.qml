@@ -240,7 +240,7 @@ BorderRectangle {
 
         Behavior on opacity {
           NumberAnimation {
-            duration: 200
+            duration: Appearance.durations.small
             easing.type: Easing.InOutCubic
           }
         }
