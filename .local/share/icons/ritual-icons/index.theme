@@ -1,0 +1,16 @@
+[Icon Theme]
+Name=ritual-icons
+Comment=Ritual desktop icons
+Inherits=candy-icons,Papirus,breeze-dark,Adwaita,hicolor
+FollowsColorScheme=true
+
+# Directory list
+Directories=apps/scalable
+
+[apps/scalable]
+Size=96
+Context=Applications
+MinSize=8
+MaxSize=512
+Type=Scalable
+
