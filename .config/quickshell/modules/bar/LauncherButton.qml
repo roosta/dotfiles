@@ -67,7 +67,7 @@ Button {
     Transition {
       NumberAnimation { 
         properties: "rotation"
-        duration: 200
+        duration: Appearance.durations.small
         easing.type: Easing.InOutCubic
       }
       ColorAnimation { 

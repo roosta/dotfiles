@@ -28,7 +28,7 @@ BorderRectangle {
   
   Behavior on implicitWidth {
     NumberAnimation {
-      duration: 200
+      duration: Appearance.durations.small
       easing.type: Easing.InOutCubic
     }
   }

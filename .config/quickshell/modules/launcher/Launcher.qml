@@ -80,7 +80,7 @@ Item {
       Transition {
         NumberAnimation { 
           properties: "implicitHeight"
-          duration: 200
+          duration: Appearance.durations.small
           easing.type: Easing.InOutCubic
         }
       }
