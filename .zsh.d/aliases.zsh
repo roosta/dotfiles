@@ -201,6 +201,8 @@ alias vitodo="${EDITOR:-nvim} $HOME/notes/TODOs.md"
 alias vivim="${EDITOR:-nvim} -c 'cd $HOME/.config/nvim' $HOME/.config/nvim/"
 alias vizsh="${EDITOR:-nvim} -c 'cd $HOME/.zsh.d' $HOME/.zshrc"
 alias vizshd="${EDITOR:-nvim} $HOME/.zsh.d"
+alias viqs="${EDITOR:-nvim} -c 'cd $HOME/.config/quickshell' \
+  $HOME/.config/quickshell/shell.qml"
 
 # }}}
 # Global: {{{
