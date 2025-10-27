@@ -71,8 +71,8 @@ Singleton {
   readonly property var outputs: [
     {
       id: 0,
-      sink: "alsa_output.usb-SteelSeries_SteelSeries_Arctis_9_000000000000-00.stereo-game",
-      icon: "",
+      sink: "alsa_output.usb-Generic_USB_Audio-00.HiFi__Speaker__sink",
+      icon: "󰓃",
       description: "Switch audio output to Speakers",
       iconId: "audio-speakers",
       name: "Speakers",
@@ -80,8 +80,8 @@ Singleton {
     },
     {
       id: 1,
-      sink: "alsa_output.usb-Generic_USB_Audio-00.HiFi__Speaker__sink",
-      icon: "󰓃",
+      sink: "alsa_output.usb-SteelSeries_SteelSeries_Arctis_7-00.stereo-game",
+      icon: "",
       description: "Switch audio output to Headphones",
       iconId: "audio-headphones",
       name: "Headphones",
