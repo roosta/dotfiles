@@ -173,7 +173,11 @@ Item {
             required property DesktopEntry modelData
             iconSource: Apps.getEntryIcon(modelData)
             name: modelData?.name ?? ""
-            description: (modelData?.comment || modelData?.genericName || modelData?.name) ?? ""
+            description: (
+              modelData?.comment 
+              || modelData?.genericName
+              || modelData?.name
+            ) ?? ""
             onClicked: appList.accept(modelData)
           }
           Favorites {}
