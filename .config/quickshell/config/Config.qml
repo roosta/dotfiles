@@ -113,7 +113,8 @@ Singleton {
     [/spotify/i, "spotify"],
     [/kando/i, "input-mouse"],
     [/minecraft.*/i, "minecraft"],
-    [/^steam_app_(\d+)$/, "steam_icon_$1"]
+    [/^steam_app_(\d+)$/, "steam_icon_$1"],
+    [/kitty/i, "terminal"]
   ]
 
   // Get an alias for input id (usually class/appid)
