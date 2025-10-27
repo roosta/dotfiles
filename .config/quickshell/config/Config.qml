@@ -114,7 +114,8 @@ Singleton {
     [/kando/i, "input-mouse"],
     [/minecraft.*/i, "minecraft"],
     [/^steam_app_(\d+)$/, "steam_icon_$1"],
-    [/kitty/i, "terminal"]
+    [/kitty/i, "terminal"],
+    [/.*pavucontrol.*/, "gnome-volume-control"]
   ]
 
   // Get an alias for input id (usually class/appid)
