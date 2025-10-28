@@ -25,6 +25,16 @@ Item {
     list.currentIndex = 0
     list.positionViewAtBeginning()
   }
+
+  Timer {
+    id: timer
+    interval: Appearance.durations.small
+    onTriggered: {
+      list.highlightMoveDuration = 0
+      list.positionViewAtBeginning()
+      list.currentIndex = 0
+    }
+  }
   Connections {
     target: GlobalState
 
@@ -32,9 +42,7 @@ Item {
       if (GlobalState.launcherOpen && GlobalState.activeMonitorId === root.monitorId) {
         list.highlightMoveDuration = 1000
       } else {
-        list.highlightMoveDuration = 0
-        list.positionViewAtBeginning()
-        list.currentIndex = 0
+        timer.restart()
       }
     }
   }

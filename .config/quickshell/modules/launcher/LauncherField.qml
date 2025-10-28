@@ -24,6 +24,14 @@ BorderRectangle {
   signal decrementCurrentIndex()
   signal incrementCurrentIndex()
   signal accepted()
+
+  Timer {
+    id: timer
+    interval: Appearance.durations.small
+    onTriggered: {
+      field.text = ""
+    }
+  }
   Connections {
     target: GlobalState
 
@@ -31,7 +39,7 @@ BorderRectangle {
       if (GlobalState.launcherOpen && GlobalState.activeMonitorId === root.monitorId) {
         field.forceActiveFocus();
       } else {
-        field.text = ""
+        timer.restart()
       }
     }
   }
