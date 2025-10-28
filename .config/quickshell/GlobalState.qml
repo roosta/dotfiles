@@ -10,6 +10,14 @@ Singleton {
   property string activeMonitorId: ""
   property string launcherMode: Config.defaultMode
   
+  Timer {
+    id: timer
+    interval: Appearance.durations.small
+    onTriggered: {
+      root.activeMonitorId = ""
+      root.launcherMode = Config.defaultMode
+    }
+  }
   function openLauncher(id, mode = null) {
     if (!id) {
       console.error("No id supplied to launcher!")
@@ -24,8 +32,7 @@ Singleton {
   
   function closeLauncher() {
     launcherOpen = false
-    activeMonitorId = ""
-    launcherMode = Config.defaultMode
+    timer.restart()
   }
   
   function toggleLauncher(id) {
