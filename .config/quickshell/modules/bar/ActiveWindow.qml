@@ -44,15 +44,15 @@ Item {
     ColumnLayout {
       id: colLayout
       Layout.fillWidth: true
-      spacing: -2
+      spacing: -4
       Text {
 
         font {
           family: Appearance.font.light
-          pixelSize: Appearance.font.size1
+          pixelSize: Appearance.font.size2
         }
 
-        color: Appearance.srcery.brightBlack
+        color: Appearance.srcery.brightWhite
         text: {
           if (root.activeWindow?.activated) {
             return Functions.capitalize(root.activeWindow?.appId)
