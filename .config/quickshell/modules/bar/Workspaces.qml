@@ -7,6 +7,7 @@ import QtQuick.Layouts
 import qs.services 
 import qs.config
 import qs.components
+import qs.utils
 pragma ComponentBehavior: Bound
 
 BorderRectangle {
@@ -110,20 +111,9 @@ BorderRectangle {
 
         Workspace {
           occupied: root.occupied
-          activeWorkspaceId: root.activeWorkspaceId
+          activeWorkspaceId: root.activeWorkspaceId;
           required property var modelData;
-          workspaceId: modelData?.id
-
-          property real calculatedWidth: {
-            let isOccupied = occupied[workspaceId] ?? false;
-            if (isOccupied) {
-              let iconCount = Apps.getWsIcons(workspaceId).length;
-              return iconCount * (iconSize + Appearance.spacing.p3);
-            } else {
-              return iconSize + Appearance.spacing.p3;
-            }
-          }
-
+          workspaceId: modelData?.id;
           onCalculatedWidthChanged: activeIndicator.updateIndicator()
         }
       }
