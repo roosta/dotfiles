@@ -8,6 +8,7 @@ import QtQuick.Controls
 import Quickshell.Widgets
 import Quickshell.Hyprland
 import qs.services
+import qs.utils
 import qs.config
 import qs.components
 // import qs.widgets
@@ -22,10 +23,18 @@ Button {
 
   property int buttonSize: 26 * Config.scale
   property int iconSize: 16 * Config.scale
+  property int calculatedWidth: {
+    if (root.isOccupied) {
+      let iconCount = Apps.getWsIcons(workspaceId).length ?? 0;
+      return iconCount * (Appearance.workspaces.iconSize + Appearance.spacing.p3);
+    } else {
+      return Appearance.workspaces.iconSize + Appearance.spacing.p3;
+    }
+  }
 
   property var color: activeWorkspaceId === workspaceId
-  ? Appearance.srcery.brightWhite
-  : Appearance.srcery.gray6
+    ? Appearance.srcery.brightWhite
+    : Appearance.srcery.gray6
 
 
   onPressed: {
@@ -36,7 +45,7 @@ Button {
 
   background: BorderRectangle {
     id: wsBackground
-    implicitWidth: childrenRect.width
+    implicitWidth: root.calculatedWidth
     implicitHeight: childrenRect.height
     radius: Appearance.bar.radius
     color: Appearance.srcery.black
