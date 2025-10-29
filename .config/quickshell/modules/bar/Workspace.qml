@@ -26,9 +26,9 @@ Button {
   property int calculatedWidth: {
     if (root.isOccupied) {
       let iconCount = Apps.getWsIcons(workspaceId).length ?? 0;
-      return iconCount * (Appearance.workspaces.iconSize + Appearance.spacing.p3);
+      return iconCount * (root.iconSize + Appearance.spacing.p3);
     } else {
-      return Appearance.workspaces.iconSize + Appearance.spacing.p3;
+      return root.iconSize + Appearance.spacing.p3;
     }
   }
 
