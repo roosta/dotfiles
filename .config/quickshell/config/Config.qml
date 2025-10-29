@@ -37,6 +37,30 @@ Singleton {
       "script": null
     }
   }
+  readonly property var modeMenu: [
+    {
+      id: 0,
+      name: "Apps",
+      description: "Browse and start desktop applications",
+      mode: "apps",
+      iconId: "applications-all"
+    },
+    {
+      id: 1,
+      name: "Display",
+      description: "Switch display layouts between presets",
+      mode: "display",
+      iconId: "preferences-desktop-display"
+    },
+    {
+      id: 2,
+      name: "Audio",
+      description: "Switch audio options between presets",
+      mode: "audio",
+      iconId: "audio-x-generic"
+    }
+  ]
+
   readonly property var displayLayouts: [
     {
       id: 0,
