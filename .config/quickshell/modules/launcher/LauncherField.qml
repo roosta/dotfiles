@@ -56,6 +56,7 @@ BorderRectangle {
       }
       model: Object.entries(Config.menus).map(([k, v]) => k)
       Layout.fillHeight: true
+      implicitWidth: 114
 
       HoverHandler {
         id: hover
@@ -117,7 +118,12 @@ BorderRectangle {
         leftPadding: Appearance.spacing.p0
         rightPadding: control.indicator.width + control.spacing
 
-        text: `${Config.prefix}${control.displayText}`
+        text: {
+          if (control.currentValue === "menu") {
+            return "Select Mode"
+          } 
+          return `${Config.prefix}${control.displayText}`
+        }
         color: control.pressed ? Appearance.srcery.brightBlack : Appearance.srcery.gray6
         verticalAlignment: Text.AlignVCenter
         font.family: Appearance.font.light
@@ -169,6 +175,9 @@ BorderRectangle {
       implicitWidth: parent.width - Appearance.spacing.p4 * 2 + Appearance.bar.borderWidth * 2
       placeholderText: " Search..."
       onTextChanged: {
+        if (text === Config.prefix) {
+          GlobalState.launcherMode = "menu"
+        }
         const m = Object.entries(Config.menus).find(([k, v]) => {
           return text.startsWith(v.prefix)
         })
@@ -207,6 +216,10 @@ BorderRectangle {
           event.accepted = true;
         } else if (event.key == Qt.Key_Backspace && text === "" && GlobalState.launcherMode !== Config.defaultMode) {
           GlobalState.launcherMode = Config.defaultMode
+          event.accepted = true
+        } else if (event.key == Qt.Key_Backspace && text === "/" && GlobalState.launcherMode === "menu") {
+          GlobalState.launcherMode = Config.defaultMode
+          field.text = ""
           event.accepted = true
         }
       }

@@ -103,6 +103,8 @@ Item {
             return audioLoader.item
           case "display":
             return displayLoader.item
+          case "menu":
+            return menuLoader.item
           default:
             return appLoader.item
         }
@@ -111,6 +113,19 @@ Item {
       // TODO: Cleanup
       // Set it up so that I dont hard code this, but get it from config
       states: [
+        State {
+          name: "menu"
+          PropertyChanges {
+            appLoader.active: false
+            appLoader.visible: false
+            audioLoader.active: false
+            audioLoader.visible: false
+            displayLoader.active: false
+            displayLoader.visible: false
+            menuLoader.active: true
+            menuLoader.visible: true
+          }
+        },
         State {
           name: "apps"
           PropertyChanges {
@@ -122,6 +137,8 @@ Item {
             audioLoader.visible: false
             displayLoader.active: false
             displayLoader.visible: false
+            menuLoader.active: false
+            menuLoader.visible: false
           }
 
           // AnchorChanges {
@@ -138,6 +155,8 @@ Item {
             appLoader.visible: false
             displayLoader.active: false
             displayLoader.visible: false
+            menuLoader.active: false
+            menuLoader.visible: false
           }
         },
         State {
@@ -149,6 +168,8 @@ Item {
             appLoader.visible: false
             audioLoader.active: false
             audioLoader.visible: false
+            menuLoader.active: false
+            menuLoader.visible: false
           }
         }
 
@@ -240,6 +261,34 @@ Item {
             name: modelData.name
             description: modelData.description
             onClicked: displayList.accept(modelData)
+          }
+        }
+      }
+      Loader {
+        id: menuLoader
+        active: false
+        visible: false
+        Layout.fillWidth: true
+        Layout.fillHeight: true
+        sourceComponent: LauncherList {
+          id: menuList
+          monitorId: root.monitorId
+          searchQuery: root.query
+          signal accept(entry: var)
+          onAccept: (entry) => {
+            GlobalState.launcherMode = entry.mode
+            field.text = ""
+          }
+          model: {
+            const q = root.query.replace("/", "")
+            Menu.fuzzyQuery(q)
+          }
+          delegate: LauncherItem { 
+            required property var modelData
+            iconSource: Quickshell.iconPath(modelData.iconId)
+            name: modelData.name
+            description: modelData.description
+            onClicked: menuList.accept(modelData)
           }
         }
       }
