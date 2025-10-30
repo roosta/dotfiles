@@ -88,7 +88,7 @@ notificationwindow, blankwindow, blankwindow {
 
 .notification-row .notification-background .notification .notification-default-action {
   /* The large action that also displays the notification summary and body */
-  padding: 0 8px;
+  padding: 8px;
   min-height: 50px;
   margin: 0;
   box-shadow: none;
