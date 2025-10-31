@@ -89,10 +89,8 @@ Item {
                 anchors.right: parent.right
                 anchors.rightMargin: Appearance.spacing.p1
                 Clock { }
-                TrayButton { }
-                AudioButton { 
-                  monitorId: root.monitorId
-                }
+                TrayButton { monitorId: root.monitorId }
+                AudioButton { monitorId: root.monitorId }
               }
             }
           }
