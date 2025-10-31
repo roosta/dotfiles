@@ -31,47 +31,60 @@ Button {
   }
   states: [
     State {
+      name: "open"
+      when: Notifications.open && !root.hovered && !root.pressed && !root.active
+      PropertyChanges { shape.rotation: 90 }
+      PropertyChanges { path.strokeColor: Appearance.srcery.brightWhite }
+      PropertyChanges { rect.borderColor: Appearance.srcery.brightBlack }
+
+    },
+    State {
+      name: "openActive"
+      when: Notifications.open && !root.hovered && !root.pressed && root.active
+      PropertyChanges { shape.rotation: 90 }
+      PropertyChanges { path.strokeColor: Appearance.srcery.brightWhite }
+      PropertyChanges { rect.borderColor: Appearance.srcery.brightBlack }
+
+    },
+    State {
       name: "active"
-      when: root.active && !root.hovered && !root.pressed
-      PropertyChanges { triangle.opacity: 0.0 }
-      PropertyChanges { exclamation.opacity: 1.0 }
+      when: root.active && !root.hovered && !root.pressed && !Notifications.open
+      PropertyChanges { shape.rotation: 180 }
+      PropertyChanges { path.strokeColor: Appearance.srcery.white }
       PropertyChanges { rect.borderColor: Appearance.srcery.gray5 }
     },
     State {
       name: "activeHovered"
-      when: root.active && root.hovered && !root.pressed
-      PropertyChanges { triangle.opacity: 0.0 }
-      PropertyChanges { exclamation.opacity: 1.0 }
-      PropertyChanges { exclamationPath.strokeColor: Appearance.srcery.brightWhite }
+      when: root.active && root.hovered && !root.pressed && !Notifications.open
+      PropertyChanges { shape.rotation: 180 }
+      PropertyChanges { path.strokeColor: Appearance.srcery.brightWhite }
       PropertyChanges { rect.borderColor: Appearance.srcery.brightBlack }
     },
     State {
       name: "hovered"
-      when: hover.hovered && !root.pressed && !root.active
+      when: hover.hovered && !root.pressed && !root.active && !Notifications.open
       PropertyChanges { rect.borderColor: Appearance.srcery.gray6 }
-      PropertyChanges { trianglePath.strokeColor: Appearance.srcery.brightWhite }
+      PropertyChanges { path.strokeColor: Appearance.srcery.brightWhite }
 
+    },
+    State {
+      name: "pressed"
+      when: root.pressed && hover.hovered && !root.active && !Notifications.open
+      PropertyChanges { rect.borderColor: Appearance.srcery.brightBlue }
+      PropertyChanges { path.strokeColor: Appearance.srcery.brightBlue }
     }
-    // ,
-    // State {
-    //   name: "pressed"
-    //   when: root.pressed && !hover.hovered && !root.active
-    //   PropertyChanges { rect.borderColor: Appearance.srcery.white }
-    //   PropertyChanges { trianglePath.strokeColor: Appearance.srcery.brightWhite }
-    //
-    // }
 
   ]
 
   transitions: [
     Transition {
       NumberAnimation { 
-        properties: "opacity"
-        duration: Appearance.durations.small
+        properties: "rotation"
+        duration: Appearance.durations.normal
         easing.type: Easing.InOutCubic
       }
       ColorAnimation { 
-        duration: 50
+        duration: Appearance.durations.small
         easing.type: Easing.OutQuad 
       }
     }
@@ -84,14 +97,13 @@ Button {
     anchors.fill: parent
 
     Shape {
-      id: triangle
+      id: shape
       anchors.centerIn: parent
-      opacity: 1.0
       width: Appearance.bar.iconSize
       height: Appearance.bar.iconSize
       ShapePath {
         strokeWidth: 1
-        id: trianglePath
+        id: path
         strokeColor: Appearance.srcery.gray3
         fillColor: Appearance.srcery.black
         PathSvg { 
@@ -100,23 +112,5 @@ Button {
         }
       }
     }
-    Shape {
-      anchors.centerIn: parent
-      id: exclamation
-      width: Appearance.bar.iconSize
-      height: Appearance.bar.iconSize
-      opacity: 0.0
-      ShapePath {
-        strokeWidth: 1
-        id: exclamationPath
-        strokeColor: Appearance.srcery.white
-        fillColor: Appearance.srcery.black
-        PathSvg { 
-          path: "M 8 2.7 L 12 2.7 L 12 12.7 L 8 12.7 Z M 8 14.7 L 12 14.7 L 12 17.3 L 8 17.3 Z"
-        }
-      }
-    }
-
   }
-
 }

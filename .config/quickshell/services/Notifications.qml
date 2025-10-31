@@ -11,7 +11,9 @@ import QtQuick
 
 Singleton {
   id: root
-  property var data: {}
+  property var data: ({})
+  property bool open: data?.visible ?? false
+  
   Process {
     id: subProc
     command: ["swaync-client", "-s"]
