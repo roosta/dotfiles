@@ -81,7 +81,7 @@ Button {
       NumberAnimation { 
         properties: "rotation"
         duration: Appearance.durations.normal
-        easing.type: Easing.InOutCubic
+        easing.type: Easing.OutCubic
       }
       ColorAnimation { 
         duration: Appearance.durations.small
