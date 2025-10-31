@@ -8,7 +8,7 @@ import QtQuick.Layouts
 
 import QtQuick.Controls
 
-BarButton {
+ExpandingButton {
   id: root
   buttonLabel: Config.getSinkIcon(Audio.sink) ?? ""
 

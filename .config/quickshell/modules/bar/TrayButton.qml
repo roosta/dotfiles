@@ -7,7 +7,7 @@ import Quickshell.Services.SystemTray
 
 import QtQuick.Controls
 
-BarButton {
+ExpandingButton {
   id: root
   buttonLabel: SystemTray.items.values.length
 
