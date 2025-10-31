@@ -52,7 +52,7 @@ Button {
       name: "active"
       when: GlobalState.launcherOpen && GlobalState.activeMonitorId === root.monitorId
       PropertyChanges { innerRect.rotation: 0 }
-      PropertyChanges { outerRect.borderColor: Appearance.srcery.brightWhite }
+      PropertyChanges { outerRect.borderColor: Appearance.srcery.brightBlack }
       PropertyChanges { innerRect.borderColor: Appearance.srcery.brightWhite }
     },
     State {
@@ -67,11 +67,11 @@ Button {
     Transition {
       NumberAnimation { 
         properties: "rotation"
-        duration: Appearance.durations.small
-        easing.type: Easing.InOutCubic
+        duration: Appearance.durations.normal
+        easing.type: Easing.OutCubic
       }
       ColorAnimation { 
-        duration: 50
+        duration: Appearance.durations.small
         easing.type: Easing.OutQuad 
       }
     }
