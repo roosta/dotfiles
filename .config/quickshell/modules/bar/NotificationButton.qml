@@ -32,7 +32,7 @@ Button {
   states: [
     State {
       name: "open"
-      when: Notifications.open && !root.hovered && !root.pressed && !root.active
+      when: Notifications.open && !root.hovered && !root.active
       PropertyChanges { shape.rotation: 90 }
       PropertyChanges { path.strokeColor: Appearance.srcery.brightWhite }
       PropertyChanges { rect.borderColor: Appearance.srcery.brightBlack }
@@ -40,7 +40,7 @@ Button {
     },
     State {
       name: "openActive"
-      when: Notifications.open && !root.hovered && !root.pressed && root.active
+      when: Notifications.open && !root.hovered && root.active
       PropertyChanges { shape.rotation: 90 }
       PropertyChanges { path.strokeColor: Appearance.srcery.brightWhite }
       PropertyChanges { rect.borderColor: Appearance.srcery.brightBlack }
@@ -48,32 +48,25 @@ Button {
     },
     State {
       name: "active"
-      when: root.active && !root.hovered && !root.pressed && !Notifications.open
+      when: root.active && !root.hovered && !Notifications.open
       PropertyChanges { shape.rotation: 180 }
       PropertyChanges { path.strokeColor: Appearance.srcery.white }
       PropertyChanges { rect.borderColor: Appearance.srcery.gray5 }
     },
     State {
       name: "activeHovered"
-      when: root.active && root.hovered && !root.pressed && !Notifications.open
+      when: root.active && root.hovered && !Notifications.open
       PropertyChanges { shape.rotation: 180 }
       PropertyChanges { path.strokeColor: Appearance.srcery.brightWhite }
       PropertyChanges { rect.borderColor: Appearance.srcery.brightBlack }
     },
     State {
       name: "hovered"
-      when: hover.hovered && !root.pressed && !root.active && !Notifications.open
+      when: hover.hovered && !root.active && !Notifications.open
       PropertyChanges { rect.borderColor: Appearance.srcery.gray6 }
       PropertyChanges { path.strokeColor: Appearance.srcery.brightWhite }
 
-    },
-    State {
-      name: "pressed"
-      when: root.pressed && hover.hovered && !root.active && !Notifications.open
-      PropertyChanges { rect.borderColor: Appearance.srcery.brightBlue }
-      PropertyChanges { path.strokeColor: Appearance.srcery.brightBlue }
     }
-
   ]
 
   transitions: [
