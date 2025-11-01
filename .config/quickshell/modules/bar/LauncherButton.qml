@@ -17,8 +17,8 @@ Button {
   // color: Appearance.srcery.brightWhite
   required property string monitorId
   Layout.topMargin: Appearance.bar.borderWidth
-  implicitWidth: parent.height - Appearance.spacing.p3
-  implicitHeight: parent.height - Appearance.spacing.p3
+  implicitWidth: Appearance.bar.height - Appearance.spacing.p3
+  implicitHeight: Appearance.bar.height - Appearance.spacing.p3
 
   onPressed: {
     GlobalState.toggleLauncher(root.monitorId)

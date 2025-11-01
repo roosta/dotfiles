@@ -24,7 +24,7 @@ BorderRectangle {
         Layout.alignment: Qt.AlignRight
         font {
           family: Appearance.font.light
-          pixelSize: Appearance.font.size2
+          pixelSize: Appearance.font.size3
         }
 
         color: Appearance.srcery.brightWhite

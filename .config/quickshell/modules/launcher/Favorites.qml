@@ -83,7 +83,7 @@ BorderRectangle {
           State {
             name: "pressed"
             when: fav.pressed
-            PropertyChanges { bg.color: Appearance.srcery.gray2 }
+            PropertyChanges { bg.color: Appearance.srcery.gray3 }
           },
           State {
             name: "hovered"

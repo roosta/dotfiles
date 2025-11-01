@@ -22,10 +22,8 @@ Item {
   BorderRectangle {
     id: barContent
     color: Appearance.srcery.black
-    borderColor: Appearance.srcery.gray2
+    borderColor: Appearance.srcery.gray3
     topBorder: 1
-    // border.width: Appearance.bar.borderWidth
-    // border.color: Appearance.srcery.gray2
     anchors {
       right: parent.right
       left: parent.left
@@ -58,40 +56,53 @@ Item {
 
         RowLayout {
           anchors.fill: parent
-          RowLayout {
+          spacing: 0
+          Rectangle {
             id: leftSection
-            Loader {
-              Layout.fillWidth: true
-              Layout.fillHeight: true
-              active: Apps.ready
-              sourceComponent: ActiveWindow { }
-            }
-          }
-          RowLayout {
-            id: centerSection
-            spacing: Appearance.spacing.p1
-
-            LauncherButton { monitorId: root.monitorId }
-
-            Workspaces { 
-              monitorId: root.monitorId
-            }
-
-            NotificationButton {}
-          }
-          RowLayout {
-            id: rightSection
-            Item {
-              Layout.fillHeight: true
-              Layout.fillWidth: true
-              RowLayout {
-                spacing: Appearance.spacing.p1
-                anchors.right: parent.right
-                anchors.rightMargin: Appearance.spacing.p1
-                Clock { }
-                TrayButton { monitorId: root.monitorId }
-                AudioButton { monitorId: root.monitorId }
+            Layout.fillWidth: true
+            Layout.fillHeight: true
+            color: "transparent"
+            RowLayout {
+              spacing: Appearance.spacing.p1
+              anchors.left: parent.left
+              anchors.leftMargin: Appearance.spacing.p1 - Appearance.bar.borderWidth
+              anchors.fill: parent
+              KeyboardButton { monitorId: root.monitorId }
+              Loader {
+                Layout.fillHeight: true
+                Layout.fillWidth: true
+                active: Apps.ready
+                sourceComponent: ActiveWindow { }
               }
+
+            }
+          }
+          Rectangle {
+            id: centerSection
+            color: "transparent"
+            Layout.fillHeight: true
+            Layout.fillWidth: true
+            // Layout.alignment: Qt.AlignHCenter
+            RowLayout {
+              spacing: Appearance.spacing.p1
+              anchors.centerIn: parent
+              LauncherButton { monitorId: root.monitorId }
+              Workspaces { monitorId: root.monitorId }
+              NotificationButton {}
+            }
+          }
+          Rectangle {
+            id: rightSection
+            Layout.fillHeight: true
+            Layout.fillWidth: true
+            color: "transparent"
+            RowLayout {
+              spacing: Appearance.spacing.p1
+              anchors.right: parent.right
+              anchors.rightMargin: Appearance.spacing.p1
+              Clock { }
+              TrayButton { monitorId: root.monitorId }
+              AudioButton { monitorId: root.monitorId }
             }
           }
         } 

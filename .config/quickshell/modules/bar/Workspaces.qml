@@ -12,9 +12,9 @@ pragma ComponentBehavior: Bound
 
 BorderRectangle {
   id: root
-  leftBorder: 1
-  rightBorder: 1
-  borderColor: Appearance.srcery.gray2
+  leftBorder: Appearance.bar.borderWidth
+  rightBorder: Appearance.bar.borderWidth
+  borderColor: Appearance.srcery.gray3
   color: Appearance.srcery.black
   required property string monitorId
   property var workspaces: HyprlandData.workspacesByMonitor[monitorId] ?? []
@@ -34,7 +34,7 @@ BorderRectangle {
     }
   }
   implicitWidth: layout.implicitWidth + Appearance.spacing.p3 + Appearance.bar.borderWidth * 2
-  Layout.fillHeight: true
+  implicitHeight: Appearance.bar.height - Appearance.bar.borderWidth
   Layout.topMargin: Appearance.bar.borderWidth
   radius: Appearance.bar.radius
 
