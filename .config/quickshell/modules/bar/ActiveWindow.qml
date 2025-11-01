@@ -12,21 +12,22 @@ import Quickshell.Widgets
 
 Item {
   id: root
+  implicitWidth: 200
   readonly property HyprlandMonitor monitor: Hyprland.monitorFor(root.QsWindow.window?.screen)
   readonly property Toplevel activeWindow: ToplevelManager.activeToplevel
   property string activeWindowAddress: `0x${activeWindow?.HyprlandToplevel?.address}`
   property bool focusingThisMonitor: HyprlandData.activeWorkspace?.monitor == monitor?.name
-  Layout.fillWidth: true
-  Layout.fillHeight: true
   RowLayout {
     id: rowLayout
     anchors.fill: parent
+    spacing: 0
     BorderRectangle {
-      implicitWidth: Appearance.bar.height
-      implicitHeight: Appearance.bar.height
+      implicitWidth: Appearance.bar.height + Appearance.spacing.p1
+      implicitHeight: Appearance.bar.height - Appearance.bar.borderWidth
       Layout.topMargin: Appearance.bar.borderWidth
       color: Appearance.srcery.black
-      rightBorder: Appearance.bar.borderWidth
+      // rightBorder: Appearance.bar.borderWidth
+      leftBorder: Appearance.bar.borderWidth
       borderColor: Appearance.srcery.gray3
       IconImage {
         id: windowIcon
@@ -38,7 +39,7 @@ Item {
             return Apps.getIcon("workspace")
           }
         }
-        implicitSize: parent.height - Appearance.spacing.p3
+        implicitSize: parent.height - Appearance.spacing.p1
       }
     }
     ColumnLayout {

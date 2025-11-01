@@ -16,8 +16,8 @@ import Quickshell.Widgets
 Button {
   id: root
   Layout.topMargin: Appearance.bar.borderWidth
-  implicitWidth: parent.height - Appearance.spacing.p3
-  implicitHeight: parent.height - Appearance.spacing.p3
+  implicitWidth: Appearance.bar.height - Appearance.spacing.p3
+  implicitHeight: Appearance.bar.height - Appearance.spacing.p3
 
   property bool active: Notifications?.data?.count ?? false
 
