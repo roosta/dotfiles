@@ -39,7 +39,7 @@ Item {
             return Apps.getIcon("workspace")
           }
         }
-        implicitSize: parent.height - Appearance.spacing.p1
+        implicitSize: parent.height - Appearance.spacing.p2
       }
     }
     ColumnLayout {
