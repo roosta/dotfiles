@@ -67,8 +67,8 @@ BorderRectangle {
         Text {
           anchors.centerIn: parent
           id: indicator
-          text: "EN"
-          color: Appearance.srcery.white
+          text: KeyboardLayout.layout.code.toUpperCase()
+          color: KeyboardLayout.layout.color
           font {
             family: Appearance.font.light
             pixelSize: Appearance.font.size3

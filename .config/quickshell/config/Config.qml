@@ -5,6 +5,7 @@ pragma ComponentBehavior: Bound
 import Quickshell
 import qs.services
 import qs.utils
+import qs.config
 import QtQuick
 
 Singleton {
@@ -20,6 +21,22 @@ Singleton {
     readonly property string tv: "HDMI-A-2"
   }
   readonly property string defaultMode: "apps"
+
+  property var keyboardLayouts: [
+    {
+      code: "no",
+      label: "Norwegian",
+      color: Appearance.srcery.orange,
+      default: false
+    },
+    {
+      code: "en",
+      label: "English (US)", 
+      color: Appearance.srcery.white,
+      default: true
+    }
+  ]
+
   readonly property var menus: {
     "display": {
       "name": "Display",
