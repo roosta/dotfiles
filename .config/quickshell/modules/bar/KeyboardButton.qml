@@ -3,6 +3,7 @@ import qs.config
 import qs.services
 import qs.components
 import qs
+import Quickshell.Hyprland
 import QtQuick
 import QtQuick.Layouts
 
@@ -38,7 +39,12 @@ BorderRectangle {
   states: [
     State {
       name: "hovered"
-      when: button.hovered
+      when: button.hovered && !button.pressed
+      PropertyChanges { buttonBg.borderColor: Appearance.srcery.gray4 }
+    },
+    State {
+      name: "pressed"
+      when: button.pressed && button.hovered
       PropertyChanges { buttonBg.borderColor: Appearance.srcery.gray6 }
     }
   ]
@@ -50,10 +56,7 @@ BorderRectangle {
       id: button
       implicitHeight: root.height
       implicitWidth: root.height
-      onPressed: {
-        console.log("I got pressed!")
-        // root.active = !root.active
-      }
+      onPressed: Keyboard.nextLayout()
 
       HoverHandler {
         id: hover
