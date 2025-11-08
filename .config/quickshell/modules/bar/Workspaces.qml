@@ -112,7 +112,6 @@ BorderRectangle {
         Workspace {
           occupied: root.occupied
           activeWorkspaceId: root.activeWorkspaceId;
-          required property var modelData;
           workspaceId: modelData?.id;
           onCalculatedWidthChanged: activeIndicator.updateIndicator()
         }

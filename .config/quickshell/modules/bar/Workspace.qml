@@ -20,6 +20,7 @@ Button {
   required property int activeWorkspaceId
   readonly property bool isOccupied: occupied[workspaceId] ?? false
   readonly property bool isWorkspace: true
+  required property var modelData
 
   property int buttonSize: 26 * Config.scale
   property int iconSize: 16 * Config.scale
