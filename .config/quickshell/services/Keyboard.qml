@@ -10,6 +10,7 @@ import QtQuick
 import qs.config
 // import qs.utils
 
+        // Hyprland.dispatch(`exec hyprctl switchxkblayout current next`)
 Singleton {
   id: root
   property var layout: {
@@ -30,6 +31,16 @@ Singleton {
       }
     }
   }
+  Process {
+    id: switchProc
+    running: false
+    command: ["hyprctl", "switchxkblayout", "current", "next"]
+  }
+
+  function nextLayout() {
+    switchProc.running = true
+  }
+
   Connections {
     target: Hyprland
     function onRawEvent(event) {
