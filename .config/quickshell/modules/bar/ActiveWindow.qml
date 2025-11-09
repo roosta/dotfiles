@@ -22,7 +22,7 @@ Item {
     anchors.fill: parent
     spacing: 0
     BorderRectangle {
-      implicitWidth: Appearance.bar.height + Appearance.spacing.p1
+      implicitWidth: Appearance.bar.height
       implicitHeight: Appearance.bar.height - Appearance.bar.borderWidth
       Layout.topMargin: Appearance.bar.borderWidth
       color: Appearance.srcery.black
@@ -39,7 +39,7 @@ Item {
             return Apps.getIcon("workspace")
           }
         }
-        implicitSize: parent.height - Appearance.spacing.p2
+        implicitSize: parent.height - Appearance.spacing.p3
       }
     }
     ColumnLayout {
