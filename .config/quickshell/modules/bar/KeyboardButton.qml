@@ -40,12 +40,12 @@ BorderRectangle {
     State {
       name: "hovered"
       when: button.hovered && !button.pressed
-      PropertyChanges { buttonBg.borderColor: Appearance.srcery.gray4 }
+      PropertyChanges { root.borderColor: Appearance.srcery.gray4 }
     },
     State {
       name: "pressed"
       when: button.pressed && button.hovered
-      PropertyChanges { buttonBg.borderColor: Appearance.srcery.gray6 }
+      PropertyChanges { root.borderColor: Appearance.srcery.gray6 }
     }
   ]
 
@@ -54,30 +54,35 @@ BorderRectangle {
     spacing: Appearance.spacing.p3
     Button {
       id: button
-      implicitHeight: root.height
       implicitWidth: root.height
+      // Layout.margins: Appearance.bar.borderWidth
       onPressed: Keyboard.nextLayout()
 
       HoverHandler {
         id: hover
         cursorShape: Qt.PointingHandCursor
       }
-      background: BorderRectangle {
-        id: buttonBg
-        color: Appearance.srcery.black
-        borderWidth: Appearance.bar.borderWidth
-        borderColor: Appearance.srcery.gray3
-        Text {
-          anchors.centerIn: parent
-          id: indicator
-          text: Keyboard.layout.code.toUpperCase()
-          color: Keyboard.layout.color
-          font {
-            family: Appearance.font.light
-            pixelSize: Appearance.font.size3
-          }
+      contentItem: Text {
+        horizontalAlignment: Text.AlignHCenter
+        verticalAlignment: Text.AlignVCenter
+        id: indicator
+        text: Keyboard.layout.code.toUpperCase()
+        color: Keyboard.layout.color
+        font {
+          family: Appearance.font.light
+          pixelSize: Appearance.font.size3
         }
       }
+
+      background: Rectangle {
+        id: buttonBg
+        color: "transparent"
+        
+      }
+    }
+    Rectangle {
+      id: shiftlock
+      visible: false
     }
   }
 }
