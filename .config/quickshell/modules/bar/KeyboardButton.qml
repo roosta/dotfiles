@@ -21,15 +21,6 @@ BorderRectangle {
   implicitWidth: layout.implicitWidth
   implicitHeight: Appearance.bar.height - Appearance.spacing.p3
 
-  // Automatically close after 30 seconds
-  // TODO: Should be open when menu is visible, or inside mouse area
-  Timer {
-    id: timer
-    interval: 1000 * 30
-    onTriggered: {
-      // root.active = false
-    }
-  }
   Behavior on implicitWidth {
     NumberAnimation {
       duration: Appearance.durations.small
@@ -51,11 +42,10 @@ BorderRectangle {
 
   RowLayout {
     id: layout
-    spacing: Appearance.spacing.p3
+    spacing: 0
     Button {
       id: button
       implicitWidth: root.height
-      // Layout.margins: Appearance.bar.borderWidth
       onPressed: Keyboard.nextLayout()
 
       HoverHandler {
@@ -82,7 +72,20 @@ BorderRectangle {
     }
     Rectangle {
       id: shiftlock
-      visible: false
+      visible: Keyboard.capsLock
+      color: "transparent"
+      implicitWidth: root.height - Appearance.spacing.p3 + Appearance.bar.borderWidth
+      Layout.fillHeight: true
+      Text {
+        text: "󰌾"
+
+        anchors.verticalCenter: parent.verticalCenter
+        color: Appearance.srcery.yellow
+        font {
+          family: Appearance.font.light
+          pixelSize: Appearance.font.size2
+        }
+      }
     }
   }
 }
