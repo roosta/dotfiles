@@ -16,6 +16,7 @@ Singleton {
   property var layout: {
     return Config.keyboardLayouts.find(l => l.default)
   }
+  property bool capsLock
   Process {
     id: devicesProc
     running: true
@@ -27,8 +28,17 @@ Singleton {
         const parsed = JSON.parse(devicesCollector.text);
         const main = parsed["keyboards"].find(kb => kb.main);
         const keymap = main["active_keymap"]; 
+        root.capsLock = main?.capsLock ?? false
         root.layout = Config.keyboardLayouts.find(l => l.label === keymap)
       }
+    }
+  }
+
+  GlobalShortcut {
+    name: "shiftlock"
+    description: "Handles capslock state"
+    onPressed: {
+      devicesProc.running = true
     }
   }
   Process {
