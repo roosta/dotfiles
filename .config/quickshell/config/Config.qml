@@ -26,7 +26,7 @@ Singleton {
     {
       code: "no",
       label: "Norwegian",
-      color: Appearance.srcery.orange,
+      color: Appearance.srcery.yellow,
       default: false
     },
     {
