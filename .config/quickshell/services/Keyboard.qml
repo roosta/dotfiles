@@ -10,7 +10,6 @@ import QtQuick
 import qs.config
 // import qs.utils
 
-        // Hyprland.dispatch(`exec hyprctl switchxkblayout current next`)
 Singleton {
   id: root
   property var layout: {
@@ -34,13 +33,18 @@ Singleton {
     }
   }
 
+  // I would read the caps state from the main keyboard, but it doesn't
+  // update the caps state until a layout change forces it to redetect it.
+  // Resorted to just init the caps state from keyboard, and hopefully it
+  // stays in sync.
   GlobalShortcut {
     name: "shiftlock"
     description: "Handles capslock state"
     onPressed: {
-      devicesProc.running = true
+      root.capsLock = !root.capsLock
     }
   }
+
   Process {
     id: switchProc
     running: false
