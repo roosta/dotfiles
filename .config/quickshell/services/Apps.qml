@@ -53,11 +53,13 @@ Singleton {
       return w.workspace.id === wsid
     }).map(w => w?.class)
     const uniq = [...new Set(classes)]
-    const icons = uniq.map(id => {
-      const alias = Config.getAlias(id)
-      return Config.getAlias(id) ?? DesktopEntries.heuristicLookup(id)?.icon
+    return uniq.map(id => {
+      const icon = Config.getAlias(id) ?? DesktopEntries.heuristicLookup(id)?.icon 
+      return {
+        icon: Quickshell.iconPath(icon, root.icons.missing),
+        class: id
+      }
     })
-    return icons.map(icon => Quickshell.iconPath(icon, root.icons.missing))
   }
 
   function fuzzyQuery(search: string): var {

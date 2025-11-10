@@ -16,6 +16,7 @@ import qs.utils
 Singleton {
   id: root
   property var windowList: []
+  property var urgentWindows: []
   property var addresses: []
   property var windowByAddress: ({})
   property var workspaces: []
@@ -25,7 +26,6 @@ Singleton {
   property var activeWorkspace: null
   property var monitors: []
   property var layers: ({})
-
   function updateWindowList() {
     getClients.running = true;
   }
@@ -50,16 +50,27 @@ Singleton {
     updateWorkspaces();
   }
 
+  function clearUrgentByClass(c) {
+    root.urgentWindows = root.urgentWindows.filter(win => {
+      return win.class !== c
+    })
+  }
+
   Component.onCompleted: {
     updateAll();
   }
-
   Connections {
     target: Hyprland
 
     function onRawEvent(event) {
       // console.log("Hyprland raw event:", event.name);
       root.updateAll()
+      if (event.name === "urgent") {
+        const win = root.windowList.find(w => w.address === `0x${event.data}`)
+        if (win) {
+          root.urgentWindows.push(win)
+        }
+      }
     }
   }
 
