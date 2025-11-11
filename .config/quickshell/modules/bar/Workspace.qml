@@ -41,11 +41,6 @@ Button {
     }
   }
 
-  property var color: activeWorkspaceId === workspaceId
-    ? Appearance.srcery.brightWhite
-    : Appearance.srcery.gray6
-
-
   onPressed: {
     if (workspaceId !== activeWorkspaceId) {
       Hyprland.dispatch(`workspace ${workspaceId}`)
@@ -110,6 +105,7 @@ Button {
           id: circle
           anchors.centerIn: parent
           width: root.buttonSize * 0.25
+          color: Appearance.srcery.gray6
           height: width
           radius: width / 2
         }
