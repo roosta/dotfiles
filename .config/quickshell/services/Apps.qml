@@ -52,7 +52,7 @@ Singleton {
     const classes = HyprlandData.windowList.filter(w => {
       return w.workspace.id === wsid
     }).map(w => w?.class)
-    const uniq = [...new Set(classes)]
+    const uniq = [...new Set(classes)].sort((a, b) => a.localeCompare(b))
     return uniq.map(id => {
       const icon = Config.getAlias(id) ?? DesktopEntries.heuristicLookup(id)?.icon 
       return {
