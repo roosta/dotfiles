@@ -151,7 +151,7 @@ Singleton {
   // icon aliases, if a class/appid matches key, use value
   // in cases where there isn't a good icon match
   readonly property var aliases: [
-    [/spotify/i, "spotify"],
+    [/.*spotify.*/i, "spotify"],
     [/kando/i, "input-mouse"],
     [/minecraft.*/i, "minecraft"],
     [/^steam_app_(\d+)$/, "steam_icon_$1"],
