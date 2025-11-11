@@ -22,6 +22,13 @@ Button {
   readonly property bool isOccupied: occupied[workspaceId] ?? false
   readonly property bool isWorkspace: true
   required property var modelData
+  property bool active: activeWorkspaceId === workspaceId
+  property bool urgent: {
+    return HyprlandData.urgentWindows.some(win => {
+      return win.workspace.id === root.workspaceId
+    })
+  } 
+
 
   property int buttonSize: 26 * Config.scale
   property int iconSize: 16 * Config.scale
@@ -44,6 +51,10 @@ Button {
       Hyprland.dispatch(`workspace ${workspaceId}`)
     }
   }
+  HoverHandler {
+    id: hover
+    cursorShape: Qt.PointingHandCursor
+  }
 
   background: BorderRectangle {
     id: wsBackground
@@ -62,12 +73,45 @@ Button {
       Item {
         implicitWidth: root.iconSize + Appearance.spacing.p3
         implicitHeight: root.iconSize + Appearance.spacing.p3
+
+        states: [
+          State {
+            name: "hover"
+            when: root.hovered && !root.active
+            PropertyChanges {
+              circle.color: Appearance.srcery.brightWhite
+            }
+          },
+          State {
+            name: "active"
+            when: !root.hovered && root.active
+            PropertyChanges {
+              circle.color: Appearance.srcery.brightWhite
+            }
+          },
+
+          State {
+            name: "normal"
+            when: !root.hovered && !root.active
+            PropertyChanges {
+              circle.color: Appearance.srcery.gray6
+            }
+          }
+        ]
+        transitions: [
+          Transition {
+            ColorAnimation { 
+              duration: Appearance.durations.small
+              easing.type: Easing.OutQuad 
+            }
+          }
+        ]
         Rectangle {
+          id: circle
           anchors.centerIn: parent
           width: root.buttonSize * 0.25
           height: width
           radius: width / 2
-          color: root.color
         }
       }
     }
@@ -86,32 +130,66 @@ Button {
             required property var modelData
             property bool urgent:  {
               return HyprlandData.urgentWindows.some(win => {
-                return win.workspace.id === root.workspaceId &&
-                  win.class === modelData.class 
+                return root.urgent && win.class === modelData.class 
               })
             }
             
             id: appIcon
             Layout.preferredWidth: root.iconSize + Appearance.spacing.p3
             Layout.preferredHeight: root.iconSize + Appearance.spacing.p3
+
+            onUrgentChanged: {
+              if (!urgent) {
+                blinkAnimation.running = false
+                desaturatedIcon.opacity = 1.0
+              }
+            }
             states: [ 
               State {
-                name: "urgent"
-                when: appIcon.urgent
+                name: "urgent_active"
+                when: appIcon.urgent && root.active
                 PropertyChanges { 
                   blinkAnimation.running: true 
+                  desaturatedIcon.desaturation: 0.0
+                }
+              },
+              State {
+                name: "urgent"
+                when: appIcon.urgent && !root.active
+                PropertyChanges { 
+                  blinkAnimation.running: true 
+                  desaturatedIcon.desaturation: 0.8
+                }
+              },
+              State {
+                name: "hovered"
+                when: !appIcon.urgent && !root.active && hover.hovered
+                PropertyChanges { 
+                  blinkAnimation.running: false 
+                  desaturatedIcon.opacity: 1.0
+                  desaturatedIcon.desaturation: 0.0
+                }
+              },
+              State {
+                name: "active"
+                when: !appIcon.urgent && root.active 
+                PropertyChanges { 
+                  blinkAnimation.running: false 
+                  desaturatedIcon.opacity: 1.0
+                  desaturatedIcon.desaturation: 0.0
                 }
               },
               State {
                 name: "normal"
-                when: !appIcon.urgent
+                when: !appIcon.urgent && !root.active && !hover.hovered
                 PropertyChanges { 
                   blinkAnimation.running: false 
                   desaturatedIcon.opacity: 1.0
+                  desaturatedIcon.desaturation: 0.8
                 }
               }
-            ]
 
+            ]
             SequentialAnimation {
               id: blinkAnimation
               running: false
@@ -134,12 +212,20 @@ Button {
                 easing.type: Easing.InOutQuad
               }
             }
+
             Desaturate {
               id: desaturatedIcon
               implicitWidth: root.iconSize
               implicitHeight: root.iconSize
-              desaturation: 0
               anchors.centerIn: parent
+
+              Behavior on desaturation {
+                NumberAnimation { 
+                  properties: "desaturation"
+                  duration: Appearance.durations.small
+                  easing.type: Easing.OutCubic
+                }
+              }
               source: IconImage {
                 source: appIcon.modelData.icon 
                 implicitSize: root.iconSize
@@ -174,11 +260,11 @@ Button {
       }
     }
   }
-  states: [
-    State {
-      name: "hovered"
-      when: root.hovered
-      PropertyChanges { wsBackground.bottomBorder: Appearance.bar.borderWidth }
-    }
-  ]
+  // states: [
+  //   State {
+  //     name: "hovered"
+  //     when: root.hovered
+  //     PropertyChanges { root.desaturation: 0.0 }
+  //   }
+  // ]
 }
