@@ -23,19 +23,6 @@ Button {
   readonly property bool isWorkspace: true
   required property var modelData
 
-  property var activeTopLevel: Hyprland.activeToplevel?.lastIpcObject
-  property bool urgent:  {
-    return HyprlandData.urgentWindows.some(win => {
-      return win.workspace.id === root.workspaceId
-    })
-  }
-  
-  onActiveTopLevelChanged: {
-    if (root.urgent && HyprlandData.urgentWindows.some(w => w.address === activeTopLevel.address)) {
-      HyprlandData.clearUrgentByClass(activeTopLevel.class)
-
-    }
-  }
   property int buttonSize: 26 * Config.scale
   property int iconSize: 16 * Config.scale
   property int calculatedWidth: {

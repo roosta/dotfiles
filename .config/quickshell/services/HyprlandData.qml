@@ -16,7 +16,6 @@ import qs.utils
 Singleton {
   id: root
   property var windowList: []
-  property var urgentWindows: []
   property var addresses: []
   property var windowByAddress: ({})
   property var workspaces: []
@@ -26,6 +25,27 @@ Singleton {
   property var activeWorkspace: null
   property var monitors: []
   property var layers: ({})
+
+
+  /**
+   * Urgent windows 
+   */
+  property var urgentWindows: []
+  property var activeTopLevel: Hyprland.activeToplevel?.lastIpcObject
+
+
+  function clearUrgentByClass(c) {
+    root.urgentWindows = root.urgentWindows.filter(win => {
+      return win.class !== c
+    })
+  }
+  
+  onActiveTopLevelChanged: {
+    if (urgentWindows.some(w => w.address === activeTopLevel.address)) {
+      clearUrgentByClass(activeTopLevel.class)
+    }
+  }
+
   function updateWindowList() {
     getClients.running = true;
   }
@@ -48,12 +68,6 @@ Singleton {
     updateMonitors();
     updateLayers();
     updateWorkspaces();
-  }
-
-  function clearUrgentByClass(c) {
-    root.urgentWindows = root.urgentWindows.filter(win => {
-      return win.class !== c
-    })
   }
 
   Component.onCompleted: {
