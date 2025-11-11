@@ -86,6 +86,13 @@ Button {
           },
 
           State {
+            name: "hoveredActive"
+            when: root.hovered && root.active
+            PropertyChanges {
+              circle.color: Appearance.srcery.brightWhite
+            }
+          },
+          State {
             name: "normal"
             when: !root.hovered && !root.active
             PropertyChanges {
