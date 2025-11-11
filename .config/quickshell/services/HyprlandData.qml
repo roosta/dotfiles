@@ -82,7 +82,10 @@ Singleton {
       if (event.name === "urgent") {
         const win = root.windowList.find(w => w.address === `0x${event.data}`)
         if (win) {
-          root.urgentWindows.push(win)
+          root.urgentWindows = [
+            ...root.urgentWindows,
+            win
+          ]
         }
       }
     }
