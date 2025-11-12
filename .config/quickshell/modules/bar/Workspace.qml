@@ -150,7 +150,7 @@ Button {
             states: [ 
               State {
                 name: "urgent_active"
-                when: appIcon.urgent && root.active
+                when: appIcon.urgent && root.active && !hover.hovered
                 PropertyChanges { 
                   blinkAnimation.running: true 
                   desaturatedIcon.desaturation: 0.0
@@ -158,7 +158,7 @@ Button {
               },
               State {
                 name: "urgent"
-                when: appIcon.urgent && !root.active
+                when: appIcon.urgent && !root.active && !hover.hovered
                 PropertyChanges { 
                   blinkAnimation.running: true 
                   desaturatedIcon.desaturation: 0.8
@@ -174,8 +174,16 @@ Button {
                 }
               },
               State {
+                name: "UrgentHovered"
+                when: appIcon.urgent && !root.active && hover.hovered
+                PropertyChanges { 
+                  blinkAnimation.running: true 
+                  desaturatedIcon.desaturation: 0.0
+                }
+              },
+              State {
                 name: "active"
-                when: !appIcon.urgent && root.active 
+                when: !appIcon.urgent && root.active  && !hover.hovered
                 PropertyChanges { 
                   blinkAnimation.running: false 
                   desaturatedIcon.opacity: 1.0
