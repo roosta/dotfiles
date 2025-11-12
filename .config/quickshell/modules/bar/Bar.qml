@@ -67,6 +67,7 @@ Item {
               anchors.left: parent.left
               anchors.leftMargin: Appearance.spacing.p1 - Appearance.bar.borderWidth
               anchors.fill: parent
+              // AlertsIndicator { monitorId: root.monitorId }
               KeyboardButton { monitorId: root.monitorId }
               Loader {
                 Layout.fillHeight: true
