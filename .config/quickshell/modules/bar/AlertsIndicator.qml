@@ -13,6 +13,7 @@ BorderRectangle {
   borderColor: Appearance.srcery.gray3
   borderWidth: Appearance.bar.borderWidth
   Layout.topMargin: Appearance.bar.borderWidth
+  visible: Alerts.hasAlerts
 
   required property string monitorId
 
@@ -35,6 +36,7 @@ BorderRectangle {
 
     Rectangle {
       id: failedServices
+      visible: false
       color: "transparent"
       Layout.preferredWidth: Appearance.font.size4
       Layout.preferredHeight: Appearance.font.size4
@@ -50,6 +52,7 @@ BorderRectangle {
     }
     Rectangle {
       id: audioIn
+      visible: false
       color: "transparent"
       Layout.preferredWidth: Appearance.font.size4
       Layout.preferredHeight: Appearance.font.size4
@@ -66,6 +69,7 @@ BorderRectangle {
     Rectangle {
       id: screenshare
       color: "transparent"
+      visible: false
       Layout.preferredWidth: Appearance.font.size4
       Layout.preferredHeight: Appearance.font.size4
       Text {
