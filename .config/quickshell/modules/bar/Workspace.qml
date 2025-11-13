@@ -48,7 +48,7 @@ Button {
   }
   HoverHandler {
     id: hover
-    cursorShape: Qt.PointingHandCursor
+    cursorShape: root.active ? Qt.ArrowCursor : Qt.PointingHandCursor
   }
 
   background: BorderRectangle {
