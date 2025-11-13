@@ -16,7 +16,7 @@ BorderRectangle {
 
   required property string monitorId
 
-  implicitWidth: layout.implicitWidth
+  implicitWidth: layout.implicitWidth + Appearance.spacing.p1 * 2
   implicitHeight: Appearance.bar.height - Appearance.spacing.p3
 
   Behavior on implicitWidth {
@@ -25,34 +25,44 @@ BorderRectangle {
       easing.type: Easing.InOutCubic
     }
   }
+
+  MouseArea {
+    id: button
+    hoverEnabled: true
+    anchors.fill: parent
+    onClicked: {
+      Keyboard.nextLayout()
+    }
+  }
+
   states: [
     State {
       name: "hovered"
-      when: button.hovered && !button.pressed
+      when: button.containsMouse && !button.pressed
       PropertyChanges { root.borderColor: Appearance.srcery.gray4 }
+      PropertyChanges { button.cursorShape: Qt.PointingHandCursor }
     },
     State {
       name: "pressed"
-      when: button.pressed && button.hovered
+      when: button.pressed && button.containsMouse
       PropertyChanges { root.borderColor: Appearance.srcery.gray6 }
+      PropertyChanges { button.cursorShape: Qt.PointingHandCursor }
     }
   ]
 
   RowLayout {
     id: layout
-    spacing: 0
-    Button {
-      id: button
-      implicitWidth: root.height
-      onPressed: Keyboard.nextLayout()
+    spacing: Appearance.spacing.p1
+    anchors.fill: parent
+    anchors.leftMargin: Appearance.spacing.p1
+    anchors.rightMargin: Appearance.spacing.p1
+    Rectangle {
+      Layout.preferredWidth: Appearance.font.size3
+      Layout.preferredHeight: Appearance.font.size3
+      color: "transparent"
 
-      HoverHandler {
-        id: hover
-        cursorShape: Qt.PointingHandCursor
-      }
-      contentItem: Text {
-        horizontalAlignment: Text.AlignHCenter
-        verticalAlignment: Text.AlignVCenter
+      Text {
+        anchors.centerIn: parent
         id: indicator
         text: Keyboard.layout.code.toUpperCase()
         color: Keyboard.layout.color
@@ -61,27 +71,20 @@ BorderRectangle {
           pixelSize: Appearance.font.size3
         }
       }
-
-      background: Rectangle {
-        id: buttonBg
-        color: "transparent"
-        
-      }
     }
     Rectangle {
       id: shiftlock
       visible: Keyboard.capsLock
       color: "transparent"
-      implicitWidth: root.height - Appearance.spacing.p3 + Appearance.bar.borderWidth
-      Layout.fillHeight: true
+      Layout.preferredWidth: Appearance.font.size3
+      Layout.preferredHeight: Appearance.font.size3
       Text {
         text: "󰌾"
-
-        anchors.verticalCenter: parent.verticalCenter
+        anchors.centerIn: parent
         color: Appearance.srcery.yellow
         font {
           family: Appearance.font.light
-          pixelSize: Appearance.font.size2
+          pixelSize: Appearance.font.size3
         }
       }
     }
