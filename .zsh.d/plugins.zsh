@@ -15,8 +15,8 @@ function init_fzf() {
     # ~/.zsh.d/functions + ~/scripts
     zle -N fzf_edit
     alias e=fzf_edit
-    bindkey '^f' fzf_edit
-    bindkey '^x' fdirs
+    bindkey '^f' fdirs
+    bindkey '^e' fzf_edit
   fi
 }
 
