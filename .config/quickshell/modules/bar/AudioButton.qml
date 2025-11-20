@@ -10,7 +10,7 @@ import QtQuick.Controls
 
 ExpandingButton {
   id: root
-  buttonLabel: Config.getSinkIcon(Audio.sink) ?? ""
+  buttonLabel: Config.getSinkIcon(PipewireData.sink) ?? ""
 
   BorderRectangle {
     id: srcBtn
@@ -47,7 +47,7 @@ ExpandingButton {
       anchors.centerIn: parent
       color: Appearance.srcery.white
       id: srcBtnText
-      text: Config.getSinkIcon(Audio.sink)
+      text: Config.getSinkIcon(PipewireData.sink)
       font {
         family: Appearance.font.light
         pixelSize: Appearance.font.size3
@@ -60,8 +60,8 @@ ExpandingButton {
     visible: root.active
     implicitWidth: Appearance.bar.sliderWidth
     from: 0.0
-    value: Audio.sink?.audio.volume ?? 0
-    onMoved: Audio.sink.audio.volume = value
+    value: PipewireData.sink?.audio.volume ?? 0
+    onMoved: PipewireData.sink.audio.volume = value
     to: 1.0
     HoverHandler {
       cursorShape: Qt.PointingHandCursor
