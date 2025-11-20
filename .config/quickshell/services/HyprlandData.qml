@@ -41,6 +41,7 @@ Singleton {
   }
   
   onActiveTopLevelChanged: {
+    // console.log(JSON.stringify(urgentWindows, null, 2))
     if (urgentWindows.some(w => w.address === activeTopLevel.address)) {
       clearUrgentByClass(activeTopLevel.class)
     }

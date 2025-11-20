@@ -38,47 +38,63 @@ BorderRectangle {
       id: failedServices
       visible: false
       color: "transparent"
-      Layout.preferredWidth: Appearance.font.size4
-      Layout.preferredHeight: Appearance.font.size4
+      Layout.preferredWidth: Appearance.font.size3
+      Layout.preferredHeight: Appearance.font.size3
       Text {
         text: ""
         color: Appearance.srcery.brightOrange
         anchors.centerIn: parent
         font {
           family: Appearance.font.light
-          pixelSize: Appearance.font.size4
+          pixelSize: Appearance.font.size3
         }
       }
     }
     Rectangle {
       id: audioIn
-      visible: false
+      visible: Alerts.audioIn
       color: "transparent"
-      Layout.preferredWidth: Appearance.font.size4
-      Layout.preferredHeight: Appearance.font.size4
+      Layout.preferredWidth: Appearance.font.size3
+      Layout.preferredHeight: Appearance.font.size3
       Text {
         text: ""
         anchors.centerIn: parent
         color: Appearance.srcery.brightYellow
         font {
           family: Appearance.font.light
-          pixelSize: Appearance.font.size4
+          pixelSize: Appearance.font.size3
+        }
+      }
+    }
+    Rectangle {
+      id: audioOut
+      visible: false
+      color: "transparent"
+      Layout.preferredWidth: Appearance.font.size3
+      Layout.preferredHeight: Appearance.font.size3
+      Text {
+        text: "󰓃"
+        anchors.centerIn: parent
+        color: Appearance.srcery.white
+        font {
+          family: Appearance.font.light
+          pixelSize: Appearance.font.size3
         }
       }
     }
     Rectangle {
       id: screenshare
       color: "transparent"
-      visible: false
-      Layout.preferredWidth: Appearance.font.size4
-      Layout.preferredHeight: Appearance.font.size4
+      visible: Alerts.videoIn
+      Layout.preferredWidth: Appearance.font.size3
+      Layout.preferredHeight: Appearance.font.size3
       Text {
         text: "󱎴"
         anchors.centerIn: parent
         color: Appearance.srcery.brightRed
         font {
           family: Appearance.font.light
-          pixelSize: Appearance.font.size4
+          pixelSize: Appearance.font.size3
         }
       }
     }
