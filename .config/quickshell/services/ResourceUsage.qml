@@ -102,4 +102,15 @@ Singleton {
   FileView { id: fileMeminfo; path: "/proc/meminfo" }
   FileView { id: fileStat; path: "/proc/stat" }
 
+  Process {
+    id: topProc
+    command: ["bash", "-c", "ps -eo pid,comm,%cpu --sort=-%cpu | head -n 6 | tail -n 5"]
+    running: true
+    stdout: StdioCollector {
+      id: outputCollector
+      onStreamFinished: {
+        // console.log(JSON.stringify(outputCollector.text, null, 2))
+      }
+    }
+  }
 }
