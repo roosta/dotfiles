@@ -98,5 +98,21 @@ BorderRectangle {
         }
       }
     }
+    Rectangle {
+      id: cpu
+      color: "transparent"
+      visible: Alerts.cpuUsage
+      Layout.preferredWidth: Appearance.font.size3
+      Layout.preferredHeight: Appearance.font.size3
+      Text {
+        text: ""
+        anchors.centerIn: parent
+        color: Appearance.srcery.yellow
+        font {
+          family: Appearance.font.light
+          pixelSize: Appearance.font.size3
+        }
+      }
+    }
   }
 }
