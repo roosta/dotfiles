@@ -24,6 +24,7 @@ Singleton {
   property real swapUsedPercentage: swapTotal > 0 ? (swapUsed / swapTotal) : 0
   property real cpuUsage: 0
   property var previousCpuStats
+  property string cpuTooltip
 
   property string maxAvailableMemoryString: kbToGbString(ResourceUsage.memoryTotal)
   property string maxAvailableSwapString: kbToGbString(ResourceUsage.swapTotal)
@@ -35,6 +36,10 @@ Singleton {
 
   function kbToGbString(kb) {
     return (kb / (1024 * 1024)).toFixed(1) + " GB";
+  }
+
+  function refreshTooltip() {
+    topProc.running = true
   }
 
   function updateMemoryUsageHistory() {
@@ -104,12 +109,12 @@ Singleton {
 
   Process {
     id: topProc
-    command: ["bash", "-c", "ps -eo pid,comm,%cpu --sort=-%cpu | head -n 6 | tail -n 5"]
+    command: ["bash", "-c", "ps -eo comm:20,%cpu --sort=-%cpu | head -n 6 | tail -n 5"]
     running: true
     stdout: StdioCollector {
       id: outputCollector
       onStreamFinished: {
-        // console.log(JSON.stringify(outputCollector.text, null, 2))
+        root.cpuTooltip = outputCollector.text.replace(/\n$/, '') 
       }
     }
   }

@@ -20,13 +20,31 @@ BorderRectangle {
   property int iconSize: 16 * Config.scale
   implicitWidth: layout.implicitWidth + Appearance.spacing.p1 * 2
   implicitHeight: Appearance.bar.height - Appearance.spacing.p3
-
+  MouseArea {
+    id: mouseArea
+    hoverEnabled: true
+    anchors.fill: parent
+  }
   Behavior on implicitWidth {
     NumberAnimation {
       duration: Appearance.durations.small
       easing.type: Easing.InOutCubic
     }
   }
+  states: [
+    State {
+      name: "hovered"
+      when: mouseArea.containsMouse && !mouseArea.pressed
+      PropertyChanges { root.borderColor: Appearance.srcery.gray4 }
+      PropertyChanges { mouseArea.cursorShape: Qt.PointingHandCursor }
+    },
+    State {
+      name: "pressed"
+      when: mouseArea.pressed && mouseArea.containsMouse
+      PropertyChanges { root.borderColor: Appearance.srcery.gray6 }
+      PropertyChanges { mouseArea.cursorShape: Qt.PointingHandCursor }
+    }
+  ]
   RowLayout {
     id: layout
     spacing: Appearance.spacing.p1
@@ -104,6 +122,31 @@ BorderRectangle {
       visible: Alerts.cpuUsage
       Layout.preferredWidth: Appearance.font.size3
       Layout.preferredHeight: Appearance.font.size3
+      ToolTip {
+        id: control
+        font: Appearance.font.main
+        delay: 600
+        text: ResourceUsage.cpuTooltip
+        visible: mouseArea.containsMouse
+        contentItem: Text {
+          text: control.text
+          font: control.font
+          color: Appearance.srcery.brightWhite
+        }
+
+        Timer {
+          id: tpTimer
+          interval: 1000
+          running: control.visible
+          repeat: control.visible
+          onTriggered: {
+            ResourceUsage.refreshTooltip()
+          }
+        }
+        background: BorderRectangle {
+          color: Appearance.srcery.gray1
+        }
+      }
       Text {
         text: ""
         anchors.centerIn: parent
