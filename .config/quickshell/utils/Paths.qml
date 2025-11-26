@@ -6,13 +6,21 @@ Singleton {
     id: root
 
     readonly property string home: Quickshell.env("HOME")
-    readonly property string pictures: Quickshell.env("XDG_PICTURES_DIR") || `${home}/Pictures`
-    readonly property string videos: Quickshell.env("XDG_VIDEOS_DIR") || `${home}/Videos`
-    readonly property string data: `${Quickshell.env("XDG_DATA_HOME") || `${home}/.local/share`}/ritual`
-    readonly property string state: `${Quickshell.env("XDG_STATE_HOME") || `${home}/.local/state`}/ritual`
-    readonly property string cache: `${Quickshell.env("XDG_CACHE_HOME") || `${home}/.cache`}/ritual`
 
-    function absolutePath(path: string): string {
+    // Helper function to get XDG directory with fallback
+    function xdgDir(envVar, fallback, subdir = "") {
+      const base = Quickshell.env(envVar) || `${abs(fallback)}`;
+      return subdir ? `${base}/${subdir}` : base;
+    }
+
+    readonly property string pictures: xdgDir("XDG_PICTURES_DIR", "~/Pictures")
+    readonly property string videos: xdgDir("XDG_VIDEOS_DIR", "~/Videos")
+    readonly property string data: xdgDir("XDG_DATA_HOME", "~/.local/share", "ritual")
+    readonly property string state: xdgDir("XDG_STATE_HOME", "~/.local/state", "ritual")
+    readonly property string cache: xdgDir("XDG_CACHE_HOME", "~/.cache", "ritual")
+    readonly property string srcery: xdgDir("XDG_CONFIG_HOME", "~/.config", "srcery")
+    
+    function abs(path: string): string {
       return path.replace("~", home);
     }
 
