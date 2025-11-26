@@ -21,7 +21,7 @@ ShellRoot {
     Scope {
       id: scope
       required property ShellScreen modelData
-      property string monitorId: modelData?.name ?? "FALLBACK"
+      property string monitorId: modelData?.name ?? ""
 
       NamedPanel {
         id: exclusion
@@ -31,6 +31,26 @@ ShellRoot {
         implicitWidth: 1
         implicitHeight: 1
         exclusiveZone: Appearance.bar.height
+      }
+      NamedPanel {
+        id: wallpaper
+        name: "wallpaper"
+        screen: scope.modelData
+        anchors.left: true
+        anchors.right: true
+        anchors.top: true
+        anchors.bottom: true
+        aboveWindows: false
+
+        Wallpaper { monitorId: scope.monitorId}
+        mask: Region {
+          id: wpMask
+          x: 0
+          y: 0
+          width: wallpaper.width
+          height: wallpaper.height
+          intersection: Intersection.Xor
+        }
       }
 
       NamedPanel {
@@ -105,6 +125,8 @@ ShellRoot {
               monitorId: scope.monitorId
             }
           }
+
+          // Wallpaper { monitorId: scope.monitorId }
         }
       }
     }
