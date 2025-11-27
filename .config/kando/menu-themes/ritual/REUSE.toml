@@ -1,0 +1,10 @@
+# SPDX-FileCopyrightText: Daniel Berg <mail@roosta.sh>
+# SPDX-License-Identifier: GPL-3.0+
+
+version = 1
+
+[[annotations]]
+path = "preview.jpg"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "Daniel Berg <mail@roosta.sh>"
+SPDX-License-Identifier = "GPL-3.0+"
