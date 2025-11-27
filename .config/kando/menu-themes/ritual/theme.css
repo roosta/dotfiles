@@ -1,0 +1,227 @@
+/* ┌─────────────────────────────────┐ */
+/* │┬─┐o┌┐┐┬ ┐┬─┐┬    ┌┐┐┬ ┬┬─┐┌┌┐┬─┐│ */
+/* ││┬┘│ │ │ ││─┤│     │ │─┤├─ │││├─ │ */
+/* │┆└┘┆ ┆ ┆─┘┘ ┆┆─┘   ┆ ┆ ┴┴─┘┘ ┆┴─┘│ */
+/* └─────────────────────────────────┘ */
+
+/* SPDX-FileCopyrightText: Daniel Berg <mail@roosta.sh> */
+/* SPDX-License-Identifier: GPL-3.0+ */
+
+/* Based on clean-circle that was included in the kando distribution authored */
+/* by Simon Schneegans <code@simonschneegans.de>, CC0-1.0 */
+
+.menu-node {
+  --child-distance: 100px;
+  --grandchild-distance: 25px;
+
+  --center-size: 100px;
+  --submenu-size: 50px;
+  --child-size: 60px;
+  --grandchild-size: 15px;
+  --connector-width: 10px;
+
+  --menu-transition: all 200ms ease;
+
+  transition: var(--menu-transition);
+
+  /* Positioning ---------------------------------------------------------------------- */
+
+  /* Child items are positioned around the active node. */
+  &.child.type-submenu {
+    transform: translate(calc(max(var(--child-distance), 10px * var(--sibling-count)) * var(--dir-x)),
+      calc(max(var(--child-distance), 10px * var(--sibling-count)) * var(--dir-y)));
+  }
+
+  &.child:not(.type-submenu) {
+    transform: translate(calc(max(var(--child-distance), 10px * var(--sibling-count)) * var(--dir-x)),
+      calc(max(var(--child-distance), 10px * var(--sibling-count)) * var(--dir-y))) !important;
+
+    &.hovered {
+      transform: scale(1.2) translate(calc(max(var(--child-distance), 10px * var(--sibling-count)) * var(--dir-x)),
+        calc(max(var(--child-distance), 10px * var(--sibling-count)) * var(--dir-y))) !important;
+    }
+  }
+
+  /* Grandchild items are hidden with this theme, but we have to position them
+nevertheless to allow for smooth transitions when showing or hiding them. */
+  &.grandchild {
+    transform: translate(calc(var(--grandchild-distance) * var(--dir-x)),
+      calc(var(--grandchild-distance) * var(--dir-y)));
+  }
+
+  /* If there is a hovered child node, we scale all children up a bit to create a cool
+zoom effect. The hovered child itself is scaled up even more. */
+  &.active:has(>.hovered)>.child {
+    transform: scale(calc(1.1 - pow(var(--angle-diff) / 180, 0.2) * 0.1)) translate(calc(max(var(--child-distance), 10px * var(--sibling-count)) * var(--dir-x)),
+      calc(max(var(--child-distance), 10px * var(--sibling-count)) * var(--dir-y)));
+
+    &.hovered {
+      transform: scale(1.2) translate(calc(max(var(--child-distance), 10px * var(--sibling-count)) * var(--dir-x)),
+        calc(max(var(--child-distance), 10px * var(--sibling-count)) * var(--dir-y)));
+    }
+  }
+
+
+  /* Theme Layers --------------------------------------------------------------------- */
+
+  /* We hide all icons by default. They will be shown further down in this file for the
+center item and the child items. */
+  .icon-container {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    color: var(--action-icon-color);
+    transition: var(--menu-transition);
+  }
+
+  &.type-submenu>.icon-layer>.icon-container {
+    color: var(--submenu-icon-color);
+  }
+
+  .arrow-layer,
+  .icon-layer {
+    position: absolute;
+    transition: var(--menu-transition);
+  }
+
+  .icon-layer {
+    border-radius: 50%;
+  }
+
+  .arrow-layer {
+    opacity: 0;
+  }
+
+  /* The active menu item is the center of the menu. */
+  &.active>.arrow-layer {
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid var(--gray3);
+    left: -10px;
+    top: -5px;
+    transform: scale(0.8) rotate(var(--pointer-angle)) translateY(calc(-0.5 * var(--center-size) - 5px + 1px));
+  }
+
+  &.active>.icon-layer {
+    top: calc(-1 * var(--center-size) / 2);
+    left: calc(-1 * var(--center-size) / 2);
+    width: var(--center-size);
+    height: var(--center-size);
+  }
+
+  &.type-submenu:has(>.hovered:not(.parent))>.icon-layer>.icon-container {
+    opacity: 0;
+  }
+
+  &.type-submenu>.icon-layer {
+    background-color: var(--background-color);
+    border-radius: 50%;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+    filter: none;
+    border: 1px solid var(--gray3);
+
+    .icon-container {
+      margin: 5%;
+      width: 90% !important;
+      height: 90% !important;
+      border-radius: 50%;
+      overflow: hidden;
+      opacity: 1;
+    }
+  }
+
+  &:not(.type-submenu)>.icon-layer>.icon-container {
+    filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.5));
+    text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.5);
+  }
+
+
+  &.active:has(.hovered)>.arrow-layer {
+    transform: rotate(var(--hovered-child-angle)) translateY(calc(-0.5 * var(--center-size) - 5px + 1px));
+    opacity: 1;
+  }
+
+  &.active:has(.clicked)>.arrow-layer {
+    transform: rotate(var(--pointer-angle)) translateY(calc(-0.5 * var(--center-size) - 5px + 1px));
+  }
+
+  /* If the parent or a child node is clicked, we scale it down to normal size. */
+  &.parent.hovered.clicked>.icon-layer,
+  &.child.hovered.clicked>.icon-layer {
+    transform: scale(0.8);
+  }
+
+  /* Show the icons of the parent and child items. */
+  &.parent>.icon-layer>.icon-container,
+  &.child>.icon-layer>.icon-container {
+    opacity: 1;
+  }
+
+  /* Child items are displayed around the active node. The parent node of the active
+node is displayed in a similar style. */
+  &.parent>.icon-layer,
+  &.child.type-submenu>.icon-layer {
+    top: calc(-1 * var(--submenu-size) / 2);
+    left: calc(-1 * var(--submenu-size) / 2);
+    width: var(--submenu-size);
+    height: var(--submenu-size);
+  }
+
+  &.child>.icon-layer {
+    top: calc(-1 * var(--child-size) / 2);
+    left: calc(-1 * var(--child-size) / 2);
+    width: var(--child-size);
+    height: var(--child-size);
+  }
+
+  /* Grandchild items are invisible. The sizing is required for transitions from and to
+this state. */
+  &.grandchild>.icon-layer {
+    top: calc(-1 * var(--grandchild-size) / 2);
+    left: calc(-1 * var(--grandchild-size) / 2);
+    width: var(--grandchild-size);
+    height: var(--grandchild-size);
+    opacity: 0;
+  }
+
+  /* We disable any transition for dragged submenu items. */
+  &.dragged.type-submenu {
+    transition: none;
+  }
+
+  /* Connectors ----------------------------------------------------------------------- */
+
+  .connector {
+    transition: var(--menu-transition);
+    height: var(--connector-width);
+    top: calc(-1 * var(--connector-width) / 2);
+    background-color: var(--background-color);
+    opacity: 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+
+  &:has(>.dragged)>.connector {
+    transition: none;
+  }
+
+  &:has(>.parent)>.connector,
+  &:has(>.active.type-submenu)>.connector,
+  &:has(>.clicked.type-submenu)>.connector,
+  &:has(>.dragged.type-submenu)>.connector {
+    opacity: 1;
+  }
+}
+
+/* Center Text ------------------------------------------------------------------------ */
+
+.center-text {
+  color: var(--text-color);
+  transition: var(--menu-transition);
+  font-size: 16px;
+  line-height: 22px;
+  overflow: visible;
+}

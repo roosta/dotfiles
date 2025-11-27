@@ -1,0 +1,72 @@
+// ┌─────────────────────────────────┐
+// │┬─┐o┌┐┐┬ ┐┬─┐┬    ┌┐┐┬ ┬┬─┐┌┌┐┬─┐│
+// ││┬┘│ │ │ ││─┤│     │ │─┤├─ │││├─ │
+// │┆└┘┆ ┆ ┆─┘┘ ┆┆─┘   ┆ ┆ ┴┴─┘┘ ┆┴─┘│
+// └─────────────────────────────────┘
+// SPDX-FileCopyrightText: Daniel Berg <mail@roosta.sh>
+// SPDX-License-Identifier: GPL-3.0+
+
+// Based on clean-circle that was included in the kando distribution authored
+// by Simon Schneegans <code@simonschneegans.de>, CC0-1.0
+{
+  name: 'Ritual',
+  author: 'Daniel Berg',
+  license: 'GPL-3.0+',
+  themeVersion: '0.1',
+
+  // This theme was created for Kando's theme engine version 1. Kando will use this to
+  // check if the theme is compatible with the current version of Kando.
+  engineVersion: 1,
+
+  // When a menu is opened too close to a screen's edge, it is moved away from the edge
+  // by this amount of pixels.
+  maxMenuRadius: 160,
+
+  // The width at which the center text is wrapped.
+  centerTextWrapWidth: 95,
+
+  // This theme draws child items below their parent items.
+  drawChildrenBelow: true,
+
+  // These colors can be configured by the user and are vailable in the CSS file as CSS
+  // variables. The default values are used if the user does not provide any values.
+  colors: {
+    'action-icon-color': '#FCE8C3',
+    'submenu-icon-color': '#FCE8C3',
+    'text-color': '#FCE8C3',
+    'background-color': '#121110',
+
+    'black': '#121110',
+    'red': '#EF2F27',
+    'green': '#519F50',
+    'yellow': '#FBB829',
+    'blue': '#2C78BF',
+    'magenta': '#E02C6D',
+    'cyan': '#0AAEB3',
+    'white': '#C5B088',
+    'bright-black': '#917E6B',
+    'bright-red': '#F75341',
+    'bright-green': '#98BC37',
+    'bright-yellow': '#FED06E',
+    'bright-blue': '#68A8E4',
+    'bright-magenta': '#FF5C8F',
+    'bright-cyan': '#2BE4D0',
+    'bright-white': '#FCE8C3',
+    'orange': '#FF5F00',
+    'bright-orange': '#FF8700',
+    'teal': '#008080',
+    'gray1': '#1C1B19',
+    'gray2': '#262522',
+    'gray3': '#312F2C',
+    'gray4': '#3B3935',
+    'gray5': '#45433E',
+    'gray6': '#504D47',
+  },
+
+  // This theme uses two layers, one for the icon and the background and one for the arrow
+  // which points to the hovered item.
+  layers: [
+    { class: 'arrow-layer', content: 'none' },
+    { class: 'icon-layer', content: 'icon' },
+  ],
+}
