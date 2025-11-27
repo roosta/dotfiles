@@ -58,6 +58,7 @@ ShellRoot {
         name: "main"
         screen: scope.modelData
 
+        aboveWindows: false
         WlrLayershell.exclusionMode: ExclusionMode.Ignore
         WlrLayershell.keyboardFocus: GlobalState.launcherOpen
         ? WlrKeyboardFocus.OnDemand
