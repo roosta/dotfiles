@@ -22,6 +22,7 @@ Singleton {
   property var workspaceIds: []
   property var workspaceById: ({})
   property var workspacesByMonitor: ({})
+  property var windowsByWorkspace: ({})
   property var activeWorkspace: null
   property var monitors: []
   property var layers: ({})
@@ -105,6 +106,7 @@ Singleton {
             tempWinByAddress[win.address] = win;
           }
           root.windowByAddress = tempWinByAddress;
+          root.windowsByWorkspace = Functions.groupBy(root.windowList, w => w.workspace.id)
           root.addresses = root.windowList.map(win => win.address);
         }
       }
