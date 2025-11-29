@@ -26,10 +26,12 @@ Item {
   property var windows: HyprlandData.windowsByWorkspace[activeWorkspaceId] ?? []
   property bool onlyFloating: windows.every(w => w.floating) ?? false
   readonly property bool isOccupied: occupied[activeWorkspaceId] ?? false
+  readonly property string wallpaper: `${Paths.srcery}/srcery-wallpaper/srcery-wallpaper.png`
+
   Image {
     visible: !root.isOccupied || root.onlyFloating
     anchors.fill: parent
-    source: Paths.wallpaper
+    source: root.wallpaper
     fillMode: Image.PreserveAspectCrop
   }
 }

@@ -19,7 +19,6 @@ Singleton {
     readonly property string state: xdgDir("XDG_STATE_HOME", "~/.local/state", "ritual")
     readonly property string cache: xdgDir("XDG_CACHE_HOME", "~/.cache", "ritual")
     readonly property string srcery: xdgDir("XDG_CONFIG_HOME", "~/.config", "srcery")
-    readonly property string wallpaper: `${srcery}/srcery-wallpaper/srcery-wallpaper.png`
     
     function abs(path: string): string {
       return path.replace("~", home);
