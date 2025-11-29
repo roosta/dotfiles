@@ -103,6 +103,8 @@ Item {
             return audioLoader.item
           case "display":
             return displayLoader.item
+          case "power":
+            return powerLoader.item
           case "menu":
             return menuLoader.item
           default:
@@ -122,6 +124,8 @@ Item {
             audioLoader.visible: false
             displayLoader.active: false
             displayLoader.visible: false
+            powerLoader.active: false
+            powerLoader.visible: false
             menuLoader.active: true
             menuLoader.visible: true
           }
@@ -137,6 +141,8 @@ Item {
             audioLoader.visible: false
             displayLoader.active: false
             displayLoader.visible: false
+            powerLoader.active: false
+            powerLoader.visible: false
             menuLoader.active: false
             menuLoader.visible: false
           }
@@ -155,6 +161,8 @@ Item {
             appLoader.visible: false
             displayLoader.active: false
             displayLoader.visible: false
+            powerLoader.active: false
+            powerLoader.visible: false
             menuLoader.active: false
             menuLoader.visible: false
           }
@@ -168,6 +176,23 @@ Item {
             appLoader.visible: false
             audioLoader.active: false
             audioLoader.visible: false
+            powerLoader.active: false
+            powerLoader.visible: false
+            menuLoader.active: false
+            menuLoader.visible: false
+          }
+        },
+        State {
+          name: "power"
+          PropertyChanges {
+            displayLoader.active: false
+            displayLoader.visible: false
+            appLoader.active: false
+            appLoader.visible: false
+            audioLoader.active: false
+            audioLoader.visible: false
+            powerLoader.active: true
+            powerLoader.visible: true
             menuLoader.active: false
             menuLoader.visible: false
           }
@@ -261,6 +286,36 @@ Item {
             name: modelData.name
             description: modelData.description
             onClicked: displayList.accept(modelData)
+          }
+        }
+      }
+      Loader {
+        id: powerLoader
+        active: false
+        visible: false
+        Layout.fillWidth: true
+        Layout.fillHeight: true
+        sourceComponent: LauncherList {
+          id: powerList
+          monitorId: root.monitorId
+          searchQuery: root.query
+          signal accept(entry: var)
+          onAccept: (entry) => {
+            Quickshell.execDetached({
+              command: entry.script,
+            });
+            GlobalState.closeLauncher()
+          }
+          model: {
+            const q = root.query.replace(Config.menus.power.prefix, "")
+            Power.fuzzyQuery(q)
+          }
+          delegate: LauncherItem { 
+            required property var modelData
+            iconSource: Quickshell.iconPath(modelData.iconId)
+            name: modelData.name
+            description: modelData.description
+            onClicked: powerList.accept(modelData)
           }
         }
       }
