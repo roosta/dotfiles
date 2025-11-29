@@ -52,6 +52,11 @@ Singleton {
       "name": "Apps",
       "prefix": "/apps",
       "script": null
+    },
+    "power": {
+      "name": "Power",
+      "prefix": "/power",
+      "script": null
     }
   }
   readonly property var modeMenu: [
@@ -75,9 +80,61 @@ Singleton {
       description: "Switch audio options between presets",
       mode: "audio",
       iconId: "audio-x-generic"
+    },
+    {
+      id: 3,
+      name: "Power",
+      description: "Power options for system (shutdown, restart, logout etc)",
+      mode: "power",
+      iconId: "preferences-system"
     }
   ]
 
+  readonly property var powerScripts: [
+    {
+      id: 0,
+      name: "Shudown",
+      description: "Power down system",
+      script: [`${Paths.scripts}/shutdown.sh`],
+      iconId: "system-shutdown"
+    },
+    {
+      id: 1,
+      name: "Reboot",
+      description: "Restart system",
+      script: [`${Paths.scripts}/reboot.sh`],
+      iconId: "system-reboot"
+
+    },
+    {
+      id: 2,
+      name: "Log out",
+      description: "Log out current user",
+      script: [`${Paths.scripts}/logout.sh`],
+      iconId: "system-log-out"
+    },
+    {
+      id: 3,
+      name: "Lock",
+      description: "Lock current session",
+      script: [`${Paths.scripts}/lock.sh`],
+      iconId: "system-lock-screen"
+    },
+    {
+      id: 4,
+      name: "Suspend",
+      description: "Suspend to RAM",
+      script: [`${Paths.scripts}/suspend.sh`],
+      iconId: "system-suspend"
+    },
+    {
+      id: 5,
+      name: "Hibernate",
+      description: "Suspend to disk",
+      script: [`${Paths.scripts}/suspend.sh`],
+      iconId: "system-hibernate"
+    }
+  ]
   readonly property var displayLayouts: [
     {
       id: 0,
@@ -178,6 +235,7 @@ Singleton {
     "net.lutris.Lutris",
     "com.discordapp.Discord",
     "kando",
+    "spotify",
     "org.mozilla.thunderbird"
   ]
 }
