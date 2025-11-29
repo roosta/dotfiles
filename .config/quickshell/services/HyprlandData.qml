@@ -42,7 +42,9 @@ Singleton {
   }
   
   onActiveTopLevelChanged: {
-    if (activeTopLevel && urgentWindows.some(w => w.address === activeTopLevel.address)) {
+    if (activeTopLevel && urgentWindows.some(w => {
+     return w.address === activeTopLevel.address
+    })) {
       clearUrgentByClass(activeTopLevel.class)
     }
   }
@@ -78,8 +80,8 @@ Singleton {
     target: Hyprland
 
     function onRawEvent(event) {
-      // console.log("Hyprland raw event:", event.name);
       root.updateAll()
+      Hyprland.refreshToplevels()
       if (event.name === "urgent") {
         const win = root.windowList.find(w => w.address === `0x${event.data}`)
         if (win) {
