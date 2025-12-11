@@ -22,40 +22,52 @@
                   "delayed": false
                 },
                 "name": "Lutris",
-                "icon": "lutris",
-                "iconTheme": "simple-icons"
+                "icon": "net.lutris.Lutris",
+                "iconTheme": "system"
               },
               {
                 "type": "command",
                 "data": {
-                  "command": "flatpak run com.github.iwalton3.jellyfin-media-player",
+                  "command": "/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=jellyfinmediaplayer com.github.iwalton3.jellyfin-media-player",
                   "delayed": false
                 },
-                "name": "Jellyfin",
-                "icon": "jellyfin",
-                "iconTheme": "simple-icons"
+                "name": "Jellyfin Media Player",
+                "icon": "com.github.iwalton3.jellyfin-media-player",
+                "iconTheme": "system"
               },
               {
                 "type": "command",
                 "data": {
-                  "command": "steam",
+                  "command": "/usr/bin/steam",
                   "delayed": false
                 },
                 "name": "Steam",
                 "icon": "steam",
-                "iconTheme": "simple-icons"
+                "iconTheme": "system"
+              },
+              {
+                "type": "command",
+                "name": "Discord",
+                "icon": "com.discordapp.Discord",
+                "iconTheme": "system",
+                "data": {
+                  "command": "/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=com.discordapp.Discord --file-forwarding com.discordapp.Discord @@u  @@",
+                  "detached": true,
+                  "isolated": false,
+                  "delayed": false
+                }
               },
               {
                 "type": "command",
                 "data": {
-                  "command": "nautilus",
+                  "command": "nautilus --new-window",
                   "detached": true,
                   "isolated": false,
                   "delayed": false
                 },
                 "name": "Files",
-                "icon": "file-item.svg",
-                "iconTheme": "kando"
+                "icon": "org.gnome.Nautilus",
+                "iconTheme": "system"
               },
               {
                 "type": "command",
@@ -63,9 +75,9 @@
                   "command": "media-browser",
                   "delayed": false
                 },
-                "name": "Media Browser",
-                "icon": "firefox",
-                "iconTheme": "simple-icons"
+                "name": "Firefox Media Browser",
+                "icon": "firefox-media-candy",
+                "iconTheme": "system"
               }
             ]
           },
