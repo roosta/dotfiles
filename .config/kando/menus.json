@@ -47,15 +47,15 @@
               },
               {
                 "type": "command",
-                "name": "Discord",
-                "icon": "com.discordapp.Discord",
-                "iconTheme": "system",
                 "data": {
                   "command": "/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=com.discordapp.Discord --file-forwarding com.discordapp.Discord @@u  @@",
                   "detached": true,
                   "isolated": false,
                   "delayed": false
-                }
+                },
+                "name": "Discord",
+                "icon": "com.discordapp.Discord",
+                "iconTheme": "system"
               },
               {
                 "type": "command",
