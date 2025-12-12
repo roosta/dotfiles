@@ -10,7 +10,12 @@ import QtQuick.Controls
 
 ExpandingButton {
   id: root
-  buttonLabel: Config.getSinkIcon(PipewireData.sink) ?? ""
+  buttonLabel: {
+    if (PipewireData.sink.audio.muted) {
+      return ""
+    }
+    return Config.getSinkIcon(PipewireData.sink) ?? ""
+  }
 
   BorderRectangle {
     id: srcBtn
