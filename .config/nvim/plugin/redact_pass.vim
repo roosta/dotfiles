@@ -1,6 +1,7 @@
 "
 " redact_pass.vim: Switch off the 'viminfo', 'backup', 'writebackup',
-" 'swapfile', and 'undofile' globally when editing a password in pass(1).
+" 'swapfile', and 'undofile' and 'shadafile' (nvim) globally when editing a
+" password in pass(1).
 "
 " This is to prevent anyone being able to extract passwords from your Vim
 " cache files in the event of a compromise.
@@ -8,6 +9,8 @@
 " Author: Tom Ryder <tom@sanctum.geek.nz>
 " License: Same as Vim itself
 " SOURCE: https://git.zx2c4.com/password-store/plain/contrib/vim/redact_pass.vim
+" Edited by Daniel Berg <mail@roosta.sh>
+"
 if exists('g:loaded_redact_pass') || &compatible
   finish
 endif
@@ -24,10 +27,12 @@ function! s:CheckArgsRedact()
     return
   endif
 
+
   " Disable all the leaky options globally
   set nobackup
   set nowritebackup
   set noswapfile
+  set shadafile=NONE
   set viminfo=
   if has('persistent_undo')
     set noundofile
@@ -35,8 +40,11 @@ function! s:CheckArgsRedact()
 
   " Tell the user what we're doing so they know this worked, via a message and
   " a global variable they can check
-  echomsg 'Editing password file--disabled leaky options!'
+  " echomsg 'Editing password file--disabled leaky options!'
   let g:redact_pass_redacted = 1
+
+  " see config/redact_mode + lightline config
+  let b:redact_mode = 1
 
 endfunction
 
