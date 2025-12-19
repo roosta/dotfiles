@@ -10,19 +10,18 @@ return {
     "srcery-colors/srcery-vim",
   },
   config = function()
+
     vim.g.lightline = {
       colorscheme = 'srcery',
       active = {
         left = {
           { 'mode', 'paste' },
-          { 'gitbranch', 'readonly', 'filename', 'modified' }
+          { 'redact', 'gitbranch', 'readonly', 'filename', 'modified' }
         }
       },
-      component_function = {
-        cocstatus = 'coc#status'
-      },
       component = {
-        readonly = '%{&readonly?"🔒":""}'
+        readonly = '%{&readonly?"🔒":""}',
+        redact = '%{get(b:, "redact_mode", 0) ? "🔑 REDACT" : ""}'
       }
 
     }
