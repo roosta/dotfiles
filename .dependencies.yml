@@ -377,6 +377,9 @@ packages:
     - name: rose-pine-hyprcursor
       description: rose pine themed cursor for hyprland
       aur: true
+    - name: kando-bin
+      description: A pie menu for the desktop. It will be highly customizable and will allow you to create your own menus and actions.(Prebuilt version.Use system-wide electron)
+      aur: true
 
   # Multimedia (audio, video playback etc)
   multimedia:
