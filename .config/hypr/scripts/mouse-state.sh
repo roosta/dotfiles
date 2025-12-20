@@ -1,5 +1,5 @@
 #!/bin/bash
-# Toggle mouse menu state (kando) in hyprland via bindings
+# Toggle mouse state in hyprland via bindings
 
 STATE_FILE="/tmp/hypr-menu-state"
 
