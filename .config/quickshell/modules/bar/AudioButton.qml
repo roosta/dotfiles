@@ -11,7 +11,7 @@ import QtQuick.Controls
 ExpandingButton {
   id: root
   buttonLabel: {
-    if (PipewireData.sink.audio.muted) {
+    if (PipewireData.ready && PipewireData.sink.audio.muted) {
       return ""
     }
     return Config.getSinkIcon(PipewireData.sink) ?? ""
