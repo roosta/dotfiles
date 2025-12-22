@@ -63,7 +63,7 @@ Item {
           color: Appearance.srcery.brightWhite
           font {
             family: Appearance.font.main
-            pixelSize: Appearance.font.size1
+            pointSize: Appearance.font.normal
           }
         }
         Text {
@@ -73,7 +73,7 @@ Item {
           Layout.fillWidth: true
           font {
             family: Appearance.font.light
-            pixelSize: Appearance.font.size1
+            pointSize: Appearance.font.small
           }
 
         }
