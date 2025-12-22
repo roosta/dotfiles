@@ -380,6 +380,15 @@ packages:
     - name: kando-bin
       description: A pie menu for the desktop. It will be highly customizable and will allow you to create your own menus and actions.(Prebuilt version.Use system-wide electron)
       aur: true
+    - name: breeze
+      description: Artwork, styles and assets for the Breeze visual style for the Plasma Desktop
+      aur: false
+    - name: breeze-icons
+      description: Breeze icon theme
+      aur: false
+    - name: qt6ct
+      description: Qt 6 Configuration Utility
+      aur: false
 
   # Multimedia (audio, video playback etc)
   multimedia:
