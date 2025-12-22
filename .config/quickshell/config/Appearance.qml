@@ -67,6 +67,10 @@ Singleton {
     readonly property int size2: 14 * Config.scale
     readonly property int size3: 16 * Config.scale
     readonly property int size4: 18 * Config.scale
+
+    readonly property int normal: 10 * Config.scale
+    readonly property int small: 9 * Config.scale
+    readonly property int large: 12 * Config.scale
   }
 
   spacing: QtObject {

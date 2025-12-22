@@ -81,7 +81,7 @@ BorderRectangle {
           text: `${Config.prefix}${delegate.model[control.textRole]}`
           color: delegate.highlighted ? Appearance.srcery.brightWhite : Appearance.srcery.white
           font.family: Appearance.font.light
-          font.pointSize: Appearance.font.size1
+          font.pointSize: Appearance.font.large
           verticalAlignment: Text.AlignVCenter
         }
         background: Rectangle {
@@ -127,7 +127,7 @@ BorderRectangle {
         color: control.pressed ? Appearance.srcery.brightBlack : Appearance.srcery.gray6
         verticalAlignment: Text.AlignVCenter
         font.family: Appearance.font.light
-        font.pointSize: Appearance.font.size1
+        font.pointSize: Appearance.font.large
         elide: Text.ElideRight
       }
 
@@ -171,7 +171,7 @@ BorderRectangle {
       cursorVisible: !readOnly
       placeholderTextColor: Appearance.srcery.gray3
       font.family: Appearance.font.light
-      font.pointSize: Appearance.font.size1
+      font.pointSize: Appearance.font.large
       implicitWidth: parent.width - Appearance.spacing.p4 * 2 + Appearance.bar.borderWidth * 2
       placeholderText: " Search..."
       onTextChanged: {

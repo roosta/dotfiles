@@ -50,7 +50,7 @@ Item {
 
         font {
           family: Appearance.font.light
-          pixelSize: Appearance.font.size2
+          pointSize: Appearance.font.normal
         }
 
         color: Appearance.srcery.brightWhite
@@ -69,7 +69,7 @@ Item {
         Layout.rightMargin: Appearance.spacing.p5
         font {
           family: Appearance.font.light
-          pixelSize: Appearance.font.size1
+          pointSize: Appearance.font.small
         }
 
         color: Appearance.srcery.white
