@@ -1,0 +1,16 @@
+QMenu {
+  border: 1px solid #312F2C;
+  font-size: 9pt;
+}
+
+QMenu::item {
+  padding: 8px 16px;
+}
+
+QMenu::item:selected {
+  border: none;
+  background: #1C1B19;
+  font-weight: bold;
+}
+
+/* vim: set ts=2 sw=2 tw=0 fdm=marker et ft=css : */
