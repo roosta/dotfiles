@@ -23,7 +23,7 @@ Item {
   states: [
     State {
       name: "launcher-open"
-      when: (GlobalState.launcherOpen && GlobalState.activeMonitorId === root.monitorId) || Notifications.open
+      when: GlobalState.launcherOpen || Notifications.open
       PropertyChanges { content.color: Functions.transparentize("#000", 0.7) }
     }
   ]
