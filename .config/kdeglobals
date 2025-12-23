@@ -1,0 +1,8 @@
+[General]
+ColorScheme=Breeze
+
+[Icons]
+Theme=ritual-icons
+
+[KDE]
+LookAndFeelPackage=org.kde.breeze.desktop
