@@ -18,6 +18,7 @@ Singleton {
       root.launcherMode = Config.defaultMode
     }
   }
+
   function openLauncher(id, mode = null) {
     if (!id) {
       console.error("No id supplied to launcher!")

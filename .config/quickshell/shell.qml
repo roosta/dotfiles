@@ -125,11 +125,30 @@ ShellRoot {
               monitorId: scope.monitorId
             }
           }
+          // Loader {
+          //   id: trayMenu
+          //   opacity: 0
+          //   scale: 0.8
+          //   // anchors.verticalCenter: parent.verticalCenter
+          //   anchors.right: parent.right
+          //   anchors.bottom: parent.bottom
+          //   anchors.bottomMargin: Appearance.bar.height + Appearance.spacing.p1
+          //   active: false
+          //   states: State {
+          //     name: "active"
+          //     when: GlobalState.trayMenuOpen
+          //
+          //     PropertyChanges {
+          //       trayMenu.active: true
+          //       trayMenu.opacity: 1
+          //       trayMenu.scale: 1
+          //     }
+          //   }
+          //   sourceComponent: TrayMenu { trayItem: GlobalState.activeMenu }
+          // }
 
-          // Wallpaper { monitorId: scope.monitorId }
         }
       }
     }
   }
-  // Bar { }
 }
