@@ -29,10 +29,19 @@ BorderRectangle {
 
   implicitHeight: Appearance.bar.height - Appearance.spacing.p3
   property bool active: false
+  property bool preventAutoClose: false
 
   onActiveChanged: {
     if (root.active) {
       timer.restart()
+    }
+  }
+
+  onPreventAutoCloseChanged: {
+    if (!root.preventAutoClose && root.active) {
+      timer.restart()
+    } else if (root.preventAutoClose) {
+      timer.stop()
     }
   }
 
@@ -42,7 +51,9 @@ BorderRectangle {
     id: timer
     interval: 1000 * 30
     onTriggered: {
-      root.active = false
+      if (!root.preventAutoClose) {
+        root.active = false
+      }
     }
   }
   Behavior on implicitWidth {
