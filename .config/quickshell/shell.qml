@@ -6,6 +6,7 @@ pragma ComponentBehavior: Bound
 import Quickshell
 import qs.modules.bar
 import qs.modules.launcher
+import qs.modules.tray
 import QtQuick
 import Quickshell.Wayland
 import Quickshell.Hyprland

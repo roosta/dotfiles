@@ -46,7 +46,7 @@ BorderRectangle {
   }
 
   // Automatically close after 30 seconds
-  // TODO: Should be open when menu is visible, or inside mouse area
+  // TODO: Should be open when mouse is inside mouse area
   Timer {
     id: timer
     interval: 1000 * 30
