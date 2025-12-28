@@ -39,7 +39,7 @@ Item {
     target: GlobalState
 
     function onLauncherOpenChanged() {
-      if (GlobalState.launcherOpen && GlobalState.activeMonitorId === root.monitorId) {
+      if (GlobalState.launcherOpen && GlobalState.launcherMonitorId === root.monitorId) {
         list.highlightMoveDuration = 1000
       } else {
         timer.restart()
