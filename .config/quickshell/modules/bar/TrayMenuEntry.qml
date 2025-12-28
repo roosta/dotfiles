@@ -1,6 +1,7 @@
 // GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007
 // Source: https://github.com/end-4/dots-hyprland/blob/5c141e0361adabdb7ea3575392309bec3a592af9/dots/.config/quickshell/ii/modules/ii/bar/SysTrayMenuEntry.qml
-// Modified by Daniel Berg 2025 <mail@roosta.sh>
+// Modified by Daniel Berg <mail@roosta.sh>
+
 pragma ComponentBehavior: Bound
 
 import QtQuick
@@ -39,12 +40,6 @@ Button {
     id: hover
     cursorShape: Qt.PointingHandCursor
   }
-
-  // Component.onCompleted: {
-  //   if (menuEntry.isSeparator) {
-  //     root.buttonColor = Appearance.srcery.gray2
-  //   }
-  // }
 
   background: Rectangle {
     implicitHeight: 30

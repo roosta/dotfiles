@@ -50,7 +50,7 @@ Button {
 
     State {
       name: "active"
-      when: GlobalState.launcherOpen && GlobalState.activeMonitorId === root.monitorId
+      when: GlobalState.launcherOpen && GlobalState.launcherMonitorId === root.monitorId
       PropertyChanges { innerRect.rotation: 0 }
       PropertyChanges { outerRect.borderColor: Appearance.srcery.brightBlack }
       PropertyChanges { innerRect.borderColor: Appearance.srcery.brightWhite }

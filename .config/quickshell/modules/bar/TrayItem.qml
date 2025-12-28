@@ -1,16 +1,13 @@
 // GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007
-// Source: https://github.com/end-4/dots-hyprland/blob/5c141e0361adabdb7ea3575392309bec3a592af9/dots/.config/quickshell/ii/modules/ii/bar/SysTrayItem.qml
-// Modified by Daniel Berg 2025 <mail@roosta.sh>
+// Author: Daniel Berg <mail@roosta.sh>
 
 pragma ComponentBehavior: Bound
 
 import qs.config
 import qs.services
 import qs
-
 import Quickshell.Widgets
 import Quickshell.Services.SystemTray
-import Quickshell
 import QtQuick
 
 MouseArea {
@@ -19,11 +16,9 @@ MouseArea {
   acceptedButtons: Qt.LeftButton | Qt.RightButton
   implicitWidth: Appearance.font.size3
   implicitHeight: Appearance.font.size3
-  property bool targetMenuOpen: false
 
-  signal menuOpened(qsWindow: var)
-  signal menuClosed()
-  
+  required property string monitorId
+
   onClicked: event => {
     switch (event.button) {
       case Qt.LeftButton:
@@ -31,7 +26,7 @@ MouseArea {
         break;
       case Qt.RightButton:
         if (modelData.hasMenu) {
-          menu.open();
+          GlobalState.openTrayMenu(root.modelData.menu)
 
           // System menu
           // const win = root.QsWindow?.window
@@ -60,33 +55,6 @@ MouseArea {
 
       }
       return root.modelData.icon
-    }
-  }
-  
-  Loader {
-    id: menu
-    function open() {
-      menu.active = true;
-    }
-    active: false
-    
-    sourceComponent: TrayMenu {
-      Component.onCompleted: this.open();
-      trayItemMenuHandle: root.modelData.menu
-      anchor {
-        window: root.QsWindow.window
-        rect.x: (QsWindow.window?.width ?? 1920) - Appearance.spacing.p1
-        rect.y: (QsWindow.window?.height ?? 1080) - Appearance.bar.height - Appearance.spacing.p1
-        rect.height: root?.height ?? 0
-        rect.width: root?.width ?? 0
-        edges: Edges.Top | Edges.Left
-        gravity: Edges.Top | Edges.Left
-      }
-      onMenuOpened: (window) => root.menuOpened(window);
-      onMenuClosed: {
-        root.menuClosed();
-        menu.active = false;
-      }
     }
   }
 }

@@ -20,13 +20,6 @@ Item {
   property bool monitorIsFocused: (Hyprland.focusedMonitor?.id === monitorId)
   property string query: ""
   property int currentIndex: 0
-  states: [
-    State {
-      name: "launcher-open"
-      when: GlobalState.launcherOpen || Notifications.open
-      PropertyChanges { content.color: Functions.transparentize("#000", 0.7) }
-    }
-  ]
   GlobalShortcut {
     name: "toggleLauncher"
     description: "Toggles launcher"
@@ -38,21 +31,6 @@ Item {
       }
     }
   }
-  MouseArea {
-    anchors.fill: parent
-    onClicked: {
-      GlobalState.closeLauncher()
-    }
-  }
-
-  transitions: [
-    Transition {
-      ColorAnimation { 
-        duration: 300
-        easing.type: Easing.OutQuad 
-      }
-    }
-  ]
   BorderRectangle {
     id: launcher
     implicitWidth: Appearance.launcher.width
@@ -71,7 +49,7 @@ Item {
     states: [
       State {
         name: "active"
-        when: GlobalState.launcherOpen && GlobalState.activeMonitorId === root.monitorId
+        when: GlobalState.launcherOpen && GlobalState.launcherMonitorId === root.monitorId
         PropertyChanges { launcher.implicitHeight: Appearance.launcher.height }
       }
     ]

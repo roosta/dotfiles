@@ -21,6 +21,7 @@ Singleton {
     readonly property string tv: "HDMI-A-2"
   }
   readonly property string defaultMode: "apps"
+  readonly property string primaryDisplay: root.displays.center
 
   property var keyboardLayouts: [
     {

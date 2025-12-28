@@ -2,107 +2,75 @@
 // Source: https://github.com/end-4/dots-hyprland/blob/5c141e0361adabdb7ea3575392309bec3a592af9/dots/.config/quickshell/ii/modules/ii/bar/SysTrayMenu.qml
 // Modified by Daniel Berg <mail@roosta.sh>
 
-import qs.services
-
 pragma ComponentBehavior: Bound
-import qs.components
-// import qs.services
 import qs.config
-import qs.utils
-import qs
 
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 import Quickshell
 
-PopupWindow {
+import Quickshell.Hyprland
+
+Item {
   id: root
   required property QsMenuHandle trayItemMenuHandle
+  required property string monitorId
 
   signal menuClosed
   signal menuOpened(qsWindow: var) // Correct type is QsWindow, but QML does not like that
 
   // color: Functions.transparentize("#000", 0.7)
-  color: "transparent"
   property real padding: Appearance.spacing.p1
-  // anchor {
-  //   window: root.QsWindow.window
-  //   rect.x: QsWindow.window?.width
-  //   rect.y: QsWindow.window.height - Appearance.bar.height - Appearance.spacing.p1
-  //   rect.height: root.height
-  //   rect.width: root.width
-  //   edges: Edges.Top | Edges.Left
-  //   gravity: Edges.Top | Edges.Left
-  // }
 
-  // implicitHeight: (QsWindow.window?.height ?? 1080) - Appearance.bar.height
-  // implicitWidth: QsWindow.window?.width ?? 1920
-  //
-  // anchors.bottom: parent.bottom
-  // anchors.right: parent.right
-  // anchors.rightMargin: 0
-
-  MouseArea {
-    anchors.fill: parent
-    onClicked: {
-      root.close()
-    }
-  }
-  implicitHeight: {
-    let result = 0;
-    for (let child of stackView.children) {
-      result = Math.max(child.implicitHeight, result);
-    }
-    return result + Appearance.spacing.p1 * 2
-  }
-  implicitWidth: {
-    let result = 0;
-    for (let child of stackView.children) {
-      result = Math.max(child.implicitWidth, result);
-    }
-    return result + Appearance.spacing.p1 * 2
-  }
+  anchors.fill: parent
+  anchors.bottomMargin: Appearance.bar.height + Appearance.spacing.p1
+  anchors.rightMargin: Appearance.spacing.p1
 
   function open() {
-    root.visible = true;
-    root.menuOpened(root);
+    if (Hyprland.focusedMonitor?.name === root.monitorId) {
+      root.visible = true
+      root.menuOpened(root);
+    } else {
+      root.visible = false
+    }
   }
 
   function close() {
     root.visible = false;
     while (stackView.depth > 1)
-    stackView.pop();
+      stackView.pop();
     root.menuClosed();
   }
 
-  MouseArea {
-    anchors.fill: parent
-    acceptedButtons: Qt.BackButton | Qt.RightButton
-    onPressed: event => {
-      if ((event.button === Qt.BackButton || event.button === Qt.RightButton) && stackView.depth > 1)
-      stackView.pop();
+  Rectangle {
+    color: "transparent"
+    anchors.bottom: parent.bottom
+    anchors.right: parent.right
+    MouseArea {
+      acceptedButtons: Qt.BackButton | Qt.RightButton
+      anchors.fill: parent
+      onPressed: event => {
+        if ((event.button === Qt.BackButton || event.button === Qt.RightButton) && stackView.depth > 1)
+        stackView.pop();
+      }
     }
 
-    // implicitHeight: {
-    //   let result = 0;
-    //   for (let child of stackView.children) {
-    //     result = Math.max(child.implicitHeight, result);
-    //   }
-    //   return result + Appearance.spacing.p4
-    // }
-    // implicitWidth: {
-    //   let result = 0;
-    //   for (let child of stackView.children) {
-    //     result = Math.max(child.implicitWidth, result);
-    //   }
-    //   return result + Appearance.spacing.p4
-    // }
 
-    // StyledRectangularShadow {
-    //     target: popupBackground
-    //     opacity: popupBackground.opacity
-    // }
+    implicitHeight: {
+      let result = 0;
+      for (let child of stackView.children) {
+        result = Math.max(child.implicitHeight, result);
+      }
+      return result + Appearance.spacing.p1 * 2
+    }
+    implicitWidth: {
+      let result = 0;
+      for (let child of stackView.children) {
+        result = Math.max(child.implicitWidth, result);
+      }
+      return result + Appearance.spacing.p1 * 2
+    }
 
     Rectangle {
       id: popupBackground
@@ -111,7 +79,6 @@ PopupWindow {
         left: parent.left
         right: parent.right
         bottom: parent.bottom
-        // margins: root.padding
       }
 
       color: Appearance.srcery.black

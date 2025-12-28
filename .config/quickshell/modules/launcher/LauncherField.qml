@@ -36,7 +36,7 @@ BorderRectangle {
     target: GlobalState
 
     function onLauncherOpenChanged() {
-      if (GlobalState.launcherOpen && GlobalState.activeMonitorId === root.monitorId) {
+      if (GlobalState.launcherOpen && GlobalState.launcherMonitorId === root.monitorId) {
         field.forceActiveFocus();
       } else {
         timer.restart()

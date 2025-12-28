@@ -66,7 +66,7 @@ ShellRoot {
         HyprlandFocusGrab {
           id: grab
           windows: [main]
-          active: GlobalState.launcherOpen && GlobalState.activeMonitorId === scope.monitorId
+          active: GlobalState.launcherOpen && GlobalState.launcherMonitorId === scope.monitorId
           onCleared: {
             GlobalState.closeLauncher();
           }
@@ -78,7 +78,7 @@ ShellRoot {
           width: main.width
           height: main.height
           intersection: {
-            if (GlobalState.launcherOpen) {
+            if (GlobalState.overlayOpen) {
               Intersection.Combine
             } else {
               Intersection.Xor
@@ -91,7 +91,7 @@ ShellRoot {
               width: bar.width
               height: bar.height
               intersection: {
-                if (GlobalState.launcherOpen) {
+                if (GlobalState.overlayOpen) {
                   Intersection.Combine
                 } else {
                   Intersection.Subtract
@@ -112,10 +112,44 @@ ShellRoot {
           color: "transparent"
           anchors.fill: parent
           // color: Functions.transparentize("#000", 0.56)
-
+          transitions: [
+            Transition {
+              ColorAnimation { 
+                duration: 300
+                easing.type: Easing.OutQuad 
+              }
+            }
+          ]
+          MouseArea {
+            anchors.fill: parent
+            onClicked: {
+              GlobalState.closeLauncher()
+              GlobalState.closeTrayMenu()
+            }
+          }
+          states: [
+            State {
+              name: "open"
+              when: GlobalState.overlayOpen
+              PropertyChanges { content.color: Functions.transparentize("#000", 0.7) }
+            }
+          ]
           Bar {
             id: bar
             monitorId: scope.monitorId 
+          }
+          Loader {
+            id: trayMenu
+            anchors.fill: parent
+            active: GlobalState.trayMenuOpen
+
+            sourceComponent: TrayMenu {
+              Component.onCompleted: this.open();
+              trayItemMenuHandle: GlobalState.activeMenu
+              onMenuOpened: (window) => {};
+              onMenuClosed: GlobalState.closeTrayMenu()
+              monitorId: scope.monitorId
+            }
           }
           Loader {
             active: Apps.ready
