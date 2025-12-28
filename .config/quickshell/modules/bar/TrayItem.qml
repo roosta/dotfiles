@@ -30,7 +30,19 @@ MouseArea {
         modelData.activate();
         break;
       case Qt.RightButton:
-        if (modelData.hasMenu) { menu.open();}
+        if (modelData.hasMenu) {
+          menu.open();
+
+          // System menu
+          // const win = root.QsWindow?.window
+          // if (modelData.hasMenu) {
+          //   modelData.display(
+          //     win,
+          //     win.width - Appearance.spacing.p1,
+          //     win.height - Appearance.bar.height - Appearance.spacing.p1
+          //   );
+          // }
+        }
         break;
     }
     event.accepted = true;
@@ -57,17 +69,18 @@ MouseArea {
       menu.active = true;
     }
     active: false
+    
     sourceComponent: TrayMenu {
       Component.onCompleted: this.open();
       trayItemMenuHandle: root.modelData.menu
       anchor {
         window: root.QsWindow.window
-        rect.x: QsWindow.window?.width
-        rect.y: QsWindow.window?.height - Appearance.bar.height
-        rect.height: root.height
-        rect.width: root.width
-        edges: (Edges.Top | Edges.Left)
-        gravity: (Edges.Top | Edges.Left)
+        rect.x: (QsWindow.window?.width ?? 1920) - Appearance.spacing.p1
+        rect.y: (QsWindow.window?.height ?? 1080) - Appearance.bar.height - Appearance.spacing.p1
+        rect.height: root?.height ?? 0
+        rect.width: root?.width ?? 0
+        edges: Edges.Top | Edges.Left
+        gravity: Edges.Top | Edges.Left
       }
       onMenuOpened: (window) => root.menuOpened(window);
       onMenuClosed: {
