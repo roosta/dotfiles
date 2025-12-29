@@ -90,9 +90,9 @@ Item {
             return appLoader.item
         }
       }
-      property string desc: currentList.list?.currentItem?.name
+      property string desc: currentList?.list?.currentItem?.name ?? "Undefined"
       onDescChanged: {
-        if (layout.desc) { ContextData.launcherDesc = desc ?? "Undefined" }
+        if (typeof desc === "string") { ContextData.launcherDesc = desc }
       }
       state: GlobalState.launcherMode
       // TODO: Cleanup
