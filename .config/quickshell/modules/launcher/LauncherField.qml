@@ -121,7 +121,7 @@ BorderRectangle {
         text: {
           if (control.currentValue === "menu") {
             return "Select Mode"
-          } 
+          }
           return `${Config.prefix}${control.displayText}`
         }
         color: control.pressed ? Appearance.srcery.brightBlack : Appearance.srcery.gray6
@@ -269,19 +269,19 @@ BorderRectangle {
       }
 
       Behavior on color {
-        ColorAnimation { 
+        ColorAnimation {
           duration: 50
-          easing.type: Easing.OutQuad 
+          easing.type: Easing.OutQuad
         }
       }
       Behavior on placeholderTextColor {
-        ColorAnimation { 
+        ColorAnimation {
           duration: 50
-          easing.type: Easing.OutQuad 
+          easing.type: Easing.OutQuad
         }
       }
 
     }
   }
-  
+
 }

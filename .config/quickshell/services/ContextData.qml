@@ -6,6 +6,7 @@ import qs.services
 import Quickshell.Wayland
 import Quickshell.Hyprland
 import qs.utils
+import qs.config
 import qs
 
 Singleton {
@@ -19,12 +20,22 @@ Singleton {
     return HyprlandData.activeWorkspace?.monitor == monitor?.name
   }
 
+  property string launcherIcon: {
+    const mode = Config.modeMenu.find(m => m.mode === GlobalState.launcherMode)
+    if (mode) {
+      return Quickshell.iconPath(mode.iconId)
+    }
+  }
+
+            // iconSource: Quickshell.iconPath(modelData.iconId)
   property var data: {
     if (GlobalState.launcherOpen) {
       return {
-        "title": `Ritual Launcher (${GlobalState.launcherMode})`,
+        "title": `${Functions.capitalize(GlobalState.launcherMode)}`,
         "desc": root.launcherDesc,
-        "icon": Apps.getIcon("launcher")
+        "icon": GlobalState.launcherMode === "menu"
+          ? Quickshell.iconPath("menulibre")
+          : root.launcherIcon
       }
     } else if (GlobalState.trayMenuOpen) {
       return {
