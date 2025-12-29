@@ -33,7 +33,7 @@ Item {
   Rectangle {
     anchors.fill: parent
     color: mouse.containsMouse ? Appearance.srcery.gray1 : Appearance.srcery.black
-    
+
 
     Behavior on color {
       ColorAnimation {
@@ -77,7 +77,7 @@ Item {
           }
 
         }
-      } 
+      }
     }
   }
 }

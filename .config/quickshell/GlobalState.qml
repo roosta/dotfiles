@@ -4,8 +4,8 @@ import Quickshell
 import QtQuick
 import qs.config
 import qs.services
-import Quickshell.Wayland
-import qs.utils
+// import Quickshell.Wayland
+// import qs.utils
 
 // Tray monitor id not needed after all, check TrayMenu state, but I might as
 // well track it now that I've configured it here
@@ -27,6 +27,7 @@ Singleton {
       root.launcherMode = Config.defaultMode
     }
   }
+
   function log(val) {
     console.log(JSON.stringify(val, null, 2))
     return val

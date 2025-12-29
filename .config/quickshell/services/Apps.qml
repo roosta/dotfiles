@@ -10,27 +10,28 @@ Singleton {
 
   readonly property bool ready: DesktopEntries.applications.values.length > 0
 
-  readonly property list<DesktopEntry> list: ready ? 
-    Array.from(DesktopEntries.applications.values).sort((a, b) => a.name.localeCompare(b.name)) : 
+  readonly property list<DesktopEntry> list: ready ?
+    Array.from(DesktopEntries.applications.values).sort((a, b) => a.name.localeCompare(b.name)) :
     []
 
-  readonly property var preppedNames: ready ? 
-    list.map(a => ({ name: Fuzzy.prepare(`${a.name} `), entry: a })) : 
+  readonly property var preppedNames: ready ?
+    list.map(a => ({ name: Fuzzy.prepare(`${a.name} `), entry: a })) :
     []
 
   readonly property var icons: {
     "missing": "image-missing",
     "workspace": "workspace-switcher-top-left",
-    "launcher": "applications-all"
+    "launcher": "applications-all",
+    "systemtray": "systemtray"
   }
 
   // Choose the class with the most occurrences
   function mostOccuringClass(arr: var): var {
-    return arr.sort((a,b) => 
+    return arr.sort((a,b) =>
     arr.filter(v => v===a).length - arr.filter(v => v===b).length).pop();
   }
 
-  // 
+  //
   function getIcon(key: string): string {
     const icon = root.icons[key]
     return Quickshell.iconPath(icon, root.icons.missing)
@@ -55,7 +56,7 @@ Singleton {
     }).map(w => w?.class)
     const uniq = [...new Set(classes)].sort((a, b) => a.localeCompare(b))
     return uniq.map(id => {
-      const icon = Config.getAlias(id) ?? DesktopEntries.heuristicLookup(id)?.icon 
+      const icon = Config.getAlias(id) ?? DesktopEntries.heuristicLookup(id)?.icon
       return {
         icon: Quickshell.iconPath(icon, root.icons.missing),
         class: id

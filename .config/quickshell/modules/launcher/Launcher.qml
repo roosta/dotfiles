@@ -20,6 +20,7 @@ Item {
   property bool monitorIsFocused: (Hyprland.focusedMonitor?.id === monitorId)
   property string query: ""
   property int currentIndex: 0
+
   GlobalShortcut {
     name: "toggleLauncher"
     description: "Toggles launcher"
@@ -88,6 +89,10 @@ Item {
           default:
             return appLoader.item
         }
+      }
+      property string desc: currentList.list?.currentItem?.name
+      onDescChanged: {
+        ContextData.launcherDesc = desc ?? "Undefined"
       }
       state: GlobalState.launcherMode
       // TODO: Cleanup
