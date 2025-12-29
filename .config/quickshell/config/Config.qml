@@ -32,7 +32,7 @@ Singleton {
     },
     {
       code: "en",
-      label: "English (US)", 
+      label: "English (US)",
       color: Appearance.srcery.white,
       default: true
     }
@@ -195,12 +195,12 @@ Singleton {
       name: "Television (TV)",
       script: [menus.audio.script, "tv"]
     }
-  ] 
+  ]
 
   function getSinkIcon(sink) {
     if (sink) {
       const obj = outputs.find(o => o.sink == sink.name);
-      if (obj) { return obj.icon } 
+      if (obj) { return obj.icon }
     } else {
       return ""
     }

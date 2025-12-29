@@ -6,15 +6,7 @@ import QtQuick
 Singleton {
   id: root
 
-  property QtObject spacing
-  property QtObject font
-  property QtObject bar
-  property QtObject srcery
-  property QtObject animationCurves
-  property QtObject launcher
-  property QtObject durations
-
-  srcery: QtObject {
+  readonly property QtObject srcery: QtObject {
     readonly property string black: "#121110"
     readonly property string red: "#EF2F27"
     readonly property string green: "#519F50"
@@ -42,7 +34,7 @@ Singleton {
     readonly property string gray6: "#504D47"
   }
 
-  bar: QtObject {
+  readonly property QtObject bar: QtObject {
     readonly property int height: 40 * Config.scale
     readonly property bool transparent: false
     readonly property int radius: 0 * Config.scale
@@ -51,13 +43,13 @@ Singleton {
     readonly property real iconSize: 20 * Config.scale 
   }
 
-  launcher: QtObject {
+  readonly property QtObject launcher: QtObject {
     readonly property int height: itemHeight * 15 * Config.scale
     readonly property int width: 600 * Config.scale
     readonly property int itemHeight: 50 * Config.scale
   }
 
-  font: QtObject {
+  readonly property QtObject font: QtObject {
     readonly property string main: "Iosevka"
     readonly property string symbols: "Symbols Nerd Font"
     readonly property string light: "Iosevka Light"
@@ -73,7 +65,7 @@ Singleton {
     readonly property int large: 12 * Config.scale
   }
 
-  spacing: QtObject {
+  readonly property QtObject spacing: QtObject {
     readonly property int p0: 3 * Config.scale
     readonly property int p1: 6 * Config.scale
     readonly property int p2: 8 * Config.scale
@@ -82,12 +74,12 @@ Singleton {
     readonly property int p5: 24 * Config.scale
   }
 
-  durations: QtObject {
+  readonly property QtObject durations: QtObject {
     readonly property int normal: 400
     readonly property int small: 200
   }
   // https://github.com/end-4/dots-hyprland/blob/703697e1c40b66619fb224043891aade47494bb3/.config/quickshell/ii/modules/common/Appearance.qml#L225-L242
-  animationCurves: QtObject {
+  readonly property QtObject animationCurves: QtObject {
     readonly property list<real> expressiveFastSpatial: [0.42, 1.67, 0.21, 0.90, 1, 1] // Default, 350ms
     readonly property list<real> expressiveDefaultSpatial: [0.38, 1.21, 0.22, 1.00, 1, 1] // Default, 500ms
     readonly property list<real> expressiveSlowSpatial: [0.39, 1.29, 0.35, 0.98, 1, 1] // Default, 650ms
@@ -106,3 +98,4 @@ Singleton {
     readonly property real expressiveEffectsDuration: 200
   }
 }
+
