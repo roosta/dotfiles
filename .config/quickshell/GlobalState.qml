@@ -28,11 +28,6 @@ Singleton {
     }
   }
 
-  function log(val) {
-    console.log(JSON.stringify(val, null, 2))
-    return val
-  }
-
   function openTrayMenu(menu, id = Config.primaryDisplay) {
     if (!menu) {
       console.error("No provided menu, cant open menu")

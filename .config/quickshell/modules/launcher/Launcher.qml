@@ -92,7 +92,7 @@ Item {
       }
       property string desc: currentList.list?.currentItem?.name
       onDescChanged: {
-        ContextData.launcherDesc = desc ?? "Undefined"
+        if (layout.desc) { ContextData.launcherDesc = desc ?? "Undefined" }
       }
       state: GlobalState.launcherMode
       // TODO: Cleanup

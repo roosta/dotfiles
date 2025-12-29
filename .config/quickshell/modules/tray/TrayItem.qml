@@ -6,6 +6,7 @@ pragma ComponentBehavior: Bound
 import qs.config
 import qs.services
 import qs
+import qs.utils
 import Quickshell.Widgets
 import Quickshell.Services.SystemTray
 import QtQuick
@@ -27,6 +28,7 @@ MouseArea {
       case Qt.RightButton:
         if (modelData.hasMenu) {
           GlobalState.openTrayMenu(root.modelData.menu)
+          ContextData.trayDesc = Functions.capitalize(root.modelData?.title)
 
           // System menu
           // const win = root.QsWindow?.window
@@ -42,7 +44,7 @@ MouseArea {
     }
     event.accepted = true;
   }
-  
+
   IconImage {
     id: icon
     anchors.fill: parent

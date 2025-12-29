@@ -15,6 +15,8 @@ Singleton {
   readonly property Toplevel activeWindow: ToplevelManager.activeToplevel
   readonly property string activeWindowAddress: `0x${activeWindow?.HyprlandToplevel?.address}`
   property string launcherDesc: ""
+  property string trayDesc: ""
+
 
   function focusingThisMonitor(monitor: HyprlandMonitor): bool {
     return HyprlandData.activeWorkspace?.monitor == monitor?.name
@@ -39,8 +41,8 @@ Singleton {
       }
     } else if (GlobalState.trayMenuOpen) {
       return {
-        "title": `Test`,
-        "desc": "Hello world",
+        "title": `System Tray Menu`,
+        "desc": root.trayDesc,
         "icon": Apps.getIcon("systemtray")
       }
     } else if (ToplevelManager?.activeToplevel?.activated) {
