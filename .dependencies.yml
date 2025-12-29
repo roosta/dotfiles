@@ -256,8 +256,8 @@ packages:
     - name: libnotify
       description: Library for sending desktop notifications
       aur: false
-    - name: macchina
-      description: A system information fetcher, with an (unhealthy) emphasis on performance.
+    - name: fastfetch
+      description: A feature-rich and performance oriented neofetch like system information tool
       aur: false
     - name: perl-image-exiftool
       description: Reader and rewriter of EXIF information that supports raw files
