@@ -18,28 +18,6 @@ Singleton {
   property bool overlayOpen: root.launcherOpen || Notifications.open || root.trayMenuOpen
   property QsMenuHandle activeMenu: null
   property bool trayMenuOpen: false
-  property Toplevel activeWindow: ToplevelManager.activeToplevel
-
-  property var windowStatus: {
-    if (ToplevelManager?.activeToplevel?.activated) {
-      return {
-        title: Functions.capitalize(root.activeWindow?.appId),
-        desc: root.activeWindow?.title,
-        icon: Apps.lookupIcon(root.activeWindow?.appId)
-      }
-    } else {
-      return {
-        title: "Desktop",
-        desc: `Workspace ${HyprlandData.activeWorkspace?.id}`,
-        icon: Apps.getIcon("workspace")
-      }
-    }
-  }
-
-  function setWindowStatus({title, desc, icon}) {
-    root.windowStatus = { title, desc, icon }
-  }
-  function unsetWindowStatus() {}
 
   Timer {
     id: timer
