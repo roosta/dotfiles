@@ -56,7 +56,7 @@ Item {
 
     transitions: [
       Transition {
-        NumberAnimation { 
+        NumberAnimation {
           properties: "implicitHeight"
           duration: Appearance.durations.small
           easing.type: Easing.InOutCubic
@@ -193,12 +193,12 @@ Item {
             Apps.launch(entry)
             GlobalState.closeLauncher()
           }
-          delegate: LauncherItem { 
+          delegate: LauncherItem {
             required property DesktopEntry modelData
             iconSource: Apps.getEntryIcon(modelData)
             name: modelData?.name ?? ""
             description: (
-              modelData?.comment 
+              modelData?.comment
               || modelData?.genericName
               || modelData?.name
             ) ?? ""
@@ -228,7 +228,7 @@ Item {
             const q = root.query.replace(Config.menus.audio.prefix, "")
             Audio.fuzzyQuery(q)
           }
-          delegate: LauncherItem { 
+          delegate: LauncherItem {
             required property var modelData
             iconSource: Quickshell.iconPath(modelData.iconId)
             name: modelData.name
@@ -258,7 +258,7 @@ Item {
             const q = root.query.replace(Config.menus.display.prefix, "")
             Display.fuzzyQuery(q)
           }
-          delegate: LauncherItem { 
+          delegate: LauncherItem {
             required property var modelData
             iconSource: Quickshell.iconPath(modelData.iconId)
             name: modelData.name
@@ -288,7 +288,7 @@ Item {
             const q = root.query.replace(Config.menus.power.prefix, "")
             Power.fuzzyQuery(q)
           }
-          delegate: LauncherItem { 
+          delegate: LauncherItem {
             required property var modelData
             iconSource: Quickshell.iconPath(modelData.iconId)
             name: modelData.name
@@ -316,7 +316,7 @@ Item {
             const q = root.query.replace("/", "")
             Menu.fuzzyQuery(q)
           }
-          delegate: LauncherItem { 
+          delegate: LauncherItem {
             required property var modelData
             iconSource: Quickshell.iconPath(modelData.iconId)
             name: modelData.name
@@ -339,7 +339,7 @@ Item {
           const currentItem = layout.currentList.list?.currentItem;
           if (currentItem) {
             layout.currentList.accept(currentItem.modelData)
-          } 
+          }
         }
       }
 
