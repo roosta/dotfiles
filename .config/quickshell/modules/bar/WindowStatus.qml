@@ -2,21 +2,18 @@ import qs.services
 import qs.config
 import qs.utils
 import qs.components
+import qs
 import QtQuick
 // import QtQuick.Controls
 import QtQuick.Layouts
-import Quickshell
-import Quickshell.Hyprland
-import Quickshell.Wayland
+// import Quickshell
+// import Quickshell.Hyprland
+// import Quickshell.Wayland
 import Quickshell.Widgets
 
 Item {
   id: root
   implicitWidth: 200
-  readonly property HyprlandMonitor monitor: Hyprland.monitorFor(root.QsWindow.window?.screen)
-  readonly property Toplevel activeWindow: ToplevelManager.activeToplevel
-  property string activeWindowAddress: `0x${activeWindow?.HyprlandToplevel?.address}`
-  property bool focusingThisMonitor: HyprlandData.activeWorkspace?.monitor == monitor?.name
   RowLayout {
     id: rowLayout
     anchors.fill: parent
@@ -32,13 +29,7 @@ Item {
       IconImage {
         id: windowIcon
         anchors.centerIn: parent
-        source: {
-          if (root.activeWindow?.activated) {
-            Apps.lookupIcon(root.activeWindow?.appId)
-          } else {
-            return Apps.getIcon("workspace")
-          }
-        }
+        source: GlobalState.windowStatus.icon
         implicitSize: parent.height - Appearance.spacing.p3
       }
     }
@@ -54,13 +45,7 @@ Item {
         }
 
         color: Appearance.srcery.brightWhite
-        text: {
-          if (root.activeWindow?.activated) {
-            return Functions.capitalize(root.activeWindow?.appId)
-          } else {
-            return "Desktop"
-          }
-        }
+        text: GlobalState.windowStatus.title
       }
       Text {
         id: window
@@ -73,12 +58,7 @@ Item {
         }
 
         color: Appearance.srcery.white
-        text: {
-          if (root.activeWindow?.activated) {
-            return root.activeWindow?.title
-          }
-          return `Workspace ${HyprlandData.activeWorkspace?.id}`
-        }
+        text: GlobalState.windowStatus.desc
       }
     }
   }

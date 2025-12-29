@@ -4,6 +4,8 @@ import Quickshell
 import QtQuick
 import qs.config
 import qs.services
+import Quickshell.Wayland
+import qs.utils
 
 // Tray monitor id not needed after all, check TrayMenu state, but I might as
 // well track it now that I've configured it here
@@ -16,7 +18,29 @@ Singleton {
   property bool overlayOpen: root.launcherOpen || Notifications.open || root.trayMenuOpen
   property QsMenuHandle activeMenu: null
   property bool trayMenuOpen: false
-  
+  property Toplevel activeWindow: ToplevelManager.activeToplevel
+
+  property var windowStatus: {
+    if (ToplevelManager?.activeToplevel?.activated) {
+      return {
+        title: Functions.capitalize(root.activeWindow?.appId),
+        desc: root.activeWindow?.title,
+        icon: Apps.lookupIcon(root.activeWindow?.appId)
+      }
+    } else {
+      return {
+        title: "Desktop",
+        desc: `Workspace ${HyprlandData.activeWorkspace?.id}`,
+        icon: Apps.getIcon("workspace")
+      }
+    }
+  }
+
+  function setWindowStatus({title, desc, icon}) {
+    root.windowStatus = { title, desc, icon }
+  }
+  function unsetWindowStatus() {}
+
   Timer {
     id: timer
     interval: Appearance.durations.small
@@ -29,7 +53,7 @@ Singleton {
     console.log(JSON.stringify(val, null, 2))
     return val
   }
-  
+
   function openTrayMenu(menu, id = Config.primaryDisplay) {
     if (!menu) {
       console.error("No provided menu, cant open menu")
@@ -52,12 +76,12 @@ Singleton {
     }
     launcherOpen = true
   }
-  
+
   function closeLauncher() {
     launcherOpen = false
     timer.restart()
   }
-  
+
   function toggleLauncher(id) {
     if (launcherOpen) {
       closeLauncher()
