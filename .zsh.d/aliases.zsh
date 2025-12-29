@@ -74,7 +74,9 @@ fi
 # Function to check disk status
 # Uses dfc if installed, otherwise formats output with df and lsblk
 check_disks() {
-  if hash dfc 2>/dev/null; then
+  if hash duf 2>/dev/null; then
+    duf -theme ansi
+  elif hash dfc 2>/dev/null; then
     # If dfc is available, use it with specified options
     dfc -W -q mount
   else

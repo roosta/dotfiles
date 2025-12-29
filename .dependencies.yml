@@ -166,8 +166,8 @@ packages:
     - name: calc
       description: Arbitrary precision console calculator
       aur: false
-    - name: dfc
-      description: Display file system space usage using graphs and colors
+    - name: duf
+      description: Disk Usage/Free Utility
       aur: false
     - name: difftastic
       description: An experimental diff tool that compares files based on their syntax
