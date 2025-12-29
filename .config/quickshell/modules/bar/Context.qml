@@ -2,7 +2,6 @@ import qs.services
 import qs.config
 import qs.utils
 import qs.components
-import qs
 import QtQuick
 // import QtQuick.Controls
 import QtQuick.Layouts
@@ -29,7 +28,7 @@ Item {
       IconImage {
         id: windowIcon
         anchors.centerIn: parent
-        source: GlobalState.windowStatus.icon
+        source: ContextData.data.icon
         implicitSize: parent.height - Appearance.spacing.p3
       }
     }
@@ -45,7 +44,7 @@ Item {
         }
 
         color: Appearance.srcery.brightWhite
-        text: GlobalState.windowStatus.title
+        text: ContextData.data.title
       }
       Text {
         id: window
@@ -58,7 +57,7 @@ Item {
         }
 
         color: Appearance.srcery.white
-        text: GlobalState.windowStatus.desc
+        text: ContextData.data.desc
       }
     }
   }

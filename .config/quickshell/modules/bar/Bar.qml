@@ -73,7 +73,7 @@ Item {
                 Layout.fillHeight: true
                 Layout.fillWidth: true
                 active: Apps.ready
-                sourceComponent: WindowStatus { }
+                sourceComponent: Context { }
               }
 
             }
