@@ -11,7 +11,7 @@
 
 return {
   "ntpeters/vim-better-whitespace",
-  lazy = true,
+  lazy = false,
   config = function()
     vim.g.better_whitespace_filetypes_blacklist = {
       "diff",
