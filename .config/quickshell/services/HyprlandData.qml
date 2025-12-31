@@ -26,6 +26,8 @@ Singleton {
   property var activeWorkspace: null
   property var monitors: []
   property var layers: ({})
+  property string submap: ""
+  property bool submapActive: submap.length > 0
 
 
   /**
@@ -90,6 +92,8 @@ Singleton {
             win
           ]
         }
+      } else if (event.name === "submap") {
+        root.submap = event?.data
       }
     }
   }
