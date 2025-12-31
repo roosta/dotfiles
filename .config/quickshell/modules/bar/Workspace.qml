@@ -27,7 +27,7 @@ Button {
     return HyprlandData.urgentWindows.some(win => {
       return win.workspace.id === root.workspaceId
     })
-  } 
+  }
 
 
   property int buttonSize: 26 * Config.scale
@@ -102,9 +102,9 @@ Button {
         ]
         transitions: [
           Transition {
-            ColorAnimation { 
+            ColorAnimation {
               duration: Appearance.durations.small
-              easing.type: Easing.OutQuad 
+              easing.type: Easing.OutQuad
             }
           }
         ]
@@ -133,10 +133,10 @@ Button {
             required property var modelData
             property bool urgent:  {
               return HyprlandData.urgentWindows.some(win => {
-                return root.urgent && win.class === modelData.class 
+                return root.urgent && win.class === modelData.class
               })
             }
-            
+
             id: appIcon
             Layout.preferredWidth: root.iconSize + Appearance.spacing.p3
             Layout.preferredHeight: root.iconSize + Appearance.spacing.p3
@@ -147,28 +147,28 @@ Button {
                 desaturatedIcon.opacity = 1.0
               }
             }
-            states: [ 
+            states: [
               State {
                 name: "urgent_active"
                 when: appIcon.urgent && root.active && !hover.hovered
-                PropertyChanges { 
-                  blinkAnimation.running: true 
+                PropertyChanges {
+                  blinkAnimation.running: true
                   desaturatedIcon.desaturation: 0.0
                 }
               },
               State {
                 name: "urgent"
                 when: appIcon.urgent && !root.active && !hover.hovered
-                PropertyChanges { 
-                  blinkAnimation.running: true 
+                PropertyChanges {
+                  blinkAnimation.running: true
                   desaturatedIcon.desaturation: 0.8
                 }
               },
               State {
                 name: "hovered"
                 when: !appIcon.urgent && !root.active && hover.hovered
-                PropertyChanges { 
-                  blinkAnimation.running: false 
+                PropertyChanges {
+                  blinkAnimation.running: false
                   desaturatedIcon.opacity: 1.0
                   desaturatedIcon.desaturation: 0.0
                 }
@@ -176,16 +176,16 @@ Button {
               State {
                 name: "UrgentHovered"
                 when: appIcon.urgent && !root.active && hover.hovered
-                PropertyChanges { 
-                  blinkAnimation.running: true 
+                PropertyChanges {
+                  blinkAnimation.running: true
                   desaturatedIcon.desaturation: 0.0
                 }
               },
               State {
                 name: "active"
                 when: !appIcon.urgent && root.active  && !hover.hovered
-                PropertyChanges { 
-                  blinkAnimation.running: false 
+                PropertyChanges {
+                  blinkAnimation.running: false
                   desaturatedIcon.opacity: 1.0
                   desaturatedIcon.desaturation: 0.0
                 }
@@ -193,8 +193,8 @@ Button {
               State {
                 name: "normal"
                 when: !appIcon.urgent && !root.active && !hover.hovered
-                PropertyChanges { 
-                  blinkAnimation.running: false 
+                PropertyChanges {
+                  blinkAnimation.running: false
                   desaturatedIcon.opacity: 1.0
                   desaturatedIcon.desaturation: 0.8
                 }
@@ -216,7 +216,7 @@ Button {
               }
               PropertyAnimation {
                 target: desaturatedIcon
-                property: "opacity" 
+                property: "opacity"
                 from: 0.3
                 to: 1.0
                 duration: Appearance.durations.normal
@@ -231,14 +231,14 @@ Button {
               anchors.centerIn: parent
 
               Behavior on desaturation {
-                NumberAnimation { 
+                NumberAnimation {
                   properties: "desaturation"
                   duration: Appearance.durations.small
                   easing.type: Easing.OutCubic
                 }
               }
               source: IconImage {
-                source: appIcon.modelData.icon 
+                source: appIcon.modelData.icon
                 implicitSize: root.iconSize
 
                 // opacity: 0
@@ -264,7 +264,7 @@ Button {
                 // }
               }
             }
-            
+
 
           }
         }

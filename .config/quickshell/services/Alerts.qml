@@ -14,5 +14,5 @@ Singleton {
   property bool audioOut: PipewireData.audioOut.length > 0
   property bool hasAlerts: audioIn || cpuUsage
   property bool cpuUsage: ResourceUsage.cpuUsage >= 0.8
-  
+
 }

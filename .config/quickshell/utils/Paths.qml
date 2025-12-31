@@ -20,7 +20,7 @@ Singleton {
     readonly property string cache: xdgDir("XDG_CACHE_HOME", "~/.cache", "ritual")
     readonly property string srcery: xdgDir("XDG_CONFIG_HOME", "~/.config", "srcery")
     readonly property string scripts: `${home}/scripts`
-    
+
     function abs(path: string): string {
       return path.replace("~", home);
     }

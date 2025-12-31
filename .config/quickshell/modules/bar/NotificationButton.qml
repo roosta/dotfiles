@@ -25,7 +25,7 @@ Button {
     id: hover
     cursorShape: Qt.PointingHandCursor
   }
-  
+
   onPressed: {
     Notifications.toggleNc()
   }
@@ -71,14 +71,14 @@ Button {
 
   transitions: [
     Transition {
-      NumberAnimation { 
+      NumberAnimation {
         properties: "rotation"
         duration: Appearance.durations.normal
         easing.type: Easing.OutCubic
       }
-      ColorAnimation { 
+      ColorAnimation {
         duration: Appearance.durations.small
-        easing.type: Easing.OutQuad 
+        easing.type: Easing.OutQuad
       }
     }
   ]
@@ -99,7 +99,7 @@ Button {
         id: path
         strokeColor: Appearance.srcery.gray3
         fillColor: Appearance.srcery.black
-        PathSvg { 
+        PathSvg {
           id: svg
           path: "M 10 1.7 L 18.3 16.3 L 1.7 16.3 Z"
         }

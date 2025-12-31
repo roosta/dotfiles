@@ -4,7 +4,7 @@ import Quickshell
 import Quickshell.Hyprland
 import Quickshell.Wayland
 import QtQuick.Layouts
-import qs.services 
+import qs.services
 import qs.config
 import qs.components
 import qs.utils
@@ -26,7 +26,7 @@ BorderRectangle {
     .monitorFor(root.QsWindow.window?.screen)
   readonly property Toplevel activeWindow: ToplevelManager.activeToplevel
   readonly property int activeWorkspaceId: monitor?.activeWorkspace?.id ?? 1
-  
+
   Behavior on implicitWidth {
     NumberAnimation {
       duration: Appearance.durations.small

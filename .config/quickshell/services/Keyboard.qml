@@ -26,7 +26,7 @@ Singleton {
       onStreamFinished: {
         const parsed = JSON.parse(devicesCollector.text);
         const main = parsed["keyboards"].find(kb => kb.main);
-        const keymap = main["active_keymap"]; 
+        const keymap = main["active_keymap"];
         root.capsLock = main?.capsLock ?? false
         root.layout = Config.keyboardLayouts.find(l => l.label === keymap)
       }

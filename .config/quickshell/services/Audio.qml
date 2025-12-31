@@ -11,8 +11,8 @@ import qs.utils
 Singleton {
   id: root
 
-  readonly property var preppedOutputs: PipewireData.ready ? 
-    Config.outputs.map(a => ({ name: Fuzzy.prepare(`${a.name} `), entry: a })) : 
+  readonly property var preppedOutputs: PipewireData.ready ?
+    Config.outputs.map(a => ({ name: Fuzzy.prepare(`${a.name} `), entry: a })) :
     []
 
   function fuzzyQuery(search: string): var {

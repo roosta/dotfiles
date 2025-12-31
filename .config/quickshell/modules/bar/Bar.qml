@@ -106,7 +106,7 @@ Item {
               AudioButton { monitorId: root.monitorId }
             }
           }
-        } 
+        }
       }
     }
 
@@ -129,7 +129,7 @@ Item {
 
             LauncherButton { monitorId: root.monitorId }
 
-            Workspaces { 
+            Workspaces {
               monitorId: root.monitorId
             }
 
@@ -142,7 +142,7 @@ Item {
           RowLayout {
             id: rightSection
           }
-        } 
+        }
       }
     }
     Component {
@@ -173,12 +173,12 @@ Item {
             id: rightSection
             spacing: Appearance.spacing.p1
             Layout.rightMargin: Appearance.spacing.p1
-            Workspaces { 
+            Workspaces {
               monitorId: root.monitorId
             }
             LauncherButton { monitorId: root.monitorId }
             // Clock { }
-          }} 
+          }}
         }
       }
     }

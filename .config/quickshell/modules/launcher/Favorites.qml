@@ -93,9 +93,9 @@ BorderRectangle {
         ]
         transitions: [
           Transition {
-            ColorAnimation { 
+            ColorAnimation {
               duration: 50
-              easing.type: Easing.OutQuad 
+              easing.type: Easing.OutQuad
             }
           }
         ]

@@ -42,9 +42,9 @@ ExpandingButton {
 
     transitions: [
       Transition {
-        ColorAnimation { 
+        ColorAnimation {
           duration: Appearance.durations.small
-          easing.type: Easing.OutQuad 
+          easing.type: Easing.OutQuad
         }
       }
     ]
