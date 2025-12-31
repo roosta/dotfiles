@@ -21,6 +21,8 @@ BorderRectangle {
   Layout.bottomMargin: Appearance.bar.borderWidth
   borderColor: Appearance.srcery.gray3
   Layout.preferredHeight: field.implicitHeight + Appearance.spacing.p4 * 2
+
+  required property var appList;
   signal decrementCurrentIndex()
   signal incrementCurrentIndex()
   signal accepted()
@@ -208,6 +210,9 @@ BorderRectangle {
             root.decrementCurrentIndex();
             event.accepted = true;
           }
+        } else if (event.key === Qt.Key_Tab && root.appList?.length === 1) {
+          root.accepted()
+          event.accepted = true;
         } else if (event.key === Qt.Key_Tab) {
           root.incrementCurrentIndex();
           event.accepted = true;
