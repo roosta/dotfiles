@@ -20,9 +20,6 @@ Singleton {
 
   readonly property var icons: {
     "missing": "image-missing",
-    "workspace": "workspace-switcher-top-left",
-    "launcher": "applications-all",
-    "systemtray": "systemtray"
   }
 
   // Choose the class with the most occurrences
