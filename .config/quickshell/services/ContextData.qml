@@ -31,7 +31,14 @@ Singleton {
   }
 
   property var data: {
-    if (GlobalState.launcherOpen) {
+    if (HyprlandData.submapActive) {
+      return {
+        "title": "Submap Active",
+        "desc": HyprlandData.submap,
+        "icon": Quickshell.iconPath("input-keyboard")
+      }
+
+    } else if (GlobalState.launcherOpen) {
       return {
         "title": `${Functions.capitalize(GlobalState.launcherMode)}`,
         "desc": root.launcherDesc,
