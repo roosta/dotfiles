@@ -123,6 +123,7 @@ ShellRoot {
           ]
           MouseArea {
             anchors.fill: parent
+            anchors.bottomMargin: Appearance.bar.height
             onClicked: {
               GlobalState.closeLauncher()
               GlobalState.closeTrayMenu()
