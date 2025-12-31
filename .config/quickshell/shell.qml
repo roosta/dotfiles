@@ -125,8 +125,8 @@ ShellRoot {
             anchors.fill: parent
             anchors.bottomMargin: Appearance.bar.height
             onClicked: {
-              GlobalState.closeLauncher()
-              GlobalState.closeTrayMenu()
+              if (GlobalState.launcherOpen) { GlobalState.closeLauncher() }
+              if (GlobalState.trayMenuOpen) { GlobalState.closeTrayMenu() }
             }
           }
           states: [
