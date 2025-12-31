@@ -43,7 +43,7 @@ Singleton {
       return {
         "title": `System Tray Menu`,
         "desc": root.trayDesc,
-        "icon": Apps.getIcon("systemtray")
+        "icon": Quickshell.iconPath("systemtray")
       }
     } else if (ToplevelManager?.activeToplevel?.activated) {
       return {
@@ -55,7 +55,7 @@ Singleton {
       return {
         title: "Desktop",
         desc: `Workspace ${HyprlandData.activeWorkspace?.id}`,
-        icon: Apps.getIcon("workspace")
+        icon: Quickshell.iconPath("workspace-switcher-top-left")
       }
     }
   }
