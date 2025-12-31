@@ -334,6 +334,7 @@ Item {
         id: field
         onTextChanged: root.query = text
         monitorId: root.monitorId
+        appList: layout.currentList?.list?.model ?? []
         onIncrementCurrentIndex: {
           layout.currentList.list.incrementCurrentIndex()
         }
