@@ -68,7 +68,7 @@ Singleton {
 
   Timer {
     interval: 1
-    running: true 
+    running: true
     repeat: true
     onTriggered: {
       // Reload files
@@ -114,7 +114,7 @@ Singleton {
     stdout: StdioCollector {
       id: outputCollector
       onStreamFinished: {
-        root.cpuTooltip = outputCollector.text.replace(/\n$/, '') 
+        root.cpuTooltip = outputCollector.text.replace(/\n$/, '')
       }
     }
   }

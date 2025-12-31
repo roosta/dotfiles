@@ -17,7 +17,7 @@ Singleton {
   property list<PwNode> streamNodes: pwNodes.filter(n => n.isStream)
   property list<PwNode> audioIn: streamNodes.filter(s => !s.isSink && s?.audio)
   property list<PwNode> audioOut: streamNodes.filter(s => s.isSink && s?.audio)
-  
+
   PwObjectTracker {
     objects: [root.sink, root.source]
   }

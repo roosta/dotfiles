@@ -65,14 +65,14 @@ Button {
 
   transitions: [
     Transition {
-      NumberAnimation { 
+      NumberAnimation {
         properties: "rotation"
         duration: Appearance.durations.normal
         easing.type: Easing.OutCubic
       }
-      ColorAnimation { 
+      ColorAnimation {
         duration: Appearance.durations.small
-        easing.type: Easing.OutQuad 
+        easing.type: Easing.OutQuad
       }
     }
   ]

@@ -54,13 +54,13 @@ Button {
       }
     }
   }
-  onReleased: () => { 
+  onReleased: () => {
     if (menuEntry.hasChildren) {
       root.openSubmenu(root.menuEntry);
       return;
     }
     menuEntry.triggered();
-    root.dismiss(); 
+    root.dismiss();
   }
   contentItem: RowLayout {
     id: contentItem

@@ -29,7 +29,7 @@ Singleton {
 
 
   /**
-   * Urgent windows 
+   * Urgent windows
    */
   property var urgentWindows: []
   property var activeTopLevel: Hyprland.activeToplevel?.lastIpcObject
@@ -40,7 +40,7 @@ Singleton {
       return win.class !== c
     })
   }
-  
+
   onActiveTopLevelChanged: {
     if (activeTopLevel && urgentWindows.some(w => {
      return w.address === activeTopLevel.address

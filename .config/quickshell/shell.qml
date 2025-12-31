@@ -115,9 +115,9 @@ ShellRoot {
           // color: Functions.transparentize("#000", 0.56)
           transitions: [
             Transition {
-              ColorAnimation { 
+              ColorAnimation {
                 duration: 300
-                easing.type: Easing.OutQuad 
+                easing.type: Easing.OutQuad
               }
             }
           ]
@@ -137,7 +137,7 @@ ShellRoot {
           ]
           Bar {
             id: bar
-            monitorId: scope.monitorId 
+            monitorId: scope.monitorId
           }
           Loader {
             id: trayMenu
@@ -155,7 +155,7 @@ ShellRoot {
           Loader {
             active: Apps.ready
             anchors.fill: parent
-            sourceComponent: Launcher { 
+            sourceComponent: Launcher {
               id: launcher
               monitorId: scope.monitorId
             }

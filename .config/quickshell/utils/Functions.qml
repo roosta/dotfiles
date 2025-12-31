@@ -28,23 +28,23 @@ Singleton {
     }, {});
   }
 
-  
+
   /**
    * Truncate string s, not width aware, takes n length or defaults
    * to Appearance
    * @param {String} s - Text to truncate
-   * @param {Number} n - String max length, ellipsis will be inserted past 
+   * @param {Number} n - String max length, ellipsis will be inserted past
    *                     this, defaults to Appearance.bar.textLength
-   * @returns {String} 
+   * @returns {String}
    */
   function truncate(text, n = Appearance.bar.textLength) {
     if (typeof text !== "string") {
-      console.warn("Not a string!") 
+      console.warn("Not a string!")
       return
-    } 
+    }
     if (text && text.length >= n) {
       return `${text.substring(0, n)} ...`
-    } 
+    }
     return text
   }
   /**
