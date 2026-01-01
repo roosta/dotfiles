@@ -87,24 +87,96 @@ center item and the child items. */
   }
 
   .icon-layer {
-    border-radius: 50%;
+    /* border-radius: 50%; */
   }
 
+  /* .arrow-layer { */
+  /*   opacity: 0; */
+  /* } */
   .arrow-layer {
+    /* position: absolute; */
     opacity: 0;
+    /* border-radius: 50%; */
+    /* background: transparent; */
+    /* pointer-events: none; */
+    /* z-index: 3; */
+    /**/
+    /* background: var(--black); */
+    /* position: relative; */
+    /* transition: var(--menu-transition); */
+    /**/
+    /* clip-path: polygon(50% 0%, 100% 100%, 0% 100%); */
+    /* width: 120px; */
+    /* height: 100px; */
+
+    /* &::before { */
+    /*   content: ''; */
+    /*   position: absolute; */
+    /*   z-index: 2; */
+    /*   /* top: 1px; */ */
+    /*   /* left: 1px; */ */
+    /*   top: 50%; left: 50%; */
+    /*   width: calc(100% + 2px); */
+    /*   height: calc(100% + 2px); */
+    /*   transform: translate(-50%, -50%); */
+    /*   /* border-radius: 50%; */ */
+    /*   /* border: 2px solid var(--gray4); */ */
+    /*   background: var(--black); */
+    /**/
+    /*   filter: drop-shadow(0 0 0 100px var(--gray4)); */
+    /*   display: block; */
+    /*   /* width: 118px; */ */
+    /*   /* height: 98px; */ */
+    /**/
+    /*   clip-path: polygon(50% 0%, 100% 100%, 0% 100%); */
+    /*   /* box-shadow: */ */
+    /*   /*   0 0 12px var(--gray4), */ */
+    /*   /*   0 0 20px var(--gray4), */ */
+    /*   /*   inset 0 0 8px var(--gray4); */ */
+    /* } */
+  }
+  /* The active menu item is the center of the menu. */
+  /* &.active>.arrow-layer:before { */
+  /*   clip-path: polygon(50% 0%, 100% 100%, 0% 100%); */
+  /*   content: ''; */
+  /*   width: 398px; */
+  /*   display: block; */
+  /*   position: absolute; */
+  /*   top: 1px; */
+  /*   left: 1px; */
+  /*   height: 38px; */
+  /*   background: #00c000; */
+  /* } */
+  &.active>.arrow-layer {
+  width: 120px;
+  height: 103.92px;
+    background: transparent;
+  left: -60px;
+  top: -50px;
+  transform: scale(0.8) rotate(var(--pointer-angle)) translateY(calc(-0.2 * var(--center-size)));
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--gray4); /* border color */
+    clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
   }
 
-  /* The active menu item is the center of the menu. */
-  &.active>.arrow-layer {
-    width: 0;
-    height: 0;
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    border-bottom: 10px solid var(--gray3);
-    left: -10px;
-    top: -5px;
-    transform: scale(0.8) rotate(var(--pointer-angle)) translateY(calc(-0.5 * var(--center-size) - 5px + 1px));
+  &::after {
+    content: "";
+    position: absolute;
+    top: 2px; /* border thickness */
+    left: 2px; /* border thickness */
+    width: calc(100% - 4px); /* subtract 2x border thickness */
+    height: calc(100% - 3px);
+    background: var(--black); /* or match your menu background */
+    clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
   }
+}
 
   &.active>.icon-layer {
     top: calc(-1 * var(--center-size) / 2);
@@ -123,12 +195,20 @@ center item and the child items. */
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
     filter: none;
     border: 1px solid var(--gray3);
-
+    /* clip-path: polygon( */
+    /*   50% 0%, */
+    /*   90% 20%, */
+    /*   100% 60%, */
+    /*   75% 100%, */
+    /*   25% 100%, */
+    /*   0% 60%, */
+    /*   10% 20% */
+    /*   ); */
     .icon-container {
       margin: 5%;
       width: 90% !important;
       height: 90% !important;
-      border-radius: 50%;
+      /* border-radius: 50%; */
       overflow: hidden;
       opacity: 1;
     }
@@ -141,12 +221,16 @@ center item and the child items. */
 
 
   &.active:has(.hovered)>.arrow-layer {
-    transform: rotate(var(--hovered-child-angle)) translateY(calc(-0.5 * var(--center-size) - 5px + 1px));
+    /* transform: rotate(var(--hovered-child-angle)) translateY(calc(-0.5 * var(--center-size) - 5px + 1px)); */
+    transform: rotate(var(--hovered-child-angle)) translateY(calc(-0.2 * var(--center-size)));
+    /* transform: rotate(var(--hovered-child-angle)); */
     opacity: 1;
   }
 
   &.active:has(.clicked)>.arrow-layer {
-    transform: rotate(var(--pointer-angle)) translateY(calc(-0.5 * var(--center-size) - 5px + 1px));
+    /* transform: rotate(var(--pointer-angle)) translateY(calc(-0.5 * var(--center-size) - 5px + 1px)); */
+    transform: rotate(var(--pointer-angle)) translateY(calc(-0.2 * var(--center-size)));
+    /* transform: rotate(var(--pointer-angle)); */
   }
 
   /* If the parent or a child node is clicked, we scale it down to normal size. */
