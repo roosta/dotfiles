@@ -91,7 +91,6 @@ center item and the child items. */
   }
 
   .circle-layer {
-
   }
 
   .arrow-layer {
@@ -156,7 +155,7 @@ center item and the child items. */
     border-radius: 50%;
     /* box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3); */
     filter: none;
-    /* border: 1px solid var(--gray3); */
+    border: 1px solid var(--gray3);
     /* clip-path: polygon( */
     /*   50% 0%, */
     /*   90% 20%, */
@@ -267,7 +266,7 @@ this state. */
 .center-text {
   color: var(--text-color);
   transition: var(--menu-transition);
-  font-size: 16px;
+  font-size: 12px;
   line-height: 22px;
   overflow: visible;
 }

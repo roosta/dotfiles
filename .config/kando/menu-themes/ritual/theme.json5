@@ -23,7 +23,7 @@
   maxMenuRadius: 160,
 
   // The width at which the center text is wrapped.
-  centerTextWrapWidth: 95,
+  centerTextWrapWidth: 60,
 
   // This theme draws child items below their parent items.
   drawChildrenBelow: true,
