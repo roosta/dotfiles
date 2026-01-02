@@ -16,7 +16,7 @@
 
   --center-size: 100px;
   --submenu-size: 50px;
-  --child-size: 60px;
+  --child-size: 50px;
   --grandchild-size: 15px;
   --connector-width: 10px;
 
@@ -221,6 +221,18 @@ node is displayed in a similar style. */
     left: calc(-1 * var(--child-size) / 2);
     width: var(--child-size);
     height: var(--child-size);
+  }
+
+  /* Target items inside submenu */
+  &.type-submenu > .child.level-2 > .icon-layer {
+    top: calc(-1 * var(--child-size) / 2);
+    left: calc(-1 * var(--child-size) / 2);
+    width: var(--child-size);
+    height: var(--child-size);
+    background: var(--black);
+    padding: 12px;
+    border-radius: 50%;
+    border: 1px solid var(--gray3);
   }
 
   /* Grandchild items are invisible. The sizing is required for transitions from and to
