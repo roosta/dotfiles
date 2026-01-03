@@ -18,31 +18,13 @@
               {
                 "type": "command",
                 "data": {
-                  "command": "lutris",
+                  "command": "/usr/lib/firefox/firefox",
+                  "detached": true,
+                  "isolated": false,
                   "delayed": false
                 },
-                "name": "Lutris",
-                "icon": "net.lutris.Lutris",
-                "iconTheme": "system"
-              },
-              {
-                "type": "command",
-                "data": {
-                  "command": "/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=jellyfinmediaplayer com.github.iwalton3.jellyfin-media-player",
-                  "delayed": false
-                },
-                "name": "Jellyfin Media Player",
-                "icon": "com.github.iwalton3.jellyfin-media-player",
-                "iconTheme": "system"
-              },
-              {
-                "type": "command",
-                "data": {
-                  "command": "/usr/bin/steam",
-                  "delayed": false
-                },
-                "name": "Steam",
-                "icon": "steam",
+                "name": "Firefox",
+                "icon": "firefox",
                 "iconTheme": "system"
               },
               {
@@ -60,6 +42,38 @@
               {
                 "type": "command",
                 "data": {
+                  "command": "spotify-launcher",
+                  "detached": true,
+                  "isolated": false,
+                  "delayed": false
+                },
+                "name": "Spotify (Launcher)",
+                "icon": "spotify-launcher",
+                "iconTheme": "system"
+              },
+              {
+                "type": "command",
+                "data": {
+                  "command": "/usr/bin/steam",
+                  "delayed": false
+                },
+                "name": "Steam",
+                "icon": "steam",
+                "iconTheme": "system"
+              },
+              {
+                "type": "command",
+                "data": {
+                  "command": "lutris",
+                  "delayed": false
+                },
+                "name": "Lutris",
+                "icon": "net.lutris.Lutris",
+                "iconTheme": "system"
+              },
+              {
+                "type": "command",
+                "data": {
                   "command": "nautilus --new-window",
                   "detached": true,
                   "isolated": false,
@@ -67,6 +81,16 @@
                 },
                 "name": "Files",
                 "icon": "org.gnome.Nautilus",
+                "iconTheme": "system"
+              },
+              {
+                "type": "command",
+                "data": {
+                  "command": "/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=jellyfinmediaplayer com.github.iwalton3.jellyfin-media-player",
+                  "delayed": false
+                },
+                "name": "Jellyfin Media Player",
+                "icon": "com.github.iwalton3.jellyfin-media-player",
                 "iconTheme": "system"
               },
               {
