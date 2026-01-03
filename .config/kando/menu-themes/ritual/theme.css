@@ -13,13 +13,14 @@
 .menu-node {
   --child-distance: 100px;
   --grandchild-distance: 25px;
-
   --center-size: 100px;
   --submenu-size: 50px;
   --child-size: 50px;
   --grandchild-size: 15px;
   --connector-width: 10px;
-
+  --arrow-size: 120px;
+  --arrow-height: 100px;
+  --arrow-offset: calc(-0.18 * var(--center-size)); /* Distance from center */
   --menu-transition: all 200ms ease;
 
   transition: var(--menu-transition);
@@ -28,55 +29,64 @@
 
   /* Child items are positioned around the active node. */
   &.child.type-submenu {
-    transform: translate(calc(max(var(--child-distance), 10px * var(--sibling-count)) * var(--dir-x)),
-      calc(max(var(--child-distance), 10px * var(--sibling-count)) * var(--dir-y)));
+    transform: translate(
+      calc(max(var(--child-distance), 10px * var(--sibling-count)) * var(--dir-x)),
+      calc(max(var(--child-distance), 10px * var(--sibling-count)) * var(--dir-y))
+      );
   }
 
   &.child:not(.type-submenu) {
-    transform: translate(calc(max(var(--child-distance), 10px * var(--sibling-count)) * var(--dir-x)),
-      calc(max(var(--child-distance), 10px * var(--sibling-count)) * var(--dir-y))) !important;
+    transform: translate(
+      calc(max(var(--child-distance), 10px * var(--sibling-count)) * var(--dir-x)),
+      calc(max(var(--child-distance), 10px * var(--sibling-count)) * var(--dir-y))
+      ) !important;
 
     &.hovered {
-      transform: scale(1.2) translate(calc(max(var(--child-distance), 10px * var(--sibling-count)) * var(--dir-x)),
-        calc(max(var(--child-distance), 10px * var(--sibling-count)) * var(--dir-y))) !important;
+      transform: scale(1.2) translate(
+        calc(max(var(--child-distance), 10px * var(--sibling-count)) * var(--dir-x)),
+        calc(max(var(--child-distance), 10px * var(--sibling-count)) * var(--dir-y))
+        ) !important;
     }
   }
 
   /* Grandchild items are hidden with this theme, but we have to position them
 nevertheless to allow for smooth transitions when showing or hiding them. */
   &.grandchild {
-    transform: translate(calc(var(--grandchild-distance) * var(--dir-x)),
-      calc(var(--grandchild-distance) * var(--dir-y)));
+    transform: translate(
+      calc(var(--grandchild-distance) * var(--dir-x)),
+      calc(var(--grandchild-distance) * var(--dir-y))
+      );
   }
 
   /* If there is a hovered child node, we scale all children up a bit to create a cool
 zoom effect. The hovered child itself is scaled up even more. */
-  &.active:has(>.hovered)>.child {
-    transform: scale(calc(1.1 - pow(var(--angle-diff) / 180, 0.2) * 0.1)) translate(calc(max(var(--child-distance), 10px * var(--sibling-count)) * var(--dir-x)),
-      calc(max(var(--child-distance), 10px * var(--sibling-count)) * var(--dir-y)));
+  &.active:has(>.hovered) > .child {
+    transform: scale(calc(1.1 - pow(var(--angle-diff) / 180, 0.2) * 0.1))
+      translate(
+      calc(max(var(--child-distance), 10px * var(--sibling-count)) * var(--dir-x)),
+      calc(max(var(--child-distance), 10px * var(--sibling-count)) * var(--dir-y))
+      );
 
     &.hovered {
-      transform: scale(1.2) translate(calc(max(var(--child-distance), 10px * var(--sibling-count)) * var(--dir-x)),
-        calc(max(var(--child-distance), 10px * var(--sibling-count)) * var(--dir-y)));
+      transform: scale(1.2) translate(
+        calc(max(var(--child-distance), 10px * var(--sibling-count)) * var(--dir-x)),
+        calc(max(var(--child-distance), 10px * var(--sibling-count)) * var(--dir-y))
+        );
     }
   }
 
-
   /* Theme Layers --------------------------------------------------------------------- */
-
   /* We hide all icons by default. They will be shown further down in this file for the
 center item and the child items. */
   .icon-container {
     position: relative;
-    top: 0;
-    left: 0;
     width: 100%;
     opacity: 0;
     color: var(--action-icon-color);
     transition: var(--menu-transition);
   }
 
-  &.type-submenu>.icon-layer>.icon-container {
+  &.type-submenu > .icon-layer > .icon-container {
     color: var(--submenu-icon-color);
   }
 
@@ -86,21 +96,15 @@ center item and the child items. */
     transition: var(--menu-transition);
   }
 
-  .icon-layer {
-    /* border-radius: 50%; */
-  }
-
-  .circle-layer {
-  }
-
   .arrow-layer {
     opacity: 0;
   }
 
-  &.active>.circle-layer {
-    top: calc(-1 * var(--center-size) / 2);
-    left: calc(-1 * var(--center-size) / 2);
+  /* Circle layer for center */
+  &.active > .circle-layer {
     position: absolute;
+    top: calc(-0.5 * var(--center-size));
+    left: calc(-0.5 * var(--center-size));
     width: var(--center-size);
     height: var(--center-size);
     background: transparent;
@@ -108,13 +112,16 @@ center item and the child items. */
     border-radius: 50%;
   }
 
-  &.active>.arrow-layer {
-    width: 120px;
-    height: 103.92px;
+  /* Arrow pointer - cleaner rotation logic */
+  &.active > .arrow-layer {
+    width: var(--arrow-size);
+    height: var(--arrow-height);
     background: transparent;
-    left: -60px;
-    top: -50px;
-    transform: scale(0.8) rotate(var(--pointer-angle)) translateY(calc(-0.2 * var(--center-size)));
+    left: calc(-0.5 * var(--arrow-size));
+    top: calc(-0.5 * var(--arrow-height));
+    /* Rotate around center, then translate outward */
+    transform: rotate(var(--pointer-angle)) translateY(var(--arrow-offset));
+    transform-origin: center center;
 
     &::before {
       content: "";
@@ -139,96 +146,82 @@ center item and the child items. */
     }
   }
 
-  &.active>.icon-layer {
-    top: calc(-1 * var(--center-size) / 2);
-    left: calc(-1 * var(--center-size) / 2);
+  /* Show arrow when hovering a child */
+  &.active:has(.hovered) > .arrow-layer {
+    transform: rotate(var(--hovered-child-angle)) translateY(var(--arrow-offset));
+    opacity: 1;
+  }
+
+  /* Keep arrow visible when clicking */
+  &.active:has(.clicked) > .arrow-layer {
+    transform: rotate(var(--pointer-angle)) translateY(var(--arrow-offset));
+  }
+
+  /* Center icon layer */
+  &.active > .icon-layer {
+    top: calc(-0.5 * var(--center-size));
+    left: calc(-0.5 * var(--center-size));
     width: var(--center-size);
     height: var(--center-size);
   }
 
-  &.type-submenu:has(>.hovered:not(.parent))>.icon-layer>.icon-container {
+  /* Submenu styling */
+  &.type-submenu:has(>.hovered:not(.parent)) > .icon-layer > .icon-container {
     opacity: 0;
   }
 
-  &.type-submenu>.icon-layer {
+  &.type-submenu > .icon-layer {
     background-color: var(--background-color);
     border-radius: 50%;
-    /* box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3); */
-    filter: none;
     border: 1px solid var(--gray3);
-    /* clip-path: polygon( */
-    /*   50% 0%, */
-    /*   90% 20%, */
-    /*   100% 60%, */
-    /*   75% 100%, */
-    /*   25% 100%, */
-    /*   0% 60%, */
-    /*   10% 20% */
-    /*   ); */
+
     .icon-container {
       margin: 5%;
       width: 90% !important;
       height: 90% !important;
-      /* border-radius: 50%; */
       overflow: hidden;
       opacity: 1;
     }
   }
 
-  &:not(.type-submenu)>.icon-layer>.icon-container {
+  &:not(.type-submenu) > .icon-layer > .icon-container {
     filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.5));
     text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.5);
   }
 
-
-  &.active:has(.hovered)>.arrow-layer {
-    /* transform: rotate(var(--hovered-child-angle)) translateY(calc(-0.5 * var(--center-size) - 5px + 1px)); */
-    transform: rotate(var(--hovered-child-angle)) translateY(calc(-0.2 * var(--center-size)));
-    /* transform: rotate(var(--hovered-child-angle)); */
-    opacity: 1;
-  }
-
-  &.active:has(.clicked)>.arrow-layer {
-    /* transform: rotate(var(--pointer-angle)) translateY(calc(-0.5 * var(--center-size) - 5px + 1px)); */
-    transform: rotate(var(--pointer-angle)) translateY(calc(-0.2 * var(--center-size)));
-    /* transform: rotate(var(--pointer-angle)); */
-  }
-
-  /* If the parent or a child node is clicked, we scale it down to normal size. */
-  &.parent.hovered.clicked>.icon-layer,
-  &.child.hovered.clicked>.icon-layer {
+  /* Click feedback */
+  &.parent.hovered.clicked > .icon-layer,
+  &.child.hovered.clicked > .icon-layer {
     transform: scale(0.8);
   }
 
-  /* Show the icons of the parent and child items. */
-  &.parent>.icon-layer>.icon-container,
-  &.child>.icon-layer>.icon-container {
+  /* Show icons for parent and child items */
+  &.parent > .icon-layer > .icon-container,
+  &.child > .icon-layer > .icon-container {
     opacity: 1;
   }
 
   /* Child items are displayed around the active node. The parent node of the active
 node is displayed in a similar style. */
-  &.parent>.icon-layer,
-  &.child.type-submenu>.icon-layer {
-    top: calc(-1 * var(--submenu-size) / 2);
-    left: calc(-1 * var(--submenu-size) / 2);
+  /* Parent and submenu child sizing */
+  &.parent > .icon-layer,
+  &.child.type-submenu > .icon-layer {
+    top: calc(-0.5 * var(--submenu-size));
+    left: calc(-0.5 * var(--submenu-size));
     width: var(--submenu-size);
     height: var(--submenu-size);
   }
 
-  &.child>.icon-layer {
-    top: calc(-1 * var(--child-size) / 2);
-    left: calc(-1 * var(--child-size) / 2);
+  /* Regular child sizing */
+  &.child > .icon-layer {
+    top: calc(-0.5 * var(--child-size));
+    left: calc(-0.5 * var(--child-size));
     width: var(--child-size);
     height: var(--child-size);
   }
 
-  /* Target items inside submenu */
+  /* Items inside submenu */
   &.type-submenu > .child.level-2 > .icon-layer {
-    top: calc(-1 * var(--child-size) / 2);
-    left: calc(-1 * var(--child-size) / 2);
-    width: var(--child-size);
-    height: var(--child-size);
     background: var(--black);
     padding: 12px;
     border-radius: 50%;
@@ -237,44 +230,43 @@ node is displayed in a similar style. */
 
   /* Grandchild items are invisible. The sizing is required for transitions from and to
 this state. */
-  &.grandchild>.icon-layer {
-    top: calc(-1 * var(--grandchild-size) / 2);
-    left: calc(-1 * var(--grandchild-size) / 2);
+  /* Grandchild items */
+  &.grandchild > .icon-layer {
+    top: calc(-0.5 * var(--grandchild-size));
+    left: calc(-0.5 * var(--grandchild-size));
     width: var(--grandchild-size);
     height: var(--grandchild-size);
     opacity: 0;
   }
 
-  /* We disable any transition for dragged submenu items. */
+  /* Disable transition for dragged items */
   &.dragged.type-submenu {
     transition: none;
   }
 
   /* Connectors ----------------------------------------------------------------------- */
-
   .connector {
     transition: var(--menu-transition);
     height: var(--connector-width);
-    top: calc(-1 * var(--connector-width) / 2);
+    top: calc(-0.5 * var(--connector-width));
     background-color: var(--background-color);
     opacity: 0;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   }
 
-  &:has(>.dragged)>.connector {
+  &:has(>.dragged) > .connector {
     transition: none;
   }
 
-  &:has(>.parent)>.connector,
-  &:has(>.active.type-submenu)>.connector,
-  &:has(>.clicked.type-submenu)>.connector,
-  &:has(>.dragged.type-submenu)>.connector {
+  &:has(>.parent) > .connector,
+  &:has(>.active.type-submenu) > .connector,
+  &:has(>.clicked.type-submenu) > .connector,
+  &:has(>.dragged.type-submenu) > .connector {
     opacity: 1;
   }
 }
 
 /* Center Text ------------------------------------------------------------------------ */
-
 .center-text {
   color: var(--text-color);
   transition: var(--menu-transition);
