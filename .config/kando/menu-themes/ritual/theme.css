@@ -110,9 +110,39 @@ center item and the child items. */
     background: transparent;
     border: 1px solid var(--gray3);
     border-radius: 50%;
+    transform: rotate(var(--pointer-angle));
+    transition: all 200ms ease-in-out;
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: var(--child-size);
+      height: var(--child-size);
+      background: transparent;
+      opacity: 0;
+      border-radius: 50%;
+      clip-path: circle(50%);
+      border: 1px solid var(--gray4);
+      top: calc(var(--arrow-offset) - 14px);
+      left: 50%;
+      transform: translate(-50%, 0);
+    }
   }
 
-  /* Arrow pointer - cleaner rotation logic */
+  &.active:has(.hovered) > .circle-layer {
+    &::before, &::after {
+      opacity: 1;
+    }
+    transform: rotate(var(--hovered-child-angle));
+  }
+
+  &.active:has(.clicked) > .circle-layer {
+    &::before, &::after {
+      opacity: 1;
+    }
+    transform: rotate(var(--pointer-angle));
+  }
+
   &.active > .arrow-layer {
     width: var(--arrow-size);
     height: var(--arrow-height);
