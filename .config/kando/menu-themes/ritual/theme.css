@@ -111,7 +111,7 @@ center item and the child items. */
     border: 1px solid var(--gray3);
     border-radius: 50%;
     transform: rotate(var(--pointer-angle));
-    transition: all 200ms ease-in-out;
+    transition: transform 100ms ease;
 
     &::before {
       content: "";
@@ -121,7 +121,6 @@ center item and the child items. */
       background: transparent;
       opacity: 0;
       border-radius: 50%;
-      clip-path: circle(50%);
       border: 1px solid var(--gray4);
       top: calc(var(--arrow-offset) - 14px);
       left: 50%;
