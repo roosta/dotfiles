@@ -17,7 +17,7 @@
   --submenu-size: 50px;
   --child-size: 50px;
   --grandchild-size: 15px;
-  --connector-width: 10px;
+  --connector-width: 1px;
   --arrow-size: 120px;
   --arrow-height: 100px;
   --arrow-offset: calc(-0.18 * var(--center-size)); /* Distance from center */
@@ -278,7 +278,7 @@ this state. */
     transition: var(--menu-transition);
     height: var(--connector-width);
     top: calc(-0.5 * var(--connector-width));
-    background-color: var(--background-color);
+    background-color: var(--gray6);
     opacity: 0;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   }
