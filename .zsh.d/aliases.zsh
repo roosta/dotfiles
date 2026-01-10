@@ -97,6 +97,8 @@ alias disks='check_disks'
 # https://stackoverflow.com/a/7170782
 alias ftls="find . -type f | awk -F. '!a[$NF]++{print $NF}'"
 
+alias calc="qalc"
+
 # }}}
 # Custom: {{{
 # ------------------------------------------------------------------------------
