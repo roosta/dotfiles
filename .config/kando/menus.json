@@ -17,6 +17,18 @@
             "children": [
               {
                 "type": "command",
+                "name": "kitty",
+                "icon": "kitty",
+                "iconTheme": "system",
+                "data": {
+                  "command": "kitty",
+                  "detached": true,
+                  "isolated": false,
+                  "delayed": false
+                }
+              },
+              {
+                "type": "command",
                 "data": {
                   "command": "/usr/lib/firefox/firefox",
                   "detached": true,
