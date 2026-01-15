@@ -12,8 +12,8 @@ import qs
 ExpandingButton {
   id: root
   buttonLabel: SystemTray.items.values.length
-
   preventAutoClose: GlobalState.trayMenuOpen
+  isEmpty: SystemTray.items.values.length === 0
   Repeater {
     id: items
     model: root.active ? SystemTray.items : null
