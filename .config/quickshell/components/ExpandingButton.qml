@@ -18,6 +18,7 @@ BorderRectangle {
   default property alias contents: layout.data
   required property string monitorId
   required property string buttonLabel
+  property bool isEmpty: false;
 
   implicitWidth: {
     if (root.active) {
@@ -31,6 +32,11 @@ BorderRectangle {
   property bool active: false
   property bool preventAutoClose: false
 
+  onIsEmptyChanged: {
+    if (root.isEmpty) {
+      root.active = false
+    }
+  }
   onActiveChanged: {
     if (root.active) {
       timer.restart()
@@ -98,7 +104,9 @@ BorderRectangle {
       implicitHeight: root.height
       implicitWidth: root.height
       onPressed: {
-        root.active = !root.active
+        if (!root.isEmpty) {
+          root.active = !root.active
+        }
       }
 
       HoverHandler {
