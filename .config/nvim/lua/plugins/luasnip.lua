@@ -1,3 +1,9 @@
+-- ┬  ┬ ┐┬─┐┐─┐┌┐┐o┬─┐
+-- │  │ ││─┤└─┐│││││─┘
+-- ┆─┘┆─┘┘ ┆──┘┆└┘┆┆
+-- ─────────────────────────────────────────────────────────────────────────
+-- Snippet Engine for Neovim written in Lua.
+
 return {
 	"L3MON4D3/LuaSnip",
 	-- follow latest release.
