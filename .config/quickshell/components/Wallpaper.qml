@@ -37,19 +37,24 @@ Item {
     anchors.fill: parent
     color: Appearance.srcery.black
   }
+  Glyph {
+    width: 220
+    height: 220
+    anchors.centerIn: parent
+  }
   // Image {
   //   anchors.fill: parent
   //   source: root.wallpaper
   //   fillMode: Image.PreserveAspectCrop
   // }
-  VectorImage {
-    id: topLevel
-    width: 220
-    height: 220
-    anchors.centerIn: parent
-    preferredRendererType: VectorImage.CurveRenderer
-    source: `${Paths.assets}/glyph.svg`
-  }
+  // VectorImage {
+  //   id: topLevel
+  //   width: 220
+  //   height: 220
+  //   anchors.centerIn: parent
+  //   preferredRendererType: VectorImage.CurveRenderer
+  //   source: `${Paths.assets}/glyph.svg`
+  // }
   Rectangle {
     property int size: 290
     implicitWidth: size
