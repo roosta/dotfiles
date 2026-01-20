@@ -3,6 +3,7 @@ import QtQuick
 import QtQuick.VectorImage
 import QtQuick.VectorImage.Helpers
 import QtQuick.Shapes
+import qs.config
 
 Item {
   implicitWidth: 400
@@ -13,6 +14,19 @@ Item {
     property int loops: 1
     signal restart()
   }
+  function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min) + min);
+  }
+  Timer {
+    interval: root.getRandomInt(10000, 20000)
+    running: true
+    repeat: true
+    onTriggered: {
+      blinkAnimation.start()
+      const i = root.getRandomInt(10000, 20000)
+      interval = i
+    }
+  }
   property AnimationsInfo animations : AnimationsInfo {}
   transform: [
     Scale { xScale: root.width / 400; yScale: root.height / 400 }
@@ -22,7 +36,7 @@ Item {
   Shape {
     objectName: "star"
     preferredRendererType: Shape.CurveRenderer
-    id: _qt_node1
+    id: star
     transform: TransformGroup {
       id: _qt_node1_transform_base_group
       Matrix4x4 { matrix: PlanarTransform.fromAffineMatrix(2.33764, 0, 0, 2.33764, -107.772, -19.8136)}
@@ -46,7 +60,7 @@ Item {
   }
   Item { // Structure node
     objectName: "eye"
-    id: _qt_node2
+    id: eye
     transform: TransformGroup {
       id: _qt_node2_transform_base_group
       Matrix4x4 { matrix: PlanarTransform.fromAffineMatrix(2.33764, 0, 0, 2.33764, -107.772, -19.8136)}
@@ -54,11 +68,42 @@ Item {
     Item {
       objectName: "use2"
       id: _qt_node3
+
       Shape {
 
         preferredRendererType: Shape.CurveRenderer
         objectName: "eyeShape"
-        id: _qt_node4
+        clip: true
+        id: eyeShape
+
+        transform: Scale {
+          id: eyeBlinkScale
+          origin.x: 131.657  // Center X of the eye
+          origin.y: 96.95    // Center Y of the eye
+          yScale: 1.0
+        }
+
+        SequentialAnimation {
+          id: blinkAnimation
+          running: false
+
+          NumberAnimation {
+            target: eyeBlinkScale
+            property: "yScale"
+            to: 0.05
+            duration: 200
+            easing.type: Easing.InOutQuad
+          }
+
+          NumberAnimation {
+            target: eyeBlinkScale
+            property: "yScale"
+            to: 1.0
+            duration: 200
+            easing.type: Easing.InOutQuad
+          }
+        }
+
         ShapePath {
           id: _qt_shapePath_2
           objectName: "svg_path:eyeShape"
@@ -67,35 +112,37 @@ Item {
           fillRule: ShapePath.WindingFill
           PathSvg { path: "M 131.657 82.3711 C 117.768 82.3752 104.713 87.7904 96.5087 96.9507 C 104.713 106.111 117.767 111.527 131.657 111.531 C 145.549 111.527 158.607 106.108 166.81 96.9432 C 158.603 87.7844 145.546 82.3719 131.657 82.3711 " }
         }
-      }
-    }
-    Shape {
-      objectName: "eyeball"
 
-      preferredRendererType: Shape.CurveRenderer
-      id: _qt_node5
-      ShapePath {
-        id: _qt_shapePath_3
-        objectName: "svg_path:circle3"
-        strokeColor: "transparent"
-        fillColor: "#fffce8c3"
-        fillRule: ShapePath.WindingFill
-        PathSvg { path: "M 143.266 96.9512 C 143.266 103.361 138.069 108.558 131.659 108.558 C 125.249 108.558 120.053 103.361 120.053 96.9512 C 120.053 90.5411 125.249 85.3446 131.659 85.3446 C 138.069 85.3446 143.266 90.5411 143.266 96.9512 " }
       }
-      ShapePath {
-        id: _qt_shapePath_4
-        objectName: "svg_path:circle4"
-        strokeColor: "transparent"
-        fillColor: "#ff121110"
-        fillRule: ShapePath.WindingFill
-        PathSvg { path: "M 126.942 95.8507 C 126.863 96.2122 126.823 96.5811 126.823 96.9511 C 126.823 99.8033 129.135 102.116 131.987 102.116 C 134.84 102.115 137.152 99.8033 137.152 96.9511 C 137.152 94.0989 134.84 91.7868 131.987 91.7868 C 131.962 91.7868 131.937 91.7871 131.912 91.7875 C 132.462 92.3556 132.766 93.0947 132.767 93.8613 C 132.767 95.5677 131.289 96.9512 129.467 96.9511 C 128.493 96.9513 127.569 96.5485 126.942 95.8507 L 126.942 95.8507 " }
+      Shape {
+        objectName: "eyeball"
+
+        preferredRendererType: Shape.CurveRenderer
+        id: eyeball
+        ShapePath {
+          id: _qt_shapePath_3
+          objectName: "svg_path:circle3"
+          strokeColor: "transparent"
+          fillColor: Appearance.srcery.white
+          fillRule: ShapePath.WindingFill
+          PathSvg { path: "M 143.266 96.9512 C 143.266 103.361 138.069 108.558 131.659 108.558 C 125.249 108.558 120.053 103.361 120.053 96.9512 C 120.053 90.5411 125.249 85.3446 131.659 85.3446 C 138.069 85.3446 143.266 90.5411 143.266 96.9512 " }
+        }
+        ShapePath {
+          id: _qt_shapePath_4
+          objectName: "svg_path:circle4"
+          strokeColor: "transparent"
+          fillColor: "#ff121110"
+          fillRule: ShapePath.WindingFill
+          PathSvg { path: "M 126.942 95.8507 C 126.863 96.2122 126.823 96.5811 126.823 96.9511 C 126.823 99.8033 129.135 102.116 131.987 102.116 C 134.84 102.115 137.152 99.8033 137.152 96.9511 C 137.152 94.0989 134.84 91.7868 131.987 91.7868 C 131.962 91.7868 131.937 91.7871 131.912 91.7875 C 132.462 92.3556 132.766 93.0947 132.767 93.8613 C 132.767 95.5677 131.289 96.9512 129.467 96.9511 C 128.493 96.9513 127.569 96.5485 126.942 95.8507 L 126.942 95.8507 " }
+        }
       }
     }
+
     Shape {
 
       preferredRendererType: Shape.CurveRenderer
       objectName: "topRidge"
-      id: _qt_node6
+      id: topRidge
       transform: TransformGroup {
         id: _qt_node6_transform_base_group
         Matrix4x4 { matrix: PlanarTransform.fromAffineMatrix(2.83106, 0, 0, 2.83106, -241.631, -172.178)}
@@ -117,7 +164,7 @@ Item {
       objectName: "bottomRidge"
 
       preferredRendererType: Shape.CurveRenderer
-      id: _qt_node7
+      id: bottomRidge
       ShapePath {
         id: _qt_shapePath_6
         objectName: "svg_path:bottomRidge"
@@ -134,7 +181,7 @@ Item {
     Shape {
       objectName: "lashes"
       preferredRendererType: Shape.CurveRenderer
-      id: _qt_node8
+      id: lashes
       transform: TransformGroup {
         id: _qt_node8_transform_base_group
         Matrix4x4 { matrix: PlanarTransform.fromAffineMatrix(2.83106, 0, 0, 2.83106, -241.631, -172.178)}
@@ -151,7 +198,7 @@ Item {
   }
   Item { // Structure node
     objectName: "gems"
-    id: _qt_node9
+    id: gems
     transform: TransformGroup {
       id: _qt_node9_transform_base_group
       Matrix4x4 { matrix: PlanarTransform.fromAffineMatrix(6.61799, 0, 0, 6.61799, -671.32, -422.305)}
@@ -159,7 +206,7 @@ Item {
     Shape {
       objectName: "blue"
       preferredRendererType: Shape.CurveRenderer
-      id: _qt_node10
+      id: blue
       transform: TransformGroup {
         id: _qt_node10_transform_base_group
         Matrix4x4 { matrix: PlanarTransform.fromAffineMatrix(1.43004, 1.43004, -1.43004, 1.43004, 232.326, -171.073)}
@@ -184,7 +231,7 @@ Item {
     Shape {
       objectName: "magenta"
       preferredRendererType: Shape.CurveRenderer
-      id: _qt_node11
+      id: magenta
       transform: TransformGroup {
         id: _qt_node11_transform_base_group
         Matrix4x4 { matrix: PlanarTransform.fromAffineMatrix(2.02238, 0, 0, 2.02238, 15.3836, -164.608)}
@@ -209,7 +256,7 @@ Item {
     Shape {
       objectName: "cyan"
       preferredRendererType: Shape.CurveRenderer
-      id: _qt_node12
+      id: cyan
       transform: TransformGroup {
         id: _qt_node12_transform_base_group
         Matrix4x4 { matrix: PlanarTransform.fromAffineMatrix(1.43004, -1.43004, 1.43004, 1.43004, -133.446, -6.63432)}
@@ -234,7 +281,7 @@ Item {
     Shape {
       objectName: "white"
       preferredRendererType: Shape.CurveRenderer
-      id: _qt_node13
+      id: white
       transform: TransformGroup {
         id: _qt_node13_transform_base_group
         Matrix4x4 { matrix: PlanarTransform.fromAffineMatrix(0, -2.02238, 2.02238, 0, -126.981, 210.308)}
@@ -259,7 +306,7 @@ Item {
     Shape {
       objectName: "orange"
       preferredRendererType: Shape.CurveRenderer
-      id: _qt_node14
+      id: orange
       transform: TransformGroup {
         id: _qt_node14_transform_base_group
         Matrix4x4 { matrix: PlanarTransform.fromAffineMatrix(-1.43004, -1.43004, 1.43004, -1.43004, 30.9926, 359.138)}
@@ -284,7 +331,7 @@ Item {
     Shape {
       objectName: "red"
       preferredRendererType: Shape.CurveRenderer
-      id: _qt_node15
+      id: red
       transform: TransformGroup {
         id: _qt_node15_transform_base_group
         Matrix4x4 { matrix: PlanarTransform.fromAffineMatrix(-2.02238, 0, 0, -2.02238, 247.935, 352.672)}
@@ -309,7 +356,7 @@ Item {
     Shape {
       objectName: "green"
       preferredRendererType: Shape.CurveRenderer
-      id: _qt_node16
+      id: green
       transform: TransformGroup {
         id: _qt_node16_transform_base_group
         Matrix4x4 { matrix: PlanarTransform.fromAffineMatrix(-1.43004, 1.43004, -1.43004, -1.43004, 396.765, 194.699)}
@@ -334,7 +381,7 @@ Item {
     Shape {
       objectName: "yellow"
       preferredRendererType: Shape.CurveRenderer
-      id: _qt_node17
+      id: yellow
       transform: TransformGroup {
         id: _qt_node17_transform_base_group
         Matrix4x4 { matrix: PlanarTransform.fromAffineMatrix(0, 2.02238, -2.02238, 0, 390.299, -22.2435)}
