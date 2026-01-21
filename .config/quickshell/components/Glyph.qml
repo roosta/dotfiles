@@ -17,12 +17,14 @@ Item {
   function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min) + min);
   }
+
   Timer {
     interval: root.getRandomInt(10000, 20000)
     running: true
     repeat: true
     onTriggered: {
       blinkAnimation.start()
+      maskAnim.start()
       const i = root.getRandomInt(10000, 20000)
       interval = i
     }
@@ -67,13 +69,11 @@ Item {
     }
     Item {
       objectName: "use2"
-      id: _qt_node3
-
+      id: innerEye
       Shape {
 
         preferredRendererType: Shape.CurveRenderer
         objectName: "eyeShape"
-        clip: true
         id: eyeShape
 
         transform: Scale {
@@ -114,26 +114,75 @@ Item {
         }
 
       }
-      Shape {
-        objectName: "eyeball"
+      Rectangle {
+        width: 75; height: 30
+        radius: 60 / 2
+        x: 94
+        y: 82
+        id: mask
+        clip: true
+        color: "transparent"
+        SequentialAnimation {
+          id: maskAnim
 
-        preferredRendererType: Shape.CurveRenderer
-        id: eyeball
-        ShapePath {
-          id: _qt_shapePath_3
-          objectName: "svg_path:circle3"
-          strokeColor: "transparent"
-          fillColor: Appearance.srcery.white
-          fillRule: ShapePath.WindingFill
-          PathSvg { path: "M 143.266 96.9512 C 143.266 103.361 138.069 108.558 131.659 108.558 C 125.249 108.558 120.053 103.361 120.053 96.9512 C 120.053 90.5411 125.249 85.3446 131.659 85.3446 C 138.069 85.3446 143.266 90.5411 143.266 96.9512 " }
+          ParallelAnimation {
+            NumberAnimation {
+              target: mask
+              property: "height"
+              to: 0
+              duration: 200
+              easing.type: Easing.InOutQuad
+            }
+            NumberAnimation {
+              target: mask
+              property: "y"
+              to: 97
+              duration: 200
+              easing.type: Easing.InOutQuad
+            }
+          }
+
+          ParallelAnimation {
+            NumberAnimation {
+              target: mask
+              property: "height"
+              to: 30
+              duration: 200
+              easing.type: Easing.InOutQuad
+            }
+            NumberAnimation {
+              target: mask
+              property: "y"
+              to: 82  // original position
+              duration: 200
+              easing.type: Easing.InOutQuad
+            }
+          }
         }
-        ShapePath {
-          id: _qt_shapePath_4
-          objectName: "svg_path:circle4"
-          strokeColor: "transparent"
-          fillColor: "#ff121110"
-          fillRule: ShapePath.WindingFill
-          PathSvg { path: "M 126.942 95.8507 C 126.863 96.2122 126.823 96.5811 126.823 96.9511 C 126.823 99.8033 129.135 102.116 131.987 102.116 C 134.84 102.115 137.152 99.8033 137.152 96.9511 C 137.152 94.0989 134.84 91.7868 131.987 91.7868 C 131.962 91.7868 131.937 91.7871 131.912 91.7875 C 132.462 92.3556 132.766 93.0947 132.767 93.8613 C 132.767 95.5677 131.289 96.9512 129.467 96.9511 C 128.493 96.9513 127.569 96.5485 126.942 95.8507 L 126.942 95.8507 " }
+        Shape {
+          objectName: "eyeball"
+
+          preferredRendererType: Shape.CurveRenderer
+          id: eyeball
+
+          x: mask.width / 2
+          y: mask.height / 2
+          ShapePath {
+            id: _qt_shapePath_3
+            objectName: "svg_path:circle3"
+            strokeColor: "transparent"
+            fillColor: Appearance.srcery.brightWhite
+            fillRule: ShapePath.WindingFill
+            PathSvg { path: "M 11.607 0 C 11.607 6.4098 6.41 11.6068 0 11.6068 C -6.41 11.6068 -11.606 6.4098 -11.606 0 C -11.606 -6.4101 -6.41 -11.6066 0 -11.6066 C 6.41 -11.6066 11.607 -6.4101 11.607 0" }
+          }
+          ShapePath {
+            id: _qt_shapePath_4
+            objectName: "svg_path:circle4"
+            strokeColor: "transparent"
+            fillColor: "#ff121110"
+            fillRule: ShapePath.WindingFill
+            PathSvg { path: "M -4.717 -1.1005 C -4.796 -0.739 -4.836 -0.3701 -4.836 -0.0001 C -4.836 2.8521 -2.524 5.1648 0.328 5.1648 C 3.181 5.1638 5.493 2.8521 5.493 -0.0001 C 5.493 -2.8523 3.181 -5.1644 0.328 -5.1644 C 0.303 -5.1644 0.278 -5.1641 0.253 -5.1637 C 0.803 -4.5956 1.107 -3.8565 1.108 -3.0899 C 1.108 -1.3835 -0.37 0 -2.192 0 C -3.166 0.0002 -4.09 -0.4027 -4.717 -1.1005 L -4.717 -1.1005" }
+          }
         }
       }
     }
