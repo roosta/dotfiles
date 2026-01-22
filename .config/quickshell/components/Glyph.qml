@@ -87,14 +87,14 @@ Item {
             target: innerEye
             property: "height"
             to: 0
-            duration: 200
+            duration: 100
             easing.type: Easing.InOutQuad
           }
           NumberAnimation {
             target: innerEye
             property: "y"
             to: 97
-            duration: 200
+            duration: 100
             easing.type: Easing.InOutQuad
           }
         }
@@ -104,14 +104,14 @@ Item {
             target: innerEye
             property: "height"
             to: 30
-            duration: 200
+            duration: 100
             easing.type: Easing.InOutQuad
           }
           NumberAnimation {
             target: innerEye
             property: "y"
             to: 82  // original position
-            duration: 200
+            duration: 100
             easing.type: Easing.InOutQuad
           }
         }
@@ -138,7 +138,7 @@ Item {
             target: eyeBlinkScale
             property: "yScale"
             to: 0.05
-            duration: 200
+            duration: 100
             easing.type: Easing.InOutQuad
           }
 
@@ -146,7 +146,7 @@ Item {
             target: eyeBlinkScale
             property: "yScale"
             to: 1.0
-            duration: 200
+            duration: 100
             easing.type: Easing.InOutQuad
           }
         }
