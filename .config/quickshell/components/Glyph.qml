@@ -74,8 +74,8 @@ Item {
       id: innerEye
       x: 96.5087
       y: 82.3711
-      width: childrenRect.width
-      height: childrenRect.height
+      width: eyeShape.width * 2
+      height: eyeShape.height
       clip: true
       color: "transparent"
 
