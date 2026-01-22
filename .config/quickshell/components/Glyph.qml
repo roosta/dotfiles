@@ -8,8 +8,7 @@ import qs.config
 Item {
   implicitWidth: 400
   implicitHeight: 400
-  property var gemInterval: [1000, 5000]
-  property var gemDuration: [1000, 10000]
+  property var gemDuration: 5000
   property var blinkInterval: [10000, 20000]
 
   component AnimationsInfo : QtObject
@@ -283,23 +282,20 @@ Item {
         }
       }
       Timer {
-        interval: root.getRandomInt(root.gemInterval[0], root.gemInterval[1])
+        interval: root.getRandomInt(1000, 5000)
         running: true
-        repeat: true
+        repeat: false
         onTriggered: {
-          let duration = root.getRandomInt(root.gemDuration[0], root.gemDuration[1])
-          blueStart.duration = duration
-          blueStop.duration = duration
           blueAnim.start()
-          const i = root.getRandomInt(root.gemInterval[0], root.gemInterval[1])
-          interval = i
         }
       }
       SequentialAnimation {
         id: blueAnim
+        loops: Animation.Infinite
         PathAnimation {
           id: blueStart
           target: blue
+          duration: root.gemDuration
           path: Path {
             startX: 0; startY: 0
             PathLine { x: 1; y: -1}
@@ -308,6 +304,7 @@ Item {
         PathAnimation {
           id: blueStop
           target: blue
+          duration: root.gemDuration
           path: Path {
             startX: 1; startY: -1
             PathLine { x: 0; y: 0}
@@ -343,23 +340,20 @@ Item {
       }
 
       Timer {
-        interval: root.getRandomInt(root.gemInterval[0], root.gemInterval[1])
+        interval: root.getRandomInt(1000, 5000)
         running: true
-        repeat: true
+        repeat: false
         onTriggered: {
-          let duration = root.getRandomInt(root.gemDuration[0], root.gemDuration[1])
-          magentaStart.duration = duration
-          magentaStop.duration = duration
           magentaAnim.start()
-          const i = root.getRandomInt(root.gemInterval[0], root.gemInterval[1])
-          interval = i
         }
       }
       SequentialAnimation {
         id: magentaAnim
+        loops: Animation.Infinite
         PathAnimation {
           target: magenta
           id: magentaStart
+          duration: root.gemDuration
           path: Path {
             startX: 0; startY: 0
             PathLine { x: 0; y: -2}
@@ -368,6 +362,7 @@ Item {
         PathAnimation {
           target: magenta
           id: magentaStop
+          duration: root.gemDuration
           path: Path {
             startX: 0; startY: -2
             PathLine { x: 0; y: 0}
@@ -402,24 +397,20 @@ Item {
         }
       }
       Timer {
-        interval: root.getRandomInt(root.gemInterval[0], root.gemInterval[1])
+        interval: root.getRandomInt(1000, 5000)
         running: true
-        repeat: true
+        repeat: false
         onTriggered: {
-          let duration = root.getRandomInt(root.gemDuration[0], root.gemDuration[1])
-          cyanStart.duration = duration
-          cyanStop.duration = duration
           cyanAnim.start()
-          const i = root.getRandomInt(root.gemInterval[0], root.gemInterval[1])
-          interval = i
         }
       }
       SequentialAnimation {
         id: cyanAnim
+        loops: Animation.Infinite
         PathAnimation {
           target: cyan
           id: cyanStart
-          duration: 500
+          duration: root.gemDuration
           path: Path {
             startX: 0; startY: 0
             PathLine { x: -1; y: -1}
@@ -428,7 +419,7 @@ Item {
         PathAnimation {
           target: cyan
           id: cyanStop
-          duration: 500
+          duration: root.gemDuration
           path: Path {
             startX: -1; startY: -1
             PathLine { x: 0; y: 0}
@@ -463,24 +454,20 @@ Item {
         }
       }
       Timer {
-        interval: root.getRandomInt(root.gemInterval[0], root.gemInterval[1])
+        interval: root.getRandomInt(1000, 5000)
         running: true
-        repeat: true
+        repeat: false
         onTriggered: {
-          let duration = root.getRandomInt(root.gemDuration[0], root.gemDuration[1])
-          whiteStart.duration = duration
-          whiteStop.duration = duration
           whiteAnim.start()
-          const i = root.getRandomInt(root.gemInterval[0], root.gemInterval[1])
-          interval = i
         }
       }
       SequentialAnimation {
         id: whiteAnim
+        loops: Animation.Infinite
         PathAnimation {
           target: white
           id: whiteStart
-          duration: 500
+          duration: root.gemDuration
           path: Path {
             startX: 0; startY: 0
             PathLine { x: -2; y: 0}
@@ -489,7 +476,7 @@ Item {
         PathAnimation {
           target: white
           id: whiteStop
-          duration: 500
+          duration: root.gemDuration
           path: Path {
             startX: -2; startY: 0
             PathLine { x: 0; y: 0}
@@ -524,24 +511,20 @@ Item {
         }
       }
       Timer {
-        interval: root.getRandomInt(root.gemInterval[0], root.gemInterval[1])
+        interval: root.getRandomInt(1000, 5000)
         running: true
-        repeat: true
+        repeat: false
         onTriggered: {
-          let duration = root.getRandomInt(root.gemDuration[0], root.gemDuration[1])
-          orangeStart.duration = duration
-          orangeStop.duration = duration
           orangeAnim.start()
-          const i = root.getRandomInt(root.gemInterval[0], root.gemInterval[1])
-          interval = i
         }
       }
       SequentialAnimation {
         id: orangeAnim
+        loops: Animation.Infinite
         PathAnimation {
           target: orange
           id: orangeStart
-          duration: 500
+          duration: root.gemDuration
           path: Path {
             startX: 0; startY: 0
             PathLine { x: -1; y: 1}
@@ -550,7 +533,7 @@ Item {
         PathAnimation {
           target: orange
           id: orangeStop
-          duration: 500
+          duration: root.gemDuration
           path: Path {
             startX: -1; startY: 1
             PathLine { x: 0; y: 0}
@@ -585,24 +568,20 @@ Item {
         }
       }
       Timer {
-        interval: root.getRandomInt(root.gemInterval[0], root.gemInterval[1])
+        interval: root.getRandomInt(1000, 5000)
         running: true
-        repeat: true
+        repeat: false
         onTriggered: {
-          let duration = root.getRandomInt(root.gemDuration[0], root.gemDuration[1])
-          redStart.duration = duration
-          redStop.duration = duration
           redAnim.start()
-          const i = root.getRandomInt(root.gemInterval[0], root.gemInterval[1])
-          interval = i
         }
       }
       SequentialAnimation {
         id: redAnim
+        loops: Animation.Infinite
         PathAnimation {
           target: red
           id: redStart
-          duration: 500
+          duration: root.gemDuration
           path: Path {
             startX: 0; startY: 0
             PathLine { x: 0; y: 2}
@@ -611,7 +590,7 @@ Item {
         PathAnimation {
           target: red
           id: redStop
-          duration: 500
+          duration: root.gemDuration
           path: Path {
             startX: 0; startY: 2
             PathLine { x: 0; y: 0}
@@ -646,23 +625,20 @@ Item {
         }
       }
       Timer {
-        interval: root.getRandomInt(root.gemInterval[0], root.gemInterval[1])
+        interval: root.getRandomInt(1000, 5000)
         running: true
-        repeat: true
+        repeat: false
         onTriggered: {
-          let duration = root.getRandomInt(root.gemDuration[0], root.gemDuration[1])
-          greenStart.duration = duration
-          greenStop.duration = duration
           greenAnim.start()
-          const i = root.getRandomInt(root.gemInterval[0], root.gemInterval[1])
-          interval = i
         }
       }
       SequentialAnimation {
         id: greenAnim
+        loops: Animation.Infinite
         PathAnimation {
           target: green
           id: greenStart
+          duration: root.gemDuration
           path: Path {
             startX: 0; startY: 0
             PathLine { x: 1; y: 1}
@@ -671,6 +647,7 @@ Item {
         PathAnimation {
           target: green
           id: greenStop
+          duration: root.gemDuration
           path: Path {
             startX: 1; startY: 1
             PathLine { x: 0; y: 0}
@@ -705,22 +682,19 @@ Item {
         }
       }
       Timer {
-        interval: root.getRandomInt(root.gemInterval[0], root.gemInterval[1])
+        interval: root.getRandomInt(1000, 5000)
         running: true
-        repeat: true
+        repeat: false
         onTriggered: {
-          let duration = root.getRandomInt(root.gemDuration[0], root.gemDuration[1])
-          yellowStart.duration = duration
-          yellowStop.duration = duration
           yellowAnim.start()
-          const i = root.getRandomInt(root.gemInterval[0], root.gemInterval[1])
-          interval = i
         }
       }
       SequentialAnimation {
         id: yellowAnim
+        loops: Animation.Infinite
         PathAnimation {
           target: yellow
+          duration: root.gemDuration
           id: yellowStart
           path: Path {
             startX: 0; startY: 0
@@ -729,6 +703,7 @@ Item {
         }
         PathAnimation {
           target: yellow
+          duration: root.gemDuration
           id: yellowStop
           path: Path {
             startX: 2; startY: 0
