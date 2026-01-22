@@ -60,26 +60,73 @@ Item {
       PathSvg { path: "M 165.874 11.4298 L 163.991 15.4403 C 161.578 31.0549 156.557 56.7583 152.961 75.9234 C 155.385 76.8634 157.457 77.7928 159.087 78.9477 L 203.432 65.0724 C 190.081 74.5582 181.258 83.8757 169.599 94.0318 C 169.935 96.8684 170.004 99.143 169.599 101.295 L 208.731 127.964 L 214.263 128.246 L 176.364 94.0318 L 214.263 59.8166 L 163.27 62.4207 L 165.874 11.4298 " }
     }
   }
-  Item { // Structure node
+  Item {
     objectName: "eye"
     id: eye
     transform: TransformGroup {
       id: _qt_node2_transform_base_group
       Matrix4x4 { matrix: PlanarTransform.fromAffineMatrix(2.33764, 0, 0, 2.33764, -107.772, -19.8136)}
     }
-    Item {
+
+
+    Rectangle {
       objectName: "use2"
       id: innerEye
+      x: 96.5087
+      y: 82.3711
+      width: childrenRect.width
+      height: childrenRect.height
+      clip: true
+      color: "transparent"
+
+      SequentialAnimation {
+        id: maskAnim
+
+        ParallelAnimation {
+          NumberAnimation {
+            target: innerEye
+            property: "height"
+            to: 0
+            duration: 200
+            easing.type: Easing.InOutQuad
+          }
+          NumberAnimation {
+            target: innerEye
+            property: "y"
+            to: 97
+            duration: 200
+            easing.type: Easing.InOutQuad
+          }
+        }
+
+        ParallelAnimation {
+          NumberAnimation {
+            target: innerEye
+            property: "height"
+            to: 30
+            duration: 200
+            easing.type: Easing.InOutQuad
+          }
+          NumberAnimation {
+            target: innerEye
+            property: "y"
+            to: 82  // original position
+            duration: 200
+            easing.type: Easing.InOutQuad
+          }
+        }
+      }
       Shape {
 
+        x: 35.1483
         preferredRendererType: Shape.CurveRenderer
         objectName: "eyeShape"
         id: eyeShape
 
         transform: Scale {
           id: eyeBlinkScale
-          origin.x: 131.657  // Center X of the eye
-          origin.y: 96.95    // Center Y of the eye
+          origin.x: 0
+          origin.y: 0
           yScale: 1.0
         }
 
@@ -110,79 +157,32 @@ Item {
           strokeColor: "transparent"
           fillColor: "#ff121110"
           fillRule: ShapePath.WindingFill
-          PathSvg { path: "M 131.657 82.3711 C 117.768 82.3752 104.713 87.7904 96.5087 96.9507 C 104.713 106.111 117.767 111.527 131.657 111.531 C 145.549 111.527 158.607 106.108 166.81 96.9432 C 158.603 87.7844 145.546 82.3719 131.657 82.3711 " }
+          PathSvg { path: "M 0 0 C -13.889 0.0041 -26.944 5.4193 -35.1483 14.5796 C -26.944 23.7399 -13.89 29.1559 0 29.1599 C 13.892 29.1559 26.95 23.7369 35.153 14.5721 C 26.946 5.4133 13.889 0.0008 0 0" }
         }
 
       }
-      Rectangle {
-        width: 75; height: 30
-        radius: 60 / 2
-        x: 94
-        y: 82
-        id: mask
-        clip: true
-        color: "transparent"
-        SequentialAnimation {
-          id: maskAnim
+      Shape {
+        objectName: "eyeball"
 
-          ParallelAnimation {
-            NumberAnimation {
-              target: mask
-              property: "height"
-              to: 0
-              duration: 200
-              easing.type: Easing.InOutQuad
-            }
-            NumberAnimation {
-              target: mask
-              property: "y"
-              to: 97
-              duration: 200
-              easing.type: Easing.InOutQuad
-            }
-          }
-
-          ParallelAnimation {
-            NumberAnimation {
-              target: mask
-              property: "height"
-              to: 30
-              duration: 200
-              easing.type: Easing.InOutQuad
-            }
-            NumberAnimation {
-              target: mask
-              property: "y"
-              to: 82  // original position
-              duration: 200
-              easing.type: Easing.InOutQuad
-            }
-          }
+        preferredRendererType: Shape.CurveRenderer
+        id: eyeball
+        x: innerEye.width / 2
+        y: innerEye.height / 2
+        ShapePath {
+          id: _qt_shapePath_3
+          objectName: "svg_path:circle3"
+          strokeColor: "transparent"
+          fillColor: Appearance.srcery.brightWhite
+          fillRule: ShapePath.WindingFill
+          PathSvg { path: "M 11.607 0 C 11.607 6.4098 6.41 11.6068 0 11.6068 C -6.41 11.6068 -11.606 6.4098 -11.606 0 C -11.606 -6.4101 -6.41 -11.6066 0 -11.6066 C 6.41 -11.6066 11.607 -6.4101 11.607 0" }
         }
-        Shape {
-          objectName: "eyeball"
-
-          preferredRendererType: Shape.CurveRenderer
-          id: eyeball
-
-          x: mask.width / 2
-          y: mask.height / 2
-          ShapePath {
-            id: _qt_shapePath_3
-            objectName: "svg_path:circle3"
-            strokeColor: "transparent"
-            fillColor: Appearance.srcery.brightWhite
-            fillRule: ShapePath.WindingFill
-            PathSvg { path: "M 11.607 0 C 11.607 6.4098 6.41 11.6068 0 11.6068 C -6.41 11.6068 -11.606 6.4098 -11.606 0 C -11.606 -6.4101 -6.41 -11.6066 0 -11.6066 C 6.41 -11.6066 11.607 -6.4101 11.607 0" }
-          }
-          ShapePath {
-            id: _qt_shapePath_4
-            objectName: "svg_path:circle4"
-            strokeColor: "transparent"
-            fillColor: "#ff121110"
-            fillRule: ShapePath.WindingFill
-            PathSvg { path: "M -4.717 -1.1005 C -4.796 -0.739 -4.836 -0.3701 -4.836 -0.0001 C -4.836 2.8521 -2.524 5.1648 0.328 5.1648 C 3.181 5.1638 5.493 2.8521 5.493 -0.0001 C 5.493 -2.8523 3.181 -5.1644 0.328 -5.1644 C 0.303 -5.1644 0.278 -5.1641 0.253 -5.1637 C 0.803 -4.5956 1.107 -3.8565 1.108 -3.0899 C 1.108 -1.3835 -0.37 0 -2.192 0 C -3.166 0.0002 -4.09 -0.4027 -4.717 -1.1005 L -4.717 -1.1005" }
-          }
+        ShapePath {
+          id: _qt_shapePath_4
+          objectName: "svg_path:circle4"
+          strokeColor: "transparent"
+          fillColor: "#ff121110"
+          fillRule: ShapePath.WindingFill
+          PathSvg { path: "M -4.717 -1.1005 C -4.796 -0.739 -4.836 -0.3701 -4.836 -0.0001 C -4.836 2.8521 -2.524 5.1648 0.328 5.1648 C 3.181 5.1638 5.493 2.8521 5.493 -0.0001 C 5.493 -2.8523 3.181 -5.1644 0.328 -5.1644 C 0.303 -5.1644 0.278 -5.1641 0.253 -5.1637 C 0.803 -4.5956 1.107 -3.8565 1.108 -3.0899 C 1.108 -1.3835 -0.37 0 -2.192 0 C -3.166 0.0002 -4.09 -0.4027 -4.717 -1.1005 L -4.717 -1.1005" }
         }
       }
     }
