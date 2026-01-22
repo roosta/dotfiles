@@ -252,204 +252,389 @@ Item {
       id: _qt_node9_transform_base_group
       Matrix4x4 { matrix: PlanarTransform.fromAffineMatrix(6.61799, 0, 0, 6.61799, -671.32, -422.305)}
     }
-    Shape {
-      objectName: "blue"
-      preferredRendererType: Shape.CurveRenderer
-      id: blue
-      transform: TransformGroup {
-        id: _qt_node10_transform_base_group
-        Matrix4x4 { matrix: PlanarTransform.fromAffineMatrix(1.43004, 1.43004, -1.43004, 1.43004, 232.326, -171.073)}
+    Item {
+      Shape {
+        objectName: "blue"
+        preferredRendererType: Shape.CurveRenderer
+        id: blue
+        transform: TransformGroup {
+          id: _qt_node10_transform_base_group
+          Matrix4x4 { matrix: PlanarTransform.fromAffineMatrix(1.43004, 1.43004, -1.43004, 1.43004, 232.326, -171.073)}
+        }
+        ShapePath {
+          id: _qt_shapePath_8
+          objectName: "svg_path:path15"
+          strokeColor: "transparent"
+          fillColor: "#ff68a8e4"
+          fillRule: ShapePath.WindingFill
+          PathSvg { path: "M 57.4945 119.154 L 55.2691 116.05 L 57.4945 112.946 " }
+        }
+        ShapePath {
+          id: _qt_shapePath_9
+          objectName: "svg_path:path16"
+          strokeColor: "transparent"
+          fillColor: "#ff2c78bf"
+          fillRule: ShapePath.WindingFill
+          PathSvg { path: "M 57.4945 112.946 L 59.7199 116.05 L 57.4945 119.154 " }
+        }
       }
-      ShapePath {
-        id: _qt_shapePath_8
-        objectName: "svg_path:path15"
-        strokeColor: "transparent"
-        fillColor: "#ff68a8e4"
-        fillRule: ShapePath.WindingFill
-        PathSvg { path: "M 57.4945 119.154 L 55.2691 116.05 L 57.4945 112.946 " }
-      }
-      ShapePath {
-        id: _qt_shapePath_9
-        objectName: "svg_path:path16"
-        strokeColor: "transparent"
-        fillColor: "#ff2c78bf"
-        fillRule: ShapePath.WindingFill
-        PathSvg { path: "M 57.4945 112.946 L 59.7199 116.05 L 57.4945 119.154 " }
-      }
-    }
-    Shape {
-      objectName: "magenta"
-      preferredRendererType: Shape.CurveRenderer
-      id: magenta
-      transform: TransformGroup {
-        id: _qt_node11_transform_base_group
-        Matrix4x4 { matrix: PlanarTransform.fromAffineMatrix(2.02238, 0, 0, 2.02238, 15.3836, -164.608)}
-      }
-      ShapePath {
-        id: _qt_shapePath_10
-        objectName: "svg_path:path17"
-        strokeColor: "transparent"
-        fillColor: "#ffe02c6d"
-        fillRule: ShapePath.WindingFill
-        PathSvg { path: "M 57.4945 119.154 L 55.2691 116.05 L 57.4945 112.946 " }
-      }
-      ShapePath {
-        id: _qt_shapePath_11
-        objectName: "svg_path:path18"
-        strokeColor: "transparent"
-        fillColor: "#ffff5c8f"
-        fillRule: ShapePath.WindingFill
-        PathSvg { path: "M 57.4945 112.946 L 59.7199 116.05 L 57.4945 119.154 " }
+      SequentialAnimation {
+        running: true
+
+        loops: Animation.Infinite
+        PathAnimation {
+          target: blue
+          duration: 500
+          path: Path {
+            startX: 0; startY: 0
+            PathLine { x: 1; y: -1}
+          }
+        }
+        PathAnimation {
+          target: blue
+          duration: 500
+          path: Path {
+            startX: 1; startY: -1
+            PathLine { x: 0; y: 0}
+          }
+        }
       }
     }
-    Shape {
-      objectName: "cyan"
-      preferredRendererType: Shape.CurveRenderer
-      id: cyan
-      transform: TransformGroup {
-        id: _qt_node12_transform_base_group
-        Matrix4x4 { matrix: PlanarTransform.fromAffineMatrix(1.43004, -1.43004, 1.43004, 1.43004, -133.446, -6.63432)}
+    Item {
+      Shape {
+        objectName: "magenta"
+        preferredRendererType: Shape.CurveRenderer
+        id: magenta
+        transform: TransformGroup {
+          id: _qt_node11_transform_base_group
+          Matrix4x4 { matrix: PlanarTransform.fromAffineMatrix(2.02238, 0, 0, 2.02238, 15.3836, -164.608)}
+        }
+        ShapePath {
+          id: _qt_shapePath_10
+          objectName: "svg_path:path17"
+          strokeColor: "transparent"
+          fillColor: "#ffe02c6d"
+          fillRule: ShapePath.WindingFill
+          PathSvg { path: "M 57.4945 119.154 L 55.2691 116.05 L 57.4945 112.946 " }
+        }
+        ShapePath {
+          id: _qt_shapePath_11
+          objectName: "svg_path:path18"
+          strokeColor: "transparent"
+          fillColor: "#ffff5c8f"
+          fillRule: ShapePath.WindingFill
+          PathSvg { path: "M 57.4945 112.946 L 59.7199 116.05 L 57.4945 119.154 " }
+        }
       }
-      ShapePath {
-        id: _qt_shapePath_12
-        objectName: "svg_path:path19"
-        strokeColor: "transparent"
-        fillColor: "#ff0aaeb3"
-        fillRule: ShapePath.WindingFill
-        PathSvg { path: "M 57.4945 119.154 L 55.2691 116.05 L 57.4945 112.946 " }
-      }
-      ShapePath {
-        id: _qt_shapePath_13
-        objectName: "svg_path:path20"
-        strokeColor: "transparent"
-        fillColor: "#ff2be4d0"
-        fillRule: ShapePath.WindingFill
-        PathSvg { path: "M 57.4945 112.946 L 59.7199 116.05 L 57.4945 119.154 " }
-      }
-    }
-    Shape {
-      objectName: "white"
-      preferredRendererType: Shape.CurveRenderer
-      id: white
-      transform: TransformGroup {
-        id: _qt_node13_transform_base_group
-        Matrix4x4 { matrix: PlanarTransform.fromAffineMatrix(0, -2.02238, 2.02238, 0, -126.981, 210.308)}
-      }
-      ShapePath {
-        id: _qt_shapePath_14
-        objectName: "svg_path:path21"
-        strokeColor: "transparent"
-        fillColor: "#ffc5b088"
-        fillRule: ShapePath.WindingFill
-        PathSvg { path: "M 57.4945 119.154 L 55.2691 116.05 L 57.4945 112.946 " }
-      }
-      ShapePath {
-        id: _qt_shapePath_15
-        objectName: "svg_path:path22"
-        strokeColor: "transparent"
-        fillColor: "#fffce8c3"
-        fillRule: ShapePath.WindingFill
-        PathSvg { path: "M 57.4945 112.946 L 59.7199 116.05 L 57.4945 119.154 " }
-      }
-    }
-    Shape {
-      objectName: "orange"
-      preferredRendererType: Shape.CurveRenderer
-      id: orange
-      transform: TransformGroup {
-        id: _qt_node14_transform_base_group
-        Matrix4x4 { matrix: PlanarTransform.fromAffineMatrix(-1.43004, -1.43004, 1.43004, -1.43004, 30.9926, 359.138)}
-      }
-      ShapePath {
-        id: _qt_shapePath_16
-        objectName: "svg_path:path23"
-        strokeColor: "transparent"
-        fillColor: "#ffff8700"
-        fillRule: ShapePath.WindingFill
-        PathSvg { path: "M 57.4945 119.154 L 55.2691 116.05 L 57.4945 112.946 " }
-      }
-      ShapePath {
-        id: _qt_shapePath_17
-        objectName: "svg_path:path24"
-        strokeColor: "transparent"
-        fillColor: "#ffff5f00"
-        fillRule: ShapePath.WindingFill
-        PathSvg { path: "M 57.4945 112.946 L 59.7199 116.05 L 57.4945 119.154 " }
+
+      SequentialAnimation {
+        running: true
+
+        loops: Animation.Infinite
+        PathAnimation {
+          target: magenta
+          duration: 500
+          path: Path {
+            startX: 0; startY: 0
+            PathLine { x: 0; y: -2}
+          }
+        }
+        PathAnimation {
+          target: magenta
+          duration: 500
+          path: Path {
+            startX: 0; startY: -2
+            PathLine { x: 0; y: 0}
+          }
+        }
       }
     }
-    Shape {
-      objectName: "red"
-      preferredRendererType: Shape.CurveRenderer
-      id: red
-      transform: TransformGroup {
-        id: _qt_node15_transform_base_group
-        Matrix4x4 { matrix: PlanarTransform.fromAffineMatrix(-2.02238, 0, 0, -2.02238, 247.935, 352.672)}
+    Item {
+      Shape {
+        objectName: "cyan"
+        preferredRendererType: Shape.CurveRenderer
+        id: cyan
+        transform: TransformGroup {
+          id: _qt_node12_transform_base_group
+          Matrix4x4 { matrix: PlanarTransform.fromAffineMatrix(1.43004, -1.43004, 1.43004, 1.43004, -133.446, -6.63432)}
+        }
+        ShapePath {
+          id: _qt_shapePath_12
+          objectName: "svg_path:path19"
+          strokeColor: "transparent"
+          fillColor: "#ff0aaeb3"
+          fillRule: ShapePath.WindingFill
+          PathSvg { path: "M 57.4945 119.154 L 55.2691 116.05 L 57.4945 112.946 " }
+        }
+        ShapePath {
+          id: _qt_shapePath_13
+          objectName: "svg_path:path20"
+          strokeColor: "transparent"
+          fillColor: "#ff2be4d0"
+          fillRule: ShapePath.WindingFill
+          PathSvg { path: "M 57.4945 112.946 L 59.7199 116.05 L 57.4945 119.154 " }
+        }
       }
-      ShapePath {
-        id: _qt_shapePath_18
-        objectName: "svg_path:path25"
-        strokeColor: "transparent"
-        fillColor: "#fff75341"
-        fillRule: ShapePath.WindingFill
-        PathSvg { path: "M 57.4945 119.154 L 55.2691 116.05 L 57.4945 112.946 " }
-      }
-      ShapePath {
-        id: _qt_shapePath_19
-        objectName: "svg_path:path26"
-        strokeColor: "transparent"
-        fillColor: "#ffef2f27"
-        fillRule: ShapePath.WindingFill
-        PathSvg { path: "M 57.4945 112.946 L 59.7199 116.05 L 57.4945 119.154 " }
-      }
-    }
-    Shape {
-      objectName: "green"
-      preferredRendererType: Shape.CurveRenderer
-      id: green
-      transform: TransformGroup {
-        id: _qt_node16_transform_base_group
-        Matrix4x4 { matrix: PlanarTransform.fromAffineMatrix(-1.43004, 1.43004, -1.43004, -1.43004, 396.765, 194.699)}
-      }
-      ShapePath {
-        id: _qt_shapePath_20
-        objectName: "svg_path:path27"
-        strokeColor: "transparent"
-        fillColor: "#ff98bc37"
-        fillRule: ShapePath.WindingFill
-        PathSvg { path: "M 57.4945 119.154 L 55.2691 116.05 L 57.4945 112.946 " }
-      }
-      ShapePath {
-        id: _qt_shapePath_21
-        objectName: "svg_path:path28"
-        strokeColor: "transparent"
-        fillColor: "#ff519f50"
-        fillRule: ShapePath.WindingFill
-        PathSvg { path: "M 57.4945 112.946 L 59.7199 116.05 L 57.4945 119.154 " }
+      SequentialAnimation {
+        running: true
+
+        loops: Animation.Infinite
+        PathAnimation {
+          target: cyan
+          duration: 500
+          path: Path {
+            startX: 0; startY: 0
+            PathLine { x: -1; y: -1}
+          }
+        }
+        PathAnimation {
+          target: cyan
+          duration: 500
+          path: Path {
+            startX: -1; startY: -1
+            PathLine { x: 0; y: 0}
+          }
+        }
       }
     }
-    Shape {
-      objectName: "yellow"
-      preferredRendererType: Shape.CurveRenderer
-      id: yellow
-      transform: TransformGroup {
-        id: _qt_node17_transform_base_group
-        Matrix4x4 { matrix: PlanarTransform.fromAffineMatrix(0, 2.02238, -2.02238, 0, 390.299, -22.2435)}
+    Item {
+      Shape {
+        objectName: "white"
+        preferredRendererType: Shape.CurveRenderer
+        id: white
+        transform: TransformGroup {
+          id: _qt_node13_transform_base_group
+          Matrix4x4 { matrix: PlanarTransform.fromAffineMatrix(0, -2.02238, 2.02238, 0, -126.981, 210.308)}
+        }
+        ShapePath {
+          id: _qt_shapePath_14
+          objectName: "svg_path:path21"
+          strokeColor: "transparent"
+          fillColor: "#ffc5b088"
+          fillRule: ShapePath.WindingFill
+          PathSvg { path: "M 57.4945 119.154 L 55.2691 116.05 L 57.4945 112.946 " }
+        }
+        ShapePath {
+          id: _qt_shapePath_15
+          objectName: "svg_path:path22"
+          strokeColor: "transparent"
+          fillColor: "#fffce8c3"
+          fillRule: ShapePath.WindingFill
+          PathSvg { path: "M 57.4945 112.946 L 59.7199 116.05 L 57.4945 119.154 " }
+        }
       }
-      ShapePath {
-        id: _qt_shapePath_22
-        objectName: "svg_path:path29"
-        strokeColor: "transparent"
-        fillColor: "#fffed06e"
-        fillRule: ShapePath.WindingFill
-        PathSvg { path: "M 57.4945 119.154 L 55.2691 116.05 L 57.4945 112.946 " }
+      SequentialAnimation {
+        running: true
+
+        loops: Animation.Infinite
+        PathAnimation {
+          target: white
+          duration: 500
+          path: Path {
+            startX: 0; startY: 0
+            PathLine { x: -2; y: 0}
+          }
+        }
+        PathAnimation {
+          target: white
+          duration: 500
+          path: Path {
+            startX: -2; startY: 0
+            PathLine { x: 0; y: 0}
+          }
+        }
       }
-      ShapePath {
-        id: _qt_shapePath_23
-        objectName: "svg_path:path30"
-        strokeColor: "transparent"
-        fillColor: "#fffbb829"
-        fillRule: ShapePath.WindingFill
-        PathSvg { path: "M 57.4945 112.946 L 59.7199 116.05 L 57.4945 119.154 " }
+    }
+    Item {
+      Shape {
+        objectName: "orange"
+        preferredRendererType: Shape.CurveRenderer
+        id: orange
+        transform: TransformGroup {
+          id: _qt_node14_transform_base_group
+          Matrix4x4 { matrix: PlanarTransform.fromAffineMatrix(-1.43004, -1.43004, 1.43004, -1.43004, 30.9926, 359.138)}
+        }
+        ShapePath {
+          id: _qt_shapePath_16
+          objectName: "svg_path:path23"
+          strokeColor: "transparent"
+          fillColor: "#ffff8700"
+          fillRule: ShapePath.WindingFill
+          PathSvg { path: "M 57.4945 119.154 L 55.2691 116.05 L 57.4945 112.946 " }
+        }
+        ShapePath {
+          id: _qt_shapePath_17
+          objectName: "svg_path:path24"
+          strokeColor: "transparent"
+          fillColor: "#ffff5f00"
+          fillRule: ShapePath.WindingFill
+          PathSvg { path: "M 57.4945 112.946 L 59.7199 116.05 L 57.4945 119.154 " }
+        }
+      }
+      SequentialAnimation {
+        running: true
+
+        loops: Animation.Infinite
+        PathAnimation {
+          target: orange
+          duration: 500
+          path: Path {
+            startX: 0; startY: 0
+            PathLine { x: -1; y: 1}
+          }
+        }
+        PathAnimation {
+          target: orange
+          duration: 500
+          path: Path {
+            startX: -1; startY: 1
+            PathLine { x: 0; y: 0}
+          }
+        }
+      }
+    }
+    Item {
+      Shape {
+        objectName: "red"
+        preferredRendererType: Shape.CurveRenderer
+        id: red
+        transform: TransformGroup {
+          id: _qt_node15_transform_base_group
+          Matrix4x4 { matrix: PlanarTransform.fromAffineMatrix(-2.02238, 0, 0, -2.02238, 247.935, 352.672)}
+        }
+        ShapePath {
+          id: _qt_shapePath_18
+          objectName: "svg_path:path25"
+          strokeColor: "transparent"
+          fillColor: "#fff75341"
+          fillRule: ShapePath.WindingFill
+          PathSvg { path: "M 57.4945 119.154 L 55.2691 116.05 L 57.4945 112.946 " }
+        }
+        ShapePath {
+          id: _qt_shapePath_19
+          objectName: "svg_path:path26"
+          strokeColor: "transparent"
+          fillColor: "#ffef2f27"
+          fillRule: ShapePath.WindingFill
+          PathSvg { path: "M 57.4945 112.946 L 59.7199 116.05 L 57.4945 119.154 " }
+        }
+      }
+      SequentialAnimation {
+        running: true
+
+        loops: Animation.Infinite
+        PathAnimation {
+          target: red
+          duration: 500
+          path: Path {
+            startX: 0; startY: 0
+            PathLine { x: 0; y: 2}
+          }
+        }
+        PathAnimation {
+          target: red
+          duration: 500
+          path: Path {
+            startX: 0; startY: 2
+            PathLine { x: 0; y: 0}
+          }
+        }
+      }
+    }
+    Item {
+      Shape {
+        objectName: "green"
+        preferredRendererType: Shape.CurveRenderer
+        id: green
+        transform: TransformGroup {
+          id: _qt_node16_transform_base_group
+          Matrix4x4 { matrix: PlanarTransform.fromAffineMatrix(-1.43004, 1.43004, -1.43004, -1.43004, 396.765, 194.699)}
+        }
+        ShapePath {
+          id: _qt_shapePath_20
+          objectName: "svg_path:path27"
+          strokeColor: "transparent"
+          fillColor: "#ff98bc37"
+          fillRule: ShapePath.WindingFill
+          PathSvg { path: "M 57.4945 119.154 L 55.2691 116.05 L 57.4945 112.946 " }
+        }
+        ShapePath {
+          id: _qt_shapePath_21
+          objectName: "svg_path:path28"
+          strokeColor: "transparent"
+          fillColor: "#ff519f50"
+          fillRule: ShapePath.WindingFill
+          PathSvg { path: "M 57.4945 112.946 L 59.7199 116.05 L 57.4945 119.154 " }
+        }
+      }
+      SequentialAnimation {
+        running: true
+
+        loops: Animation.Infinite
+        PathAnimation {
+          target: green
+          duration: 500
+          path: Path {
+            startX: 0; startY: 0
+            PathLine { x: 1; y: 1}
+          }
+        }
+        PathAnimation {
+          target: green
+          duration: 500
+          path: Path {
+            startX: 1; startY: 1
+            PathLine { x: 0; y: 0}
+          }
+        }
+      }
+    }
+    Item {
+      Shape {
+        objectName: "yellow"
+        preferredRendererType: Shape.CurveRenderer
+        id: yellow
+        transform: TransformGroup {
+          id: _qt_node17_transform_base_group
+          Matrix4x4 { matrix: PlanarTransform.fromAffineMatrix(0, 2.02238, -2.02238, 0, 390.299, -22.2435)}
+        }
+        ShapePath {
+          id: _qt_shapePath_22
+          objectName: "svg_path:path29"
+          strokeColor: "transparent"
+          fillColor: "#fffed06e"
+          fillRule: ShapePath.WindingFill
+          PathSvg { path: "M 57.4945 119.154 L 55.2691 116.05 L 57.4945 112.946 " }
+        }
+        ShapePath {
+          id: _qt_shapePath_23
+          objectName: "svg_path:path30"
+          strokeColor: "transparent"
+          fillColor: "#fffbb829"
+          fillRule: ShapePath.WindingFill
+          PathSvg { path: "M 57.4945 112.946 L 59.7199 116.05 L 57.4945 119.154 " }
+        }
+      }
+      SequentialAnimation {
+        running: true
+
+        loops: Animation.Infinite
+        PathAnimation {
+          target: yellow
+          duration: 500
+          path: Path {
+            startX: 0; startY: 0
+            PathLine { x: 2; y: 0}
+          }
+        }
+        PathAnimation {
+          target: yellow
+          duration: 500
+          path: Path {
+            startX: 2; startY: 0
+            PathLine { x: 0; y: 0}
+          }
+        }
       }
     }
   }
