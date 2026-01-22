@@ -8,6 +8,10 @@ import qs.config
 Item {
   implicitWidth: 400
   implicitHeight: 400
+  property var gemInterval: [1000, 5000]
+  property var gemDuration: [1000, 10000]
+  property var blinkInterval: [10000, 20000]
+
   component AnimationsInfo : QtObject
   {
     property bool paused: false
@@ -19,13 +23,13 @@ Item {
   }
 
   Timer {
-    interval: root.getRandomInt(10000, 20000)
+    interval: root.getRandomInt(root.blinkInterval[0], root.blinkInterval[1])
     running: true
     repeat: true
     onTriggered: {
       blinkAnimation.start()
       maskAnim.start()
-      const i = root.getRandomInt(10000, 20000)
+      const i = root.getRandomInt(root.blinkInterval[0], root.blinkInterval[1])
       interval = i
     }
   }
@@ -278,21 +282,32 @@ Item {
           PathSvg { path: "M 57.4945 112.946 L 59.7199 116.05 L 57.4945 119.154 " }
         }
       }
-      SequentialAnimation {
+      Timer {
+        interval: root.getRandomInt(root.gemInterval[0], root.gemInterval[1])
         running: true
-
-        loops: Animation.Infinite
+        repeat: true
+        onTriggered: {
+          let duration = root.getRandomInt(root.gemDuration[0], root.gemDuration[1])
+          blueStart.duration = duration
+          blueStop.duration = duration
+          blueAnim.start()
+          const i = root.getRandomInt(root.gemInterval[0], root.gemInterval[1])
+          interval = i
+        }
+      }
+      SequentialAnimation {
+        id: blueAnim
         PathAnimation {
+          id: blueStart
           target: blue
-          duration: 500
           path: Path {
             startX: 0; startY: 0
             PathLine { x: 1; y: -1}
           }
         }
         PathAnimation {
+          id: blueStop
           target: blue
-          duration: 500
           path: Path {
             startX: 1; startY: -1
             PathLine { x: 0; y: 0}
@@ -327,13 +342,24 @@ Item {
         }
       }
 
-      SequentialAnimation {
+      Timer {
+        interval: root.getRandomInt(root.gemInterval[0], root.gemInterval[1])
         running: true
-
-        loops: Animation.Infinite
+        repeat: true
+        onTriggered: {
+          let duration = root.getRandomInt(root.gemDuration[0], root.gemDuration[1])
+          magentaStart.duration = duration
+          magentaStop.duration = duration
+          magentaAnim.start()
+          const i = root.getRandomInt(root.gemInterval[0], root.gemInterval[1])
+          interval = i
+        }
+      }
+      SequentialAnimation {
+        id: magentaAnim
         PathAnimation {
           target: magenta
-          duration: 500
+          id: magentaStart
           path: Path {
             startX: 0; startY: 0
             PathLine { x: 0; y: -2}
@@ -341,7 +367,7 @@ Item {
         }
         PathAnimation {
           target: magenta
-          duration: 500
+          id: magentaStop
           path: Path {
             startX: 0; startY: -2
             PathLine { x: 0; y: 0}
@@ -375,12 +401,24 @@ Item {
           PathSvg { path: "M 57.4945 112.946 L 59.7199 116.05 L 57.4945 119.154 " }
         }
       }
-      SequentialAnimation {
+      Timer {
+        interval: root.getRandomInt(root.gemInterval[0], root.gemInterval[1])
         running: true
-
-        loops: Animation.Infinite
+        repeat: true
+        onTriggered: {
+          let duration = root.getRandomInt(root.gemDuration[0], root.gemDuration[1])
+          cyanStart.duration = duration
+          cyanStop.duration = duration
+          cyanAnim.start()
+          const i = root.getRandomInt(root.gemInterval[0], root.gemInterval[1])
+          interval = i
+        }
+      }
+      SequentialAnimation {
+        id: cyanAnim
         PathAnimation {
           target: cyan
+          id: cyanStart
           duration: 500
           path: Path {
             startX: 0; startY: 0
@@ -389,6 +427,7 @@ Item {
         }
         PathAnimation {
           target: cyan
+          id: cyanStop
           duration: 500
           path: Path {
             startX: -1; startY: -1
@@ -423,12 +462,24 @@ Item {
           PathSvg { path: "M 57.4945 112.946 L 59.7199 116.05 L 57.4945 119.154 " }
         }
       }
-      SequentialAnimation {
+      Timer {
+        interval: root.getRandomInt(root.gemInterval[0], root.gemInterval[1])
         running: true
-
-        loops: Animation.Infinite
+        repeat: true
+        onTriggered: {
+          let duration = root.getRandomInt(root.gemDuration[0], root.gemDuration[1])
+          whiteStart.duration = duration
+          whiteStop.duration = duration
+          whiteAnim.start()
+          const i = root.getRandomInt(root.gemInterval[0], root.gemInterval[1])
+          interval = i
+        }
+      }
+      SequentialAnimation {
+        id: whiteAnim
         PathAnimation {
           target: white
+          id: whiteStart
           duration: 500
           path: Path {
             startX: 0; startY: 0
@@ -437,6 +488,7 @@ Item {
         }
         PathAnimation {
           target: white
+          id: whiteStop
           duration: 500
           path: Path {
             startX: -2; startY: 0
@@ -471,12 +523,24 @@ Item {
           PathSvg { path: "M 57.4945 112.946 L 59.7199 116.05 L 57.4945 119.154 " }
         }
       }
-      SequentialAnimation {
+      Timer {
+        interval: root.getRandomInt(root.gemInterval[0], root.gemInterval[1])
         running: true
-
-        loops: Animation.Infinite
+        repeat: true
+        onTriggered: {
+          let duration = root.getRandomInt(root.gemDuration[0], root.gemDuration[1])
+          orangeStart.duration = duration
+          orangeStop.duration = duration
+          orangeAnim.start()
+          const i = root.getRandomInt(root.gemInterval[0], root.gemInterval[1])
+          interval = i
+        }
+      }
+      SequentialAnimation {
+        id: orangeAnim
         PathAnimation {
           target: orange
+          id: orangeStart
           duration: 500
           path: Path {
             startX: 0; startY: 0
@@ -485,6 +549,7 @@ Item {
         }
         PathAnimation {
           target: orange
+          id: orangeStop
           duration: 500
           path: Path {
             startX: -1; startY: 1
@@ -519,12 +584,24 @@ Item {
           PathSvg { path: "M 57.4945 112.946 L 59.7199 116.05 L 57.4945 119.154 " }
         }
       }
-      SequentialAnimation {
+      Timer {
+        interval: root.getRandomInt(root.gemInterval[0], root.gemInterval[1])
         running: true
-
-        loops: Animation.Infinite
+        repeat: true
+        onTriggered: {
+          let duration = root.getRandomInt(root.gemDuration[0], root.gemDuration[1])
+          redStart.duration = duration
+          redStop.duration = duration
+          redAnim.start()
+          const i = root.getRandomInt(root.gemInterval[0], root.gemInterval[1])
+          interval = i
+        }
+      }
+      SequentialAnimation {
+        id: redAnim
         PathAnimation {
           target: red
+          id: redStart
           duration: 500
           path: Path {
             startX: 0; startY: 0
@@ -533,6 +610,7 @@ Item {
         }
         PathAnimation {
           target: red
+          id: redStop
           duration: 500
           path: Path {
             startX: 0; startY: 2
@@ -567,13 +645,24 @@ Item {
           PathSvg { path: "M 57.4945 112.946 L 59.7199 116.05 L 57.4945 119.154 " }
         }
       }
-      SequentialAnimation {
+      Timer {
+        interval: root.getRandomInt(root.gemInterval[0], root.gemInterval[1])
         running: true
-
-        loops: Animation.Infinite
+        repeat: true
+        onTriggered: {
+          let duration = root.getRandomInt(root.gemDuration[0], root.gemDuration[1])
+          greenStart.duration = duration
+          greenStop.duration = duration
+          greenAnim.start()
+          const i = root.getRandomInt(root.gemInterval[0], root.gemInterval[1])
+          interval = i
+        }
+      }
+      SequentialAnimation {
+        id: greenAnim
         PathAnimation {
           target: green
-          duration: 500
+          id: greenStart
           path: Path {
             startX: 0; startY: 0
             PathLine { x: 1; y: 1}
@@ -581,7 +670,7 @@ Item {
         }
         PathAnimation {
           target: green
-          duration: 500
+          id: greenStop
           path: Path {
             startX: 1; startY: 1
             PathLine { x: 0; y: 0}
@@ -615,13 +704,24 @@ Item {
           PathSvg { path: "M 57.4945 112.946 L 59.7199 116.05 L 57.4945 119.154 " }
         }
       }
-      SequentialAnimation {
+      Timer {
+        interval: root.getRandomInt(root.gemInterval[0], root.gemInterval[1])
         running: true
-
-        loops: Animation.Infinite
+        repeat: true
+        onTriggered: {
+          let duration = root.getRandomInt(root.gemDuration[0], root.gemDuration[1])
+          yellowStart.duration = duration
+          yellowStop.duration = duration
+          yellowAnim.start()
+          const i = root.getRandomInt(root.gemInterval[0], root.gemInterval[1])
+          interval = i
+        }
+      }
+      SequentialAnimation {
+        id: yellowAnim
         PathAnimation {
           target: yellow
-          duration: 500
+          id: yellowStart
           path: Path {
             startX: 0; startY: 0
             PathLine { x: 2; y: 0}
@@ -629,7 +729,7 @@ Item {
         }
         PathAnimation {
           target: yellow
-          duration: 500
+          id: yellowStop
           path: Path {
             startX: 2; startY: 0
             PathLine { x: 0; y: 0}
