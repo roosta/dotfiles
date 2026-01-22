@@ -1,5 +1,5 @@
 {
-  "version": "2.1.2",
+  "version": "2.2.0",
   "menus": [
     {
       "root": {
@@ -17,15 +17,15 @@
             "children": [
               {
                 "type": "command",
-                "name": "kitty",
-                "icon": "kitty",
-                "iconTheme": "system",
                 "data": {
                   "command": "kitty",
                   "detached": true,
                   "isolated": false,
                   "delayed": false
-                }
+                },
+                "name": "kitty",
+                "icon": "kitty",
+                "iconTheme": "system"
               },
               {
                 "type": "command",
