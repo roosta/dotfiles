@@ -42,70 +42,95 @@ Item {
     height: 220
     anchors.centerIn: parent
   }
-  // Image {
-  //   anchors.fill: parent
-  //   source: root.wallpaper
-  //   fillMode: Image.PreserveAspectCrop
-  // }
-  // VectorImage {
-  //   id: topLevel
-  //   width: 220
-  //   height: 220
-  //   anchors.centerIn: parent
-  //   preferredRendererType: VectorImage.CurveRenderer
-  //   source: `${Paths.assets}/glyph.svg`
-  // }
-  Rectangle {
-    property int size: 290
-    implicitWidth: size
-    implicitHeight: size
-    anchors.centerIn: parent
-    radius: size / 2
-    color: "transparent"
-    border.color: Appearance.srcery.gray3
-  }
-  Rectangle {
-    property int size: 310
-    implicitWidth: size
-    implicitHeight: size
-    anchors.centerIn: parent
-    radius: size / 2
-    color: "transparent"
-    border.color: Appearance.srcery.gray3
-  }
   Shape {
-    id: dashedCircle
+    id: sunburst
+    anchors.centerIn: parent
     width: 300
     height: 300
-    anchors.centerIn: parent
 
-    transform: Rotation {
-      origin.x: dashedCircle.width / 2
-      origin.y: dashedCircle.height / 2
-      NumberAnimation on angle {
-        from: 0
-        to: 360
-        duration: 1000 * 60 * 4
-        loops: Animation.Infinite
-      }
-    }
+    property int rayCount: 8
+    property real innerRadius: 160
+    property real outerRadius: 175
+    property real centerX: width / 2
+    property real centerY: height / 2
+
     ShapePath {
       strokeColor: Appearance.srcery.gray3
       strokeWidth: 1
-      id: circlePath
       fillColor: "transparent"
+      capStyle: ShapePath.RoundCap
 
-      // Dashed line pattern: [dash length, gap length]
-      strokeStyle: ShapePath.DashLine
-      dashPattern: [4, 10]
+      PathSvg {
+        path: {
+          let d = "";
+          for (let i = 0; i < sunburst.rayCount; i++) {
+            let angle = (i / sunburst.rayCount) * 2 * Math.PI - Math.PI / 2;
+            let x1 = sunburst.centerX + sunburst.innerRadius * Math.cos(angle);
+            let y1 = sunburst.centerY + sunburst.innerRadius * Math.sin(angle);
+            let x2 = sunburst.centerX + sunburst.outerRadius * Math.cos(angle);
+            let y2 = sunburst.centerY + sunburst.outerRadius * Math.sin(angle);
+            d += `M ${x1} ${y1} L ${x2} ${y2} `;
+          }
+          return d;
+        }
+      }
+    }
+  }
+  Item {
+    id: c1
+    anchors.fill: parent
+    Rectangle {
+      property int size: 280
+      implicitWidth: size
+      implicitHeight: size
+      anchors.centerIn: parent
+      radius: size / 2
+      color: "transparent"
+      border.color: Appearance.srcery.gray3
+    }
+    Rectangle {
+      property int size: 300
+      implicitWidth: size
+      implicitHeight: size
+      anchors.centerIn: parent
+      radius: size / 2
+      color: "transparent"
+      border.color: Appearance.srcery.gray3
+    }
+    Shape {
+      id: dashedCircle
+      width: 290
+      height: 290
+      anchors.centerIn: parent
 
-      PathAngleArc {
-        centerX: dashedCircle.width / 2
-        centerY: dashedCircle.height / 2
-        radiusX: (dashedCircle.width - circlePath.strokeWidth) / 2
-        radiusY: (dashedCircle.height - circlePath.strokeWidth) / 2
-        startAngle: 0
-        sweepAngle: 360
+      transform: Rotation {
+        origin.x: dashedCircle.width / 2
+        origin.y: dashedCircle.height / 2
+        // NumberAnimation on angle {
+        //   from: 0
+        //   to: 360
+        //   duration: 1000 * 60 * 4
+        //   loops: Animation.Infinite
+        // }
+      }
+      ShapePath {
+        strokeColor: Appearance.srcery.gray3
+        strokeWidth: 1
+        id: circlePath
+        fillColor: "transparent"
+
+        // Dashed line pattern: [dash length, gap length]
+        strokeStyle: ShapePath.DashLine
+        dashPattern: [4, 10]
+
+        PathAngleArc {
+          centerX: dashedCircle.width / 2
+          centerY: dashedCircle.height / 2
+          radiusX: (dashedCircle.width - circlePath.strokeWidth) / 2
+          radiusY: (dashedCircle.height - circlePath.strokeWidth) / 2
+          startAngle: 0
+          sweepAngle: 360
+        }
       }
     }
   }
