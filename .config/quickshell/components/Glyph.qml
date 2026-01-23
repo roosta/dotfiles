@@ -8,7 +8,7 @@ import qs.config
 Item {
   implicitWidth: 400
   implicitHeight: 400
-  property var gemDuration: 5000
+  property var gemDuration: 3000
   property var blinkInterval: [10000, 20000]
 
   component AnimationsInfo : QtObject
@@ -296,6 +296,7 @@ Item {
           id: blueStart
           target: blue
           duration: root.gemDuration
+          easing.type: Easing.InOutQuad
           path: Path {
             startX: 0; startY: 0
             PathLine { x: 1; y: -1}
@@ -305,6 +306,7 @@ Item {
           id: blueStop
           target: blue
           duration: root.gemDuration
+          easing.type: Easing.InOutQuad
           path: Path {
             startX: 1; startY: -1
             PathLine { x: 0; y: 0}
@@ -354,6 +356,7 @@ Item {
           target: magenta
           id: magentaStart
           duration: root.gemDuration
+          easing.type: Easing.InOutQuad
           path: Path {
             startX: 0; startY: 0
             PathLine { x: 0; y: -2}
@@ -363,6 +366,7 @@ Item {
           target: magenta
           id: magentaStop
           duration: root.gemDuration
+          easing.type: Easing.InOutQuad
           path: Path {
             startX: 0; startY: -2
             PathLine { x: 0; y: 0}
@@ -411,6 +415,7 @@ Item {
           target: cyan
           id: cyanStart
           duration: root.gemDuration
+          easing.type: Easing.InOutQuad
           path: Path {
             startX: 0; startY: 0
             PathLine { x: -1; y: -1}
@@ -420,6 +425,7 @@ Item {
           target: cyan
           id: cyanStop
           duration: root.gemDuration
+          easing.type: Easing.InOutQuad
           path: Path {
             startX: -1; startY: -1
             PathLine { x: 0; y: 0}
@@ -468,6 +474,7 @@ Item {
           target: white
           id: whiteStart
           duration: root.gemDuration
+          easing.type: Easing.InOutQuad
           path: Path {
             startX: 0; startY: 0
             PathLine { x: -2; y: 0}
@@ -477,6 +484,7 @@ Item {
           target: white
           id: whiteStop
           duration: root.gemDuration
+          easing.type: Easing.InOutQuad
           path: Path {
             startX: -2; startY: 0
             PathLine { x: 0; y: 0}
@@ -525,6 +533,7 @@ Item {
           target: orange
           id: orangeStart
           duration: root.gemDuration
+          easing.type: Easing.InOutQuad
           path: Path {
             startX: 0; startY: 0
             PathLine { x: -1; y: 1}
@@ -534,6 +543,7 @@ Item {
           target: orange
           id: orangeStop
           duration: root.gemDuration
+          easing.type: Easing.InOutQuad
           path: Path {
             startX: -1; startY: 1
             PathLine { x: 0; y: 0}
@@ -582,6 +592,7 @@ Item {
           target: red
           id: redStart
           duration: root.gemDuration
+          easing.type: Easing.InOutQuad
           path: Path {
             startX: 0; startY: 0
             PathLine { x: 0; y: 2}
@@ -591,6 +602,7 @@ Item {
           target: red
           id: redStop
           duration: root.gemDuration
+          easing.type: Easing.InOutQuad
           path: Path {
             startX: 0; startY: 2
             PathLine { x: 0; y: 0}
@@ -639,6 +651,7 @@ Item {
           target: green
           id: greenStart
           duration: root.gemDuration
+          easing.type: Easing.InOutQuad
           path: Path {
             startX: 0; startY: 0
             PathLine { x: 1; y: 1}
@@ -648,6 +661,7 @@ Item {
           target: green
           id: greenStop
           duration: root.gemDuration
+          easing.type: Easing.InOutQuad
           path: Path {
             startX: 1; startY: 1
             PathLine { x: 0; y: 0}
@@ -696,6 +710,7 @@ Item {
           target: yellow
           duration: root.gemDuration
           id: yellowStart
+          easing.type: Easing.InOutQuad
           path: Path {
             startX: 0; startY: 0
             PathLine { x: 2; y: 0}
@@ -705,6 +720,7 @@ Item {
           target: yellow
           duration: root.gemDuration
           id: yellowStop
+          easing.type: Easing.InOutQuad
           path: Path {
             startX: 2; startY: 0
             PathLine { x: 0; y: 0}
