@@ -1,4 +1,4 @@
-
+pragma ComponentBehavior: Bound
 import Quickshell
 import QtQuick
 // import Quickshell.Wayland
@@ -89,7 +89,7 @@ Item {
       border.color: Appearance.srcery.gray3
     }
     Rectangle {
-      property int size: 300
+      property int size: 302
       implicitWidth: size
       implicitHeight: size
       anchors.centerIn: parent
@@ -97,39 +97,51 @@ Item {
       color: "transparent"
       border.color: Appearance.srcery.gray3
     }
-    Shape {
-      id: dashedCircle
+
+    Item {
       width: 290
       height: 290
+      id: cpuIndicator
       anchors.centerIn: parent
 
-      transform: Rotation {
-        origin.x: dashedCircle.width / 2
-        origin.y: dashedCircle.height / 2
-        // NumberAnimation on angle {
-        //   from: 0
-        //   to: 360
-        //   duration: 1000 * 60 * 4
-        //   loops: Animation.Infinite
-        // }
+      property real cpuUsage: ResourceUsage.cpuUsage
+      property int dotCount: 100
+      property real dotSize: 3
+      property real circleRadius: 145
+
+      Behavior on cpuUsage {
+        NumberAnimation {
+          duration: 300
+          easing.type: Easing.InOutQuad
+        }
       }
-      ShapePath {
-        strokeColor: Appearance.srcery.gray3
-        strokeWidth: 1
-        id: circlePath
-        fillColor: "transparent"
 
-        // Dashed line pattern: [dash length, gap length]
-        strokeStyle: ShapePath.DashLine
-        dashPattern: [4, 10]
+      Repeater {
+        model: cpuIndicator.dotCount
 
-        PathAngleArc {
-          centerX: dashedCircle.width / 2
-          centerY: dashedCircle.height / 2
-          radiusX: (dashedCircle.width - circlePath.strokeWidth) / 2
-          radiusY: (dashedCircle.height - circlePath.strokeWidth) / 2
-          startAngle: 0
-          sweepAngle: 360
+        Rectangle {
+          required property int index
+          width: cpuIndicator.dotSize
+          height: cpuIndicator.dotSize
+          radius: cpuIndicator.dotSize / 2
+
+          // Behavior on color {
+          //   ColorAnimation { duration: 300 }
+          // }
+          color: {
+            if (index < cpuIndicator.cpuUsage * cpuIndicator.dotCount) {
+              if (cpuIndicator.cpuUsage > 0.8) return Appearance.srcery.orange
+              if (cpuIndicator.cpuUsage > 0.5) return Appearance.srcery.yellow
+              return Appearance.srcery.white
+            } else {
+              return Appearance.srcery.gray3
+            }
+          }
+
+          x: cpuIndicator.width / 2 - width / 2 + cpuIndicator.circleRadius * Math.cos(angle)
+          y: cpuIndicator.height / 2 - height / 2 + cpuIndicator.circleRadius * Math.sin(angle)
+
+          property real angle: (index / cpuIndicator.dotCount) * 2 * Math.PI - Math.PI / 2
         }
       }
     }
