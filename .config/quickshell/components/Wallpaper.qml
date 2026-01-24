@@ -50,12 +50,12 @@ Item {
 
     property int rayCount: 8
     property real innerRadius: 160
-    property real outerRadius: 175
+    property real outerRadius: 200
     property real centerX: width / 2
     property real centerY: height / 2
 
     ShapePath {
-      strokeColor: Appearance.srcery.gray3
+      strokeColor: Appearance.srcery.gray4
       strokeWidth: 1
       fillColor: "transparent"
       capStyle: ShapePath.RoundCap
@@ -86,7 +86,7 @@ Item {
       anchors.centerIn: parent
       radius: size / 2
       color: "transparent"
-      border.color: Appearance.srcery.gray3
+      border.color: Appearance.srcery.gray4
     }
     Rectangle {
       property int size: 302
@@ -95,7 +95,7 @@ Item {
       anchors.centerIn: parent
       radius: size / 2
       color: "transparent"
-      border.color: Appearance.srcery.gray3
+      border.color: Appearance.srcery.gray4
     }
 
     Item {
@@ -134,7 +134,7 @@ Item {
               if (cpuIndicator.cpuUsage > 0.5) return Appearance.srcery.yellow
               return Appearance.srcery.white
             } else {
-              return Appearance.srcery.gray3
+              return Appearance.srcery.gray4
             }
           }
 
