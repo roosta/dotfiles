@@ -33,9 +33,6 @@ and is installed using
 [install-packages.sh](https://github.com/roosta/scripts/blob/main/install-packages.sh)
 from the [scripts submodule](https://github.com/roosta/scripts).
 
-> [!WARNING]
-> This is still a work in progress, as I hack away at it one system at a time.
-
 #### Requirements
 
 ```bash
@@ -49,6 +46,13 @@ cd paru
 makepkg -si
 ```
 
+#### Usage
+
+```bash
+# Script will default to ~/.dependencies.yml
+# Optionally pass a dependency yml file
+~/scripts/install-packages.sh
+```
 
 ### Git hooks
 
@@ -60,7 +64,6 @@ GIT_DIR=$HOME/.dotfiles/ GIT_WORK_TREE=$HOME pre-commit install
 ```
 
 ## Configuration
-
 ### GKT
 
 ```bash
@@ -71,9 +74,9 @@ gsettings set org.gnome.desktop.interface icon-theme ritual-icons
 
 ### QT
 
-> [!NOTE]
-> More documentation TBD
-
+Should work out of the box, provided the
+[Breeze](https://kde.org/plasma-desktop/) theme is installed. There are custom
+colors provided in [.config/qt6ct](.config/qt6ct) and [.config/qt5ct](.config/qt5ct) as well as [.config/kdeglobals](.config/kdeglobals).
 
 ## Ritual Shell
 
