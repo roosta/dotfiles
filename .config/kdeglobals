@@ -1,8 +1,133 @@
+[ColorEffects:Disabled]
+ChangeSelectionColor=
+Color=56,56,56
+ColorAmount=0
+ColorEffect=0
+ContrastAmount=0.65
+ContrastEffect=1
+Enable=
+IntensityAmount=0.1
+IntensityEffect=2
+
+[ColorEffects:Inactive]
+ChangeSelectionColor=true
+Color=112,111,110
+ColorAmount=0.025
+ColorEffect=2
+ContrastAmount=0.1
+ContrastEffect=2
+Enable=false
+IntensityAmount=0
+IntensityEffect=0
+
+[Colors:Button]
+BackgroundAlternate=59,57,53
+BackgroundNormal=28,27,25
+DecorationFocus=224,44,109
+DecorationHover=224,44,109
+ForegroundActive=224,44,109
+ForegroundInactive=197,176,136
+ForegroundLink=224,44,109
+ForegroundNegative=224,44,109
+ForegroundNeutral=252,232,195
+ForegroundNormal=252,232,195
+ForegroundPositive=0,128,128
+ForegroundVisited=224,44,109
+
+[Colors:Selection]
+BackgroundAlternate=224,44,109
+BackgroundNormal=224,44,109
+DecorationFocus=224,44,109
+DecorationHover=224,44,109
+ForegroundActive=252,232,195
+ForegroundInactive=252,232,195
+ForegroundLink=252,232,195
+ForegroundNegative=224,44,109
+ForegroundNeutral=252,232,195
+ForegroundNormal=252,232,195
+ForegroundPositive=0,128,128
+ForegroundVisited=224,44,109
+
+[Colors:Tooltip]
+BackgroundAlternate=28,27,25
+BackgroundNormal=28,27,25
+DecorationFocus=224,44,109
+DecorationHover=224,44,109
+ForegroundActive=224,44,109
+ForegroundInactive=197,176,136
+ForegroundLink=224,44,109
+ForegroundNegative=224,44,109
+ForegroundNeutral=252,232,195
+ForegroundNormal=252,232,195
+ForegroundPositive=0,128,128
+ForegroundVisited=224,44,109
+
+[Colors:View]
+BackgroundAlternate=59,57,53
+BackgroundNormal=18,17,16
+DecorationFocus=224,44,109
+DecorationHover=224,44,109
+ForegroundActive=224,44,109
+ForegroundInactive=197,176,136
+ForegroundLink=224,44,109
+ForegroundNegative=224,44,109
+ForegroundNeutral=252,232,195
+ForegroundNormal=252,232,195
+ForegroundPositive=0,128,128
+ForegroundVisited=224,44,109
+
+[Colors:Window]
+BackgroundAlternate=59,57,53
+BackgroundNormal=28,27,25
+DecorationFocus=224,44,109
+DecorationHover=224,44,109
+ForegroundActive=224,44,109
+ForegroundInactive=197,176,136
+ForegroundLink=224,44,109
+ForegroundNegative=224,44,109
+ForegroundNeutral=252,232,195
+ForegroundNormal=252,232,195
+ForegroundPositive=0,128,128
+ForegroundVisited=224,44,109
+
 [General]
-ColorScheme=Breeze
+ColorScheme=ritual
+XftHintStyle=hintslight
+XftSubPixel=none
+fixed=Iosevka Fixed,10,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
+font=Iosevka Nerd Font,10,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
+menuFont=Iosevka Nerd Font,10,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
+smallestReadableFont=Iosevka Nerd Font,8,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
+toolBarFont=Iosevka Nerd Font,10,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
 
 [Icons]
 Theme=ritual-icons
 
 [KDE]
-LookAndFeelPackage=org.kde.breeze.desktop
+LookAndFeelPackage=org.kde.breezedark.desktop
+
+[KFileDialog Settings]
+Allow Expansion=false
+Automatically select filename extension=true
+Breadcrumb Navigation=true
+Decoration position=2
+Show Full Path=false
+Show Inline Previews=true
+Show Preview=false
+Show Speedbar=true
+Show hidden files=false
+Sort by=Name
+Sort directories first=true
+Sort hidden files last=false
+Sort reversed=false
+Speedbar Width=154
+View Style=DetailTree
+
+[WM]
+activeBackground=28,27,25
+activeBlend=28,27,25
+activeFont=Iosevka Nerd Font,10,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
+activeForeground=252,232,195
+inactiveBackground=28,27,25
+inactiveBlend=28,27,25
+inactiveForeground=197,176,136
