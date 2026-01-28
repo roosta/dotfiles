@@ -1,5 +1,5 @@
 # System dependencies and configuration
-# Last updated: 2025-05-04
+# Last updated: 2026-01-28
 
 # Git repositories to clone/update
 repositories:
@@ -32,42 +32,27 @@ repositories:
     path: ~/lib/figlet-fonts
 
 flatpak:
-  - name: Zen
-    application: app.zen_browser.zen
-    description: Stay focused, browse faster
   - name: Discord
     application: com.discordapp.Discord
     description: Talk, play, hang out
   - name: Flatseal
     application: com.github.tchx84.Flatseal
     description: Manage Flatpak permissions
-  - name: Google Chrome
-    application: com.google.Chrome
-    description: The browser built to be yours
-  - name: Google Chrome (unstable)
-    application: com.google.ChromeDev
-    description: The web browser from Google
   - name: OBS Studio
     application: com.obsproject.Studio
     description: Live stream and record videos
   - name: Lutris
     application: net.lutris.Lutris
     description: Video game preservation platform
-  - name: Floorp
-    application: one.ablaze.floorp
-    description: A Firefox-based, flexible browser developed in Japan with a variety of features.
-  - name:  Dolphin Emulator
-    application: org.DolphinEmu.dolphin-emu
-    description: GameCube / Wii / Triforce Emulator
   - name: Prism Launcher
     application: org.prismlauncher.PrismLauncher
     description: Custom Minecraft Launcher to easily manage multiple Minecraft installations at once
   - name: Jellyfin
     application: com.github.iwalton3.jellyfin-media-player
     description: Desktop client for Jellyfin media server
-
-
-
+  - name: Slack
+    application: com.slack.Slack
+    description: Business communication
 
 # Packages to install
 packages:
@@ -244,9 +229,6 @@ packages:
     - name: hexyl
       description: Colored command-line hex viewer
       aur: false
-    - name: htop
-      description: Interactive process viewer
-      aur: false
     - name: inxi
       description: Full featured CLI system information tool
       aur: false
@@ -267,15 +249,6 @@ packages:
       aur: false
     - name: progress
       description: Shows running coreutils basic commands and displays stats
-      aur: false
-    - name: recode
-      description: Converts files between various character sets and usages
-      aur: false
-    - name: rlwrap
-      description: Adds readline-style editing and history to programs
-      aur: false
-    - name: rocm-smi-lib
-      description: ROCm System Management Interface Library
       aur: false
     - name: swappy
       description: A Wayland native snapshot editing tool
@@ -347,32 +320,20 @@ packages:
     - name: xdg-desktop-portal-gtk
       description: A backend implementation for xdg-desktop-portal using GTK
       aur: false
+    - name: xdg-desktop-portal-kde
+      description: A backend implementation for xdg-desktop-portal using Qt/KF5
+      aur: false
     - name: xdg-desktop-portal-wlr
       description: xdg-desktop-portal backend for wlroots
       aur: false
-    - name: libappindicator-gtk3
-      description: Allow applications to extend a menu via Ayatana indicators in Unity, KDE or Systray (GTK+ 3 library)
-      aur: false
     - name: zenity
-      description: Allow applications to extend a menu via Ayatana indicators in Unity, KDE or Systray (GTK+ 3 library)
-      aur: false
-    - name: glaze
-      description: An Extremely fast, In-Memory JSON and Interface Library for Modern C++
-      aur: false
-    - name: nwg-displays
-      description: Output management utility for sway and Hyprland Wayland compositors
-      aur: false
-    - name: qt6-wayland
-      description: Provides APIs for Wayland
+      description: Display graphical dialog boxes from shell scripts
       aur: false
     - name: slurp
       description: Select a region in a Wayland compositor
       aur: false
     - name: wev
       description: A tool for debugging wayland events on a Wayland window, analagous to the X11 tool xev
-      aur: false
-    - name: wf-recorder
-      description: Screen recorder for wlroots-based compositors such as sway
       aur: false
     - name: rose-pine-hyprcursor
       description: rose pine themed cursor for hyprland
@@ -386,8 +347,8 @@ packages:
     - name: breeze-icons
       description: Breeze icon theme
       aur: false
-    - name: qt6ct
-      description: Qt 6 Configuration Utility
+    - name: plasma-integration
+      description: Qt Platform Theme integration plugins for the Plasma workspaces
       aur: false
 
   # Multimedia (audio, video playback etc)
@@ -425,9 +386,6 @@ packages:
     - name: shortwave
       description: Internet radio player
       aur: false
-    - name: slack-desktop
-      description: Slack Desktop (Beta) for Linux
-      aur: true
     - name: spotify-launcher
       description: Client for spotify's apt repository in Rust for Arch Linux
       aur: false
@@ -490,6 +448,9 @@ packages:
       aur: false
     - name: yarn
       description: Fast, reliable, and secure dependency management
+      aur: false
+    - name: pnpm
+      description: Fast, disk space efficient package manager
       aur: false
     - name: arch-wiki-docs
       description: Pages from Arch Wiki optimized for offline browsing
@@ -576,11 +537,8 @@ packages:
     - name: dropbox-cli
       description: Command line interface for Dropbox
       aur: true
-    - name: python-gpgme
-      description: Python bindings for GPGme
-      aur: false
-    - name: evince
-      description: Document viewer (PDF, PostScript, XPS, djvu, dvi, tiff, cbr, cbz, cb7, cbt)
+    - name: papers
+      description: Document viewer for PDF and other document formats aimed at the GNOME desktop
       aur: false
     - name: firefox
       description: Fast, Private & Safe Web Browser
@@ -591,6 +549,9 @@ packages:
     - name: firefox-tridactyl
       description: Replace Firefox's control mechanism with one modelled on Vim
       aur: false
+    - name: firefox-tridactyl-native
+      description: Tridactyl native messaging host application for Firefox
+      aur: true
     - name: firefox-extension-passff
       description: zx2c4 pass manager addon for firefox
       aur: false
@@ -760,9 +721,6 @@ packages:
       description: libretro emulators and frontend
       group: true
       aur: false
-    - name: wowup
-      description: World of Warcraft addon updater
-      aur: true
     - name: umu-launcher
       description: This is the Unified Launcher for Windows Games on Linux, to run Proton with fixes outside of Steam
       aur: false
