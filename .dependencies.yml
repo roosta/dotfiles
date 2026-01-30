@@ -85,9 +85,6 @@ packages:
     - name: polkit
       description: Application development toolkit for controlling system-wide privileges
       aur: false
-    - name: polkit-gnome
-      description: Legacy polkit authentication agent for GNOME
-      aur: false
     - name: zip
       description: Compressor/archiver for creating and modifying zipfiles
       aur: false
@@ -593,17 +590,14 @@ packages:
     - name: grim
       description: Screenshot utility for Wayland
       aur: false
-    - name: gthumb
-      description: Image browser and viewer for the GNOME Desktop
-      aur: false
     - name: gucharmap
       description: Gnome Unicode Charmap
       aur: false
     - name: libreoffice-fresh
       description: LibreOffice branch which contains new features and program enhancements
       aur: false
-    - name: nautilus
-      description: Default file manager for GNOME
+    - name: dolphin
+      description: KDE File Manager
       aur: false
     - name: syncthing
       description: Open Source Continuous Replication / Cluster Synchronization Thing
