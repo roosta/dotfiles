@@ -53,7 +53,7 @@ ShellRoot {
         name: "main"
         screen: scope.modelData
 
-        WlrLayershell.layer: WlrLayer.Bottom
+        // WlrLayershell.layer: WlrLayer.Bottom
         WlrLayershell.exclusionMode: ExclusionMode.Ignore
         WlrLayershell.keyboardFocus: GlobalState.launcherOpen
         ? WlrKeyboardFocus.OnDemand
@@ -151,6 +151,7 @@ ShellRoot {
           Loader {
             active: Apps.ready
             anchors.fill: parent
+
             sourceComponent: Launcher {
               id: launcher
               monitorId: scope.monitorId
