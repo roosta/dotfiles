@@ -1,8 +1,3 @@
-[General]
-ColorScheme=Ritual
-Name=Ritual Colorscheme
-shadeSortColumn=true
-
 [ColorEffects:Disabled]
 Color=56,56,56
 ColorAmount=0
@@ -66,7 +61,7 @@ ForegroundPositive=0,128,128
 ForegroundVisited=224,44,109
 
 [Colors:View]
-BackgroundAlternate=59,57,53
+BackgroundAlternate=28,27,25
 BackgroundNormal=18,17,16
 DecorationFocus=224,44,109
 DecorationHover=224,44,109
@@ -92,6 +87,14 @@ ForegroundNeutral=252,232,195
 ForegroundNormal=252,232,195
 ForegroundPositive=0,128,128
 ForegroundVisited=224,44,109
+
+[General]
+ColorScheme=Ritual
+Name=Ritual Colorscheme
+shadeSortColumn=true
+
+[KDE]
+contrast=7
 
 [WM]
 activeBackground=28,27,25
