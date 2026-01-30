@@ -350,6 +350,8 @@ packages:
     - name: plasma-integration
       description: Qt Platform Theme integration plugins for the Plasma workspaces
       aur: false
+      optional: true
+      comment: This isn't needed unless you need to adjust a color theme, most options won't work because I'm not running plasma
 
   # Multimedia (audio, video playback etc)
   multimedia:
