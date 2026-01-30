@@ -27,6 +27,8 @@ ShellRoot {
 
       NamedPanel {
         id: exclusion
+
+        WlrLayershell.layer: WlrLayer.Bottom
         name: "exclusion"
         screen: scope.modelData
         anchors.bottom: true
@@ -51,6 +53,7 @@ ShellRoot {
         name: "main"
         screen: scope.modelData
 
+        WlrLayershell.layer: WlrLayer.Bottom
         WlrLayershell.exclusionMode: ExclusionMode.Ignore
         WlrLayershell.keyboardFocus: GlobalState.launcherOpen
         ? WlrKeyboardFocus.OnDemand
