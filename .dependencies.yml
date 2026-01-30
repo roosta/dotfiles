@@ -271,6 +271,9 @@ packages:
     - name: bluez
       description: Daemons for the bluetooth protocol stack
       aur: false
+    - name: bluedevil
+      description: Integrate the Bluetooth technology within KDE workspace and applications
+      aur: false
     - name: bluez-utils
       description: Development and debugging utilities for the bluetooth protocol stack
       aur: false
