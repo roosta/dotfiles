@@ -36,23 +36,14 @@ ShellRoot {
       }
       NamedPanel {
         id: wallpaper
+        WlrLayershell.layer: WlrLayer.Background
         name: "wallpaper"
         screen: scope.modelData
         anchors.left: true
         anchors.right: true
         anchors.top: true
         anchors.bottom: true
-        aboveWindows: false
-
-        Wallpaper { monitorId: scope.monitorId}
-        mask: Region {
-          id: wpMask
-          x: 0
-          y: 0
-          width: wallpaper.width
-          height: wallpaper.height
-          intersection: Intersection.Xor
-        }
+        Wallpaper { monitorId: scope.monitorId }
       }
 
       NamedPanel {
