@@ -74,9 +74,11 @@ gsettings set org.gnome.desktop.interface icon-theme ritual-icons
 
 ### QT
 
-Should work out of the box, provided the
-[Breeze](https://kde.org/plasma-desktop/) theme is installed. There are custom
-colors provided in [.config/qt6ct](.config/qt6ct) and [.config/qt5ct](.config/qt5ct) as well as [.config/kdeglobals](.config/kdeglobals).
+Settings are stored in [.config/kdeglobals](.config/kdeglobals), and uses a
+custom color scheme built atop the [Breeze theme](https://kde.org/plasma-desktop/).
+
+>[!TIP]
+> To Access color settings among others install the optional dependency `plasma-integration`
 
 ## Ritual Shell
 
