@@ -1,0 +1,7 @@
+# Disks to show disk usage for. Defaults to `["/"]`.
+disks = ["/", "/mnt/data"]
+
+# Show percentage next to disk information
+disk_space_percentage = true
+
+theme = "srcery"
