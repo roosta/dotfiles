@@ -2,11 +2,28 @@
 <svg
    height="400"
    viewBox="0 0 400 400"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    width="400"
    version="1.1"
    id="svg32"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
+   <metadata>
+     <rdf:RDF
+       xmlns:cc="http://web.resource.org/cc/"
+       xmlns:dc="http://purl.org/dc/elements/1.1/"
+       xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+      <cc:Work>
+        <dc:title>Srcery Logo Glyph</dc:title>
+        <dc:creator>Daniel Berg</dc:creator>
+        <dc:date>2023</dc:date>
+        <dc:rights>Daniel Berg and srcery-colors contributors</dc:rights>
+        <cc:license rdf:resource="http://creativecommons.org/licenses/by/4.0/"/>
+      </cc:Work>
+    </rdf:RDF>
+   </metadata>
   <defs
      id="defs1">
     <clipPath
