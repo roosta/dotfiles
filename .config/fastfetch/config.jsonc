@@ -38,7 +38,7 @@
     "hideCursor": false,
     "separator": " ❯ ",
     "color": {
-      "keys": "yellow",
+      "keys": "blue",
       "title": "magenta",
       "output": "",
       "separator": "white"
