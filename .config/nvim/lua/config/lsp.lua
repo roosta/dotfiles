@@ -18,6 +18,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 vim.lsp.config('qmlls', { cmd = {"qmlls6"}})
 vim.lsp.enable('pyright')
 vim.lsp.enable('lua_ls')
+vim.lsp.enable('yamlls')
 vim.lsp.enable('qmlls')
 vim.lsp.enable('svelte')
 vim.lsp.enable('ts_ls')
