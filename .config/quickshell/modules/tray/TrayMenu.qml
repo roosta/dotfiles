@@ -24,7 +24,7 @@ Item {
   property real padding: Appearance.spacing.p1
 
   anchors.fill: parent
-  anchors.bottomMargin: Appearance.bar.height + Appearance.spacing.p1
+  anchors.bottomMargin: Appearance.spacing.p1
   anchors.rightMargin: Appearance.spacing.p1
 
   function open() {

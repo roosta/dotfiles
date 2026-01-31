@@ -26,17 +26,6 @@ ShellRoot {
       property string monitorId: modelData?.name ?? ""
 
       NamedPanel {
-        id: exclusion
-
-        WlrLayershell.layer: WlrLayer.Bottom
-        name: "exclusion"
-        screen: scope.modelData
-        anchors.bottom: true
-        implicitWidth: 1
-        implicitHeight: 1
-        exclusiveZone: Appearance.bar.height
-      }
-      NamedPanel {
         id: wallpaper
         WlrLayershell.layer: WlrLayer.Background
         name: "wallpaper"
@@ -49,52 +38,44 @@ ShellRoot {
       }
 
       NamedPanel {
-        id: main
-        name: "main"
+        id: barPanel
+        name: "bar"
+        screen: scope.modelData
+        anchors.bottom: true
+        anchors.left: true
+        anchors.right: true
+        implicitHeight: Appearance.bar.height
+        Bar {
+          id: bar
+          monitorId: scope.monitorId
+        }
+      }
+
+      NamedPanel {
+        id: contentPanel
+        name: "content"
         screen: scope.modelData
 
-        // WlrLayershell.layer: WlrLayer.Bottom
-        WlrLayershell.exclusionMode: ExclusionMode.Ignore
         WlrLayershell.keyboardFocus: GlobalState.launcherOpen
-        ? WlrKeyboardFocus.OnDemand
-        : WlrKeyboardFocus.None
+          ? WlrKeyboardFocus.OnDemand
+          : WlrKeyboardFocus.None
 
         HyprlandFocusGrab {
           id: grab
-          windows: [main]
+          windows: [contentPanel, barPanel]
           active: GlobalState.launcherOpen && GlobalState.launcherMonitorId === scope.monitorId
           onCleared: {
             GlobalState.closeLauncher();
           }
         }
+
         mask: Region {
           id: mask
           x: 0
           y: 0
-          width: main.width
-          height: main.height
-          intersection: {
-            if (GlobalState.overlayOpen) {
-              Intersection.Combine
-            } else {
-              Intersection.Xor
-            }
-          }
-          regions: [
-            Region {
-              x: bar.x
-              y: bar.y
-              width: bar.width
-              height: bar.height
-              intersection: {
-                if (GlobalState.overlayOpen) {
-                  Intersection.Combine
-                } else {
-                  Intersection.Subtract
-                }
-              }
-            }
-          ]
+          width: contentPanel.width
+          height: contentPanel.height
+          intersection: GlobalState.overlayOpen ? Intersection.Combine : Intersection.Xor
         }
 
         anchors {
@@ -107,6 +88,7 @@ ShellRoot {
           id: content
           color: "transparent"
           anchors.fill: parent
+
           // color: Functions.transparentize("#000", 0.56)
           transitions: [
             Transition {
@@ -118,7 +100,6 @@ ShellRoot {
           ]
           MouseArea {
             anchors.fill: parent
-            anchors.bottomMargin: Appearance.bar.height
             onClicked: {
               if (GlobalState.launcherOpen) { GlobalState.closeLauncher() }
               if (GlobalState.trayMenuOpen) { GlobalState.closeTrayMenu() }
@@ -131,10 +112,6 @@ ShellRoot {
               PropertyChanges { content.color: Functions.transparentize("#000", 0.7) }
             }
           ]
-          Bar {
-            id: bar
-            monitorId: scope.monitorId
-          }
           Loader {
             id: trayMenu
             anchors.fill: parent

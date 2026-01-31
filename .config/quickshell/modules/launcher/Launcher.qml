@@ -16,7 +16,7 @@ Item {
   visible: launcher.height > 0
 
   anchors.fill: parent
-  anchors.bottomMargin: Appearance.bar.height + Appearance.spacing.p1
+  anchors.bottomMargin: Appearance.spacing.p1
   property bool monitorIsFocused: (Hyprland.focusedMonitor?.id === monitorId)
   property string query: ""
   property int currentIndex: 0
