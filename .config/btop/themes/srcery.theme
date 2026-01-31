@@ -1,0 +1,88 @@
+# Theme: srcery
+# By: Daniel Berg <mail@roosta.sh>
+# Desc: Occult meters for your late night scrying
+# Based on https://srcery.sh
+
+# Main bg
+theme[main_bg]="#121110"
+
+# Main text color
+theme[main_fg]="#fce8c3"
+
+# Title color for boxes
+theme[title]="#fce8c3"
+
+# Highlight color for keyboard shortcuts
+theme[hi_fg]="#2be4d0"
+
+# Background color of selected item in processes box
+theme[selected_bg]="#262522"
+
+# Foreground color of selected item in processes box
+theme[selected_fg]="#fce8c3"
+
+# Color of inactive/disabled text
+// theme[inactive_fg]="#917e6b"
+
+# Misc colors for processes box including mini cpu graphs, details memory graph and details status text
+theme[proc_misc]="#0aaeb3"
+
+# Cpu box outline color
+theme[cpu_box]="#917e6b"
+
+# Memory/disks box outline color
+theme[mem_box]="#917e6b"
+
+# Net up/down box outline color
+theme[net_box]="#917e6b"
+
+# Processes box outline color
+theme[proc_box]="#917e6b"
+
+# Box divider line and small boxes line color
+theme[div_line]="#917e6b"
+
+# Temperature graph colors
+theme[temp_start]="#519f50"
+theme[temp_mid]="#2c78bf"
+theme[temp_end]="#e02c6d"
+
+# CPU graph colors
+theme[cpu_start]="#519f50"
+theme[cpu_mid]="#2c78bf"
+theme[cpu_end]="#e02c6d"
+
+# Mem/Disk free meter
+theme[free_start]="#2c78bf"
+theme[free_mid]="#519f50"
+theme[free_end]="#98bc37"
+
+# Mem/Disk cached meter
+theme[cached_start]="#e02c6d"
+theme[cached_mid]="#2c78bf"
+theme[cached_end]="#98bc37"
+
+# Mem/Disk available meter
+theme[available_start]="#e02c6d"
+theme[available_mid]="#2c78bf"
+theme[available_end]="#98bc37"
+
+# Mem/Disk used meter
+theme[used_start]="#98bc37"
+theme[used_mid]="#2c78bf"
+theme[used_end]="#e02c6d"
+
+# Download graph colors
+theme[download_start]="#519f50"
+theme[download_mid]="#2c78bf"
+theme[download_end]="#e02c6d"
+
+# Upload graph colors
+theme[upload_start]="#519f50"
+theme[upload_mid]="#2c78bf"
+theme[upload_end]="#e02c6d"
+
+# Process box color gradient for threads, mem and cpu usage
+theme[process_start]="#2c78bf"
+theme[process_mid]="#519f50"
+theme[process_end]="#98bc37"
