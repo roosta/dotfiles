@@ -86,13 +86,13 @@
               {
                 "type": "command",
                 "data": {
-                  "command": "nautilus --new-window",
+                  "command": "dolphin",
                   "detached": true,
                   "isolated": false,
                   "delayed": false
                 },
-                "name": "Files",
-                "icon": "org.gnome.Nautilus",
+                "name": "Dolphin",
+                "icon": "org.kde.dolphin",
                 "iconTheme": "system"
               },
               {
