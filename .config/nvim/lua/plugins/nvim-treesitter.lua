@@ -10,7 +10,7 @@ return {
   lazy = false,
   config = function()
     require("nvim-treesitter.configs").setup {
-      ensure_installed = { "vue", "javascript", "rust", "lua", "vim", "json", "toml", "css" },
+      ensure_installed = { "vue", "javascript", "rust", "lua", "vim", "json", "toml", "css", "python" },
       ignore_install = {}, -- List of parsers to ignore installing
       highlight = {
         enable = true,
