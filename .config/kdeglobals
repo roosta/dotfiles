@@ -7,7 +7,7 @@ ContrastAmount=0.65
 ContrastEffect=1
 Enable=
 IntensityAmount=0.1
-IntensityEffect=2
+IntensityEffect=0
 
 [ColorEffects:Inactive]
 ChangeSelectionColor=true
@@ -27,25 +27,28 @@ DecorationFocus=44,120,191
 DecorationHover=44,120,191
 ForegroundActive=145,126,107
 ForegroundInactive=197,176,136
-ForegroundLink=224,44,109
+ForegroundLink=152,188,55
 ForegroundNegative=239,47,39
 ForegroundNeutral=252,232,195
 ForegroundNormal=252,232,195
 ForegroundPositive=81,159,80
 ForegroundVisited=197,176,136
 
+[Colors:Header]
+BackgroundNormal=38,37,34
+
 [Colors:Selection]
-BackgroundAlternate=10,174,179
+BackgroundAlternate=0,128,128
 BackgroundNormal=44,120,191
 DecorationFocus=44,120,191
 DecorationHover=44,120,191
-ForegroundActive=145,126,107
+ForegroundActive=252,232,195
 ForegroundInactive=252,232,195
-ForegroundLink=224,44,109
-ForegroundNegative=239,47,39
+ForegroundLink=152,188,55
+ForegroundNegative=79,35,33
 ForegroundNeutral=252,232,195
 ForegroundNormal=252,232,195
-ForegroundPositive=81,159,80
+ForegroundPositive=41,66,41
 ForegroundVisited=197,176,136
 
 [Colors:Tooltip]
@@ -55,7 +58,7 @@ DecorationFocus=44,120,191
 DecorationHover=44,120,191
 ForegroundActive=145,126,107
 ForegroundInactive=197,176,136
-ForegroundLink=224,44,109
+ForegroundLink=152,188,55
 ForegroundNegative=239,47,39
 ForegroundNeutral=252,232,195
 ForegroundNormal=252,232,195
@@ -69,7 +72,7 @@ DecorationFocus=44,120,191
 DecorationHover=44,120,191
 ForegroundActive=145,126,107
 ForegroundInactive=197,176,136
-ForegroundLink=224,44,109
+ForegroundLink=152,188,55
 ForegroundNegative=239,47,39
 ForegroundNeutral=252,232,195
 ForegroundNormal=252,232,195
@@ -77,13 +80,13 @@ ForegroundPositive=81,159,80
 ForegroundVisited=197,176,136
 
 [Colors:Window]
-BackgroundAlternate=59,57,53
+BackgroundAlternate=38,37,34
 BackgroundNormal=28,27,25
 DecorationFocus=44,120,191
 DecorationHover=44,120,191
 ForegroundActive=145,126,107
 ForegroundInactive=197,176,136
-ForegroundLink=224,44,109
+ForegroundLink=152,188,55
 ForegroundNegative=239,47,39
 ForegroundNeutral=252,232,195
 ForegroundNormal=252,232,195
@@ -128,11 +131,15 @@ View Style=DetailTree
 [KShortcutsDialog Settings]
 Dialog Size=600,480
 
+[PreviewSettings]
+EnableRemoteFolderThumbnail=false
+MaximumRemoteSize=0
+
 [WM]
 activeBackground=38,37,34
-activeBlend=28,27,25
+activeBlend=38,37,34
 activeFont=Iosevka Nerd Font,10,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
 activeForeground=252,232,195
 inactiveBackground=28,27,25
-inactiveBlend=28,27,25
+inactiveBlend=38,37,34
 inactiveForeground=197,176,136
