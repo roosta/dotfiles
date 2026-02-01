@@ -5,10 +5,10 @@ ColorEffect=0
 ContrastAmount=0.65
 ContrastEffect=1
 IntensityAmount=0.1
-IntensityEffect=0
+IntensityEffect=2
 
 [ColorEffects:Inactive]
-ChangeSelectionColor=true
+ChangeSelectionColor=false
 Color=112,111,110
 ColorAmount=0.025
 ColorEffect=2
@@ -65,7 +65,7 @@ ForegroundVisited=197,176,136
 
 [Colors:Tooltip]
 BackgroundAlternate=28,27,25
-BackgroundNormal=28,27,25
+BackgroundNormal=18,17,16
 DecorationFocus=30,81,129
 DecorationHover=30,81,129
 ForegroundActive=252,232,195
@@ -107,7 +107,7 @@ ForegroundVisited=197,176,136
 
 [General]
 ColorScheme=Ritual
-Name=Ritual Colorscheme
+Name=Ritual Dark
 shadeSortColumn=true
 
 [KDE]
@@ -116,5 +116,7 @@ contrast=4
 [WM]
 activeBackground=38,37,34
 activeForeground=252,232,195
+activeBlend=255,255,255
 inactiveBackground=28,27,25
+inactiveBlend=65,65,65
 inactiveForeground=197,176,136

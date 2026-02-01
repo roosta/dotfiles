@@ -7,10 +7,10 @@ ContrastAmount=0.65
 ContrastEffect=1
 Enable=
 IntensityAmount=0.1
-IntensityEffect=0
+IntensityEffect=2
 
 [ColorEffects:Inactive]
-ChangeSelectionColor=true
+ChangeSelectionColor=false
 Color=112,111,110
 ColorAmount=0.025
 ColorEffect=2
@@ -25,7 +25,7 @@ BackgroundAlternate=59,57,53
 BackgroundNormal=28,27,25
 DecorationFocus=30,81,129
 DecorationHover=30,81,129
-ForegroundActive=145,126,107
+ForegroundActive=252,232,195
 ForegroundInactive=197,176,136
 ForegroundLink=152,188,55
 ForegroundNegative=239,47,39
@@ -33,6 +33,20 @@ ForegroundNeutral=252,232,195
 ForegroundNormal=252,232,195
 ForegroundPositive=81,159,80
 ForegroundVisited=197,176,136
+
+[Colors:Complementary]
+BackgroundAlternate=18,17,16
+BackgroundNormal=28,27,25
+DecorationFocus=10,174,179
+DecorationHover=43,228,208
+ForegroundActive=104,168,228
+ForegroundInactive=197,176,136
+ForegroundLink=152,188,55
+ForegroundNegative=247,83,65
+ForegroundNeutral=255,95,0
+ForegroundNormal=252,232,195
+ForegroundPositive=104,168,228
+ForegroundVisited=81,159,80
 
 [Colors:Header]
 BackgroundNormal=38,37,34
@@ -53,10 +67,10 @@ ForegroundVisited=197,176,136
 
 [Colors:Tooltip]
 BackgroundAlternate=28,27,25
-BackgroundNormal=28,27,25
+BackgroundNormal=18,17,16
 DecorationFocus=30,81,129
 DecorationHover=30,81,129
-ForegroundActive=145,126,107
+ForegroundActive=252,232,195
 ForegroundInactive=197,176,136
 ForegroundLink=152,188,55
 ForegroundNegative=239,47,39
@@ -70,7 +84,7 @@ BackgroundAlternate=28,27,25
 BackgroundNormal=18,17,16
 DecorationFocus=30,81,129
 DecorationHover=30,81,129
-ForegroundActive=145,126,107
+ForegroundActive=252,232,195
 ForegroundInactive=197,176,136
 ForegroundLink=152,188,55
 ForegroundNegative=239,47,39
@@ -84,7 +98,7 @@ BackgroundAlternate=38,37,34
 BackgroundNormal=28,27,25
 DecorationFocus=30,81,129
 DecorationHover=30,81,129
-ForegroundActive=145,126,107
+ForegroundActive=252,232,195
 ForegroundInactive=197,176,136
 ForegroundLink=152,188,55
 ForegroundNegative=239,47,39
@@ -137,9 +151,9 @@ MaximumRemoteSize=0
 
 [WM]
 activeBackground=38,37,34
-activeBlend=38,37,34
+activeBlend=255,255,255
 activeFont=Iosevka Nerd Font,10,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
 activeForeground=252,232,195
 inactiveBackground=28,27,25
-inactiveBlend=38,37,34
+inactiveBlend=65,65,65
 inactiveForeground=197,176,136
