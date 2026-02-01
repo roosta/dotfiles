@@ -9,6 +9,7 @@ typeset -gU cdpath fpath mailpath path
 
 path=(
 	~/bin
+	~/.local/bin
 	/usr/local/bin
 	$HOME/.go/bin
 	~/perl5/bin
