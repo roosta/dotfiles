@@ -149,7 +149,7 @@ Singleton {
       name: "Television (TV)",
       description: "Switch to Television (TV)",
       script: [menus.display.script, "tv"],
-      iconId: "input-gaming"
+      iconId: "applications-games"
     },
     {
       id: 2,
@@ -163,7 +163,14 @@ Singleton {
       name: "All",
       description: "Enable all displays in-row",
       script: [menus.display.script, "all"],
-      iconId: "video-display"
+      iconId: "multitasking-view"
+    },
+    {
+      id: 3,
+      name: "Single",
+      description: "Disable all but center monitor (desk)",
+      script: [menus.display.script, "single"],
+      iconId: "cs-display"
     }
   ]
 
