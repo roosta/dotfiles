@@ -18,6 +18,11 @@ Singleton {
     list.map(a => ({ name: Fuzzy.prepare(`${a.name} `), entry: a })) :
     []
 
+  readonly property var favorites: ready ?
+    list.filter(a => {
+      return Config.favorites.includes(a.id)
+    }) : []
+
   readonly property var icons: {
     "missing": "image-missing",
   }
@@ -62,12 +67,16 @@ Singleton {
   }
 
   function fuzzyQuery(search: string): var {
-    return Fuzzy.go(search, preppedNames, {
-      all: true,
-      key: "name"
-    }).map(r => {
-      return r.obj.entry
-    });
+    if (search) {
+      return Fuzzy.go(search, preppedNames, {
+        all: true,
+        key: "name"
+      }).map(r => {
+        return r.obj.entry
+      });
+    } else {
+      return favorites
+    }
   }
 
 
