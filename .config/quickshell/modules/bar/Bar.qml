@@ -65,7 +65,7 @@ Item {
             RowLayout {
               spacing: Appearance.spacing.p1
               anchors.left: parent.left
-              anchors.leftMargin: Appearance.spacing.p1 - Appearance.bar.borderWidth
+              anchors.leftMargin: Appearance.spacing.p1
               anchors.fill: parent
               AlertsIndicator { monitorId: root.monitorId }
               KeyboardButton { monitorId: root.monitorId }

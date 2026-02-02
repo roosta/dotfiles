@@ -47,6 +47,7 @@ Singleton {
     readonly property int height: itemHeight * 15 * Config.scale
     readonly property int width: 600 * Config.scale
     readonly property int itemHeight: 50 * Config.scale
+    readonly property int inputWidth: 300 * Config.scale
   }
 
   readonly property QtObject font: QtObject {

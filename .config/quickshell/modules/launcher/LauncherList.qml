@@ -40,7 +40,7 @@ Item {
 
     function onLauncherOpenChanged() {
       if (GlobalState.launcherOpen && GlobalState.launcherMonitorId === root.monitorId) {
-        list.highlightMoveDuration = 1000
+        list.highlightMoveDuration = 100
       } else {
         timer.restart()
       }
@@ -55,25 +55,29 @@ Item {
       Layout.fillWidth: true
       Layout.fillHeight: true
 
-      Layout.margins: Appearance.spacing.p4 + Appearance.bar.borderWidth
+      Layout.margins: Appearance.spacing.p1 + Appearance.bar.borderWidth
       color: "transparent"
       clip: true
 
       ListView {
         id: list
         anchors.fill: parent
+        highlightMoveVelocity: 2000
+        highlightResizeDuration: 0
+        spacing: Appearance.spacing.p1
         reuseItems: true
+        orientation: ListView.Horizontal
         highlightFollowsCurrentItem: true
         highlight: Rectangle {
-          color: "transparent"
-          z: 2
-          border.color: Appearance.srcery.gray3
-          border.width: Appearance.bar.borderWidth
+          color: Appearance.srcery.gray1
+          // z: 2
+          // border.color: Appearance.srcery.gray4
+          // border.width: Appearance.bar.borderWidth
         }
-        ScrollBar.vertical: ScrollBar {
+        ScrollBar.horizontal: ScrollBar {
           id: scroll
           padding: 0
-          implicitWidth: Appearance.spacing.p1
+          // implicitWidth: Appearance.spacing.p1
           contentItem: BorderRectangle {
             anchors.left: parent.left
             anchors.right: parent.right

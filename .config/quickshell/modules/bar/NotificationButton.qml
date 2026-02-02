@@ -17,7 +17,7 @@ Button {
   id: root
   Layout.topMargin: Appearance.bar.borderWidth
   implicitWidth: Appearance.bar.height - Appearance.spacing.p3
-  implicitHeight: Appearance.bar.height - Appearance.spacing.p3
+  implicitHeight: Appearance.bar.height - Appearance.bar.borderWidth - Appearance.spacing.p1 * 2
 
   property bool active: Notifications?.data?.count ?? false
 

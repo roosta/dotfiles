@@ -56,18 +56,9 @@ ShellRoot {
         name: "content"
         screen: scope.modelData
 
-        WlrLayershell.keyboardFocus: GlobalState.launcherOpen
-          ? WlrKeyboardFocus.OnDemand
-          : WlrKeyboardFocus.None
-
-        HyprlandFocusGrab {
-          id: grab
-          windows: [contentPanel, barPanel]
-          active: GlobalState.launcherOpen && GlobalState.launcherMonitorId === scope.monitorId
-          onCleared: {
-            GlobalState.closeLauncher();
-          }
-        }
+        // WlrLayershell.keyboardFocus: GlobalState.launcherOpen
+        //   ? WlrKeyboardFocus.OnDemand
+        //   : WlrKeyboardFocus.None
 
         mask: Region {
           id: mask
@@ -125,14 +116,48 @@ ShellRoot {
               monitorId: scope.monitorId
             }
           }
-          Loader {
-            active: Apps.ready
-            anchors.fill: parent
+        }
+      }
 
-            sourceComponent: Launcher {
-              id: launcher
-              monitorId: scope.monitorId
+      Loader {
+        active: Apps.ready && GlobalState.launcherOpen && GlobalState.launcherMonitorId === scope.monitorId
+
+        GlobalShortcut {
+          name: "toggleLauncher"
+          description: "Toggles launcher"
+
+          onPressed: {
+
+            if (Hyprland.focusedMonitor?.name === scope.monitorId) {
+              GlobalState.toggleLauncher(Hyprland.focusedMonitor?.name)
             }
+          }
+        }
+        sourceComponent: NamedPanel {
+          name: "launcher"
+          screen: scope.modelData
+          anchors.bottom: true
+          anchors.left: true
+          anchors.right: true
+          implicitHeight: 270
+          id: launcherPanel
+
+          WlrLayershell.keyboardFocus: GlobalState.launcherOpen
+          ? WlrKeyboardFocus.OnDemand
+          : WlrKeyboardFocus.None
+
+          // HyprlandFocusGrab {
+          //   id: grab
+          //   windows: [launcherPanel]
+          //   active: true
+          //   onCleared: {
+          //     GlobalState.closeLauncher();
+          //   }
+          // }
+
+          Launcher {
+            id: launcher
+            monitorId: scope.monitorId
           }
         }
       }

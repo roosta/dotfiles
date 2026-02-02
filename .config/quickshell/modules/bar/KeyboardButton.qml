@@ -17,7 +17,7 @@ BorderRectangle {
   required property string monitorId
 
   implicitWidth: layout.implicitWidth + Appearance.spacing.p1 * 2
-  implicitHeight: Appearance.bar.height - Appearance.spacing.p3
+  implicitHeight: Appearance.bar.height - Appearance.bar.borderWidth - Appearance.spacing.p1 * 2
 
   Behavior on implicitWidth {
     NumberAnimation {

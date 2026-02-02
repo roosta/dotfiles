@@ -13,57 +13,54 @@ import qs.services
 Item {
   id: root
   required property string monitorId
-  visible: launcher.height > 0
 
   anchors.fill: parent
-  anchors.bottomMargin: Appearance.spacing.p1
   property bool monitorIsFocused: (Hyprland.focusedMonitor?.id === monitorId)
   property string query: ""
   property int currentIndex: 0
 
-  GlobalShortcut {
-    name: "toggleLauncher"
-    description: "Toggles launcher"
-
-    onPressed: {
-
-      if (Hyprland.focusedMonitor?.name === root.monitorId) {
-        GlobalState.toggleLauncher(Hyprland.focusedMonitor?.name)
-      }
-    }
-  }
-  BorderRectangle {
-    id: launcher
-    implicitWidth: Appearance.launcher.width
-    gradientAngle: 45
-    anchors.bottom: parent.bottom
-    implicitHeight: 0
-    anchors.horizontalCenter: parent.horizontalCenter
-    color: Appearance.srcery.black
-    borderWidth: Appearance.bar.borderWidth
-    borderGradient: Gradient {
-      orientation: Gradient.Horizontal
-      GradientStop { position: 0; color: Appearance.srcery.magenta }
-      GradientStop { position: 1; color: Appearance.srcery.blue }
-    }
-
-    states: [
-      State {
-        name: "active"
-        when: GlobalState.launcherOpen && GlobalState.launcherMonitorId === root.monitorId
-        PropertyChanges { launcher.implicitHeight: Appearance.launcher.height }
-      }
-    ]
-
+  Rectangle {
+    anchors.fill: parent
+    id: bg
+    color: "transparent"
     transitions: [
       Transition {
-        NumberAnimation {
-          properties: "implicitHeight"
-          duration: Appearance.durations.small
-          easing.type: Easing.InOutCubic
+        ColorAnimation {
+          duration: 300
+          easing.type: Easing.OutQuad
         }
       }
     ]
+    states: [
+      State {
+        name: "open"
+        when: GlobalState.overlayOpen
+        PropertyChanges { bg.color: Functions.transparentize("#000", 0.7) }
+      }
+    ]
+  }
+  BorderRectangle {
+    id: launcher
+    // implicitWidth: Appearance.launcher.width
+    anchors.fill: parent
+    // anchors.bottom: parent.bottom
+    implicitHeight: Appearance.launcher.height
+    anchors.horizontalCenter: parent.horizontalCenter
+
+    anchors.bottomMargin: Appearance.spacing.p1
+    // anchors.leftMargin: Appearance.spacing.p1
+    // anchors.rightMargin: Appearance.spacing.p1
+    color: Appearance.srcery.black
+    bottomBorder: Appearance.bar.borderWidth
+    topBorder: Appearance.bar.borderWidth
+    borderColor: Appearance.srcery.gray2
+    // gradientAngle: 45
+    // borderGradient: Gradient {
+    //   orientation: Gradient.Horizontal
+    //   GradientStop { position: 0; color: Appearance.srcery.magenta }
+    //   GradientStop { position: 1; color: Appearance.srcery.blue }
+    // }
+
     MouseArea {
       anchors.fill: parent
       onClicked: {
@@ -116,8 +113,6 @@ Item {
         State {
           name: "apps"
           PropertyChanges {
-            // root.implicitWidth: Config.launcher.sizes.itemWidth
-            // root.implicitHeight: Math.min(root.maxHeight, appLoader.implicitHeight > 0 ? appLoader.implicitHeight : empty.implicitHeight)
             appLoader.active: true
             appLoader.visible: true
             audioLoader.active: false
@@ -209,7 +204,7 @@ Item {
             ) ?? ""
             onClicked: appList.accept(modelData)
           }
-          Favorites {}
+          // Favorites {}
         }
       }
       Loader {

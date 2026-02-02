@@ -22,13 +22,14 @@ BorderRectangle {
 
   implicitWidth: {
     if (root.active) {
-      return layout.implicitWidth + Appearance.spacing.p3
+      return layout.implicitWidth + Appearance.spacing.p1 * 2
+
     } else {
       return layout.implicitWidth
     }
   }
 
-  implicitHeight: Appearance.bar.height - Appearance.spacing.p3
+  implicitHeight: Appearance.bar.height - Appearance.bar.borderWidth - Appearance.spacing.p1 * 2
   property bool active: false
   property bool preventAutoClose: false
 

@@ -3,6 +3,7 @@ import Quickshell.Widgets
 import QtQuick.Layouts
 import QtQuick
 import qs
+import qs.utils
 import qs.config
 // import qs.components
 // import qs.services
@@ -11,12 +12,13 @@ Item {
   id: root
   required property string name
   required property string description
-  anchors.left: parent?.left
-  anchors.right: parent?.right
-  anchors.rightMargin: Appearance.spacing.p2 + Appearance.spacing.p1
-  implicitHeight: Appearance.launcher.itemHeight
+  anchors.top: parent?.top
+  anchors.bottom: parent?.bottom
+  // anchors.rightMargin: Appearance.spacing.p2 + Appearance.spacing.p1
+  implicitWidth: height
   signal clicked()
   property alias iconSource: icon.source
+  property int iconSize: 64
   MouseArea {
     id: mouse
     anchors.fill: parent
@@ -32,7 +34,10 @@ Item {
   }
   Rectangle {
     anchors.fill: parent
-    color: mouse.containsMouse ? Appearance.srcery.gray1 : Appearance.srcery.black
+    border.color: mouse.containsMouse ? Appearance.srcery.gray6 : Appearance.srcery.gray3
+    color: "transparent"
+    border.width: Appearance.bar.borderWidth
+    // border.color: Appearance.srcery.gray3
 
 
     Behavior on color {
@@ -41,21 +46,13 @@ Item {
         easing.type: Easing.OutQuad
       }
     }
-    // border.width: 1
-    // border.color: Appearance.srcery.white
-    RowLayout {
-      anchors.fill: parent
-      Layout.margins: Appearance.spacing.p2
-      spacing: 0
-      IconImage {
-        id: icon
-        Layout.margins: Appearance.spacing.p2
-        implicitWidth: icon.height
-        Layout.fillHeight: true
-      }
+    ColumnLayout {
 
+      anchors.margins: Appearance.spacing.p2
+      anchors.fill: parent
+      spacing: 0
       ColumnLayout {
-        Layout.margins: Appearance.spacing.p2
+        // Layout.margins: Appearance.spacing.p2
         Layout.fillWidth: true
         Text {
           id: name
@@ -63,7 +60,7 @@ Item {
           color: Appearance.srcery.brightWhite
           font {
             family: Appearance.font.main
-            pointSize: Appearance.font.normal
+            pointSize: Appearance.font.large
           }
         }
         Text {
@@ -71,6 +68,7 @@ Item {
           elide: Text.ElideRight
           text: root.description
           Layout.fillWidth: true
+          wrapMode: Text.Wrap
           font {
             family: Appearance.font.light
             pointSize: Appearance.font.small
@@ -78,6 +76,24 @@ Item {
 
         }
       }
+
+      Item {
+        Layout.fillHeight: true
+      }
+
+      Rectangle {
+        implicitWidth: root.iconSize
+        radius: 4
+        color: Functions.transparentize(Appearance.srcery.black, 0.7)
+        implicitHeight: root.iconSize
+        border.color: Appearance.srcery.gray3
+        IconImage {
+          id: icon
+          anchors.fill: parent
+          anchors.margins: Appearance.spacing.p2
+        }
+      }
+
     }
   }
 }
