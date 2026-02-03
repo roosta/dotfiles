@@ -11,17 +11,17 @@ Singleton {
   readonly property bool ready: DesktopEntries.applications.values.length > 0
 
   readonly property list<DesktopEntry> list: ready ?
-    Array.from(DesktopEntries.applications.values).sort((a, b) => a.name.localeCompare(b.name)) :
-    []
+  Array.from(DesktopEntries.applications.values).sort((a, b) => a.name.localeCompare(b.name)) :
+  []
 
   readonly property var preppedNames: ready ?
-    list.map(a => ({ name: Fuzzy.prepare(`${a.name} `), entry: a })) :
-    []
-
-  readonly property var favorites: ready ?
-    list.filter(a => {
-      return Config.favorites.includes(a.id)
-    }) : []
+  list.map(a => {
+    a.favorite = Config.favorites.includes(a.id)
+    return {
+      name: Fuzzy.prepare(`${a.name} `),
+      entry: a,
+    }
+  }) : []
 
   readonly property var icons: {
     "missing": "image-missing",
@@ -66,6 +66,13 @@ Singleton {
     })
   }
 
+  // Sort comparator
+  function compareFn(a, b) {
+    if (a.entry.favorite && !b.entry.favorite) return -1;
+    if (!a.entry.favorite && b.entry.favorite) return 1;
+    return a.entry.name.localeCompare(b.entry.name);
+  }
+
   function fuzzyQuery(search: string): var {
     if (search) {
       return Fuzzy.go(search, preppedNames, {
@@ -75,10 +82,9 @@ Singleton {
         return r.obj.entry
       });
     } else {
-      return favorites
+      return preppedNames.sort(compareFn).map(item => item.entry);
     }
   }
-
 
   function getEntry(id: string): DesktopEntry {
     return DesktopEntries.heuristicLookup(id)
