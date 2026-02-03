@@ -1,6 +1,7 @@
 [Desktop Entry]
 Version=1.0
 Name=Firefox Media Browser
+Comment=Firefox launched with a custom 'media' profile, meant for general entertainment instead of productivity.
 GenericName=Web Browser
 Exec=media-browser %u
 Icon=firefox-media-candy
