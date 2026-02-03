@@ -68,6 +68,24 @@ Item {
         reuseItems: true
         orientation: ListView.Horizontal
         highlightFollowsCurrentItem: true
+
+        // Horizontall scrolling
+        MouseArea {
+          anchors.fill: parent
+          propagateComposedEvents: true
+          acceptedButtons: Qt.NoButton
+
+          onWheel: (wheel) => {
+            if (wheel.angleDelta.y !== 0) {
+              var delta = wheel.angleDelta.y
+              list.flick(delta * 10, 0)
+              wheel.accepted = true
+            }
+          }
+
+          onPressed: (mouse) => { mouse.accepted = false }
+        }
+
         highlight: Rectangle {
           color: Appearance.srcery.gray1
           // z: 2
