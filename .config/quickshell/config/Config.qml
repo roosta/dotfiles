@@ -66,6 +66,7 @@ Singleton {
       name: "Apps",
       description: "Browse and start desktop applications",
       mode: "apps",
+      genericName: "Menu",
       iconId: "applications-all"
     },
     {
@@ -73,6 +74,7 @@ Singleton {
       name: "Display",
       description: "Switch display layouts between presets",
       mode: "display",
+      genericName: "Menu",
       iconId: "preferences-desktop-display"
     },
     {
@@ -80,6 +82,7 @@ Singleton {
       name: "Audio",
       description: "Switch audio options between presets",
       mode: "audio",
+      genericName: "Menu",
       iconId: "audio-x-generic"
     },
     {
@@ -87,6 +90,7 @@ Singleton {
       name: "Power",
       description: "Power options for system (shutdown, restart, logout etc)",
       mode: "power",
+      genericName: "Menu",
       iconId: "preferences-system"
     }
   ]
@@ -96,6 +100,7 @@ Singleton {
       id: 0,
       name: "Shudown",
       description: "Power down system",
+      genericName: "Script",
       script: [`${Paths.scripts}/shutdown.sh`],
       iconId: "system-shutdown"
     },
@@ -103,6 +108,7 @@ Singleton {
       id: 1,
       name: "Reboot",
       description: "Restart system",
+      genericName: "Script",
       script: [`${Paths.scripts}/reboot.sh`],
       iconId: "system-reboot"
 
@@ -111,12 +117,14 @@ Singleton {
       id: 2,
       name: "Log out",
       description: "Log out current user",
+      genericName: "Power",
       script: [`${Paths.scripts}/logout.sh`],
       iconId: "system-log-out"
     },
     {
       id: 3,
       name: "Lock",
+      genericName: "Power",
       description: "Lock current session",
       script: [`${Paths.scripts}/lock.sh`],
       iconId: "system-lock-screen"
@@ -124,12 +132,14 @@ Singleton {
     {
       id: 4,
       name: "Suspend",
+      genericName: "Power",
       description: "Suspend to RAM",
       script: [`${Paths.scripts}/suspend.sh`],
       iconId: "system-suspend"
     },
     {
       id: 5,
+      genericName: "Power",
       name: "Hibernate",
       description: "Suspend to disk",
       script: [`${Paths.scripts}/suspend.sh`],
@@ -141,6 +151,7 @@ Singleton {
       id: 0,
       name: "Desk",
       description: "Switch to Desk Displays",
+      genericName: "Display",
       script: [menus.display.script, "desk"],
       iconId: "input-keyboard"
     },
@@ -149,11 +160,13 @@ Singleton {
       name: "Television (TV)",
       description: "Switch to Television (TV)",
       script: [menus.display.script, "tv"],
+      genericName: "Display",
       iconId: "applications-games"
     },
     {
       id: 2,
       name: "Mirror",
+      genericName: "Display",
       description: "Desk & Right Mirror to TV",
       script: [menus.display.script, "mirror"],
       iconId: "preferences-desktop-remote-desktop"
@@ -161,6 +174,7 @@ Singleton {
     {
       id: 3,
       name: "All",
+      genericName: "Display",
       description: "Enable all displays in-row",
       script: [menus.display.script, "all"],
       iconId: "multitasking-view"
@@ -168,6 +182,7 @@ Singleton {
     {
       id: 3,
       name: "Single",
+      genericName: "Display",
       description: "Disable all but center monitor (desk)",
       script: [menus.display.script, "single"],
       iconId: "cs-display"
@@ -180,6 +195,7 @@ Singleton {
       sink: "alsa_output.usb-Generic_USB_Audio-00.HiFi__Speaker__sink",
       icon: "󰓃",
       description: "Switch audio output to Speakers",
+      genericName: "Audio",
       iconId: "audio-speakers",
       name: "Speakers",
       script: [menus.audio.script, "speakers"]
@@ -187,6 +203,7 @@ Singleton {
     {
       id: 1,
       sink: "alsa_output.usb-SteelSeries_SteelSeries_Arctis_7-00.stereo-game",
+      genericName: "Audio",
       icon: "",
       description: "Switch audio output to Headphones",
       iconId: "audio-headphones",
@@ -195,6 +212,7 @@ Singleton {
     },
     {
       id: 2,
+      genericName: "Audio",
       sink: "alsa_output.pci-0000_03_00.1.hdmi-stereo-extra3",
       icon: "󰍹",
       description: "Switch audio output to Television (TV)" ,

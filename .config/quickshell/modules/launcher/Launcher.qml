@@ -44,7 +44,7 @@ Item {
     // implicitWidth: Appearance.launcher.width
     anchors.fill: parent
     // anchors.bottom: parent.bottom
-    implicitHeight: Appearance.launcher.height
+    // implicitHeight: Appearance.launcher.height
     anchors.horizontalCenter: parent.horizontalCenter
 
     anchors.bottomMargin: Appearance.spacing.p1
@@ -196,12 +196,11 @@ Item {
           delegate: LauncherItem {
             required property DesktopEntry modelData
             iconSource: Apps.getEntryIcon(modelData)
-            name: modelData?.name ?? ""
-            description: (
-              modelData?.comment
-              || modelData?.genericName
-              || modelData?.name
-            ) ?? ""
+            name: modelData?.name
+            favorite: modelData?.favorite
+            description: modelData?.comment
+            genericName: modelData?.genericName
+            categories: modelData?.categories
             onClicked: appList.accept(modelData)
           }
           // Favorites {}
@@ -233,6 +232,7 @@ Item {
             iconSource: Quickshell.iconPath(modelData.iconId)
             name: modelData.name
             description: modelData.description
+            genericName: modelData?.genericName
             onClicked: audioList.accept(modelData)
           }
         }
@@ -263,6 +263,7 @@ Item {
             iconSource: Quickshell.iconPath(modelData.iconId)
             name: modelData.name
             description: modelData.description
+            genericName: modelData?.genericName
             onClicked: displayList.accept(modelData)
           }
         }
@@ -293,6 +294,7 @@ Item {
             iconSource: Quickshell.iconPath(modelData.iconId)
             name: modelData.name
             description: modelData.description
+            genericName: modelData?.genericName
             onClicked: powerList.accept(modelData)
           }
         }
@@ -321,6 +323,7 @@ Item {
             iconSource: Quickshell.iconPath(modelData.iconId)
             name: modelData.name
             description: modelData.description
+            genericName: modelData?.genericName
             onClicked: menuList.accept(modelData)
           }
         }

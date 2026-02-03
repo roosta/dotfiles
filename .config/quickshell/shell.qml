@@ -139,7 +139,7 @@ ShellRoot {
           anchors.bottom: true
           anchors.left: true
           anchors.right: true
-          implicitHeight: 270
+          implicitHeight: Appearance.launcher.height
           id: launcherPanel
 
           WlrLayershell.keyboardFocus: GlobalState.launcherOpen
