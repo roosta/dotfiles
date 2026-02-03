@@ -70,6 +70,7 @@ GIT_DIR=$HOME/.dotfiles/ GIT_WORK_TREE=$HOME pre-commit install
 gsettings set org.gnome.desktop.interface color-scheme prefer-dark
 gsettings set org.gnome.desktop.interface font-name 'Iosevka 10'
 gsettings set org.gnome.desktop.interface icon-theme ritual-icons
+gsettings set org.gnome.desktop.interface gtk-theme 'Breeze'
 ```
 
 ### QT
