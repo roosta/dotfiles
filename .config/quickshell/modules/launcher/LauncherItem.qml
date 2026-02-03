@@ -56,6 +56,9 @@ Item {
         Layout.fillWidth: true
         Text {
           id: name
+          elide: Text.ElideRight
+          Layout.fillWidth: true
+          wrapMode: Text.Wrap
           text: root.name
           color: Appearance.srcery.brightWhite
           font {
@@ -65,9 +68,9 @@ Item {
         }
         Text {
           color: Appearance.srcery.white
-          elide: Text.ElideRight
           text: root.description
           Layout.fillWidth: true
+          elide: Text.ElideRight
           wrapMode: Text.Wrap
           font {
             family: Appearance.font.light
