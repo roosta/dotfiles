@@ -233,6 +233,7 @@ Item {
             name: modelData.name
             description: modelData.description
             genericName: modelData?.genericName
+            categories: modelData?.categories
             onClicked: audioList.accept(modelData)
           }
         }
@@ -264,6 +265,7 @@ Item {
             name: modelData.name
             description: modelData.description
             genericName: modelData?.genericName
+            categories: modelData?.categories
             onClicked: displayList.accept(modelData)
           }
         }
@@ -295,6 +297,7 @@ Item {
             name: modelData.name
             description: modelData.description
             genericName: modelData?.genericName
+            categories: modelData?.categories
             onClicked: powerList.accept(modelData)
           }
         }
@@ -324,6 +327,7 @@ Item {
             name: modelData.name
             description: modelData.description
             genericName: modelData?.genericName
+            categories: modelData?.categories
             onClicked: menuList.accept(modelData)
           }
         }
