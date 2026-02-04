@@ -59,15 +59,15 @@ Item {
       property QtObject currentList: {
         switch(state) {
           case "audio":
-            return audioLoader.item
+          return audioLoader.item
           case "display":
-            return displayLoader.item
+          return displayLoader.item
           case "power":
-            return powerLoader.item
+          return powerLoader.item
           case "menu":
-            return menuLoader.item
+          return menuLoader.item
           default:
-            return appLoader.item
+          return appLoader.item
         }
       }
       property string desc: currentList?.list?.currentItem?.name ?? "Undefined"
@@ -326,6 +326,7 @@ Item {
         // Layout.alignment: Qt.AlignHCenter
         monitorId: root.monitorId
         appList: layout.currentList?.modelData ?? []
+        parentWidth: parent.width
         onIncrementCurrentIndex: {
           layout.currentList.list.incrementCurrentIndex()
         }
@@ -339,8 +340,6 @@ Item {
           }
         }
       }
-
-
     }
   }
 }

@@ -12,6 +12,7 @@ BorderRectangle {
   id: root
   required property string monitorId
   property alias text: field.text
+  property int parentWidth: 1920
   Layout.alignment: Qt.AlignHCenter
   Layout.fillWidth: true
   color: Appearance.srcery.black
@@ -64,7 +65,7 @@ BorderRectangle {
       // Layout.alignment: Qt.AlignHCenter | Qt.alignLeft
       renderType: TextField.NativeRendering
       cursorVisible: !readOnly
-      implicitWidth: Appearance.launcher.inputWidth + Appearance.bar.borderWidth
+      implicitWidth: root.parentWidth / 6 - Appearance.spacing.p1
       placeholderTextColor: Appearance.srcery.gray3
       font.family: Appearance.font.light
       font.pointSize: Appearance.font.normal
