@@ -55,7 +55,7 @@ Item {
       Layout.fillWidth: true
       Layout.fillHeight: true
 
-      Layout.margins: Appearance.spacing.p1 + Appearance.bar.borderWidth
+      Layout.margins: Appearance.spacing.p1
       color: "transparent"
       clip: true
 
@@ -78,7 +78,7 @@ Item {
           onWheel: (wheel) => {
             if (wheel.angleDelta.y !== 0) {
               var delta = wheel.angleDelta.y
-              list.flick(delta * 10, 0)
+              list.flick(delta * 30, 0)
               wheel.accepted = true
             }
           }

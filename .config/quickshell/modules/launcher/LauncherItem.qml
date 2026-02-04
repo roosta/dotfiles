@@ -9,11 +9,15 @@ Item {
   property string name
   property string description
   property string genericName
+  property int parentWidth: 1920
   property bool favorite: false
   property var categories
   anchors.top: parent?.top
   anchors.bottom: parent?.bottom
-  implicitWidth: Appearance.launcher.itemWidth
+  implicitWidth: {
+    if (parentWidth <= 0) return 0
+    return parentWidth / 6 - Appearance.spacing.p1 - Appearance.bar.borderWidth
+  }
   signal clicked()
   property alias iconSource: icon.source
   property int iconSize: 42

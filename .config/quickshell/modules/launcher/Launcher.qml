@@ -178,6 +178,8 @@ Item {
           }
           delegate: LauncherItem {
             required property DesktopEntry modelData
+
+            parentWidth: appList.width
             iconSource: Apps.getEntryIcon(modelData)
             name: modelData?.name
             favorite: modelData?.favorite
@@ -247,6 +249,7 @@ Item {
             iconSource: Quickshell.iconPath(modelData.iconId)
             name: modelData.name
             description: modelData.description
+            parentWidth: displayList.width
             genericName: modelData?.genericName
             categories: modelData?.categories
             onClicked: displayList.accept(modelData)
@@ -278,6 +281,7 @@ Item {
             required property var modelData
             iconSource: Quickshell.iconPath(modelData.iconId)
             name: modelData.name
+            parentWidth: powerList.width
             description: modelData.description
             genericName: modelData?.genericName
             categories: modelData?.categories
@@ -308,6 +312,7 @@ Item {
             required property var modelData
             iconSource: Quickshell.iconPath(modelData.iconId)
             name: modelData.name
+            parentWidth: menuList.width
             description: modelData.description
             genericName: modelData?.genericName
             categories: modelData?.categories
@@ -318,6 +323,7 @@ Item {
       LauncherField {
         id: field
         onTextChanged: root.query = text
+        // Layout.alignment: Qt.AlignHCenter
         monitorId: root.monitorId
         appList: layout.currentList?.list?.model ?? []
         onIncrementCurrentIndex: {
