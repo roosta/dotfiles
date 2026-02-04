@@ -281,6 +281,7 @@ Singleton {
     "com.github.iwalton3.jellyfin-media-player",
     "spotify",
     "org.mozilla.thunderbird",
-    "com.discordapp.Discord"
+    "com.discordapp.Discord",
+    "kitty"
   ]
 }

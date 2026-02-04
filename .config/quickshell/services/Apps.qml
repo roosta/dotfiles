@@ -66,10 +66,20 @@ Singleton {
     })
   }
 
-  // Sort comparator
+  // Sort comparator, will sort favorites to the top of the list,
+  // and sorted as they appear in the config array
   function compareFn(a, b) {
-    if (a.entry.favorite && !b.entry.favorite) return -1;
-    if (!a.entry.favorite && b.entry.favorite) return 1;
+    const aFav = a.entry.favorite;
+    const bFav = b.entry.favorite;
+
+    if (aFav && bFav) {
+      const aIndex = Config.favorites.indexOf(a.entry.id);
+      const bIndex = Config.favorites.indexOf(b.entry.id);
+      return aIndex - bIndex;
+    }
+
+    if (aFav && !bFav) return -1;
+    if (!aFav && bFav) return 1;
     return a.entry.name.localeCompare(b.entry.name);
   }
 
