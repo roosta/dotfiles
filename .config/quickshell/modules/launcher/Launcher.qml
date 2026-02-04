@@ -170,7 +170,7 @@ Item {
           id: appList
           monitorId: root.monitorId
           searchQuery: root.query
-          model: Apps.fuzzyQuery(root.query)
+          sourceModel: Apps.fuzzyQuery(root.query)
           signal accept(entry: DesktopEntry)
           onAccept: (entry) => {
             Apps.launch(entry)
@@ -208,7 +208,7 @@ Item {
             });
             GlobalState.closeLauncher()
           }
-          model: {
+          sourceModel: {
             const q = root.query.replace(Config.menus.audio.prefix, "")
             Audio.fuzzyQuery(q)
           }
@@ -240,7 +240,7 @@ Item {
             });
             GlobalState.closeLauncher()
           }
-          model: {
+          sourceModel: {
             const q = root.query.replace(Config.menus.display.prefix, "")
             Display.fuzzyQuery(q)
           }
@@ -273,7 +273,7 @@ Item {
             });
             GlobalState.closeLauncher()
           }
-          model: {
+          sourceModel: {
             const q = root.query.replace(Config.menus.power.prefix, "")
             Power.fuzzyQuery(q)
           }
@@ -304,7 +304,7 @@ Item {
             GlobalState.launcherMode = entry.mode
             field.text = ""
           }
-          model: {
+          sourceModel: {
             const q = root.query.replace("/", "")
             Menu.fuzzyQuery(q)
           }
@@ -325,7 +325,7 @@ Item {
         onTextChanged: root.query = text
         // Layout.alignment: Qt.AlignHCenter
         monitorId: root.monitorId
-        appList: layout.currentList?.list?.model ?? []
+        appList: layout.currentList?.modelData ?? []
         onIncrementCurrentIndex: {
           layout.currentList.list.incrementCurrentIndex()
         }

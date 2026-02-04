@@ -12,8 +12,10 @@ Item {
   property int parentWidth: 1920
   property bool favorite: false
   property var categories
+  property bool isCurrentItem: ListView.isCurrentItem
   anchors.top: parent?.top
   anchors.bottom: parent?.bottom
+  // height: parent?.height ?? 0
   implicitWidth: {
     if (parentWidth <= 0) return 0
     return parentWidth / 6 - Appearance.spacing.p1 - Appearance.bar.borderWidth
@@ -37,13 +39,13 @@ Item {
   Rectangle {
     anchors.fill: parent
     border.color: mouse.containsMouse ? Appearance.srcery.gray6 : Appearance.srcery.gray3
-    color: "transparent"
+    color: root.isCurrentItem ? Appearance.srcery.gray1 : Appearance.srcery.black
     border.width: Appearance.bar.borderWidth
 
     Behavior on color {
       ColorAnimation {
-        duration: 150
-        easing.type: Easing.OutQuad
+        duration: 100
+        easing.type: Easing.InOutQuad
       }
     }
     ColumnLayout {

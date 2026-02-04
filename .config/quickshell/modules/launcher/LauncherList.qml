@@ -14,14 +14,66 @@ Item {
   id: root
   required property string monitorId
   required property string searchQuery
-  property alias model: list.model
+  property var sourceModel: []
+  property alias modelData: root.sourceModel
   property alias list: list
   property alias delegate: list.delegate
 
   default property alias contents: launcherList.children
   anchors.fill: parent
 
-  onModelChanged: {
+  ListModel {
+    id: dynamicModel
+
+    function getId(item) {
+      return item?.id ?? item?.name ?? JSON.stringify(item)
+    }
+
+    function updateModel() {
+      const newData = root.sourceModel
+      const newIds = newData.map(getId)
+      const oldIds = []
+
+      // Build old IDs list
+      for (let i = 0; i < dynamicModel.count; i++) {
+        oldIds.push(getId(dynamicModel.get(i).modelData))
+      }
+
+      // Remove items that no longer exist
+      for (let i = dynamicModel.count - 1; i >= 0; i--) {
+        const id = getId(dynamicModel.get(i).modelData)
+        if (!newIds.includes(id)) {
+          dynamicModel.remove(i)
+        }
+      }
+
+      // Add new items and move existing ones
+      for (let i = 0; i < newData.length; i++) {
+        const item = newData[i]
+        const id = getId(item)
+
+        // Find current position
+        let currentIndex = -1
+        for (let j = 0; j < dynamicModel.count; j++) {
+          if (getId(dynamicModel.get(j).modelData) === id) {
+            currentIndex = j
+            break
+          }
+        }
+
+        if (currentIndex === -1) {
+          // New item - insert
+          dynamicModel.insert(i, { modelData: item })
+        } else if (currentIndex !== i) {
+          // Existing item in wrong position - move
+          dynamicModel.move(currentIndex, i, 1)
+        }
+      }
+    }
+  }
+
+  onSourceModelChanged: {
+    dynamicModel.updateModel()
     list.currentIndex = 0
     list.positionViewAtBeginning()
   }
@@ -62,10 +114,11 @@ Item {
       ListView {
         id: list
         anchors.fill: parent
+        model: dynamicModel
         highlightMoveVelocity: 2000
         highlightResizeDuration: 0
         spacing: Appearance.spacing.p1
-        reuseItems: true
+        reuseItems: false
         orientation: ListView.Horizontal
         highlightFollowsCurrentItem: true
 
@@ -86,12 +139,7 @@ Item {
           onPressed: (mouse) => { mouse.accepted = false }
         }
 
-        highlight: Rectangle {
-          color: Appearance.srcery.gray1
-          // z: 2
-          // border.color: Appearance.srcery.gray4
-          // border.width: Appearance.bar.borderWidth
-        }
+        highlight: Item {}
         ScrollBar.horizontal: ScrollBar {
           id: scroll
           padding: 0
@@ -114,68 +162,72 @@ Item {
           }
         }
 
-        // add: Transition {
-        //   NumberAnimation {
-        //     properties: "opacity,scale"
-        //     easing.type: Easing.InCubic
-        //     duration: Appearance.durations.normal
-        //     from: 0
-        //     to: 1
-        //   }
-        // }
-        //
-        // move: Transition {
-        //   NumberAnimation {
-        //     properties: "y"
-        //     easing.type: Easing.InOutCubic
-        //     duration: Appearance.durations.normal
-        //   }
-        //
-        //   NumberAnimation {
-        //     properties: "opacity,scale"
-        //     easing.type: Easing.InOutCubic
-        //     duration: Appearance.durations.normal
-        //     to: 1
-        //   }
-        // }
-        // remove: Transition {
-        //   NumberAnimation {
-        //     properties: "opacity,scale"
-        //     easing.type: Easing.OutCubic
-        //     duration: Appearance.durations.normal
-        //     from: 0
-        //     to: 1
-        //   }
-        // }
-        //
-        // addDisplaced: Transition {
-        //   NumberAnimation {
-        //     property: "y"
-        //     easing.type: Easing.InOutCubic
-        //     duration: Appearance.durations.small
-        //   }
-        //   NumberAnimation {
-        //     properties: "opacity,scale"
-        //     to: 1
-        //     easing.type: Easing.InOutCubic
-        //     duration: Appearance.durations.normal
-        //   }
-        // }
-        //
-        // displaced: Transition {
-        //   NumberAnimation {
-        //     property: "y"
-        //     easing.type: Easing.InOutCubic
-        //     duration: Appearance.durations.normal
-        //   }
-        //   NumberAnimation {
-        //     properties: "opacity,scale"
-        //     to: 1
-        //
-        //     easing.type: Easing.InOutCubic
-        //     duration: Appearance.durations.normal
-        //   }
-        // }
+        add: Transition {
+          SequentialAnimation {
+            PauseAnimation {
+              duration: ViewTransition.index * 30
+            }
+            ParallelAnimation {
+              NumberAnimation {
+                property: "x"
+                easing.type: Easing.OutCubic
+                duration: Appearance.durations.normal
+              }
+              NumberAnimation {
+                property: "opacity"
+                easing.type: Easing.OutCubic
+                duration: Appearance.durations.normal
+                from: 0
+                to: 1
+              }
+            }
+          }
+        }
+
+        move: Transition {
+          NumberAnimation {
+            property: "x"
+            easing.type: Easing.InOutCubic
+            duration: Appearance.durations.normal
+          }
+        }
+
+        remove: Transition {
+          SequentialAnimation {
+            PropertyAction { property: "ListView.delayRemove"; value: true }
+            ParallelAnimation {
+              NumberAnimation {
+                property: "opacity"
+                easing.type: Easing.InCubic
+                duration: Appearance.durations.small
+                to: 0
+              }
+              // NumberAnimation {
+              //   property: "scale"
+              //   easing.type: Easing.InCubic
+              //   duration: Appearance.durations.small
+              //   to: 0.8
+              // }
+            }
+            PropertyAction { property: "ListView.delayRemove"; value: false }
+          }
+        }
+
+        addDisplaced: Transition {
+          NumberAnimation {
+            property: "x"
+            easing.type: Easing.OutCubic
+            duration: Appearance.durations.normal
+          }
+        }
+
+        displaced: Transition {
+          NumberAnimation {
+            property: "x"
+            easing.type: Easing.OutCubic
+            duration: Appearance.durations.normal
+          }
+        }
       }
     }
   }
