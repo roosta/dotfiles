@@ -64,7 +64,7 @@ BorderRectangle {
       // Layout.alignment: Qt.AlignHCenter | Qt.alignLeft
       renderType: TextField.NativeRendering
       cursorVisible: !readOnly
-      implicitWidth: Appearance.launcher.inputWidth
+      implicitWidth: Appearance.launcher.inputWidth + Appearance.bar.borderWidth
       placeholderTextColor: Appearance.srcery.gray3
       font.family: Appearance.font.light
       font.pointSize: Appearance.font.normal
