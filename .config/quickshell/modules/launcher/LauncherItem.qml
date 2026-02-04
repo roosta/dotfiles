@@ -1,12 +1,8 @@
-import Quickshell
 import Quickshell.Widgets
 import QtQuick.Layouts
 import QtQuick
-import qs
 import qs.utils
 import qs.config
-// import qs.components
-// import qs.services
 
 Item {
   id: root
@@ -15,10 +11,8 @@ Item {
   property string genericName
   property bool favorite: false
   property var categories
-
   anchors.top: parent?.top
   anchors.bottom: parent?.bottom
-  // anchors.rightMargin: Appearance.spacing.p2 + Appearance.spacing.p1
   implicitWidth: Appearance.launcher.itemWidth
   signal clicked()
   property alias iconSource: icon.source
@@ -41,8 +35,6 @@ Item {
     border.color: mouse.containsMouse ? Appearance.srcery.gray6 : Appearance.srcery.gray3
     color: "transparent"
     border.width: Appearance.bar.borderWidth
-    // border.color: Appearance.srcery.gray3
-
 
     Behavior on color {
       ColorAnimation {
@@ -56,7 +48,6 @@ Item {
       Layout.alignment: Qt.AlignTop
       anchors.fill: parent
       RowLayout {
-        // Layout.margins: Appearance.spacing.p2
         Layout.fillWidth: true
         spacing: Appearance.spacing.p1
         Layout.preferredHeight: root.iconSize
@@ -124,11 +115,8 @@ Item {
               pointSize: Appearance.font.small
             }
           }
-
         }
-        
       }
-
 
       Text {
         color: Appearance.srcery.white
@@ -146,12 +134,12 @@ Item {
           family: Appearance.font.light
           pointSize: Appearance.font.small
         }
-
       }
 
       Item {
         Layout.fillHeight: true
       }
+
       ColumnLayout {
         Layout.fillWidth: true
         visible: root.categories?.length > 0

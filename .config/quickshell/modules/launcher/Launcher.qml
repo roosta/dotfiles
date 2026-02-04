@@ -19,6 +19,8 @@ Item {
   property string query: ""
   property int currentIndex: 0
 
+  // This is to match the window separation color with overlay
+  // if you change this, also change in overlay
   Rectangle {
     anchors.fill: parent
     id: bg
@@ -41,32 +43,13 @@ Item {
   }
   BorderRectangle {
     id: launcher
-    // implicitWidth: Appearance.launcher.width
     anchors.fill: parent
-    // anchors.bottom: parent.bottom
-    // implicitHeight: Appearance.launcher.height
     anchors.horizontalCenter: parent.horizontalCenter
-
     anchors.bottomMargin: Appearance.spacing.p1
-    // anchors.leftMargin: Appearance.spacing.p1
-    // anchors.rightMargin: Appearance.spacing.p1
     color: Appearance.srcery.black
     bottomBorder: Appearance.bar.borderWidth
     topBorder: Appearance.bar.borderWidth
     borderColor: Appearance.srcery.gray2
-    // gradientAngle: 45
-    // borderGradient: Gradient {
-    //   orientation: Gradient.Horizontal
-    //   GradientStop { position: 0; color: Appearance.srcery.magenta }
-    //   GradientStop { position: 1; color: Appearance.srcery.blue }
-    // }
-
-    MouseArea {
-      anchors.fill: parent
-      onClicked: {
-        // Consume the click event to prevent it from reaching the parent MouseArea
-      }
-    }
 
     ColumnLayout {
       anchors.fill: parent

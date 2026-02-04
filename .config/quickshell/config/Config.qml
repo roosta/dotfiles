@@ -277,11 +277,10 @@ Singleton {
     "firefox",
     "firefox-media",
     "steam",
-    "com.github.iwalton3.jellyfin-media-player",
     "net.lutris.Lutris",
-    "com.discordapp.Discord",
-    "kando",
+    "com.github.iwalton3.jellyfin-media-player",
     "spotify",
-    "org.mozilla.thunderbird"
+    "org.mozilla.thunderbird",
+    "com.discordapp.Discord"
   ]
 }
