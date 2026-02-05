@@ -19,6 +19,7 @@ Singleton {
     readonly property string right: "HDMI-A-1"
     readonly property string center: "DP-1"
     readonly property string tv: "HDMI-A-2"
+    readonly property string top: "HDMI-A-3"
   }
   readonly property string defaultMode: "apps"
   readonly property string primaryDisplay: root.displays.center

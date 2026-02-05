@@ -42,6 +42,8 @@ Item {
             return leftBar
           } else if (root.monitorId === Config.displays?.right){
             return rightBar
+          } else if (root.monitorId === Config.displays?.top){
+            return topBar
           } else {
             return primaryBar
           }
@@ -181,6 +183,50 @@ Item {
           }}
         }
       }
+      Component {
+        id: topBar
+        Rectangle {
+          color: "transparent"
+          anchors.fill: parent
+
+          RowLayout {
+            anchors.fill: parent
+            spacing: 0
+            Rectangle {
+              id: leftSection
+              Layout.fillWidth: true
+              Layout.fillHeight: true
+              color: "transparent"
+              RowLayout {
+                spacing: Appearance.spacing.p1
+                anchors.left: parent.left
+                anchors.leftMargin: Appearance.spacing.p1
+                anchors.fill: parent
+              }
+            }
+            Rectangle {
+              id: centerSection
+              color: "transparent"
+              Layout.fillHeight: true
+              Layout.fillWidth: true
+              RowLayout {
+                spacing: Appearance.spacing.p1
+                anchors.centerIn: parent
+                Workspaces { monitorId: root.monitorId }
+              }
+            }
+            Rectangle {
+              id: rightSection
+              Layout.fillHeight: true
+              Layout.fillWidth: true
+              color: "transparent"
+              RowLayout {
+                spacing: Appearance.spacing.p1
+                anchors.right: parent.right
+                anchors.rightMargin: Appearance.spacing.p1
+              }
+            }
+          }
+        }
+      }
     }
-
-
