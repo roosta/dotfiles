@@ -165,7 +165,13 @@ Item {
         add: Transition {
           SequentialAnimation {
             PauseAnimation {
-              duration: ViewTransition.index * 30
+              duration: {
+                if (ViewTransition.index > 0) {
+                  return ViewTransition.index * 30
+                } else {
+                  return 100
+                }
+              }
             }
             ParallelAnimation {
               NumberAnimation {
