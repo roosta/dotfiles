@@ -19,35 +19,11 @@ Item {
   property string query: ""
   property int currentIndex: 0
 
-  // This is to match the window separation color with overlay
-  // if you change this, also change in overlay
-  Rectangle {
-    anchors.fill: parent
-    id: bg
-    color: "transparent"
-    transitions: [
-      Transition {
-        ColorAnimation {
-          duration: 300
-          easing.type: Easing.OutQuad
-        }
-      }
-    ]
-    states: [
-      State {
-        name: "open"
-        when: GlobalState.overlayOpen
-        PropertyChanges { bg.color: Functions.transparentize("#000", 0.7) }
-      }
-    ]
-  }
   BorderRectangle {
     id: launcher
     anchors.fill: parent
     anchors.horizontalCenter: parent.horizontalCenter
-    anchors.bottomMargin: Appearance.spacing.p1
     color: Appearance.srcery.black
-    bottomBorder: Appearance.bar.borderWidth
     topBorder: Appearance.bar.borderWidth
     borderColor: Appearance.srcery.gray2
 
