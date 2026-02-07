@@ -51,95 +51,10 @@ Item {
         if (typeof desc === "string" && desc !== "Undefined") { ContextData.launcherDesc = desc }
       }
       state: GlobalState.launcherMode
-      // TODO: Cleanup
-      // Set it up so that I dont hard code this, but get it from config
-      states: [
-        State {
-          name: "menu"
-          PropertyChanges {
-            appLoader.active: false
-            appLoader.visible: false
-            audioLoader.active: false
-            audioLoader.visible: false
-            displayLoader.active: false
-            displayLoader.visible: false
-            powerLoader.active: false
-            powerLoader.visible: false
-            menuLoader.active: true
-            menuLoader.visible: true
-          }
-        },
-        State {
-          name: "apps"
-          PropertyChanges {
-            appLoader.active: true
-            appLoader.visible: true
-            audioLoader.active: false
-            audioLoader.visible: false
-            displayLoader.active: false
-            displayLoader.visible: false
-            powerLoader.active: false
-            powerLoader.visible: false
-            menuLoader.active: false
-            menuLoader.visible: false
-          }
-
-          // AnchorChanges {
-          //   anchors.left: root.parent.left
-          //   anchors.right: root.parent.right
-          // }
-        },
-        State {
-          name: "audio"
-          PropertyChanges {
-            audioLoader.active: true
-            audioLoader.visible: true
-            appLoader.active: false
-            appLoader.visible: false
-            displayLoader.active: false
-            displayLoader.visible: false
-            powerLoader.active: false
-            powerLoader.visible: false
-            menuLoader.active: false
-            menuLoader.visible: false
-          }
-        },
-        State {
-          name: "display"
-          PropertyChanges {
-            displayLoader.active: true
-            displayLoader.visible: true
-            appLoader.active: false
-            appLoader.visible: false
-            audioLoader.active: false
-            audioLoader.visible: false
-            powerLoader.active: false
-            powerLoader.visible: false
-            menuLoader.active: false
-            menuLoader.visible: false
-          }
-        },
-        State {
-          name: "power"
-          PropertyChanges {
-            displayLoader.active: false
-            displayLoader.visible: false
-            appLoader.active: false
-            appLoader.visible: false
-            audioLoader.active: false
-            audioLoader.visible: false
-            powerLoader.active: true
-            powerLoader.visible: true
-            menuLoader.active: false
-            menuLoader.visible: false
-          }
-        }
-
-      ]
       Loader {
         id: appLoader
-        active: true
-        visible: true
+        active: layout.state === "apps" || layout.state === ""
+        visible: active
         Layout.fillWidth: true
         Layout.fillHeight: true
         sourceComponent: LauncherList {
@@ -169,8 +84,8 @@ Item {
       }
       Loader {
         id: audioLoader
-        active: false
-        visible: false
+        active: layout.state === "audio"
+        visible: active
         Layout.fillWidth: true
         Layout.fillHeight: true
         sourceComponent: LauncherList {
@@ -201,8 +116,8 @@ Item {
       }
       Loader {
         id: displayLoader
-        active: false
-        visible: false
+        active: layout.state === "display"
+        visible: active
         Layout.fillWidth: true
         Layout.fillHeight: true
         sourceComponent: LauncherList {
@@ -234,8 +149,8 @@ Item {
       }
       Loader {
         id: powerLoader
-        active: false
-        visible: false
+        active: layout.state === "power"
+        visible: active
         Layout.fillWidth: true
         Layout.fillHeight: true
         sourceComponent: LauncherList {
@@ -267,8 +182,8 @@ Item {
       }
       Loader {
         id: menuLoader
-        active: false
-        visible: false
+        active: layout.state === "menu"
+        visible: active
         Layout.fillWidth: true
         Layout.fillHeight: true
         sourceComponent: LauncherList {
