@@ -29,6 +29,8 @@ Item {
       return item?.id ?? item?.name ?? JSON.stringify(item)
     }
 
+    // TODO: Get many out of bounds warnings on this
+    // It works, but I experince some weird behaviour, and warnings in log
     function updateModel() {
       const newData = root.sourceModel
       const newIds = newData.map(getId)

@@ -40,6 +40,11 @@ Singleton {
   ]
 
   readonly property var menus: {
+    "utilities": {
+      "name": "Utilities",
+      "prefix": "/utils",
+      "script": null
+    },
     "display": {
       "name": "Display",
       "prefix": "/display ",
@@ -118,7 +123,6 @@ Singleton {
       categories: ["System", "Restart"],
       script: [`${Paths.scripts}/reboot.sh`],
       iconId: "system-reboot"
-
     },
     {
       id: 2,
@@ -155,6 +159,36 @@ Singleton {
       description: "Suspend to disk",
       script: [`${Paths.scripts}/suspend.sh`],
       iconId: "system-hibernate"
+    }
+  ]
+
+  readonly property var utilities: [
+    {
+      id: 0,
+      name: "Screenshot",
+      description: "Screenshot and annotate utility",
+      genericName: "Script",
+      categories: ["Utility", "ImageProcessing"],
+      script: [`${Paths.scripts}/screenshot.sh`],
+      iconId: "accessories-screenshot"
+    },
+    {
+      id: 1,
+      name: "Color picker",
+      description: "Pick a hexadecimal color from screens, and place in clipboard",
+      genericName: "Script",
+      categories: ["Utility", "ImageProcessing"],
+      script: [`${Paths.scripts}/colorpicker.sh`],
+      iconId: "color-picker"
+    },
+    {
+      id: 2,
+      name: "System Monitor",
+      description: "Monitor system resource usage",
+      genericName: "Script",
+      categories: ["Utility", "Monitor"],
+      script: [`${Paths.scripts}/system-monitor.sh`],
+      iconId: "utilities-system-monitor"
     }
   ]
 
