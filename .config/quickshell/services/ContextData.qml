@@ -56,7 +56,7 @@ Singleton {
       return {
         title: Functions.capitalize(root.activeWindow?.appId),
         desc: root.activeWindow?.title,
-        icon: Apps.lookupIcon(root.activeWindow?.appId)
+        icon: Icons.lookupIcon(root.activeWindow?.appId)
       }
     } else {
       return {

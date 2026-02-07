@@ -29,7 +29,7 @@ BorderRectangle {
         id: fav
 
         required property string modelData
-        property DesktopEntry entry: Apps.getEntry(modelData)
+        property DesktopEntry entry: LauncherData.getEntry(modelData)
         Layout.alignment: Qt.AlignHCenter
         Layout.margins: Appearance.spacing.p2
         Layout.fillHeight: true
@@ -56,7 +56,7 @@ BorderRectangle {
           }
         }
         onPressed: {
-          Apps.launch(entry)
+          LauncherData.launch(entry)
           GlobalState.closeLauncher()
         }
         HoverHandler {
@@ -70,7 +70,7 @@ BorderRectangle {
           IconImage {
             id: favicon
             anchors.centerIn: parent
-            source: Apps.getEntryIcon(fav.entry)
+            source: Icons.getEntryIcon(fav.entry)
             // implicitHeight: parent.height / 2
             implicitWidth: parent.height - Appearance.spacing.p2 * 2
             implicitHeight: parent.height - Appearance.spacing.p2 * 2

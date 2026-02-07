@@ -33,9 +33,9 @@ Loader {
       parentWidth: list.width
       iconSource: modelData.iconId
         ? Quickshell.iconPath(modelData.iconId)
-        : Apps.getEntryIcon(modelData)
+        : Icons.getEntryIcon(modelData)
       name: modelData?.name
-      favorite: modelData?.favorite ?? false
+      favorite: Config.favorites.includes(modelData?.id ?? "") ?? false
       description: modelData?.comment ?? ""
       genericName: modelData?.genericName ?? ""
       categories: modelData?.categories ?? []

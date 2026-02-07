@@ -34,7 +34,7 @@ Button {
   property int iconSize: 16 * Config.scale
   property int calculatedWidth: {
     if (root.isOccupied) {
-      let iconCount = Apps.getWsIcons(workspaceId).length ?? 0;
+      let iconCount = Icons.getWsIcons(workspaceId).length ?? 0;
       return iconCount * (root.iconSize + Appearance.spacing.p3);
     } else {
       return root.iconSize + Appearance.spacing.p3;
@@ -128,7 +128,7 @@ Button {
       RowLayout {
         spacing: 0
         Repeater {
-          model: Apps.getWsIcons(root.workspaceId)
+          model: Icons.getWsIcons(root.workspaceId)
           Item {
             required property var modelData
             property bool urgent:  {

@@ -1,0 +1,57 @@
+pragma Singleton
+import Quickshell
+import qs.services
+import qs.config
+
+Singleton {
+  id: root
+  readonly property var icons: {
+    "missing": "image-missing",
+  }
+
+
+  // Get desktop entry from id
+  function getEntry(id: string): DesktopEntry {
+    return DesktopEntries.heuristicLookup(id)
+  }
+
+  // Choose the class with the most occurrences
+  function mostOccuringClass(arr: var): var {
+    return arr.sort((a,b) =>
+    arr.filter(v => v===a).length - arr.filter(v => v===b).length).pop();
+  }
+
+  //
+  function getIcon(key: string): string {
+    const icon = root.icons[key]
+    return Quickshell.iconPath(icon, root.icons.missing)
+  }
+
+  function getEntryIcon(entry: DesktopEntry): string {
+    const icon = Config.getAlias(entry.id) ?? entry?.icon
+    return Quickshell.iconPath(icon, root.icons.missing)
+  }
+
+  function lookupIcon(appId: string): string {
+    const icon = Config.getAlias(appId) ?? getEntry(appId)?.icon
+    return Quickshell.iconPath(icon, root.icons.missing)
+  }
+
+
+  // Returns a collection of icons in a given workspace (wsid)
+  // Removes duplicates, and applies aliases if present
+  function getWsIcons(wsid: int): var {
+    const classes = HyprlandData.windowList.filter(w => {
+      return w.workspace.id === wsid
+    }).map(w => w?.class)
+    const uniq = [...new Set(classes)].sort((a, b) => a.localeCompare(b))
+    return uniq.map(id => {
+      const icon = Config.getAlias(id) ?? DesktopEntries.heuristicLookup(id)?.icon
+      return {
+        icon: Quickshell.iconPath(icon, root.icons.missing),
+        class: id
+      }
+    })
+  }
+
+}

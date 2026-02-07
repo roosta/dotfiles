@@ -120,7 +120,7 @@ ShellRoot {
       }
 
       Loader {
-        active: Apps.ready && GlobalState.launcherOpen && GlobalState.launcherMonitorId === scope.monitorId
+        active: LauncherData.appsData.length > 0 && GlobalState.launcherOpen && GlobalState.launcherMonitorId === scope.monitorId
 
         GlobalShortcut {
           name: "toggleLauncher"

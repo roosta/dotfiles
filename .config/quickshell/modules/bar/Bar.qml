@@ -74,7 +74,7 @@ Item {
               Loader {
                 Layout.fillHeight: true
                 Layout.fillWidth: true
-                active: Apps.ready
+                active: LauncherData.appsData.length > 0
                 sourceComponent: Context { }
               }
 

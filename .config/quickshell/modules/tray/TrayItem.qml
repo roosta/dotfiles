@@ -53,7 +53,7 @@ MouseArea {
       // NOTE: spotify tray icon doesn't load properly, qs sprews out a bunch
       // of warnings, but it isn't null, it is an icon path, just cant load it
       if (root.modelData.id === "spotify-client") {
-        return Apps.lookupIcon("spotify")
+        return Icons.lookupIcon("spotify")
 
       }
       return root.modelData.icon

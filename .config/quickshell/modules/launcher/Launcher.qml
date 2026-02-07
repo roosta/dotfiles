@@ -5,6 +5,7 @@ import QtQuick
 import QtQuick.Layouts
 import Quickshell.Hyprland
 import qs.config
+import qs.utils
 import qs
 // import qs.utils
 import qs.components
@@ -18,6 +19,7 @@ Item {
   property bool monitorIsFocused: (Hyprland.focusedMonitor?.id === monitorId)
   property string query: ""
   property int currentIndex: 0
+
 
   BorderRectangle {
     id: launcher
@@ -35,16 +37,26 @@ Item {
       property QtObject currentMenu: {
         switch(state) {
           case "audio":
-          return audioMenu
+            return audioMenu
           case "display":
-          return displayMenu
+            return displayMenu
           case "power":
-          return powerMenu
+            return powerMenu
+          case "utils":
+            return utilsMenu
           case "menu":
-          return menuMenu
+            return menuMenu
           default:
-          return appMenu
+            return appMenu
         }
+      }
+
+
+      // This handles setting context description when launcher is open
+      // TODO: Improve
+      property string desc: currentMenu?.item?.list?.currentItem?.name ?? "Undefined"
+      onDescChanged: {
+        if (typeof desc === "string" && desc !== "Undefined") { ContextData.launcherDesc = desc }
       }
 
       state: GlobalState.launcherMode
@@ -54,9 +66,24 @@ Item {
         active: layout.state === "apps" || layout.state === ""
         query: root.query
         monitorId: root.monitorId
-        sourceModel: Apps.fuzzyQuery(root.query)
+        sourceModel: Fuzzy.query(root.query, LauncherData.appsData)
         onAccept: (entry) => {
-          Apps.launch(entry)
+          LauncherData.launch(entry)
+          GlobalState.closeLauncher()
+        }
+      }
+
+      LauncherMenu {
+        id: utilsMenu
+        active: layout.state === "utils"
+        query: root.query
+        monitorId: root.monitorId
+        sourceModel: {
+          const q = root.query.replace(Config.menus.audio.prefix, "")
+          return Fuzzy.query(q, LauncherData.utilsData)
+        }
+        onAccept: (entry) => {
+          LauncherData.launch(entry)
           GlobalState.closeLauncher()
         }
       }
@@ -68,12 +95,10 @@ Item {
         monitorId: root.monitorId
         sourceModel: {
           const q = root.query.replace(Config.menus.audio.prefix, "")
-          Audio.fuzzyQuery(q)
+          return Fuzzy.query(q, LauncherData.audioData)
         }
         onAccept: (entry) => {
-          Quickshell.execDetached({
-            command: entry.script,
-          });
+          LauncherData.launch(entry)
           GlobalState.closeLauncher()
         }
       }
@@ -85,12 +110,10 @@ Item {
         monitorId: root.monitorId
         sourceModel: {
           const q = root.query.replace(Config.menus.display.prefix, "")
-          Display.fuzzyQuery(q)
+          return Fuzzy.query(q, LauncherData.displayData)
         }
         onAccept: (entry) => {
-          Quickshell.execDetached({
-            command: entry.script,
-          });
+          LauncherData.launch(entry)
           GlobalState.closeLauncher()
         }
       }
@@ -102,12 +125,10 @@ Item {
         monitorId: root.monitorId
         sourceModel: {
           const q = root.query.replace(Config.menus.power.prefix, "")
-          Power.fuzzyQuery(q)
+          return Fuzzy.query(q, LauncherData.powerData)
         }
         onAccept: (entry) => {
-          Quickshell.execDetached({
-            command: entry.script,
-          });
+          LauncherData.launch(entry)
           GlobalState.closeLauncher()
         }
       }
@@ -119,7 +140,7 @@ Item {
         monitorId: root.monitorId
         sourceModel: {
           const q = root.query.replace("/", "")
-          Menu.fuzzyQuery(q)
+          Fuzzy.query(q, LauncherData.menuData)
         }
         onAccept: (entry) => {
           GlobalState.launcherMode = entry.mode

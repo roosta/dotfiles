@@ -17,5 +17,18 @@ Singleton {
   function prepare(...args) {
     return FuzzySort.prepare(...args)
   }
+
+  // Query prepared data
+  function query(search, data, key = "name"): var {
+    return go(search, data, {
+      all: true,
+      key: key
+    }).map(r => {
+      return r.obj.entry
+    });
+  }
+
 }
+
+
 

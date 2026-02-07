@@ -40,11 +40,6 @@ Singleton {
   ]
 
   readonly property var menus: {
-    "utilities": {
-      "name": "Utilities",
-      "prefix": "/utils",
-      "script": null
-    },
     "display": {
       "name": "Display",
       "prefix": "/display ",
@@ -64,99 +59,113 @@ Singleton {
       "name": "Power",
       "prefix": "/power",
       "script": null
+    },
+    "utils": {
+      "name": "Utilities",
+      "prefix": "/utils",
+      "script": null
     }
   }
   readonly property var modeMenu: [
     {
-      id: 0,
+      id: "ritual-mode-apps",
       name: "Applications",
-      description: "Browse and launcher desktop applications",
+      comment: "Browse and launcher desktop applications",
       mode: "apps",
       genericName: "Menu",
       categories: ["AppLauncher"],
       iconId: "applications-all"
     },
     {
-      id: 1,
+      id: "ritual-mode-display",
       name: "Display",
-      description: "Switch display layouts between predefined presets",
+      comment: "Switch display layouts between predefined presets",
       mode: "display",
       genericName: "Menu",
       categories: ["Display", "Configuration"],
       iconId: "preferences-desktop-display"
     },
     {
-      id: 2,
+      id: "ritual-mode-audio",
       name: "Audio",
-      description: "Switch audio options between predefined presets",
+      comment: "Switch audio options between predefined presets",
       mode: "audio",
       genericName: "Menu",
       categories: ["Audio", "Configuration"],
       iconId: "audio-x-generic"
     },
     {
-      id: 3,
+      id: "ritual-mode-power",
       name: "Power",
-      description: "Power options for system (shutdown, restart, logout etc)",
+      comment: "Power options for system (shutdown, restart, logout etc)",
       mode: "power",
       genericName: "Menu",
       categories: ["System", "Power"],
       iconId: "preferences-system"
+    },
+    {
+      id: "ritual-mode-utils",
+      name: "Utilities",
+      comment: "Various handy utilities, normally launches a script stored in ~/scripts",
+      mode: "utils",
+      genericName: "Menu",
+      categories: ["Utility", "FileTools"],
+      iconId: "applications-utilities"
     }
   ]
 
   readonly property var powerScripts: [
     {
-      id: 0,
+      id: "ritual-power-shutdown",
       name: "Shudown",
-      description: "Power down system",
+      comment: "Power down system",
       genericName: "Script",
       categories: ["System", "Shutdown"],
       script: [`${Paths.scripts}/shutdown.sh`],
       iconId: "system-shutdown"
     },
     {
-      id: 1,
+      id: "ritual-power-reboot",
       name: "Reboot",
-      description: "Restart system",
+      comment: "Restart system",
       genericName: "Script",
       categories: ["System", "Restart"],
       script: [`${Paths.scripts}/reboot.sh`],
       iconId: "system-reboot"
     },
     {
-      id: 2,
+      id: "ritual-power-logout",
       name: "Log out",
-      description: "Log out current user",
+      comment: "Log out current user",
       genericName: "Power",
       categories: ["System", "LogOut"],
       script: [`${Paths.scripts}/logout.sh`],
       iconId: "system-log-out"
     },
     {
-      id: 3,
+      id: "ritual-power-lock",
       name: "Lock",
       genericName: "Power",
       categories: ["System", "Lock"],
-      description: "Lock current session",
+      comment: "Lock current session",
       script: [`${Paths.scripts}/lock.sh`],
       iconId: "system-lock-screen"
     },
     {
-      id: 4,
+      id: "ritual-power-suspend",
       name: "Suspend",
       genericName: "Power",
       categories: ["System", "Suspend"],
-      description: "Suspend to RAM",
+      comment: "Suspend to RAM",
       script: [`${Paths.scripts}/suspend.sh`],
       iconId: "system-suspend"
     },
     {
-      id: 5,
+      id: "ritual-power-hibernate",
       genericName: "Power",
       categories: ["System", "Hibernate"],
       name: "Hibernate",
-      description: "Suspend to disk",
+      comment: "Suspend to disk",
       script: [`${Paths.scripts}/suspend.sh`],
       iconId: "system-hibernate"
     }
@@ -164,27 +173,27 @@ Singleton {
 
   readonly property var utilities: [
     {
-      id: 0,
+      id: "ritual-utils-screenshot",
       name: "Screenshot",
-      description: "Screenshot and annotate utility",
+      comment: "Screenshot and annotate utility",
       genericName: "Script",
       categories: ["Utility", "ImageProcessing"],
       script: [`${Paths.scripts}/screenshot.sh`],
       iconId: "accessories-screenshot"
     },
     {
-      id: 1,
+      id: "ritual-utils-colorpicker",
       name: "Color picker",
-      description: "Pick a hexadecimal color from screens, and place in clipboard",
+      comment: "Pick a hexadecimal color from screens, and place in clipboard",
       genericName: "Script",
       categories: ["Utility", "ImageProcessing"],
       script: [`${Paths.scripts}/colorpicker.sh`],
       iconId: "color-picker"
     },
     {
-      id: 2,
+      id: "ritual-utils-monitor",
       name: "System Monitor",
-      description: "Monitor system resource usage",
+      comment: "Monitor system resource usage",
       genericName: "Script",
       categories: ["Utility", "Monitor"],
       script: [`${Paths.scripts}/system-monitor.sh`],
@@ -194,47 +203,47 @@ Singleton {
 
   readonly property var displayLayouts: [
     {
-      id: 0,
+      id: "ritual-display-desk",
       name: "Desk",
-      description: "Arrange displays in the default desk layout",
+      comment: "Arrange displays in the default desk layout",
       genericName: "Display",
       categories: ["Display", "Desk"],
       script: [menus.display.script, "desk"],
       iconId: "input-keyboard"
     },
     {
-      id: 1,
+      id: "ritual-display-tv",
       name: "Television (TV)",
-      description: "Switch to Television (TV), disabling all other displays",
+      comment: "Switch to Television (TV), disabling all other displays",
       script: [menus.display.script, "tv"],
       genericName: "Display",
       categories: ["Display", "TV"],
       iconId: "applications-games"
     },
     {
-      id: 2,
+      id: "ritual-display-mirror",
       name: "Mirror",
       genericName: "Display",
       categories: ["Display", "Mirror"],
-      description: "Arrange desk layout, and mirror right display to TV",
+      comment: "Arrange desk layout, and mirror right display to TV",
       script: [menus.display.script, "mirror"],
       iconId: "preferences-desktop-remote-desktop"
     },
     {
-      id: 3,
+      id: "ritual-display-all",
       name: "All",
       genericName: "Display",
       categories: ["Display", "All"],
-      description: "Arrange all monitors in a side by side layout except for top monitor",
+      comment: "Arrange all monitors in a side by side layout except for top monitor",
       script: [menus.display.script, "all"],
       iconId: "multitasking-view"
     },
     {
-      id: 3,
+      id: "ritual-display-exclusive",
       name: "Exclusive",
       genericName: "Display",
       categories: ["Display", "Exclusive"],
-      description: "Disable all but center monitor (desk), setting a single exclusive display",
+      comment: "Disable all but center monitor (desk), setting a single exclusive display",
       script: [menus.display.script, "single"],
       iconId: "cs-display"
     }
@@ -245,7 +254,7 @@ Singleton {
       id: 0,
       sink: "alsa_output.usb-Generic_USB_Audio-00.HiFi__Speaker__sink",
       icon: "󰓃",
-      description: "Switch audio output to Speakers",
+      comment: "Switch audio output to Speakers",
       genericName: "Audio",
       categories: ["Audio", "Speakers"],
       iconId: "audio-speakers",
@@ -258,7 +267,7 @@ Singleton {
       genericName: "Audio",
       categories: ["Audio", "Headphones"],
       icon: "",
-      description: "Switch audio output to Headphones",
+      comment: "Switch audio output to Headphones",
       iconId: "audio-headphones",
       name: "Headphones",
       script: [menus.audio.script, "headphones"]
@@ -269,7 +278,7 @@ Singleton {
       categories: ["Audio", "TV"],
       sink: "alsa_output.pci-0000_03_00.1.hdmi-stereo-extra3",
       icon: "󰍹",
-      description: "Switch audio output to Television (TV)" ,
+      comment: "Switch audio output to Television (TV)" ,
       iconId: "video-display",
       name: "Television (TV)",
       script: [menus.audio.script, "tv"]
