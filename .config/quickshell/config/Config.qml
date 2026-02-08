@@ -10,10 +10,18 @@ import QtQuick
 
 Singleton {
   id: root
+
+  // wip: planned scale per display
   readonly property real scale: 1.0
+
+  // Default apps
   readonly property string terminal: "kitty"
   readonly property string shell: "zsh"
+
+  // Menu prefix
   readonly property string prefix: "/"
+
+  // Available displays
   readonly property QtObject displays: QtObject {
     readonly property string left: "DP-2"
     readonly property string right: "HDMI-A-1"
@@ -21,8 +29,12 @@ Singleton {
     readonly property string tv: "HDMI-A-2"
     readonly property string top: "HDMI-A-3"
   }
-  readonly property string defaultMode: "apps"
+  // Primary display
   readonly property string primaryDisplay: root.displays.center
+
+  // default menu mode
+  readonly property string defaultMode: "apps"
+
 
   property var keyboardLayouts: [
     {
@@ -39,6 +51,8 @@ Singleton {
     }
   ]
 
+
+  // TODO: Merge with modeMenu, no need for two collections
   readonly property var menus: {
     "display": {
       "name": "Display",
@@ -66,6 +80,8 @@ Singleton {
       "script": null
     }
   }
+
+  // Menu modes, defaults to apps
   readonly property var modeMenu: [
     {
       id: "ritual-mode-apps",
@@ -114,6 +130,8 @@ Singleton {
     }
   ]
 
+
+  // Power scripts (shutdown, logout, reboot etc), see ~/scripts for each option
   readonly property var powerScripts: [
     {
       id: "ritual-power-shutdown",
@@ -201,6 +219,7 @@ Singleton {
     }
   ]
 
+  // Display layouts (~/.config/hypr/monitor/*)
   readonly property var displayLayouts: [
     {
       id: "ritual-display-desk",
@@ -249,6 +268,7 @@ Singleton {
     }
   ]
 
+  // Audio output sinks
   readonly property var outputs: [
     {
       id: 0,
