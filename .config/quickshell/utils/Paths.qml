@@ -13,6 +13,7 @@ Singleton {
       return subdir ? `${base}/${subdir}` : base;
     }
 
+    readonly property string config: xdgDir("XDG_CONFIG_HOME", "~/.config")
     readonly property string pictures: xdgDir("XDG_PICTURES_DIR", "~/Pictures")
     readonly property string videos: xdgDir("XDG_VIDEOS_DIR", "~/Videos")
     readonly property string data: xdgDir("XDG_DATA_HOME", "~/.local/share", "ritual")

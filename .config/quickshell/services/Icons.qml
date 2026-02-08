@@ -9,6 +9,16 @@ Singleton {
     "missing": "image-missing",
   }
 
+  // Get an alias for input id (usually class/appid)
+  function getAlias(id) {
+    for (const [re, repl] of Config.aliases) {
+      if (re.test(id)) {
+        return id.replace(re, repl);
+      }
+    }
+    return null;
+  }
+
   // Choose the class with the most occurrences
   function mostOccuringClass(arr: var): var {
     return arr.sort((a,b) =>
@@ -22,12 +32,12 @@ Singleton {
   }
 
   function getEntryIcon(entry: DesktopEntry): string {
-    const icon = Config.getAlias(entry.id) ?? entry?.icon
+    const icon = getAlias(entry.id) ?? entry?.icon
     return Quickshell.iconPath(icon, root.icons.missing)
   }
 
   function lookupIcon(appId: string): string {
-    const icon = Config.getAlias(appId) ?? getEntry(appId)?.icon
+    const icon = getAlias(appId) ?? getEntry(appId)?.icon
     return Quickshell.iconPath(icon, root.icons.missing)
   }
 
@@ -40,7 +50,7 @@ Singleton {
     }).map(w => w?.class)
     const uniq = [...new Set(classes)].sort((a, b) => a.localeCompare(b))
     return uniq.map(id => {
-      const icon = Config.getAlias(id) ?? DesktopEntries.heuristicLookup(id)?.icon
+      const icon = getAlias(id) ?? DesktopEntries.heuristicLookup(id)?.icon
       return {
         icon: Quickshell.iconPath(icon, root.icons.missing),
         class: id

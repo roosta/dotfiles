@@ -285,15 +285,6 @@ Singleton {
     }
   ]
 
-  function getSinkIcon(sink) {
-    if (sink) {
-      const obj = outputs.find(o => o.sink == sink.name);
-      if (obj) { return obj.icon }
-    } else {
-      return ""
-    }
-  }
-
   // icon aliases, if a class/appid matches key, use value
   // in cases where there isn't a good icon match
   readonly property var aliases: [
@@ -305,16 +296,6 @@ Singleton {
     [/.*pavucontrol.*/, "gnome-volume-control"],
     [/.*gpick.*/i, "preferences-color"]
   ]
-
-  // Get an alias for input id (usually class/appid)
-  function getAlias(id) {
-    for (const [re, repl] of aliases) {
-      if (re.test(id)) {
-        return id.replace(re, repl);
-      }
-    }
-    return null;
-  }
 
   // Move to something interactive via the menu, but this'll do for now
   property var favorites: [

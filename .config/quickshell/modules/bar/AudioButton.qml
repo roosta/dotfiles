@@ -10,11 +10,22 @@ import QtQuick.Controls
 
 ExpandingButton {
   id: root
+
+
+  function getSinkIcon(sink) {
+    if (sink) {
+      const obj = Config.outputs.find(o => o.sink == sink.name);
+      if (obj) { return obj.icon }
+    } else {
+      return ""
+    }
+  }
+
   buttonLabel: {
     if (PipewireData.ready && PipewireData.sink.audio.muted) {
       return ""
     }
-    return Config.getSinkIcon(PipewireData.sink) ?? ""
+    return getSinkIcon(PipewireData.sink) ?? ""
   }
 
   BorderRectangle {
@@ -52,7 +63,7 @@ ExpandingButton {
       anchors.centerIn: parent
       color: Appearance.srcery.white
       id: srcBtnText
-      text: Config.getSinkIcon(PipewireData.sink)
+      text: root.getSinkIcon(PipewireData.sink)
       font {
         family: Appearance.font.light
         pixelSize: Appearance.font.size3
