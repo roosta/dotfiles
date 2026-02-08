@@ -196,7 +196,7 @@ Singleton {
       comment: "Monitor system resource usage",
       genericName: "Script",
       categories: ["Utility", "Monitor"],
-      script: [`${Paths.scripts}/system-monitor.sh`],
+      script: [`${Paths.scripts}/system-monitor.sh`, '-c', `${Paths.config}/btop/monitor.conf`],
       iconId: "utilities-system-monitor"
     }
   ]
