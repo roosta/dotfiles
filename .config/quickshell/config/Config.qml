@@ -19,7 +19,7 @@ Singleton {
   readonly property string shell: "zsh"
 
   // Menu prefix
-  readonly property string prefix: "/"
+  readonly property string menuPrefix: "/"
 
   // Available displays
   readonly property QtObject displays: QtObject {
@@ -51,38 +51,8 @@ Singleton {
     }
   ]
 
-
-  // TODO: Merge with modeMenu, no need for two collections
-  readonly property var menus: {
-    "display": {
-      "name": "Display",
-      "prefix": "/display ",
-      "script": `${Paths.home}/scripts/switch-display.sh`
-    },
-    "audio": {
-      "name": "Audio",
-      "prefix": "/audio ",
-      "script": `${Paths.home}/scripts/switch-audio.sh`
-    },
-    "apps": {
-      "name": "Apps",
-      "prefix": "/apps",
-      "script": null
-    },
-    "power": {
-      "name": "Power",
-      "prefix": "/power",
-      "script": null
-    },
-    "utils": {
-      "name": "Utilities",
-      "prefix": "/utils",
-      "script": null
-    }
-  }
-
   // Menu modes, defaults to apps
-  readonly property var modeMenu: [
+  readonly property var launcherMenus: [
     {
       id: "ritual-mode-apps",
       name: "Applications",
@@ -227,14 +197,14 @@ Singleton {
       comment: "Arrange displays in the default desk layout",
       genericName: "Display",
       categories: ["Display", "Desk"],
-      script: [menus.display.script, "desk"],
+      script: [`${Paths.home}/scripts/switch-display.sh`, "desk"],
       iconId: "input-keyboard"
     },
     {
       id: "ritual-display-tv",
       name: "Television (TV)",
       comment: "Switch to Television (TV), disabling all other displays",
-      script: [menus.display.script, "tv"],
+      script: [`${Paths.home}/scripts/switch-display.sh`, "tv"],
       genericName: "Display",
       categories: ["Display", "TV"],
       iconId: "applications-games"
@@ -245,7 +215,7 @@ Singleton {
       genericName: "Display",
       categories: ["Display", "Mirror"],
       comment: "Arrange desk layout, and mirror right display to TV",
-      script: [menus.display.script, "mirror"],
+      script: [`${Paths.home}/scripts/switch-display.sh`, "mirror"],
       iconId: "preferences-desktop-remote-desktop"
     },
     {
@@ -254,7 +224,7 @@ Singleton {
       genericName: "Display",
       categories: ["Display", "All"],
       comment: "Arrange all monitors in a side by side layout except for top monitor",
-      script: [menus.display.script, "all"],
+      script: [`${Paths.home}/scripts/switch-display.sh`, "all"],
       iconId: "multitasking-view"
     },
     {
@@ -263,7 +233,7 @@ Singleton {
       genericName: "Display",
       categories: ["Display", "Exclusive"],
       comment: "Disable all but center monitor (desk), setting a single exclusive display",
-      script: [menus.display.script, "single"],
+      script: [`${Paths.home}/scripts/switch-display.sh`, "single"],
       iconId: "cs-display"
     }
   ]
@@ -279,7 +249,7 @@ Singleton {
       categories: ["Audio", "Speakers"],
       iconId: "audio-speakers",
       name: "Speakers",
-      script: [menus.audio.script, "speakers"]
+      script: [`${Paths.home}/scripts/switch-audio.sh`, "speakers"]
     },
     {
       id: 1,
@@ -290,7 +260,7 @@ Singleton {
       comment: "Switch audio output to Headphones",
       iconId: "audio-headphones",
       name: "Headphones",
-      script: [menus.audio.script, "headphones"]
+      script: [`${Paths.home}/scripts/switch-audio.sh`, "headphones"]
     },
     {
       id: 2,
@@ -301,7 +271,7 @@ Singleton {
       comment: "Switch audio output to Television (TV)" ,
       iconId: "video-display",
       name: "Television (TV)",
-      script: [menus.audio.script, "tv"]
+      script: [`${Paths.home}/scripts/switch-audio.sh`, "tv"]
     }
   ]
 

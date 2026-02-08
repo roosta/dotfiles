@@ -37,7 +37,7 @@ Singleton {
     })
   }
 
-  property var menuData: Config.modeMenu.map(a => {
+  property var menuData: Config.launcherMenus.map(a => {
     return  {
       name: Fuzzy.prepare(`${a.name} `),
       entry: a

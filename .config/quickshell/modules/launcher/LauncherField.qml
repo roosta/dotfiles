@@ -72,11 +72,11 @@ BorderRectangle {
       // implicitWidth: parent.width - Appearance.spacing.p2 * 2 + Appearance.bar.borderWidth * 2
       placeholderText: " Search..."
       onTextChanged: {
-        if (text === Config.prefix) {
+        if (text === Config.menuPrefix) {
           GlobalState.launcherMode = "menu"
         }
-        const m = Object.entries(Config.menus).find(([k, v]) => {
-          return text.startsWith(v.prefix)
+        const m = Config.launcherMenus.find(m => {
+          return text.startsWith(`${Config.menuPrefix}/${m.mode}`)
         })
         if (m) {
           GlobalState.launcherMode = m[0]
@@ -189,7 +189,7 @@ BorderRectangle {
       onCurrentValueChanged: {
         GlobalState.launcherMode = currentValue
       }
-      model: Object.entries(Config.menus).map(([k, v]) => k)
+      model: Config.launcherMenus.map(m => m.mode)
       Layout.fillHeight: true
       implicitWidth: 114
 
@@ -213,7 +213,7 @@ BorderRectangle {
 
         width: control.width
         contentItem: Text {
-          text: `${Config.prefix}${delegate.model[control.textRole]}`
+          text: `${Config.menuPrefix}${delegate.model[control.textRole]}`
           color: delegate.highlighted ? Appearance.srcery.brightWhite : Appearance.srcery.white
           font.family: Appearance.font.light
           font.pointSize: Appearance.font.normal
@@ -257,7 +257,7 @@ BorderRectangle {
           if (control.currentValue === "menu") {
             return "Select Mode"
           }
-          return `${Config.prefix}${control.displayText}`
+          return `${Config.menuPrefix}${control.displayText}`
         }
         color: control.pressed ? Appearance.srcery.brightBlack : Appearance.srcery.gray6
         verticalAlignment: Text.AlignVCenter

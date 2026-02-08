@@ -79,7 +79,7 @@ Item {
         query: root.query
         monitorId: root.monitorId
         sourceModel: {
-          const q = root.query.replace(Config.menus.audio.prefix, "")
+          const q = root.query.replace(`${Config.menuPrefix}/utils`, "")
           return Fuzzy.query(q, LauncherData.utilsData)
         }
         onAccept: (entry) => {
@@ -94,7 +94,7 @@ Item {
         query: root.query
         monitorId: root.monitorId
         sourceModel: {
-          const q = root.query.replace(Config.menus.audio.prefix, "")
+          const q = root.query.replace(`${Config.menuPrefix}/audio`, "")
           return Fuzzy.query(q, LauncherData.audioData)
         }
         onAccept: (entry) => {
@@ -109,7 +109,7 @@ Item {
         query: root.query
         monitorId: root.monitorId
         sourceModel: {
-          const q = root.query.replace(Config.menus.display.prefix, "")
+          const q = root.query.replace(`${Config.menuPrefix}/display`, "")
           return Fuzzy.query(q, LauncherData.displayData)
         }
         onAccept: (entry) => {
@@ -124,7 +124,7 @@ Item {
         query: root.query
         monitorId: root.monitorId
         sourceModel: {
-          const q = root.query.replace(Config.menus.power.prefix, "")
+          const q = root.query.replace(`${Config.menuPrefix}/power`, "")
           return Fuzzy.query(q, LauncherData.powerData)
         }
         onAccept: (entry) => {

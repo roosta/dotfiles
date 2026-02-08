@@ -23,7 +23,7 @@ Singleton {
   }
 
   property string launcherIcon: {
-    const mode = Config.modeMenu.find(m => m.mode === GlobalState.launcherMode)
+    const mode = Config.launcherMenus.find(m => m.mode === GlobalState.launcherMode)
     if (mode) {
       return Quickshell.iconPath(mode.iconId) ?? ""
     }
