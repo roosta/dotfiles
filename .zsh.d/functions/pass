@@ -1,0 +1,8 @@
+# Disable clipmenu when copying using pass
+function pass() {
+    clipctl disable &>/dev/null || true
+    /usr/bin/pass "$@"
+    clipctl enable &>/dev/null || true
+}
+
+pass "$@"
