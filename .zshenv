@@ -10,12 +10,8 @@ typeset -gU cdpath fpath mailpath path
 path=(
 	~/bin
 	~/.local/bin
-	/usr/local/bin
-	$HOME/.go/bin
-	~/perl5/bin
-	~/.npm/bin
-	~/.pip/bin
 	~/.cargo/bin
+	~/.npm/bin
 	$path[@]
 )
 
@@ -24,7 +20,7 @@ fpath=(
 	$fpath[@]
 )
 
-# GTK
+# Use this with hyprland disable xwayland scaling
 export GDK_SCALE=2
 
 export TERMINAL=kitty
@@ -35,28 +31,14 @@ export EDITOR=nvim
 export ALTERNATE_EDITOR=nvim
 export VISUAL=nvim
 
-# Golang lib path
-export GOPATH=$HOME/.go
-
 # Set less default opts
 export LESS="-R --use-color --mouse --jump-target=12 -DP15.236"
 
 export PAGER=nvimpager
 export PARU_PAGER=$PAGER
 export MANPAGER=$PAGER
-# alias zless=$PAGER
-
-# set site.USERBASE for pip user installs
-export PYTHONUSERBASE=$HOME/.pip
-
-export ARDUINO_DIR=/usr/share/arduino
 
 export SYSTEMD_EDITOR="/usr/bin/nvim"
-
-if hash ruby 2>/dev/null; then
-	export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
-  PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH"
-fi
 
 export SSH_AUTH_SOCK=/run/user/$(id -u)/gcr/ssh
 
