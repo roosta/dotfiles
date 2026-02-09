@@ -1,7 +1,0 @@
-# read markdown files like manpages
-# https://github.com/xero/dotfiles/blob/master/zsh/.zsh/aliases.zsh
-function org() {
-    pandoc -s -f org -t man "$*" | man -l -
-}
-
-org "$@"
