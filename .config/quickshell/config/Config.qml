@@ -295,7 +295,7 @@ Singleton {
     "net.lutris.Lutris",
     "com.github.iwalton3.jellyfin-media-player",
     "spotify",
-    "org.mozilla.thunderbird",
+    "org.mozilla.Thunderbird",
     "com.discordapp.Discord",
     "kitty"
   ]
