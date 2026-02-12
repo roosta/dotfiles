@@ -6,7 +6,7 @@ import QtQuick
 Singleton {
   id: root
 
-  readonly property QtObject srcery: QtObject {
+  component Srcery: QtObject {
     readonly property string black: "#121110"
     readonly property string red: "#EF2F27"
     readonly property string green: "#519F50"
@@ -33,8 +33,9 @@ Singleton {
     readonly property string gray5: "#45433E"
     readonly property string gray6: "#504D47"
   }
+  readonly property Srcery srcery: Srcery {}
 
-  readonly property QtObject bar: QtObject {
+  component Bar: QtObject {
     readonly property int height: 40 * Config.scale
     readonly property bool transparent: false
     readonly property int radius: 0 * Config.scale
@@ -42,12 +43,14 @@ Singleton {
     readonly property int sliderWidth: 120 * Config.scale
     readonly property real iconSize: 20 * Config.scale
   }
+  readonly property Bar bar: Bar {}
 
-  readonly property QtObject launcher: QtObject {
+  component Launcher: QtObject {
     readonly property int height: 256
   }
+  readonly property Launcher launcher: Launcher { }
 
-  readonly property QtObject font: QtObject {
+  component Font: QtObject {
     readonly property string main: "Iosevka"
     readonly property string symbols: "Symbols Nerd Font"
     readonly property string light: "Iosevka Light"
@@ -63,8 +66,9 @@ Singleton {
     readonly property int large: 12 * Config.scale
     readonly property int tiny: 8 * Config.scale
   }
+  readonly property Font font: Font {}
 
-  readonly property QtObject spacing: QtObject {
+  component Spacing: QtObject {
     readonly property int p0: 3 * Config.scale
     readonly property int p1: 6 * Config.scale
     readonly property int p2: 8 * Config.scale
@@ -72,13 +76,17 @@ Singleton {
     readonly property int p4: 16 * Config.scale
     readonly property int p5: 24 * Config.scale
   }
+  readonly property Spacing spacing: Spacing { }
 
-  readonly property QtObject durations: QtObject {
+  component Durations: QtObject {
     readonly property int normal: 400
     readonly property int small: 200
   }
+  readonly property Durations durations: Durations { }
+
   // https://github.com/end-4/dots-hyprland/blob/703697e1c40b66619fb224043891aade47494bb3/.config/quickshell/ii/modules/common/Appearance.qml#L225-L242
-  readonly property QtObject animationCurves: QtObject {
+
+  component AnimationCurves: QtObject {
     readonly property list<real> expressiveFastSpatial: [0.42, 1.67, 0.21, 0.90, 1, 1] // Default, 350ms
     readonly property list<real> expressiveDefaultSpatial: [0.38, 1.21, 0.22, 1.00, 1, 1] // Default, 500ms
     readonly property list<real> expressiveSlowSpatial: [0.39, 1.29, 0.35, 0.98, 1, 1] // Default, 650ms
@@ -96,5 +104,6 @@ Singleton {
     readonly property real expressiveSlowSpatialDuration: 650
     readonly property real expressiveEffectsDuration: 200
   }
+  readonly property AnimationCurves animationCurves: AnimationCurves { }
 }
 

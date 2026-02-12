@@ -12,7 +12,7 @@ Singleton {
   id: root
 
   // wip: planned scale per display
-  readonly property real scale: 1.0
+  property real scale: 1.0
 
   // Default apps
   readonly property string terminal: "kitty"
@@ -22,13 +22,16 @@ Singleton {
   readonly property string menuPrefix: "/"
 
   // Available displays
-  readonly property QtObject displays: QtObject {
+
+  component Displays: QtObject {
     readonly property string left: "DP-2"
     readonly property string right: "HDMI-A-1"
     readonly property string center: "DP-1"
     readonly property string tv: "HDMI-A-2"
     readonly property string top: "HDMI-A-3"
   }
+  readonly property Displays displays: Displays { }
+
   // Primary display
   readonly property string primaryDisplay: root.displays.center
 
