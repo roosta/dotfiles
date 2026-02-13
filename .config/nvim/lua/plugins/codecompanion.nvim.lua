@@ -35,15 +35,16 @@ return {
             }
         }
     },
-    strategies = {
+    interactions = {
       chat = {
-        -- adapter = "openai",
         adapter = "anthropic",
       },
       inline = {
-        -- adapter = "openai",
         adapter = "anthropic",
       },
+      cmd = {
+        adapter = "anthropic"
+      }
     },
   }
 }
