@@ -1,6 +1,5 @@
 //@ pragma Env QS_NO_RELOAD_POPUP=1
 //@ pragma UseQApplication
-//@ pragma IconTheme ritual-icons
 //@ pragma Env QT_QUICK_CONTROLS_STYLE=Basic
 
 pragma ComponentBehavior: Bound
