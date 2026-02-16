@@ -29,7 +29,6 @@ return {
       'confirm_done',
       cmp_autopairs.on_confirm_done()
     )
-
     cmp.setup({
       snippet = {
         expand = function(args)
@@ -37,8 +36,13 @@ return {
         end,
       },
       window = {
-        completion = cmp.config.window.bordered(),
-        documentation = cmp.config.window.bordered(),
+        completion = {
+          winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
+        },
+
+        documentation = {
+          winhighlight = "NormalFloat:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel,Search:None",
+        },
       },
       mapping = {
         ['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), {'i', 'c'}),
