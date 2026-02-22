@@ -2,7 +2,8 @@
 -- ├┴┐│  ││││├┴┐──│  ││││─┘
 -- └─┘┆─┘┆┆└┘┆ ┆  └─┘┘ ┆┆
 -- ─────────────────────────────────────────────────────────────────────────
---  performant, batteries-included completion plugin for Neovim
+-- Performant, batteries-included completion plugin for Neovim
+-- https://github.com/saghen/blink.cmp
 
 return {
   "saghen/blink.cmp",
@@ -23,15 +24,18 @@ return {
       ["<C-k>"] = { "select_prev", "fallback" },
     },
     completion = {
+      ghost_text = { enabled = true },
+      list = {
+        selection = {
+          preselect = false
+        }
+      },
       accept = {
         auto_brackets = { enabled = true },
       },
     },
     cmdline = {
       enabled = true,
-    },
-    completion = {
-      ghost_text = { enabled = true },
     },
     menu = {
       auto_show = true
