@@ -29,6 +29,18 @@
               },
               {
                 "type": "command",
+                "name": "Thunderbird",
+                "icon": "org.mozilla.Thunderbird",
+                "iconTheme": "system",
+                "data": {
+                  "command": "thunderbird",
+                  "detached": true,
+                  "isolated": false,
+                  "delayed": false
+                }
+              },
+              {
+                "type": "command",
                 "data": {
                   "command": "/usr/lib/firefox/firefox",
                   "detached": true,
