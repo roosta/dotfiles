@@ -85,6 +85,21 @@ ShellRoot {
               Intersection.Xor
             }
           }
+          regions: [
+            Region {
+              x: bar.x
+              y: bar.y
+              width: bar.width
+              height: bar.height
+              intersection: {
+                if (GlobalState.overlayOpen) {
+                  Intersection.Combine
+                } else {
+                  Intersection.Subtract
+                }
+              }
+            }
+          ]
         }
 
         anchors {
