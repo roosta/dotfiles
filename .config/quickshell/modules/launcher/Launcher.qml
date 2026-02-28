@@ -15,19 +15,55 @@ Item {
   id: root
   required property string monitorId
 
+  anchors.bottomMargin: Appearance.bar.height
   anchors.fill: parent
   property bool monitorIsFocused: (Hyprland.focusedMonitor?.id === monitorId)
   property string query: ""
   property int currentIndex: 0
 
+  visible: launcher.height > 0
+
+  GlobalShortcut {
+    name: "toggleLauncher"
+    description: "Toggles launcher"
+
+    onPressed: {
+
+      if (Hyprland.focusedMonitor?.name === root.monitorId) {
+        GlobalState.toggleLauncher(Hyprland.focusedMonitor?.name)
+      }
+    }
+  }
 
   BorderRectangle {
     id: launcher
-    anchors.fill: parent
-    anchors.horizontalCenter: parent.horizontalCenter
+    implicitHeight: 0
+    // anchors.fill: parent
+    // anchors.horizontalCenter: parent.horizontalCenter
+    anchors.left: parent.left
+    anchors.right: parent.right
+    anchors.bottom: parent.bottom
     color: Appearance.srcery.black
     topBorder: Appearance.bar.borderWidth
     borderColor: Appearance.srcery.gray2
+
+    states: [
+      State {
+        name: "active"
+        when: GlobalState.launcherOpen && GlobalState.launcherMonitorId === root.monitorId
+        PropertyChanges { launcher.implicitHeight: Appearance.launcher.height }
+      }
+    ]
+
+    transitions: [
+      Transition {
+        NumberAnimation {
+          properties: "implicitHeight"
+          duration: Appearance.durations.small
+          easing.type: Easing.InOutCubic
+        }
+      }
+    ]
 
     ColumnLayout {
       anchors.fill: parent

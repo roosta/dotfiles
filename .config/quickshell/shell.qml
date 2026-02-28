@@ -37,35 +37,91 @@ ShellRoot {
       }
 
       NamedPanel {
-        id: barPanel
-        name: "bar"
+        id: exclusion
+        WlrLayershell.layer: WlrLayer.Bottom
+        name: "exclusion"
         screen: scope.modelData
         anchors.bottom: true
         anchors.left: true
         anchors.right: true
-        implicitHeight: Appearance.bar.height
-        Bar {
-          id: bar
-          monitorId: scope.monitorId
+        property int hcalc: {
+          if (GlobalState.launcherOpen && GlobalState.launcherMonitorId === scope.monitorId) {
+            return Appearance.bar.height + Appearance.launcher.height
+          }
+          return Appearance.bar.height
         }
+        // implicitHeight: hcalc
+        exclusiveZone: hcalc
+
+        // Behavior on hcalc {
+        //   NumberAnimation {
+        //     duration: Appearance.durations.small
+        //     easing.type: Easing.InOutCubic
+        //   }
+        // }
+        //
       }
+      // NamedPanel {
+      //   id: barPanel
+      //   name: "bar"
+      //   screen: scope.modelData
+      //   anchors.bottom: true
+      //   anchors.left: true
+      //   anchors.right: true
+      //   implicitHeight: Appearance.bar.height
+      //   Bar {
+      //     id: bar
+      //     monitorId: scope.monitorId
+      //   }
+      // }
 
       NamedPanel {
-        id: contentPanel
-        name: "content"
+        id: main
+        name: "main"
         screen: scope.modelData
 
-        // WlrLayershell.keyboardFocus: GlobalState.launcherOpen
-        //   ? WlrKeyboardFocus.OnDemand
-        //   : WlrKeyboardFocus.None
+        WlrLayershell.exclusionMode: ExclusionMode.Ignore
+        WlrLayershell.keyboardFocus: GlobalState.launcherOpen
+        ? WlrKeyboardFocus.OnDemand
+        : WlrKeyboardFocus.None
+
+        HyprlandFocusGrab {
+          id: grab
+          windows: [main]
+          active: GlobalState.launcherOpen && GlobalState.launcherMonitorId === scope.monitorId
+          onCleared: {
+            GlobalState.closeLauncher();
+          }
+        }
 
         mask: Region {
           id: mask
           x: 0
           y: 0
-          width: contentPanel.width
-          height: contentPanel.height
-          intersection: GlobalState.overlayOpen ? Intersection.Combine : Intersection.Xor
+          width: main.width
+          height: main.height
+          intersection: {
+            if (GlobalState.overlayOpen) {
+              Intersection.Combine
+            } else {
+              Intersection.Xor
+            }
+          }
+          regions: [
+            Region {
+              x: bar.x
+              y: bar.y
+              width: bar.width
+              height: bar.height
+              intersection: {
+                if (GlobalState.overlayOpen) {
+                  Intersection.Combine
+                } else {
+                  Intersection.Subtract
+                }
+              }
+            }
+          ]
         }
 
         anchors {
@@ -102,6 +158,16 @@ ShellRoot {
               PropertyChanges { content.color: Functions.transparentize("#000", 0.7) }
             }
           ]
+          Bar {
+            id: bar
+            monitorId: scope.monitorId
+          }
+
+          Launcher {
+            id: launcher
+            monitorId: scope.monitorId
+          }
+
           Loader {
             id: trayMenu
             anchors.fill: parent
@@ -118,48 +184,48 @@ ShellRoot {
         }
       }
 
-      Loader {
-        active: LauncherData.appsData.length > 0 && GlobalState.launcherOpen && GlobalState.launcherMonitorId === scope.monitorId
-
-        GlobalShortcut {
-          name: "toggleLauncher"
-          description: "Toggles launcher"
-
-          onPressed: {
-
-            if (Hyprland.focusedMonitor?.name === scope.monitorId) {
-              GlobalState.toggleLauncher(Hyprland.focusedMonitor?.name)
-            }
-          }
-        }
-        sourceComponent: NamedPanel {
-          name: "launcher"
-          screen: scope.modelData
-          anchors.bottom: true
-          anchors.left: true
-          anchors.right: true
-          implicitHeight: Appearance.launcher.height
-          id: launcherPanel
-
-          WlrLayershell.keyboardFocus: GlobalState.launcherOpen
-          ? WlrKeyboardFocus.OnDemand
-          : WlrKeyboardFocus.None
-
-          // HyprlandFocusGrab {
-          //   id: grab
-          //   windows: [launcherPanel]
-          //   active: true
-          //   onCleared: {
-          //     GlobalState.closeLauncher();
-          //   }
-          // }
-
-          Launcher {
-            id: launcher
-            monitorId: scope.monitorId
-          }
-        }
-      }
+      // Loader {
+      //   active: LauncherData.appsData.length > 0 && GlobalState.launcherOpen && GlobalState.launcherMonitorId === scope.monitorId
+      //
+      //   GlobalShortcut {
+      //     name: "toggleLauncher"
+      //     description: "Toggles launcher"
+      //
+      //     onPressed: {
+      //
+      //       if (Hyprland.focusedMonitor?.name === scope.monitorId) {
+      //         GlobalState.toggleLauncher(Hyprland.focusedMonitor?.name)
+      //       }
+      //     }
+      //   }
+      //   sourceComponent: NamedPanel {
+      //     name: "launcher"
+      //     screen: scope.modelData
+      //     anchors.bottom: true
+      //     anchors.left: true
+      //     anchors.right: true
+      //     implicitHeight: Appearance.launcher.height
+      //     id: launcherPanel
+      //
+      //     WlrLayershell.keyboardFocus: GlobalState.launcherOpen
+      //     ? WlrKeyboardFocus.OnDemand
+      //     : WlrKeyboardFocus.None
+      //
+      //     // HyprlandFocusGrab {
+      //     //   id: grab
+      //     //   windows: [launcherPanel]
+      //     //   active: true
+      //     //   onCleared: {
+      //     //     GlobalState.closeLauncher();
+      //     //   }
+      //     // }
+      //
+      //     Launcher {
+      //       id: launcher
+      //       monitorId: scope.monitorId
+      //     }
+      //   }
+      // }
     }
   }
 }
