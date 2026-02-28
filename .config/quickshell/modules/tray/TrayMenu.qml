@@ -3,6 +3,7 @@
 // Modified by Daniel Berg <mail@roosta.sh>
 
 pragma ComponentBehavior: Bound
+import qs
 import qs.config
 
 import QtQuick
@@ -24,8 +25,14 @@ Item {
   property real padding: Appearance.spacing.p1
 
   anchors.fill: parent
-  anchors.bottomMargin: Appearance.spacing.p1
   anchors.rightMargin: Appearance.spacing.p1
+  anchors.bottomMargin: {
+    let height = Appearance.bar.height + Appearance.spacing.p1
+    if (GlobalState.launcherOpen && GlobalState.launcherMonitorId === root.monitorId) {
+      height += Appearance.launcher.height
+    }
+    return height
+  }
 
   function open() {
     if (Hyprland.focusedMonitor?.name === root.monitorId) {
