@@ -50,30 +50,8 @@ ShellRoot {
           }
           return Appearance.bar.height
         }
-        // implicitHeight: hcalc
         exclusiveZone: hcalc
-
-        // Behavior on hcalc {
-        //   NumberAnimation {
-        //     duration: Appearance.durations.small
-        //     easing.type: Easing.InOutCubic
-        //   }
-        // }
-        //
       }
-      // NamedPanel {
-      //   id: barPanel
-      //   name: "bar"
-      //   screen: scope.modelData
-      //   anchors.bottom: true
-      //   anchors.left: true
-      //   anchors.right: true
-      //   implicitHeight: Appearance.bar.height
-      //   Bar {
-      //     id: bar
-      //     monitorId: scope.monitorId
-      //   }
-      // }
 
       NamedPanel {
         id: main
@@ -107,21 +85,6 @@ ShellRoot {
               Intersection.Xor
             }
           }
-          regions: [
-            Region {
-              x: bar.x
-              y: bar.y
-              width: bar.width
-              height: bar.height
-              intersection: {
-                if (GlobalState.overlayOpen) {
-                  Intersection.Combine
-                } else {
-                  Intersection.Subtract
-                }
-              }
-            }
-          ]
         }
 
         anchors {
@@ -183,49 +146,6 @@ ShellRoot {
           }
         }
       }
-
-      // Loader {
-      //   active: LauncherData.appsData.length > 0 && GlobalState.launcherOpen && GlobalState.launcherMonitorId === scope.monitorId
-      //
-      //   GlobalShortcut {
-      //     name: "toggleLauncher"
-      //     description: "Toggles launcher"
-      //
-      //     onPressed: {
-      //
-      //       if (Hyprland.focusedMonitor?.name === scope.monitorId) {
-      //         GlobalState.toggleLauncher(Hyprland.focusedMonitor?.name)
-      //       }
-      //     }
-      //   }
-      //   sourceComponent: NamedPanel {
-      //     name: "launcher"
-      //     screen: scope.modelData
-      //     anchors.bottom: true
-      //     anchors.left: true
-      //     anchors.right: true
-      //     implicitHeight: Appearance.launcher.height
-      //     id: launcherPanel
-      //
-      //     WlrLayershell.keyboardFocus: GlobalState.launcherOpen
-      //     ? WlrKeyboardFocus.OnDemand
-      //     : WlrKeyboardFocus.None
-      //
-      //     // HyprlandFocusGrab {
-      //     //   id: grab
-      //     //   windows: [launcherPanel]
-      //     //   active: true
-      //     //   onCleared: {
-      //     //     GlobalState.closeLauncher();
-      //     //   }
-      //     // }
-      //
-      //     Launcher {
-      //       id: launcher
-      //       monitorId: scope.monitorId
-      //     }
-      //   }
-      // }
     }
   }
 }

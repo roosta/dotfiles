@@ -1,15 +1,17 @@
 pragma ComponentBehavior: Bound
-import Quickshell
+
+import qs
+import qs.components
+import qs.config
+import qs.services
+import qs.utils
 import QtQuick
-// import QtQuick.Controls
 import QtQuick.Layouts
 import Quickshell.Hyprland
-import qs.config
-import qs.utils
-import qs
+
 // import qs.utils
-import qs.components
-import qs.services
+// import QtQuick.Controls
+// import Quickshell
 
 Item {
   id: root
@@ -38,8 +40,6 @@ Item {
   BorderRectangle {
     id: launcher
     implicitHeight: 0
-    // anchors.fill: parent
-    // anchors.horizontalCenter: parent.horizontalCenter
     anchors.left: parent.left
     anchors.right: parent.right
     anchors.bottom: parent.bottom
