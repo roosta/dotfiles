@@ -7,7 +7,7 @@
 theme[main_bg]="#121110"
 
 # Main text color
-theme[main_fg]="#fce8c3"
+theme[main_fg]="#C5B088"
 
 # Title color for boxes
 theme[title]="#fce8c3"
@@ -83,6 +83,6 @@ theme[upload_mid]="#2c78bf"
 theme[upload_end]="#e02c6d"
 
 # Process box color gradient for threads, mem and cpu usage
-theme[process_start]="#2c78bf"
+theme[process_start]="#FCE8C3"
 theme[process_mid]="#519f50"
 theme[process_end]="#98bc37"
