@@ -34,6 +34,13 @@ Item {
     return height
   }
 
+  Behavior on anchors.bottomMargin {
+    NumberAnimation {
+      duration: Appearance.durations.small
+      easing.type: Easing.InOutCubic
+    }
+  }
+
   function open() {
     if (Hyprland.focusedMonitor?.name === root.monitorId) {
       root.visible = true
