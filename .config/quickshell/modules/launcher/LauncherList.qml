@@ -22,64 +22,6 @@ Item {
   default property alias contents: launcherList.children
   anchors.fill: parent
 
-  ListModel {
-    id: dynamicModel
-
-    function getId(item) {
-      return item?.id ?? item?.name ?? JSON.stringify(item)
-    }
-
-    // TODO: Get many out of bounds warnings on this
-    // It works, but I experince some weird behaviour, and warnings in log
-    function updateModel() {
-      const newData = root.sourceModel
-      const newIds = newData.map(getId)
-      const oldIds = []
-
-      // Build old IDs list
-      for (let i = 0; i < dynamicModel.count; i++) {
-        oldIds.push(getId(dynamicModel.get(i).modelData))
-      }
-
-      // Remove items that no longer exist
-      for (let i = dynamicModel.count - 1; i >= 0; i--) {
-        const id = getId(dynamicModel.get(i).modelData)
-        if (!newIds.includes(id)) {
-          dynamicModel.remove(i)
-        }
-      }
-
-      // Add new items and move existing ones
-      for (let i = 0; i < newData.length; i++) {
-        const item = newData[i]
-        const id = getId(item)
-
-        // Find current position
-        let currentIndex = -1
-        for (let j = 0; j < dynamicModel.count; j++) {
-          if (getId(dynamicModel.get(j).modelData) === id) {
-            currentIndex = j
-            break
-          }
-        }
-
-        if (currentIndex === -1) {
-          // New item - insert
-          dynamicModel.insert(i, { modelData: item })
-        } else if (currentIndex !== i) {
-          // Existing item in wrong position - move
-          dynamicModel.move(currentIndex, i, 1)
-        }
-      }
-    }
-  }
-
-  onSourceModelChanged: {
-    dynamicModel.updateModel()
-    list.currentIndex = 0
-    list.positionViewAtBeginning()
-  }
-
   Timer {
     id: timer
     interval: Appearance.durations.small
@@ -116,7 +58,14 @@ Item {
       ListView {
         id: list
         anchors.fill: parent
-        model: dynamicModel
+        model: ScriptModel {
+          id: model
+          values: root.sourceModel
+          onValuesChanged: {
+            list.currentIndex = 0
+            list.positionViewAtBeginning()
+          }
+        }
         highlightMoveVelocity: 2000
         highlightResizeDuration: 0
         spacing: Appearance.spacing.p1
