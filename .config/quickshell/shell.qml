@@ -27,6 +27,7 @@ ShellRoot {
       NamedPanel {
         id: wallpaper
         WlrLayershell.layer: WlrLayer.Background
+        exclusionMode: ExclusionMode.Ignore
         name: "wallpaper"
         screen: scope.modelData
         anchors.left: true

@@ -24,13 +24,14 @@ Item {
     return acc;
   }, {})
   readonly property HyprlandMonitor monitor: Hyprland
-  .monitorFor(root.QsWindow.window?.screen)
+    .monitorFor(root.QsWindow.window?.screen)
   readonly property Toplevel activeWindow: ToplevelManager.activeToplevel
   readonly property int activeWorkspaceId: monitor?.activeWorkspace?.id ?? 1
   property var windows: HyprlandData.windowsByWorkspace[activeWorkspaceId] ?? []
   property bool onlyFloating: windows.every(w => w.floating) ?? false
   readonly property bool isOccupied: occupied[activeWorkspaceId] ?? false
   readonly property string wallpaper: `${Paths.srcery}/srcery-wallpaper/srcery-wallpaper.png`
+  anchors.bottomMargin: Appearance.bar.height
 
   Rectangle {
     id: backgroundColor
