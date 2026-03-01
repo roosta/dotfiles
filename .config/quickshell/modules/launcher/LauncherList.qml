@@ -114,61 +114,6 @@ Item {
           }
         }
 
-        add: Transition {
-          SequentialAnimation {
-            PauseAnimation {
-              duration: ViewTransition.index * 30
-            }
-            ParallelAnimation {
-              NumberAnimation {
-                property: "x"
-                easing.type: Easing.OutCubic
-                duration: Appearance.durations.normal
-              }
-              NumberAnimation {
-                property: "opacity"
-                easing.type: Easing.OutCubic
-                duration: Appearance.durations.normal
-                from: 0
-                to: 1
-              }
-            }
-          }
-        }
-
-        move: Transition {
-          NumberAnimation {
-            property: "x"
-            easing.type: Easing.InOutCubic
-            duration: Appearance.durations.normal
-          }
-        }
-
-        remove: Transition {
-            ParallelAnimation {
-              NumberAnimation {
-                property: "opacity"
-                easing.type: Easing.InCubic
-                duration: Appearance.durations.small
-                to: 0
-              }
-              // NumberAnimation {
-              //   property: "scale"
-              //   easing.type: Easing.InCubic
-              //   duration: Appearance.durations.small
-              //   to: 0.8
-              // }
-            }
-        }
-
-        addDisplaced: Transition {
-          NumberAnimation {
-            property: "x"
-            easing.type: Easing.OutCubic
-            duration: Appearance.durations.normal
-          }
-        }
-
         displaced: Transition {
           NumberAnimation {
             property: "x"
