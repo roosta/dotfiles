@@ -68,6 +68,7 @@ Item {
         }
         highlightMoveVelocity: 2000
         highlightResizeDuration: 0
+
         spacing: Appearance.spacing.p1
         reuseItems: false
         orientation: ListView.Horizontal
@@ -116,13 +117,7 @@ Item {
         add: Transition {
           SequentialAnimation {
             PauseAnimation {
-              duration: {
-                if (ViewTransition.index > 0) {
-                  return ViewTransition.index * 30
-                } else {
-                  return 100
-                }
-              }
+              duration: ViewTransition.index * 30
             }
             ParallelAnimation {
               NumberAnimation {
@@ -150,8 +145,6 @@ Item {
         }
 
         remove: Transition {
-          SequentialAnimation {
-            PropertyAction { property: "ListView.delayRemove"; value: true }
             ParallelAnimation {
               NumberAnimation {
                 property: "opacity"
@@ -166,8 +159,6 @@ Item {
               //   to: 0.8
               // }
             }
-            PropertyAction { property: "ListView.delayRemove"; value: false }
-          }
         }
 
         addDisplaced: Transition {
