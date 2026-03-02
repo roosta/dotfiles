@@ -2,8 +2,8 @@ pragma ComponentBehavior: Bound
 // import Quickshell
 import QtQuick
 import QtQuick.Layouts
+import QtQuick.Effects
 
-// import Qt5Compat.GraphicalEffects
 import QtQuick.Controls
 import Quickshell.Widgets
 import Quickshell.Hyprland
@@ -12,7 +12,6 @@ import qs.services
 import qs.config
 import qs.components
 import qs.utils
-import Qt5Compat.GraphicalEffects
 // import qs.widgets
 
 Button {
@@ -154,7 +153,7 @@ Button {
                 when: appIcon.urgent && root.active && !hover.hovered
                 PropertyChanges {
                   blinkAnimation.running: true
-                  desaturatedIcon.desaturation: 0.0
+                  desaturatedIcon.saturation: 0.0
                 }
               },
               State {
@@ -162,7 +161,7 @@ Button {
                 when: appIcon.urgent && !root.active && !hover.hovered
                 PropertyChanges {
                   blinkAnimation.running: true
-                  desaturatedIcon.desaturation: 0.8
+                  desaturatedIcon.saturation: -0.8
                 }
               },
               State {
@@ -171,7 +170,7 @@ Button {
                 PropertyChanges {
                   blinkAnimation.running: false
                   desaturatedIcon.opacity: 1.0
-                  desaturatedIcon.desaturation: 0.0
+                  desaturatedIcon.saturation: 0.0
                 }
               },
               State {
@@ -179,7 +178,7 @@ Button {
                 when: appIcon.urgent && !root.active && hover.hovered
                 PropertyChanges {
                   blinkAnimation.running: true
-                  desaturatedIcon.desaturation: 0.0
+                  desaturatedIcon.saturation: 0.0
                 }
               },
               State {
@@ -188,7 +187,7 @@ Button {
                 PropertyChanges {
                   blinkAnimation.running: false
                   desaturatedIcon.opacity: 1.0
-                  desaturatedIcon.desaturation: 0.0
+                  desaturatedIcon.saturation: 0.0
                 }
               },
               State {
@@ -197,7 +196,7 @@ Button {
                 PropertyChanges {
                   blinkAnimation.running: false
                   desaturatedIcon.opacity: 1.0
-                  desaturatedIcon.desaturation: 0.8
+                  desaturatedIcon.saturation: -0.8
                 }
               }
 
@@ -225,15 +224,15 @@ Button {
               }
             }
 
-            Desaturate {
+            MultiEffect {
               id: desaturatedIcon
               implicitWidth: root.iconSize
               implicitHeight: root.iconSize
               anchors.centerIn: parent
 
-              Behavior on desaturation {
+              Behavior on saturation {
                 NumberAnimation {
-                  properties: "desaturation"
+                  properties: "saturation"
                   duration: Appearance.durations.small
                   easing.type: Easing.OutCubic
                 }
@@ -276,7 +275,7 @@ Button {
   //   State {
   //     name: "hovered"
   //     when: root.hovered
-  //     PropertyChanges { root.desaturation: 0.0 }
+  //     PropertyChanges { root.saturation: 0.0 }
   //   }
   // ]
 }

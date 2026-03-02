@@ -2,7 +2,6 @@ import QtQuick
 import Quickshell
 import QtQuick.VectorImage
 // import Quickshell.Widgets
-// import Qt5Compat.GraphicalEffects
 
 Item {
   id: root
