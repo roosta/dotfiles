@@ -1,4 +1,5 @@
 import Quickshell.Widgets
+import qs
 import QtQuick.Layouts
 import QtQuick
 import qs.utils
@@ -86,7 +87,16 @@ Item {
     }
 
     ColumnLayout {
+      opacity: GlobalState.launcherOpen ? 1 : 0
 
+    Behavior on opacity {
+      NumberAnimation {
+        property: "opacity"
+        duration: Appearance.durations.small
+        easing.type: Easing.InOutQuad
+      }
+    }
+      id: layout
       anchors.margins: Appearance.spacing.p2
       Layout.alignment: Qt.AlignTop
       anchors.fill: parent
