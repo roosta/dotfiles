@@ -24,30 +24,67 @@ Item {
   property alias iconSource: icon.source
   property int iconSize: 42
   MouseArea {
-    id: mouse
+    id: mouseArea
     anchors.fill: parent
     hoverEnabled: true
 
-    HoverHandler {
-      id: hover
-      cursorShape: Qt.PointingHandCursor
-    }
     onClicked: {
       root.clicked()
     }
   }
+  states: [
+
+    State {
+      name: "hovered"
+      when: mouseArea.containsMouse && !mouseArea.pressed && !root.isCurrentItem
+      PropertyChanges { mouseArea.cursorShape: Qt.PointingHandCursor }
+      PropertyChanges { card.border.color: Appearance.srcery.gray6 }
+    },
+
+    State {
+      name: "current"
+      when: root.isCurrentItem && !mouseArea.pressed && !mouseArea.containsMouse
+      PropertyChanges { card.color: Appearance.srcery.gray1 }
+    },
+
+    State {
+      name: "currentHovered"
+      when: root.isCurrentItem && !mouseArea.pressed && mouseArea.containsMouse
+      PropertyChanges { card.color: Appearance.srcery.gray1 }
+      PropertyChanges { card.border.color: Appearance.srcery.gray6 }
+      PropertyChanges { mouseArea.cursorShape: Qt.PointingHandCursor }
+    },
+
+    State {
+      name: "pressed"
+      when: mouseArea.pressed && !root.isCurrentItem
+      PropertyChanges { card.border.color: Appearance.srcery.white }
+      PropertyChanges { card.color: Appearance.srcery.gray1 }
+    },
+
+    State {
+      name: "pressedCurrent"
+      when: mouseArea.pressed && root.isCurrentItem
+      PropertyChanges { card.border.color: Appearance.srcery.white }
+      PropertyChanges { card.color: Appearance.srcery.gray2 }
+    }
+
+  ]
+
   Rectangle {
+    id: card
     anchors.fill: parent
-    border.color: mouse.containsMouse ? Appearance.srcery.gray6 : Appearance.srcery.gray3
-    color: root.isCurrentItem ? Appearance.srcery.gray1 : Appearance.srcery.black
+    border.color: Appearance.srcery.gray3
+    color: Appearance.srcery.black
     border.width: Appearance.bar.borderWidth
 
     Behavior on color {
       ColorAnimation {
-        duration: 100
+        duration: Appearance.durations.tiny
         easing.type: Easing.InOutQuad
       }
     }
+
     ColumnLayout {
 
       anchors.margins: Appearance.spacing.p2

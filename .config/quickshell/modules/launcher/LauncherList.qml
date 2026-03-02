@@ -1,12 +1,12 @@
 pragma ComponentBehavior: Bound
 import Quickshell
 import QtQuick.Layouts
-import Quickshell.Widgets
+// import Quickshell.Widgets
 import QtQuick.Controls
 import QtQuick
 import qs.config
 import qs.components
-import qs.services
+// import qs.services
 // import qs.utils
 import qs
 
