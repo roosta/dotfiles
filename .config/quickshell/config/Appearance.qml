@@ -32,6 +32,9 @@ Singleton {
     readonly property string gray4: "#3B3935"
     readonly property string gray5: "#45433E"
     readonly property string gray6: "#504D47"
+    readonly property string darkRed: "#4F2321"
+    readonly property string darkGreen: "#294229"
+    readonly property string darkBlue: "#1E5181"
   }
   readonly property Srcery srcery: Srcery {}
 
@@ -80,7 +83,9 @@ Singleton {
 
   component Durations: QtObject {
     readonly property int normal: 400
+    readonly property int medium: 300
     readonly property int small: 200
+    readonly property int tiny: 100
   }
   readonly property Durations durations: Durations { }
 
