@@ -15,9 +15,9 @@ Item {
   required property string monitorId
   required property string searchQuery
   property var sourceModel: []
-  property alias modelData: root.sourceModel
   property alias list: list
   property alias delegate: list.delegate
+  property alias modelData: root.sourceModel
 
   default property alias contents: launcherList.children
   anchors.fill: parent
@@ -28,6 +28,7 @@ Item {
     onTriggered: {
       list.highlightMoveDuration = 0
       list.positionViewAtBeginning()
+      list.currentIndex = -1
       list.currentIndex = 0
     }
   }
@@ -53,7 +54,6 @@ Item {
 
       Layout.margins: Appearance.spacing.p1
       color: "transparent"
-      clip: true
 
       ListView {
         id: list
@@ -62,6 +62,7 @@ Item {
           id: model
           values: root.sourceModel
           onValuesChanged: {
+            list.currentIndex = -1
             list.currentIndex = 0
             list.positionViewAtBeginning()
           }
@@ -83,7 +84,7 @@ Item {
           onWheel: (wheel) => {
             if (wheel.angleDelta.y !== 0) {
               var delta = wheel.angleDelta.y
-              list.flick(delta * 30, 0)
+              list.flick(delta * 10, 0)
               wheel.accepted = true
             }
           }

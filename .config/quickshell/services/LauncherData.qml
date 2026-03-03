@@ -13,69 +13,59 @@ import qs.utils
 
 Singleton {
   id: root
-  property var audioData: {
+  property list<var> audioData: {
     return PipewireData.ready ?
-    Config.outputs.map(a => ({ name: Fuzzy.prepare(`${a.name} `), entry: a })) :
+    Config.outputs.map(a => ({ name: Fuzzy.prepare(a.name), entry: a })) :
     []
   }
 
-  property var displayData: {
+  property list<var> displayData: {
     return Config.displayLayouts.map(a => {
       return  {
-        name: Fuzzy.prepare(`${a.name} `),
+        name: Fuzzy.prepare(a.name),
         entry: a
       }
     })
   }
 
-  property var powerData: {
+  property list<var> powerData: {
     return Config.powerScripts.map(a => {
       return  {
-        name: Fuzzy.prepare(`${a.name} `),
+        name: Fuzzy.prepare(a.name),
         entry: a
       }
     })
   }
 
-  property var menuData: Config.launcherMenus.map(a => {
+  property list<var> menuData: Config.launcherMenus.map(a => {
     return  {
-      name: Fuzzy.prepare(`${a.name} `),
+      name: Fuzzy.prepare(a.name),
       entry: a
     }
   })
 
-  property var utilsData: Config.utilities.map(a => {
+  property list<var> utilsData: Config.utilities.map(a => {
     return {
-      name: Fuzzy.prepare(`${a.name} `),
+      name: Fuzzy.prepare(a.name),
       entry: a
     }
   })
 
-  property var appsData: {
-    let entries = DesktopEntries.applications.values ?? [];
-    const list = Array.from(entries).map(a => {
-      return {
-        name: Fuzzy.prepare(`${a.name} `),
-        entry: a,
-      }
-    })
-    return list.sort(compareApps)
-  }
+  property list<var> appsData: {
+    let entries = Array.from(DesktopEntries.applications.values) ?? [];
 
-  // Sort comparator, will sort favorites to the top of the list,
-  // and sorted as they appear in the config array
-  function compareApps(a, b) {
-    const aFav = Config.favorites.includes(a.entry.id);
-    const bFav = Config.favorites.includes(b.entry.id)
+    const favs = Config.favorites
+      .map(id => entries.find(a => a.id === id))
+      .filter(a => a !== undefined);
 
-    if (aFav && bFav) {
-      const aIndex = Config.favorites.indexOf(a.entry.id);
-      const bIndex = Config.favorites.indexOf(b.entry.id);
-      return aIndex - bIndex;
-    }
-    if (aFav && !bFav) return -1;
-    if (!aFav && bFav) return 1;
-    return a.entry.name.localeCompare(b.entry.name);
+    const rest = entries
+      .filter(a => !Config.favorites.includes(a.id))
+      .sort((a, b) => a.name.localeCompare(b.name));
+
+    return [...favs, ...rest].map(a => ({
+      name: Fuzzy.prepare(a.name),
+      entry: a,
+    }));
   }
 
   function launch(entry) {
