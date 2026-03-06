@@ -29,15 +29,15 @@
               },
               {
                 "type": "command",
-                "name": "Thunderbird",
-                "icon": "org.mozilla.Thunderbird",
-                "iconTheme": "system",
                 "data": {
                   "command": "thunderbird",
                   "detached": true,
                   "isolated": false,
                   "delayed": false
-                }
+                },
+                "name": "Thunderbird",
+                "icon": "org.mozilla.Thunderbird",
+                "iconTheme": "system"
               },
               {
                 "type": "command",
@@ -72,7 +72,7 @@
                   "delayed": false
                 },
                 "name": "Spotify (Launcher)",
-                "icon": "spotify-launcher",
+                "icon": "spotify-client",
                 "iconTheme": "system"
               },
               {
