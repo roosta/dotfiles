@@ -12,6 +12,7 @@ Item {
   property string genericName
   property int parentWidth: 1920
   property bool favorite: false
+  property string timeElapsed: ""
   property var categories
   property bool isCurrentItem: ListView.isCurrentItem
   anchors.top: parent?.top
@@ -23,6 +24,7 @@ Item {
   }
   signal clicked()
   property alias iconSource: icon.source
+  property alias imageSource: image.source
   property int iconSize: 42
   MouseArea {
     id: mouseArea
@@ -111,10 +113,24 @@ Item {
           radius: 4
           color: Functions.transparentize(Appearance.srcery.black, 0.7)
           border.color: Appearance.srcery.gray3
-          IconImage {
-            id: icon
+          Loader {
             anchors.fill: parent
-            anchors.margins: Appearance.spacing.p2
+            active: Boolean(root.iconSource)
+            IconImage {
+              id: icon
+              anchors.fill: parent
+              anchors.margins: Appearance.spacing.p2
+            }
+          }
+          Loader {
+            anchors.fill: parent
+            active: Boolean(root.imageSource)
+            Image {
+              id: image
+              anchors.fill: parent
+              anchors.margins: Appearance.spacing.p2
+
+            }
           }
         }
         ColumnLayout {
@@ -144,6 +160,16 @@ Item {
               id: favorite
               visible: root.favorite
               text: ""
+              font {
+                family: Appearance.font.light
+                pixelSize: Appearance.font.large
+              }
+            }
+            Text {
+              color: Appearance.srcery.brightBlack
+              id: timeElapsedText
+              visible: root.timeElapsed !== ""
+              text: root.timeElapsed
               font {
                 family: Appearance.font.light
                 pixelSize: Appearance.font.large

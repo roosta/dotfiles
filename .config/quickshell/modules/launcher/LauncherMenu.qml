@@ -32,13 +32,21 @@ Loader {
       required property var modelData
 
       parentWidth: list.width
-      iconSource: modelData.iconId
-        ? Quickshell.iconPath(modelData.iconId)
-        : Icons.getEntryIcon(modelData)
-      name: modelData?.name
+      iconSource: {
+        if (modelData?.iconId) {
+         return Quickshell.iconPath(modelData.iconId)
+       } else if (modelData?.id) {
+         return Icons.getEntryIcon(modelData)
+       }
+       return ""
+      }
+
+      imageSource: modelData?.image ?? ""
+      name: modelData?.name ?? modelData?.appName ?? ""
       favorite: Config.favorites.includes(modelData?.id ?? "") ?? false
-      description: modelData?.comment ?? ""
-      genericName: modelData?.genericName ?? ""
+      timeElapsed: Functions.timeElapsed(modelData?.time) ?? ""
+      description: modelData?.comment ?? modelData?.body ?? ""
+      genericName: modelData?.genericName ?? modelData?.summary ??  ""
       categories: modelData?.categories ?? []
       onClicked: root.accept(modelData)
     }

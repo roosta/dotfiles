@@ -2,20 +2,15 @@
 // source: https://github.com/end-4/dots-hyprland/blob/a7f1cddd45ae02e6a2ee4178d2f1e72d00fea7f3/dots/.config/quickshell/ii/services/Notifications.qml
 // Modified 2026 by Daniel Berg <mail@roosta.sh>
 
-// import Quickshell
-import Quickshell.Io
 pragma Singleton
 pragma ComponentBehavior: Bound
-import Quickshell.Services.Notifications
 import qs
-import qs.utils
 import qs.config
-
-// import Quickshell.Io
-import Quickshell
+import qs.utils
 import QtQuick
-// import qs.config
-// import qs.utils
+import Quickshell
+import Quickshell.Io
+import Quickshell.Services.Notifications
 
 Singleton {
   id: root

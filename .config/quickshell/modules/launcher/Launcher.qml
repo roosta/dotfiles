@@ -82,6 +82,8 @@ Item {
             return utilsMenu
           case "menu":
             return menuMenu
+          case "notifications":
+            return notificationMenu
           default:
             return appMenu
         }
@@ -97,6 +99,7 @@ Item {
 
       state: GlobalState.launcherMode
 
+      // Applications
       LauncherMenu {
         id: appMenu
         active: layout.state === "apps" || layout.state === ""
@@ -110,18 +113,27 @@ Item {
       }
 
 
+      // Notifications
       LauncherMenu {
         id: notificationMenu
         active: layout.state === "notifications"
         query: root.query
         monitorId: root.monitorId
-        sourceModel: Fuzzy.query(root.query, LauncherData.appsData)
+        sourceModel: {
+          const q = root.query.replace(`${Config.menuPrefix}/notifications`, "")
+          return Fuzzy.go(root.query, Notifications.list, {
+            all: true,
+            key: "appName"
+
+          }).map(s => s.obj)
+        }
         onAccept: (entry) => {
-          LauncherData.launch(entry)
+          // LauncherData.launch(entry)
           GlobalState.closeLauncher()
         }
       }
 
+      // Utilities (scripts)
       LauncherMenu {
         id: utilsMenu
         active: layout.state === "utils"
@@ -137,6 +149,7 @@ Item {
         }
       }
 
+      // Audio menu
       LauncherMenu {
         id: audioMenu
         active: layout.state === "audio"
@@ -152,6 +165,7 @@ Item {
         }
       }
 
+      // Display menu
       LauncherMenu {
         id: displayMenu
         active: layout.state === "display"
@@ -167,6 +181,7 @@ Item {
         }
       }
 
+      // Power menu
       LauncherMenu {
         id: powerMenu
         active: layout.state === "power"

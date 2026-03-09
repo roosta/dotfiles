@@ -68,4 +68,39 @@ Singleton {
     var c = Qt.color(color);
     return Qt.rgba(c.r, c.g, c.b, c.a * (1 - percentage));
   }
+
+  /**
+   * Source: https://github.com/end-4/dots-hyprland/blob/a7f1cddd45ae02e6a2ee4178d2f1e72d00fea7f3/dots/.config/quickshell/ii/modules/common/functions/NotificationUtils.qml#L54-L86
+   * @param { number | string | Date } timestamp
+   * @returns { string }
+   */
+  function timeElapsed(timestamp) {
+    if (!timestamp) return '';
+    const messageTime = new Date(timestamp);
+    const now = new Date();
+    const diffMs = now.getTime() - messageTime.getTime();
+
+    // Less than 1 minute
+    if (diffMs < 60000)
+    return 'Now';
+
+    // Same day - show relative time
+    if (messageTime.toDateString() === now.toDateString()) {
+      const diffMinutes = Math.floor(diffMs / 60000);
+      const diffHours = Math.floor(diffMs / 3600000);
+
+      if (diffHours > 0) {
+        return `${diffHours}h`;
+      } else {
+        return `${diffMinutes}m`;
+      }
+    }
+
+    // Yesterday
+    if (messageTime.toDateString() === new Date(now.getTime() - 86400000).toDateString())
+    return 'Yesterday';
+
+    // Older dates
+    return Qt.formatDateTime(messageTime, "MMMM dd");
+  }
 }
