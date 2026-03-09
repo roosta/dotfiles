@@ -91,7 +91,7 @@ Item {
               anchors.centerIn: parent
               LauncherButton { monitorId: root.monitorId }
               Workspaces { monitorId: root.monitorId }
-              NotificationButton {}
+              NotificationButton { monitorId: root.monitorId }
             }
           }
           Rectangle {

@@ -20,6 +20,10 @@ Button {
   implicitWidth: Appearance.bar.height - Appearance.spacing.p3
   implicitHeight: Appearance.bar.height - Appearance.bar.borderWidth - Appearance.spacing.p1 * 2
 
+  property bool active: GlobalState.launcherOpen
+    && GlobalState.launcherMonitorId === root.monitorId
+    && GlobalState.launcherMode !== "notifications"
+
   onPressed: {
     GlobalState.toggleLauncher(root.monitorId)
   }
@@ -50,16 +54,25 @@ Button {
 
     State {
       name: "active"
-      when: GlobalState.launcherOpen && GlobalState.launcherMonitorId === root.monitorId
+      when: root.active && !hover.hovered
       PropertyChanges { innerRect.rotation: 0 }
       PropertyChanges { outerRect.borderColor: Appearance.srcery.brightBlack }
       PropertyChanges { innerRect.borderColor: Appearance.srcery.brightWhite }
     },
+
     State {
       name: "hovered"
-      when: hover.hovered
+      when: hover.hovered && !root.active
       PropertyChanges { outerRect.borderColor: Appearance.srcery.gray6 }
       PropertyChanges { innerRect.borderColor: Appearance.srcery.brightWhite }
+    },
+
+    State {
+      name: "activeHovered"
+      when: hover.hovered && root.active
+      PropertyChanges { outerRect.borderColor: Appearance.srcery.brightWhite }
+      PropertyChanges { innerRect.borderColor: Appearance.srcery.brightWhite }
+      PropertyChanges { innerRect.rotation: 0 }
     }
   ]
 

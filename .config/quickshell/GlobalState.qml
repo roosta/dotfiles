@@ -56,11 +56,11 @@ Singleton {
     timer.restart()
   }
 
-  function toggleLauncher(id) {
+  function toggleLauncher(id, mode = null) {
     if (launcherOpen) {
       closeLauncher()
     } else {
-      openLauncher(id)
+      openLauncher(id, mode)
     }
   }
 }

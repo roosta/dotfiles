@@ -1,17 +1,19 @@
-import qs.services
-import qs.config
-import qs.utils
-import qs.components
-import QtQuick
+
+
 // import QtQuick.Controls
+import qs.components
+import qs.config
+import qs.services
+import qs
+// import qs.utils
+import QtQuick
+import QtQuick.Controls
 import QtQuick.Layouts
 import QtQuick.Shapes
-
-import QtQuick.Controls
-import Quickshell
-import Quickshell.Hyprland
-import Quickshell.Wayland
-import Quickshell.Widgets
+// import Quickshell
+// import Quickshell.Hyprland
+// import Quickshell.Wayland
+// import Quickshell.Widgets
 
 Button {
   id: root
@@ -19,8 +21,10 @@ Button {
   implicitWidth: Appearance.bar.height - Appearance.spacing.p3
   implicitHeight: Appearance.bar.height - Appearance.bar.borderWidth - Appearance.spacing.p1 * 2
 
-  property bool active: false
-  // property bool active: Notifications?.data?.count ?? false
+  property bool active: Notifications?.list.length > 0 ?? false
+  property bool menuOpen: GlobalState.launcherOpen
+    && GlobalState.launcherMode === "notifications"
+  required property string monitorId
 
   HoverHandler {
     id: hover
@@ -28,13 +32,12 @@ Button {
   }
 
   onPressed: {
-    // Notifications.toggleNc()
+    GlobalState.toggleLauncher(root.monitorId, "notifications")
   }
   states: [
     State {
       name: "open"
-      // when: Notifications.open && !root.hovered && !root.active
-      when: false && !root.hovered && !root.active
+      when: root.menuOpen && !root.hovered && !root.active
       PropertyChanges { shape.rotation: 90 }
       PropertyChanges { path.strokeColor: Appearance.srcery.brightWhite }
       PropertyChanges { rect.borderColor: Appearance.srcery.brightBlack }
@@ -42,30 +45,35 @@ Button {
     },
     State {
       name: "openActive"
-      // when: Notifications.open && !root.hovered && root.active
-      when: false && !root.hovered && root.active
+      when: root.menuOpen && !root.hovered && root.active
       PropertyChanges { shape.rotation: 90 }
       PropertyChanges { path.strokeColor: Appearance.srcery.brightWhite }
       PropertyChanges { rect.borderColor: Appearance.srcery.brightBlack }
-
+    },
+    State {
+      name: "openActiveHovered"
+      when: root.menuOpen && root.hovered && root.active
+      PropertyChanges { shape.rotation: 90 }
+      PropertyChanges { path.strokeColor: Appearance.srcery.brightWhite }
+      PropertyChanges { rect.borderColor: Appearance.srcery.brightWhite }
     },
     State {
       name: "active"
-      when: root.active && !root.hovered && !Notifications.open
+      when: root.active && !root.hovered && !root.menuOpen
       PropertyChanges { shape.rotation: 180 }
       PropertyChanges { path.strokeColor: Appearance.srcery.white }
       PropertyChanges { rect.borderColor: Appearance.srcery.gray5 }
     },
     State {
       name: "activeHovered"
-      when: root.active && root.hovered && !Notifications.open
+      when: root.active && root.hovered && !root.menuOpen
       PropertyChanges { shape.rotation: 180 }
       PropertyChanges { path.strokeColor: Appearance.srcery.brightWhite }
       PropertyChanges { rect.borderColor: Appearance.srcery.brightBlack }
     },
     State {
       name: "hovered"
-      when: hover.hovered && !root.active && !Notifications.open
+      when: hover.hovered && !root.active && !root.menuOpen
       PropertyChanges { rect.borderColor: Appearance.srcery.gray6 }
       PropertyChanges { path.strokeColor: Appearance.srcery.brightWhite }
 
