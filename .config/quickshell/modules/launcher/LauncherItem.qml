@@ -180,7 +180,6 @@ Item {
             id: generic
             elide: Text.ElideRight
             Layout.fillWidth: true
-            wrapMode: Text.Wrap
             text: {
               if (root.genericName) {
                 return root.genericName
@@ -207,6 +206,7 @@ Item {
           }
         }
         Layout.fillWidth: true
+        Layout.fillHeight: true
         elide: Text.ElideRight
         wrapMode: Text.Wrap
         font {
