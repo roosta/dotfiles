@@ -67,6 +67,7 @@ Singleton {
     readonly property int normal: 10 * Config.scale
     readonly property int small: 9 * Config.scale
     readonly property int large: 12 * Config.scale
+    readonly property int xl: 16 * Config.scale
     readonly property int tiny: 8 * Config.scale
   }
   readonly property Font font: Font {}

@@ -1,14 +1,19 @@
+pragma ComponentBehavior: Bound
 import Quickshell.Widgets
 import qs
 import QtQuick.Layouts
+import QtQuick.Controls
 import QtQuick
 import qs.utils
 import qs.config
+import qs.services
 
 Item {
   id: root
   property string name
   property string description
+  property int notificationId: -1
+  property bool canClose: notificationId >= 0
   property string genericName
   property int parentWidth: 1920
   property bool favorite: false
@@ -23,8 +28,8 @@ Item {
     return parentWidth / 6 - Appearance.spacing.p1 - Appearance.bar.borderWidth
   }
   signal clicked()
-  property alias iconSource: icon.source
-  property alias imageSource: image.source
+  property string iconSource: ""
+  property string imageSource: ""
   property int iconSize: 42
   MouseArea {
     id: mouseArea
@@ -114,25 +119,28 @@ Item {
           color: Functions.transparentize(Appearance.srcery.black, 0.7)
           border.color: Appearance.srcery.gray3
           Loader {
+            active: root.iconSource !== ""
             anchors.fill: parent
-            active: Boolean(root.iconSource)
-            IconImage {
+            sourceComponent: IconImage {
               id: icon
               anchors.fill: parent
+              source: root.iconSource
               anchors.margins: Appearance.spacing.p2
             }
           }
           Loader {
+            active: root.imageSource !== ""
             anchors.fill: parent
-            active: Boolean(root.imageSource)
-            Image {
+            sourceComponent: Image {
               id: image
+              source: root.imageSource
               anchors.fill: parent
               anchors.margins: Appearance.spacing.p2
 
             }
           }
         }
+
         ColumnLayout {
           Layout.alignment: Qt.AlignTop
           spacing: Appearance.spacing.p0
@@ -141,7 +149,6 @@ Item {
               id: name
               elide: Text.ElideRight
               Layout.fillWidth: true
-              wrapMode: Text.Wrap
               text: {
                 if (root.name) {
                   return root.name
@@ -155,6 +162,7 @@ Item {
                 pointSize: Appearance.font.large
               }
             }
+
             Text {
               color: Appearance.srcery.brightBlack
               id: favorite
@@ -165,8 +173,81 @@ Item {
                 pixelSize: Appearance.font.large
               }
             }
+
+            Loader {
+              active: root.canClose
+              sourceComponent: Button {
+                id: closeButton
+                states: [
+                  State {
+                    name: "hovered"
+                    when: closeMouseArea.containsMouse
+                    PropertyChanges { closeRect.border.color: Appearance.srcery.gray6 }
+                    PropertyChanges { closeContent.color: Appearance.srcery.white }
+                    PropertyChanges { closeMouseArea.cursorShape: Qt.PointingHandCursor }
+                  }
+                ]
+                transitions: [
+                  Transition {
+                    ColorAnimation {
+                      duration: Appearance.durations.tiny
+                      easing.type: Easing.OutQuad
+                    }
+                  }
+                ]
+                MouseArea {
+                  id: closeMouseArea
+                  anchors.fill: parent
+                  hoverEnabled: true
+
+                  onClicked: {
+                    Notifications.discardNotification(root.notificationId)
+                  }
+                }
+                background: Rectangle {
+                  id: closeRect
+                  color: Appearance.srcery.black
+                  border.width: Appearance.bar.borderWidth
+                  border.color: Appearance.srcery.gray3
+                  radius: 2
+                }
+                contentItem: Text {
+                  id: closeContent
+                  color: Appearance.srcery.brightBlack
+                  text: ""
+                  font {
+                    family: Appearance.font.light
+                    pixelSize: Appearance.font.normal
+                  }
+                }
+              }
+            }
+          }
+
+
+          RowLayout {
             Text {
-              color: Appearance.srcery.brightBlack
+              id: generic
+              elide: Text.ElideRight
+              Layout.fillWidth: true
+              text: {
+                if (root.genericName) {
+                  return root.genericName
+                } else {
+                  return "Application"
+                }
+              }
+              color: Appearance.srcery.white
+              font {
+                family: Appearance.font.main
+                pointSize: Appearance.font.small
+              }
+            }
+
+            Text {
+              Layout.preferredWidth: 24
+              color: Appearance.srcery.brightGreen
+              horizontalAlignment: Qt.AlignRight
               id: timeElapsedText
               visible: root.timeElapsed !== ""
               text: root.timeElapsed
@@ -174,23 +255,6 @@ Item {
                 family: Appearance.font.light
                 pixelSize: Appearance.font.large
               }
-            }
-          }
-          Text {
-            id: generic
-            elide: Text.ElideRight
-            Layout.fillWidth: true
-            text: {
-              if (root.genericName) {
-                return root.genericName
-              } else {
-                return "Application"
-              }
-            }
-            color: Appearance.srcery.white
-            font {
-              family: Appearance.font.main
-              pointSize: Appearance.font.small
             }
           }
         }

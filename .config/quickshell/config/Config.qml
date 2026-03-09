@@ -21,6 +21,8 @@ Singleton {
 
   component Notifications: QtObject {
     readonly property int timeout: 7000
+    readonly property int toastWidth: 350
+    readonly property int toastHeight: 100
   }
 
   readonly property Notifications notifications: Notifications { }

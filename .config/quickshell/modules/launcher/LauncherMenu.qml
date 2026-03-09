@@ -15,6 +15,7 @@ Loader {
   required property var sourceModel
   required property string query
   required property bool active
+  property bool canClose
   visible: active
 
   Layout.fillWidth: true
@@ -41,6 +42,7 @@ Loader {
        return ""
       }
 
+      notificationId: modelData?.notificationId ?? -1
       imageSource: modelData?.image ?? ""
       name: modelData?.name ?? modelData?.appName ?? ""
       favorite: Config.favorites.includes(modelData?.id ?? "") ?? false

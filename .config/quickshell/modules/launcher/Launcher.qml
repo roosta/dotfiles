@@ -129,6 +129,7 @@ Item {
         active: layout.state === "notifications"
         query: root.query
         monitorId: root.monitorId
+        canClose: true
         sourceModel: {
           const q = root.query.replace(`${Config.menuPrefix}/notifications`, "")
           return Fuzzy.go(root.query, Notifications.list, {
@@ -207,6 +208,7 @@ Item {
         }
       }
 
+      // Meta menu
       LauncherMenu {
         id: menuMenu
         active: layout.state === "menu"

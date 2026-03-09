@@ -58,6 +58,13 @@ Button {
       PropertyChanges { rect.borderColor: Appearance.srcery.brightWhite }
     },
     State {
+      name: "openHovered"
+      when: root.menuOpen && root.hovered && !root.active
+      PropertyChanges { shape.rotation: 90 }
+      PropertyChanges { path.strokeColor: Appearance.srcery.brightWhite }
+      PropertyChanges { rect.borderColor: Appearance.srcery.brightWhite }
+    },
+    State {
       name: "active"
       when: root.active && !root.hovered && !root.menuOpen
       PropertyChanges { shape.rotation: 180 }
