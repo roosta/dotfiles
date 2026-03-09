@@ -15,7 +15,7 @@ Singleton {
   property string launcherMonitorId: ""
   property string trayMonitorId: ""
   property string launcherMode: Config.defaultMode
-  property bool overlayOpen: root.launcherOpen || Notifications.open || root.trayMenuOpen
+  property bool overlayOpen: root.launcherOpen || root.trayMenuOpen
   property QsMenuHandle activeMenu: null
   property bool trayMenuOpen: false
 
