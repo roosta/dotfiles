@@ -17,12 +17,15 @@ Singleton {
   // Default apps
   readonly property string terminal: "kitty"
   readonly property string shell: "zsh"
-
-  // Menu prefix
   readonly property string menuPrefix: "/"
 
-  // Available displays
+  component Notifications: QtObject {
+    readonly property int timeout: 7000
+  }
 
+  readonly property Notifications notifications: Notifications { }
+
+  // Available displays
   component Displays: QtObject {
     readonly property string left: "DP-2"
     readonly property string right: "HDMI-A-1"
@@ -64,6 +67,15 @@ Singleton {
       genericName: "Menu",
       categories: ["AppLauncher"],
       iconId: "applications-all"
+    },
+    {
+      id: "ritual-mode-notifications",
+      name: "Notifications",
+      comment: "Notification control menu",
+      mode: "notifications",
+      genericName: "Menu",
+      categories: ["System"],
+      iconId: "notifications"
     },
     {
       id: "ritual-mode-display",

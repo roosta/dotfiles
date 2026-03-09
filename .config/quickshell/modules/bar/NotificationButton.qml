@@ -19,7 +19,8 @@ Button {
   implicitWidth: Appearance.bar.height - Appearance.spacing.p3
   implicitHeight: Appearance.bar.height - Appearance.bar.borderWidth - Appearance.spacing.p1 * 2
 
-  property bool active: Notifications?.data?.count ?? false
+  property bool active: false
+  // property bool active: Notifications?.data?.count ?? false
 
   HoverHandler {
     id: hover
@@ -27,12 +28,13 @@ Button {
   }
 
   onPressed: {
-    Notifications.toggleNc()
+    // Notifications.toggleNc()
   }
   states: [
     State {
       name: "open"
-      when: Notifications.open && !root.hovered && !root.active
+      // when: Notifications.open && !root.hovered && !root.active
+      when: false && !root.hovered && !root.active
       PropertyChanges { shape.rotation: 90 }
       PropertyChanges { path.strokeColor: Appearance.srcery.brightWhite }
       PropertyChanges { rect.borderColor: Appearance.srcery.brightBlack }
@@ -40,7 +42,8 @@ Button {
     },
     State {
       name: "openActive"
-      when: Notifications.open && !root.hovered && root.active
+      // when: Notifications.open && !root.hovered && root.active
+      when: false && !root.hovered && root.active
       PropertyChanges { shape.rotation: 90 }
       PropertyChanges { path.strokeColor: Appearance.srcery.brightWhite }
       PropertyChanges { rect.borderColor: Appearance.srcery.brightBlack }

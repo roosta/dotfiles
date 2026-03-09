@@ -109,6 +109,19 @@ Item {
         }
       }
 
+
+      LauncherMenu {
+        id: notificationMenu
+        active: layout.state === "notifications"
+        query: root.query
+        monitorId: root.monitorId
+        sourceModel: Fuzzy.query(root.query, LauncherData.appsData)
+        onAccept: (entry) => {
+          LauncherData.launch(entry)
+          GlobalState.closeLauncher()
+        }
+      }
+
       LauncherMenu {
         id: utilsMenu
         active: layout.state === "utils"
