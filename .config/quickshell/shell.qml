@@ -38,41 +38,6 @@ ShellRoot {
       }
 
       NamedPanel {
-        id: toast
-        WlrLayershell.layer: WlrLayer.Overlay
-        exclusionMode: ExclusionMode.Ignore
-        name: "toast"
-        screen: scope.modelData
-        anchors.bottom: true
-        anchors.left: true
-        anchors.right: true
-        anchors.top: true
-        // implicitHeight: Config.notifications.toastHeight
-        // implicitWidth: Config.notifications.toastWidth
-        Toast {
-          id: toastContent
-          monitorId: scope.monitorId
-        }
-        mask: Region {
-          id: toastMask
-          x: 0
-          y: 0
-          width: toast.width
-          height: toast.height
-          intersection: Intersection.Xor
-          regions: [
-            Region {
-              x: toastContent.contentRect.x
-              y: toastContent.contentRect.y
-              width: toastContent.contentRect.width
-              height: toastContent.contentRect.height
-              intersection: Intersection.Subtract
-            }
-          ]
-        }
-      }
-
-      NamedPanel {
         id: exclusion
         WlrLayershell.layer: WlrLayer.Bottom
         name: "exclusion"
@@ -134,6 +99,13 @@ ShellRoot {
                   Intersection.Subtract
                 }
               }
+            },
+            Region {
+              x: toast.contentRect.x
+              y: toast.contentRect.y
+              width: toast.contentRect.width
+              height: toast.contentRect.height
+              intersection: Intersection.Subtract
             }
           ]
         }
@@ -179,6 +151,11 @@ ShellRoot {
 
           Launcher {
             id: launcher
+            monitorId: scope.monitorId
+          }
+
+          Toast {
+            id: toast
             monitorId: scope.monitorId
           }
 
