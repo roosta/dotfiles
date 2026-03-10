@@ -1,5 +1,5 @@
 # System dependencies and configuration
-# Last updated: 2026-01-28
+# Last updated: 2026-03-10
 
 # Git repositories to clone/update
 repositories:
@@ -281,6 +281,9 @@ packages:
     - name: hyprland
       description: A highly customizable dynamic tiling Wayland compositor
       aur: false
+    - name: quickshell
+      description: Flexible toolkit for making desktop shells with QtQuick
+      aur: false
     - name: hyprland-protocols
       description: Wayland protocol extensions for Hyprland
       aur: false
@@ -301,9 +304,6 @@ packages:
       aur: false
     - name: rofi-wayland
       description: A window switcher, run dialog and dmenu replacement - fork with wayland support
-      aur: false
-    - name: swaync
-      description: A simple GTK based notification daemon for Sway
       aur: false
     - name: uwsm
       description: A standalone Wayland session manager
