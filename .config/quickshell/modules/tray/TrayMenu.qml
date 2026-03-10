@@ -18,6 +18,13 @@ Item {
   required property QsMenuHandle trayItemMenuHandle
   required property string monitorId
 
+  readonly property rect menuRect: Qt.rect(
+    menu.x,
+    menu.y,
+    menu.width,
+    menu.height
+  )
+
   signal menuClosed
   signal menuOpened(qsWindow: var) // Correct type is QsWindow, but QML does not like that
 
@@ -59,6 +66,7 @@ Item {
 
   Rectangle {
     color: "transparent"
+    id: menu
     anchors.bottom: parent.bottom
     anchors.right: parent.right
     MouseArea {

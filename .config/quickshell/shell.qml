@@ -101,11 +101,18 @@ ShellRoot {
               }
             },
             Region {
-              x: toast.contentRect.x
-              y: toast.contentRect.y
-              width: toast.contentRect.width
-              height: toast.contentRect.height
-              intersection: Intersection.Subtract
+              x: toast.x
+              y: toast.y
+              width: toast.implicitWidth
+              height: toast.implicitHeight
+              intersection: {
+                if (Notifications.popupList.length) {
+                  Intersection.Subtract
+                } else {
+                  Intersection.Combine
+                }
+              }
+
             }
           ]
         }
@@ -157,6 +164,8 @@ ShellRoot {
           Toast {
             id: toast
             monitorId: scope.monitorId
+            menuRect: trayMenu.item ? trayMenu.item.menuRect : Qt.rect(0,0,0,0)
+
           }
 
           Loader {
