@@ -137,6 +137,7 @@ Item {
         highlightMoveVelocity: 2000
         highlightResizeDuration: 0
 
+        layoutDirection: GlobalState.menuDirection
         spacing: Appearance.spacing.p1
         reuseItems: false
         orientation: ListView.Horizontal

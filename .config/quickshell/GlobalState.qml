@@ -18,6 +18,7 @@ Singleton {
   property bool overlayOpen: root.launcherOpen || root.trayMenuOpen
   property QsMenuHandle activeMenu: null
   property bool trayMenuOpen: false
+  property bool menuDirection: Qt.LeftToRight
 
   Timer {
     id: timer
@@ -25,6 +26,7 @@ Singleton {
     onTriggered: {
       root.launcherMonitorId = ""
       root.launcherMode = Config.defaultMode
+      root.menuDirection = Qt.LeftToRight
     }
   }
 
@@ -43,8 +45,11 @@ Singleton {
     trayMenuOpen = false
   }
 
-  function openLauncher(id = Config.primaryDisplay, mode = null) {
+  function openLauncher(id = Config.primaryDisplay, mode = null, direction = Qt.LeftToRight) {
     launcherMonitorId = id
+    if (direction !== Qt.LeftToRight) {
+      root.menuDirection = direction
+    }
     if (mode) {
       root.launcherMode = mode
     }
@@ -56,11 +61,11 @@ Singleton {
     timer.restart()
   }
 
-  function toggleLauncher(id, mode = null) {
+  function toggleLauncher(id, mode = null, direction = Qt.LeftToRight) {
     if (launcherOpen) {
       closeLauncher()
     } else {
-      openLauncher(id, mode)
+      openLauncher(id, mode, direction)
     }
   }
 }

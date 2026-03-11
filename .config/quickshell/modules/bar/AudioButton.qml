@@ -11,6 +11,8 @@ import QtQuick.Controls
 ExpandingButton {
   id: root
 
+  property bool muted: PipewireData.ready && PipewireData.sink.audio.muted
+  property string mutedIcon: ""
 
   function getSinkIcon(sink) {
     if (sink) {
@@ -20,13 +22,7 @@ ExpandingButton {
       return ""
     }
   }
-
-  buttonLabel: {
-    if (PipewireData.ready && PipewireData.sink.audio.muted) {
-      return ""
-    }
-    return getSinkIcon(PipewireData.sink) ?? ""
-  }
+  buttonLabel: muted ? mutedIcon : getSinkIcon(PipewireData.sink)
 
   BorderRectangle {
     id: srcBtn
@@ -47,7 +43,7 @@ ExpandingButton {
       hoverEnabled: true
       anchors.fill: parent
       onClicked: {
-        GlobalState.openLauncher(root.monitorId, "audio")
+        GlobalState.openLauncher(root.monitorId, "audio", Qt.RightToLeft)
       }
     }
 
@@ -63,7 +59,7 @@ ExpandingButton {
       anchors.centerIn: parent
       color: Appearance.srcery.white
       id: srcBtnText
-      text: root.getSinkIcon(PipewireData.sink)
+      text: root.buttonLabel
       font {
         family: Appearance.font.light
         pixelSize: Appearance.font.size3
