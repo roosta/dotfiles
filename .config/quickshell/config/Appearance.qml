@@ -57,6 +57,7 @@ Singleton {
     readonly property string main: "Iosevka"
     readonly property string symbols: "Symbols Nerd Font"
     readonly property string light: "Iosevka Light"
+    readonly property string runic: "Noto Sans Runic"
     readonly property string extraLight: "Iosevka Extralight"
     readonly property int size0: 10 * Config.scale
     readonly property int size1: 12 * Config.scale
@@ -83,6 +84,7 @@ Singleton {
   readonly property Spacing spacing: Spacing { }
 
   component Durations: QtObject {
+    readonly property int slow: 800
     readonly property int normal: 400
     readonly property int medium: 300
     readonly property int small: 200

@@ -1,4 +1,5 @@
 pragma ComponentBehavior: Bound
+import QtQuick.Shapes
 import Quickshell
 import QtQuick.Layouts
 // import Quickshell.Widgets
@@ -18,6 +19,7 @@ Item {
   property alias list: list
   property alias delegate: list.delegate
   property alias modelData: root.sourceModel
+  property bool isOpen: false
 
   default property alias contents: launcherList.children
   anchors.fill: parent
@@ -38,7 +40,9 @@ Item {
     function onLauncherOpenChanged() {
       if (GlobalState.launcherOpen && GlobalState.launcherMonitorId === root.monitorId) {
         list.highlightMoveDuration = 100
+        root.isOpen = true
       } else {
+        root.isOpen = false
         timer.restart()
       }
     }
@@ -55,8 +59,71 @@ Item {
       Layout.margins: Appearance.spacing.p1
       color: "transparent"
 
+      Rectangle {
+        visible: root.sourceModel.length === 0
+        anchors.fill: parent
+        color: "transparent"
+        clip: true
+        BorderRectangle {
+          id: rect
+          color: Appearance.srcery.black
+          borderColor: Appearance.srcery.gray3
+          borderWidth: Appearance.bar.borderWidth
+          anchors.fill: parent
+          // anchors.topMargin: root.isOpen ? 0 : Appearance.launcher.height
+          //
+          // Behavior on anchors.topMargin {
+          //   NumberAnimation {
+          //     duration: Appearance.durations.normal
+          //     easing.type: Easing.InOutCubic
+          //   }
+          // }
+          //
+          Shape {
+            id: shape
+            // anchors.centerIn: parent
+            anchors.horizontalCenter: parent.horizontalCenter
+            y: root.isOpen ? 25 : Appearance.launcher.height
+            width: 170
+            height: 150
+
+            Behavior on y {
+              NumberAnimation {
+                duration: Appearance.durations.slow
+                easing.type: Easing.InOutQuad
+              }
+            }
+
+            ShapePath {
+              strokeWidth: 1
+              id: path
+              strokeColor: Appearance.srcery.gray3
+              fillColor: Appearance.srcery.black
+              PathSvg {
+                id: svg
+                path: `M ${shape.width * 0.5} 0
+                L ${shape.width} ${shape.height}
+                L 0 ${shape.height} Z`
+              }
+            }
+
+            Text {
+              anchors.centerIn: parent
+              anchors.verticalCenterOffset: 20
+              font {
+                family: Appearance.font.light
+                pointSize: Appearance.font.normal
+              }
+              color: Appearance.srcery.gray4
+              // text: "ᛖᛗᛈᛏᛁ"
+              text: "EMPTY"
+            }
+          }
+        }
+      }
       ListView {
         id: list
+        visible: root.sourceModel.length > 0
         anchors.fill: parent
         model: ScriptModel {
           id: model
