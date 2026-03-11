@@ -69,16 +69,18 @@ ShellRoot {
           windows: [main]
           active: GlobalState.launcherOpen && GlobalState.launcherMonitorId === scope.monitorId
           onCleared: {
-            GlobalState.closeLauncher();
+            // GlobalState.closeLauncher();
           }
         }
 
+        // Pass through clicks unless overlay is open
         mask: Region {
           id: mask
           x: 0
           y: 0
           width: main.width
           height: main.height
+
           intersection: {
             if (GlobalState.overlayOpen) {
               Intersection.Combine
@@ -87,6 +89,8 @@ ShellRoot {
             }
           }
           regions: [
+
+            // Lets the bar be usable when overlay is open
             Region {
               x: bar.x
               y: bar.y
@@ -100,6 +104,8 @@ ShellRoot {
                 }
               }
             },
+
+            // Lets the toast message be usable with overlay open
             Region {
               x: toast.x
               y: toast.y
@@ -126,9 +132,11 @@ ShellRoot {
         Rectangle {
           id: content
           color: "transparent"
-          anchors.fill: parent
+          anchors.top: parent.top
+          anchors.left: parent.left
+          implicitWidth: parent.width
+          implicitHeight: parent.height - Appearance.bar.height - launcher.launcherHeight
 
-          // color: Functions.transparentize("#000", 0.56)
           transitions: [
             Transition {
               ColorAnimation {
@@ -151,35 +159,36 @@ ShellRoot {
               PropertyChanges { content.color: Functions.transparentize("#000", 0.7) }
             }
           ]
-          Bar {
-            id: bar
+
+        }
+        Bar {
+          id: bar
+          monitorId: scope.monitorId
+        }
+
+        Launcher {
+          id: launcher
+          monitorId: scope.monitorId
+        }
+
+        Toast {
+          id: toast
+          monitorId: scope.monitorId
+          menuRect: trayMenu.item ? trayMenu.item.menuRect : Qt.rect(0,0,0,0)
+
+        }
+
+        Loader {
+          id: trayMenu
+          anchors.fill: parent
+          active: GlobalState.trayMenuOpen
+
+          sourceComponent: TrayMenu {
+            Component.onCompleted: this.open();
+            trayItemMenuHandle: GlobalState.activeMenu
+            onMenuOpened: (window) => {};
+            onMenuClosed: GlobalState.closeTrayMenu()
             monitorId: scope.monitorId
-          }
-
-          Launcher {
-            id: launcher
-            monitorId: scope.monitorId
-          }
-
-          Toast {
-            id: toast
-            monitorId: scope.monitorId
-            menuRect: trayMenu.item ? trayMenu.item.menuRect : Qt.rect(0,0,0,0)
-
-          }
-
-          Loader {
-            id: trayMenu
-            anchors.fill: parent
-            active: GlobalState.trayMenuOpen
-
-            sourceComponent: TrayMenu {
-              Component.onCompleted: this.open();
-              trayItemMenuHandle: GlobalState.activeMenu
-              onMenuOpened: (window) => {};
-              onMenuClosed: GlobalState.closeTrayMenu()
-              monitorId: scope.monitorId
-            }
           }
         }
       }
