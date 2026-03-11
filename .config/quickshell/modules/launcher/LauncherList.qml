@@ -109,7 +109,7 @@ Item {
 
             Text {
               anchors.centerIn: parent
-              anchors.verticalCenterOffset: 20
+              anchors.verticalCenterOffset: 22
               font {
                 family: Appearance.font.light
                 pointSize: Appearance.font.normal
