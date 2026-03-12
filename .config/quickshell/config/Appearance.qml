@@ -38,6 +38,15 @@ Singleton {
   }
   readonly property Srcery srcery: Srcery {}
 
+
+  component Notifications: QtObject {
+    readonly property int timeout: 7000
+    readonly property int toastWidth: 350
+    readonly property int toastHeight: 100
+  }
+
+  readonly property Notifications notifications: Notifications { }
+
   component Bar: QtObject {
     readonly property int height: 40 * Config.scale
     readonly property bool transparent: false
@@ -93,7 +102,6 @@ Singleton {
   readonly property Durations durations: Durations { }
 
   // https://github.com/end-4/dots-hyprland/blob/703697e1c40b66619fb224043891aade47494bb3/.config/quickshell/ii/modules/common/Appearance.qml#L225-L242
-
   component AnimationCurves: QtObject {
     readonly property list<real> expressiveFastSpatial: [0.42, 1.67, 0.21, 0.90, 1, 1] // Default, 350ms
     readonly property list<real> expressiveDefaultSpatial: [0.38, 1.21, 0.22, 1.00, 1, 1] // Default, 500ms

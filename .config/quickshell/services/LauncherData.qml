@@ -79,10 +79,10 @@ Singleton {
         workingDirectory: entry.workingDirectory
       });
     } else {
-      Quickshell.execDetached({
-        command: entry.command,
-        workingDirectory: entry.workingDirectory
-      });
+      const wdir = entry.workingDirectory
+      const obj = { command: entry.command, }
+      if (wdir) { obj.workingDirectory = wdir }
+      Quickshell.execDetached(obj);
     }
   }
 }

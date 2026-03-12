@@ -47,9 +47,11 @@ Loader {
       imageSource: modelData?.image ?? ""
       name: modelData?.name ?? modelData?.appName ?? ""
       favorite: Config.favorites.includes(modelData?.id ?? "") ?? false
+      isNotification: modelData?.isNotification ?? false
       timeElapsed: Functions.timeElapsed(modelData?.time) ?? ""
       description: modelData?.comment ?? modelData?.body ?? ""
       genericName: modelData?.genericName ?? modelData?.summary ??  ""
+      actions: modelData?.actions ?? []
       categories: modelData?.categories ?? []
       onClicked: root.accept(modelData)
     }

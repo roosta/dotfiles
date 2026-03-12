@@ -18,7 +18,9 @@ Item {
   property int parentWidth: 1920
   property bool favorite: false
   property string timeElapsed: ""
-  property var categories
+  property var categories: []
+  property var actions: []
+  property bool isNotification: false
   property bool isCurrentItem: ListView.isCurrentItem
   anchors.top: parent?.top
   anchors.bottom: parent?.bottom
@@ -30,7 +32,7 @@ Item {
   signal clicked()
   property string iconSource: ""
   property string imageSource: ""
-  property int iconSize: 42
+  property int iconSize: 56
   MouseArea {
     id: mouseArea
     anchors.fill: parent
@@ -257,6 +259,29 @@ Item {
               }
             }
           }
+
+          Loader {
+            active: root.categories.length > 0
+            sourceComponent: RowLayout {
+              Repeater {
+                model: root.categories
+                Text {
+                  required property string modelData
+                  text: modelData
+                  color: Appearance.srcery.brightBlack
+                  // anchors.bottom: parent.bottom
+                  elide: Text.ElideRight
+                  Layout.fillWidth: true
+                  wrapMode: Text.Wrap
+                  font {
+                    family: Appearance.font.light
+                    pointSize: Appearance.font.tiny
+                  }
+                }
+              }
+            }
+          }
+
         }
       }
 
@@ -285,21 +310,89 @@ Item {
 
       ColumnLayout {
         Layout.fillWidth: true
-        visible: root.categories?.length > 0
+        spacing: Appearance.spacing.p1
+
+
         Rectangle {
           implicitHeight: Appearance.bar.borderWidth
+          visible: root.actions.length > 0
           Layout.fillWidth: true
           color: Appearance.srcery.gray3
         }
-        Text {
-          text: root.categories.join(", ")
-          color: Appearance.srcery.brightBlack
-          elide: Text.ElideRight
+
+        // Rectangle {
+        //   implicitHeight: Appearance.bar.borderWidth
+        //   visible: root.actions.length > 0
+        //   Layout.fillWidth: true
+        //   color: Appearance.srcery.gray3
+        // }
+
+        Loader {
+          visible: root.actions.length > 0
+          active: root.actions.length > 0
           Layout.fillWidth: true
-          wrapMode: Text.Wrap
-          font {
-            family: Appearance.font.light
-            pointSize: Appearance.font.tiny
+          // Layout.fillHeight: true
+          sourceComponent: Flow {
+            spacing: Appearance.spacing.p1
+            Repeater {
+              id: actionRepeater
+              model: root.actions
+              Button {
+                id: actionButton
+                required property var modelData
+                required property int index
+                padding: 0
+
+                HoverHandler {
+                  id: hover
+                  cursorShape: Qt.PointingHandCursor
+                }
+                states: [
+                  State {
+                    name: "hovered"
+                    when: actionButton.hovered
+                    PropertyChanges {
+                      actionText.font.underline: true
+                      actionText.color: Appearance.srcery.brightWhite
+                    }
+                  }
+                ]
+                transitions: [
+                  Transition {
+                    ColorAnimation {
+                      duration: Appearance.durations.tiny
+                      easing.type: Easing.OutQuad
+                    }
+                  }
+                ]
+                onPressed: {
+                  if (root.isNotification) {
+                    Notifications.discardNotification(root.notificationId)
+                  }
+                  LauncherData.launch(modelData)
+                  GlobalState.closeLauncher()
+                }
+                background: Rectangle {
+                  id: actionBg
+                  color: "transparent"
+
+                }
+                contentItem: Text {
+                  id: actionText
+                  text: {
+                    return actionButton.modelData?.name ?? actionButton.modelData?.text ?? ""
+                  }
+                  color: Appearance.srcery.brightBlack
+                  elide: Text.ElideRight
+                  Layout.fillWidth: true
+                  wrapMode: Text.Wrap
+                  font {
+                    family: Appearance.font.light
+                    pointSize: Appearance.font.tiny
+                  }
+                }
+              }
+            }
           }
         }
       }

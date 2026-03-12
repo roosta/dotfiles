@@ -19,14 +19,6 @@ Singleton {
   readonly property string shell: "zsh"
   readonly property string menuPrefix: "/"
 
-  component Notifications: QtObject {
-    readonly property int timeout: 7000
-    readonly property int toastWidth: 350
-    readonly property int toastHeight: 100
-  }
-
-  readonly property Notifications notifications: Notifications { }
-
   // Available displays
   component Displays: QtObject {
     readonly property string left: "DP-2"
@@ -116,7 +108,6 @@ Singleton {
       iconId: "applications-utilities"
     }
   ]
-
 
   // Power scripts (shutdown, logout, reboot etc), see ~/scripts for each option
   readonly property var powerScripts: [

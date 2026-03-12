@@ -53,10 +53,10 @@ Item {
   required property rect menuRect
 
   property int listCount: list?.count ?? 0
-  implicitWidth: Config.notifications.toastWidth
+  implicitWidth: Appearance.notifications.toastWidth
   anchors.right: parent.right
   anchors.bottom: parent.bottom
-  implicitHeight: (Config.notifications.toastHeight * root.listCount) + (Appearance.spacing.p0 * root.listCount)
+  implicitHeight: (Appearance.notifications.toastHeight * root.listCount) + (Appearance.spacing.p0 * root.listCount)
   visible: root.monitorId === Config.primaryDisplay
 
 
@@ -96,9 +96,9 @@ Item {
     }
 
     delegate: Rectangle {
-      implicitHeight: Config.notifications.toastHeight
+      implicitHeight: Appearance.notifications.toastHeight
       id: popup
-      implicitWidth: Config.notifications.toastWidth
+      implicitWidth: Appearance.notifications.toastWidth
       color: Appearance.srcery.black
       border.width: Appearance.bar.borderWidth
       // radius: 5
@@ -112,8 +112,9 @@ Item {
 
         onClicked: {
           if (popup.modelData?.notificationId) {
-            const i = Notifications.list.findIndex(n => n.notificationId === popup.modelData?.notificationId)
-            GlobalState.openLauncher(root.monitorId, "notifications", Qt.LeftToRight, 2)
+
+            // Notifications.attemptInvokeAction(popup.modelData.notificationId, modelData.identifier);
+            // Notifications.discardNotification(popup.modelData?.notificationId);
           }
         }
       }

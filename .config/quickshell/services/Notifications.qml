@@ -31,6 +31,7 @@ Singleton {
     property string summary: notification?.summary ?? ""
     property double time
     property string urgency: notification?.urgency.toString() ?? "normal"
+    property bool isNotification: true
     property Timer timer
 
     onNotificationChanged: {
@@ -50,6 +51,7 @@ Singleton {
       "image": notif.image,
       "summary": notif.summary,
       "time": notif.time,
+      "isNotification": notif.isNotification,
       "urgency": notif.urgency,
     }
   }
@@ -273,6 +275,7 @@ Singleton {
           "actions": [], // Notification actions are meaningless if they're not tracked by the server or the sender is dead
           "appIcon": notif.appIcon,
           "appName": notif.appName,
+          "isNotification": notif.isNotification,
           "body": notif.body,
           "image": notif.image,
           "summary": notif.summary,
