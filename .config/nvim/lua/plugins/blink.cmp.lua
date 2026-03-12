@@ -37,9 +37,6 @@ return {
     cmdline = {
       enabled = true,
     },
-    menu = {
-      auto_show = true
-    },
     snippets = { preset = 'luasnip' },
     sources = {
       default = { "lsp", "path", "snippets", "buffer" },
