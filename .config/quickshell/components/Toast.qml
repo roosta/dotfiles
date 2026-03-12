@@ -104,6 +104,36 @@ Item {
       // radius: 5
       required property var modelData
       border.color: Appearance.srcery.gray3
+
+      MouseArea {
+        id: mainArea
+        anchors.fill: parent
+        hoverEnabled: true
+
+        onClicked: {
+          if (popup.modelData?.notificationId) {
+            const i = Notifications.list.findIndex(n => n.notificationId === popup.modelData?.notificationId)
+            GlobalState.openLauncher(root.monitorId, "notifications", Qt.LeftToRight, 2)
+          }
+        }
+      }
+      states: [
+        State {
+          name: "hovered"
+          when: mainArea.containsMouse
+          PropertyChanges { popup.border.color: Appearance.srcery.gray5 }
+          PropertyChanges { closeMouseArea.cursorShape: Qt.PointingHandCursor }
+        }
+      ]
+      transitions: [
+        Transition {
+          ColorAnimation {
+            duration: Appearance.durations.tiny
+            easing.type: Easing.InOutQuad
+          }
+        }
+      ]
+
       ColumnLayout {
         spacing: Appearance.spacing.p2
         anchors.fill: parent
