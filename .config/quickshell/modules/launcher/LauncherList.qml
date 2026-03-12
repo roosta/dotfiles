@@ -81,7 +81,6 @@ Item {
           //
           Triangle {
             id: triangle
-            // anchors.centerIn: parent
             anchors.horizontalCenter: parent.horizontalCenter
             y: root.isOpen ? 25 : Appearance.launcher.height
             width: 170

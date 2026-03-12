@@ -45,39 +45,12 @@ Item {
     height: 220
     anchors.centerIn: parent
   }
-  // Shape {
-  //   id: sunburst
-  //   anchors.centerIn: parent
-  //   width: 300
-  //   height: 300
-  //
-  //   property int rayCount: 8
-  //   property real innerRadius: 160
-  //   property real outerRadius: 200
-  //   property real centerX: width / 2
-  //   property real centerY: height / 2
-  //
-  //   ShapePath {
-  //     strokeColor: Appearance.srcery.gray4
-  //     strokeWidth: 1
-  //     fillColor: "transparent"
-  //     capStyle: ShapePath.RoundCap
-  //
-  //     PathSvg {
-  //       path: {
-  //         let d = "";
-  //         for (let i = 0; i < sunburst.rayCount; i++) {
-  //           let angle = (i / sunburst.rayCount) * 2 * Math.PI - Math.PI / 2;
-  //           let x1 = sunburst.centerX + sunburst.innerRadius * Math.cos(angle);
-  //           let y1 = sunburst.centerY + sunburst.innerRadius * Math.sin(angle);
-  //           let x2 = sunburst.centerX + sunburst.outerRadius * Math.cos(angle);
-  //           let y2 = sunburst.centerY + sunburst.outerRadius * Math.sin(angle);
-  //           d += `M ${x1} ${y1} L ${x2} ${y2} `;
-  //         }
-  //         return d;
-  //       }
-  //     }
-  //   }
+
+  // Triangle {
+  //   width: 170
+  //   height: 150
+  //   anchors.horizontalCenter: parent.horizontalCenter
+  //   y: 150
   // }
 
   // The visualizer was based of this:
