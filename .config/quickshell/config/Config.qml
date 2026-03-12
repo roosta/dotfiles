@@ -19,6 +19,8 @@ Singleton {
   readonly property string shell: "zsh"
   readonly property string menuPrefix: "/"
 
+  readonly property int visualizerBars: 45
+
   // Available displays
   component Displays: QtObject {
     readonly property string left: "DP-2"
