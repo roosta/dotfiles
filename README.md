@@ -87,6 +87,31 @@ custom color scheme built atop the [Breeze theme](https://kde.org/plasma-desktop
 used for the custom desktop shell based on the [Srcery](https://srcery.sh/)
 colorscheme.
 
+### Attribution
+
+I've been heavily inspired by, learned a lot from, and copied portions of code from:
+
+- [end-4/dots-hyprland: Usability-first dotfiles](https://github.com/end-4/dots-hyprland)
+- [caelestia-dots/shell](https://github.com/caelestia-dots/shell)
+
+> Code copied will be clearly marked with a permalink and modification notice.
+
+>[!NOTE]
+Code is licensed with [GPLv3](LICENSE)
+
+### Inspiration
+
+- [AvengeMedia/DankMaterialShell: Desktop shell for wayland compositors built with Quickshell & GO, optimized for niri & hyprland. Check out the niri community Discord below.](https://github.com/AvengeMedia/DankMaterialShell)
+- [Axenide/Ambxst: An Axtremely customizable shell.](https://github.com/Axenide/Ambxst?tab=readme-ov-file)
+- [caelestia-dots/caelestia: A very segsy rice](https://github.com/caelestia-dots/caelestia)
+- [catdeal3r/fibreglass: Fibreglass is a custom desktop shell created in quickshell.](https://github.com/catdeal3r/fibreglass)
+- [cxOrz/dotfiles-hyprland: Hyprland dotfiles on Arch Linux.](https://github.com/cxOrz/dotfiles-hyprland)
+- [debuggyo/Exo: A Material 3 inspired desktop shell for Niri and Hyprland created with Ignis.](https://github.com/debuggyo/Exo?tab=readme-ov-file)
+- [imarkoff/Marble-shell-theme: Shell theme for GNOME DE](https://github.com/imarkoff/Marble-shell-theme)
+- [noctalia-dev/noctalia-shell: A sleek and minimal desktop shell thoughtfully crafted for Wayland.](https://github.com/noctalia-dev/noctalia-shell)
+- [xfcasio/amadeus: Amadeus desktop](https://github.com/xfcasio/amadeus?tab=readme-ov-file)
+- [xZepyx/nucleus-shell: A shell built to get things done.](https://github.com/xZepyx/nucleus-shell?tab=readme-ov-file)
+
 ### Configuration
 
 Per-host Quickshell configuration is kept in
