@@ -1,5 +1,6 @@
 pragma ComponentBehavior: Bound
 import QtQuick.Controls
+import Quickshell.Widgets
 import Quickshell
 import QtQuick
 // import Quickshell.Wayland
@@ -122,6 +123,17 @@ Item {
                 id: image
                 anchors.fill: parent
                 source: popup.modelData.image
+                anchors.margins: Appearance.spacing.p2
+
+              }
+            }
+            Loader {
+              anchors.fill: parent
+              active: popup.modelData.appIcon !== ""
+              sourceComponent: IconImage {
+                id: icon
+                anchors.fill: parent
+                source: Quickshell.iconPath(popup.modelData.appIcon)
                 anchors.margins: Appearance.spacing.p2
 
               }

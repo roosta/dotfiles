@@ -34,8 +34,9 @@ Loader {
 
       parentWidth: list.width
       iconSource: {
-        if (modelData?.iconId) {
-         return Quickshell.iconPath(modelData.iconId)
+        const icon = modelData?.iconId || modelData?.appIcon
+        if (icon) {
+         return Quickshell.iconPath(icon)
        } else if (modelData?.id) {
          return Icons.getEntryIcon(modelData)
        }
