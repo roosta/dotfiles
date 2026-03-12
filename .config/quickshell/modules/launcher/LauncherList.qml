@@ -79,33 +79,13 @@ Item {
           //   }
           // }
           //
-          Shape {
-            id: shape
+          Triangle {
+            id: triangle
             // anchors.centerIn: parent
             anchors.horizontalCenter: parent.horizontalCenter
             y: root.isOpen ? 25 : Appearance.launcher.height
             width: 170
             height: 150
-
-            Behavior on y {
-              NumberAnimation {
-                duration: Appearance.durations.slow
-                easing.type: Easing.InOutQuad
-              }
-            }
-
-            ShapePath {
-              strokeWidth: 1
-              id: path
-              strokeColor: Appearance.srcery.gray3
-              fillColor: Appearance.srcery.black
-              PathSvg {
-                id: svg
-                path: `M ${shape.width * 0.5} 0
-                L ${shape.width} ${shape.height}
-                L 0 ${shape.height} Z`
-              }
-            }
 
             Text {
               anchors.centerIn: parent
