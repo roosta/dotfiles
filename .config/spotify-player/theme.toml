@@ -1,0 +1,29 @@
+# a theme based on the application's `default` theme
+[[themes]]
+name = "ritual"
+[themes.palette]
+background = "#121110"
+foreground = "#c5b088"
+black = "black"
+red = "red"
+green = "green"
+yellow = "yellow"
+blue = "blue"
+magenta = "magenta"
+cyan = "cyan"
+white = "white"
+bright_black = "bright_black"
+bright_red = "bright_red"
+bright_green = "bright_green"
+bright_yellow = "bright_yellow"
+bright_blue = "bright_blue"
+bright_magenta = "bright_magenta"
+bright_cyan = "bright_cyan"
+bright_white = "bright_white"
+
+[themes.component_style]
+border = { fg = "#3b3935" }
+block_title = { fg = "BrightWhite", modifiers = ["Bold"] }
+selection = { bg ="#262522", fg="BrightWhite" }
+playback_progress_bar = { bg = "#262522", fg = "Green" }
+playlist_desc = { fg = "BrightBlack", modifiers = ["Italic"] }
