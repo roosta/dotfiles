@@ -66,7 +66,7 @@ for plugin in "$ZSH_CONFIG_PATH"/plugins/*/*.plugin.zsh; do
     "zsh-autosuggestions")
       bindkey '^ ' autosuggest-accept
       ;;
-  esac 
+  esac
   source "$plugin"
 done
 
