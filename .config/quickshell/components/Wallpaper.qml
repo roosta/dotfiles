@@ -12,174 +12,177 @@ import qs.utils
 import qs.services
 import qs.config
 
-Item {
-  id: root
-  anchors.fill: parent
+Loader {
   required property string monitorId
-
+  readonly property HyprlandMonitor monitor: Hyprland
+    .monitorFor(root.QsWindow.window?.screen)
+  readonly property Toplevel activeWindow: ToplevelManager.activeToplevel
+  readonly property bool isOccupied: occupied[activeWorkspaceId] ?? false
+  readonly property int activeWorkspaceId: monitor?.activeWorkspace?.id ?? 1
+  property var windows: HyprlandData.windowsByWorkspace[activeWorkspaceId] ?? []
+  property bool onlyFloating: windows.every(w => w.floating) ?? false
   property var workspaces: HyprlandData.workspacesByMonitor[monitorId] ?? []
-
-  visible: !isOccupied || onlyFloating
   readonly property var occupied: workspaces.reduce((acc, ws) => {
     acc[ws.id] = ws?.windows > 0;
     return acc;
   }, {})
-  readonly property HyprlandMonitor monitor: Hyprland
-    .monitorFor(root.QsWindow.window?.screen)
-  readonly property Toplevel activeWindow: ToplevelManager.activeToplevel
-  readonly property int activeWorkspaceId: monitor?.activeWorkspace?.id ?? 1
-  property var windows: HyprlandData.windowsByWorkspace[activeWorkspaceId] ?? []
-  property bool onlyFloating: windows.every(w => w.floating) ?? false
-  readonly property bool isOccupied: occupied[activeWorkspaceId] ?? false
-  readonly property string wallpaper: `${Paths.srcery}/srcery-wallpaper/srcery-wallpaper.png`
-  anchors.bottomMargin: Appearance.bar.height
-
-  Rectangle {
-    id: backgroundColor
+  active: !isOccupied || onlyFloating
+  id: root
+  anchors.fill: parent
+  sourceComponent: Item {
     anchors.fill: parent
-    color: Appearance.srcery.black
-  }
-  Glyph {
-    id: glyph
-    width: 220
-    height: 220
-    anchors.centerIn: parent
-  }
 
-  // Triangle {
-  //   width: 170
-  //   height: 150
-  //   anchors.horizontalCenter: parent.horizontalCenter
-  //   y: 150
-  // }
 
-  // The visualizer was based of this:
-  // https://github.com/caelestia-dots/shell/blob/3e0360401bbbb0f640958998f6625495e5b3fdff/modules/dashboard/Media.qml
-  // Modified 2026 by Daniel Berg <mail@roosta.sh>
-  Shape {
-    id: visualizer
-    anchors.centerIn: parent
-    readonly property real centerX: width / 2
-    readonly property real centerY: height / 2
-    readonly property real innerX: glyph.implicitWidth / 2.7 + Appearance.spacing.p2
-    readonly property real innerY: glyph.implicitHeight / 2.7 + Appearance.spacing.p2
-    property color colour: Appearance.srcery.gray4
+    readonly property string wallpaper: `${Paths.srcery}/srcery-wallpaper/srcery-wallpaper.png`
+    anchors.bottomMargin: Appearance.bar.height
 
-    property int numberOfBars: 64
-    anchors.fill: glyph
-    anchors.margins: -Appearance.spacing.p1
+    Rectangle {
+      id: backgroundColor
+      anchors.fill: parent
+      color: Appearance.srcery.black
+    }
+    Glyph {
+      id: glyph
+      width: 220
+      height: 220
+      anchors.centerIn: parent
+    }
 
-    asynchronous: true
-    preferredRendererType: Shape.CurveRenderer
-    data: visualizerBars.instances
-  }
+    // Triangle {
+    //   width: 170
+    //   height: 150
+    //   anchors.horizontalCenter: parent.horizontalCenter
+    //   y: 150
+    // }
 
-  Variants {
-    id: visualizerBars
+    // The visualizer was based of this:
+    // https://github.com/caelestia-dots/shell/blob/3e0360401bbbb0f640958998f6625495e5b3fdff/modules/dashboard/Media.qml
+    // Modified 2026 by Daniel Berg <mail@roosta.sh>
+    Shape {
+      id: visualizer
+      anchors.centerIn: parent
+      readonly property real centerX: width / 2
+      readonly property real centerY: height / 2
+      readonly property real innerX: glyph.implicitWidth / 2.7 + Appearance.spacing.p2
+      readonly property real innerY: glyph.implicitHeight / 2.7 + Appearance.spacing.p2
+      property color colour: Appearance.srcery.gray4
 
-    model: Array.from({
-      length: visualizer.numberOfBars
-    }, (_, i) => i)
+      property int numberOfBars: 64
+      anchors.fill: glyph
+      anchors.margins: -Appearance.spacing.p1
 
-    ShapePath {
-      id: visualizerBar
+      asynchronous: true
+      preferredRendererType: Shape.CurveRenderer
+      data: visualizerBars.instances
+    }
 
-      required property real modelData
-      readonly property real value: Math.max(1e-3, Math.min(1, PipewireData.bars[modelData]))
+    Variants {
+      id: visualizerBars
 
-      readonly property real angle: modelData * 2 * Math.PI / visualizer.numberOfBars
-      readonly property real magnitude: value * 128
-      readonly property real cos: Math.cos(angle)
-      readonly property real sin: Math.sin(angle)
+      model: Array.from({
+        length: visualizer.numberOfBars
+      }, (_, i) => i)
 
-      capStyle: ShapePath.SquareCap  // ShapePath.RoundCap
-      strokeWidth: Appearance.bar.borderWidth
-      strokeColor: Appearance.srcery.gray4
+      ShapePath {
+        id: visualizerBar
 
-      startX: visualizer.centerX + (visualizer.innerX + strokeWidth / 2) * cos
-      startY: visualizer.centerY + (visualizer.innerY + strokeWidth / 2) * sin
+        required property real modelData
+        readonly property real value: Math.max(1e-3, Math.min(1, PipewireData.bars[modelData]))
 
-      PathLine {
-        x: visualizer.centerX + (visualizer.innerX + visualizerBar.strokeWidth / 2 + visualizerBar.magnitude) * visualizerBar.cos
-        y: visualizer.centerY + (visualizer.innerY + visualizerBar.strokeWidth / 2 + visualizerBar.magnitude) * visualizerBar.sin
-      }
+        readonly property real angle: modelData * 2 * Math.PI / visualizer.numberOfBars
+        readonly property real magnitude: value * 128
+        readonly property real cos: Math.cos(angle)
+        readonly property real sin: Math.sin(angle)
 
-      Behavior on strokeColor {
+        capStyle: ShapePath.SquareCap  // ShapePath.RoundCap
+        strokeWidth: Appearance.bar.borderWidth
+        strokeColor: Appearance.srcery.gray4
 
-        ColorAnimation {
-          duration: Appearance.durations.normal
-          easing.type: Easing.InOutQuad
+        startX: visualizer.centerX + (visualizer.innerX + strokeWidth / 2) * cos
+        startY: visualizer.centerY + (visualizer.innerY + strokeWidth / 2) * sin
+
+        PathLine {
+          x: visualizer.centerX + (visualizer.innerX + visualizerBar.strokeWidth / 2 + visualizerBar.magnitude) * visualizerBar.cos
+          y: visualizer.centerY + (visualizer.innerY + visualizerBar.strokeWidth / 2 + visualizerBar.magnitude) * visualizerBar.sin
+        }
+
+        Behavior on strokeColor {
+
+          ColorAnimation {
+            duration: Appearance.durations.normal
+            easing.type: Easing.InOutQuad
+          }
         }
       }
-    }
-  }
-
-  Item {
-    id: c1
-    anchors.fill: parent
-    Rectangle {
-      property int size: 280
-      implicitWidth: size
-      implicitHeight: size
-      anchors.centerIn: parent
-      radius: size / 2
-      color: "transparent"
-      border.color: Appearance.srcery.gray4
-    }
-    Rectangle {
-      property int size: 302
-      implicitWidth: size
-      implicitHeight: size
-      anchors.centerIn: parent
-      radius: size / 2
-      color: "transparent"
-      border.color: Appearance.srcery.gray4
     }
 
     Item {
-      width: 290
-      height: 290
-      id: cpuIndicator
-      anchors.centerIn: parent
-
-      property real cpuUsage: ResourceUsage.cpuUsage
-      property int dotCount: 100
-      property real dotSize: 3
-      property real circleRadius: 145
-
-      Behavior on cpuUsage {
-        NumberAnimation {
-          duration: 300
-          easing.type: Easing.InOutQuad
-        }
+      id: c1
+      anchors.fill: parent
+      Rectangle {
+        property int size: 280
+        implicitWidth: size
+        implicitHeight: size
+        anchors.centerIn: parent
+        radius: size / 2
+        color: "transparent"
+        border.color: Appearance.srcery.gray4
+      }
+      Rectangle {
+        property int size: 302
+        implicitWidth: size
+        implicitHeight: size
+        anchors.centerIn: parent
+        radius: size / 2
+        color: "transparent"
+        border.color: Appearance.srcery.gray4
       }
 
-      Repeater {
-        model: cpuIndicator.dotCount
+      Item {
+        width: 290
+        height: 290
+        id: cpuIndicator
+        anchors.centerIn: parent
 
-        Rectangle {
-          required property int index
-          width: cpuIndicator.dotSize
-          height: cpuIndicator.dotSize
-          radius: cpuIndicator.dotSize / 2
+        property real cpuUsage: ResourceUsage.cpuUsage
+        property int dotCount: 100
+        property real dotSize: 3
+        property real circleRadius: 145
 
-          // Behavior on color {
-          //   ColorAnimation { duration: 300 }
-          // }
-          color: {
-            if (index < cpuIndicator.cpuUsage * cpuIndicator.dotCount) {
-              if (cpuIndicator.cpuUsage > 0.8) return Appearance.srcery.orange
-              if (cpuIndicator.cpuUsage > 0.5) return Appearance.srcery.yellow
-              return Appearance.srcery.white
-            } else {
-              return Appearance.srcery.gray4
-            }
+        Behavior on cpuUsage {
+          NumberAnimation {
+            duration: 300
+            easing.type: Easing.InOutQuad
           }
+        }
 
-          x: cpuIndicator.width / 2 - width / 2 + cpuIndicator.circleRadius * Math.cos(angle)
-          y: cpuIndicator.height / 2 - height / 2 + cpuIndicator.circleRadius * Math.sin(angle)
+        Repeater {
+          model: cpuIndicator.dotCount
 
-          property real angle: (index / cpuIndicator.dotCount) * 2 * Math.PI - Math.PI / 2
+          Rectangle {
+            required property int index
+            width: cpuIndicator.dotSize
+            height: cpuIndicator.dotSize
+            radius: cpuIndicator.dotSize / 2
+
+            // Behavior on color {
+            //   ColorAnimation { duration: 300 }
+            // }
+            color: {
+              if (index < cpuIndicator.cpuUsage * cpuIndicator.dotCount) {
+                if (cpuIndicator.cpuUsage > 0.8) return Appearance.srcery.orange
+                if (cpuIndicator.cpuUsage > 0.5) return Appearance.srcery.yellow
+                return Appearance.srcery.white
+              } else {
+                return Appearance.srcery.gray4
+              }
+            }
+
+            x: cpuIndicator.width / 2 - width / 2 + cpuIndicator.circleRadius * Math.cos(angle)
+            y: cpuIndicator.height / 2 - height / 2 + cpuIndicator.circleRadius * Math.sin(angle)
+
+            property real angle: (index / cpuIndicator.dotCount) * 2 * Math.PI - Math.PI / 2
+          }
         }
       }
     }
