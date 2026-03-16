@@ -41,6 +41,38 @@ Singleton {
     }
   }
 
+
+  Timer {
+    id: statusLightPollTimer
+    interval: 1000 * 30
+    repeat: true
+    running: true
+    onTriggered: statusLightCheck.running = true
+  }
+
+  Process {
+    id: statusLight
+    running: false
+    command: ["status-light", "animation", "--name", "notify", "--loop", "--fps", 20]
+  }
+
+  Process {
+    id: statusLightClear
+    running: false
+    command: ["status-light", "clear"]
+  }
+
+  property bool statusLightAvailable: false
+
+  Process {
+    id: statusLightCheck
+    running: false
+    command: ["sh", "-c", "command -v status-light >/dev/null 2>&1 && status-light status"]
+    onExited: (exitCode, exitStatus) => {
+      root.statusLightAvailable = exitCode === 0
+    }
+  }
+
   function notifToJSON(notif) {
     return {
       "notificationId": notif.notificationId,
@@ -106,6 +138,12 @@ Singleton {
         delete root.latestTimeForApp[appName];
       }
     });
+
+    if (root.list.length > 0) {
+      if (root.statusLightAvailable) statusLight.running = true
+    } else {
+      if (root.statusLightAvailable) statusLightClear.running = true
+    }
   }
 
   function appNameListForGroups(groups) {
@@ -261,6 +299,7 @@ Singleton {
   }
 
   Component.onCompleted: {
+    statusLightCheck.running = true
     refresh()
   }
 
