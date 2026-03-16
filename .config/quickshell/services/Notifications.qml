@@ -63,6 +63,7 @@ Singleton {
   }
 
   property bool statusLightAvailable: false
+  property bool statusLightActive: false
 
   Process {
     id: statusLightCheck
@@ -139,10 +140,12 @@ Singleton {
       }
     });
 
-    if (root.list.length > 0) {
-      if (root.statusLightAvailable) statusLight.running = true
-    } else {
-      if (root.statusLightAvailable) statusLightClear.running = true
+    if (root.statusLightAvailable && root.list.length > 0 && !root.statusLightActive) {
+      statusLight.running = true
+      root.statusLightActive = true
+    } else if (root.statusLightAvailable && root.list.length === 0 && root.statusLightActive) {
+      statusLightClear.running = true
+      root.statusLightActive = false
     }
   }
 
