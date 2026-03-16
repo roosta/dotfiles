@@ -57,9 +57,9 @@ Singleton {
   }
 
   Process {
-    id: statusLightClear
+    id: statusLightIdle
     running: false
-    command: ["status-light", "clear"]
+    command: ["status-light", "animation", "--name", "idle"]
   }
 
   property bool statusLightAvailable: false
@@ -144,7 +144,7 @@ Singleton {
       statusLight.running = true
       root.statusLightActive = true
     } else if (root.statusLightAvailable && root.list.length === 0 && root.statusLightActive) {
-      statusLightClear.running = true
+      statusLightIdle.running = true
       root.statusLightActive = false
     }
   }
