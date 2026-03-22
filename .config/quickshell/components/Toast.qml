@@ -57,7 +57,7 @@ Item {
   anchors.right: parent.right
   anchors.bottom: parent.bottom
   implicitHeight: (Appearance.notifications.toastHeight * root.listCount) + (Appearance.spacing.p0 * root.listCount)
-  visible: root.monitorId === Config.primaryDisplay
+  visible: root.monitorId === Config.primaryDisplay || Config.displays.tv
 
 
   ListView {
