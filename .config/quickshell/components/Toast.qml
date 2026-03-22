@@ -4,13 +4,13 @@ import Quickshell.Widgets
 import Quickshell
 import QtQuick
 // import Quickshell.Wayland
-import Quickshell.Hyprland
-import Quickshell.Wayland
-import QtQuick.Shapes
-import QtQuick.VectorImage
+// import Quickshell.Hyprland
+// import Quickshell.Wayland
+// import QtQuick.Shapes
+// import QtQuick.VectorImage
 import QtQuick.Layouts
 
-import qs.utils
+// import qs.utils
 import qs.services
 import qs.config
 import qs
@@ -65,35 +65,34 @@ Item {
     spacing: Appearance.spacing.p2
     anchors.fill: parent
     id: list
-    model: ScriptModel {
-      values: Notifications.popupList
+    model: ListModel { id: toastModel }
 
-      // values:  [
-      //   {
-      //     "notificationId": 21,
-      //     "actions": [],
-      //     "appIcon": "",
-      //     "appName": "notify-send",
-      //     "body": "This is a test that is long and will take up a fair bit of space so we can check padding. Needs to be a bit longer, we need to reach the content edge",
-      //     "image": "image://icon//home/roosta/Dropbox/avatars/fif.png",
-      //     "summary": "Foo Bar Baz Fiz Bang Long Line Huzza Truncate This Please",
-      //     "time": 1773145284617,
-      //     "urgency": "1"
-      //   },
-      //   {
-      //     "notificationId": 21,
-      //     "actions": [],
-      //     "appIcon": "",
-      //     "appName": "notify-send",
-      //     "body": "This is a test that is long and will take up a fair bit of space so we can check padding. Needs to be a bit longer, we need to reach the content edge",
-      //     "image": "image://icon//home/roosta/Dropbox/avatars/fif.png",
-      //     "summary": "Foo Bar Baz Fiz Bang Long Line Huzza Truncate This Please",
-      //     "time": 1773145284617,
-      //     "urgency": "1"
-      //   }
-      // ]
-
+    function syncModel(newList) {
+      for (let i = toastModel.count - 1; i >= 0; i--) {
+        let found = newList
+          .some(n => n.notificationId === toastModel.get(i).notificationId)
+        if (!found) toastModel.remove(i)
+      }
+      for (let item of newList) {
+        let found = false
+        for (let i = 0; i < toastModel.count; i++) {
+          if (toastModel.get(i).notificationId === item.notificationId) {
+            found = true;
+            break
+          }
+        }
+        if (!found) toastModel.append(item)
+      }
     }
+
+    Connections {
+      target: Notifications
+      function onPopupListChanged() {
+        list.syncModel(Notifications.popupList)
+      }
+    }
+
+    Component.onCompleted: list.syncModel(Notifications.popupList)
 
     delegate: Rectangle {
       implicitHeight: Appearance.notifications.toastHeight
@@ -102,7 +101,16 @@ Item {
       color: Appearance.srcery.black
       border.width: Appearance.bar.borderWidth
       // radius: 5
-      required property var modelData
+      required property int index
+      required property var notificationId
+      required property string appName
+      required property string summary
+      required property string body
+      required property string image
+      required property string appIcon
+      required property var actions
+      required property string urgency
+      required property var time
       border.color: Appearance.srcery.gray3
 
       MouseArea {
@@ -111,10 +119,10 @@ Item {
         hoverEnabled: true
 
         onClicked: {
-          if (popup.modelData?.notificationId) {
+          if (popup.notificationId) {
 
-            // Notifications.attemptInvokeAction(popup.modelData.notificationId, modelData.identifier);
-            // Notifications.discardNotification(popup.modelData?.notificationId);
+            // Notifications.attemptInvokeAction(popup.notificationId, modelData.identifier);
+            // Notifications.discardNotification(popup.notificationId);
           }
         }
       }
@@ -149,22 +157,22 @@ Item {
             radius: 4
             Loader {
               anchors.fill: parent
-              active: popup.modelData.image !== ""
+              active: popup.image !== ""
               sourceComponent: Image {
                 id: image
                 anchors.fill: parent
-                source: popup.modelData.image
+                source: popup.image
                 anchors.margins: Appearance.spacing.p2
 
               }
             }
             Loader {
               anchors.fill: parent
-              active: popup.modelData.appIcon !== ""
+              active: popup.appIcon !== ""
               sourceComponent: IconImage {
                 id: icon
                 anchors.fill: parent
-                source: Quickshell.iconPath(popup.modelData.appIcon)
+                source: Quickshell.iconPath(popup.appIcon)
                 anchors.margins: Appearance.spacing.p2
 
               }
@@ -178,8 +186,8 @@ Item {
               elide: Text.ElideRight
               Layout.fillWidth: true
               text: {
-                if (popup.modelData?.appName) {
-                  return popup.modelData.appName
+                if (popup.appName) {
+                  return popup.appName
                 } else {
                   "(No name)"
                 }
@@ -195,8 +203,8 @@ Item {
               elide: Text.ElideRight
               Layout.fillWidth: true
               text: {
-                if (popup.modelData?.summary) {
-                  return popup.modelData.summary
+                if (popup.summary) {
+                  return popup.summary
                 }
                 return ""
               }
@@ -233,8 +241,8 @@ Item {
               hoverEnabled: true
 
               onClicked: {
-                if (popup.modelData?.notificationId) {
-                  Notifications.discardNotification(popup.modelData.notificationId)
+                if (popup.notificationId) {
+                  Notifications.discardNotification(popup.notificationId)
                 }
               }
             }
@@ -260,8 +268,8 @@ Item {
         Text {
           color: Appearance.srcery.white
           text: {
-            if (popup.modelData?.body) {
-              return popup.modelData.body
+            if (popup.body) {
+              return popup.body
             } else {
               return ""
             }
@@ -278,13 +286,27 @@ Item {
       }
     }
     remove: Transition {
-      NumberAnimation {
-        properties: "x,y"
-        easing.type: Easing.OutCubic
-        duration: Appearance.durations.normal
+      ParallelAnimation {
+        NumberAnimation {
+          property: "x"
+          to: Appearance.notifications.toastWidth
+          easing.type: Easing.InCubic
+          duration: Appearance.durations.normal
+        }
+        NumberAnimation {
+          property: "opacity"
+          to: 0
+          easing.type: Easing.InQuad
+          duration: Appearance.durations.normal
+        }
       }
     }
     add: Transition {
+      NumberAnimation {
+        property: "opacity"
+        from: 0; to: 1
+        duration: Appearance.durations.normal
+      }
       NumberAnimation {
         properties: "x,y"
         easing.type: Easing.OutCubic
