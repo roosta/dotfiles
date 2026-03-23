@@ -262,22 +262,17 @@ Item {
 
           Loader {
             active: root.categories.length > 0
-            sourceComponent: RowLayout {
-              Repeater {
-                model: root.categories
-                Text {
-                  required property string modelData
-                  text: modelData
-                  color: Appearance.srcery.brightBlack
-                  // anchors.bottom: parent.bottom
-                  elide: Text.ElideRight
-                  Layout.fillWidth: true
-                  wrapMode: Text.Wrap
-                  font {
-                    family: Appearance.font.light
-                    pointSize: Appearance.font.tiny
-                  }
-                }
+            Layout.fillWidth: true
+            Layout.preferredHeight: Appearance.font.tiny
+            sourceComponent: Text {
+              text: root.categories.join(", ")
+              anchors.fill: parent
+              color: Appearance.srcery.brightBlack
+              elide: Text.ElideRight
+              // wrapMode: Text.Wrap
+              font {
+                family: Appearance.font.light
+                pointSize: Appearance.font.tiny
               }
             }
           }
