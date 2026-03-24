@@ -1,6 +1,13 @@
-# ┏━┓┓━┓┳ ┳  ┏━┓┳━┓┏┓┓o┏━┓┏┓┓┓━┓
-# ┏━┛┗━┓┃━┫  ┃ ┃┃━┛ ┃ ┃┃ ┃┃┃┃┗━┓
-# ┗━┛━━┛┇ ┻  ┛━┛┇   ┇ ┇┛━┛┇┗┛━━┛
+# ┌────────────────────────────────────────────────────┐
+# │█▀▀▀▀▀▀▀▀█░░░█▀█░█▀█░▀█▀░▀█▀░█▀█░█▀█░█▀▀░░█▀▀▀▀▀▀▀▀█│
+# │█▀▀▀▀▀▀▀▀█░░░█░█░█▀▀░░█░░░█░░█░█░█░█░▀▀█░░█▀▀▀▀▀▀▀▀█│
+# │█▀▀▀▀▀▀▀▀█░░░▀▀▀░▀░░░░▀░░▀▀▀░▀▀▀░▀░▀░▀▀▀░░█▀▀▀▀▀▀▀▀█│
+# │█▀▀▀▀▀▀▀▀▀────────────────────────────────▀▀▀▀▀▀▀▀▀█│
+# ├┤ Author  : Daniel Berg <mail@roosta.sh>           ├┤
+# ││ Repo    : https://github.com/roosta/dotfiles     ││
+# ││ Site    : https://www.roosta.sh                  ││
+# ├┤ License : GNU General Public License v3          ├┤
+# ┆└──────────────────────────────────────────────────┘┆
 
 # Use vim keybinds
 bindkey -v
@@ -42,8 +49,9 @@ SAVEHIST=500000
 # the editing buffer.
 setopt HIST_VERIFY
 
-# Save each command's beginning timestamp (in seconds since the epoch) and the duration  (in  seconds)  to  the  history
-# file.  The format of this prefixed data is:
+# Save each command's beginning timestamp (in seconds since the epoch) and the
+# duration  (in  seconds)  to  the  history file.  The format of this prefixed
+# data is:
 # `: <beginning time>:<elapsed seconds>;<command>'.
 setopt EXTENDED_HISTORY
 

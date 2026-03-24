@@ -1,7 +1,16 @@
-# ┬─┐┬  ┬ ┐┌─┐o┌┐┐┐─┐
-# │─┘│  │ ││ ┬││││└─┐
-# ┆  ┆─┘┆─┘┆─┘┆┆└┘──┘
-# -------------------
+# ┌────────────────────────────────────────────────────┐
+# │█▀▀▀▀▀▀▀▀█░░░█▀█░█░░░█░█░█▀▀░▀█▀░█▀█░█▀▀░░█▀▀▀▀▀▀▀▀█│
+# │█▀▀▀▀▀▀▀▀█░░░█▀▀░█░░░█░█░█░█░░█░░█░█░▀▀█░░█▀▀▀▀▀▀▀▀█│
+# │█▀▀▀▀▀▀▀▀█░░░▀░░░▀▀▀░▀▀▀░▀▀▀░▀▀▀░▀░▀░▀▀▀░░█▀▀▀▀▀▀▀▀█│
+# │█▀▀▀▀▀▀▀▀▀────────────────────────────────▀▀▀▀▀▀▀▀▀█│
+# ├┤ Author  : Daniel Berg <mail@roosta.sh>           ├┤
+# ││ Repo    : https://github.com/roosta/dotfiles     ││
+# ││ Site    : https://www.roosta.sh                  ││
+# ├┤ License : GNU General Public License v3          ├┤
+# ┆└──────────────────────────────────────────────────┘┆
+# Plugins are git submodules, this iterates over each, handling init. Different
+# plugins require different init logic, this is set up to be as flexible as
+# possible. Check utils.zsh for guard function.
 
 if require_binary starship; then
   eval "$(starship init zsh)"

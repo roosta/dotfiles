@@ -1,6 +1,13 @@
-# ┏━┓┓━┓┳ ┳  ┏━┓┏━┓┏┏┓┳━┓┳  ┳━┓┏┓┓o┏━┓┏┓┓
-# ┏━┛┗━┓┃━┫  ┃  ┃ ┃┃┃┃┃━┛┃  ┣━  ┃ ┃┃ ┃┃┃┃
-# ┗━┛━━┛┇ ┻  ┗━┛┛━┛┛ ┇┇  ┇━┛┻━┛ ┇ ┇┛━┛┇┗┛
+# ┌────────────────────────────────────────────────────────────────┐
+# │█▀▀▀▀▀▀▀▀█░░░█▀▀░█▀█░█▄█░█▀█░█░░░█▀▀░▀█▀░▀█▀░█▀█░█▀█░░█▀▀▀▀▀▀▀▀█│
+# │█▀▀▀▀▀▀▀▀█░░░█░░░█░█░█░█░█▀▀░█░░░█▀▀░░█░░░█░░█░█░█░█░░█▀▀▀▀▀▀▀▀█│
+# │█▀▀▀▀▀▀▀▀█░░░▀▀▀░▀▀▀░▀░▀░▀░░░▀▀▀░▀▀▀░░▀░░▀▀▀░▀▀▀░▀░▀░░█▀▀▀▀▀▀▀▀█│
+# │█▀▀▀▀▀▀▀▀▀────────────────────────────────────────────▀▀▀▀▀▀▀▀▀█│
+# ├┤ Author  : Daniel Berg <mail@roosta.sh>                       ├┤
+# ││ Repo    : https://github.com/roosta/dotfiles                 ││
+# ││ Site    : https://www.roosta.sh                              ││
+# ├┤ License : GNU General Public License v3                      ├┤
+# ┆└──────────────────────────────────────────────────────────────┘┆
 
 fpath=($HOME/.zsh.d/completion $fpath)
 fpath=($FORGIT_INSTALL_DIR/completions $fpath)
@@ -12,7 +19,7 @@ compinit -u
 # autoload -U ~/.zsh.d/completion/*(:t)
 
 # complete hidden files
-# https://unix.stackexchange.com/questions/308315/how-can-i-configure-zsh-completion-to-show-hidden-files-and-folders/366137 
+# https://unix.stackexchange.com/questions/308315/how-can-i-configure-zsh-completion-to-show-hidden-files-and-folders/366137
 _comp_options+=(globdots)
 
 # OPTIONS

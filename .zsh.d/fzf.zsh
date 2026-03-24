@@ -1,7 +1,13 @@
-# ┬─┐┬ ┐┌─┐┌─┐┐ ┬  ┬─┐o┌┐┐┬─┐┬─┐┬─┐
-# ├─ │ │┌─┘┌─┘└┌┘──├─ │││││ │├─ │┬┘
-# ┆  ┆─┘└─┘└─┘ ┆   ┆  ┆┆└┘┆─┘┴─┘┆└┘
-# ---------------------------------
+# ┌───────────────────────────────────────────────┐
+# │█▀▀▀▀▀▀▀▀█░░░░░░░░█▀▀░▀▀█░█▀▀░░░░░░░░█▀▀▀▀▀▀▀▀█│
+# │█▀▀▀▀▀▀▀▀█░░░░░░░░█▀▀░▄▀░░█▀▀░░░░░░░░█▀▀▀▀▀▀▀▀█│
+# │█▀▀▀▀▀▀▀▀█░░░░░░░░▀░░░▀▀▀░▀░░░░░░░░░░█▀▀▀▀▀▀▀▀█│
+# │█▀▀▀▀▀▀▀▀▀───────────────────────────▀▀▀▀▀▀▀▀▀█│
+# ├┤ Author  : Daniel Berg <mail@roosta.sh>      ├┤
+# ││ Repo    : https://github.com/roosta/dotfiles││
+# ││ Site    : https://www.roosta.sh             ││
+# ├┤ License : GNU General Public License v3     ├┤
+# ┆└─────────────────────────────────────────────┘┆
 # Options {{{
 
 # Respecting .gitignore, .hgignore, and svn:ignore
@@ -25,6 +31,7 @@ export FZF_DEFAULT_OPTS="
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="fd --type dir --hidden --color=always"
 export FZF_ALT_C_OPTS="--preview 'tree -a --gitignore -C {} | head -200'"
+
 #}}}
 # Functions {{{
 
