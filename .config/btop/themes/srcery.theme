@@ -1,6 +1,14 @@
-# Theme: srcery
-# By: Daniel Berg <mail@roosta.sh>
-# Desc: Occult meters for your late night scrying
+# ┌────────────────────────────────────────────────┐
+# │█▀▀▀▀▀▀▀▀█░░░█▀▀░█▀▄░█▀▀░█▀▀░█▀▄░█░█░░█▀▀▀▀▀▀▀▀█│
+# │█▀▀▀▀▀▀▀▀█░░░▀▀█░█▀▄░█░░░█▀▀░█▀▄░░█░░░█▀▀▀▀▀▀▀▀█│
+# │█▀▀▀▀▀▀▀▀█░░░▀▀▀░▀░▀░▀▀▀░▀▀▀░▀░▀░░▀░░░█▀▀▀▀▀▀▀▀█│
+# │█▀▀▀▀▀▀▀▀▀────────────────────────────▀▀▀▀▀▀▀▀▀█│
+# ├┤ Author  : Daniel Berg <mail@roosta.sh>       ├┤
+# ││ Repo    : https://github.com/roosta/dotfiles ││
+# ││ Site    : https://www.roosta.sh              ││
+# ├┤ License : GNU General Public License v3      ├┤
+# ┆└──────────────────────────────────────────────┘┆
+# ┆ Desc: Occult meters for your late night scrying
 # Based on https://srcery.sh
 
 # Main bg
