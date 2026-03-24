@@ -252,7 +252,7 @@ Singleton {
   readonly property var outputs: [
     {
       id: 0,
-      sink: "alsa_output.usb-Generic_USB_Audio-00.HiFi__Speaker__sink",
+      sink: "alsa_output.pci-0000_00_1b.0.iec958-stereo",
       icon: "󰓃",
       comment: "Switch audio output to Speakers",
       genericName: "Audio",
@@ -260,28 +260,6 @@ Singleton {
       iconId: "audio-speakers",
       name: "Speakers",
       script: [`${Paths.home}/scripts/switch-audio.sh`, "speakers"]
-    },
-    {
-      id: 1,
-      sink: "alsa_output.usb-SteelSeries_SteelSeries_Arctis_7-00.stereo-game",
-      genericName: "Audio",
-      categories: ["Audio", "Headphones"],
-      icon: "",
-      comment: "Switch audio output to Headphones",
-      iconId: "audio-headphones",
-      name: "Headphones",
-      script: [`${Paths.home}/scripts/switch-audio.sh`, "headphones"]
-    },
-    {
-      id: 2,
-      genericName: "Audio",
-      categories: ["Audio", "TV"],
-      sink: "alsa_output.pci-0000_03_00.1.hdmi-stereo-extra3",
-      icon: "󰍹",
-      comment: "Switch audio output to Television (TV)" ,
-      iconId: "video-display",
-      name: "Television (TV)",
-      script: [`${Paths.home}/scripts/switch-audio.sh`, "tv"]
     }
   ]
 
