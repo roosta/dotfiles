@@ -1,3 +1,14 @@
+# ┌────────────────────────────────────────────────────────┐
+# │█▀▀▀▀▀▀▀▀█░░░█▀▀░▀█▀░█▀█░█▀▄░█▀▀░█░█░▀█▀░█▀█░░█▀▀▀▀▀▀▀▀█│
+# │█▀▀▀▀▀▀▀▀█░░░▀▀█░░█░░█▀█░█▀▄░▀▀█░█▀█░░█░░█▀▀░░█▀▀▀▀▀▀▀▀█│
+# │█▀▀▀▀▀▀▀▀█░░░▀▀▀░░▀░░▀░▀░▀░▀░▀▀▀░▀░▀░▀▀▀░▀░░░░█▀▀▀▀▀▀▀▀█│
+# │█▀▀▀▀▀▀▀▀▀────────────────────────────────────▀▀▀▀▀▀▀▀▀█│
+# ├┤ Author  : Daniel Berg <mail@roosta.sh>               ├┤
+# ││ Repo    : https://github.com/roosta/dotfiles         ││
+# ││ Site    : https://www.roosta.sh                      ││
+# ├┤ License : GNU General Public License v3              ├┤
+# ┆└──────────────────────────────────────────────────────┘┆
+
 [sudo]
 disabled = false
 format = '[$symbol]($style)'
@@ -38,6 +49,7 @@ symbol = " "
 [git_branch]
 symbol = " "
 
+# Print which branch dotfiles (git bare) are using
 [custom.dot]
 symbol = "󱁍 "
 style = "italic bright-black"
