@@ -25,7 +25,7 @@ import qs.utils
 Singleton {
   id: root
   property list<var> audioData: {
-    return PipewireData.ready ?
+    return AudioData.ready ?
     Config.outputs.map(a => ({ name: Fuzzy.prepare(a.name), entry: a })) :
     []
   }

@@ -51,6 +51,7 @@ Loader {
       anchors.fill: parent
       color: Appearance.srcery.black
     }
+
     Glyph {
       id: glyph
       width: 220
@@ -97,7 +98,7 @@ Loader {
         id: visualizerBar
 
         required property real modelData
-        readonly property real value: Math.max(1e-3, Math.min(1, PipewireData.bars[modelData]))
+        readonly property real value: Math.max(1e-3, Math.min(1, AudioData.bars[modelData]))
 
         readonly property real angle: 3 * Math.PI / 2 - modelData * 2 * Math.PI / visualizer.numberOfBars
         readonly property real magnitude: value * 128

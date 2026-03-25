@@ -22,7 +22,7 @@ import QtQuick.Controls
 ExpandingButton {
   id: root
 
-  property bool muted: PipewireData.ready && PipewireData.sink.audio.muted
+  property bool muted: AudioData.ready && AudioData.sink.audio.muted
   property string mutedIcon: ""
 
   function getSinkIcon(sink) {
@@ -33,7 +33,7 @@ ExpandingButton {
       return ""
     }
   }
-  buttonLabel: muted ? mutedIcon : getSinkIcon(PipewireData.sink)
+  buttonLabel: muted ? mutedIcon : getSinkIcon(AudioData.sink)
 
   BorderRectangle {
     id: srcBtn
@@ -83,8 +83,8 @@ ExpandingButton {
     visible: root.active
     implicitWidth: Appearance.bar.sliderWidth
     from: 0.0
-    value: PipewireData.sink?.audio.volume ?? 0
-    onMoved: PipewireData.sink.audio.volume = value
+    value: AudioData.sink?.audio.volume ?? 0
+    onMoved: AudioData.sink.audio.volume = value
     to: 1.0
     HoverHandler {
       cursorShape: Qt.PointingHandCursor

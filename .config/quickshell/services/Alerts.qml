@@ -20,9 +20,9 @@ import qs.services
 
 Singleton {
   id: root
-  property bool audioIn: PipewireData.audioIn.length > 0
+  property bool audioIn: AudioData.audioIn.length > 0
   property bool videoIn: false
-  property bool audioOut: PipewireData.audioOut.length > 0
+  property bool audioOut: AudioData.audioOut.length > 0
   property bool hasAlerts: audioIn || cpuUsage
   property bool cpuUsage: ResourceUsage.cpuUsage >= 0.8
 

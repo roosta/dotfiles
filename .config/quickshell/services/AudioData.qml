@@ -16,10 +16,13 @@ import Quickshell.Io
 import Quickshell
 import QtQuick
 import qs.utils
+import Quickshell.Services.Mpris
 import Quickshell.Services.Pipewire
 
 Singleton {
   id: root
+
+  readonly property list<MprisPlayer> players: Mpris.players.values
 
   property bool ready: Pipewire.defaultAudioSink?.ready ?? false
   property PwNode sink: Pipewire.defaultAudioSink
