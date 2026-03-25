@@ -52,19 +52,17 @@ Loader {
       color: Appearance.srcery.black
     }
 
+    Diagram {
+      implicitWidth: 280
+      implicitHeight: 280
+    }
+
     Glyph {
       id: glyph
       width: 220
       height: 220
       anchors.centerIn: parent
     }
-
-    // Triangle {
-    //   width: 170
-    //   height: 150
-    //   anchors.horizontalCenter: parent.horizontalCenter
-    //   y: 150
-    // }
 
     // The visualizer was based of this:
     // https://github.com/caelestia-dots/shell/blob/3e0360401bbbb0f640958998f6625495e5b3fdff/modules/dashboard/Media.qml
@@ -74,11 +72,11 @@ Loader {
       anchors.centerIn: parent
       readonly property real centerX: width / 2
       readonly property real centerY: height / 2
-      readonly property real innerX: glyph.implicitWidth / 2.7 + Appearance.spacing.p2
-      readonly property real innerY: glyph.implicitHeight / 2.7 + Appearance.spacing.p2
+      readonly property real innerX: glyph.implicitWidth / 1.9 + Appearance.spacing.p2
+      readonly property real innerY: glyph.implicitHeight / 1.9 + Appearance.spacing.p2
       property color colour: Appearance.srcery.gray4
 
-      property int numberOfBars: 64
+      property int numberOfBars: 128
       anchors.fill: glyph
       anchors.margins: -Appearance.spacing.p1
 
@@ -120,18 +118,25 @@ Loader {
         Behavior on strokeColor {
 
           ColorAnimation {
-            duration: Appearance.durations.normal
+            duration: Appearance.durations.tiny
             easing.type: Easing.InOutQuad
           }
         }
       }
     }
 
+    // Triangle {
+    //   width: 170
+    //   height: 150
+    //   anchors.horizontalCenter: parent.horizontalCenter
+    //   y: 150
+    // }
+
     Item {
       id: c1
       anchors.fill: parent
       Rectangle {
-        property int size: 280
+        property int size: 400
         implicitWidth: size
         implicitHeight: size
         anchors.centerIn: parent
@@ -140,7 +145,7 @@ Loader {
         border.color: Appearance.srcery.gray4
       }
       Rectangle {
-        property int size: 302
+        property int size: 422
         implicitWidth: size
         implicitHeight: size
         anchors.centerIn: parent
@@ -156,9 +161,9 @@ Loader {
         anchors.centerIn: parent
 
         property real cpuUsage: ResourceUsage.cpuUsage
-        property int dotCount: 64
+        property int dotCount: 128
         property real dotSize: 3
-        property real circleRadius: 145
+        property real circleRadius: 205
 
         Behavior on cpuUsage {
           NumberAnimation {
