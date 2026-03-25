@@ -19,7 +19,7 @@ import qs.services
 // import qs.utils
 import qs
 
-BorderRectangle {
+BorderRect {
   id: root
   required property string monitorId
   property alias text: field.text

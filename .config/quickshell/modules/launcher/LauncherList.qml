@@ -75,7 +75,7 @@ Item {
         anchors.fill: parent
         color: "transparent"
         clip: true
-        BorderRectangle {
+        BorderRect {
           id: rect
           color: Appearance.srcery.black
           borderColor: Appearance.srcery.gray3
@@ -155,7 +155,7 @@ Item {
           id: scroll
           padding: 0
           // implicitWidth: Appearance.spacing.p1
-          contentItem: BorderRectangle {
+          contentItem: BorderRect {
             anchors.left: parent.left
             anchors.right: parent.right
             borderWidth: 1

@@ -15,7 +15,7 @@ import qs.services
 import qs.config
 import qs.components
 
-BorderRectangle {
+BorderRect {
   implicitWidth: childrenRect.width
   implicitHeight: Appearance.bar.height - Appearance.bar.borderWidth
   // topBorder: Appearance.bar.borderWidth

@@ -18,7 +18,7 @@ import QtQuick.Layouts
 
 import QtQuick.Controls
 
-BorderRectangle {
+BorderRect {
   id: root
   color: Appearance.srcery.black
   borderColor: Appearance.srcery.gray3
@@ -154,7 +154,7 @@ BorderRectangle {
             ResourceUsage.refreshTooltip()
           }
         }
-        background: BorderRectangle {
+        background: BorderRect {
           color: Appearance.srcery.gray1
         }
       }

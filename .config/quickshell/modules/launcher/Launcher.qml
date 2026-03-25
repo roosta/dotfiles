@@ -59,7 +59,7 @@ Item {
       }
     }
   }
-  BorderRectangle {
+  BorderRect {
     id: launcher
     implicitHeight: 0
     anchors.left: parent.left

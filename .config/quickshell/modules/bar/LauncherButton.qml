@@ -45,12 +45,12 @@ Button {
     cursorShape: Qt.PointingHandCursor
   }
 
-  background: BorderRectangle {
+  background: BorderRect {
     id: outerRect
     color: Appearance.srcery.black
     borderColor: Appearance.srcery.gray3
     borderWidth: Appearance.bar.borderWidth
-    BorderRectangle {
+    BorderRect {
       id: innerRect
       anchors.centerIn: parent
       implicitWidth: parent.width * 0.5

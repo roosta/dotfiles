@@ -21,7 +21,7 @@ import qs.components
 import qs.utils
 pragma ComponentBehavior: Bound
 
-BorderRectangle {
+BorderRect {
   id: root
   leftBorder: Appearance.bar.borderWidth
   rightBorder: Appearance.bar.borderWidth

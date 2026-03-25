@@ -62,7 +62,7 @@ Button {
     cursorShape: root.active ? Qt.ArrowCursor : Qt.PointingHandCursor
   }
 
-  background: BorderRectangle {
+  background: BorderRect {
     id: wsBackground
     implicitWidth: root.calculatedWidth
     implicitHeight: childrenRect.height

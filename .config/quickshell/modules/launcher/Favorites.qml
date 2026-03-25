@@ -21,7 +21,7 @@ import qs.services
 // import qs.utils
 import qs
 
-BorderRectangle {
+BorderRect {
   id: favorites
   implicitHeight: Appearance.launcher.itemHeight + Appearance.spacing.p2
   Layout.fillWidth: true

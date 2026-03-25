@@ -35,7 +35,7 @@ ExpandingButton {
   }
   buttonLabel: muted ? mutedIcon : getSinkIcon(AudioData.sink)
 
-  BorderRectangle {
+  BorderRect {
     id: srcBtn
     visible: root.active
     implicitWidth: srcBtnText.implicitWidth

@@ -19,7 +19,7 @@ import QtQuick.Layouts
 
 import QtQuick.Controls
 
-BorderRectangle {
+BorderRect {
   id: root
   color: Appearance.srcery.black
   borderColor: Appearance.srcery.gray3
@@ -125,7 +125,7 @@ BorderRectangle {
         id: hover
         cursorShape: Qt.PointingHandCursor
       }
-      background: BorderRectangle {
+      background: BorderRect {
         id: buttonBg
         color: Appearance.srcery.black
         borderWidth: Appearance.bar.borderWidth

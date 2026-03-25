@@ -28,7 +28,7 @@ Item {
     id: rowLayout
     anchors.fill: parent
     spacing: 0
-    BorderRectangle {
+    BorderRect {
       implicitWidth: Appearance.bar.height
       implicitHeight: Appearance.bar.height - Appearance.bar.borderWidth
       Layout.topMargin: Appearance.bar.borderWidth

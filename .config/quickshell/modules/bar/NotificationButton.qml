@@ -109,7 +109,7 @@ Button {
       }
     }
   ]
-  background: BorderRectangle {
+  background: BorderRect {
     id: rect
     color: Appearance.srcery.black
     borderColor: Appearance.srcery.gray3

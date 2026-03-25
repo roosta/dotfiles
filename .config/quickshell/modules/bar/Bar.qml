@@ -30,7 +30,7 @@ Item {
     right: parent.right
   }
 
-  BorderRectangle {
+  BorderRect {
     id: barContent
     color: Appearance.srcery.black
     borderColor: Appearance.srcery.gray3
