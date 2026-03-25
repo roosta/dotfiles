@@ -24,6 +24,8 @@ Singleton {
 
   readonly property list<MprisPlayer> players: Mpris.players.values
 
+  readonly property MprisPlayer activePlayer: players[0] ?? null
+
   property bool ready: Pipewire.defaultAudioSink?.ready ?? false
   property PwNode sink: Pipewire.defaultAudioSink
   property PwNode source: Pipewire.defaultAudioSource

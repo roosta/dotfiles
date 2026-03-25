@@ -53,8 +53,8 @@ Loader {
     }
 
     Diagram {
-      implicitWidth: 280
-      implicitHeight: 280
+      implicitWidth: 290
+      implicitHeight: 290
     }
 
     Glyph {
@@ -72,8 +72,8 @@ Loader {
       anchors.centerIn: parent
       readonly property real centerX: width / 2
       readonly property real centerY: height / 2
-      readonly property real innerX: glyph.implicitWidth / 1.9 + Appearance.spacing.p2
-      readonly property real innerY: glyph.implicitHeight / 1.9 + Appearance.spacing.p2
+      readonly property real innerX: glyph.implicitWidth / 1.8 + Appearance.spacing.p2
+      readonly property real innerY: glyph.implicitHeight / 1.8 + Appearance.spacing.p2
       property color colour: Appearance.srcery.gray4
 
       property int numberOfBars: 128
@@ -136,7 +136,7 @@ Loader {
       id: c1
       anchors.fill: parent
       Rectangle {
-        property int size: 400
+        property int size: 420
         implicitWidth: size
         implicitHeight: size
         anchors.centerIn: parent
@@ -145,7 +145,7 @@ Loader {
         border.color: Appearance.srcery.gray4
       }
       Rectangle {
-        property int size: 422
+        property int size: 450
         implicitWidth: size
         implicitHeight: size
         anchors.centerIn: parent
@@ -163,7 +163,7 @@ Loader {
         property real cpuUsage: ResourceUsage.cpuUsage
         property int dotCount: 128
         property real dotSize: 3
-        property real circleRadius: 205
+        property real circleRadius: 217
 
         Behavior on cpuUsage {
           NumberAnimation {
