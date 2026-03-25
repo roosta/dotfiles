@@ -42,16 +42,39 @@ Item {
     anchors.bottomMargin: 2
     property int dotSize: 5
     id: artist
-    RowLayout {
-      spacing: Appearance.spacing.p2
+    Item {
+      Layout.preferredWidth: parent.width - Appearance.spacing.p2 * 2
+      Layout.preferredHeight: 15
+
       Rectangle {
+        id: tldot
         radius: artist.dotSize / 2
         color: Appearance.srcery.gray6
-        implicitWidth: artist.dotSize
-        implicitHeight: artist.dotSize
+        width: artist.dotSize
+        height: artist.dotSize
+        anchors.verticalCenter: parent.verticalCenter
+        x: AudioData.activePlayer?.isPlaying
+          ? (artistText.x - width - Appearance.spacing.p2)
+          : 0
+        Behavior on x {
+          NumberAnimation {
+            duration: Appearance.durations.normal
+            easing.type: Easing.InOutCubic
+          }
+        }
       }
+
       Text {
-        text: AudioData.activePlayer.trackArtist
+        id: artistText
+        anchors.centerIn: parent
+        text: AudioData.activePlayer.trackArtist ?? ""
+        Behavior on opacity {
+          NumberAnimation {
+            duration: Appearance.durations.normal
+            easing.type: Easing.InOutCubic
+          }
+        }
+        opacity: AudioData.activePlayer?.isPlaying ? 1 : 0
         font {
           family: Appearance.font.light
           pointSize: Appearance.font.small
@@ -60,22 +83,57 @@ Item {
       }
 
       Rectangle {
+        id: trdot
         radius: artist.dotSize / 2
         color: Appearance.srcery.gray6
-        implicitWidth: artist.dotSize
-        implicitHeight: artist.dotSize
+        width: artist.dotSize
+        height: artist.dotSize
+        anchors.verticalCenter: parent.verticalCenter
+        x: AudioData.activePlayer?.isPlaying
+          ? (artistText.x + artistText.width + Appearance.spacing.p2)
+          : (parent.width - width)
+        Behavior on x {
+          NumberAnimation {
+            duration: Appearance.durations.normal
+            easing.type: Easing.InOutCubic
+          }
+        }
       }
     }
-    RowLayout {
-      spacing: Appearance.spacing.p2
+
+    Item {
+      Layout.preferredWidth: parent.width - Appearance.spacing.p2 * 2
+      Layout.preferredHeight: 15
+
       Rectangle {
+        id: bldot
         radius: artist.dotSize / 2
         color: Appearance.srcery.gray6
-        implicitWidth: artist.dotSize
-        implicitHeight: artist.dotSize
+        width: artist.dotSize
+        height: artist.dotSize
+        anchors.verticalCenter: parent.verticalCenter
+        x: AudioData.activePlayer?.isPlaying
+          ? (trackText.x - width - Appearance.spacing.p2)
+          : 0
+        Behavior on x {
+          NumberAnimation {
+            duration: Appearance.durations.normal
+            easing.type: Easing.InOutCubic
+          }
+        }
       }
+
       Text {
-        text: AudioData.activePlayer.trackTitle
+        id: trackText
+        anchors.centerIn: parent
+        text: AudioData.activePlayer.trackTitle ?? ""
+        Behavior on opacity {
+          NumberAnimation {
+            duration: Appearance.durations.normal
+            easing.type: Easing.InOutCubic
+          }
+        }
+        opacity: AudioData.activePlayer?.isPlaying ? 1 : 0
         font {
           family: Appearance.font.light
           pointSize: Appearance.font.small
@@ -84,10 +142,21 @@ Item {
       }
 
       Rectangle {
+        id: brdot
         radius: artist.dotSize / 2
         color: Appearance.srcery.gray6
-        implicitWidth: artist.dotSize
-        implicitHeight: artist.dotSize
+        width: artist.dotSize
+        height: artist.dotSize
+        anchors.verticalCenter: parent.verticalCenter
+        x: AudioData.activePlayer?.isPlaying
+          ? (trackText.x + trackText.width + Appearance.spacing.p2)
+          : (parent.width - width)
+        Behavior on x {
+          NumberAnimation {
+            duration: Appearance.durations.normal
+            easing.type: Easing.InOutCubic
+          }
+        }
       }
     }
   }
