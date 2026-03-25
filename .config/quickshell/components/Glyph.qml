@@ -1,3 +1,13 @@
+// ┌───────────────────────────────────────────────┐
+// │█▀▀▀▀▀▀▀▀█░░░░█▀▀░█░░░█░█░█▀█░█░█░░░░█▀▀▀▀▀▀▀▀█│
+// │█▀▀▀▀▀▀▀▀█░░░░█░█░█░░░░█░░█▀▀░█▀█░░░░█▀▀▀▀▀▀▀▀█│
+// │█▀▀▀▀▀▀▀▀█░░░░▀▀▀░▀▀▀░░▀░░▀░░░▀░▀░░░░█▀▀▀▀▀▀▀▀█│
+// │█▀▀▀▀▀▀▀▀▀───────────────────────────▀▀▀▀▀▀▀▀▀█│
+// ├┤ Author  : Daniel Berg <mail@roosta.sh>      ├┤
+// ││ Repo    : https://github.com/roosta/dotfiles││
+// ││ Site    : https://www.roosta.sh             ││
+// ├┤ License : GNU General Public License v3     ├┤
+// ┆└─────────────────────────────────────────────┘┆
 // Generated from SVG file $HOME/.assets/glyph.svg
 import QtQuick
 import QtQuick.VectorImage

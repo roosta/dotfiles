@@ -1,4 +1,14 @@
-// GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007
+// ┌────────────────────────────────────────────────────────────┐
+// │█▀▀▀▀▀▀▀▀█░░░█░█░█▀█░█░░░█░░░█▀█░█▀█░█▀█░█▀▀░█▀▄░░█▀▀▀▀▀▀▀▀█│
+// │█▀▀▀▀▀▀▀▀█░░░█▄█░█▀█░█░░░█░░░█▀▀░█▀█░█▀▀░█▀▀░█▀▄░░█▀▀▀▀▀▀▀▀█│
+// │█▀▀▀▀▀▀▀▀█░░░▀░▀░▀░▀░▀▀▀░▀▀▀░▀░░░▀░▀░▀░░░▀▀▀░▀░▀░░█▀▀▀▀▀▀▀▀█│
+// │█▀▀▀▀▀▀▀▀▀────────────────────────────────────────▀▀▀▀▀▀▀▀▀█│
+// ├┤ Author  : Daniel Berg <mail@roosta.sh>                   ├┤
+// ││ Repo    : https://github.com/roosta/dotfiles             ││
+// ││ Site    : https://www.roosta.sh                          ││
+// ├┤ License : GNU General Public License v3                  ├┤
+// ┆└──────────────────────────────────────────────────────────┘┆
+
 pragma ComponentBehavior: Bound
 import Quickshell
 import QtQuick

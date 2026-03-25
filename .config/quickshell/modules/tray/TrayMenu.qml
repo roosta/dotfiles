@@ -1,7 +1,15 @@
-// GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007
+// ┌────────────────────────────────────────────────────────┐
+// │█▀▀▀▀▀▀▀▀█░░░▀█▀░█▀▄░█▀█░█░█░█▄█░█▀▀░█▀█░█░█░░█▀▀▀▀▀▀▀▀█│
+// │█▀▀▀▀▀▀▀▀█░░░░█░░█▀▄░█▀█░░█░░█░█░█▀▀░█░█░█░█░░█▀▀▀▀▀▀▀▀█│
+// │█▀▀▀▀▀▀▀▀█░░░░▀░░▀░▀░▀░▀░░▀░░▀░▀░▀▀▀░▀░▀░▀▀▀░░█▀▀▀▀▀▀▀▀█│
+// │█▀▀▀▀▀▀▀▀▀────────────────────────────────────▀▀▀▀▀▀▀▀▀█│
+// ├┤ Author  : Daniel Berg <mail@roosta.sh>               ├┤
+// ││ Repo    : https://github.com/roosta/dotfiles         ││
+// ││ Site    : https://www.roosta.sh                      ││
+// ├┤ License : GNU General Public License v3              ├┤
+// ┆└──────────────────────────────────────────────────────┘┆
 // Source: https://github.com/end-4/dots-hyprland/blob/5c141e0361adabdb7ea3575392309bec3a592af9/dots/.config/quickshell/ii/modules/ii/bar/SysTrayMenu.qml
-// Modified by Daniel Berg <mail@roosta.sh>
-
+// Modified 2026 by Daniel Berg <mail@roosta.sh>
 pragma ComponentBehavior: Bound
 import qs
 import qs.config
@@ -26,7 +34,9 @@ Item {
   )
 
   signal menuClosed
-  signal menuOpened(qsWindow: var) // Correct type is QsWindow, but QML does not like that
+
+  // Correct type is QsWindow, but QML does not like that
+  signal menuOpened(qsWindow: var)
 
   // color: Functions.transparentize("#000", 0.7)
   property real padding: Appearance.spacing.p1

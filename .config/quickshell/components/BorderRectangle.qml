@@ -1,7 +1,19 @@
+// ┌────────────────────────────────────────────────────────────────┐
+// │█▀▀▀▀▀▀▀▀█░░░█▀▄░█▀█░█▀▄░█▀▄░█▀▀░█▀▄░█▀▄░█▀▀░█▀▀░▀█▀░░█▀▀▀▀▀▀▀▀█│
+// │█▀▀▀▀▀▀▀▀█░░░█▀▄░█░█░█▀▄░█░█░█▀▀░█▀▄░█▀▄░█▀▀░█░░░░█░░░█▀▀▀▀▀▀▀▀█│
+// │█▀▀▀▀▀▀▀▀█░░░▀▀░░▀▀▀░▀░▀░▀▀░░▀▀▀░▀░▀░▀░▀░▀▀▀░▀▀▀░░▀░░░█▀▀▀▀▀▀▀▀█│
+// │█▀▀▀▀▀▀▀▀▀────────────────────────────────────────────▀▀▀▀▀▀▀▀▀█│
+// ├┤ Author  : Daniel Berg <mail@roosta.sh>                       ├┤
+// ││ Repo    : https://github.com/roosta/dotfiles                 ││
+// ││ Site    : https://www.roosta.sh                              ││
+// ├┤ License : GNU General Public License v3                      ├┤
+// ┆└──────────────────────────────────────────────────────────────┘┆
+
 import QtQuick
 
 // Rectangle that supports separate borders and support for angled gradient borders
 // Originally based on this: https://stackoverflow.com/a/59324531/4306379
+//
 Item {
   id: root
   property alias color: innerRect.color

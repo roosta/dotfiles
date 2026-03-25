@@ -1,5 +1,15 @@
-// GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007
-// source: https://github.com/end-4/dots-hyprland/blob/a7f1cddd45ae02e6a2ee4178d2f1e72d00fea7f3/dots/.config/quickshell/ii/services/Notifications.qml
+// ┌───────────────────────────────────────────────────────────────────────────┐
+// │█▀▀▀▀▀▀▀▀█░░█▀█░█▀█░▀█▀░▀█▀░█▀▀░▀█▀░█▀▀░█▀█░▀█▀░▀█▀░█▀█░█▀█░█▀▀░░█▀▀▀▀▀▀▀▀█│
+// │█▀▀▀▀▀▀▀▀█░░█░█░█░█░░█░░░█░░█▀▀░░█░░█░░░█▀█░░█░░░█░░█░█░█░█░▀▀█░░█▀▀▀▀▀▀▀▀█│
+// │█▀▀▀▀▀▀▀▀█░░▀░▀░▀▀▀░░▀░░▀▀▀░▀░░░▀▀▀░▀▀▀░▀░▀░░▀░░▀▀▀░▀▀▀░▀░▀░▀▀▀░░█▀▀▀▀▀▀▀▀█│
+// │█▀▀▀▀▀▀▀▀▀───────────────────────────────────────────────────────▀▀▀▀▀▀▀▀▀█│
+// ├┤ Author  : Daniel Berg <mail@roosta.sh>                                  ├┤
+// ││ Repo    : https://github.com/roosta/dotfiles                            ││
+// ││ Site    : https://www.roosta.sh                                         ││
+// ├┤ License : GNU General Public License v3                                 ├┤
+// ┆└─────────────────────────────────────────────────────────────────────────┘┆
+//
+// Source: https://github.com/end-4/dots-hyprland/blob/a7f1cddd45ae02e6a2ee4178d2f1e72d00fea7f3/dots/.config/quickshell/ii/services/Notifications.qml
 // Modified 2026 by Daniel Berg <mail@roosta.sh>
 
 pragma Singleton

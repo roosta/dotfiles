@@ -1,4 +1,13 @@
-// GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007
+// ┌───────────────────────────────────────────────┐
+// │█▀▀▀▀▀▀▀▀█░░░░█▀▀░█░█░▀▀█░▀▀█░█░█░░░░█▀▀▀▀▀▀▀▀█│
+// │█▀▀▀▀▀▀▀▀█░░░░█▀▀░█░█░▄▀░░▄▀░░░█░░░░░█▀▀▀▀▀▀▀▀█│
+// │█▀▀▀▀▀▀▀▀█░░░░▀░░░▀▀▀░▀▀▀░▀▀▀░░▀░░░░░█▀▀▀▀▀▀▀▀█│
+// │█▀▀▀▀▀▀▀▀▀───────────────────────────▀▀▀▀▀▀▀▀▀█│
+// ├┤ Author  : Daniel Berg <mail@roosta.sh>      ├┤
+// ││ Repo    : https://github.com/roosta/dotfiles││
+// ││ Site    : https://www.roosta.sh             ││
+// ├┤ License : GNU General Public License v3     ├┤
+// ┆└─────────────────────────────────────────────┘┆
 // Based on https://github.com/end-4/dots-hyprland/blob/21d6bcc63e9a969986950c3b869ed9a4866a11e7/.config/quickshell/ii/modules/common/functions/Fuzzy.qml
 // Modified 2025 by Daniel Berg <mail@roosta.sh>
 

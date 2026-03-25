@@ -1,3 +1,14 @@
+// ┌────────────────────────────────────────────────────────┐
+// │█▀▀▀▀▀▀▀▀█░░░█░█░█▀▀░█░█░█▀▄░█▀█░█▀█░█▀▄░█▀▄░░█▀▀▀▀▀▀▀▀█│
+// │█▀▀▀▀▀▀▀▀█░░░█▀▄░█▀▀░░█░░█▀▄░█░█░█▀█░█▀▄░█░█░░█▀▀▀▀▀▀▀▀█│
+// │█▀▀▀▀▀▀▀▀█░░░▀░▀░▀▀▀░░▀░░▀▀░░▀▀▀░▀░▀░▀░▀░▀▀░░░█▀▀▀▀▀▀▀▀█│
+// │█▀▀▀▀▀▀▀▀▀────────────────────────────────────▀▀▀▀▀▀▀▀▀█│
+// ├┤ Author  : Daniel Berg <mail@roosta.sh>               ├┤
+// ││ Repo    : https://github.com/roosta/dotfiles         ││
+// ││ Site    : https://www.roosta.sh                      ││
+// ├┤ License : GNU General Public License v3              ├┤
+// ┆└──────────────────────────────────────────────────────┘┆
+
 pragma ComponentBehavior: Bound
 import qs.config
 import qs.services
@@ -5,7 +16,7 @@ import qs.components
 import QtQuick
 import QtQuick.Layouts
 
-import QtQuick.Controls
+// import QtQuick.Controls
 
 BorderRectangle {
   id: root
@@ -17,7 +28,8 @@ BorderRectangle {
   required property string monitorId
 
   implicitWidth: layout.implicitWidth + Appearance.spacing.p1 * 2
-  implicitHeight: Appearance.bar.height - Appearance.bar.borderWidth - Appearance.spacing.p1 * 2
+  implicitHeight: Appearance.bar.height - Appearance.bar.borderWidth
+    - Appearance.spacing.p1 * 2
 
   Behavior on implicitWidth {
     NumberAnimation {

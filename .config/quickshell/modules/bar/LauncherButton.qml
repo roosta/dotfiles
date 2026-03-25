@@ -1,15 +1,26 @@
-import qs.services
+// ┌────────────────────────────────────────────────────────┐
+// │█▀▀▀▀▀▀▀▀█░░░█░░░█▀█░█░█░█▀█░█▀▀░█░█░█▀▀░█▀▄░░█▀▀▀▀▀▀▀▀█│
+// │█▀▀▀▀▀▀▀▀█░░░█░░░█▀█░█░█░█░█░█░░░█▀█░█▀▀░█▀▄░░█▀▀▀▀▀▀▀▀█│
+// │█▀▀▀▀▀▀▀▀█░░░▀▀▀░▀░▀░▀▀▀░▀░▀░▀▀▀░▀░▀░▀▀▀░▀░▀░░█▀▀▀▀▀▀▀▀█│
+// │█▀▀▀▀▀▀▀▀▀────────────────────────────────────▀▀▀▀▀▀▀▀▀█│
+// ├┤ Author  : Daniel Berg <mail@roosta.sh>               ├┤
+// ││ Repo    : https://github.com/roosta/dotfiles         ││
+// ││ Site    : https://www.roosta.sh                      ││
+// ├┤ License : GNU General Public License v3              ├┤
+// ┆└──────────────────────────────────────────────────────┘┆
+
+// import qs.services
 import qs.config
-import qs.utils
+// import qs.utils
 import qs.components
 import qs
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
-import Quickshell
-import Quickshell.Hyprland
-import Quickshell.Wayland
-import Quickshell.Widgets
+// import Quickshell
+// import Quickshell.Hyprland
+// import Quickshell.Wayland
+// import Quickshell.Widgets
 
 Button {
   id: root
@@ -18,7 +29,8 @@ Button {
   required property string monitorId
   Layout.topMargin: Appearance.bar.borderWidth
   implicitWidth: Appearance.bar.height - Appearance.spacing.p3
-  implicitHeight: Appearance.bar.height - Appearance.bar.borderWidth - Appearance.spacing.p1 * 2
+  implicitHeight: Appearance.bar.height - Appearance.bar.borderWidth
+    - Appearance.spacing.p1 * 2
 
   property bool active: GlobalState.launcherOpen
     && GlobalState.launcherMonitorId === root.monitorId

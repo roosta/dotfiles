@@ -1,10 +1,21 @@
+// ┌────────────────────────────────────────────────┐
+// │█▀▀▀▀▀▀▀▀█░░░█▀▀░█▀█░█▀█░█▀▀░▀█▀░█▀▀░░█▀▀▀▀▀▀▀▀█│
+// │█▀▀▀▀▀▀▀▀█░░░█░░░█░█░█░█░█▀▀░░█░░█░█░░█▀▀▀▀▀▀▀▀█│
+// │█▀▀▀▀▀▀▀▀█░░░▀▀▀░▀▀▀░▀░▀░▀░░░▀▀▀░▀▀▀░░█▀▀▀▀▀▀▀▀█│
+// │█▀▀▀▀▀▀▀▀▀────────────────────────────▀▀▀▀▀▀▀▀▀█│
+// ├┤ Author  : Daniel Berg <mail@roosta.sh>       ├┤
+// ││ Repo    : https://github.com/roosta/dotfiles ││
+// ││ Site    : https://www.roosta.sh              ││
+// ├┤ License : GNU General Public License v3      ├┤
+// ┆└──────────────────────────────────────────────┘┆
+
 pragma Singleton
 pragma ComponentBehavior: Bound
 
 // import Quickshell.Io
 import Quickshell
-import qs.services
-import qs.utils
+// import qs.services
+// import qs.utils
 import qs.config
 import QtQuick
 

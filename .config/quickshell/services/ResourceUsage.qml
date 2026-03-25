@@ -1,5 +1,14 @@
-// GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007
-// Based on https://github.com/end-4/dots-hyprland/blob/b4920a7cb610c026ec8683f73909400f39097340/dots/.config/quickshell/ii/services/ResourceUsage.qml
+// ┌────────────────────────────────────────────────────────────┐
+// │█▀▀▀▀▀▀▀▀█░░░█▀▄░█▀▀░█▀▀░█▀█░█░█░█▀▄░█▀▀░█▀▀░█▀▀░░█▀▀▀▀▀▀▀▀█│
+// │█▀▀▀▀▀▀▀▀█░░░█▀▄░█▀▀░▀▀█░█░█░█░█░█▀▄░█░░░█▀▀░▀▀█░░█▀▀▀▀▀▀▀▀█│
+// │█▀▀▀▀▀▀▀▀█░░░▀░▀░▀▀▀░▀▀▀░▀▀▀░▀▀▀░▀░▀░▀▀▀░▀▀▀░▀▀▀░░█▀▀▀▀▀▀▀▀█│
+// │█▀▀▀▀▀▀▀▀▀────────────────────────────────────────▀▀▀▀▀▀▀▀▀█│
+// ├┤ Author  : Daniel Berg <mail@roosta.sh>                   ├┤
+// ││ Repo    : https://github.com/roosta/dotfiles             ││
+// ││ Site    : https://www.roosta.sh                          ││
+// ├┤ License : GNU General Public License v3                  ├┤
+// ┆└──────────────────────────────────────────────────────────┘┆
+// Based on: https://github.com/end-4/dots-hyprland/blob/b4920a7cb610c026ec8683f73909400f39097340/dots/.config/quickshell/ii/services/ResourceUsage.qml
 // Modified 2025 by Daniel Berg <mail@roosta.sh>
 
 pragma Singleton
