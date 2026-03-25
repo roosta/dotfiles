@@ -15,7 +15,7 @@ pragma ComponentBehavior: Bound
 // import Quickshell.Io
 import Quickshell
 // import qs.services
-// import qs.utils
+import qs.utils
 import qs.config
 import QtQuick
 
