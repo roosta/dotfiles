@@ -99,7 +99,7 @@ Loader {
         required property real modelData
         readonly property real value: Math.max(1e-3, Math.min(1, PipewireData.bars[modelData]))
 
-        readonly property real angle: modelData * 2 * Math.PI / visualizer.numberOfBars
+        readonly property real angle: 3 * Math.PI / 2 - modelData * 2 * Math.PI / visualizer.numberOfBars
         readonly property real magnitude: value * 128
         readonly property real cos: Math.cos(angle)
         readonly property real sin: Math.sin(angle)
