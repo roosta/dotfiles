@@ -156,7 +156,7 @@ Loader {
         anchors.centerIn: parent
 
         property real cpuUsage: ResourceUsage.cpuUsage
-        property int dotCount: 100
+        property int dotCount: 64
         property real dotSize: 3
         property real circleRadius: 145
 
