@@ -67,6 +67,12 @@ Item {
       Text {
         id: artistText
         anchors.centerIn: parent
+        width: {
+          if (text.length > 38) {
+            return parent.width - artist.dotSize * 2 - Appearance.spacing.p2 * 2
+          }
+        }
+        elide: Text.ElideRight
         text: AudioData.activePlayer.trackArtist ?? ""
         Behavior on opacity {
           NumberAnimation {
@@ -79,7 +85,7 @@ Item {
           family: Appearance.font.light
           pointSize: Appearance.font.small
         }
-        color: Appearance.srcery.white
+        color: Appearance.srcery.brightBlack
       }
 
       Rectangle {
@@ -126,6 +132,12 @@ Item {
       Text {
         id: trackText
         anchors.centerIn: parent
+        width: {
+          if (text.length > 38) {
+            return parent.width - artist.dotSize * 2 - Appearance.spacing.p2 * 2
+          }
+        }
+        elide: Text.ElideRight
         text: AudioData.activePlayer.trackTitle ?? ""
         Behavior on opacity {
           NumberAnimation {
@@ -138,7 +150,7 @@ Item {
           family: Appearance.font.light
           pointSize: Appearance.font.small
         }
-        color: Appearance.srcery.white
+        color: Appearance.srcery.brightBlack
       }
 
       Rectangle {
