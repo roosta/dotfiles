@@ -41,7 +41,8 @@ alias cat="bat"
 # ------------------------------------------------------------------------------
 
 alias _="sudo"
-alias feh='swayimg'
+alias feh='kitten icat'
+alias icat="kitten icat"
 alias awk='gawk'
 alias mutt='neomutt'
 alias vim='nvim'
