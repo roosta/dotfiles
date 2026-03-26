@@ -73,7 +73,7 @@ Item {
           }
         }
         elide: Text.ElideRight
-        text: AudioData.activePlayer.trackArtist ?? ""
+        text: AudioData.activePlayer?.trackArtist ?? ""
         Behavior on opacity {
           NumberAnimation {
             duration: Appearance.durations.normal
@@ -138,7 +138,7 @@ Item {
           }
         }
         elide: Text.ElideRight
-        text: AudioData.activePlayer.trackTitle ?? ""
+        text: AudioData.activePlayer?.trackTitle ?? ""
         Behavior on opacity {
           NumberAnimation {
             duration: Appearance.durations.normal
