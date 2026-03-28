@@ -299,7 +299,7 @@ Singleton {
       id: 0,
       genericName: "Audio",
       categories: ["Audio", "Mute", "Output"],
-      comment: "Toggle mute on output sink" ,
+      comment: "Toggle mute on default output sink" ,
       iconId: "audio-volume-muted",
       name: "Toggle output mute",
       script: [`${Paths.home}/scripts/switch-audio.sh`, "mute-output"]
@@ -308,9 +308,9 @@ Singleton {
       id: 1,
       genericName: "Audio",
       categories: ["Audio", "Mute", "Input"],
-      comment: "Toggle mute on audio input microphone" ,
+      comment: "Toggle mute on default input microphone" ,
       iconId: "microphone-sensitivity-muted",
-      name: "Toggle output mute",
+      name: "Toggle input mute",
       script: [`${Paths.home}/scripts/switch-audio.sh`, "mute-input"]
     }
 

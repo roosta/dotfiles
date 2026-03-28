@@ -77,6 +77,29 @@ ExpandingButton {
       }
     }
   }
+  BorderRect {
+    id: inputBtn
+    visible: root.active
+    implicitWidth: inputBtnText.implicitWidth
+    implicitHeight: inputBtnText.implicitHeight
+    color: Appearance.srcery.black
+    Text {
+      anchors.centerIn: parent
+      color: Appearance.srcery.white
+      id: inputBtnText
+      text: {
+        if (AudioData.source?.audio?.muted) {
+          return "󰍭"
+        } else {
+          return ""
+        }
+      }
+      font {
+        family: Appearance.font.light
+        pixelSize: Appearance.font.size3
+      }
+    }
+  }
 
   Slider {
     id: volumeSlider
