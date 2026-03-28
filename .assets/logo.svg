@@ -24,7 +24,7 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#505050"
      inkscape:zoom="0.79461125"
-     inkscape:cx="135.28628"
+     inkscape:cx="135.91552"
      inkscape:cy="380.6893"
      inkscape:window-width="1906"
      inkscape:window-height="1026"
@@ -70,8 +70,7 @@
     <path
        d="M 131.65651,82.371147 A 43.578466,35.620237 0 0 0 96.508703,96.950743 43.578466,35.620237 0 0 0 131.65651,111.53127 43.578466,35.620237 0 0 0 166.81001,96.943184 43.578466,35.620237 0 0 0 131.65651,82.371147 Z"
        fill="#121110"
-       id="eyeShape">
-    </path>
+       id="eyeShape" />
   </defs>
   <rect
      style="display:inline;fill:#121110;stroke:#121110;stroke-width:2.0127"
@@ -93,7 +92,7 @@
   <g
      id="g1"
      inkscape:label="glyph"
-     transform="translate(9.7076155,4.6749519)">
+     transform="translate(16.000003,16)">
     <g
        id="star"
        transform="matrix(2.3376394,0,0,2.3376398,-107.7721,-19.813628)">
