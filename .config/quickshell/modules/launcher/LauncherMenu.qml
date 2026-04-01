@@ -25,7 +25,6 @@ Loader {
   required property string monitorId
   required property var sourceModel
   required property string query
-  required property bool active
   property bool canClose
   visible: active
 

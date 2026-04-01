@@ -41,8 +41,8 @@ Item {
     onTriggered: {
       list.highlightMoveDuration = 0
       list.positionViewAtBeginning()
-      GlobalState.menuIndex = -1
-      GlobalState.menuIndex = 0
+      list.currentIndex = -1
+      list.currentIndex = 0
     }
   }
   Connections {
@@ -53,6 +53,9 @@ Item {
         if (GlobalState.launcherOpen) {
           list.highlightMoveDuration = 100
           root.isOpen = true
+          if (GlobalState.menuIndex > 0) {
+            list.currentIndex = GlobalState.menuIndex
+          }
         } else {
           root.isOpen = false
           timer.restart()
@@ -117,13 +120,13 @@ Item {
         id: list
         visible: root.sourceModel.length > 0
         anchors.fill: parent
-        currentIndex: GlobalState.menuIndex
+        // currentIndex: GlobalState.menuIndex
         model: ScriptModel {
           id: model
           values: root.sourceModel
           onValuesChanged: {
-            GlobalState.menuIndex = -1
-            GlobalState.menuIndex = 0
+            list.currentIndex = -1
+            list.currentIndex = 0
             list.positionViewAtBeginning()
           }
         }

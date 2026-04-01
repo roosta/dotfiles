@@ -39,6 +39,7 @@ Singleton {
       root.launcherMonitorId = ""
       root.launcherMode = Config.defaultMode
       root.menuDirection = Qt.LeftToRight
+      root.menuIndex = 0
     }
   }
 
