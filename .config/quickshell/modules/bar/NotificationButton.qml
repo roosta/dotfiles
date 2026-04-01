@@ -41,7 +41,7 @@ Button {
   }
 
   onPressed: {
-    GlobalState.toggleLauncher(root.monitorId, "notifications")
+    GlobalState.toggleLauncher({id: root.monitorId, mode: "notifications"})
   }
   states: [
     State {

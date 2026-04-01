@@ -44,7 +44,7 @@ Item {
     onPressed: {
 
       if (Hyprland.focusedMonitor?.name === root.monitorId) {
-        GlobalState.toggleLauncher(Hyprland.focusedMonitor?.name)
+        GlobalState.toggleLauncher({ id: Hyprland.focusedMonitor?.name })
       }
     }
   }
@@ -53,9 +53,8 @@ Item {
     description: "Toggles nofication launcher panel"
 
     onPressed: {
-
       if (Hyprland.focusedMonitor?.name === root.monitorId) {
-        GlobalState.toggleLauncher(Hyprland.focusedMonitor?.name, "notifications")
+        GlobalState.toggleLauncher({id: Hyprland.focusedMonitor?.name, mode: "notifications" })
       }
     }
   }

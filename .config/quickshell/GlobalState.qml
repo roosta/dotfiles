@@ -56,7 +56,12 @@ Singleton {
     trayMenuOpen = false
   }
 
-  function openLauncher(id = Config.primaryDisplay, mode = null, direction = Qt.LeftToRight) {
+  function openLauncher({
+    id = Config.primaryDisplay,
+    mode = null,
+    direction = Qt.LeftToRight,
+    index = 0
+    }) {
     launcherMonitorId = id
     if (direction !== Qt.LeftToRight) {
       root.menuDirection = direction
@@ -72,11 +77,11 @@ Singleton {
     timer.restart()
   }
 
-  function toggleLauncher(id, mode = null, direction = Qt.LeftToRight) {
+  function toggleLauncher({ id, mode = null, direction = Qt.LeftToRight }) {
     if (launcherOpen) {
       closeLauncher()
     } else {
-      openLauncher(id, mode, direction)
+      openLauncher({ id, mode, direction })
     }
   }
 }

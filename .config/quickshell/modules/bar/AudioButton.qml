@@ -54,7 +54,11 @@ ExpandingButton {
       hoverEnabled: true
       anchors.fill: parent
       onClicked: {
-        GlobalState.openLauncher(root.monitorId, "audio", Qt.RightToLeft)
+        GlobalState.openLauncher({
+          id: root.monitorId,
+          mode: "audio",
+          direction: Qt.RightToLeft
+        })
       }
     }
 

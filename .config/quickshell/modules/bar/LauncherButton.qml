@@ -37,7 +37,7 @@ Button {
     && GlobalState.launcherMode !== "notifications"
 
   onPressed: {
-    GlobalState.toggleLauncher(root.monitorId)
+    GlobalState.toggleLauncher({id: root.monitorId })
   }
 
   HoverHandler {
