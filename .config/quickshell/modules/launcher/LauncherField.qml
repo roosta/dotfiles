@@ -99,10 +99,26 @@ BorderRect {
         border.color: Appearance.srcery.gray3
       }
 
+      function goPrevious() {
+        if (GlobalState.menuDirection === Qt.LeftToRight) {
+          return root.decrementCurrentIndex()
+        } else if (GlobalState.menuDirection === Qt.RightToLeft) {
+          return root.incrementCurrentIndex()
+        }
+      }
+
+      function goNext() {
+        if (GlobalState.menuDirection === Qt.LeftToRight) {
+          return root.incrementCurrentIndex()
+        } else if (GlobalState.menuDirection === Qt.RightToLeft) {
+          console.log("got here")
+          return root.decrementCurrentIndex()
+        }
+      }
 
       Keys.onEscapePressed: GlobalState.closeLauncher()
-      Keys.onLeftPressed: root.decrementCurrentIndex()
-      Keys.onRightPressed: root.incrementCurrentIndex()
+      Keys.onRightPressed: goNext()
+      Keys.onLeftPressed: goPrevious()
       Component.onCompleted: forceActiveFocus()
       onAccepted: root.accepted()
 
@@ -110,10 +126,10 @@ BorderRect {
       Keys.onPressed: event => {
         if (event.modifiers & Qt.ControlModifier) {
           if (event.key === Qt.Key_L) {
-            root.incrementCurrentIndex();
+            goNext();
             event.accepted = true;
           } else if (event.key === Qt.Key_H) {
-            root.decrementCurrentIndex();
+            goPrevious()
             event.accepted = true;
           }
         } else if (event.key === Qt.Key_Tab && root.appList?.length === 1) {
