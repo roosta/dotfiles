@@ -111,7 +111,6 @@ BorderRect {
         if (GlobalState.menuDirection === Qt.LeftToRight) {
           return root.incrementCurrentIndex()
         } else if (GlobalState.menuDirection === Qt.RightToLeft) {
-          console.log("got here")
           return root.decrementCurrentIndex()
         }
       }
