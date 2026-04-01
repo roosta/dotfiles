@@ -30,6 +30,7 @@ Singleton {
   property QsMenuHandle activeMenu: null
   property bool trayMenuOpen: false
   property int menuDirection: Qt.LeftToRight
+  property int menuIndex: 0
 
   Timer {
     id: timer
@@ -61,8 +62,11 @@ Singleton {
     mode = null,
     direction = Qt.LeftToRight,
     index = 0
-    }) {
+  }) {
     launcherMonitorId = id
+    if (index >= 0) {
+      root.menuIndex = index
+    }
     if (direction !== Qt.LeftToRight) {
       root.menuDirection = direction
     }
@@ -77,11 +81,11 @@ Singleton {
     timer.restart()
   }
 
-  function toggleLauncher({ id, mode = null, direction = Qt.LeftToRight }) {
+  function toggleLauncher({ id, mode = null, direction = Qt.LeftToRight, index = 0 }) {
     if (launcherOpen) {
       closeLauncher()
     } else {
-      openLauncher({ id, mode, direction })
+      openLauncher({ id, mode, direction, index })
     }
   }
 }

@@ -33,7 +33,7 @@ Item {
   property alias launcherHeight: launcher.height
   property bool monitorIsFocused: (Hyprland.focusedMonitor?.id === monitorId)
   property string query: ""
-  property int currentIndex: 0
+  // property int currentIndex: 0
 
   visible: launcher.height > 0
 

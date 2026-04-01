@@ -27,7 +27,7 @@ ExpandingButton {
 
   function getSinkIcon(sink) {
     if (sink) {
-      const obj = Config.outputs.find(o => o.sink == sink.name);
+      const obj = Config.outputs.find(o => o.sink === sink.name);
       if (obj) { return obj.icon }
     } else {
       return ""
@@ -54,10 +54,12 @@ ExpandingButton {
       hoverEnabled: true
       anchors.fill: parent
       onClicked: {
+        const i = Config.outputs.findIndex(o => o.sink === AudioData.sink.name)
         GlobalState.openLauncher({
           id: root.monitorId,
           mode: "audio",
-          direction: Qt.RightToLeft
+          direction: Qt.RightToLeft,
+          index: i > -1 ? i : 0
         })
       }
     }

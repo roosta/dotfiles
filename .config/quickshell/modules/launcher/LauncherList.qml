@@ -41,8 +41,8 @@ Item {
     onTriggered: {
       list.highlightMoveDuration = 0
       list.positionViewAtBeginning()
-      list.currentIndex = -1
-      list.currentIndex = 0
+      GlobalState.menuIndex = -1
+      GlobalState.menuIndex = 0
     }
   }
   Connections {
@@ -117,12 +117,13 @@ Item {
         id: list
         visible: root.sourceModel.length > 0
         anchors.fill: parent
+        currentIndex: GlobalState.menuIndex
         model: ScriptModel {
           id: model
           values: root.sourceModel
           onValuesChanged: {
-            list.currentIndex = -1
-            list.currentIndex = 0
+            GlobalState.menuIndex = -1
+            GlobalState.menuIndex = 0
             list.positionViewAtBeginning()
           }
         }
