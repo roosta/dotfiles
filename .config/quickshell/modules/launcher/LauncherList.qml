@@ -49,12 +49,14 @@ Item {
     target: GlobalState
 
     function onLauncherOpenChanged() {
-      if (GlobalState.launcherOpen && GlobalState.launcherMonitorId === root.monitorId) {
-        list.highlightMoveDuration = 100
-        root.isOpen = true
-      } else {
-        root.isOpen = false
-        timer.restart()
+      if (GlobalState.launcherMonitorId === root.monitorId) {
+        if (GlobalState.launcherOpen) {
+          list.highlightMoveDuration = 100
+          root.isOpen = true
+        } else {
+          root.isOpen = false
+          timer.restart()
+        }
       }
     }
   }
