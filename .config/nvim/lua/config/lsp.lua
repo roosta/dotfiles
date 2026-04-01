@@ -25,10 +25,10 @@ vim.lsp.enable('svelte')
 vim.lsp.enable('ts_ls')
 vim.lsp.enable('bashls')
 vim.lsp.enable('marksman')
-vim.lsp.config('vtsls', {
-  filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
-})
-vim.lsp.enable({ 'vue_ls', 'vtsls' })
+-- vim.lsp.config('vtsls', {
+--   filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
+-- })
+-- vim.lsp.enable({ 'vue_ls', 'vtsls' })
 
 vim.keymap.set('n', 'gl', vim.diagnostic.open_float, {desc = 'Show diagnostics under cursor'})
 vim.keymap.set('n', '<leader>gq', vim.diagnostic.setloclist, {desc = 'Open location list for diagnostics'})
