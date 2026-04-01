@@ -26,11 +26,11 @@
       "9": ""
     },
     "width": null,
-    "height": null,
+    "height": 26,
     "padding": {
       "top": 0,
       "left": 1,
-      "right": 2
+      "right": 1
     },
     "printRemaining": true,
     "preserveAspectRatio": false,
@@ -132,7 +132,7 @@
   "modules": [
     {
       "type": "title",
-      "key": " ",
+      "key": "Ritual Shell",
       "keyIcon": "",
       "fqdn": false,
       "color": {
@@ -144,8 +144,8 @@
     {
       "type": "separator",
       "string": "-",
-      "outputColor": "",
-      "times": 0
+      "outputColor": "8",
+      "times": 28
     },
     {
       "type": "os",
