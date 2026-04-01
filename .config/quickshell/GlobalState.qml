@@ -29,7 +29,7 @@ Singleton {
   property bool overlayOpen: root.launcherOpen || root.trayMenuOpen
   property QsMenuHandle activeMenu: null
   property bool trayMenuOpen: false
-  property bool menuDirection: Qt.LeftToRight
+  property int menuDirection: Qt.LeftToRight
 
   Timer {
     id: timer
