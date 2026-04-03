@@ -83,7 +83,7 @@ custom color scheme built atop the [Breeze theme](https://kde.org/plasma-desktop
 
 ## Ritual Shell
 
-<video src="https://github.com/user-attachments/assets/42175de7-ed8e-4d03-a8f7-d5b2e6945425" controls width="800"></video>
+<video src="https://github.com/user-attachments/assets/63304a4e-1961-4533-91ca-aec0c2b92a6f" controls width="800"></video>
 
 [Hyprland](https://hypr.land/) and [Quickshell](https://quickshell.org/) is
 used for the custom desktop shell based on the [Srcery](https://srcery.sh/)
