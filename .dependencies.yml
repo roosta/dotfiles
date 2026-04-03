@@ -61,6 +61,7 @@ flatpak:
     description: Jellyfin desktop client
   - name: Slack
     application: com.slack.Slack
+    optional: true
     description: Business communication
 
 # Packages to install
