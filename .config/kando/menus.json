@@ -110,11 +110,11 @@
               {
                 "type": "command",
                 "data": {
-                  "command": "/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=jellyfinmediaplayer com.github.iwalton3.jellyfin-media-player",
+                  "command": "/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=jellyfin-desktop org.jellyfin.JellyfinDesktop",
                   "delayed": false
                 },
-                "name": "Jellyfin Media Player",
-                "icon": "com.github.iwalton3.jellyfin-media-player",
+                "name": "Jellyfin",
+                "icon": "org.jellyfin.JellyfinDesktop",
                 "iconTheme": "system"
               },
               {

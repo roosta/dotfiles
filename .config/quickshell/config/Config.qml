@@ -334,7 +334,7 @@ Singleton {
     "firefox-media",
     "steam",
     "net.lutris.Lutris",
-    "com.github.iwalton3.jellyfin-media-player",
+    "org.jellyfin.JellyfinDesktop",
     "spotify",
     "org.mozilla.Thunderbird",
     "com.discordapp.Discord",

@@ -57,8 +57,8 @@ flatpak:
     application: org.prismlauncher.PrismLauncher
     description: Custom Minecraft Launcher to easily manage multiple Minecraft installations at once
   - name: Jellyfin
-    application: com.github.iwalton3.jellyfin-media-player
-    description: Desktop client for Jellyfin media server
+    application: org.jellyfin.JellyfinDesktop
+    description: Jellyfin desktop client
   - name: Slack
     application: com.slack.Slack
     description: Business communication
