@@ -149,6 +149,9 @@ Dialog Size=600,480
 EnableRemoteFolderThumbnail=false
 MaximumRemoteSize=0
 
+[Sounds]
+Enable=false
+
 [WM]
 activeBackground=38,37,34
 activeBlend=255,255,255
