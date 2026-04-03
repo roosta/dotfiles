@@ -12,8 +12,8 @@
 {
   "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/master/doc/json_schema.json",
   "logo": {
-    "type": "kitty",
-    "source": "~/.assets/logo.svg",
+    "type": "auto",
+    "source": "~/.assets/glyph.utf8ans",
     "color": {
       "1": "",
       "2": "",
