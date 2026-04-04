@@ -50,9 +50,6 @@ flatpak:
   - name: OBS Studio
     application: com.obsproject.Studio
     description: Live stream and record videos
-  - name: Lutris
-    application: net.lutris.Lutris
-    description: Video game preservation platform
   - name: Prism Launcher
     application: org.prismlauncher.PrismLauncher
     description: Custom Minecraft Launcher to easily manage multiple Minecraft installations at once
@@ -719,6 +716,9 @@ packages:
   gaming:
     - name: steam
       description: Valve's digital software delivery system
+      aur: false
+    - name: lutris
+      description: Open Gaming Platform
       aur: false
     - name: gamemode
       description: A daemon/lib combo that allows games to request a set of optimisations be temporarily applied to the host OS
