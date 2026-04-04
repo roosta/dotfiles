@@ -19,7 +19,7 @@ source = ~/.config/hypr/monitors/current.conf
 
 ## Usage
 
-Config for display layouts, see [~/scripts/switch-display.sh](../../../scripts/switch-display.sh) for script
+Config for display layouts, see [~/scripts/switch-display.sh](https://github.com/roosta/scripts/blob/main/switch-display.sh) for script
 implementation. This script will link in configs based on argument, so
 `~/scripts/switch-display.sh tv` will link in the new config as `current.conf`
 
@@ -42,6 +42,5 @@ $center_monitor  = DP-1
 $left_monitor    = DP-2
 $primary_monitor = DP-1
 $right_monitor   = HDMI-A-1
-$top_monitor     = HDMI-A-3
 $tv_monitor      = HDMI-A-2
 ```

@@ -1,10 +1,39 @@
-# Dotfiles
+<div align="center">
+    <h2>⛥  Ritualistic Dotfiles ⛦</h2>
+</div>
 
-A collection of config files I use on a daily basis on multiple hosts running
-[Arch Linux](https://www.archlinux.org/). My dotfiles are managed using the
-method described in the [Arch wiki dotfiles article](https://wiki.archlinux.org/title/Dotfiles).
+![screen](https://raw.githubusercontent.com/roosta/assets/master/dotfiles/ritual_screen.png)
+
+A [Srcery](https://srcery.sh) themed collection of dotfiles comprising my [Ritual
+desktop shell](#ritual-shell) for [Arch Linux](https://archlinux.org/). Designed for
+usability, 4k gaming, and use with multiple monitors. This is my daily driver for
+keyboard-driven development, while allowing for a more relaxed mouse focused
+"couch mode".
+
+![GitHub last commit](https://img.shields.io/github/last-commit/roosta/dotfiles?style=flat-square&logo=git&logoColor=%23FCE8C3&labelColor=%23312F2C&color=%232C78BF&link=https%3A%2F%2Fgithub.com%2Froosta%2Fdotfiles%2Ftree%2Fmain)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/t/roosta/dotfiles?style=flat-square&logo=git&logoColor=%23FCE8C3&labelColor=%23312F2C&color=%230AAEB3)
+![GitHub repo size](https://img.shields.io/github/repo-size/roosta/dotfiles?style=flat-square&logo=gitbook&logoColor=%23FCE8C3&labelColor=%23312F2C&color=%23519F50)
+
+## Notable Configuration
+
+Things in here often gets replaced and/or
+[deprecated](https://github.com/roosta/dotfiles/tree/deprecated), but there are
+some mainstays:
+
+| Software | Description | Config |
+|----|----|----|
+| [Zsh](https://www.zsh.org/) | I do most of my work in here | [dir](.zsh.d), [config](.zshrc)  |
+| [Nvim](https://neovim.io/) | Neovim is my primary editor used in the terminal | [dir](.config/nvim) |
+| [Hyprland](https://hypr.land/) | The compositor that handles monitors, windows, workspaces, etc | [dir](.config/hypr) |
+| [Scripts](https://github.com/roosta/scripts) | My shell scripts, these control various aspects of the ritual desktop shell | [repo](https://github.com/roosta/scripts) |
+| [Kando](https://kando.menu/) | Pie menu used for mouse controls, with a custom theme | [dir](.config/kando), [theme](.config/kando/menu-themes/ritual) |
+| [Quickshell](https://quickshell.org/) | Launcher, bar, and widgets all made with quickshell | [dir](.config/quickshell), [config](.config/quickshell/config/Config.qml) |
+
 
 ## Install
+
+My dotfiles are managed using the method described in the [Arch wiki dotfiles
+article](https://wiki.archlinux.org/title/Dotfiles).
 
 ```bash
 git clone --bare git@github.com:roosta/dotfiles.git $HOME/.dotfiles
@@ -81,20 +110,21 @@ custom color scheme built atop the [Breeze theme](https://kde.org/plasma-desktop
 >[!TIP]
 > To Access color settings among others install the optional dependency `plasma-integration`
 
-## Ritual Shell
+## Ritual desktop shell
 
 <video src="https://github.com/user-attachments/assets/63304a4e-1961-4533-91ca-aec0c2b92a6f" controls width="800"></video>
 
 [Hyprland](https://hypr.land/) and [Quickshell](https://quickshell.org/) is
 used for the custom desktop shell based on the [Srcery](https://srcery.sh/)
-colorscheme.
+colorscheme. This is a constant work-in-progress and gets frequently updated
+and changed based on my needs using it.
 
 ### Attribution
 
 I've been heavily inspired by, learned a lot from, and copied portions of code from:
 
 - [end-4/dots-hyprland: Usability-first dotfiles](https://github.com/end-4/dots-hyprland)
-- [caelestia-dots/shell](https://github.com/caelestia-dots/shell)
+- [caelestia-dots/shell: ‼️ No waybar here ‼️](https://github.com/caelestia-dots/shell)
 
 > Code copied will be clearly marked with a permalink and modification notice.
 
@@ -117,7 +147,9 @@ Code is licensed with [GPLv3](LICENSE)
 ### Configuration
 
 Per-host Quickshell configuration is kept in
-[.config/quickshell/config/Config.qml](.config/quickshell/config/Config.qml) and Hyprland config also requires host configuration for the monitor setup located at [.config/hypr/monitors](.config/hypr/monitors).
+[.config/quickshell/config/Config.qml](.config/quickshell/config/Config.qml)
+and Hyprland config also requires host configuration for the monitor setup
+located at [.config/hypr/monitors](.config/hypr/monitors).
 
 ## Disclamer
 
@@ -125,7 +157,9 @@ These dotfiles are provided **as-is** with no warranty or guarantee of
 functionality. They are tailored specifically for my personal setup and
 workflow, and are not intended to work out-of-the-box on other systems.
 
-Feel free to browse, fork, or borrow ideas, but please review and understand any code before running it on your own machine. Use at your own risk.
+Feel free to browse, fork, or borrow ideas, but please review and understand
+any code before running it on your own machine. Use at your own risk.
+
 ## License
 
 Copyright (c) 2015 Daniel Berg
