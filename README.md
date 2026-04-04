@@ -5,7 +5,7 @@
 ![screen](https://raw.githubusercontent.com/roosta/assets/master/dotfiles/ritual_screen.png)
 
 A [Srcery](https://srcery.sh) themed collection of dotfiles comprising my [Ritual
-desktop shell](#ritual-shell) for [Arch Linux](https://archlinux.org/). Designed for
+desktop shell](#ritual-desktop-shell) for [Arch Linux](https://archlinux.org/). Designed for
 usability, 4k gaming, and use with multiple monitors. This is my daily driver for
 keyboard-driven development, while allowing for a more relaxed mouse focused
 "couch mode".
