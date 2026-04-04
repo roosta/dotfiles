@@ -742,4 +742,12 @@ packages:
     - name: winetricks
       description: Script to install various redistributable runtime libraries in Wine.
       aur: false
-
+    - name: proton-ge-custom-bin
+      description: A fancy custom distribution of Valves Proton with various patches
+      aur: true
+    - name: libretro-retrodream
+      description: Sega Dreamcast core
+      aur: true
+    - name: libretro-swanstation-git
+      description: SwanStation is an open-source Libretro core implementation of DuckStation, a PSX emulator.
+      aur: true
