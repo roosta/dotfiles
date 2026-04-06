@@ -60,6 +60,9 @@ flatpak:
     application: com.slack.Slack
     optional: true
     description: Business communication
+  - name: Feishin
+    application: org.jeffvli.feishin
+    description: Jellyfin, Navidrome, and OpenSubsonic Compatible Music Player
 
 # Packages to install
 packages:
