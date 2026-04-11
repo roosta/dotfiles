@@ -1,11 +1,11 @@
--- 
+--
 -- redact_mode.lua: Switch off the 'viminfo', 'backup', 'writebackup',
 -- 'swapfile', and 'undofile' and 'shadafile' (nvim) globally when editing a
 -- files in 'excluded_dirs' variable.
--- 
+--
 -- This is to prevent anyone being able to extract secrets from your Vim
 -- cache files in the event of a compromise.
--- 
+--
 -- Author: Daniel Berg <mail@roosta.sh>
 -- License: GPL-3.0-or-later
 -- URL: https://github.com/roosta/dotfiles
