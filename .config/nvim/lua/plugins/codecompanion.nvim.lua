@@ -9,7 +9,6 @@ return {
   lazy = false,
   dependencies = {
     "nvim-lua/plenary.nvim",
-    "nvim-treesitter/nvim-treesitter",
     "ravitemer/codecompanion-history.nvim"
   },
   keys = {

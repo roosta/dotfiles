@@ -13,5 +13,5 @@ return {
     -- heading = { border = true },
     -- anti_conceal = { enabled = false },
   },
-  dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
+  dependencies = { "nvim-tree/nvim-web-devicons" },
 }
