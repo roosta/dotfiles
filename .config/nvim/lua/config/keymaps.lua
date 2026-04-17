@@ -69,13 +69,6 @@ vim.keymap.set({ 'n', 'i', 'v' }, '<F1>', '<Nop>', {
   silent = true,
 })
 
--- toggle treesitter
-vim.keymap.set('n', '<leader>ts', ':TSToggle highlight<cr>', {
-  noremap = true,
-  silent = true,
-  desc = "Toggle Treesitter",
-})
-
 -- help :virtcol
 vim.keymap.set('n', '<Leader>vc', function()
   local col = vim.fn.virtcol('.')

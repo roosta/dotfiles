@@ -1,9 +1,5 @@
 -- Extra parsers
-local parsers = { "vue", "javascript", "rust", "json", "toml", "css", "python" }
-
-for _, lang in ipairs(parsers) do
-  pcall(vim.treesitter.install, lang)
-end
+-- local parsers = { "vue", "javascript", "rust", "json", "toml", "css", "python" }
 
 -- Enable highlighting and indent for all filetypes with a parser
 vim.api.nvim_create_autocmd("FileType", {
@@ -17,4 +13,14 @@ vim.o.indentexpr = "v:lua.require'nvim.treesitter'.indentexpr()"
 
 -- Register zsh as bash
 vim.treesitter.language.register("bash", "zsh")
+vim.treesitter.language.register('xml', { 'svg', 'xslt' })
 
+vim.keymap.set("n", "<leader>ts", function()
+  if vim.treesitter.highlighter.active[vim.api.nvim_get_current_buf()] then
+    vim.treesitter.stop()
+    vim.notify("Treesitter stopped", vim.log.levels.INFO)
+  else
+    vim.treesitter.start()
+    vim.notify("Treesitter started", vim.log.levels.INFO)
+  end
+end, { desc = "Toggle Treesitter highlighting" })

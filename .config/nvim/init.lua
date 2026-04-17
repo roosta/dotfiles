@@ -18,6 +18,7 @@ require("config.commands")
 require("config.keymaps")
 require("config.lsp")
 require("config.redact_mode")
+require("config.treesitter")
 
 -- plugin management
 -- See ./lua/plugins for individual config files
