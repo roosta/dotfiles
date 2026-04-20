@@ -1,5 +1,5 @@
 {
-  "version": "2.2.0",
+  "version": "2.3.0",
   "locale": "auto",
   "showIntroductionDialog": false,
   "menuTheme": "clean-circle",
@@ -30,6 +30,8 @@
   "zoomFactor": 1,
   "hideSettingsButton": true,
   "settingsButtonPosition": "bottom-right",
+  "windowsInkWorkaround": true,
+  "maxSelectionRadius": 0,
   "centerDeadZone": 50,
   "minParentDistance": 150,
   "dragThreshold": 15,
@@ -50,6 +52,10 @@
   "gamepadBackButton": 1,
   "gamepadCloseButton": 2,
   "sameShortcutBehavior": "close",
+  "wlrootsPointerGetTimeoutMouse": 500,
+  "wlrootsPointerGetTimeoutTouch": 1500,
+  "wlrootsPointerGetTimeoutDefaultBehavior": "center",
   "useDefaultOsShowSettingsHotkey": true,
-  "enableAchievements": false
+  "enableAchievements": false,
+  "enableAchievementNotifications": true
 }
