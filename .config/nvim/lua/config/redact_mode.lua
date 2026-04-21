@@ -24,7 +24,7 @@ vim.api.nvim_create_autocmd("BufReadPre", {
   pattern = "*",
   callback = function()
     local excluded_dirs = {
-      vim.fn.expand("~") .. "/Secrets/",
+      vim.fn.expand("~") .. "/.secrets/",
       vim.fn.expand("~") .. "/.cache/",
       vim.fn.expand("~") .. "/tmp/",
     }
