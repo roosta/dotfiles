@@ -77,7 +77,7 @@ return {
     image = { enabled = false },
     notifier = { enabled = true },
     bigfile = { enabled = true },
-    -- indent = { enabled = true },
+    indent = { enabled = false },
     statuscolumn = {
       enabled = true,
       left = { "sign", "mark" }
