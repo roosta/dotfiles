@@ -1,5 +1,13 @@
--- Extra parsers
--- local parsers = { "vue", "javascript", "rust", "json", "toml", "css", "python" }
+-- ┌────────────────────────────────────────────────────────────────┐
+-- │█▀▀▀▀▀▀▀▀█░░░▀█▀░█▀▄░█▀▀░█▀▀░█▀▀░▀█▀░▀█▀░▀█▀░█▀▀░█▀▄░░█▀▀▀▀▀▀▀▀█│
+-- │█▀▀▀▀▀▀▀▀█░░░░█░░█▀▄░█▀▀░█▀▀░▀▀█░░█░░░█░░░█░░█▀▀░█▀▄░░█▀▀▀▀▀▀▀▀█│
+-- │█▀▀▀▀▀▀▀▀█░░░░▀░░▀░▀░▀▀▀░▀▀▀░▀▀▀░▀▀▀░░▀░░░▀░░▀▀▀░▀░▀░░█▀▀▀▀▀▀▀▀█│
+-- │█▀▀▀▀▀▀▀▀▀────────────────────────────────────────────▀▀▀▀▀▀▀▀▀█│
+-- ├┤ Author  : Daniel Berg <mail@roosta.sh>                       ├┤
+-- ││ Repo    : https://github.com/roosta/dotfiles                 ││
+-- ││ Site    : https://www.roosta.sh                              ││
+-- ├┤ License : GNU General Public License v3                      ├┤
+-- ┆└──────────────────────────────────────────────────────────────┘┆
 
 -- Enable highlighting and indent for all filetypes with a parser
 vim.api.nvim_create_autocmd("FileType", {
