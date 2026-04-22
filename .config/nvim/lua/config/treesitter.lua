@@ -19,8 +19,6 @@ vim.api.nvim_create_autocmd("FileType", {
 -- Treesitter-based indentation
 vim.o.indentexpr = "v:lua.require'nvim.treesitter'.indentexpr()"
 
--- Register zsh as bash
-vim.treesitter.language.register("bash", "zsh")
 vim.treesitter.language.register('xml', { 'svg', 'xslt' })
 
 vim.keymap.set("n", "<leader>ts", function()

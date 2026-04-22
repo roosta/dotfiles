@@ -31,6 +31,7 @@ vim.lsp.enable('svelte')
 vim.lsp.enable('ts_ls')
 vim.lsp.enable('bashls')
 vim.lsp.enable('marksman')
+vim.lsp.enable('astro')
 -- vim.lsp.config('vtsls', {
 --   filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
 -- })
@@ -39,3 +40,13 @@ vim.lsp.enable('marksman')
 vim.keymap.set('n', 'gl', vim.diagnostic.open_float, {desc = 'Show diagnostics under cursor'})
 vim.keymap.set('n', '<leader>gq', vim.diagnostic.setloclist, {desc = 'Open location list for diagnostics'})
 
+vim.api.nvim_create_autocmd('Filetype', {
+  pattern = { "html", "shtml", "htm" },
+  callback = function()
+    vim.lsp.start({
+      name = "superhtml",
+      cmd = { "superhtml", "lsp" },
+      root_dir = vim.fs.dirname(vim.fs.find({".git"}, { upward = true })[1])
+    })
+  end
+})
