@@ -32,6 +32,7 @@ vim.lsp.enable('ts_ls')
 vim.lsp.enable('bashls')
 vim.lsp.enable('marksman')
 vim.lsp.enable('astro')
+vim.lsp.enable('biome')
 -- vim.lsp.config('vtsls', {
 --   filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
 -- })

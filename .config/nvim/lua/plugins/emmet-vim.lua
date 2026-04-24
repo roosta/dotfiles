@@ -7,7 +7,7 @@
 
 return {
   "mattn/emmet-vim",
-  ft = { "html", "css", "html.handlebars", "vue" },
+  ft = { "html", "css", "html.handlebars", "vue", "astro" },
   init = function()
     vim.g.user_emmet_leader_key = "<C-Q>"
   end
