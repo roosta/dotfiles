@@ -17,7 +17,7 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 -- Treesitter-based indentation
-vim.o.indentexpr = "v:lua.require'nvim.treesitter'.indentexpr()"
+-- vim.o.indentexpr = "v:lua.require'nvim.treesitter'.indentexpr()"
 
 vim.treesitter.language.register('xml', { 'svg', 'xslt' })
 
