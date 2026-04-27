@@ -24,7 +24,7 @@ return {
     require('lint').linters_by_ft = {
       markdown = { 'proselint' },
       text = { 'proselint' },
-      astro = { 'biomejs' }
+      -- astro = { 'biomejs' }
     }
     vim.api.nvim_create_autocmd({ 'BufWritePost', 'InsertLeave', 'BufWinEnter' }, {
       callback = function()
