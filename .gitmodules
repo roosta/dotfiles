@@ -1,59 +1,60 @@
 [submodule ".dotfiles/dotfiles"]
-	path = .dotfiles/dotfiles
-	url = https://github.com/roosta/dotfiles.git
+  path = .dotfiles/dotfiles
+  url = https://github.com/roosta/dotfiles.git
 [submodule "scripts"]
-	path = scripts
-	url = https://github.com/roosta/scripts.git
+  path = scripts
+  url = https://github.com/roosta/scripts.git
 [submodule ".config/srcery/srcery-terminal"]
-	path = .config/srcery/srcery-terminal
-	url = https://github.com/srcery-colors/srcery-terminal.git
+  path = .config/srcery/srcery-terminal
+  url = https://github.com/srcery-colors/srcery-terminal.git
   branch = next
 [submodule ".config/srcery/srcery-gui"]
-	path = .config/srcery/srcery-gui
-	url = https://github.com/srcery-colors/srcery-gui.git
+  path = .config/srcery/srcery-gui
+  url = https://github.com/srcery-colors/srcery-gui.git
   branch = next
 [submodule ".config/srcery/srcery-textmate"]
-	path = .config/srcery/srcery-textmate
-	url = https://github.com/srcery-colors/srcery-textmate.git
+  path = .config/srcery/srcery-textmate
+  url = https://github.com/srcery-colors/srcery-textmate.git
 [submodule ".config/srcery/srcery-vivid"]
-	path = .config/srcery/srcery-vivid
-	url = https://github.com/srcery-colors/srcery-vivid.git
+  path = .config/srcery/srcery-vivid
+  url = https://github.com/srcery-colors/srcery-vivid.git
+  branch = next
 [submodule ".config/srcery/srcery-wallpaper"]
-	path = .config/srcery/srcery-wallpaper
-	url = https://github.com/srcery-colors/srcery-wallpaper.git
+  path = .config/srcery/srcery-wallpaper
+  url = https://github.com/srcery-colors/srcery-wallpaper.git
 [submodule ".config/srcery/srcery-web"]
-	path = .config/srcery/srcery-web
-	url = https://github.com/srcery-colors/srcery-web.git
+  path = .config/srcery/srcery-web
+  url = https://github.com/srcery-colors/srcery-web.git
 [submodule ".zsh.d/plugins/zsh-vi-mode"]
-	path = .zsh.d/plugins/zsh-vi-mode
-	url = https://github.com/jeffreytse/zsh-vi-mode
+  path = .zsh.d/plugins/zsh-vi-mode
+  url = https://github.com/jeffreytse/zsh-vi-mode
 [submodule ".zsh.d/plugins/fif"]
-	path = .zsh.d/plugins/fif
-	url = https://github.com/roosta/fif
+  path = .zsh.d/plugins/fif
+  url = https://github.com/roosta/fif
 [submodule ".zsh.d/plugins/fzf-tab"]
-	path = .zsh.d/plugins/fzf-tab
-	url = https://github.com/Aloxaf/fzf-tab
+  path = .zsh.d/plugins/fzf-tab
+  url = https://github.com/Aloxaf/fzf-tab
 [submodule ".zsh.d/plugins/zsh-history-substring-search"]
-	path = .zsh.d/plugins/zsh-history-substring-search
-	url = https://github.com/zsh-users/zsh-history-substring-search
+  path = .zsh.d/plugins/zsh-history-substring-search
+  url = https://github.com/zsh-users/zsh-history-substring-search
 [submodule ".zsh.d/plugins/zsh-completions"]
-	path = .zsh.d/plugins/zsh-completions
-	url = https://github.com/zsh-users/zsh-completions
+  path = .zsh.d/plugins/zsh-completions
+  url = https://github.com/zsh-users/zsh-completions
 [submodule ".zsh.d/plugins/forgit"]
-	path = .zsh.d/plugins/forgit
-	url = https://github.com/wfxr/forgit
+  path = .zsh.d/plugins/forgit
+  url = https://github.com/wfxr/forgit
 [submodule ".zsh.d/plugins/zsh-autosuggestions"]
-	path = .zsh.d/plugins/zsh-autosuggestions
-	url = https://github.com/zsh-users/zsh-autosuggestions
+  path = .zsh.d/plugins/zsh-autosuggestions
+  url = https://github.com/zsh-users/zsh-autosuggestions
 [submodule ".zsh.d/plugins/fast-syntax-highlighting"]
-	path = .zsh.d/plugins/fast-syntax-highlighting
-	url = https://github.com/zdharma-continuum/fast-syntax-highlighting
+  path = .zsh.d/plugins/fast-syntax-highlighting
+  url = https://github.com/zdharma-continuum/fast-syntax-highlighting
 [submodule ".zsh.d/plugins/fzf-marks"]
-	path = .zsh.d/plugins/fzf-marks
-	url = https://github.com/urbainvaes/fzf-marks
+  path = .zsh.d/plugins/fzf-marks
+  url = https://github.com/urbainvaes/fzf-marks
 [submodule ".config/srcery/srcery-palette"]
-	path = .config/srcery/srcery-palette
-	url = https://github.com/srcery-colors/srcery-palette.git
+  path = .config/srcery/srcery-palette
+  url = https://github.com/srcery-colors/srcery-palette.git
 [submodule ".local/share/icons/candy-icons"]
-	path = .local/share/icons/candy-icons
-	url = https://github.com/EliverLara/candy-icons.git
+  path = .local/share/icons/candy-icons
+  url = https://github.com/EliverLara/candy-icons.git
