@@ -17,7 +17,7 @@
 
 alias jobs='jobs -l' # show pid
 alias ncdu='ncdu --color dark'
-alias tree="tree -ahC" # hidden(all), human, color
+alias tree="eza --tree -a"
 alias free='free --human'
 alias locate='locate --ignore-case'
 alias du='du --human-readable'
