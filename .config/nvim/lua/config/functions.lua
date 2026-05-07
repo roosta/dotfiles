@@ -82,4 +82,28 @@ function functions.append_modeline()
   end
 end
 
+-- Right align a vim help tag to 78 columns
+-- TODO: have cols be an argument, default to 78
+function functions.right_align_tag()
+  local line = vim.api.nvim_get_current_line()
+  local title, tag = line:match('^(.-)%s*(%*[^*]+%*)%s*$')
+  if not title or not tag then return end
+  local pad = 78 - #title - #tag
+  if pad < 1 then pad = 1 end
+  vim.api.nvim_set_current_line(title .. string.rep(' ', pad) .. tag)
+end
+
+-- Check for typos and output to quickfix
+-- Ensure installed `typos`
+function functions.typos()
+  local mp = vim.o.makeprg
+  local ef = vim.o.errorformat
+  vim.o.makeprg = 'typos --format brief'
+  vim.o.errorformat = '%f:%l:%c: %m'
+  vim.cmd('silent make!')
+  vim.cmd('copen')
+  vim.o.makeprg = mp
+  vim.o.errorformat = ef
+end
+
 return functions
