@@ -54,7 +54,7 @@ Button {
 
   onPressed: {
     if (workspaceId !== activeWorkspaceId) {
-      Hyprland.dispatch(`workspace ${workspaceId}`)
+      Hyprland.dispatch(`hl.dsp.focus({ workspace = ${workspaceId} })`)
     }
   }
   HoverHandler {
