@@ -25,7 +25,7 @@ hl.bind(main_mod .. " + F14", hl.dsp.exec_cmd(vars.scripts_home .. "/switch-disp
 hl.bind(main_mod .. " + F15", hl.dsp.exec_cmd(vars.scripts_home .. "/switch-display.sh mirror"))
 hl.bind(main_mod .. " + F16", hl.dsp.exec_cmd(vars.scripts_home .. "/switch-display.sh all"))
 hl.bind(main_mod .. " + Grave", function()
-    hl.plugin.hyprexpo.expo("toggle")
+  hl.plugin.hyprexpo.expo("toggle")
 end)
 
 -- Fullscreen states
@@ -88,16 +88,62 @@ hl.bind(main_mod .. " + mouse_up", hl.dsp.focus({ workspace = "e-1" }))
 hl.bind(main_mod .. " + mouse:272", hl.dsp.window.drag(),   { mouse = true })
 hl.bind(main_mod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
--- Mouse state
-hl.on("monitor.layout_changed", function()
-  hl.exec_cmd(vars.scripts_home .. "/hypr-mouse-state.sh sync")
-end)
-hl.bind(main_mod .. " + SHIFT + mouse:275", hl.dsp.exec_cmd(vars.scripts_home .. "/hypr-mouse-state.sh menu"))
-hl.bind(main_mod .. " + ALT + mouse:275", hl.dsp.exec_cmd(vars.scripts_home .. "/hypr-mouse-state.sh alt"))
-
 -- Screenshot
 hl.bind(main_mod .. " + Print", hl.dsp.exec_cmd(vars.scripts_home .. "/screenshot.sh"))
 
+-- -------------------------
+-- Media menu (kando) toggle
+-- -------------------------
+-- Will bind or unbind mouse4 based on fullscreen game
+-- Kando is only ever toggled of if im playing a game actively
+local kando_bound = false
+local game_classes = {
+  "^steam_app_",
+  "^gamescope$",
+}
+
+
+local function is_fullscreen_game(win)
+  if not win then return false end
+
+  -- fullscreen states: 2 = Fullscreen, 3 = Maximize+Fullscreen [1]
+  local fs = win.fullscreen
+  if fs ~= 2 and fs ~= 3 then return false end
+
+  if win.content_type == "game" then return true end
+  for _, pattern in ipairs(game_classes) do
+    if win.class and win.class:find(pattern) then
+      return true
+    end
+  end
+
+  return false
+end
+
+local function bind_kando()
+  if kando_bound then return end
+  hl.bind("mouse:275", hl.dsp.global("menu.kando.Kando:media-menu"))
+  kando_bound = true
+  hl.notification.create({ text = "Kando enabled...", timeout = 2000, icon = "ok" })
+end
+
+local function unbind_kando()
+  if not kando_bound then return end
+  hl.unbind("mouse:275")
+  kando_bound = false
+  hl.notification.create({ text = "Kando disabled...", timeout = 2000, icon = "ok" })
+end
+
+-- Initial state
+bind_kando()
+
+hl.on("window.fullscreen", function(win)
+  if is_fullscreen_game(win) then
+    unbind_kando()
+  else
+    bind_kando()
+  end
+end)
 
 -- ---------------------
 -- Window Resize Submap
