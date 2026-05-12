@@ -8,13 +8,13 @@ Flexible screen layouts for Hyprland
 Initial layout needs to be linked in
 
 ```sh
-ln -s desk.conf current.conf
+ln -s desk.lua current.lua
 ```
 
-In hyprland this file needs to be sourced:
+In the current layout file needs to be imported:
 
-```hyprlang
-source = ~/.config/hypr/monitors/current.conf
+```lua
+require("monitors/current")
 ```
 
 ## Usage
@@ -35,12 +35,14 @@ monitor layout.
 > If I dispatched `hyprctl` commands it would reset as soon as the config got
 > reloaded, or system gets reset.
 
-The script depends on variables being defined in the target config:
+The script depends on variables defined in `monitors/monitors.lua`:
 
-```hyprlang
-$center_monitor  = DP-1
-$left_monitor    = DP-2
-$primary_monitor = DP-1
-$right_monitor   = HDMI-A-1
-$tv_monitor      = HDMI-A-2
+```lua
+local monitors = {
+  center = "DP-1",
+  left = "DP-2",
+  right = "HDMI-A-1",
+  top = "HDMI-A-3",
+  tv = "HDMI-A-2"
+}
 ```
