@@ -320,7 +320,7 @@ Singleton {
   // in cases where there isn't a good icon match
   readonly property var aliases: [
     [/.*spotify.*/i, "spotify"],
-    [/kando/i, "input-mouse"],
+    [/menu.kando.kando/i, "input-mouse"],
     [/minecraft.*/i, "minecraft"],
     [/^steam_app_(\d+)$/, "steam_icon_$1"],
     [/kitty/i, "terminal"],
