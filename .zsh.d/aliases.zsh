@@ -180,6 +180,7 @@ alias pacls='pacman -Ql' # list package files
 alias pacfd="pacman -F" # find file in repos
 alias aurls="paru -Qm" # list aur packages
 alias ff="firefox"
+alias rcopy="rsync -ah --info=progress2"
 
 # reload config if the process supports the signal
 alias reload='killall -SIGUSR2'
