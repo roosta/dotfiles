@@ -149,14 +149,4 @@ hl.config({
       natural_scroll = false,
     },
   },
-  plugin = {
-    hyprexpo = {
-      columns = 3,
-      gap_size = 6,
-      bg_col = "rgb(080707)",
-      workspace_method = "center current",
-      skip_empty = false,
-      gesture_distance = 300,
-    },
-  }
 })
