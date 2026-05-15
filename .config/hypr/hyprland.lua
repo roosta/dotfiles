@@ -14,8 +14,6 @@
 -- Fix hypr-mouse-state
 -- push srcery-gui
 
-local vars = require("variables").vars
-
 -- define monitor fallback
 hl.monitor({
   output   = "",
@@ -33,12 +31,6 @@ require("monitors/current")
 hl.on("hyprland.start", function ()
   hl.exec_cmd("quickshell")
   hl.exec_cmd("/usr/lib/polkit-kde-authentication-agent-1")
-  hl.exec_cmd("[workspace 3 silent] " .. vars.browser)
-  hl.exec_cmd("[workspace 2 silent] steam -silent")
-  hl.exec_cmd("[workspace 21 silent] flatpak run com.discordapp.Discord --start-minimized")
-  hl.exec_cmd("flatpak run menu.kando.Kando")
-  hl.exec_cmd("[workspace 1] " .. vars.terminal)
-  hl.exec_cmd("hyprpm reload -n")
 end)
 
 -- Config
