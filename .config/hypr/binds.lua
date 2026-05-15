@@ -24,9 +24,6 @@ hl.bind(main_mod .. " + F13", hl.dsp.exec_cmd(vars.scripts_home .. "/switch-disp
 hl.bind(main_mod .. " + F14", hl.dsp.exec_cmd(vars.scripts_home .. "/switch-display.sh tv"))
 hl.bind(main_mod .. " + F15", hl.dsp.exec_cmd(vars.scripts_home .. "/switch-display.sh mirror"))
 hl.bind(main_mod .. " + F16", hl.dsp.exec_cmd(vars.scripts_home .. "/switch-display.sh all"))
-hl.bind(main_mod .. " + Grave", function()
-  hl.plugin.hyprexpo.expo("toggle")
-end)
 
 -- Fullscreen states
 hl.bind(main_mod .. " + F", hl.dsp.window.fullscreen({ mode = 0 }))
