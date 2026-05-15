@@ -57,3 +57,25 @@ utils.add_workspaces(monitors.right, {19,20,21,22}, 19)
 hl.workspace_rule({ workspace = "1", layout = "dwindle" })
 hl.workspace_rule({ workspace = "2", layout = "dwindle" })
 
+
+hl.window_rule({
+  match = { class = "firefox-media" },
+  monitor = monitors.right,
+})
+
+hl.window_rule({
+  match = { class = "firefox-developer-edition" },
+  monitor = monitors.left,
+})
+
+hl.window_rule({
+  match = { class = "(?i).*(discord|vesktop).*" },
+  monitor = monitors.right,
+})
+
+hl.window_rule({
+  match = { class = "(?i)steam.*$" },
+  monitor = monitors.center,
+})
+
+-- windowrule = monitor $center_monitor, match:class steam.*$
