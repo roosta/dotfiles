@@ -101,55 +101,60 @@ hl.bind(main_mod .. " + Print", hl.dsp.exec_cmd(vars.scripts_home .. "/screensho
 -- -------------------------
 -- Media menu (kando) toggle
 -- -------------------------
--- Will bind or unbind mouse4 based on fullscreen game
--- Kando is only ever toggled of if im playing a game actively
+-- Use mouse4 for kando global shortcut unless in a fullscreen game
 local kando_bound = false
+local debounce_timer = nil
 local game_classes = {
   "^steam_app_",
   "^gamescope$",
 }
 
-
+-- Check if fullscreen game. Not all games report content_type, so fall back
+-- to pattern matching
 local function is_fullscreen_game(win)
   if not win then return false end
-
-  -- fullscreen states: 2 = Fullscreen, 3 = Maximize+Fullscreen [1]
-  local fs = win.fullscreen
-  if fs ~= 2 and fs ~= 3 then return false end
-
+  if win.fullscreen ~= 2 and win.fullscreen ~= 3 then return false end
   if win.content_type == "game" then return true end
   for _, pattern in ipairs(game_classes) do
-    if win.class and win.class:find(pattern) then
-      return true
-    end
+    if win.class and win.class:find(pattern) then return true end
   end
-
   return false
 end
 
-local function bind_kando()
-  if kando_bound then return end
-  hl.bind("mouse:275", hl.dsp.global("menu.kando.Kando:media-menu"))
-  kando_bound = true
-  hl.notification.create({ text = "Kando enabled...", timeout = 2000, icon = "ok" })
-end
-
-local function unbind_kando()
-  if not kando_bound then return end
-  hl.unbind("mouse:275")
-  kando_bound = false
-  hl.notification.create({ text = "Kando disabled...", timeout = 2000, icon = "ok" })
-end
-
--- Initial state
-bind_kando()
-
-hl.on("window.fullscreen", function(win)
-  if is_fullscreen_game(win) then
-    unbind_kando()
+-- Sets mouse4 button function to kando, or disable (function normally)
+local function set_kando(enabled)
+  if enabled == kando_bound then return end
+  kando_bound = enabled
+  if enabled then
+    hl.bind("mouse:275", hl.dsp.global("menu.kando.Kando:media-menu"))
   else
-    bind_kando()
+    hl.unbind("mouse:275")
   end
+  hl.notification.create({
+    text = enabled and "Kando enabled..." or "Kando disabled...",
+    timeout = 2000,
+    icon = "ok",
+  })
+end
+
+-- Check for game windows
+local function reevaluate()
+  local has_game = false
+  for _, w in ipairs(hl.get_windows() or {}) do
+    if is_fullscreen_game(w) then
+      has_game = true
+      break
+    end
+  end
+  set_kando(not has_game)
+end
+
+hl.on("window.fullscreen", function()
+  if debounce_timer then
+    debounce_timer:set_enabled(false)
+    debounce_timer = nil
+  end
+  debounce_timer = hl.timer(reevaluate, { timeout = 100, type = "oneshot" })
 end)
 
 -- ---------------------
