@@ -10,11 +10,6 @@
 -- │└──────────────────────────────────────────────────────┘┆
 -- ┆ - Docs: https://wiki.hyprland.org/Configuring/
 
--- TODOs:
--- push srcery-gui
-
-local vars = require("variables").vars
-
 -- define monitor fallback
 hl.monitor({
   output   = "",
@@ -34,15 +29,11 @@ require("binds")
 require("rules")
 
 -- Autostart
--- https://wiki.hypr.land/Configuring/Basics/Autostart/
+-- https://wiki.hypr.land/Configurng/Basics/Autostart/
 -- Several services are started using systemd, to enable various hyprland utils
 hl.on("hyprland.start", function ()
+  hl.exec_cmd("quickshell")
   hl.exec_cmd("/usr/lib/polkit-kde-authentication-agent-1")
-  hl.exec_cmd(vars.browser, { workspace = "3 silent" })
-  hl.exec_cmd("steam -silent", { workspace = "2 silent"})
-  hl.exec_cmd("flatpak run com.discordapp.Discord --start-minimized", { workspace = "21 silent" } )
-  hl.exec_cmd(vars.terminal, { workspace = "1 silent" })
-  hl.exec_cmd("~/Apps/open-webui.AppImage", { workspace = "special:scratch silent" })
 end)
 
 -- vim: set ts=2 sw=2 tw=0 fdm=marker ft=lua et :
