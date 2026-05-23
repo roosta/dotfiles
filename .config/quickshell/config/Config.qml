@@ -338,6 +338,7 @@ Singleton {
     "spotify",
     "org.mozilla.Thunderbird",
     "com.discordapp.Discord",
-    "kitty"
+    "kitty",
+    "menu.kando.Kando"
   ]
 }
