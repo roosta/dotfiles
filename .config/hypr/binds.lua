@@ -149,6 +149,8 @@ local function reevaluate()
   set_kando(not has_game)
 end
 
+set_kando(true)
+
 hl.on("window.fullscreen", function()
   if debounce_timer then
     debounce_timer:set_enabled(false)
