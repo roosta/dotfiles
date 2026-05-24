@@ -297,6 +297,9 @@ packages:
     - name: hyprland-protocols
       description: Wayland protocol extensions for Hyprland
       aur: false
+    - name: hypyrshutdown
+      description: A graceful shutdown utility for Hyprland
+      aur: false
     - name: hypridle
       description: Hyprland's idle daemon
       aur: false

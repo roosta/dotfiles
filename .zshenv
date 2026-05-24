@@ -32,6 +32,9 @@ export QSG_RHI_BACKEND=vulkan
 export TERMINAL=kitty
 export BROWSER=firefox
 
+## SSH
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gcr/ssh"
+
 # Editor
 export EDITOR=nvim
 export ALTERNATE_EDITOR=nvim

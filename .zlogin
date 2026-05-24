@@ -10,12 +10,10 @@
 # ├┤ License : GNU General Public License v3     ├┤
 # ┆└─────────────────────────────────────────────┘┆
 
-function start_hypr() {
-  if uwsm check may-start; then
-    exec uwsm start hyprland.desktop
-  fi
-}
-
-start_hypr
+# https://wiki.archlinux.org/title/Hyprland
+# Autostart hyprland
+if [ -z "$WAYLAND_DISPLAY" ] && [ "$(tty)" = "/dev/tty1" ]; then
+  exec start-hyprland
+fi
 
 #  vim: set ts=2 sw=2 tw=0 fdm=marker et :
