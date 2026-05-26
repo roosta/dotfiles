@@ -11,7 +11,6 @@
 -- ┆ - Docs: https://wiki.hyprland.org/Configuring/
 
 -- TODOs:
--- Fix hypr-mouse-state
 -- push srcery-gui
 
 local vars = require("variables").vars
@@ -27,6 +26,13 @@ hl.monitor({
 -- Pull in current monitor layout
 require("monitors/current")
 
+-- Config
+require("config")
+require("environment")
+require("animations")
+require("binds")
+require("rules")
+
 -- Autostart
 -- https://wiki.hypr.land/Configuring/Basics/Autostart/
 -- Several services are started using systemd, to enable various hyprland utils
@@ -41,12 +47,5 @@ hl.on("hyprland.start", function ()
   -- hl.exec_cmd("hyprpm reload -n")
   -- hl.exec_cmd("blueman-manager")
 end)
-
--- Config
-require("config")
-require("environment")
-require("animations")
-require("binds")
-require("rules")
 
 -- vim: set ts=2 sw=2 tw=0 fdm=marker ft=lua et :
