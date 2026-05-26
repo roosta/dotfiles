@@ -12,11 +12,11 @@ hl.bind(main_mod .. " + C", hl.dsp.window.close())
 
 -- Groups
 hl.bind(main_mod .. " + G", hl.dsp.group.toggle())
-hl.bind(main_mod .. " + Return", hl.dsp.exec_cmd(vars.terminal))
+hl.bind(main_mod .. " + Q", hl.dsp.exec_cmd(vars.terminal))
 
 -- Quickshell
 hl.bind(main_mod .. " + Tab", hl.dsp.global("quickshell:toggleLauncher"))
-hl.bind(main_mod .. " + Q", hl.dsp.global("quickshell:toggleNotifications"))
+hl.bind(main_mod .. " + Home", hl.dsp.global("quickshell:toggleNotifications"))
 hl.bind("SHIFT + code:66", hl.dsp.global("quickshell:shiftlock"))
 
 -- Switch display
@@ -27,7 +27,7 @@ hl.bind(main_mod .. " + F16", hl.dsp.exec_cmd(vars.scripts_home .. "/switch-disp
 
 -- Fullscreen states
 hl.bind(main_mod .. " + F", hl.dsp.window.fullscreen({ mode = 0 }))
-hl.bind("Alt_L + Return", hl.dsp.window.fullscreen({ mode = 1 })) -- maximize
+hl.bind(main_mod .. " + Return", hl.dsp.window.fullscreen({ mode = 1 })) -- maximize
 
 -- Layout
 hl.bind(main_mod .. " + P", hl.dsp.window.pseudo()) -- dwindle
