@@ -22,12 +22,12 @@ some mainstays:
 
 | Software | Description | Config |
 |----|----|----|
-| [Zsh](https://www.zsh.org/) | I do most of my work in here | [dir](.zsh.d), [config](.zshrc)  |
-| [Nvim](https://neovim.io/) | Neovim is my primary editor used in the terminal | [dir](.config/nvim) |
-| [Hyprland](https://hypr.land/) | The compositor that handles monitors, windows, workspaces, etc | [dir](.config/hypr) |
+| [Zsh](https://www.zsh.org/) | I do most of my work in here | [dir](../.zsh.d), [config](../.zshrc)  |
+| [Nvim](https://neovim.io/) | Neovim is my primary editor used in the terminal | [dir](../.config/nvim) |
+| [Hyprland](https://hypr.land/) | The compositor that handles monitors, windows, workspaces, etc | [dir](../.config/hypr) |
 | [Scripts](https://github.com/roosta/scripts) | My shell scripts, these control various aspects of the ritual desktop shell | [repo](https://github.com/roosta/scripts) |
-| [Kando](https://kando.menu/) | Pie menu used for mouse controls, with a custom theme | [dir](.config/kando), [theme](.config/kando/menu-themes/ritual) |
-| [Quickshell](https://quickshell.org/) | Launcher, bar, and widgets all made with quickshell | [dir](.config/quickshell), [config](.config/quickshell/config/Config.qml) |
+| [Kando](https://kando.menu/) | Pie menu used for mouse controls, with a custom theme | [dir](../.config/kando), [theme](.config/kando/menu-themes/ritual) |
+| [Quickshell](https://quickshell.org/) | Launcher, bar, and widgets all made with quickshell | [dir](../.config/quickshell), [config](../.config/quickshell/config/Config.qml) |
 
 
 ## Install
@@ -104,7 +104,7 @@ gsettings set org.gnome.desktop.interface gtk-theme 'Breeze'
 
 ### QT
 
-Settings are stored in [.config/kdeglobals](.config/kdeglobals), and uses a
+Settings are stored in [.config/kdeglobals](../.config/kdeglobals), and uses a
 custom color scheme built atop the [Breeze theme](https://kde.org/plasma-desktop/).
 
 >[!TIP]
@@ -147,9 +147,9 @@ Code is licensed with [GPLv3](LICENSE)
 ### Configuration
 
 Per-host Quickshell configuration is kept in
-[.config/quickshell/config/Config.qml](.config/quickshell/config/Config.qml)
+[.config/quickshell/config/Config.qml](../.config/quickshell/config/Config.qml)
 and Hyprland config also requires host configuration for the monitor setup
-located at [.config/hypr/monitors](.config/hypr/monitors).
+located at [.config/hypr/monitors](../.config/hypr/monitors).
 
 ## Disclamer
 
