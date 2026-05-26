@@ -33,10 +33,10 @@ hl.window_rule({
 
 -- Ignore maximize requests from all apps
 -- hl.window_rule({
---   name  = "suppress-maximize-events",
---   match = { class = ".*" },
---   suppress_event = "maximize",
--- })
+  --   name  = "suppress-maximize-events",
+  --   match = { class = ".*" },
+  --   suppress_event = "maximize",
+  -- })
 
 -- Rounding
 hl.window_rule({
@@ -66,17 +66,20 @@ hl.window_rule({
 
 -- Kando (https://kando.menu/installation-on-linux/#-hyprland)
 hl.window_rule({
-  name        = "kando",
-  match       = { class = "^menu.kando.Kando$" },
-  no_blur     = true,
-  opaque      = true,
-  move        = "0 0",
-  rounding    = 0,
-  size        = "100% 100%",
+  name = "kando",
+  match = {
+    class = "menu.kando.Kando",
+    title = "Kando Menu"
+  },
+  no_blur = true,
+  opaque = true,
+  move = {0, 0 },
+  rounding = 0,
+  size = { "100%", "100%" },
   border_size = 0,
-  no_anim     = true,
-  float       = true,
-  pin         = true,
+  no_anim = true,
+  float = true,
+  pin = true,
 })
 
 -- Workspace assignments
@@ -88,29 +91,37 @@ hl.window_rule({
   match = { class = ".*jellyfin-media-player" },
   workspace = "empty"
 })
+
 hl.window_rule({
   match = { class = "(?i).*(discord|vesktop).*" },
-  workspace = "empty" })
+  workspace = "empty"
+})
+
 hl.window_rule({
   match = { class = "(?i)gimp-%d.%d" },
   workspace = "5"
 })
+
 hl.window_rule({
   match = { class = "(?i).*inkscape.*" },
   workspace = "5",
 })
+
 hl.window_rule({
   match = { class = "(?i)firefox" },
   workspace = "3",
 })
+
 hl.window_rule({
   match = { class = "(?i)spotify" },
   workspace = "4",
 })
+
 hl.window_rule({
   match = { class = "(?i)org.mozilla.thunderbird" },
   workspace = "10",
 })
+
 hl.window_rule({
   match = { class = "python3" },
   workspace = "11 silent",
@@ -141,21 +152,21 @@ hl.window_rule({
 -- ----------- --
 -- Layer rules
 -- hl.layer_rule({
---     name  = "ritual-launcher-anim",
---     match = { namespace = "ritual-launcher" },
---     animation = "slide bottom",
+--   name  = "ritual-launcher-anim",
+--   match = { namespace = "ritual-launcher" },
+--   animation = "slide bottom",
 -- })
 
 hl.layer_rule({
-    name    = "ritual-exclusion-noanim",
-    match   = { namespace = "ritual-exclusion" },
-    no_anim = true,
+  name    = "ritual-exclusion-noanim",
+  match   = { namespace = "ritual-exclusion" },
+  no_anim = true,
 })
 
 hl.layer_rule({
-    name    = "hyprpicker-noanim",
-    match   = { namespace = "hyprpicker" },
-    no_anim = true,
+  name    = "hyprpicker-noanim",
+  match   = { namespace = "hyprpicker" },
+  no_anim = true,
 })
 
 -- --------------- --
