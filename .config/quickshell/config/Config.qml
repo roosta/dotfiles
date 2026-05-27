@@ -46,6 +46,11 @@ Singleton {
   // default menu mode
   readonly property string defaultMode: "apps"
 
+  component Notifications: QtObject {
+    readonly property int timeout: 7000
+  }
+
+  readonly property Notifications notifications: Notifications { }
 
   property var keyboardLayouts: [
     {
