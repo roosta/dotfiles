@@ -324,5 +324,25 @@ BorderRect {
       }
     }
   }
+  Loader {
+    property bool show: GlobalState.launcherOpen
+      && GlobalState.launcherMode === "notifications"
+      && Notifications.list.length > 0
+    active: show
+    anchors.topMargin: Appearance.spacing.p1 + Appearance.bar.borderWidth
+    anchors.leftMargin: Appearance.spacing.p1
+    anchors.right: parent.right
+    anchors.top: parent.top
+    sourceComponent: RowLayout {
+      spacing: Appearance.spacing.p1
+      ContentButton {
+        monitorId: root.monitorId
+        onPressed: {
+          Notifications.discardAllNotifications()
+        }
+
+      }
+    }
+  }
 
 }
