@@ -9,7 +9,7 @@ return {
   lazy = false,
   dependencies = {
     "nvim-lua/plenary.nvim",
-    "ravitemer/codecompanion-history.nvim"
+    -- "ravitemer/codecompanion-history.nvim"
   },
   keys = {
     { "<leader>aa", ":CodeCompanionActions<CR>", silent = true },
@@ -27,12 +27,12 @@ return {
       }
     },
     extensions = {
-        history = {
-            enabled = true,
-            opts = {
-                expiration_days = 14,
-            }
-        }
+        -- history = {
+        --     enabled = true,
+        --     opts = {
+        --         expiration_days = 14,
+        --     }
+        -- }
     },
     interactions = {
       chat = {
