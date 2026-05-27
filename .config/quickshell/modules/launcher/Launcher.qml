@@ -48,6 +48,7 @@ Item {
       }
     }
   }
+
   GlobalShortcut { // qmllint disable unresolved-type
     name: "toggleNotifications"
     description: "Toggles nofication launcher panel"
