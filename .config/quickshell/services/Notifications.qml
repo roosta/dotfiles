@@ -109,8 +109,9 @@ Singleton {
     onTriggered: () => {
       const index = root.list.findIndex((notif) => notif.notificationId === notificationId);
       const notifObject = root.list[index];
-      print("[Notifications] Notification timer triggered for ID: " + notificationId + ", transient: " + notifObject?.isTransient);
-      if (notifObject?.isTransient ?? false) root.discardNotification(notificationId);
+      const isTransient = notifObject?.isTransient ?? false
+      print("[Notifications] Notification timer triggered for ID: " + notificationId + ", transient: " + isTransient);
+      if (isTransient) root.discardNotification(notificationId);
       else root.timeoutNotification(notificationId);
       destroy()
     }
@@ -253,6 +254,12 @@ Singleton {
       notifServer.trackedNotifications.values[notifServerIndex].dismiss()
     }
     root.discard(id); // Emit signal
+  }
+
+  function discardLastNotification() {
+    if (root.list.length === 0) return;
+    const latest = root.list[root.list.length - 1];
+    root.discardNotification(latest.notificationId);
   }
 
   function discardAllNotifications() {

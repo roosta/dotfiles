@@ -59,6 +59,16 @@ Item {
       }
     }
   }
+
+  GlobalShortcut { // qmllint disable unresolved-type
+    name: "discardLastNotification"
+    description: "Discards last notification"
+    onPressed: {
+      if (Hyprland.focusedMonitor?.name === root.monitorId) {
+        Notifications.discardLastNotification();
+      }
+    }
+  }
   BorderRect {
     id: launcher
     implicitHeight: 0
