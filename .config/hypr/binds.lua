@@ -17,6 +17,7 @@ hl.bind(main_mod .. " + Q", hl.dsp.exec_cmd(vars.terminal))
 -- Quickshell
 hl.bind(main_mod .. " + Tab", hl.dsp.global("quickshell:toggleLauncher"))
 hl.bind(main_mod .. " + Home", hl.dsp.global("quickshell:toggleNotifications"))
+hl.bind(main_mod .. " + BackSpace", hl.dsp.global("quickshell:discardLastNotification"))
 hl.bind("SHIFT + code:66", hl.dsp.global("quickshell:shiftlock"))
 
 -- Switch display
