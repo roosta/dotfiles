@@ -46,6 +46,7 @@ Singleton {
 
     onNotificationChanged: {
       if (notification === null) {
+        timer.running = false
         // root.discardNotification(notificationId);
       }
     }
