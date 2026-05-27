@@ -42,7 +42,7 @@ Singleton {
     property double time
     property string urgency: notification?.urgency.toString() ?? "normal"
     property bool isNotification: true
-    property Timer timer
+    property Timer timer: Timer { running: false }
 
     onNotificationChanged: {
       if (notification === null) {
@@ -267,8 +267,8 @@ Singleton {
 
   function cancelTimeout(id) {
     const index = root.list.findIndex((notif) => notif.notificationId === id);
-    if (root.list[index] != null)
-    root.list[index].timer.stop();
+    if (root.list[index] != null && root.list[index].timer != null)
+      root.list[index].timer.stop();
   }
 
   function timeoutNotification(id) {
