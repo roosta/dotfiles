@@ -15,6 +15,8 @@ import QtQuick.Layouts
 Button {
   id: root
 
+  default property alias content: rowLayout.data
+
   // color: Appearance.srcery.brightWhite
   required property string monitorId
   Layout.topMargin: Appearance.bar.borderWidth
@@ -40,15 +42,7 @@ Button {
   }
 
   contentItem: RowLayout {
-    Text {
-      id: contentItem
-      text: "CLEAR ALL"
-      color: Appearance.srcery.white
-      font {
-        family: Appearance.font.main
-        pointSize: Appearance.font.tiny
-      }
-    }
+    id: rowLayout
   }
 
   states: [

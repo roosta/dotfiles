@@ -340,7 +340,15 @@ BorderRect {
         onPressed: {
           Notifications.discardAllNotifications()
         }
-
+        Text {
+          id: contentItem
+          text: "  CLEAR ALL"
+          color: Appearance.srcery.white
+          font {
+            family: Appearance.font.main
+            pointSize: Appearance.font.tiny
+          }
+        }
       }
     }
   }
