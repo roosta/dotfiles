@@ -39,17 +39,16 @@ export FZF_ALT_C_OPTS="--preview 'tree -a --gitignore -C {} | head -200'"
 # "~", bound to ctrl-f, see keybinds.zsh
 fdirs() {
   local dir
-  print -rNC1 -- ${(D)dirstack} |
+  print -rNC1 -- $dirstack |
     fzf \
       --read0 \
       --scheme=path \
       --print0 \
       --ansi \
-      --preview 'eval eza --color always -aghl \
-                  --group-directories-first -F {}' \
+      --preview 'eza --color always -aghl --group-directories-first -F {}' \
       --preview-window 'right:50%' |
     IFS= read -rd '' dir &&
-    cd -- ${dir/#\~/$HOME} &&
+    cd -- $dir &&
     zle -I
 }
 zle -N fdirs # So that it can be used as a shortcut.
@@ -68,7 +67,7 @@ flib() {
 }
 
 # Fuzzy match over dotfiles
-# 
+#
 # Requirements: fzf, dotfile git tracking
 # https://wiki.archlinux.org/title/Dotfiles#Tracking_dotfiles_directly_with_Git
 #
