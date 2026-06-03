@@ -161,7 +161,7 @@ Item {
           }).map(s => s.obj)
         }
         onAccept: (entry) => {
-          // LauncherData.launch(entry)
+          Notifications.attemptInvokeAction(entry.notificationId, "default")
           GlobalState.closeLauncher()
         }
       }

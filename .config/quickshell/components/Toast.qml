@@ -131,8 +131,7 @@ Item {
 
         onClicked: {
           if (popup.notificationId) {
-
-            // Notifications.attemptInvokeAction(popup.notificationId, modelData.identifier);
+            Notifications.attemptInvokeAction(popup.notificationId, "default");
             // Notifications.discardNotification(popup.notificationId);
           }
         }
