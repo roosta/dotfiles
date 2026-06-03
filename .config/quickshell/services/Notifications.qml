@@ -46,7 +46,6 @@ Singleton {
 
     onNotificationChanged: {
       if (notification === null) {
-        timer.running = false
         root.discardNotification(notificationId);
       }
     }
@@ -264,7 +263,6 @@ Singleton {
   }
 
   function discardAllNotifications() {
-    root.list.forEach(l => l.timer.running = false)
     root.list = []
     triggerListChange()
     notifFileView.setText(stringifyList(root.list));
