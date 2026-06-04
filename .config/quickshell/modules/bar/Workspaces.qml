@@ -61,7 +61,7 @@ BorderRect {
       color: "transparent"
       border.color: Appearance.srcery.gray4
       border.width: Appearance.bar.borderWidth
-      height: parent.height - Appearance.spacing.p1 * 2
+      height: Appearance.bar.height - Appearance.bar.borderWidth - Appearance.spacing.p1 * 2
 
       property real targetX: 0
       property real targetWidth: 0

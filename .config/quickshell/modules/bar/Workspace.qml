@@ -78,7 +78,8 @@ Button {
       id: indicator
       Item {
         implicitWidth: root.iconSize + Appearance.spacing.p3
-        implicitHeight: root.iconSize + Appearance.spacing.p3
+        implicitHeight: Appearance.bar.height - Appearance.bar.borderWidth
+          - Appearance.spacing.p1 * 2
 
         states: [
           State {
@@ -150,7 +151,7 @@ Button {
 
             id: appIcon
             Layout.preferredWidth: root.iconSize + Appearance.spacing.p3
-            Layout.preferredHeight: root.iconSize + Appearance.spacing.p3
+            Layout.preferredHeight: Appearance.bar.height - Appearance.bar.borderWidth - Appearance.spacing.p1 * 2
 
             onUrgentChanged: {
               if (!urgent) {
