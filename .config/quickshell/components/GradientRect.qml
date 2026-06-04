@@ -23,15 +23,19 @@ Item {
   }
 
   // The gradient source
-  Rectangle {
-    id: gradientRect
+  Item {
+    id: gradientSource
     visible: false
     layer.enabled: true
-    color: root.borderColor
-    rotation: root.gradientAngle
-    anchors.centerIn: parent
-    implicitWidth: root.gradientSize().width
-    implicitHeight: root.gradientSize().height
+    anchors.fill: parent
+
+    Rectangle {
+      id: gradientRect
+      rotation: root.gradientAngle
+      anchors.centerIn: parent
+      width:  root.gradientSize(root.gradientAngle).width
+      height: root.gradientSize(root.gradientAngle).height
+    }
   }
 
   // Ring-shaped alpha mask via even-odd fill rule:
@@ -68,9 +72,9 @@ Item {
 
   MultiEffect {
     anchors.fill: parent
-    source: gradientRect
+    source: gradientSource
     maskEnabled: true
     maskSource: ringMask
-    maskThresholdMin: 0.5   // crisp edge
+    maskThresholdMin: 0.5
   }
 }
