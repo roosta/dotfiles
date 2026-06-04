@@ -59,7 +59,7 @@ BorderRect {
       z: 3
       // radius: (parent.height - Appearance.spacing.p3) / 2
       color: "transparent"
-      border.color: Appearance.srcery.gray4
+      border.color: Appearance.srcery.brightBlack
       border.width: Appearance.bar.borderWidth
       height: Appearance.bar.height - Appearance.bar.borderWidth - Appearance.spacing.p1 * 2
 

@@ -62,14 +62,22 @@ Button {
     cursorShape: root.active ? Qt.ArrowCursor : Qt.PointingHandCursor
   }
 
-  background: BorderRect {
+  background: Rectangle {
     id: wsBackground
     implicitWidth: root.calculatedWidth
     implicitHeight: childrenRect.height
     radius: Appearance.bar.radius
-    color: Appearance.srcery.black
-    borderColor: Appearance.srcery.gray4
+    color: "transparent"
+    border.color: Appearance.srcery.gray2
 
+    border.width: root.isOccupied ? 1 : 0
+
+    Behavior on border.color {
+      ColorAnimation {
+        duration: Appearance.durations.normal
+        easing.type: Easing.OutCubic
+      }
+    }
     Loader {
       active: !root.isOccupied
       sourceComponent: indicator
@@ -79,7 +87,7 @@ Button {
       Item {
         implicitWidth: root.iconSize + Appearance.spacing.p3
         implicitHeight: Appearance.bar.height - Appearance.bar.borderWidth
-          - Appearance.spacing.p1 * 2
+        - Appearance.spacing.p1 * 2
 
         states: [
           State {
@@ -156,7 +164,7 @@ Button {
             onUrgentChanged: {
               if (!urgent) {
                 blinkAnimation.running = false
-                desaturatedIcon.opacity = 1.0
+                // desaturatedIcon.opacity = 1.0
               }
             }
             states: [
@@ -165,7 +173,6 @@ Button {
                 when: appIcon.urgent && root.active && !hover.hovered
                 PropertyChanges {
                   blinkAnimation.running: true
-                  desaturatedIcon.saturation: 0.0
                 }
               },
               State {
@@ -173,7 +180,6 @@ Button {
                 when: appIcon.urgent && !root.active && !hover.hovered
                 PropertyChanges {
                   blinkAnimation.running: true
-                  desaturatedIcon.saturation: -0.8
                 }
               },
               State {
@@ -181,8 +187,8 @@ Button {
                 when: !appIcon.urgent && !root.active && hover.hovered
                 PropertyChanges {
                   blinkAnimation.running: false
-                  desaturatedIcon.opacity: 1.0
-                  desaturatedIcon.saturation: 0.0
+                  wsBackground.border.color: Appearance.srcery.gray6
+                  // desaturatedIcon.opacity: 1.0
                 }
               },
               State {
@@ -190,7 +196,7 @@ Button {
                 when: appIcon.urgent && !root.active && hover.hovered
                 PropertyChanges {
                   blinkAnimation.running: true
-                  desaturatedIcon.saturation: 0.0
+                  wsBackground.border.color: Appearance.srcery.gray6
                 }
               },
               State {
@@ -198,8 +204,17 @@ Button {
                 when: !appIcon.urgent && root.active  && !hover.hovered
                 PropertyChanges {
                   blinkAnimation.running: false
+                  wsBackground.border.color: Appearance.srcery.brightBlack
                   desaturatedIcon.opacity: 1.0
-                  desaturatedIcon.saturation: 0.0
+                }
+              },
+              State {
+                name: "activeHovered"
+                when: !appIcon.urgent && root.active  && hover.hovered
+                PropertyChanges {
+                  blinkAnimation.running: false
+                  wsBackground.border.color: Appearance.srcery.brightBlack
+                  desaturatedIcon.opacity: 1.0
                 }
               },
               State {
@@ -207,8 +222,8 @@ Button {
                 when: !appIcon.urgent && !root.active && !hover.hovered
                 PropertyChanges {
                   blinkAnimation.running: false
+                  wsBackground.border.color: Appearance.srcery.gray2
                   desaturatedIcon.opacity: 1.0
-                  desaturatedIcon.saturation: -0.8
                 }
               }
 
@@ -234,6 +249,14 @@ Button {
                 duration: Appearance.durations.normal
                 easing.type: Easing.InOutQuad
               }
+              // PropertyAnimation {
+              //   target: desaturatedIcon
+              //   property: "opacity"
+              //   from: 0.3
+              //   to: 1.0
+              //   duration: Appearance.durations.normal
+              //   easing.type: Easing.InOutQuad
+              // }
             }
 
             MultiEffect {
