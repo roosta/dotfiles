@@ -54,15 +54,19 @@ BorderRect {
     anchors.fill: parent
 
     // Moving active workspace indicator rectangle
-    Rectangle {
+    GradientRect {
       id: activeIndicator
-      z: 3
       // radius: (parent.height - Appearance.spacing.p3) / 2
-      color: "transparent"
-      border.color: Appearance.srcery.brightBlack
-      border.width: Appearance.bar.borderWidth
+      z: 3
+      // color: Appearance.srcery.black
+      borderColor: Appearance.srcery.brightBlack
+      borderWidth: Appearance.bar.borderWidth
       height: Appearance.bar.height - Appearance.bar.borderWidth - Appearance.spacing.p1 * 2
-
+      gradient: Gradient {
+        orientation: Gradient.Horizontal
+        GradientStop { position: 1; color: Appearance.srcery.magenta }
+        GradientStop { position: 0; color: Appearance.srcery.blue }
+      }
       property real targetX: 0
       property real targetWidth: 0
 

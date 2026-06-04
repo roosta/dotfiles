@@ -11,60 +11,37 @@
 
 import QtQuick
 
-// Rectangle that supports separate borders and support for angled gradient borders
-// Originally based on this: https://stackoverflow.com/a/59324531/4306379
-Item {
+Rectangle {
   id: root
-  property alias color: innerRect.color
+  // `color` is the real fill — can be "transparent"
+  color: "transparent"
 
-  property alias borderGradient: colorRect.gradient
-  property alias gradient: innerRect.gradient
+  property color borderColor: "black"
   property int borderWidth: 0
-  property alias borderColor : colorRect.color
+  property int leftBorder: borderWidth
+  property int rightBorder: borderWidth
+  property int topBorder: borderWidth
+  property int bottomBorder: borderWidth
 
-  property int leftBorder : borderWidth
-  property int rightBorder : borderWidth
-  property int topBorder : borderWidth
-  property int bottomBorder : borderWidth
-  property int radius: 0
-  property alias gradientAngle: colorRect.rotation
-
-  clip: true
-
-  // Calculate the size needed for a rotated (gradient) rectangle to fit inside content rectangle
-  function gradientSize() {
-    const rad = gradientAngle * Math.PI / 180
-    const absCos = Math.abs(Math.cos(rad));
-    const absSin = Math.abs(Math.sin(rad));
-    const width = borderRect.width * absCos + borderRect.height * absSin;
-    const height = borderRect.width * absSin + borderRect.height * absCos;
-
-    return { width, height };
+  // Edges drawn individually so the fill stays untouched/transparent
+  Rectangle { // top
+    color: root.borderColor
+    height: root.topBorder
+    anchors { top: parent.top; left: parent.left; right: parent.right }
   }
-  Rectangle {
-    id: borderRect
-    color: "transparent"
-    anchors.fill: parent
-    radius: root.radius
-
-    Rectangle {
-      id: colorRect
-      implicitWidth: root.gradientSize().width
-      implicitHeight: root.gradientSize().height
-      anchors.centerIn: parent
-    }
-
-    Rectangle {
-      id: innerRect
-
-      anchors {
-        fill: parent
-
-        leftMargin: root.leftBorder
-        rightMargin: root.rightBorder
-        topMargin: root.topBorder
-        bottomMargin: root.bottomBorder
-      }
-    }
+  Rectangle { // bottom
+    color: root.borderColor
+    height: root.bottomBorder
+    anchors { bottom: parent.bottom; left: parent.left; right: parent.right }
+  }
+  Rectangle { // left
+    color: root.borderColor
+    width: root.leftBorder
+    anchors { left: parent.left; top: parent.top; bottom: parent.bottom }
+  }
+  Rectangle { // right
+    color: root.borderColor
+    width: root.rightBorder
+    anchors { right: parent.right; top: parent.top; bottom: parent.bottom }
   }
 }
