@@ -151,10 +151,10 @@ Singleton {
       }
     });
 
-    if (root.statusLightAvailable && root.list.length > 0 && !root.statusLightActive) {
+    if (root.statusLightAvailable && root.list.length > 0) {
       statusLight.running = true
       root.statusLightActive = true
-    } else if (root.statusLightAvailable && root.list.length === 0 && root.statusLightActive) {
+    } else if (root.statusLightAvailable && root.list.length === 0) {
       statusLightIdle.running = true
       root.statusLightActive = false
     }
