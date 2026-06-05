@@ -21,6 +21,7 @@ import QtQuick.Controls
 
 BorderRect {
   id: root
+  clip: true
   color: Appearance.srcery.black
   borderColor: Appearance.srcery.gray3
   borderWidth: Appearance.bar.borderWidth
