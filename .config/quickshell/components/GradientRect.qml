@@ -8,6 +8,7 @@ Item {
   id: root
   property alias gradient: gradientRect.gradient
   property color borderColor: "black"
+  property color color: "transparent"   // content fill; "transparent" keeps see-through behavior
   property int borderWidth: 1
   property int radius: 0
   property real gradientAngle: 0
@@ -20,6 +21,17 @@ Item {
       width:  width * absCos + height * absSin,
       height: width * absSin + height * absCos
     }
+  }
+
+  // Content fill, sits inside the border ring. Skipped entirely when transparent.
+  Rectangle {
+    anchors {
+      fill: parent
+      margins: root.borderWidth
+    }
+    radius: Math.max(0, root.radius - root.borderWidth)
+    color: root.color
+    visible: root.color.a > 0
   }
 
   // The gradient source
@@ -35,6 +47,7 @@ Item {
       anchors.centerIn: parent
       width:  root.gradientSize(root.gradientAngle).width
       height: root.gradientSize(root.gradientAngle).height
+      color: root.borderColor  // solid fallback; gradient overrides this when set
     }
   }
 
@@ -52,14 +65,12 @@ Item {
       fillColor: "white"
       strokeWidth: 0
 
-      // Outer rounded rect
       PathRectangle {
         x: 0; y: 0
         width: root.width
         height: root.height
         radius: root.radius
       }
-      // Inner rounded rect (the hole)
       PathRectangle {
         x: root.borderWidth
         y: root.borderWidth
