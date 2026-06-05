@@ -187,7 +187,7 @@ Button {
                 when: !appIcon.urgent && !root.active && hover.hovered
                 PropertyChanges {
                   blinkAnimation.running: false
-                  wsBackground.border.color: Appearance.srcery.gray6
+                  wsBackground.border.color: Appearance.srcery.brightBlack
                   // desaturatedIcon.opacity: 1.0
                 }
               },
