@@ -16,7 +16,6 @@ import qs.config
 
 Shape {
   id: root
-  anchors.horizontalCenter: parent.horizontalCenter
   width: 170
   height: 150
 

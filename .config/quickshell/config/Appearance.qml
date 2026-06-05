@@ -70,7 +70,7 @@ Singleton {
   readonly property Bar bar: Bar {}
 
   component Launcher: QtObject {
-    readonly property int height: 256
+    readonly property int height: 340
   }
   readonly property Launcher launcher: Launcher { }
 

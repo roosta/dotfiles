@@ -18,6 +18,7 @@ import QtQuick
 import qs.utils
 import qs.config
 import qs.services
+import qs.components
 
 Item {
   id: root
@@ -38,12 +39,12 @@ Item {
   // height: parent?.height ?? 0
   implicitWidth: {
     if (parentWidth <= 0) return 0
-    return parentWidth / 6 - Appearance.spacing.p1 - Appearance.bar.borderWidth
+    return parentWidth / 9 - Appearance.spacing.p1 - Appearance.bar.borderWidth
   }
   signal clicked()
   property string iconSource: ""
   property string imageSource: ""
-  property int iconSize: 56
+  property int iconSize: 40
   MouseArea {
     id: mouseArea
     anchors.fill: parent
@@ -99,6 +100,70 @@ Item {
     color: Appearance.srcery.black
     border.width: Appearance.bar.borderWidth
 
+    Text {
+      color: Appearance.srcery.brightGreen
+      id: timeElapsedText
+      visible: root.timeElapsed !== ""
+      x: Appearance.spacing.p2
+      y: Appearance.spacing.p2
+      text: root.timeElapsed
+      font {
+        family: Appearance.font.light
+        pixelSize: Appearance.font.large
+      }
+    }
+
+    Loader {
+      active: root.canClose
+      sourceComponent: Button {
+        id: closeButton
+        x: card.width - width - Appearance.spacing.p2
+        y: Appearance.spacing.p2
+        states: [
+          State {
+            name: "hovered"
+            when: closeMouseArea.containsMouse
+            PropertyChanges { closeRect.border.color: Appearance.srcery.gray6 }
+            PropertyChanges { closeContent.color: Appearance.srcery.white }
+            PropertyChanges { closeMouseArea.cursorShape: Qt.PointingHandCursor }
+          }
+        ]
+        transitions: [
+          Transition {
+            ColorAnimation {
+              duration: Appearance.durations.tiny
+              easing.type: Easing.OutQuad
+            }
+          }
+        ]
+        MouseArea {
+          id: closeMouseArea
+          anchors.fill: parent
+          hoverEnabled: true
+
+          onClicked: {
+            Notifications.discardNotification(root.notificationId)
+          }
+        }
+        background: Rectangle {
+          id: closeRect
+          color: Appearance.srcery.black
+          border.width: Appearance.bar.borderWidth
+          border.color: Appearance.srcery.gray3
+          radius: 2
+        }
+        contentItem: Text {
+          id: closeContent
+          color: Appearance.srcery.brightBlack
+          text: ""
+          font {
+            family: Appearance.font.light
+            pixelSize: Appearance.font.normal
+          }
+        }
+      }
+    }
+
     Behavior on color {
       ColorAnimation {
         duration: Appearance.durations.tiny
@@ -109,186 +174,139 @@ Item {
     ColumnLayout {
       opacity: GlobalState.launcherOpen ? 1 : 0
 
-    Behavior on opacity {
-      NumberAnimation {
-        property: "opacity"
-        duration: Appearance.durations.small
-        easing.type: Easing.InOutQuad
+      Behavior on opacity {
+        NumberAnimation {
+          property: "opacity"
+          duration: Appearance.durations.small
+          easing.type: Easing.InOutQuad
+        }
       }
-    }
       id: layout
-      anchors.margins: Appearance.spacing.p2
+      anchors.margins: Appearance.spacing.p3
       Layout.alignment: Qt.AlignTop
       anchors.fill: parent
-      RowLayout {
+
+      ColumnLayout {
         Layout.fillWidth: true
-        spacing: Appearance.spacing.p1
-        Layout.preferredHeight: root.iconSize
-        Rectangle {
-          implicitWidth: root.iconSize
-          implicitHeight: root.iconSize
+        spacing: Appearance.spacing.p2
+
+        Item {
+          implicitWidth: 120
+          implicitHeight: 100
+          Layout.alignment: Qt.AlignHCenter
           id: iconRect
-          radius: 4
-          color: Functions.transparentize(Appearance.srcery.black, 0.7)
-          border.color: Appearance.srcery.gray3
-          Loader {
-            active: root.iconSource !== ""
-            anchors.fill: parent
-            sourceComponent: IconImage {
-              id: icon
-              anchors.fill: parent
-              source: root.iconSource
-              anchors.margins: Appearance.spacing.p2
-            }
-          }
-          Loader {
-            active: root.imageSource !== ""
-            anchors.fill: parent
-            sourceComponent: Image {
-              id: image
-              source: root.imageSource
-              anchors.fill: parent
-              anchors.margins: Appearance.spacing.p2
 
+          Triangle {
+            anchors.fill: parent
+
+
+            ColumnLayout {
+              anchors.fill: parent
+
+              // TODO: fix this, not sure why the text element takes up so much space
+              spacing: -16
+              Text {
+                color: Appearance.srcery.gray4
+                id: favorite
+                Layout.alignment: Qt.AlignHCenter
+                Layout.topMargin: Appearance.spacing.p3
+                opacity: root.favorite ? 1 : 0
+                text: "󰓒"
+                font {
+                  family: Appearance.font.main
+                  pixelSize: Appearance.font.xl
+                }
+              }
+              Loader {
+                Layout.alignment: Qt.AlignHCenter
+                Layout.preferredWidth: root.iconSize
+                Layout.preferredHeight: root.iconSize
+                sourceComponent: {
+                  if (root.iconSource !== "") return iconComponent
+                  if (root.imageSource !== "") return imageComponent
+                  return null
+                }
+              }
+
+              Component {
+                id: iconComponent
+                IconImage {
+                  source: root.iconSource
+                  width: root.iconSize
+                  height: root.iconSize
+                }
+              }
+
+              Component {
+                id: imageComponent
+                Image {
+                  source: root.imageSource
+                  width: root.iconSize
+                  height: root.iconSize
+                }
+              }
             }
           }
         }
 
-        ColumnLayout {
-          Layout.alignment: Qt.AlignTop
-          spacing: Appearance.spacing.p0
-          RowLayout {
-            Text {
-              id: name
-              elide: Text.ElideRight
-              Layout.fillWidth: true
-              text: {
-                if (root.name) {
-                  return root.name
-                } else {
-                  "(No name)"
-                }
-              }
-              color: Appearance.srcery.brightWhite
-              font {
-                family: Appearance.font.light
-                pointSize: Appearance.font.large
-              }
-            }
-
-            Text {
-              color: Appearance.srcery.brightBlack
-              id: favorite
-              visible: root.favorite
-              text: ""
-              font {
-                family: Appearance.font.light
-                pixelSize: Appearance.font.large
-              }
-            }
-
-            Loader {
-              active: root.canClose
-              sourceComponent: Button {
-                id: closeButton
-                states: [
-                  State {
-                    name: "hovered"
-                    when: closeMouseArea.containsMouse
-                    PropertyChanges { closeRect.border.color: Appearance.srcery.gray6 }
-                    PropertyChanges { closeContent.color: Appearance.srcery.white }
-                    PropertyChanges { closeMouseArea.cursorShape: Qt.PointingHandCursor }
-                  }
-                ]
-                transitions: [
-                  Transition {
-                    ColorAnimation {
-                      duration: Appearance.durations.tiny
-                      easing.type: Easing.OutQuad
-                    }
-                  }
-                ]
-                MouseArea {
-                  id: closeMouseArea
-                  anchors.fill: parent
-                  hoverEnabled: true
-
-                  onClicked: {
-                    Notifications.discardNotification(root.notificationId)
-                  }
-                }
-                background: Rectangle {
-                  id: closeRect
-                  color: Appearance.srcery.black
-                  border.width: Appearance.bar.borderWidth
-                  border.color: Appearance.srcery.gray3
-                  radius: 2
-                }
-                contentItem: Text {
-                  id: closeContent
-                  color: Appearance.srcery.brightBlack
-                  text: ""
-                  font {
-                    family: Appearance.font.light
-                    pixelSize: Appearance.font.normal
-                  }
-                }
-              }
+        Text {
+          id: name
+          elide: Text.ElideRight
+          Layout.fillWidth: true
+          horizontalAlignment: Text.AlignHCenter
+          text: {
+            if (root.name) {
+              return root.name
+            } else {
+              "(No name)"
             }
           }
-
-
-          RowLayout {
-            Text {
-              id: generic
-              elide: Text.ElideRight
-              Layout.fillWidth: true
-              text: {
-                if (root.genericName) {
-                  return root.genericName
-                } else {
-                  return "Application"
-                }
-              }
-              color: Appearance.srcery.white
-              font {
-                family: Appearance.font.main
-                pointSize: Appearance.font.small
-              }
-            }
-
-            Text {
-              Layout.preferredWidth: 24
-              color: Appearance.srcery.brightGreen
-              horizontalAlignment: Qt.AlignRight
-              id: timeElapsedText
-              visible: root.timeElapsed !== ""
-              text: root.timeElapsed
-              font {
-                family: Appearance.font.light
-                pixelSize: Appearance.font.large
-              }
-            }
+          color: Appearance.srcery.brightYellow
+          font {
+            family: Appearance.font.light
+            pointSize: Appearance.font.large
           }
-
-          Loader {
-            active: root.categories.length > 0
-            Layout.fillWidth: true
-            Layout.preferredHeight: Appearance.font.tiny
-            sourceComponent: Text {
-              text: root.categories.join(" · ")
-              anchors.fill: parent
-              color: Appearance.srcery.brightBlue
-              elide: Text.ElideRight
-              // wrapMode: Text.Wrap
-              font {
-                family: Appearance.font.light
-                pointSize: Appearance.font.tiny
-              }
-            }
-          }
-
         }
+
+
+
+
+        Text {
+          id: generic
+          elide: Text.ElideRight
+          Layout.fillWidth: true
+          horizontalAlignment: Text.AlignHCenter
+          text: {
+            if (root.genericName) {
+              return root.genericName
+            } else {
+              return "Application"
+            }
+          }
+          color: Appearance.srcery.brightWhite
+          font {
+            family: Appearance.font.main
+            pointSize: Appearance.font.small
+          }
+        }
+
+        Loader {
+          active: root.categories.length > 0
+          Layout.fillWidth: true
+          sourceComponent: Text {
+            text: root.categories.join(" · ")
+            horizontalAlignment: Text.AlignHCenter
+            anchors.fill: parent
+            color: Appearance.srcery.brightBlue
+            elide: Text.ElideRight
+            // wrapMode: Text.Wrap
+            font {
+              family: Appearance.font.light
+              pointSize: Appearance.font.tiny
+            }
+          }
+        }
+
       }
 
       Text {
@@ -303,6 +321,7 @@ Item {
         Layout.fillWidth: true
         Layout.fillHeight: true
         elide: Text.ElideRight
+        horizontalAlignment: Text.AlignHCenter
         wrapMode: Text.Wrap
         font {
           family: Appearance.font.light
@@ -321,86 +340,93 @@ Item {
 
         Rectangle {
           implicitHeight: Appearance.bar.borderWidth
-          visible: root.actions.length > 0
           Layout.fillWidth: true
           color: Appearance.srcery.gray3
         }
 
-        // Rectangle {
-        //   implicitHeight: Appearance.bar.borderWidth
-        //   visible: root.actions.length > 0
-        //   Layout.fillWidth: true
-        //   color: Appearance.srcery.gray3
-        // }
-
-        Loader {
-          visible: root.actions.length > 0
-          active: root.actions.length > 0
-          Layout.fillWidth: true
-          // Layout.fillHeight: true
-          sourceComponent: Flow {
-            spacing: Appearance.spacing.p1
-            Repeater {
-              id: actionRepeater
-              model: root.actions
-              Button {
-                id: actionButton
-                required property var modelData
-                required property int index
-                padding: 0
-
-                HoverHandler {
-                  id: hover
-                  cursorShape: Qt.PointingHandCursor
-                }
-                states: [
-                  State {
-                    name: "hovered"
-                    when: actionButton.hovered
-                    PropertyChanges {
-                      actionText.font.underline: true
-                      actionText.color: Appearance.srcery.brightWhite
-                    }
-                  }
-                ]
-                transitions: [
-                  Transition {
-                    ColorAnimation {
-                      duration: Appearance.durations.tiny
-                      easing.type: Easing.OutQuad
-                    }
-                  }
-                ]
-                onPressed: {
-                  if (root.isNotification) {
-                    Notifications.discardNotification(root.notificationId)
-                  }
-                  LauncherData.launch(modelData)
-                  GlobalState.closeLauncher()
-                }
-                background: Rectangle {
-                  id: actionBg
-                  color: "transparent"
-
-                }
-                contentItem: Text {
-                  id: actionText
-                  text: {
-                    return actionButton.modelData?.name ?? actionButton.modelData?.text ?? ""
-                  }
-                  color: Appearance.srcery.brightBlack
-                  elide: Text.ElideRight
-                  Layout.fillWidth: true
-                  wrapMode: Text.Wrap
-                  font {
-                    family: Appearance.font.light
-                    pointSize: Appearance.font.tiny
-                  }
-                }
-              }
+        Text {
+          text: {
+            if (root.actions.length > 0) {
+              return `${root.actions.length} actions`
+            } else {
+              return "No actions"
             }
           }
+          color: Appearance.srcery.brightBlack
+          font {
+            family: Appearance.font.light
+            pointSize: Appearance.font.small
+          }
         }
+
+        // Loader {
+        //   visible: root.actions.length > 0
+        //   active: root.actions.length > 0
+        //   Layout.fillWidth: true
+        //   // Layout.fillHeight: true
+        //   sourceComponent: Flow {
+        //     spacing: Appearance.spacing.p1
+        //     Repeater {
+        //       id: actionRepeater
+        //       model: root.actions
+        //       Button {
+        //         id: actionButton
+        //         required property var modelData
+        //         required property int index
+        //         padding: 0
+        //
+        //         HoverHandler {
+        //           id: hover
+        //           cursorShape: Qt.PointingHandCursor
+        //         }
+        //         states: [
+        //           State {
+        //             name: "hovered"
+        //             when: actionButton.hovered
+        //             PropertyChanges {
+        //               actionText.font.underline: true
+        //               actionText.color: Appearance.srcery.brightWhite
+        //             }
+        //           }
+        //         ]
+        //         transitions: [
+        //           Transition {
+        //             ColorAnimation {
+        //               duration: Appearance.durations.tiny
+        //               easing.type: Easing.OutQuad
+        //             }
+        //           }
+        //         ]
+        //         onPressed: {
+        //           if (root.isNotification) {
+        //             Notifications.discardNotification(root.notificationId)
+        //           }
+        //           LauncherData.launch(modelData)
+        //           GlobalState.closeLauncher()
+        //         }
+        //         background: Rectangle {
+        //           id: actionBg
+        //           color: "transparent"
+        //
+        //         }
+        //         contentItem: Text {
+        //           id: actionText
+        //           text: {
+        //             return actionButton.modelData?.name ?? actionButton.modelData?.text ?? ""
+        //           }
+        //           color: Appearance.srcery.brightBlack
+        //           elide: Text.ElideRight
+        //           Layout.fillWidth: true
+        //           wrapMode: Text.Wrap
+        //           font {
+        //             family: Appearance.font.light
+        //             pointSize: Appearance.font.tiny
+        //           }
+        //         }
+        //       }
+        //     }
+        //   }
+        // }
       }
     }
   }
