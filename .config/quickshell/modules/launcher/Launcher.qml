@@ -75,7 +75,7 @@ Item {
     anchors.left: parent.left
     anchors.right: parent.right
     anchors.bottom: parent.bottom
-    color: Appearance.srcery.black
+    color: Appearance.srcery.darkBlack
     topBorder: Appearance.bar.borderWidth
     borderColor: Appearance.srcery.gray2
 

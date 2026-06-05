@@ -46,6 +46,7 @@ Singleton {
     readonly property string darkRed: "#4F2321"
     readonly property string darkGreen: "#294229"
     readonly property string darkBlue: "#1E5181"
+    readonly property string darkBlack: Qt.darker("#121110", 1.3)
   }
   readonly property Srcery srcery: Srcery {}
 

@@ -121,6 +121,7 @@ Item {
         visible: root.sourceModel.length > 0
         anchors.fill: parent
         // currentIndex: GlobalState.menuIndex
+
         model: ScriptModel {
           id: model
           values: root.sourceModel
@@ -137,7 +138,6 @@ Item {
         spacing: Appearance.spacing.p1
         reuseItems: false
         orientation: ListView.Horizontal
-        highlightFollowsCurrentItem: true
 
         // Horizontall scrolling
         MouseArea {
@@ -155,8 +155,30 @@ Item {
 
           onPressed: (mouse) => { mouse.accepted = false }
         }
+        focus: true
 
-        highlight: Item {}
+        highlightFollowsCurrentItem: true
+        highlight: GradientRect {
+          gradientAngle: 45
+          z: 99
+
+          x: list.currentItem?.x ?? 0
+          implicitWidth: list.currentItem?.implicitWidth ?? 0
+          implicitHeight: list.height
+          Behavior on x {
+            NumberAnimation {
+              duration: Appearance.animationCurves.expressiveFastSpatialDuration
+              easing.type: Easing.BezierSpline
+              easing.bezierCurve: Appearance.animationCurves.expressiveDefaultSpatial
+            }
+          }
+          gradient: Gradient {
+            orientation: Gradient.Horizontal
+            GradientStop { position: 1; color: Appearance.srcery.magenta }
+            GradientStop { position: 0; color: Appearance.srcery.blue }
+          }
+          // anchors.fill: parent
+        }
         ScrollBar.horizontal: ScrollBar {
           id: scroll
           padding: 0

@@ -59,20 +59,20 @@ Item {
       name: "hovered"
       when: mouseArea.containsMouse && !mouseArea.pressed && !root.isCurrentItem
       PropertyChanges { mouseArea.cursorShape: Qt.PointingHandCursor }
-      PropertyChanges { card.border.color: Appearance.srcery.gray6 }
+      PropertyChanges { card.color: Appearance.srcery.gray1 }
     },
 
     State {
       name: "current"
       when: root.isCurrentItem && !mouseArea.pressed && !mouseArea.containsMouse
-      PropertyChanges { card.color: Appearance.srcery.gray1 }
+      // PropertyChanges { card.color: Appearance.srcery.gray1 }
     },
 
     State {
       name: "currentHovered"
       when: root.isCurrentItem && !mouseArea.pressed && mouseArea.containsMouse
       PropertyChanges { card.color: Appearance.srcery.gray1 }
-      PropertyChanges { card.border.color: Appearance.srcery.gray6 }
+      // PropertyChanges { card.border.color: Appearance.srcery.gray6 }
       PropertyChanges { mouseArea.cursorShape: Qt.PointingHandCursor }
     },
 
@@ -276,9 +276,9 @@ Item {
             Layout.fillWidth: true
             Layout.preferredHeight: Appearance.font.tiny
             sourceComponent: Text {
-              text: root.categories.join(", ")
+              text: root.categories.join(" · ")
               anchors.fill: parent
-              color: Appearance.srcery.brightBlack
+              color: Appearance.srcery.brightBlue
               elide: Text.ElideRight
               // wrapMode: Text.Wrap
               font {
