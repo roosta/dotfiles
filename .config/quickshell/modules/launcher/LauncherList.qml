@@ -140,20 +140,18 @@ Item {
         orientation: ListView.Horizontal
 
         // Horizontall scrolling
-        MouseArea {
-          anchors.fill: parent
-          propagateComposedEvents: true
-          acceptedButtons: Qt.NoButton
-
-          onWheel: (wheel) => {
-            if (wheel.angleDelta.y !== 0) {
-              var delta = wheel.angleDelta.y
-              list.flick(delta * 10, 0)
-              wheel.accepted = true
-            }
+        WheelHandler {
+          acceptedDevices: PointerDevice.Mouse | PointerDevice.TouchPad
+          grabPermissions: PointerHandler.CanTakeOverFromAnything
+          onWheel: (event) => {
+            const delta = event.angleDelta.y !== 0
+            ? event.angleDelta.y
+            : event.angleDelta.x
+            list.contentX = Math.max(0, Math.min(
+              list.contentWidth - list.width,
+              list.contentX - delta
+            ))
           }
-
-          onPressed: (mouse) => { mouse.accepted = false }
         }
         focus: true
 

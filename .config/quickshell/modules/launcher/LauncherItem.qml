@@ -45,10 +45,12 @@ Item {
   property string iconSource: ""
   property string imageSource: ""
   property int iconSize: 40
+
   MouseArea {
     id: mouseArea
     anchors.fill: parent
     hoverEnabled: true
+    cursorShape: Qt.PointingHandCursor
 
     onClicked: {
       root.clicked()
@@ -59,7 +61,6 @@ Item {
     State {
       name: "hovered"
       when: mouseArea.containsMouse && !mouseArea.pressed && !root.isCurrentItem
-      PropertyChanges { mouseArea.cursorShape: Qt.PointingHandCursor }
       PropertyChanges { card.color: Appearance.srcery.gray1 }
     },
 
@@ -74,7 +75,6 @@ Item {
       when: root.isCurrentItem && !mouseArea.pressed && mouseArea.containsMouse
       PropertyChanges { card.color: Appearance.srcery.gray1 }
       // PropertyChanges { card.border.color: Appearance.srcery.gray6 }
-      PropertyChanges { mouseArea.cursorShape: Qt.PointingHandCursor }
     },
 
     State {
@@ -125,7 +125,6 @@ Item {
             when: closeMouseArea.containsMouse
             PropertyChanges { closeRect.border.color: Appearance.srcery.gray6 }
             PropertyChanges { closeContent.color: Appearance.srcery.white }
-            PropertyChanges { closeMouseArea.cursorShape: Qt.PointingHandCursor }
           }
         ]
         transitions: [
@@ -140,6 +139,7 @@ Item {
           id: closeMouseArea
           anchors.fill: parent
           hoverEnabled: true
+          cursorShape: Qt.PointingHandCursor
 
           onClicked: {
             Notifications.discardNotification(root.notificationId)
