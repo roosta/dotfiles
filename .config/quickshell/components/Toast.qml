@@ -128,6 +128,7 @@ Item {
         id: mainArea
         anchors.fill: parent
         hoverEnabled: true
+        cursorShape: Qt.PointingHandCursor
 
         onClicked: {
           if (popup.notificationId) {
@@ -141,7 +142,6 @@ Item {
           name: "hovered"
           when: mainArea.containsMouse
           PropertyChanges { popup.border.color: Appearance.srcery.gray5 }
-          PropertyChanges { closeMouseArea.cursorShape: Qt.PointingHandCursor }
         }
       ]
       transitions: [
@@ -234,7 +234,6 @@ Item {
                 when: closeMouseArea.containsMouse
                 PropertyChanges { closeRect.border.color: Appearance.srcery.gray6 }
                 PropertyChanges { closeContent.color: Appearance.srcery.white }
-                PropertyChanges { closeMouseArea.cursorShape: Qt.PointingHandCursor }
               }
             ]
             transitions: [
@@ -249,6 +248,7 @@ Item {
               id: closeMouseArea
               anchors.fill: parent
               hoverEnabled: true
+              cursorShape: Qt.PointingHandCursor
 
               onClicked: {
                 if (popup.notificationId) {
