@@ -206,7 +206,7 @@ Item {
               // TODO: fix this, not sure why the text element takes up so much space
               spacing: -16
               Text {
-                color: Appearance.srcery.gray4
+                color: Appearance.srcery.brightYellow
                 id: favorite
                 Layout.alignment: Qt.AlignHCenter
                 Layout.topMargin: Appearance.spacing.p3
