@@ -368,6 +368,7 @@ Item {
         anchors.margins: Appearance.spacing.p1
         anchors.fill: parent
         ColumnLayout {
+          anchors.fill: parent
           Text {
             text: {
               if (root.actions.length > 0) {
@@ -384,6 +385,7 @@ Item {
           }
           Loader {
             active: root.actions.length > 0
+            Layout.fillWidth: true
 
             sourceComponent: Flow {
               spacing: Appearance.spacing.p1
@@ -406,8 +408,8 @@ Item {
                       name: "hovered"
                       when: actionButton.hovered
                       PropertyChanges {
-                        actionText.font.underline: true
-                        actionText.color: Appearance.srcery.brightWhite
+                        actionBg.border.color: Appearance.srcery.brightBlack
+                        actionText.color: Appearance.srcery.white
                       }
                     }
                   ]
@@ -430,7 +432,7 @@ Item {
                     id: actionBg
                     border.width: 1
                     border.color: Appearance.srcery.gray3
-                    color: "transparent"
+                    color: Appearance.srcery.gray1
 
                   }
                   contentItem: Text {
@@ -451,6 +453,8 @@ Item {
               }
             }
           }
+
+          Item { Layout.fillHeight: true }
         }
       }
     }
