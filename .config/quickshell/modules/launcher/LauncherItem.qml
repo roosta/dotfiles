@@ -60,19 +60,19 @@ Item {
 
     State {
       name: "hovered"
-      when: mouseArea.containsMouse && !mouseArea.pressed && !root.isCurrentItem
+      when: (mouseArea.containsMouse || actionsArea.hovered) && !mouseArea.pressed && !root.isCurrentItem
       PropertyChanges { card.color: Appearance.srcery.gray1 }
     },
 
     State {
       name: "current"
-      when: root.isCurrentItem && !mouseArea.pressed && !mouseArea.containsMouse
+      when: root.isCurrentItem && !mouseArea.pressed && (!mouseArea.containsMouse && !actionsArea.hovered)
       // PropertyChanges { card.color: Appearance.srcery.gray1 }
     },
 
     State {
       name: "currentHovered"
-      when: root.isCurrentItem && !mouseArea.pressed && mouseArea.containsMouse
+      when: root.isCurrentItem && !mouseArea.pressed && (mouseArea.containsMouse || actionsArea.hovered)
       PropertyChanges { card.color: Appearance.srcery.gray1 }
       // PropertyChanges { card.border.color: Appearance.srcery.gray6 }
     },
@@ -329,104 +329,129 @@ Item {
         }
       }
 
-      Item {
-        Layout.fillHeight: true
+    }
+    Rectangle {
+      id: drawer
+      implicitHeight: {
+        if (actionsArea.hovered && root.actions.length > 0) {
+          return 140
+        } else {
+          return 26
+        }
+      }
+      anchors.left: parent.left
+      anchors.right: parent.right
+      color: Appearance.srcery.black
+      anchors.bottom: parent.bottom
+      border.width: 1
+      border.color: Appearance.srcery.gray3
+
+      HoverHandler {
+        id: actionsArea
       }
 
-      ColumnLayout {
-        Layout.fillWidth: true
-        spacing: Appearance.spacing.p1
+      MouseArea {
+        anchors.fill: parent
+        onClicked: {}
+      }
 
-
-        Rectangle {
-          implicitHeight: Appearance.bar.borderWidth
-          Layout.fillWidth: true
-          color: Appearance.srcery.gray3
+      Behavior on implicitHeight {
+        NumberAnimation {
+          duration: Appearance.durations.small
+          easing.type: Easing.InOutCubic
         }
+      }
 
-        Text {
-          text: {
-            if (root.actions.length > 0) {
-              return `${root.actions.length} actions`
-            } else {
-              return "No actions"
+      Item {
+        id: actionPane
+        clip: true
+        anchors.margins: Appearance.spacing.p1
+        anchors.fill: parent
+        ColumnLayout {
+          Text {
+            text: {
+              if (root.actions.length > 0) {
+                return `${root.actions.length} actions`
+              } else {
+                return "No actions"
+              }
+            }
+            color: Appearance.srcery.brightBlack
+            font {
+              family: Appearance.font.light
+              pointSize: Appearance.font.tiny
             }
           }
-          color: Appearance.srcery.brightBlack
-          font {
-            family: Appearance.font.light
-            pointSize: Appearance.font.small
+          Loader {
+            active: root.actions.length > 0
+
+            sourceComponent: Flow {
+              spacing: Appearance.spacing.p1
+              anchors.fill: parent
+              Repeater {
+                id: actionRepeater
+                model: root.actions
+                Button {
+                  id: actionButton
+                  required property var modelData
+                  required property int index
+                  padding: Appearance.spacing.p0
+
+                  HoverHandler {
+                    id: hover
+                    cursorShape: Qt.PointingHandCursor
+                  }
+                  states: [
+                    State {
+                      name: "hovered"
+                      when: actionButton.hovered
+                      PropertyChanges {
+                        actionText.font.underline: true
+                        actionText.color: Appearance.srcery.brightWhite
+                      }
+                    }
+                  ]
+                  transitions: [
+                    Transition {
+                      ColorAnimation {
+                        duration: Appearance.durations.tiny
+                        easing.type: Easing.OutQuad
+                      }
+                    }
+                  ]
+                  onPressed: {
+                    if (root.isNotification) {
+                      Notifications.discardNotification(root.notificationId)
+                    }
+                    LauncherData.launch(modelData)
+                    GlobalState.closeLauncher()
+                  }
+                  background: Rectangle {
+                    id: actionBg
+                    border.width: 1
+                    border.color: Appearance.srcery.gray3
+                    color: "transparent"
+
+                  }
+                  contentItem: Text {
+                    id: actionText
+                    text: {
+                      return actionButton.modelData?.name ?? actionButton.modelData?.text ?? ""
+                    }
+                    color: Appearance.srcery.brightBlack
+                    elide: Text.ElideRight
+                    Layout.fillWidth: true
+                    wrapMode: Text.Wrap
+                    font {
+                      family: Appearance.font.light
+                      pointSize: Appearance.font.tiny
+                    }
+                  }
+                }
+              }
+            }
           }
         }
-
-        // Loader {
-        //   visible: root.actions.length > 0
-        //   active: root.actions.length > 0
-        //   Layout.fillWidth: true
-        //   // Layout.fillHeight: true
-        //   sourceComponent: Flow {
-        //     spacing: Appearance.spacing.p1
-        //     Repeater {
-        //       id: actionRepeater
-        //       model: root.actions
-        //       Button {
-        //         id: actionButton
-        //         required property var modelData
-        //         required property int index
-        //         padding: 0
-        //
-        //         HoverHandler {
-        //           id: hover
-        //           cursorShape: Qt.PointingHandCursor
-        //         }
-        //         states: [
-        //           State {
-        //             name: "hovered"
-        //             when: actionButton.hovered
-        //             PropertyChanges {
-        //               actionText.font.underline: true
-        //               actionText.color: Appearance.srcery.brightWhite
-        //             }
-        //           }
-        //         ]
-        //         transitions: [
-        //           Transition {
-        //             ColorAnimation {
-        //               duration: Appearance.durations.tiny
-        //               easing.type: Easing.OutQuad
-        //             }
-        //           }
-        //         ]
-        //         onPressed: {
-        //           if (root.isNotification) {
-        //             Notifications.discardNotification(root.notificationId)
-        //           }
-        //           LauncherData.launch(modelData)
-        //           GlobalState.closeLauncher()
-        //         }
-        //         background: Rectangle {
-        //           id: actionBg
-        //           color: "transparent"
-        //
-        //         }
-        //         contentItem: Text {
-        //           id: actionText
-        //           text: {
-        //             return actionButton.modelData?.name ?? actionButton.modelData?.text ?? ""
-        //           }
-        //           color: Appearance.srcery.brightBlack
-        //           elide: Text.ElideRight
-        //           Layout.fillWidth: true
-        //           wrapMode: Text.Wrap
-        //           font {
-        //             family: Appearance.font.light
-        //             pointSize: Appearance.font.tiny
-        //           }
-        //         }
-        //       }
-        //     }
-        //   }
-        // }
       }
     }
   }
