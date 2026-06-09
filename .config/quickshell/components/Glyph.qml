@@ -60,7 +60,7 @@ Item {
       id: _qt_shapePath_0
       objectName: "svg_path:path2"
       strokeColor: "transparent"
-      fillColor: Appearance.srcery.white
+      fillColor: Style.srcery.white
       fillRule: ShapePath.WindingFill
       PathSvg { path: "M 49.0568 128.247 L 86.9552 94.0323 L 49.0568 59.8172 L 100.049 62.4217 L 97.4443 11.4298 L 131.659 49.3281 L 165.874 11.4298 L 163.27 62.4217 L 214.262 59.8172 L 176.364 94.0323 L 214.262 128.247 L 163.27 125.643 L 165.874 176.635 L 131.659 138.736 L 97.4443 176.635 L 100.049 125.643 L 49.0568 128.247 " }
     }
@@ -68,7 +68,7 @@ Item {
       id: _qt_shapePath_1
       objectName: "svg_path:shade"
       strokeColor: "transparent"
-      fillColor: Appearance.srcery.brightWhite
+      fillColor: Style.srcery.brightWhite
       fillRule: ShapePath.WindingFill
       PathSvg { path: "M 165.874 11.4298 L 163.991 15.4403 C 161.578 31.0549 156.557 56.7583 152.961 75.9234 C 155.385 76.8634 157.457 77.7928 159.087 78.9477 L 203.432 65.0724 C 190.081 74.5582 181.258 83.8757 169.599 94.0318 C 169.935 96.8684 170.004 99.143 169.599 101.295 L 208.731 127.964 L 214.263 128.246 L 176.364 94.0318 L 214.263 59.8166 L 163.27 62.4207 L 165.874 11.4298 " }
     }
@@ -168,7 +168,7 @@ Item {
           id: _qt_shapePath_2
           objectName: "svg_path:eyeShape"
           strokeColor: "transparent"
-          fillColor: Appearance.srcery.black
+          fillColor: Style.srcery.black
           fillRule: ShapePath.WindingFill
           PathSvg { path: "M 0 0 C -13.889 0.0041 -26.944 5.4193 -35.1483 14.5796 C -26.944 23.7399 -13.89 29.1559 0 29.1599 C 13.892 29.1559 26.95 23.7369 35.153 14.5721 C 26.946 5.4133 13.889 0.0008 0 0" }
         }
@@ -185,7 +185,7 @@ Item {
           id: _qt_shapePath_3
           objectName: "svg_path:circle3"
           strokeColor: "transparent"
-          fillColor: Appearance.srcery.brightWhite
+          fillColor: Style.srcery.brightWhite
           fillRule: ShapePath.WindingFill
           PathSvg { path: "M 11.607 0 C 11.607 6.4098 6.41 11.6068 0 11.6068 C -6.41 11.6068 -11.606 6.4098 -11.606 0 C -11.606 -6.4101 -6.41 -11.6066 0 -11.6066 C 6.41 -11.6066 11.607 -6.4101 11.607 0" }
         }
@@ -193,7 +193,7 @@ Item {
           id: _qt_shapePath_4
           objectName: "svg_path:circle4"
           strokeColor: "transparent"
-          fillColor: Appearance.srcery.black
+          fillColor: Style.srcery.black
           fillRule: ShapePath.WindingFill
           PathSvg { path: "M -4.717 -1.1005 C -4.796 -0.739 -4.836 -0.3701 -4.836 -0.0001 C -4.836 2.8521 -2.524 5.1648 0.328 5.1648 C 3.181 5.1638 5.493 2.8521 5.493 -0.0001 C 5.493 -2.8523 3.181 -5.1644 0.328 -5.1644 C 0.303 -5.1644 0.278 -5.1641 0.253 -5.1637 C 0.803 -4.5956 1.107 -3.8565 1.108 -3.0899 C 1.108 -1.3835 -0.37 0 -2.192 0 C -3.166 0.0002 -4.09 -0.4027 -4.717 -1.1005 L -4.717 -1.1005" }
         }
@@ -212,7 +212,7 @@ Item {
       ShapePath {
         id: _qt_shapePath_5
         objectName: "svg_path:topRidge"
-        strokeColor: Appearance.srcery.black
+        strokeColor: Style.srcery.black
         strokeWidth: 0.529167
         capStyle: ShapePath.FlatCap
         joinStyle: ShapePath.MiterJoin
@@ -230,7 +230,7 @@ Item {
       ShapePath {
         id: _qt_shapePath_6
         objectName: "svg_path:bottomRidge"
-        strokeColor: Appearance.srcery.black
+        strokeColor: Style.srcery.black
         strokeWidth: 1.49809
         capStyle: ShapePath.FlatCap
         joinStyle: ShapePath.MiterJoin
@@ -252,7 +252,7 @@ Item {
         id: _qt_shapePath_7
         objectName: "svg_path:lashes"
         strokeColor: "transparent"
-        fillColor: Appearance.srcery.black
+        fillColor: Style.srcery.black
         fillRule: ShapePath.WindingFill
         PathSvg { path: "M 119.77 64.8551 L 119.786 65.1653 L 127.915 88.3453 L 128.893 88.1437 L 119.975 65.0827 L 119.77 64.8551 M 143.941 64.8551 L 143.736 65.0827 L 134.818 88.1437 L 135.796 88.3453 L 143.925 65.1653 L 143.941 64.8551 M 102.678 81.9466 L 102.909 82.1549 L 120.712 91.3243 L 121.908 90.5791 L 102.985 81.9623 L 102.678 81.9466 M 161.033 81.9466 L 160.727 81.9623 L 141.803 90.5791 L 142.999 91.3243 L 160.802 82.1549 L 161.033 81.9466 " }
       }
@@ -278,7 +278,7 @@ Item {
           id: _qt_shapePath_8
           objectName: "svg_path:path15"
           strokeColor: "transparent"
-          fillColor: Appearance.srcery.brightBlue
+          fillColor: Style.srcery.brightBlue
           fillRule: ShapePath.WindingFill
           PathSvg { path: "M 57.4945 119.154 L 55.2691 116.05 L 57.4945 112.946 " }
         }
@@ -286,7 +286,7 @@ Item {
           id: _qt_shapePath_9
           objectName: "svg_path:path16"
           strokeColor: "transparent"
-          fillColor: Appearance.srcery.blue
+          fillColor: Style.srcery.blue
           fillRule: ShapePath.WindingFill
           PathSvg { path: "M 57.4945 112.946 L 59.7199 116.05 L 57.4945 119.154 " }
         }
@@ -337,7 +337,7 @@ Item {
           id: _qt_shapePath_10
           objectName: "svg_path:path17"
           strokeColor: "transparent"
-          fillColor: Appearance.srcery.magenta
+          fillColor: Style.srcery.magenta
           fillRule: ShapePath.WindingFill
           PathSvg { path: "M 57.4945 119.154 L 55.2691 116.05 L 57.4945 112.946 " }
         }
@@ -345,7 +345,7 @@ Item {
           id: _qt_shapePath_11
           objectName: "svg_path:path18"
           strokeColor: "transparent"
-          fillColor: Appearance.srcery.brightMagenta
+          fillColor: Style.srcery.brightMagenta
           fillRule: ShapePath.WindingFill
           PathSvg { path: "M 57.4945 112.946 L 59.7199 116.05 L 57.4945 119.154 " }
         }
@@ -397,7 +397,7 @@ Item {
           id: _qt_shapePath_12
           objectName: "svg_path:path19"
           strokeColor: "transparent"
-          fillColor: Appearance.srcery.cyan
+          fillColor: Style.srcery.cyan
           fillRule: ShapePath.WindingFill
           PathSvg { path: "M 57.4945 119.154 L 55.2691 116.05 L 57.4945 112.946 " }
         }
@@ -405,7 +405,7 @@ Item {
           id: _qt_shapePath_13
           objectName: "svg_path:path20"
           strokeColor: "transparent"
-          fillColor: Appearance.srcery.brightCyan
+          fillColor: Style.srcery.brightCyan
           fillRule: ShapePath.WindingFill
           PathSvg { path: "M 57.4945 112.946 L 59.7199 116.05 L 57.4945 119.154 " }
         }
@@ -456,7 +456,7 @@ Item {
           id: _qt_shapePath_14
           objectName: "svg_path:path21"
           strokeColor: "transparent"
-          fillColor: Appearance.srcery.white
+          fillColor: Style.srcery.white
           fillRule: ShapePath.WindingFill
           PathSvg { path: "M 57.4945 119.154 L 55.2691 116.05 L 57.4945 112.946 " }
         }
@@ -464,7 +464,7 @@ Item {
           id: _qt_shapePath_15
           objectName: "svg_path:path22"
           strokeColor: "transparent"
-          fillColor: Appearance.srcery.brightWhite
+          fillColor: Style.srcery.brightWhite
           fillRule: ShapePath.WindingFill
           PathSvg { path: "M 57.4945 112.946 L 59.7199 116.05 L 57.4945 119.154 " }
         }
@@ -515,7 +515,7 @@ Item {
           id: _qt_shapePath_16
           objectName: "svg_path:path23"
           strokeColor: "transparent"
-          fillColor: Appearance.srcery.brightOrange
+          fillColor: Style.srcery.brightOrange
           fillRule: ShapePath.WindingFill
           PathSvg { path: "M 57.4945 119.154 L 55.2691 116.05 L 57.4945 112.946 " }
         }
@@ -523,7 +523,7 @@ Item {
           id: _qt_shapePath_17
           objectName: "svg_path:path24"
           strokeColor: "transparent"
-          fillColor: Appearance.srcery.orange
+          fillColor: Style.srcery.orange
           fillRule: ShapePath.WindingFill
           PathSvg { path: "M 57.4945 112.946 L 59.7199 116.05 L 57.4945 119.154 " }
         }
@@ -574,7 +574,7 @@ Item {
           id: _qt_shapePath_18
           objectName: "svg_path:path25"
           strokeColor: "transparent"
-          fillColor: Appearance.srcery.brightRed
+          fillColor: Style.srcery.brightRed
           fillRule: ShapePath.WindingFill
           PathSvg { path: "M 57.4945 119.154 L 55.2691 116.05 L 57.4945 112.946 " }
         }
@@ -582,7 +582,7 @@ Item {
           id: _qt_shapePath_19
           objectName: "svg_path:path26"
           strokeColor: "transparent"
-          fillColor: Appearance.srcery.red
+          fillColor: Style.srcery.red
           fillRule: ShapePath.WindingFill
           PathSvg { path: "M 57.4945 112.946 L 59.7199 116.05 L 57.4945 119.154 " }
         }
@@ -633,7 +633,7 @@ Item {
           id: _qt_shapePath_20
           objectName: "svg_path:path27"
           strokeColor: "transparent"
-          fillColor: Appearance.srcery.brightGreen
+          fillColor: Style.srcery.brightGreen
           fillRule: ShapePath.WindingFill
           PathSvg { path: "M 57.4945 119.154 L 55.2691 116.05 L 57.4945 112.946 " }
         }
@@ -641,7 +641,7 @@ Item {
           id: _qt_shapePath_21
           objectName: "svg_path:path28"
           strokeColor: "transparent"
-          fillColor: Appearance.srcery.green
+          fillColor: Style.srcery.green
           fillRule: ShapePath.WindingFill
           PathSvg { path: "M 57.4945 112.946 L 59.7199 116.05 L 57.4945 119.154 " }
         }
@@ -692,7 +692,7 @@ Item {
           id: _qt_shapePath_22
           objectName: "svg_path:path29"
           strokeColor: "transparent"
-          fillColor: Appearance.srcery.brightYellow
+          fillColor: Style.srcery.brightYellow
           fillRule: ShapePath.WindingFill
           PathSvg { path: "M 57.4945 119.154 L 55.2691 116.05 L 57.4945 112.946 " }
         }
@@ -700,7 +700,7 @@ Item {
           id: _qt_shapePath_23
           objectName: "svg_path:path30"
           strokeColor: "transparent"
-          fillColor: Appearance.srcery.yellow
+          fillColor: Style.srcery.yellow
           fillRule: ShapePath.WindingFill
           PathSvg { path: "M 57.4945 112.946 L 59.7199 116.05 L 57.4945 119.154 " }
         }

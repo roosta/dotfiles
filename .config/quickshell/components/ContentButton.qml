@@ -17,13 +17,13 @@ Button {
 
   default property alias content: rowLayout.data
 
-  // color: Appearance.srcery.brightWhite
+  // color: Style.srcery.brightWhite
   required property string monitorId
-  Layout.topMargin: Appearance.bar.borderWidth
-  Layout.rightMargin: Appearance.spacing.p1
-  // implicitWidth: Appearance.bar.height - Appearance.spacing.p3
-  // implicitHeight: Appearance.bar.height - Appearance.bar.borderWidth
-  //   - Appearance.spacing.p1 * 2
+  Layout.topMargin: Style.bar.borderWidth
+  Layout.rightMargin: Style.spacing.p1
+  // implicitWidth: Style.bar.height - Style.spacing.p3
+  // implicitHeight: Style.bar.height - Style.bar.borderWidth
+  //   - Style.spacing.p1 * 2
 
   // onPressed: {
   //   GlobalState.toggleLauncher({id: root.monitorId })
@@ -36,9 +36,9 @@ Button {
 
   background: BorderRect {
     id: outerRect
-    color: Appearance.srcery.black
-    borderColor: Appearance.srcery.gray3
-    borderWidth: Appearance.bar.borderWidth
+    color: Style.srcery.black
+    borderColor: Style.srcery.gray3
+    borderWidth: Style.bar.borderWidth
   }
 
   contentItem: RowLayout {
@@ -49,13 +49,13 @@ Button {
     State {
       name: "pressed"
       when: root.pressed
-      PropertyChanges { outerRect.borderColor: Appearance.srcery.brightWhite }
-      PropertyChanges { contentItem.color: Appearance.srcery.brightWhite }
+      PropertyChanges { outerRect.borderColor: Style.srcery.brightWhite }
+      PropertyChanges { contentItem.color: Style.srcery.brightWhite }
     },
     State {
       name: "hovered"
       when: hover.hovered
-      PropertyChanges { outerRect.borderColor: Appearance.srcery.gray6 }
+      PropertyChanges { outerRect.borderColor: Style.srcery.gray6 }
       PropertyChanges { hover.cursorShape: Qt.PointingHandCursor }
     },
   ]
@@ -64,11 +64,11 @@ Button {
     Transition {
       NumberAnimation {
         properties: "rotation"
-        duration: Appearance.durations.normal
+        duration: Style.durations.normal
         easing.type: Easing.OutCubic
       }
       ColorAnimation {
-        duration: Appearance.durations.small
+        duration: Style.durations.small
         easing.type: Easing.OutQuad
       }
     }

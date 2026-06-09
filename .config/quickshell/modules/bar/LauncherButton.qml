@@ -25,12 +25,12 @@ import QtQuick.Layouts
 Button {
   id: root
 
-  // color: Appearance.srcery.brightWhite
+  // color: Style.srcery.brightWhite
   required property string monitorId
-  Layout.topMargin: Appearance.bar.borderWidth
-  implicitWidth: Appearance.bar.height - Appearance.spacing.p3
-  implicitHeight: Appearance.bar.height - Appearance.bar.borderWidth
-    - Appearance.spacing.p1 * 2
+  Layout.topMargin: Style.bar.borderWidth
+  implicitWidth: Style.bar.height - Style.spacing.p3
+  implicitHeight: Style.bar.height - Style.bar.borderWidth
+    - Style.spacing.p1 * 2
 
   property bool active: GlobalState.launcherOpen
     && GlobalState.launcherMonitorId === root.monitorId
@@ -47,18 +47,18 @@ Button {
 
   background: BorderRect {
     id: outerRect
-    color: Appearance.srcery.black
-    borderColor: Appearance.srcery.gray3
-    borderWidth: Appearance.bar.borderWidth
+    color: Style.srcery.black
+    borderColor: Style.srcery.gray3
+    borderWidth: Style.bar.borderWidth
     BorderRect {
       id: innerRect
       anchors.centerIn: parent
       implicitWidth: parent.width * 0.5
       implicitHeight: parent.height * 0.5
-      borderWidth: Appearance.bar.borderWidth
-      color: Appearance.srcery.black
+      borderWidth: Style.bar.borderWidth
+      color: Style.srcery.black
       rotation: 45
-      borderColor: Appearance.srcery.gray3
+      borderColor: Style.srcery.gray3
     }
   }
 
@@ -68,22 +68,22 @@ Button {
       name: "active"
       when: root.active && !hover.hovered
       PropertyChanges { innerRect.rotation: 0 }
-      PropertyChanges { outerRect.borderColor: Appearance.srcery.brightBlack }
-      PropertyChanges { innerRect.borderColor: Appearance.srcery.brightWhite }
+      PropertyChanges { outerRect.borderColor: Style.srcery.brightBlack }
+      PropertyChanges { innerRect.borderColor: Style.srcery.brightWhite }
     },
 
     State {
       name: "hovered"
       when: hover.hovered && !root.active
-      PropertyChanges { outerRect.borderColor: Appearance.srcery.gray6 }
-      PropertyChanges { innerRect.borderColor: Appearance.srcery.brightWhite }
+      PropertyChanges { outerRect.borderColor: Style.srcery.gray6 }
+      PropertyChanges { innerRect.borderColor: Style.srcery.brightWhite }
     },
 
     State {
       name: "activeHovered"
       when: hover.hovered && root.active
-      PropertyChanges { outerRect.borderColor: Appearance.srcery.brightWhite }
-      PropertyChanges { innerRect.borderColor: Appearance.srcery.brightWhite }
+      PropertyChanges { outerRect.borderColor: Style.srcery.brightWhite }
+      PropertyChanges { innerRect.borderColor: Style.srcery.brightWhite }
       PropertyChanges { innerRect.rotation: 0 }
     }
   ]
@@ -92,11 +92,11 @@ Button {
     Transition {
       NumberAnimation {
         properties: "rotation"
-        duration: Appearance.durations.normal
+        duration: Style.durations.normal
         easing.type: Easing.OutCubic
       }
       ColorAnimation {
-        duration: Appearance.durations.small
+        duration: Style.durations.small
         easing.type: Easing.OutQuad
       }
     }

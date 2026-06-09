@@ -39,21 +39,21 @@ Item {
   signal menuOpened(qsWindow: var)
 
   // color: Functions.transparentize("#000", 0.7)
-  property real padding: Appearance.spacing.p1
+  property real padding: Style.spacing.p1
 
   anchors.fill: parent
-  anchors.rightMargin: Appearance.spacing.p1
+  anchors.rightMargin: Style.spacing.p1
   anchors.bottomMargin: {
-    let height = Appearance.bar.height + Appearance.spacing.p1
+    let height = Style.bar.height + Style.spacing.p1
     if (GlobalState.launcherOpen && GlobalState.launcherMonitorId === root.monitorId) {
-      height += Appearance.launcher.height
+      height += Style.launcher.height
     }
     return height
   }
 
   Behavior on anchors.bottomMargin {
     NumberAnimation {
-      duration: Appearance.durations.small
+      duration: Style.durations.small
       easing.type: Easing.InOutCubic
     }
   }
@@ -94,28 +94,28 @@ Item {
       for (let child of stackView.children) {
         result = Math.max(child.implicitHeight, result);
       }
-      return result + Appearance.spacing.p1 * 2
+      return result + Style.spacing.p1 * 2
     }
     implicitWidth: {
       let result = 0;
       for (let child of stackView.children) {
         result = Math.max(child.implicitWidth, result);
       }
-      return result + Appearance.spacing.p1 * 2
+      return result + Style.spacing.p1 * 2
     }
 
     Rectangle {
       id: popupBackground
-      readonly property real padding: Appearance.spacing.p1
+      readonly property real padding: Style.spacing.p1
       anchors {
         left: parent.left
         right: parent.right
         bottom: parent.bottom
       }
 
-      color: Appearance.srcery.black
+      color: Style.srcery.black
       border.width: 1
-      border.color: Appearance.srcery.gray2
+      border.color: Style.srcery.gray2
       clip: true
 
       opacity: 0
@@ -125,21 +125,21 @@ Item {
 
       Behavior on opacity {
         NumberAnimation {
-          duration: Appearance.durations.small
+          duration: Style.durations.small
           easing.type: Easing.InOutCubic
         }
       }
 
       Behavior on implicitHeight {
         NumberAnimation {
-          duration: Appearance.durations.small
+          duration: Style.durations.small
           easing.type: Easing.InOutCubic
         }
       }
 
       Behavior on implicitWidth {
         NumberAnimation {
-          duration: Appearance.durations.small
+          duration: Style.durations.small
           easing.type: Easing.InOutCubic
         }
       }
@@ -148,7 +148,7 @@ Item {
         id: stackView
         anchors {
           fill: parent
-          margins: Appearance.spacing.p1
+          margins: Style.spacing.p1
         }
         pushEnter: NoAnim {}
         pushExit: NoAnim {}
@@ -180,7 +180,7 @@ Item {
 
     Behavior on opacity {
       NumberAnimation {
-        duration: Appearance.durations.small
+        duration: Style.durations.small
         easing.type: Easing.InOutCubic
       }
     }
@@ -203,7 +203,7 @@ Item {
       active: visible
       sourceComponent: Button {
         id: backButton
-        horizontalPadding: Appearance.spacing.p1
+        horizontalPadding: Style.spacing.p1
         implicitWidth: contentItem.implicitWidth + horizontalPadding * 2
         implicitHeight: 36
 
@@ -217,19 +217,19 @@ Item {
             leftMargin: backButton.horizontalPadding
             rightMargin: backButton.horizontalPadding
           }
-          spacing: Appearance.spacing.p1
+          spacing: Style.spacing.p1
           Text {
             text: ""
-            color: Appearance.srcery.brightWhite
+            color: Style.srcery.brightWhite
             font {
-              family: Appearance.font.light
-              pixelSize: Appearance.font.size3
+              family: Style.font.light
+              pixelSize: Style.font.size3
             }
           }
           Text {
             Layout.fillWidth: true
             text: "Back"
-            color: Appearance.srcery.brightWhite
+            color: Style.srcery.brightWhite
           }
         }
       }

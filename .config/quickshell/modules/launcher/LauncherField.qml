@@ -26,15 +26,15 @@ BorderRect {
   property int parentWidth: 1920
   Layout.alignment: Qt.AlignHCenter
   Layout.fillWidth: true
-  color: Appearance.srcery.black
-  topBorder: Appearance.bar.borderWidth
-  // Layout.topMargin: Appearance.bar.borderWidth
-  // Layout.leftMargin: Appearance.bar.borderWidth
-  // Layout.rightMargin: Appearance.bar.borderWidth
-  Layout.bottomMargin: Appearance.bar.borderWidth
-  // Layout.topMargin: Appearance.bar.borderWidth
-  borderColor: Appearance.srcery.gray3
-  Layout.preferredHeight: field.implicitHeight + Appearance.spacing.p1 * 2 + Appearance.bar.borderWidth
+  color: Style.srcery.black
+  topBorder: Style.bar.borderWidth
+  // Layout.topMargin: Style.bar.borderWidth
+  // Layout.leftMargin: Style.bar.borderWidth
+  // Layout.rightMargin: Style.bar.borderWidth
+  Layout.bottomMargin: Style.bar.borderWidth
+  // Layout.topMargin: Style.bar.borderWidth
+  borderColor: Style.srcery.gray3
+  Layout.preferredHeight: field.implicitHeight + Style.spacing.p1 * 2 + Style.bar.borderWidth
 
   required property var appList;
   signal decrementCurrentIndex()
@@ -43,7 +43,7 @@ BorderRect {
 
   Timer {
     id: timer
-    interval: Appearance.durations.small
+    interval: Style.durations.small
     onTriggered: {
       field.text = ""
     }
@@ -64,23 +64,23 @@ BorderRect {
     // anchors.fill: parent
     anchors.left: parent.left
 
-    spacing: Appearance.spacing.p1
+    spacing: Style.spacing.p1
     anchors.top: parent.top
-    anchors.topMargin: Appearance.spacing.p1 + Appearance.bar.borderWidth
-    anchors.leftMargin: Appearance.spacing.p1
+    anchors.topMargin: Style.spacing.p1 + Style.bar.borderWidth
+    anchors.leftMargin: Style.spacing.p1
 
     TextField {
-      color: Appearance.srcery.brightWhite
+      color: Style.srcery.brightWhite
       id: field
       // Layout.fillWidth: true
       // Layout.alignment: Qt.AlignHCenter | Qt.alignLeft
       renderType: TextField.NativeRendering
       cursorVisible: !readOnly
-      implicitWidth: root.parentWidth / 6 - Appearance.spacing.p1
-      placeholderTextColor: Appearance.srcery.gray3
-      font.family: Appearance.font.light
-      font.pointSize: Appearance.font.normal
-      // implicitWidth: parent.width - Appearance.spacing.p2 * 2 + Appearance.bar.borderWidth * 2
+      implicitWidth: root.parentWidth / 6 - Style.spacing.p1
+      placeholderTextColor: Style.srcery.gray3
+      font.family: Style.font.light
+      font.pointSize: Style.font.normal
+      // implicitWidth: parent.width - Style.spacing.p2 * 2 + Style.bar.borderWidth * 2
       placeholderText: " Search..."
       onTextChanged: {
         if (text === Config.menuPrefix) {
@@ -96,7 +96,7 @@ BorderRect {
       }
       background: Rectangle {
         color: "transparent"
-        border.color: Appearance.srcery.gray3
+        border.color: Style.srcery.gray3
       }
 
       function goPrevious() {
@@ -152,8 +152,8 @@ BorderRect {
       cursorDelegate: Rectangle {
         id: cursor
         property bool disableBlink
-        color: Appearance.srcery.brightWhite
-        implicitWidth: Appearance.spacing.p1
+        color: Style.srcery.brightWhite
+        implicitWidth: Style.spacing.p1
 
         Connections {
           target: field
@@ -187,7 +187,7 @@ BorderRect {
 
         Behavior on opacity {
           NumberAnimation {
-            duration: Appearance.durations.small
+            duration: Style.durations.small
             easing.type: Easing.InOutCubic
           }
         }
@@ -228,7 +228,7 @@ BorderRect {
         name: "hovered"
         when: hover.hovered
         PropertyChanges {
-          comboBg.border.color: Appearance.srcery.gray6
+          comboBg.border.color: Style.srcery.gray6
         }
       }
       delegate: ItemDelegate {
@@ -240,13 +240,13 @@ BorderRect {
         width: control.width
         contentItem: Text {
           text: `${Config.menuPrefix}${delegate.model[control.textRole]}`
-          color: delegate.highlighted ? Appearance.srcery.brightWhite : Appearance.srcery.white
-          font.family: Appearance.font.light
-          font.pointSize: Appearance.font.normal
+          color: delegate.highlighted ? Style.srcery.brightWhite : Style.srcery.white
+          font.family: Style.font.light
+          font.pointSize: Style.font.normal
           verticalAlignment: Text.AlignVCenter
         }
         background: Rectangle {
-          color: delegate.highlighted ? Appearance.srcery.gray3 : "transparent"
+          color: delegate.highlighted ? Style.srcery.gray3 : "transparent"
         }
         highlighted: control.highlightedIndex === index
       }
@@ -255,8 +255,8 @@ BorderRect {
         id: canvas
         x: control.width - width - control.rightPadding
         y: control.topPadding + (control.availableHeight - height) / 2
-        width: Appearance.spacing.p2
-        height: Appearance.spacing.p1
+        width: Style.spacing.p2
+        height: Style.spacing.p1
         contextType: "2d"
 
         Connections {
@@ -270,13 +270,13 @@ BorderRect {
           context.lineTo(width, 0);
           context.lineTo(width / 2, height);
           context.closePath();
-          context.fillStyle = control.pressed ? Appearance.srcery.brightBlack : Appearance.srcery.gray6;
+          context.fillStyle = control.pressed ? Style.srcery.brightBlack : Style.srcery.gray6;
           context.fill();
         }
       }
 
       contentItem: Text {
-        leftPadding: Appearance.spacing.p0
+        leftPadding: Style.spacing.p0
         rightPadding: control.indicator.width + control.spacing
 
         text: {
@@ -285,10 +285,10 @@ BorderRect {
           }
           return `${Config.menuPrefix}${control.displayText}`
         }
-        color: control.pressed ? Appearance.srcery.brightBlack : Appearance.srcery.gray6
+        color: control.pressed ? Style.srcery.brightBlack : Style.srcery.gray6
         verticalAlignment: Text.AlignVCenter
-        font.family: Appearance.font.light
-        font.pointSize: Appearance.font.normal
+        font.family: Style.font.light
+        font.pointSize: Style.font.normal
         elide: Text.ElideRight
       }
 
@@ -297,11 +297,11 @@ BorderRect {
         implicitWidth: 90
         // implicitHeight: 40
         color: "transparent"
-        border.color: control.pressed ? Appearance.srcery.gray6 : Appearance.srcery.gray3
-        border.width: Appearance.bar.borderWidth
+        border.color: control.pressed ? Style.srcery.gray6 : Style.srcery.gray3
+        border.width: Style.bar.borderWidth
       }
       popup: Popup {
-        y: control.height + Appearance.spacing.p1 + Appearance.bar.borderWidth
+        y: control.height + Style.spacing.p1 + Style.bar.borderWidth
         width: control.width
         height: Math.min(contentItem.implicitHeight, control.Window.height - topMargin - bottomMargin)
         padding: 0
@@ -317,8 +317,8 @@ BorderRect {
 
         background: Rectangle {
           // implicitWidth: 100
-          border.color: Appearance.srcery.gray3
-          color: Appearance.srcery.black
+          border.color: Style.srcery.gray3
+          color: Style.srcery.black
           radius: 0
         }
       }
@@ -329,12 +329,12 @@ BorderRect {
       && GlobalState.launcherMode === "notifications"
       && Notifications.list.length > 0
     active: show
-    anchors.topMargin: Appearance.spacing.p1 + Appearance.bar.borderWidth
-    anchors.leftMargin: Appearance.spacing.p1
+    anchors.topMargin: Style.spacing.p1 + Style.bar.borderWidth
+    anchors.leftMargin: Style.spacing.p1
     anchors.right: parent.right
     anchors.top: parent.top
     sourceComponent: RowLayout {
-      spacing: Appearance.spacing.p1
+      spacing: Style.spacing.p1
       ContentButton {
         monitorId: root.monitorId
         onPressed: {
@@ -343,10 +343,10 @@ BorderRect {
         Text {
           id: contentItem
           text: "  CLEAR ALL"
-          color: Appearance.srcery.white
+          color: Style.srcery.white
           font {
-            family: Appearance.font.main
-            pointSize: Appearance.font.tiny
+            family: Style.font.main
+            pointSize: Style.font.tiny
           }
         }
       }

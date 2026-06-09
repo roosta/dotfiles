@@ -39,7 +39,7 @@ Item {
   // height: parent?.height ?? 0
   implicitWidth: {
     if (parentWidth <= 0) return 0
-    return parentWidth / 9 - Appearance.spacing.p1 - Appearance.bar.borderWidth
+    return parentWidth / 9 - Style.spacing.p1 - Style.bar.borderWidth
   }
   signal clicked()
   property string iconSource: ""
@@ -61,34 +61,34 @@ Item {
     State {
       name: "hovered"
       when: (mouseArea.containsMouse || actionsArea.hovered) && !mouseArea.pressed && !root.isCurrentItem
-      PropertyChanges { card.color: Appearance.srcery.gray1 }
+      PropertyChanges { card.color: Style.srcery.gray1 }
     },
 
     State {
       name: "current"
       when: root.isCurrentItem && !mouseArea.pressed && (!mouseArea.containsMouse && !actionsArea.hovered)
-      // PropertyChanges { card.color: Appearance.srcery.gray1 }
+      // PropertyChanges { card.color: Style.srcery.gray1 }
     },
 
     State {
       name: "currentHovered"
       when: root.isCurrentItem && !mouseArea.pressed && (mouseArea.containsMouse || actionsArea.hovered)
-      PropertyChanges { card.color: Appearance.srcery.gray1 }
-      // PropertyChanges { card.border.color: Appearance.srcery.gray6 }
+      PropertyChanges { card.color: Style.srcery.gray1 }
+      // PropertyChanges { card.border.color: Style.srcery.gray6 }
     },
 
     State {
       name: "pressed"
       when: mouseArea.pressed && !root.isCurrentItem
-      PropertyChanges { card.border.color: Appearance.srcery.white }
-      PropertyChanges { card.color: Appearance.srcery.gray1 }
+      PropertyChanges { card.border.color: Style.srcery.white }
+      PropertyChanges { card.color: Style.srcery.gray1 }
     },
 
     State {
       name: "pressedCurrent"
       when: mouseArea.pressed && root.isCurrentItem
-      PropertyChanges { card.border.color: Appearance.srcery.white }
-      PropertyChanges { card.color: Appearance.srcery.gray2 }
+      PropertyChanges { card.border.color: Style.srcery.white }
+      PropertyChanges { card.color: Style.srcery.gray2 }
     }
 
   ]
@@ -96,20 +96,20 @@ Item {
   Rectangle {
     id: card
     anchors.fill: parent
-    border.color: Appearance.srcery.gray3
-    color: Appearance.srcery.black
-    border.width: Appearance.bar.borderWidth
+    border.color: Style.srcery.gray3
+    color: Style.srcery.black
+    border.width: Style.bar.borderWidth
 
     Text {
-      color: Appearance.srcery.brightGreen
+      color: Style.srcery.brightGreen
       id: timeElapsedText
       visible: root.timeElapsed !== ""
-      x: Appearance.spacing.p2
-      y: Appearance.spacing.p2
+      x: Style.spacing.p2
+      y: Style.spacing.p2
       text: root.timeElapsed
       font {
-        family: Appearance.font.light
-        pixelSize: Appearance.font.large
+        family: Style.font.light
+        pixelSize: Style.font.large
       }
     }
 
@@ -117,20 +117,20 @@ Item {
       active: root.canClose
       sourceComponent: Button {
         id: closeButton
-        x: card.width - width - Appearance.spacing.p2
-        y: Appearance.spacing.p2
+        x: card.width - width - Style.spacing.p2
+        y: Style.spacing.p2
         states: [
           State {
             name: "hovered"
             when: closeMouseArea.containsMouse
-            PropertyChanges { closeRect.border.color: Appearance.srcery.gray6 }
-            PropertyChanges { closeContent.color: Appearance.srcery.white }
+            PropertyChanges { closeRect.border.color: Style.srcery.gray6 }
+            PropertyChanges { closeContent.color: Style.srcery.white }
           }
         ]
         transitions: [
           Transition {
             ColorAnimation {
-              duration: Appearance.durations.tiny
+              duration: Style.durations.tiny
               easing.type: Easing.OutQuad
             }
           }
@@ -147,18 +147,18 @@ Item {
         }
         background: Rectangle {
           id: closeRect
-          color: Appearance.srcery.black
-          border.width: Appearance.bar.borderWidth
-          border.color: Appearance.srcery.gray3
+          color: Style.srcery.black
+          border.width: Style.bar.borderWidth
+          border.color: Style.srcery.gray3
           radius: 2
         }
         contentItem: Text {
           id: closeContent
-          color: Appearance.srcery.brightBlack
+          color: Style.srcery.brightBlack
           text: ""
           font {
-            family: Appearance.font.light
-            pixelSize: Appearance.font.normal
+            family: Style.font.light
+            pixelSize: Style.font.normal
           }
         }
       }
@@ -166,7 +166,7 @@ Item {
 
     Behavior on color {
       ColorAnimation {
-        duration: Appearance.durations.tiny
+        duration: Style.durations.tiny
         easing.type: Easing.InOutQuad
       }
     }
@@ -177,18 +177,18 @@ Item {
       Behavior on opacity {
         NumberAnimation {
           property: "opacity"
-          duration: Appearance.durations.small
+          duration: Style.durations.small
           easing.type: Easing.InOutQuad
         }
       }
       id: layout
-      anchors.margins: Appearance.spacing.p3
+      anchors.margins: Style.spacing.p3
       Layout.alignment: Qt.AlignTop
       anchors.fill: parent
 
       ColumnLayout {
         Layout.fillWidth: true
-        spacing: Appearance.spacing.p2
+        spacing: Style.spacing.p2
 
         Item {
           implicitWidth: 120
@@ -206,15 +206,15 @@ Item {
               // TODO: fix this, not sure why the text element takes up so much space
               spacing: -16
               Text {
-                color: Appearance.srcery.brightYellow
+                color: Style.srcery.brightYellow
                 id: favorite
                 Layout.alignment: Qt.AlignHCenter
-                Layout.topMargin: Appearance.spacing.p3
+                Layout.topMargin: Style.spacing.p3
                 opacity: root.favorite ? 1 : 0
                 text: "󰓒"
                 font {
-                  family: Appearance.font.main
-                  pixelSize: Appearance.font.xl
+                  family: Style.font.main
+                  pixelSize: Style.font.xl
                 }
               }
               Loader {
@@ -261,10 +261,10 @@ Item {
               "(No name)"
             }
           }
-          color: Appearance.srcery.brightYellow
+          color: Style.srcery.brightYellow
           font {
-            family: Appearance.font.light
-            pointSize: Appearance.font.large
+            family: Style.font.light
+            pointSize: Style.font.large
           }
         }
 
@@ -283,10 +283,10 @@ Item {
               return "Application"
             }
           }
-          color: Appearance.srcery.brightWhite
+          color: Style.srcery.brightWhite
           font {
-            family: Appearance.font.main
-            pointSize: Appearance.font.small
+            family: Style.font.main
+            pointSize: Style.font.small
           }
         }
 
@@ -297,12 +297,12 @@ Item {
             text: root.categories.join(" · ")
             horizontalAlignment: Text.AlignHCenter
             anchors.fill: parent
-            color: Appearance.srcery.brightBlue
+            color: Style.srcery.brightBlue
             elide: Text.ElideRight
             // wrapMode: Text.Wrap
             font {
-              family: Appearance.font.light
-              pointSize: Appearance.font.tiny
+              family: Style.font.light
+              pointSize: Style.font.tiny
             }
           }
         }
@@ -310,7 +310,7 @@ Item {
       }
 
       Text {
-        color: Appearance.srcery.white
+        color: Style.srcery.white
         text: {
           if (root.description) {
             return root.description
@@ -324,8 +324,8 @@ Item {
         horizontalAlignment: Text.AlignHCenter
         wrapMode: Text.Wrap
         font {
-          family: Appearance.font.light
-          pointSize: Appearance.font.small
+          family: Style.font.light
+          pointSize: Style.font.small
         }
       }
 
@@ -341,10 +341,10 @@ Item {
       }
       anchors.left: parent.left
       anchors.right: parent.right
-      color: Appearance.srcery.black
+      color: Style.srcery.black
       anchors.bottom: parent.bottom
       border.width: 1
-      border.color: Appearance.srcery.gray3
+      border.color: Style.srcery.gray3
 
       HoverHandler {
         id: actionsArea
@@ -357,7 +357,7 @@ Item {
 
       Behavior on implicitHeight {
         NumberAnimation {
-          duration: Appearance.durations.small
+          duration: Style.durations.small
           easing.type: Easing.InOutCubic
         }
       }
@@ -365,7 +365,7 @@ Item {
       Item {
         id: actionPane
         clip: true
-        anchors.margins: Appearance.spacing.p1
+        anchors.margins: Style.spacing.p1
         anchors.fill: parent
         ColumnLayout {
           anchors.fill: parent
@@ -377,10 +377,10 @@ Item {
                 return "No actions"
               }
             }
-            color: Appearance.srcery.brightBlack
+            color: Style.srcery.brightBlack
             font {
-              family: Appearance.font.light
-              pointSize: Appearance.font.tiny
+              family: Style.font.light
+              pointSize: Style.font.tiny
             }
           }
           Loader {
@@ -388,7 +388,7 @@ Item {
             Layout.fillWidth: true
 
             sourceComponent: Flow {
-              spacing: Appearance.spacing.p1
+              spacing: Style.spacing.p1
               anchors.fill: parent
               Repeater {
                 id: actionRepeater
@@ -397,7 +397,7 @@ Item {
                   id: actionButton
                   required property var modelData
                   required property int index
-                  padding: Appearance.spacing.p0
+                  padding: Style.spacing.p0
 
                   HoverHandler {
                     id: hover
@@ -408,15 +408,15 @@ Item {
                       name: "hovered"
                       when: actionButton.hovered
                       PropertyChanges {
-                        actionBg.border.color: Appearance.srcery.brightBlack
-                        actionText.color: Appearance.srcery.white
+                        actionBg.border.color: Style.srcery.brightBlack
+                        actionText.color: Style.srcery.white
                       }
                     }
                   ]
                   transitions: [
                     Transition {
                       ColorAnimation {
-                        duration: Appearance.durations.tiny
+                        duration: Style.durations.tiny
                         easing.type: Easing.OutQuad
                       }
                     }
@@ -431,8 +431,8 @@ Item {
                   background: Rectangle {
                     id: actionBg
                     border.width: 1
-                    border.color: Appearance.srcery.gray3
-                    color: Appearance.srcery.gray1
+                    border.color: Style.srcery.gray3
+                    color: Style.srcery.gray1
 
                   }
                   contentItem: Text {
@@ -440,13 +440,13 @@ Item {
                     text: {
                       return actionButton.modelData?.name ?? actionButton.modelData?.text ?? ""
                     }
-                    color: Appearance.srcery.brightBlack
+                    color: Style.srcery.brightBlack
                     elide: Text.ElideRight
                     Layout.fillWidth: true
                     wrapMode: Text.Wrap
                     font {
-                      family: Appearance.font.light
-                      pointSize: Appearance.font.tiny
+                      family: Style.font.light
+                      pointSize: Style.font.tiny
                     }
                   }
                 }

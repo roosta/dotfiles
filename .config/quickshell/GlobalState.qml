@@ -34,7 +34,7 @@ Singleton {
 
   Timer {
     id: timer
-    interval: Appearance.durations.small
+    interval: Style.durations.small
     onTriggered: {
       root.launcherMonitorId = ""
       root.launcherMode = Config.defaultMode

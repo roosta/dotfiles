@@ -56,13 +56,13 @@ Singleton {
     {
       code: "no",
       label: "Norwegian",
-      color: Appearance.srcery.yellow,
+      color: Style.srcery.yellow,
       default: false
     },
     {
       code: "en",
       label: "English (US)",
-      color: Appearance.srcery.white,
+      color: Style.srcery.white,
       default: true
     }
   ]

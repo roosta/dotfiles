@@ -23,14 +23,14 @@ import qs
 
 BorderRect {
   id: favorites
-  implicitHeight: Appearance.launcher.itemHeight + Appearance.spacing.p2
+  implicitHeight: Style.launcher.itemHeight + Style.spacing.p2
   Layout.fillWidth: true
-  color: Appearance.srcery.black
-  Layout.leftMargin: Appearance.bar.borderWidth
-  Layout.rightMargin: Appearance.bar.borderWidth
+  color: Style.srcery.black
+  Layout.leftMargin: Style.bar.borderWidth
+  Layout.rightMargin: Style.bar.borderWidth
 
   topBorder: 1
-  borderColor: Appearance.srcery.gray3
+  borderColor: Style.srcery.gray3
   RowLayout {
     anchors.fill: parent
 
@@ -42,16 +42,16 @@ BorderRect {
         required property string modelData
         property DesktopEntry entry: LauncherData.getEntry(modelData)
         Layout.alignment: Qt.AlignHCenter
-        Layout.margins: Appearance.spacing.p2
+        Layout.margins: Style.spacing.p2
         Layout.fillHeight: true
-        Layout.preferredWidth: favicon.width + Appearance.spacing.p2 * 2
-        // Layout.margins: Appearance.spacing.p2
+        Layout.preferredWidth: favicon.width + Style.spacing.p2 * 2
+        // Layout.margins: Style.spacing.p2
         //
 
 
         ToolTip {
           id: control
-          font: Appearance.font.main
+          font: Style.font.main
           delay: 600
           timeout: 4000
           text: fav.entry?.name
@@ -59,11 +59,11 @@ BorderRect {
           contentItem: Text {
             text: control.text
             font: control.font
-            color: Appearance.srcery.brightWhite
+            color: Style.srcery.brightWhite
           }
 
           background: Rectangle {
-            color: Appearance.srcery.gray1
+            color: Style.srcery.gray1
           }
         }
         onPressed: {
@@ -83,8 +83,8 @@ BorderRect {
             anchors.centerIn: parent
             source: Icons.getEntryIcon(fav.entry)
             // implicitHeight: parent.height / 2
-            implicitWidth: parent.height - Appearance.spacing.p2 * 2
-            implicitHeight: parent.height - Appearance.spacing.p2 * 2
+            implicitWidth: parent.height - Style.spacing.p2 * 2
+            implicitHeight: parent.height - Style.spacing.p2 * 2
             // implicitWidth: favicon.height
             // Layout.fillHeight: true
           }
@@ -94,12 +94,12 @@ BorderRect {
           State {
             name: "pressed"
             when: fav.pressed
-            PropertyChanges { bg.color: Appearance.srcery.gray3 }
+            PropertyChanges { bg.color: Style.srcery.gray3 }
           },
           State {
             name: "hovered"
             when: fav.hovered && !fav.pressed
-            PropertyChanges { bg.color: Appearance.srcery.gray1 }
+            PropertyChanges { bg.color: Style.srcery.gray1 }
           }
         ]
         transitions: [

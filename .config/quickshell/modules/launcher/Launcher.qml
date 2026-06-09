@@ -28,7 +28,7 @@ Item {
   id: root
   required property string monitorId
 
-  anchors.bottomMargin: Appearance.bar.height
+  anchors.bottomMargin: Style.bar.height
   anchors.fill: parent
   property alias launcherHeight: launcher.height
   property bool monitorIsFocused: Hyprland.focusedMonitor?.id === monitorId
@@ -75,15 +75,15 @@ Item {
     anchors.left: parent.left
     anchors.right: parent.right
     anchors.bottom: parent.bottom
-    color: Appearance.srcery.darkBlack
-    topBorder: Appearance.bar.borderWidth
-    borderColor: Appearance.srcery.gray2
+    color: Style.srcery.darkBlack
+    topBorder: Style.bar.borderWidth
+    borderColor: Style.srcery.gray2
 
     states: [
       State {
         name: "active"
         when: GlobalState.launcherOpen && GlobalState.launcherMonitorId === root.monitorId
-        PropertyChanges { launcher.implicitHeight: Appearance.launcher.height }
+        PropertyChanges { launcher.implicitHeight: Style.launcher.height }
       }
     ]
 
@@ -91,7 +91,7 @@ Item {
       Transition {
         NumberAnimation {
           properties: "implicitHeight"
-          duration: Appearance.durations.small
+          duration: Style.durations.small
           easing.type: Easing.InOutCubic
         }
       }

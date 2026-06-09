@@ -55,11 +55,11 @@ Button {
     id: buttonBackground
     color: {
       if (root.menuEntry.isSeparator) {
-        return Appearance.srcery.gray4
+        return Style.srcery.gray4
       } else if (root.hovered) {
-        return Appearance.srcery.gray1
+        return Style.srcery.gray1
       } else {
-        return Appearance.srcery.black
+        return Style.srcery.black
       }
     }
   }
@@ -105,10 +105,10 @@ Button {
         active: root.menuEntry.buttonType === QsMenuButtonType.CheckBox && root.menuEntry.checkState !== Qt.Unchecked
         sourceComponent: Text {
           text: root.menuEntry.checkState === Qt.PartiallyChecked ? "" : ""
-          color: Appearance.srcery.brightWhite
+          color: Style.srcery.brightWhite
           font {
-            family: Appearance.font.light
-            pixelSize: Appearance.font.size3
+            family: Style.font.light
+            pixelSize: Style.font.size3
           }
         }
       }
@@ -135,9 +135,9 @@ Button {
     Text {
       id: label
       text: root.menuEntry.text
-      font.pointSize: Appearance.font.small
+      font.pointSize: Style.font.small
       Layout.fillWidth: true
-      color: Appearance.srcery.brightWhite
+      color: Style.srcery.brightWhite
     }
 
     Loader {
@@ -145,10 +145,10 @@ Button {
 
       sourceComponent: Text {
         text: ""
-        color: Appearance.srcery.brightWhite
+        color: Style.srcery.brightWhite
         font {
-          family: Appearance.font.light
-          pointSize: Appearance.font.normal
+          family: Style.font.light
+          pointSize: Style.font.normal
         }
       }
     }

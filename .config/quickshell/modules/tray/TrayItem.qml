@@ -23,8 +23,8 @@ MouseArea {
   id: root
   required property SystemTrayItem modelData
   acceptedButtons: Qt.LeftButton | Qt.RightButton
-  implicitWidth: Appearance.font.size3
-  implicitHeight: Appearance.font.size3
+  implicitWidth: Style.font.size3
+  implicitHeight: Style.font.size3
 
   required property string monitorId
 
@@ -43,8 +43,8 @@ MouseArea {
           // if (modelData.hasMenu) {
           //   modelData.display(
           //     win,
-          //     win.width - Appearance.spacing.p1,
-          //     win.height - Appearance.bar.height - Appearance.spacing.p1
+          //     win.width - Style.spacing.p1,
+          //     win.height - Style.bar.height - Style.spacing.p1
           //   );
           // }
         }

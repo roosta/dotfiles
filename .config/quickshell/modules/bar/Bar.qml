@@ -22,7 +22,7 @@ Item {
   required property string monitorId
 
   z: 1
-  implicitHeight: Appearance.bar.height
+  implicitHeight: Style.bar.height
 
   anchors {
     bottom: parent.bottom
@@ -32,8 +32,8 @@ Item {
 
   BorderRect {
     id: barContent
-    color: Appearance.srcery.black
-    borderColor: Appearance.srcery.gray3
+    color: Style.srcery.black
+    borderColor: Style.srcery.gray3
     topBorder: 1
     anchors {
       right: parent.right
@@ -76,9 +76,9 @@ Item {
             Layout.fillHeight: true
             color: "transparent"
             RowLayout {
-              spacing: Appearance.spacing.p1
+              spacing: Style.spacing.p1
               anchors.left: parent.left
-              anchors.leftMargin: Appearance.spacing.p1
+              anchors.leftMargin: Style.spacing.p1
               anchors.fill: parent
               AlertsIndicator { monitorId: root.monitorId }
               KeyboardButton { monitorId: root.monitorId }
@@ -98,7 +98,7 @@ Item {
             Layout.fillWidth: true
             // Layout.alignment: Qt.AlignHCenter
             RowLayout {
-              spacing: Appearance.spacing.p1
+              spacing: Style.spacing.p1
               anchors.centerIn: parent
               LauncherButton { monitorId: root.monitorId }
               Workspaces { monitorId: root.monitorId }
@@ -111,9 +111,9 @@ Item {
             Layout.fillWidth: true
             color: "transparent"
             RowLayout {
-              spacing: Appearance.spacing.p1
+              spacing: Style.spacing.p1
               anchors.right: parent.right
-              anchors.rightMargin: Appearance.spacing.p1
+              anchors.rightMargin: Style.spacing.p1
               Clock { }
               TrayButton { monitorId: root.monitorId }
               AudioButton { monitorId: root.monitorId }
@@ -137,8 +137,8 @@ Item {
           }
           RowLayout {
             id: leftSection
-            spacing: Appearance.spacing.p1
-            Layout.leftMargin: Appearance.spacing.p1
+            spacing: Style.spacing.p1
+            Layout.leftMargin: Style.spacing.p1
 
             LauncherButton { monitorId: root.monitorId }
 
@@ -149,7 +149,7 @@ Item {
           }
           RowLayout {
             id: centerSection
-            spacing: Appearance.spacing.p1
+            spacing: Style.spacing.p1
 
           }
           RowLayout {
@@ -178,14 +178,14 @@ Item {
           }
           RowLayout {
             id: centerSection
-            spacing: Appearance.spacing.p1
+            spacing: Style.spacing.p1
 
             // NotificationButton {}
           }
           RowLayout {
             id: rightSection
-            spacing: Appearance.spacing.p1
-            Layout.rightMargin: Appearance.spacing.p1
+            spacing: Style.spacing.p1
+            Layout.rightMargin: Style.spacing.p1
             Workspaces {
               monitorId: root.monitorId
             }
@@ -209,9 +209,9 @@ Item {
               Layout.fillHeight: true
               color: "transparent"
               RowLayout {
-                spacing: Appearance.spacing.p1
+                spacing: Style.spacing.p1
                 anchors.left: parent.left
-                anchors.leftMargin: Appearance.spacing.p1
+                anchors.leftMargin: Style.spacing.p1
                 anchors.fill: parent
               }
             }
@@ -221,7 +221,7 @@ Item {
               Layout.fillHeight: true
               Layout.fillWidth: true
               RowLayout {
-                spacing: Appearance.spacing.p1
+                spacing: Style.spacing.p1
                 anchors.centerIn: parent
                 Workspaces { monitorId: root.monitorId }
               }
@@ -232,9 +232,9 @@ Item {
               Layout.fillWidth: true
               color: "transparent"
               RowLayout {
-                spacing: Appearance.spacing.p1
+                spacing: Style.spacing.p1
                 anchors.right: parent.right
-                anchors.rightMargin: Appearance.spacing.p1
+                anchors.rightMargin: Style.spacing.p1
               }
             }
           }

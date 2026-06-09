@@ -42,13 +42,13 @@ Singleton {
 
   /**
    * Truncate string s, not width aware, takes n length or defaults
-   * to Appearance
+   * to Style
    * @param {String} s - Text to truncate
    * @param {Number} n - String max length, ellipsis will be inserted past
-   *                     this, defaults to Appearance.bar.textLength
+   *                     this, defaults to Style.bar.textLength
    * @returns {String}
    */
-  function truncate(text, n = Appearance.bar.textLength) {
+  function truncate(text, n = Style.bar.textLength) {
     if (typeof text !== "string") {
       console.warn("Not a string!")
       return

@@ -33,29 +33,29 @@ Item {
 
   Behavior on anchors.bottomMargin {
     NumberAnimation {
-      duration: Appearance.durations.small
+      duration: Style.durations.small
       easing.type: Easing.InOutCubic
     }
   }
 
   Behavior on anchors.rightMargin {
     NumberAnimation {
-      duration: Appearance.durations.small
+      duration: Style.durations.small
       easing.type: Easing.InOutCubic
     }
   }
 
   anchors.bottomMargin: {
-    let height = Appearance.bar.height + Appearance.spacing.p1
+    let height = Style.bar.height + Style.spacing.p1
     if (GlobalState.launcherOpen && GlobalState.launcherMonitorId === root.monitorId) {
-      height += Appearance.launcher.height
+      height += Style.launcher.height
     }
     return height
   }
   anchors.rightMargin: {
-    let margin = Appearance.spacing.p1
+    let margin = Style.spacing.p1
     if (GlobalState.trayMenuOpen) {
-      margin += root.menuRect.width + Appearance.spacing.p1
+      margin += root.menuRect.width + Style.spacing.p1
     }
     return margin
   }
@@ -64,16 +64,16 @@ Item {
   required property rect menuRect
 
   property int listCount: list?.count ?? 0
-  implicitWidth: Appearance.notifications.toastWidth
+  implicitWidth: Style.notifications.toastWidth
   anchors.right: parent.right
   anchors.bottom: parent.bottom
-  implicitHeight: (Appearance.notifications.toastHeight * root.listCount) + (Appearance.spacing.p0 * root.listCount)
+  implicitHeight: (Style.notifications.toastHeight * root.listCount) + (Style.spacing.p0 * root.listCount)
   visible: root.monitorId === Config.primaryDisplay || Config.displays.tv
 
 
   ListView {
     verticalLayoutDirection: ListView.BottomToTop
-    spacing: Appearance.spacing.p2
+    spacing: Style.spacing.p2
     anchors.fill: parent
     id: list
     model: ListModel { id: toastModel }
@@ -106,11 +106,11 @@ Item {
     Component.onCompleted: list.syncModel(Notifications.popupList)
 
     delegate: Rectangle {
-      implicitHeight: Appearance.notifications.toastHeight
+      implicitHeight: Style.notifications.toastHeight
       id: popup
-      implicitWidth: Appearance.notifications.toastWidth
-      color: Appearance.srcery.black
-      border.width: Appearance.bar.borderWidth
+      implicitWidth: Style.notifications.toastWidth
+      color: Style.srcery.black
+      border.width: Style.bar.borderWidth
       // radius: 5
       required property int index
       required property var notificationId
@@ -122,7 +122,7 @@ Item {
       required property var actions
       required property string urgency
       required property var time
-      border.color: Appearance.srcery.gray3
+      border.color: Style.srcery.gray3
 
       MouseArea {
         id: mainArea
@@ -141,29 +141,29 @@ Item {
         State {
           name: "hovered"
           when: mainArea.containsMouse
-          PropertyChanges { popup.border.color: Appearance.srcery.gray5 }
+          PropertyChanges { popup.border.color: Style.srcery.gray5 }
         }
       ]
       transitions: [
         Transition {
           ColorAnimation {
-            duration: Appearance.durations.tiny
+            duration: Style.durations.tiny
             easing.type: Easing.InOutQuad
           }
         }
       ]
 
       ColumnLayout {
-        spacing: Appearance.spacing.p2
+        spacing: Style.spacing.p2
         anchors.fill: parent
-        anchors.margins: Appearance.spacing.p2
+        anchors.margins: Style.spacing.p2
         FlexboxLayout {
-          gap: Appearance.spacing.p2
+          gap: Style.spacing.p2
           Rectangle {
             implicitWidth: root.iconSize
             implicitHeight: root.iconSize
-            border.color: Appearance.srcery.gray3
-            color: Appearance.srcery.black
+            border.color: Style.srcery.gray3
+            color: Style.srcery.black
             radius: 4
             Loader {
               anchors.fill: parent
@@ -172,7 +172,7 @@ Item {
                 id: image
                 anchors.fill: parent
                 source: popup.image
-                anchors.margins: Appearance.spacing.p2
+                anchors.margins: Style.spacing.p2
 
               }
             }
@@ -183,14 +183,14 @@ Item {
                 id: icon
                 anchors.fill: parent
                 source: Quickshell.iconPath(popup.appIcon)
-                anchors.margins: Appearance.spacing.p2
+                anchors.margins: Style.spacing.p2
 
               }
             }
           }
           ColumnLayout {
             Layout.fillWidth: true
-            spacing: Appearance.spacing.p0
+            spacing: Style.spacing.p0
             Text {
               id: name
               elide: Text.ElideRight
@@ -202,10 +202,10 @@ Item {
                   "(No name)"
                 }
               }
-              color: Appearance.srcery.brightWhite
+              color: Style.srcery.brightWhite
               font {
-                family: Appearance.font.light
-                pointSize: Appearance.font.large
+                family: Style.font.light
+                pointSize: Style.font.large
               }
             }
             Text {
@@ -218,10 +218,10 @@ Item {
                 }
                 return ""
               }
-              color: Appearance.srcery.white
+              color: Style.srcery.white
               font {
-                family: Appearance.font.main
-                pointSize: Appearance.font.small
+                family: Style.font.main
+                pointSize: Style.font.small
               }
             }
           }
@@ -232,14 +232,14 @@ Item {
               State {
                 name: "hovered"
                 when: closeMouseArea.containsMouse
-                PropertyChanges { closeRect.border.color: Appearance.srcery.gray6 }
-                PropertyChanges { closeContent.color: Appearance.srcery.white }
+                PropertyChanges { closeRect.border.color: Style.srcery.gray6 }
+                PropertyChanges { closeContent.color: Style.srcery.white }
               }
             ]
             transitions: [
               Transition {
                 ColorAnimation {
-                  duration: Appearance.durations.tiny
+                  duration: Style.durations.tiny
                   easing.type: Easing.OutQuad
                 }
               }
@@ -258,25 +258,25 @@ Item {
             }
             background: Rectangle {
               id: closeRect
-              color: Appearance.srcery.black
-              border.width: Appearance.bar.borderWidth
-              border.color: Appearance.srcery.gray3
+              color: Style.srcery.black
+              border.width: Style.bar.borderWidth
+              border.color: Style.srcery.gray3
               radius: 2
             }
             contentItem: Text {
               id: closeContent
-              color: Appearance.srcery.brightBlack
+              color: Style.srcery.brightBlack
               text: ""
               font {
-                family: Appearance.font.light
-                pixelSize: Appearance.font.normal
+                family: Style.font.light
+                pixelSize: Style.font.normal
               }
             }
           }
         }
 
         Text {
-          color: Appearance.srcery.white
+          color: Style.srcery.white
           text: {
             if (popup.body) {
               return popup.body
@@ -289,8 +289,8 @@ Item {
           elide: Text.ElideRight
           wrapMode: Text.Wrap
           font {
-            family: Appearance.font.light
-            pointSize: Appearance.font.small
+            family: Style.font.light
+            pointSize: Style.font.small
           }
         }
       }
@@ -299,15 +299,15 @@ Item {
       ParallelAnimation {
         NumberAnimation {
           property: "x"
-          to: Appearance.notifications.toastWidth
+          to: Style.notifications.toastWidth
           easing.type: Easing.InCubic
-          duration: Appearance.durations.normal
+          duration: Style.durations.normal
         }
         NumberAnimation {
           property: "opacity"
           to: 0
           easing.type: Easing.InQuad
-          duration: Appearance.durations.normal
+          duration: Style.durations.normal
         }
       }
     }
@@ -315,19 +315,19 @@ Item {
       NumberAnimation {
         property: "opacity"
         from: 0; to: 1
-        duration: Appearance.durations.normal
+        duration: Style.durations.normal
       }
       NumberAnimation {
         properties: "x,y"
         easing.type: Easing.OutCubic
-        duration: Appearance.durations.normal
+        duration: Style.durations.normal
       }
     }
     displaced: Transition {
       NumberAnimation {
         properties: "x,y"
         easing.type: Easing.OutCubic
-        duration: Appearance.durations.normal
+        duration: Style.durations.normal
       }
     }
   }

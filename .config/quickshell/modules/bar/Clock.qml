@@ -17,38 +17,38 @@ import qs.components
 
 BorderRect {
   implicitWidth: childrenRect.width
-  implicitHeight: Appearance.bar.height - Appearance.bar.borderWidth
-  // topBorder: Appearance.bar.borderWidth
-  rightBorder: Appearance.bar.borderWidth
-  Layout.topMargin: Appearance.bar.borderWidth
-  borderColor: Appearance.srcery.gray3
-  color: Appearance.srcery.black
+  implicitHeight: Style.bar.height - Style.bar.borderWidth
+  // topBorder: Style.bar.borderWidth
+  rightBorder: Style.bar.borderWidth
+  Layout.topMargin: Style.bar.borderWidth
+  borderColor: Style.srcery.gray3
+  color: Style.srcery.black
   Rectangle {
-    implicitWidth: childrenRect.width + Appearance.spacing.p1
+    implicitWidth: childrenRect.width + Style.spacing.p1
     implicitHeight: parent.height
     color: "transparent"
     ColumnLayout {
-      implicitHeight: Appearance.bar.height - Appearance.spacing.p1 * 2
+      implicitHeight: Style.bar.height - Style.spacing.p1 * 2
       spacing: -4
       anchors.verticalCenter: parent.verticalCenter
       Text {
         Layout.alignment: Qt.AlignRight
         font {
-          family: Appearance.font.light
-          pointSize: Appearance.font.normal
+          family: Style.font.light
+          pointSize: Style.font.normal
         }
 
-        color: Appearance.srcery.brightWhite
+        color: Style.srcery.brightWhite
         text: Time.time
       }
       Text {
         Layout.alignment: Qt.AlignRight
         font {
-          family: Appearance.font.light
-          pointSize: Appearance.font.small
+          family: Style.font.light
+          pointSize: Style.font.small
         }
 
-        color: Appearance.srcery.white
+        color: Style.srcery.white
         text: Time.date
       }
     }

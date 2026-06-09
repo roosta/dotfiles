@@ -46,9 +46,9 @@ Button {
   property int calculatedWidth: {
     if (root.isOccupied) {
       let iconCount = Icons.getWsIcons(workspaceId).length ?? 0;
-      return iconCount * (root.iconSize + Appearance.spacing.p3);
+      return iconCount * (root.iconSize + Style.spacing.p3);
     } else {
-      return root.iconSize + Appearance.spacing.p3;
+      return root.iconSize + Style.spacing.p3;
     }
   }
 
@@ -66,15 +66,15 @@ Button {
     id: wsBackground
     implicitWidth: root.calculatedWidth
     implicitHeight: childrenRect.height
-    radius: Appearance.bar.radius
+    radius: Style.bar.radius
     color: "transparent"
-    border.color: Appearance.srcery.gray2
+    border.color: Style.srcery.gray2
 
     border.width: root.isOccupied ? 1 : 0
 
     Behavior on border.color {
       ColorAnimation {
-        duration: Appearance.durations.normal
+        duration: Style.durations.normal
         easing.type: Easing.OutCubic
       }
     }
@@ -85,23 +85,23 @@ Button {
     Component {
       id: indicator
       Item {
-        implicitWidth: root.iconSize + Appearance.spacing.p3
-        implicitHeight: Appearance.bar.height - Appearance.bar.borderWidth
-        - Appearance.spacing.p1 * 2
+        implicitWidth: root.iconSize + Style.spacing.p3
+        implicitHeight: Style.bar.height - Style.bar.borderWidth
+        - Style.spacing.p1 * 2
 
         states: [
           State {
             name: "hover"
             when: root.hovered && !root.active
             PropertyChanges {
-              circle.color: Appearance.srcery.brightWhite
+              circle.color: Style.srcery.brightWhite
             }
           },
           State {
             name: "active"
             when: !root.hovered && root.active
             PropertyChanges {
-              circle.color: Appearance.srcery.brightWhite
+              circle.color: Style.srcery.brightWhite
             }
           },
 
@@ -109,21 +109,21 @@ Button {
             name: "hoveredActive"
             when: root.hovered && root.active
             PropertyChanges {
-              circle.color: Appearance.srcery.brightWhite
+              circle.color: Style.srcery.brightWhite
             }
           },
           State {
             name: "normal"
             when: !root.hovered && !root.active
             PropertyChanges {
-              circle.color: Appearance.srcery.gray6
+              circle.color: Style.srcery.gray6
             }
           }
         ]
         transitions: [
           Transition {
             ColorAnimation {
-              duration: Appearance.durations.small
+              duration: Style.durations.small
               easing.type: Easing.OutQuad
             }
           }
@@ -132,7 +132,7 @@ Button {
           id: circle
           anchors.centerIn: parent
           width: root.buttonSize * 0.25
-          color: Appearance.srcery.gray6
+          color: Style.srcery.gray6
           height: width
           radius: width / 2
         }
@@ -158,8 +158,8 @@ Button {
             }
 
             id: appIcon
-            Layout.preferredWidth: root.iconSize + Appearance.spacing.p3
-            Layout.preferredHeight: Appearance.bar.height - Appearance.bar.borderWidth - Appearance.spacing.p1 * 2
+            Layout.preferredWidth: root.iconSize + Style.spacing.p3
+            Layout.preferredHeight: Style.bar.height - Style.bar.borderWidth - Style.spacing.p1 * 2
 
             onUrgentChanged: {
               if (!urgent) {
@@ -187,7 +187,7 @@ Button {
                 when: !appIcon.urgent && !root.active && hover.hovered
                 PropertyChanges {
                   blinkAnimation.running: false
-                  wsBackground.border.color: Appearance.srcery.brightBlack
+                  wsBackground.border.color: Style.srcery.brightBlack
                   // desaturatedIcon.opacity: 1.0
                 }
               },
@@ -196,7 +196,7 @@ Button {
                 when: appIcon.urgent && !root.active && hover.hovered
                 PropertyChanges {
                   blinkAnimation.running: true
-                  wsBackground.border.color: Appearance.srcery.gray6
+                  wsBackground.border.color: Style.srcery.gray6
                 }
               },
               State {
@@ -204,7 +204,7 @@ Button {
                 when: !appIcon.urgent && root.active  && !hover.hovered
                 PropertyChanges {
                   blinkAnimation.running: false
-                  wsBackground.border.color: Appearance.srcery.brightBlack
+                  wsBackground.border.color: Style.srcery.brightBlack
                   desaturatedIcon.opacity: 1.0
                 }
               },
@@ -213,7 +213,7 @@ Button {
                 when: !appIcon.urgent && root.active  && hover.hovered
                 PropertyChanges {
                   blinkAnimation.running: false
-                  wsBackground.border.color: Appearance.srcery.brightBlack
+                  wsBackground.border.color: Style.srcery.brightBlack
                   desaturatedIcon.opacity: 1.0
                 }
               },
@@ -222,7 +222,7 @@ Button {
                 when: !appIcon.urgent && !root.active && !hover.hovered
                 PropertyChanges {
                   blinkAnimation.running: false
-                  wsBackground.border.color: Appearance.srcery.gray2
+                  wsBackground.border.color: Style.srcery.gray2
                   desaturatedIcon.opacity: 1.0
                 }
               }
@@ -238,7 +238,7 @@ Button {
                 property: "opacity"
                 from: 1.0
                 to: 0.3
-                duration: Appearance.durations.normal
+                duration: Style.durations.normal
                 easing.type: Easing.InOutQuad
               }
               PropertyAnimation {
@@ -246,7 +246,7 @@ Button {
                 property: "opacity"
                 from: 0.3
                 to: 1.0
-                duration: Appearance.durations.normal
+                duration: Style.durations.normal
                 easing.type: Easing.InOutQuad
               }
               // PropertyAnimation {
@@ -254,7 +254,7 @@ Button {
               //   property: "opacity"
               //   from: 0.3
               //   to: 1.0
-              //   duration: Appearance.durations.normal
+              //   duration: Style.durations.normal
               //   easing.type: Easing.InOutQuad
               // }
             }
@@ -268,7 +268,7 @@ Button {
               Behavior on saturation {
                 NumberAnimation {
                   properties: "saturation"
-                  duration: Appearance.durations.small
+                  duration: Style.durations.small
                   easing.type: Easing.OutCubic
                 }
               }

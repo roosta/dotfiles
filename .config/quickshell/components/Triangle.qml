@@ -21,7 +21,7 @@ Shape {
 
   Behavior on y {
     NumberAnimation {
-      duration: Appearance.durations.slow
+      duration: Style.durations.slow
       easing.type: Easing.InOutQuad
     }
   }
@@ -29,8 +29,8 @@ Shape {
   ShapePath {
     strokeWidth: 1
     id: path
-    strokeColor: Appearance.srcery.gray3
-    fillColor: Appearance.srcery.black
+    strokeColor: Style.srcery.gray3
+    fillColor: Style.srcery.black
     PathSvg {
       id: svg
       path: `M ${root.width * 0.5} 0

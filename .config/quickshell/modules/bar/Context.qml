@@ -29,18 +29,18 @@ Item {
     anchors.fill: parent
     spacing: 0
     BorderRect {
-      implicitWidth: Appearance.bar.height
-      implicitHeight: Appearance.bar.height - Appearance.bar.borderWidth
-      Layout.topMargin: Appearance.bar.borderWidth
-      color: Appearance.srcery.black
-      // rightBorder: Appearance.bar.borderWidth
-      leftBorder: Appearance.bar.borderWidth
-      borderColor: Appearance.srcery.gray3
+      implicitWidth: Style.bar.height
+      implicitHeight: Style.bar.height - Style.bar.borderWidth
+      Layout.topMargin: Style.bar.borderWidth
+      color: Style.srcery.black
+      // rightBorder: Style.bar.borderWidth
+      leftBorder: Style.bar.borderWidth
+      borderColor: Style.srcery.gray3
       IconImage {
         id: windowIcon
         anchors.centerIn: parent
         source: ContextData.data.icon
-        implicitSize: parent.height - Appearance.spacing.p3
+        implicitSize: parent.height - Style.spacing.p3
       }
     }
     ColumnLayout {
@@ -50,24 +50,24 @@ Item {
       Text {
 
         font {
-          family: Appearance.font.light
-          pointSize: Appearance.font.normal
+          family: Style.font.light
+          pointSize: Style.font.normal
         }
 
-        color: Appearance.srcery.brightWhite
+        color: Style.srcery.brightWhite
         text: ContextData.data.title
       }
       Text {
         id: window
         elide: Text.ElideRight
         Layout.fillWidth: true
-        Layout.rightMargin: Appearance.spacing.p5
+        Layout.rightMargin: Style.spacing.p5
         font {
-          family: Appearance.font.light
-          pointSize: Appearance.font.small
+          family: Style.font.light
+          pointSize: Style.font.small
         }
 
-        color: Appearance.srcery.white
+        color: Style.srcery.white
         text: ContextData.data.desc
       }
     }

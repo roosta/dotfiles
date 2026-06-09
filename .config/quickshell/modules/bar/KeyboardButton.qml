@@ -20,20 +20,20 @@ import QtQuick.Layouts
 
 BorderRect {
   id: root
-  color: Appearance.srcery.black
-  borderColor: Appearance.srcery.gray3
-  borderWidth: Appearance.bar.borderWidth
-  Layout.topMargin: Appearance.bar.borderWidth
+  color: Style.srcery.black
+  borderColor: Style.srcery.gray3
+  borderWidth: Style.bar.borderWidth
+  Layout.topMargin: Style.bar.borderWidth
 
   required property string monitorId
 
-  implicitWidth: layout.implicitWidth + Appearance.spacing.p1 * 2
-  implicitHeight: Appearance.bar.height - Appearance.bar.borderWidth
-    - Appearance.spacing.p1 * 2
+  implicitWidth: layout.implicitWidth + Style.spacing.p1 * 2
+  implicitHeight: Style.bar.height - Style.bar.borderWidth
+    - Style.spacing.p1 * 2
 
   Behavior on implicitWidth {
     NumberAnimation {
-      duration: Appearance.durations.small
+      duration: Style.durations.small
       easing.type: Easing.InOutCubic
     }
   }
@@ -51,26 +51,26 @@ BorderRect {
     State {
       name: "hovered"
       when: button.containsMouse && !button.pressed
-      PropertyChanges { root.borderColor: Appearance.srcery.gray4 }
+      PropertyChanges { root.borderColor: Style.srcery.gray4 }
       PropertyChanges { button.cursorShape: Qt.PointingHandCursor }
     },
     State {
       name: "pressed"
       when: button.pressed && button.containsMouse
-      PropertyChanges { root.borderColor: Appearance.srcery.gray6 }
+      PropertyChanges { root.borderColor: Style.srcery.gray6 }
       PropertyChanges { button.cursorShape: Qt.PointingHandCursor }
     }
   ]
 
   RowLayout {
     id: layout
-    spacing: Appearance.spacing.p1
+    spacing: Style.spacing.p1
     anchors.fill: parent
-    anchors.leftMargin: Appearance.spacing.p1
-    anchors.rightMargin: Appearance.spacing.p1
+    anchors.leftMargin: Style.spacing.p1
+    anchors.rightMargin: Style.spacing.p1
     Rectangle {
-      Layout.preferredWidth: Appearance.font.size3
-      Layout.preferredHeight: Appearance.font.size3
+      Layout.preferredWidth: Style.font.size3
+      Layout.preferredHeight: Style.font.size3
       color: "transparent"
 
       Text {
@@ -79,8 +79,8 @@ BorderRect {
         text: Keyboard.layout.code.toUpperCase()
         color: Keyboard.layout.color
         font {
-          family: Appearance.font.light
-          pixelSize: Appearance.font.size3
+          family: Style.font.light
+          pixelSize: Style.font.size3
         }
       }
     }
@@ -88,15 +88,15 @@ BorderRect {
       id: shiftlock
       visible: Keyboard.capsLock
       color: "transparent"
-      Layout.preferredWidth: Appearance.font.size3
-      Layout.preferredHeight: Appearance.font.size3
+      Layout.preferredWidth: Style.font.size3
+      Layout.preferredHeight: Style.font.size3
       Text {
         text: "󰌾"
         anchors.centerIn: parent
-        color: Appearance.srcery.yellow
+        color: Style.srcery.yellow
         font {
-          family: Appearance.font.light
-          pixelSize: Appearance.font.size3
+          family: Style.font.light
+          pixelSize: Style.font.size3
         }
       }
     }

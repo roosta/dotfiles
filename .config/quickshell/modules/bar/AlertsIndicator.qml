@@ -20,17 +20,17 @@ import QtQuick.Controls
 
 BorderRect {
   id: root
-  color: Appearance.srcery.black
-  borderColor: Appearance.srcery.gray3
-  borderWidth: Appearance.bar.borderWidth
-  Layout.topMargin: Appearance.bar.borderWidth
+  color: Style.srcery.black
+  borderColor: Style.srcery.gray3
+  borderWidth: Style.bar.borderWidth
+  Layout.topMargin: Style.bar.borderWidth
   visible: Alerts.hasAlerts
 
   required property string monitorId
 
   property int iconSize: 16 * Config.scale
-  implicitWidth: layout.implicitWidth + Appearance.spacing.p1 * 2
-  implicitHeight: Appearance.bar.height - Appearance.spacing.p3
+  implicitWidth: layout.implicitWidth + Style.spacing.p1 * 2
+  implicitHeight: Style.bar.height - Style.spacing.p3
   MouseArea {
     id: mouseArea
     hoverEnabled: true
@@ -38,7 +38,7 @@ BorderRect {
   }
   Behavior on implicitWidth {
     NumberAnimation {
-      duration: Appearance.durations.small
+      duration: Style.durations.small
       easing.type: Easing.InOutCubic
     }
   }
@@ -46,36 +46,36 @@ BorderRect {
     State {
       name: "hovered"
       when: mouseArea.containsMouse && !mouseArea.pressed
-      PropertyChanges { root.borderColor: Appearance.srcery.gray4 }
+      PropertyChanges { root.borderColor: Style.srcery.gray4 }
       PropertyChanges { mouseArea.cursorShape: Qt.PointingHandCursor }
     },
     State {
       name: "pressed"
       when: mouseArea.pressed && mouseArea.containsMouse
-      PropertyChanges { root.borderColor: Appearance.srcery.gray6 }
+      PropertyChanges { root.borderColor: Style.srcery.gray6 }
       PropertyChanges { mouseArea.cursorShape: Qt.PointingHandCursor }
     }
   ]
   RowLayout {
     id: layout
-    spacing: Appearance.spacing.p1
+    spacing: Style.spacing.p1
     anchors.fill: parent
-    anchors.leftMargin: Appearance.spacing.p1
-    anchors.rightMargin: Appearance.spacing.p1
+    anchors.leftMargin: Style.spacing.p1
+    anchors.rightMargin: Style.spacing.p1
 
     Rectangle {
       id: failedServices
       visible: false
       color: "transparent"
-      Layout.preferredWidth: Appearance.font.size3
-      Layout.preferredHeight: Appearance.font.size3
+      Layout.preferredWidth: Style.font.size3
+      Layout.preferredHeight: Style.font.size3
       Text {
         text: ""
-        color: Appearance.srcery.brightOrange
+        color: Style.srcery.brightOrange
         anchors.centerIn: parent
         font {
-          family: Appearance.font.light
-          pixelSize: Appearance.font.size3
+          family: Style.font.light
+          pixelSize: Style.font.size3
         }
       }
     }
@@ -83,15 +83,15 @@ BorderRect {
       id: audioIn
       visible: Alerts.audioIn
       color: "transparent"
-      Layout.preferredWidth: Appearance.font.size3
-      Layout.preferredHeight: Appearance.font.size3
+      Layout.preferredWidth: Style.font.size3
+      Layout.preferredHeight: Style.font.size3
       Text {
         text: ""
         anchors.centerIn: parent
-        color: Appearance.srcery.brightYellow
+        color: Style.srcery.brightYellow
         font {
-          family: Appearance.font.light
-          pixelSize: Appearance.font.size3
+          family: Style.font.light
+          pixelSize: Style.font.size3
         }
       }
     }
@@ -99,15 +99,15 @@ BorderRect {
       id: audioOut
       visible: false
       color: "transparent"
-      Layout.preferredWidth: Appearance.font.size3
-      Layout.preferredHeight: Appearance.font.size3
+      Layout.preferredWidth: Style.font.size3
+      Layout.preferredHeight: Style.font.size3
       Text {
         text: "󰓃"
         anchors.centerIn: parent
-        color: Appearance.srcery.white
+        color: Style.srcery.white
         font {
-          family: Appearance.font.light
-          pixelSize: Appearance.font.size3
+          family: Style.font.light
+          pixelSize: Style.font.size3
         }
       }
     }
@@ -115,15 +115,15 @@ BorderRect {
       id: screenshare
       color: "transparent"
       visible: Alerts.videoIn
-      Layout.preferredWidth: Appearance.font.size3
-      Layout.preferredHeight: Appearance.font.size3
+      Layout.preferredWidth: Style.font.size3
+      Layout.preferredHeight: Style.font.size3
       Text {
         text: "󱎴"
         anchors.centerIn: parent
-        color: Appearance.srcery.brightRed
+        color: Style.srcery.brightRed
         font {
-          family: Appearance.font.light
-          pixelSize: Appearance.font.size3
+          family: Style.font.light
+          pixelSize: Style.font.size3
         }
       }
     }
@@ -131,18 +131,18 @@ BorderRect {
       id: cpu
       color: "transparent"
       visible: Alerts.cpuUsage
-      Layout.preferredWidth: Appearance.font.size3
-      Layout.preferredHeight: Appearance.font.size3
+      Layout.preferredWidth: Style.font.size3
+      Layout.preferredHeight: Style.font.size3
       ToolTip {
         id: control
-        font: Appearance.font.main
+        font: Style.font.main
         delay: 600
         text: ResourceUsage.cpuTooltip
         visible: mouseArea.containsMouse
         contentItem: Text {
           text: control.text
           font: control.font
-          color: Appearance.srcery.brightWhite
+          color: Style.srcery.brightWhite
         }
 
         Timer {
@@ -155,16 +155,16 @@ BorderRect {
           }
         }
         background: BorderRect {
-          color: Appearance.srcery.gray1
+          color: Style.srcery.gray1
         }
       }
       Text {
         text: ""
         anchors.centerIn: parent
-        color: Appearance.srcery.yellow
+        color: Style.srcery.yellow
         font {
-          family: Appearance.font.light
-          pixelSize: Appearance.font.size3
+          family: Style.font.light
+          pixelSize: Style.font.size3
         }
       }
     }

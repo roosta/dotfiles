@@ -22,10 +22,10 @@ import QtQuick.Controls
 BorderRect {
   id: root
   clip: true
-  color: Appearance.srcery.black
-  borderColor: Appearance.srcery.gray3
-  borderWidth: Appearance.bar.borderWidth
-  Layout.topMargin: Appearance.bar.borderWidth
+  color: Style.srcery.black
+  borderColor: Style.srcery.gray3
+  borderWidth: Style.bar.borderWidth
+  Layout.topMargin: Style.bar.borderWidth
 
   default property alias contents: layout.data
   required property string monitorId
@@ -34,14 +34,14 @@ BorderRect {
 
   implicitWidth: {
     if (root.active) {
-      return layout.implicitWidth + Appearance.spacing.p1 * 2
+      return layout.implicitWidth + Style.spacing.p1 * 2
 
     } else {
       return layout.implicitWidth
     }
   }
 
-  implicitHeight: Appearance.bar.height - Appearance.bar.borderWidth - Appearance.spacing.p1 * 2
+  implicitHeight: Style.bar.height - Style.bar.borderWidth - Style.spacing.p1 * 2
   property bool active: false
   property bool preventAutoClose: false
 
@@ -77,7 +77,7 @@ BorderRect {
   }
   Behavior on implicitWidth {
     NumberAnimation {
-      duration: Appearance.durations.small
+      duration: Style.durations.small
       easing.type: Easing.InOutCubic
     }
   }
@@ -86,32 +86,32 @@ BorderRect {
       name: "default"
       when: !root.active && !button.hovered
       PropertyChanges { indicator.text: root.buttonLabel }
-      PropertyChanges { buttonBg.borderColor: Appearance.srcery.gray3 }
+      PropertyChanges { buttonBg.borderColor: Style.srcery.gray3 }
     },
     State {
       name: "hovered"
       when: !root.active && button.hovered
       PropertyChanges { indicator.text: root.buttonLabel }
-      PropertyChanges { buttonBg.borderColor: Appearance.srcery.gray6 }
+      PropertyChanges { buttonBg.borderColor: Style.srcery.gray6 }
     },
     State {
       name: "active"
       when: root.active && !button.hovered
       PropertyChanges { indicator.text: "❯" }
-      PropertyChanges { buttonBg.borderColor: Appearance.srcery.gray3 }
+      PropertyChanges { buttonBg.borderColor: Style.srcery.gray3 }
     },
     State {
       name: "activeHovered"
       when: root.active && button.hovered
-      PropertyChanges { root.borderColor: Appearance.srcery.gray6 }
+      PropertyChanges { root.borderColor: Style.srcery.gray6 }
       PropertyChanges { indicator.text: "❯" }
-      PropertyChanges { buttonBg.borderColor: Appearance.srcery.gray6 }
+      PropertyChanges { buttonBg.borderColor: Style.srcery.gray6 }
     }
   ]
 
   RowLayout {
     id: layout
-    spacing: Appearance.spacing.p3
+    spacing: Style.spacing.p3
     Button {
       id: button
       implicitHeight: root.height
@@ -128,16 +128,16 @@ BorderRect {
       }
       background: BorderRect {
         id: buttonBg
-        color: Appearance.srcery.black
-        borderWidth: Appearance.bar.borderWidth
-        borderColor: Appearance.srcery.gray3
+        color: Style.srcery.black
+        borderWidth: Style.bar.borderWidth
+        borderColor: Style.srcery.gray3
         Text {
           anchors.centerIn: parent
           id: indicator
-          color: Appearance.srcery.white
+          color: Style.srcery.white
           font {
-            family: Appearance.font.light
-            pixelSize: Appearance.font.size3
+            family: Style.font.light
+            pixelSize: Style.font.size3
           }
         }
       }

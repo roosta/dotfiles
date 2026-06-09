@@ -57,9 +57,9 @@ ShellRoot {
         anchors.right: true
         property int hcalc: {
           if (GlobalState.launcherOpen && GlobalState.launcherMonitorId === scope.monitorId) {
-            return Appearance.bar.height + Appearance.launcher.height
+            return Style.bar.height + Style.launcher.height
           }
-          return Appearance.bar.height
+          return Style.bar.height
         }
         exclusiveZone: hcalc
       }
@@ -145,7 +145,7 @@ ShellRoot {
           anchors.top: parent.top
           anchors.left: parent.left
           implicitWidth: parent.width
-          implicitHeight: parent.height - Appearance.bar.height - launcher.launcherHeight
+          implicitHeight: parent.height - Style.bar.height - launcher.launcherHeight
 
           transitions: [
             Transition {

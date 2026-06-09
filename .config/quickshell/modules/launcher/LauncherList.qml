@@ -37,7 +37,7 @@ Item {
 
   Timer {
     id: timer
-    interval: Appearance.durations.small
+    interval: Style.durations.small
     onTriggered: {
       list.highlightMoveDuration = 0
       list.positionViewAtBeginning()
@@ -72,7 +72,7 @@ Item {
       Layout.fillWidth: true
       Layout.fillHeight: true
 
-      Layout.margins: Appearance.spacing.p1
+      Layout.margins: Style.spacing.p1
       color: "transparent"
 
       Rectangle {
@@ -82,15 +82,15 @@ Item {
         clip: true
         BorderRect {
           id: rect
-          color: Appearance.srcery.black
-          borderColor: Appearance.srcery.gray3
-          borderWidth: Appearance.bar.borderWidth
+          color: Style.srcery.black
+          borderColor: Style.srcery.gray3
+          borderWidth: Style.bar.borderWidth
           anchors.fill: parent
-          // anchors.topMargin: root.isOpen ? 0 : Appearance.launcher.height
+          // anchors.topMargin: root.isOpen ? 0 : Style.launcher.height
           //
           // Behavior on anchors.topMargin {
           //   NumberAnimation {
-          //     duration: Appearance.durations.normal
+          //     duration: Style.durations.normal
           //     easing.type: Easing.InOutCubic
           //   }
           // }
@@ -98,7 +98,7 @@ Item {
           Triangle {
             id: triangle
             anchors.horizontalCenter: parent.horizontalCenter
-            y: root.isOpen ? 25 : Appearance.launcher.height
+            y: root.isOpen ? 25 : Style.launcher.height
             width: 170
             height: 150
 
@@ -106,10 +106,10 @@ Item {
               anchors.centerIn: parent
               anchors.verticalCenterOffset: 22
               font {
-                family: Appearance.font.light
-                pointSize: Appearance.font.normal
+                family: Style.font.light
+                pointSize: Style.font.normal
               }
-              color: Appearance.srcery.gray4
+              color: Style.srcery.gray4
               // text: "ᛖᛗᛈᛏᛁ"
               text: "EMPTY"
             }
@@ -135,7 +135,7 @@ Item {
         highlightResizeDuration: 0
 
         layoutDirection: GlobalState.menuDirection
-        spacing: Appearance.spacing.p1
+        spacing: Style.spacing.p1
         reuseItems: false
         orientation: ListView.Horizontal
 
@@ -165,28 +165,28 @@ Item {
           implicitHeight: list.height
           Behavior on x {
             NumberAnimation {
-              duration: Appearance.animationCurves.expressiveFastSpatialDuration
+              duration: Style.animationCurves.expressiveFastSpatialDuration
               easing.type: Easing.BezierSpline
-              easing.bezierCurve: Appearance.animationCurves.expressiveDefaultSpatial
+              easing.bezierCurve: Style.animationCurves.expressiveDefaultSpatial
             }
           }
           gradient: Gradient {
             orientation: Gradient.Horizontal
-            GradientStop { position: 1; color: Appearance.srcery.magenta }
-            GradientStop { position: 0; color: Appearance.srcery.blue }
+            GradientStop { position: 1; color: Style.srcery.magenta }
+            GradientStop { position: 0; color: Style.srcery.blue }
           }
           // anchors.fill: parent
         }
         ScrollBar.horizontal: ScrollBar {
           id: scroll
           padding: 0
-          // implicitWidth: Appearance.spacing.p1
+          // implicitWidth: Style.spacing.p1
           contentItem: BorderRect {
             anchors.left: parent.left
             anchors.right: parent.right
             borderWidth: 1
-            color: Appearance.srcery.black
-            borderColor: Appearance.srcery.gray3
+            color: Style.srcery.black
+            borderColor: Style.srcery.gray3
 
             MouseArea {
               id: mouse
@@ -203,7 +203,7 @@ Item {
           NumberAnimation {
             property: "x"
             easing.type: Easing.OutCubic
-            duration: Appearance.durations.normal
+            duration: Style.durations.normal
           }
         }
       }

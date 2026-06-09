@@ -44,12 +44,12 @@ Loader {
 
 
     readonly property string wallpaper: `${Paths.srcery}/srcery-wallpaper/srcery-wallpaper.png`
-    anchors.bottomMargin: Appearance.bar.height
+    anchors.bottomMargin: Style.bar.height
 
     Rectangle {
       id: backgroundColor
       anchors.fill: parent
-      color: Appearance.srcery.black
+      color: Style.srcery.black
     }
 
     Diagram {
@@ -72,13 +72,13 @@ Loader {
       anchors.centerIn: parent
       readonly property real centerX: width / 2
       readonly property real centerY: height / 2
-      readonly property real innerX: glyph.implicitWidth / 1.8 + Appearance.spacing.p2
-      readonly property real innerY: glyph.implicitHeight / 1.8 + Appearance.spacing.p2
-      property color colour: Appearance.srcery.gray4
+      readonly property real innerX: glyph.implicitWidth / 1.8 + Style.spacing.p2
+      readonly property real innerY: glyph.implicitHeight / 1.8 + Style.spacing.p2
+      property color colour: Style.srcery.gray4
 
       property int numberOfBars: 128
       anchors.fill: glyph
-      anchors.margins: -Appearance.spacing.p1
+      anchors.margins: -Style.spacing.p1
 
       asynchronous: true
       preferredRendererType: Shape.CurveRenderer
@@ -104,8 +104,8 @@ Loader {
         readonly property real sin: Math.sin(angle)
 
         capStyle: ShapePath.SquareCap  // ShapePath.RoundCap
-        strokeWidth: Appearance.bar.borderWidth
-        strokeColor: Appearance.srcery.gray4
+        strokeWidth: Style.bar.borderWidth
+        strokeColor: Style.srcery.gray4
 
         startX: visualizer.centerX + (visualizer.innerX + strokeWidth / 2) * cos
         startY: visualizer.centerY + (visualizer.innerY + strokeWidth / 2) * sin
@@ -118,7 +118,7 @@ Loader {
         Behavior on strokeColor {
 
           ColorAnimation {
-            duration: Appearance.durations.tiny
+            duration: Style.durations.tiny
             easing.type: Easing.InOutQuad
           }
         }
@@ -142,7 +142,7 @@ Loader {
         anchors.centerIn: parent
         radius: size / 2
         color: "transparent"
-        border.color: Appearance.srcery.gray4
+        border.color: Style.srcery.gray4
       }
       Rectangle {
         property int size: 450
@@ -151,7 +151,7 @@ Loader {
         anchors.centerIn: parent
         radius: size / 2
         color: "transparent"
-        border.color: Appearance.srcery.gray4
+        border.color: Style.srcery.gray4
       }
 
       Item {
@@ -186,11 +186,11 @@ Loader {
             // }
             color: {
               if (index < cpuIndicator.cpuUsage * cpuIndicator.dotCount) {
-                if (cpuIndicator.cpuUsage > 0.8) return Appearance.srcery.orange
-                if (cpuIndicator.cpuUsage > 0.5) return Appearance.srcery.yellow
-                return Appearance.srcery.white
+                if (cpuIndicator.cpuUsage > 0.8) return Style.srcery.orange
+                if (cpuIndicator.cpuUsage > 0.5) return Style.srcery.yellow
+                return Style.srcery.white
               } else {
-                return Appearance.srcery.gray4
+                return Style.srcery.gray4
               }
             }
 

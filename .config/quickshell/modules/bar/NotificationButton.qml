@@ -26,9 +26,9 @@ import QtQuick.Shapes
 
 Button {
   id: root
-  Layout.topMargin: Appearance.bar.borderWidth
-  implicitWidth: Appearance.bar.height - Appearance.spacing.p3
-  implicitHeight: Appearance.bar.height - Appearance.bar.borderWidth - Appearance.spacing.p1 * 2
+  Layout.topMargin: Style.bar.borderWidth
+  implicitWidth: Style.bar.height - Style.spacing.p3
+  implicitHeight: Style.bar.height - Style.bar.borderWidth - Style.spacing.p1 * 2
 
   property bool active: Notifications?.list.length > 0 ?? false
   property bool menuOpen: GlobalState.launcherOpen
@@ -48,50 +48,50 @@ Button {
       name: "open"
       when: root.menuOpen && !root.hovered && !root.active
       PropertyChanges { shape.rotation: 90 }
-      PropertyChanges { path.strokeColor: Appearance.srcery.brightWhite }
-      PropertyChanges { rect.borderColor: Appearance.srcery.brightBlack }
+      PropertyChanges { path.strokeColor: Style.srcery.brightWhite }
+      PropertyChanges { rect.borderColor: Style.srcery.brightBlack }
 
     },
     State {
       name: "openActive"
       when: root.menuOpen && !root.hovered && root.active
       PropertyChanges { shape.rotation: 90 }
-      PropertyChanges { path.strokeColor: Appearance.srcery.brightWhite }
-      PropertyChanges { rect.borderColor: Appearance.srcery.brightBlack }
+      PropertyChanges { path.strokeColor: Style.srcery.brightWhite }
+      PropertyChanges { rect.borderColor: Style.srcery.brightBlack }
     },
     State {
       name: "openActiveHovered"
       when: root.menuOpen && root.hovered && root.active
       PropertyChanges { shape.rotation: 90 }
-      PropertyChanges { path.strokeColor: Appearance.srcery.brightWhite }
-      PropertyChanges { rect.borderColor: Appearance.srcery.brightWhite }
+      PropertyChanges { path.strokeColor: Style.srcery.brightWhite }
+      PropertyChanges { rect.borderColor: Style.srcery.brightWhite }
     },
     State {
       name: "openHovered"
       when: root.menuOpen && root.hovered && !root.active
       PropertyChanges { shape.rotation: 90 }
-      PropertyChanges { path.strokeColor: Appearance.srcery.brightWhite }
-      PropertyChanges { rect.borderColor: Appearance.srcery.brightWhite }
+      PropertyChanges { path.strokeColor: Style.srcery.brightWhite }
+      PropertyChanges { rect.borderColor: Style.srcery.brightWhite }
     },
     State {
       name: "active"
       when: root.active && !root.hovered && !root.menuOpen
       PropertyChanges { shape.rotation: 180 }
-      PropertyChanges { path.strokeColor: Appearance.srcery.white }
-      PropertyChanges { rect.borderColor: Appearance.srcery.gray5 }
+      PropertyChanges { path.strokeColor: Style.srcery.white }
+      PropertyChanges { rect.borderColor: Style.srcery.gray5 }
     },
     State {
       name: "activeHovered"
       when: root.active && root.hovered && !root.menuOpen
       PropertyChanges { shape.rotation: 180 }
-      PropertyChanges { path.strokeColor: Appearance.srcery.brightWhite }
-      PropertyChanges { rect.borderColor: Appearance.srcery.brightBlack }
+      PropertyChanges { path.strokeColor: Style.srcery.brightWhite }
+      PropertyChanges { rect.borderColor: Style.srcery.brightBlack }
     },
     State {
       name: "hovered"
       when: hover.hovered && !root.active && !root.menuOpen
-      PropertyChanges { rect.borderColor: Appearance.srcery.gray6 }
-      PropertyChanges { path.strokeColor: Appearance.srcery.brightWhite }
+      PropertyChanges { rect.borderColor: Style.srcery.gray6 }
+      PropertyChanges { path.strokeColor: Style.srcery.brightWhite }
 
     }
   ]
@@ -100,32 +100,32 @@ Button {
     Transition {
       NumberAnimation {
         properties: "rotation"
-        duration: Appearance.durations.normal
+        duration: Style.durations.normal
         easing.type: Easing.OutCubic
       }
       ColorAnimation {
-        duration: Appearance.durations.small
+        duration: Style.durations.small
         easing.type: Easing.OutQuad
       }
     }
   ]
   background: BorderRect {
     id: rect
-    color: Appearance.srcery.black
-    borderColor: Appearance.srcery.gray3
-    borderWidth: Appearance.bar.borderWidth
+    color: Style.srcery.black
+    borderColor: Style.srcery.gray3
+    borderWidth: Style.bar.borderWidth
     anchors.fill: parent
 
     Shape {
       id: shape
       anchors.centerIn: parent
-      width: Appearance.bar.iconSize
-      height: Appearance.bar.iconSize
+      width: Style.bar.iconSize
+      height: Style.bar.iconSize
       ShapePath {
         strokeWidth: 1
         id: path
-        strokeColor: Appearance.srcery.gray3
-        fillColor: Appearance.srcery.black
+        strokeColor: Style.srcery.gray3
+        fillColor: Style.srcery.black
         PathSvg {
           id: svg
           path: "M 10 1.7 L 18.3 16.3 L 1.7 16.3 Z"
