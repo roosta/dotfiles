@@ -333,8 +333,10 @@ Item {
     }
     Rectangle {
       id: drawer
+      property bool drawerExpanded: false
+
       implicitHeight: {
-        if (actionsArea.hovered && root.actions.length > 0) {
+        if (drawerExpanded && root.actions.length > 0) {
           return 140
         } else {
           return 26
@@ -349,6 +351,20 @@ Item {
 
       HoverHandler {
         id: actionsArea
+        onHoveredChanged: {
+          if (actionsArea.hovered) {
+            collapseTimer.stop()
+            drawer.drawerExpanded = true
+          } else {
+            collapseTimer.start()
+          }
+        }
+      }
+
+      Timer {
+        id: collapseTimer
+        interval: Style.durations.medium
+        onTriggered: drawer.drawerExpanded = false
       }
 
       MouseArea {
