@@ -33,7 +33,7 @@ export TERMINAL=kitty
 export BROWSER=firefox
 
 ## SSH
-export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gcr/ssh"
+# export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gcr/ssh"
 
 # Editor
 export EDITOR=nvim

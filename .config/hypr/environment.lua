@@ -27,7 +27,7 @@ hl.env("QT_QPA_PLATFORMTHEME", "kde")
 hl.env("XDG_MENU_PREFIX", "plasma-")
 hl.env("QSG_RHI_BACKEND", "vulkan")
 
--- XDG Specifications
-hl.env("XDG_CURRENT_DESKTOP", "Hyprland")
-hl.env("XDG_SESSION_TYPE", "wayland")
-hl.env("XDG_SESSION_DESKTOP", "Hyprland")
+-- XDG Specifications (when not using uwsm)
+-- hl.env("XDG_CURRENT_DESKTOP", "Hyprland")
+-- hl.env("XDG_SESSION_TYPE", "wayland")
+-- hl.env("XDG_SESSION_DESKTOP", "Hyprland")
