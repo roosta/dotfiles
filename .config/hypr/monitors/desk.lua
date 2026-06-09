@@ -11,7 +11,7 @@ local primary_monitor = monitors.center
 -- Layout
 hl.monitor({
   output = monitors.center,
-  mode = "3840x2160@120",
+  mode = "3840x2160@240",
   position = "0x0",
   scale = "2",
   bitdepth = 10,
