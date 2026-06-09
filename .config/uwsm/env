@@ -1,0 +1,14 @@
+export GDK_SCALE=2
+export XCURSOR_SIZE=24
+export ELECTRON_OZONE_PLATFORM_HINT=auto
+export SDL_VIDEODRIVER="wayland,x11,windows"
+export _JAVA_AWT_WM_NONREPARENTING=1
+export GDK_BACKEND="wayland,x11,*"
+export CLUTTER_BACKEND=wayland
+
+export QT_QPA_PLATFORM="wayland;xcb"
+export QT_AUTO_SCREEN_SCALE_FACTOR=1
+export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+export QT_QPA_PLATFORMTHEME=kde
+export XDG_MENU_PREFIX=plasma-
+export QSG_RHI_BACKEND=vulkan

@@ -37,8 +37,8 @@ require("rules")
 -- https://wiki.hypr.land/Configuring/Basics/Autostart/
 -- Several services are started using systemd, to enable various hyprland utils
 hl.on("hyprland.start", function ()
-  hl.exec_cmd("dbus-update-activation-environment --systemd --all")
-  hl.exec_cmd("quickshell")
+  -- hl.exec_cmd("dbus-update-activation-environment --systemd --all")
+  -- hl.exec_cmd("quickshell")
   hl.exec_cmd("/usr/lib/polkit-kde-authentication-agent-1")
   hl.exec_cmd("[workspace 3 silent] " .. vars.browser)
   hl.exec_cmd("[workspace 2 silent] steam -silent")
