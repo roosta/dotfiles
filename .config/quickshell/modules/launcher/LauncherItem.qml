@@ -82,6 +82,7 @@ Item {
       when: mouseArea.pressed && !root.isCurrentItem
       PropertyChanges { card.border.color: Style.srcery.white }
       PropertyChanges { card.color: Style.srcery.gray1 }
+      PropertyChanges { drawer.border.color: Style.srcery.white }
     },
 
     State {
