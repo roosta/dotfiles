@@ -58,12 +58,17 @@ BorderRect {
       id: activeIndicator
       z: 3
       height: Style.bar.height - Style.bar.borderWidth - Style.spacing.p1 * 2
-      gradientAngle: 45
-      gradient: Gradient {
+      property Gradient activeGradient: Gradient {
         orientation: Gradient.Horizontal
         GradientStop { position: 1; color: Style.srcery.magenta }
         GradientStop { position: 0; color: Style.srcery.blue }
       }
+      property Gradient inactiveGradient: Gradient {
+        orientation: Gradient.Horizontal
+        GradientStop { position: 1; color: Style.srcery.white }
+      }
+      gradientAngle: 45
+      gradient: root.monitor?.focused ? activeGradient : inactiveGradient
       property real targetX: 0
       property real targetWidth: 0
 
