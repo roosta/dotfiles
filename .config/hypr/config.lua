@@ -47,19 +47,20 @@ hl.config({
 
     groupbar = {
       font_family = "IosevkaTerm Nerd Font",
-      font_size = 15,
+      font_size = 14,
       gradients = true,
       gradient_round_only_edges = false,
       gradient_rounding = 0,
+      text_color_inactive = srcery.bright_black,
       height = 20,
       indicator_height = 0,
       gaps_in = 0,
       gaps_out = 0,
       text_color = srcery.bright_white,
-      ["col.active"] = srcery.gray2,
+      ["col.active"] = srcery.gray1,
       ["col.inactive"] = srcery.black,
       ["col.locked_active"] = srcery.gray2,
-      ["col.locked_inactive"] = srcery.black,
+      ["col.locked_inactive"] = srcery.gray3,
     }
   },
 
