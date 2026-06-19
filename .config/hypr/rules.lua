@@ -80,6 +80,7 @@ hl.window_rule({
   no_anim = true,
   float = true,
   pin = true,
+  dim_around = true
 })
 
 -- Workspace assignments
