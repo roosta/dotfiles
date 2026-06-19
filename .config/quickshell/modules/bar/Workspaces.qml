@@ -65,7 +65,7 @@ BorderRect {
       }
       property Gradient inactiveGradient: Gradient {
         orientation: Gradient.Horizontal
-        GradientStop { position: 1; color: Style.srcery.white }
+        GradientStop { position: 1; color: Style.srcery.brightBlack }
       }
       gradientAngle: 45
       gradient: root.monitor?.focused ? activeGradient : inactiveGradient
