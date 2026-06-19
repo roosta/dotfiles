@@ -9,10 +9,11 @@ local primary_monitor = monitors.tv
 
 hl.monitor({
   output = monitors.tv,
-  mode = "3840x2160",
+  mode = "3840x2160@120",
   position = "0x0",
   scale = "2",
   bitdepth = 10,
+  vrr = 3
 })
 
 hl.monitor({
