@@ -321,6 +321,7 @@ Item {
         }
         Layout.fillWidth: true
         Layout.fillHeight: true
+        Layout.bottomMargin: 20
         elide: Text.ElideRight
         horizontalAlignment: Text.AlignHCenter
         wrapMode: Text.Wrap
