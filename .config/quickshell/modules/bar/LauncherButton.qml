@@ -9,6 +9,7 @@
 // ├┤ License : GNU General Public License v3              ├┤
 // ┆└──────────────────────────────────────────────────────┘┆
 
+pragma ComponentBehavior: Bound
 // import qs.services
 import qs.config
 // import qs.utils
@@ -22,83 +23,272 @@ import QtQuick.Layouts
 // import Quickshell.Wayland
 // import Quickshell.Widgets
 
-Button {
+Item {
+  required property string monitorId
   id: root
 
-  // color: Style.srcery.brightWhite
-  required property string monitorId
-  Layout.topMargin: Style.bar.borderWidth
-  implicitWidth: Style.bar.height - Style.spacing.p3
-  implicitHeight: Style.bar.height - Style.bar.borderWidth
-    - Style.spacing.p1 * 2
+  signal decrementCurrentIndex()
+  signal incrementCurrentIndex()
+  signal accepted()
 
   property bool active: GlobalState.launcherOpen
-    && GlobalState.launcherMonitorId === root.monitorId
-    && GlobalState.launcherMode !== "notifications"
+  && GlobalState.launcherMonitorId === root.monitorId
+  && GlobalState.launcherMode !== "notifications"
 
-  onPressed: {
-    GlobalState.toggleLauncher({id: root.monitorId })
+  Loader {
+    active: true
+    sourceComponent: root.active ? fieldComponent : buttonComponent
+    anchors.fill: parent
   }
 
-  HoverHandler {
-    id: hover
-    cursorShape: Qt.PointingHandCursor
-  }
+  // property int fieldWidth: 1920 / 9 - Style.spacing.p1 - Style.bar.borderWidth
+  Layout.topMargin: Style.bar.borderWidth
+  implicitWidth: root.active ? 300 : Style.bar.height - Style.spacing.p3
+  implicitHeight: Style.bar.height - Style.bar.borderWidth - Style.spacing.p1 * 2
 
-  background: BorderRect {
-    id: outerRect
-    color: Style.srcery.black
-    borderColor: Style.srcery.gray3
-    borderWidth: Style.bar.borderWidth
-    BorderRect {
-      id: innerRect
-      anchors.centerIn: parent
-      implicitWidth: parent.width * 0.5
-      implicitHeight: parent.height * 0.5
-      borderWidth: Style.bar.borderWidth
-      color: Style.srcery.black
-      rotation: 45
-      borderColor: Style.srcery.gray3
+  Behavior on implicitWidth {
+    NumberAnimation {
+      duration: Style.durations.small
+      easing.type: Easing.OutCubic
     }
   }
 
-  states: [
+  Component {
+    id: buttonComponent
+    Button {
 
-    State {
-      name: "active"
-      when: root.active && !hover.hovered
-      PropertyChanges { innerRect.rotation: 0 }
-      PropertyChanges { outerRect.borderColor: Style.srcery.brightBlack }
-      PropertyChanges { innerRect.borderColor: Style.srcery.brightWhite }
-    },
+      id: button
+      // required property var appList;
 
-    State {
-      name: "hovered"
-      when: hover.hovered && !root.active
-      PropertyChanges { outerRect.borderColor: Style.srcery.gray6 }
-      PropertyChanges { innerRect.borderColor: Style.srcery.brightWhite }
-    },
+      // color: Style.srcery.brightWhite
 
-    State {
-      name: "activeHovered"
-      when: hover.hovered && root.active
-      PropertyChanges { outerRect.borderColor: Style.srcery.brightWhite }
-      PropertyChanges { innerRect.borderColor: Style.srcery.brightWhite }
-      PropertyChanges { innerRect.rotation: 0 }
-    }
-  ]
-
-  transitions: [
-    Transition {
-      NumberAnimation {
-        properties: "rotation"
-        duration: Style.durations.normal
-        easing.type: Easing.OutCubic
+      anchors.fill: parent
+      onPressed: {
+        GlobalState.toggleLauncher({id: root.monitorId })
       }
-      ColorAnimation {
-        duration: Style.durations.small
-        easing.type: Easing.OutQuad
+
+      HoverHandler {
+        id: hover
+        cursorShape: Qt.PointingHandCursor
       }
+
+      background: BorderRect {
+        id: outerRect
+        anchors.fill: parent
+        borderColor: Style.srcery.gray3
+        borderWidth: Style.bar.borderWidth
+        BorderRect {
+          id: innerRect
+          anchors.horizontalCenter: root.active ? undefined : parent.horizontalCenter
+          implicitWidth: parent.width - Style.spacing.p1 * 2
+          anchors.margins: Style.spacing.p1
+          anchors.top: parent.top
+          anchors.bottom: parent.bottom
+          borderWidth: Style.bar.borderWidth
+          color: Style.srcery.black
+          // rotation: 45
+          borderColor: Style.srcery.gray3
+        }
+      }
+
+      states: [
+
+        State {
+          name: "active"
+          when: root.active && !hover.hovered
+          PropertyChanges {
+            // innerRect.rotation: 0
+            innerRect.implicitWidth: Style.spacing.p1
+            innerRect.color: Style.srcery.brightWhite
+            innerRect.borderColor: Style.srcery.brightWhite
+          }
+          // PropertyChanges { outerRect.borderColor: Style.srcery.brightBlack }
+          // PropertyChanges { innerRect.borderColor: Style.srcery.brightWhite }
+        },
+
+        State {
+          name: "hovered"
+          when: hover.hovered && !root.active
+          PropertyChanges { outerRect.borderColor: Style.srcery.gray6 }
+          PropertyChanges { innerRect.borderColor: Style.srcery.brightWhite }
+        },
+
+        State {
+          name: "activeHovered"
+          when: hover.hovered && root.active
+          PropertyChanges { outerRect.borderColor: Style.srcery.brightWhite }
+          PropertyChanges { innerRect.borderColor: Style.srcery.brightWhite }
+          // PropertyChanges { innerRect.rotation: 0 }
+        }
+      ]
+
+      transitions: [
+        Transition {
+          NumberAnimation {
+            properties: "implicitWidth,implicitHeight"
+            duration: Style.durations.small
+            easing.type: Easing.OutCubic
+          }
+          ColorAnimation {
+            duration: Style.durations.normal
+            easing.type: Easing.OutCubic
+          }
+        }
+      ]
+
     }
-  ]
+  }
+  Component {
+    id: fieldComponent
+    TextField {
+
+      Connections {
+        target: GlobalState
+
+        function onLauncherOpenChanged() {
+          if (GlobalState.launcherOpen && GlobalState.launcherMonitorId === root.monitorId) {
+            field.forceActiveFocus();
+          }
+        }
+      }
+
+      color: Style.srcery.brightWhite
+      id: field
+      leftPadding: Style.spacing.p1
+      renderType: TextField.NativeRendering
+      cursorVisible: !readOnly
+      implicitWidth: 200
+      placeholderTextColor: Style.srcery.gray3
+      font.family: Style.font.light
+      font.pointSize: Style.font.normal
+      placeholderText: " Search..."
+      onTextChanged: {
+        if (text === Config.menuPrefix) {
+          GlobalState.launcherMode = "menu"
+        }
+        const m = Config.launcherMenus.find(m => {
+          return text.startsWith(`${Config.menuPrefix}/${m.mode}`)
+        })
+        if (m) {
+          GlobalState.launcherMode = m[0]
+          GlobalState.searchQuery = ""
+        }
+        GlobalState.searchQuery = text
+      }
+      background: Rectangle {
+        color: "transparent"
+        border.color: Style.srcery.gray3
+      }
+
+      function goPrevious() {
+        if (GlobalState.menuDirection === Qt.LeftToRight) {
+          return root.decrementCurrentIndex()
+        } else if (GlobalState.menuDirection === Qt.RightToLeft) {
+          return root.incrementCurrentIndex()
+        }
+      }
+
+      function goNext() {
+        if (GlobalState.menuDirection === Qt.LeftToRight) {
+          return root.incrementCurrentIndex()
+        } else if (GlobalState.menuDirection === Qt.RightToLeft) {
+          return root.decrementCurrentIndex()
+        }
+      }
+
+      Keys.onEscapePressed: GlobalState.closeLauncher()
+      Keys.onRightPressed: goNext()
+      Keys.onLeftPressed: goPrevious()
+      Component.onCompleted: forceActiveFocus()
+      onAccepted: root.accepted()
+
+      // https://github.com/caelestia-dots/shell/blob/fe4ebb79b6162d7e5e4e9a00d8a39ff10876fb8c/modules/launcher/Content.qml#L109
+      Keys.onPressed: event => {
+        if (event.modifiers & Qt.ControlModifier) {
+          if (event.key === Qt.Key_L) {
+            goNext();
+            event.accepted = true;
+          } else if (event.key === Qt.Key_H) {
+            goPrevious()
+            event.accepted = true;
+          }
+        } else if (event.key === Qt.Key_Tab && GlobalState.matchCount === 1) {
+          root.accepted()
+          event.accepted = true;
+        } else if (event.key === Qt.Key_Tab) {
+          root.incrementCurrentIndex();
+          event.accepted = true;
+        } else if (event.key === Qt.Key_Backtab || (event.key === Qt.Key_Tab && (event.modifiers & Qt.ShiftModifier))) {
+          root.decrementCurrentIndex();
+          event.accepted = true;
+        } else if (event.key == Qt.Key_Backspace && text === "" && GlobalState.launcherMode !== Config.defaultMode) {
+          GlobalState.launcherMode = Config.defaultMode
+          event.accepted = true
+        } else if (event.key == Qt.Key_Backspace && text === "/" && GlobalState.launcherMode === "menu") {
+          GlobalState.launcherMode = Config.defaultMode
+          field.text = ""
+          event.accepted = true
+        }
+      }
+      cursorDelegate: Rectangle {
+        id: cursor
+        property bool disableBlink
+        color: Style.srcery.brightWhite
+        implicitWidth: Style.spacing.p1
+
+        Connections {
+          target: field
+
+          function onCursorPositionChanged(): void {
+            if (field.activeFocus && field.cursorVisible) {
+              cursor.opacity = 1;
+              cursor.disableBlink = true;
+              enableBlink.restart();
+            }
+          }
+        }
+
+        Timer {
+          running: field.activeFocus && field.cursorVisible && !cursor.disableBlink
+          repeat: true
+          triggeredOnStart: true
+          interval: 500
+          onTriggered: parent.opacity = parent.opacity === 1 ? 0 : 1
+        }
+        Binding {
+          when: !field.activeFocus || !field.cursorVisible
+          cursor.opacity: 0
+        }
+        Timer {
+          id: enableBlink
+
+          interval: 100
+          onTriggered: cursor.disableBlink = false
+        }
+
+        Behavior on opacity {
+          NumberAnimation {
+            duration: Style.durations.small
+            easing.type: Easing.InOutCubic
+          }
+        }
+
+      }
+
+      Behavior on color {
+        ColorAnimation {
+          duration: 50
+          easing.type: Easing.OutQuad
+        }
+      }
+      Behavior on placeholderTextColor {
+        ColorAnimation {
+          duration: 50
+          easing.type: Easing.OutQuad
+        }
+      }
+
+    }
+  }
+
 }

@@ -27,12 +27,36 @@ import Quickshell.Hyprland
 Item {
   id: root
   required property string monitorId
-
+  property var appList: layout.currentMenu?.item?.modelData ?? []
+  onAppListChanged: {
+    GlobalState.matchCount = appList.length
+  }
   anchors.bottomMargin: Style.bar.height
   anchors.fill: parent
   property alias launcherHeight: launcher.height
   property bool monitorIsFocused: Hyprland.focusedMonitor?.id === monitorId
-  property string query: ""
+
+  signal decrementCurrentIndex()
+  signal incrementCurrentIndex()
+  signal accepted()
+  onAccepted: {
+    // qmllint disable missing-property
+    const currentItem = layout.currentMenu?.item?.list?.currentItem;
+    if (currentItem) {
+      // qmllint disable missing-property
+      layout.currentMenu.accept(currentItem.modelData)
+    }
+  }
+
+  onIncrementCurrentIndex: {
+    // qmllint disable missing-property
+    layout.currentMenu?.item?.list.incrementCurrentIndex()
+  }
+
+  onDecrementCurrentIndex: {
+    // qmllint disable missing-property
+    layout.currentMenu?.item?.list.decrementCurrentIndex()
+  }
   // property int currentIndex: 0
 
   visible: launcher.height > 0
@@ -135,9 +159,8 @@ Item {
       LauncherMenu {
         id: appMenu
         active: layout.state === "apps" || layout.state === ""
-        query: root.query
         monitorId: root.monitorId
-        sourceModel: Fuzzy.query(root.query, LauncherData.appsData)
+        sourceModel: Fuzzy.query(GlobalState.searchQuery, LauncherData.appsData)
         onAccept: (entry) => {
           LauncherData.launch(entry)
           GlobalState.closeLauncher()
@@ -149,12 +172,11 @@ Item {
       LauncherMenu {
         id: notificationMenu
         active: layout.state === "notifications"
-        query: root.query
         monitorId: root.monitorId
         canClose: true
         sourceModel: {
-          const q = root.query.replace(`${Config.menuPrefix}/notifications`, "")
-          return Fuzzy.go(root.query, Notifications.list, {
+          const q = GlobalState.searchQuery.replace(`${Config.menuPrefix}/notifications`, "")
+          return Fuzzy.go(q, Notifications.list, {
             all: true,
             key: "appName"
 
@@ -170,10 +192,9 @@ Item {
       LauncherMenu {
         id: utilsMenu
         active: layout.state === "utils"
-        query: root.query
         monitorId: root.monitorId
         sourceModel: {
-          const q = root.query.replace(`${Config.menuPrefix}/utils`, "")
+          const q = GlobalState.searchQuery.replace(`${Config.menuPrefix}/utils`, "")
           return Fuzzy.query(q, LauncherData.utilsData)
         }
         onAccept: (entry) => {
@@ -186,10 +207,9 @@ Item {
       LauncherMenu {
         id: audioMenu
         active: layout.state === "audio"
-        query: root.query
         monitorId: root.monitorId
         sourceModel: {
-          const q = root.query.replace(`${Config.menuPrefix}/audio`, "")
+          const q = GlobalState.searchQuery.replace(`${Config.menuPrefix}/audio`, "")
           return Fuzzy.query(q, LauncherData.audioData)
         }
         onAccept: (entry) => {
@@ -202,10 +222,9 @@ Item {
       LauncherMenu {
         id: displayMenu
         active: layout.state === "display"
-        query: root.query
         monitorId: root.monitorId
         sourceModel: {
-          const q = root.query.replace(`${Config.menuPrefix}/display`, "")
+          const q = GlobalState.searchQuery.replace(`${Config.menuPrefix}/display`, "")
           return Fuzzy.query(q, LauncherData.displayData)
         }
         onAccept: (entry) => {
@@ -218,10 +237,9 @@ Item {
       LauncherMenu {
         id: powerMenu
         active: layout.state === "power"
-        query: root.query
         monitorId: root.monitorId
         sourceModel: {
-          const q = root.query.replace(`${Config.menuPrefix}/power`, "")
+          const q = GlobalState.searchQuery.replace(`${Config.menuPrefix}/power`, "")
           return Fuzzy.query(q, LauncherData.powerData)
         }
         onAccept: (entry) => {
@@ -234,44 +252,43 @@ Item {
       LauncherMenu {
         id: menuMenu
         active: layout.state === "menu"
-        query: root.query
         monitorId: root.monitorId
         sourceModel: {
-          const q = root.query.replace("/", "")
+          const q = GlobalState.searchQuery.replace("/", "")
           Fuzzy.query(q, LauncherData.menuData)
         }
         onAccept: (entry) => {
           GlobalState.launcherMode = entry.mode
-          field.text = ""
+          GlobalState.searchQuery = ""
         }
       }
 
       // Silence warnings about property access
       // Due to the currrentMenu being sort of generic I dont know how to let qmllint
       // know about these properties, but they are there
-      LauncherField {
-        id: field
-        onTextChanged: root.query = text
-        monitorId: root.monitorId
-        // qmllint disable missing-property
-        appList: layout.currentMenu?.item?.modelData ?? []
-        parentWidth: parent.width
-        onIncrementCurrentIndex: {
-          // qmllint disable missing-property
-          layout.currentMenu?.item?.list.incrementCurrentIndex()
-        }
-        onDecrementCurrentIndex: {
-          // qmllint disable missing-property
-          layout.currentMenu?.item?.list.decrementCurrentIndex()
-        }
-        onAccepted: {
-          const currentItem = layout.currentMenu?.item?.list?.currentItem; // qmllint disable missing-property
-          if (currentItem) {
-            // qmllint disable missing-property
-            layout.currentMenu.accept(currentItem.modelData)
-          }
-        }
-      }
+      // LauncherField {
+      //   id: field
+      //   onTextChanged: root.query = text
+      //   monitorId: root.monitorId
+      //   // qmllint disable missing-property
+      //   appList: layout.currentMenu?.item?.modelData ?? []
+      //   parentWidth: parent.width
+      //   onIncrementCurrentIndex: {
+      //     // qmllint disable missing-property
+      //     // layout.currentMenu?.item?.list.incrementCurrentIndex()
+      //   }
+      //   onDecrementCurrentIndex: {
+      //     // qmllint disable missing-property
+      //     // layout.currentMenu?.item?.list.decrementCurrentIndex()
+      //   }
+      //   onAccepted: {
+      //     const currentItem = layout.currentMenu?.item?.list?.currentItem; // qmllint disable missing-property
+      //     if (currentItem) {
+      //       // qmllint disable missing-property
+      //       layout.currentMenu.accept(currentItem.modelData)
+      //     }
+      //   }
+      // }
     }
   }
 }

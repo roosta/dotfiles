@@ -12,19 +12,18 @@
 pragma ComponentBehavior: Bound
 import Quickshell
 import QtQuick.Layouts
-import Quickshell.Widgets
+// import Quickshell.Widgets
 import QtQuick
 import qs.config
-import qs.components
-import qs.services
+// import qs.components
+// import qs.services
 import qs.utils
-import qs
+// import qs
 
 Loader {
   id: root
   required property string monitorId
   required property var sourceModel
-  required property string query
   property bool canClose
   visible: active
 
@@ -36,7 +35,6 @@ Loader {
   sourceComponent: LauncherList {
     id: list
     monitorId: root.monitorId
-    searchQuery: root.query
 
     sourceModel: root.sourceModel
     delegate: LauncherItem {

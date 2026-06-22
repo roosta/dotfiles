@@ -46,6 +46,8 @@ Item {
   property string imageSource: ""
   property int iconSize: 40
 
+  clip: true
+
   MouseArea {
     id: mouseArea
     anchors.fill: parent

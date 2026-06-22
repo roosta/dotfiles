@@ -51,7 +51,7 @@ BorderRect {
     State {
       name: "hovered"
       when: button.containsMouse && !button.pressed
-      PropertyChanges { root.borderColor: Style.srcery.gray4 }
+      PropertyChanges { root.borderColor: Style.srcery.gray6 }
       PropertyChanges { button.cursorShape: Qt.PointingHandCursor }
     },
     State {

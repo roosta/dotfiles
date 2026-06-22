@@ -24,6 +24,10 @@ Item {
   z: 1
   implicitHeight: Style.bar.height
 
+  signal decrementCurrentIndex()
+  signal incrementCurrentIndex()
+  signal accepted()
+
   anchors {
     bottom: parent.bottom
     left: parent.left
@@ -80,8 +84,12 @@ Item {
               anchors.left: parent.left
               anchors.leftMargin: Style.spacing.p1
               anchors.fill: parent
-              AlertsIndicator { monitorId: root.monitorId }
-              KeyboardButton { monitorId: root.monitorId }
+              LauncherButton {
+                monitorId: root.monitorId
+                onDecrementCurrentIndex: root.decrementCurrentIndex()
+                onIncrementCurrentIndex: root.incrementCurrentIndex()
+                onAccepted: root.accepted()
+              }
               Loader {
                 Layout.fillHeight: true
                 Layout.fillWidth: true
@@ -100,9 +108,7 @@ Item {
             RowLayout {
               spacing: Style.spacing.p1
               anchors.centerIn: parent
-              LauncherButton { monitorId: root.monitorId }
               Workspaces { monitorId: root.monitorId }
-              NotificationButton { monitorId: root.monitorId }
             }
           }
           Rectangle {
@@ -115,8 +121,11 @@ Item {
               anchors.right: parent.right
               anchors.rightMargin: Style.spacing.p1
               Clock { }
+              AlertsIndicator { monitorId: root.monitorId }
+              KeyboardButton { monitorId: root.monitorId }
               TrayButton { monitorId: root.monitorId }
               AudioButton { monitorId: root.monitorId }
+              NotificationButton { monitorId: root.monitorId }
             }
           }
         }

@@ -31,6 +31,8 @@ Singleton {
   property bool trayMenuOpen: false
   property int menuDirection: Qt.LeftToRight
   property int menuIndex: 0
+  property string searchQuery: ""
+  property int matchCount: 0
 
   Timer {
     id: timer
@@ -40,6 +42,7 @@ Singleton {
       root.launcherMode = Config.defaultMode
       root.menuDirection = Qt.LeftToRight
       root.menuIndex = 0
+      root.searchQuery = ""
     }
   }
 

@@ -25,7 +25,6 @@ import qs
 Item {
   id: root
   required property string monitorId
-  required property string searchQuery
   property var sourceModel: []
   property alias list: list
   property alias delegate: list.delegate

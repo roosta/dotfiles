@@ -74,6 +74,7 @@ BorderRect {
       id: field
       // Layout.fillWidth: true
       // Layout.alignment: Qt.AlignHCenter | Qt.alignLeft
+      leftPadding: Style.spacing.p1
       renderType: TextField.NativeRendering
       cursorVisible: !readOnly
       implicitWidth: root.parentWidth / 6 - Style.spacing.p1

@@ -174,6 +174,9 @@ ShellRoot {
         Bar {
           id: bar
           monitorId: scope.monitorId
+          onDecrementCurrentIndex: launcher.decrementCurrentIndex()
+          onIncrementCurrentIndex: launcher.incrementCurrentIndex()
+          onAccepted: launcher.accepted()
         }
 
         Launcher {
