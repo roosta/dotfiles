@@ -173,7 +173,7 @@ Item {
       placeholderTextColor: Style.srcery.gray3
       font.family: Style.font.light
       font.pointSize: Style.font.normal
-      placeholderText: "  Search (/ for mode)"
+      placeholderText: "  Search (/ for modes)"
       text: GlobalState.searchQuery
       onTextChanged: {
         if (text === Config.menuPrefix) {
