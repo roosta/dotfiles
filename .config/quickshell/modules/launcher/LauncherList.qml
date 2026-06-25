@@ -118,6 +118,7 @@ Item {
       ListView {
         id: list
         visible: root.sourceModel.length > 0
+        clip: true
         anchors.fill: parent
         // currentIndex: GlobalState.menuIndex
 
@@ -197,12 +198,31 @@ Item {
             }
           }
         }
-
-        displaced: Transition {
+        add: Transition {
           NumberAnimation {
-            property: "x"
-            easing.type: Easing.OutCubic
-            duration: Style.durations.normal
+            properties: "opacity"
+            from: 0
+            to: 1
+            duration: Style.durations.medium
+          }
+        }
+        remove: Transition {
+          NumberAnimation {
+            properties: "opacity"
+            to: 0
+            duration: Style.durations.medium
+          }
+        }
+        displaced: Transition {
+          NumberAnimation { property: "opacity"; to: 1.0 }
+          // NumberAnimation { property: "scale"; to: 1.0 }
+          NumberAnimation {
+            properties: "x"
+            duration: Style.animationCurves
+              .expressiveDefaultSpatialDuration
+            easing.type: Easing.BezierSpline
+            easing.bezierCurve: Style.animationCurves
+              .expressiveDefaultSpatial
           }
         }
       }
