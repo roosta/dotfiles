@@ -119,7 +119,8 @@ hl.config({
   -- https://wiki.hypr.land/Configuring/Basics/Variables/#misc
   misc = {
     disable_hyprland_logo = true,
-    background_color = srcery.black
+    disable_splash_rendering = true,
+    background_color = srcery.black,
   },
 
   -- https://wiki.hypr.land/Configuring/Advanced-and-Cool/XWayland/
