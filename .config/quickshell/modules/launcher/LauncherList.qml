@@ -198,22 +198,32 @@ Item {
             }
           }
         }
+        populate: Transition {
+          NumberAnimation {
+            properties: "x"
+            duration: Style.animationCurves.expressiveDefaultSpatialDuration
+            easing.type: Easing.BezierSpline
+            easing.bezierCurve: Style.animationCurves.expressiveDefaultSpatial
+          }
+        }
+
         add: Transition {
           NumberAnimation {
             properties: "y"
             from: -Style.launcher.height
             to: 0
             duration: Style.animationCurves
-              .expressiveFastSpatialDuration
+            .expressiveFastSpatialDuration
             easing.type: Easing.BezierSpline
             easing.bezierCurve: Style.animationCurves
-              .expressiveFastSpatial
+            .expressiveFastSpatial
           }
           // NumberAnimation {
           //   property: "opacity"
           //   to: 1.0
           // }
         }
+
         remove: Transition {
           NumberAnimation {
             properties: "y"
@@ -225,16 +235,7 @@ Item {
               .expressiveFastSpatial
           }
         }
-        move: Transition {
-          NumberAnimation {
-            properties: "x"
-            duration: Style.animationCurves
-              .expressiveDefaultSpatialDuration
-            easing.type: Easing.BezierSpline
-            easing.bezierCurve: Style.animationCurves
-              .expressiveDefaultSpatial
-          }
-        }
+
         displaced: Transition {
           NumberAnimation {
             property: "opacity"
