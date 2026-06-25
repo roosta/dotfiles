@@ -37,8 +37,20 @@ Item {
 
   Loader {
     active: true
-    sourceComponent: root.active ? fieldComponent : buttonComponent
+    sourceComponent: fieldComponent
     anchors.fill: parent
+    id: fieldLoader
+    opacity: root.active ? 1 : 0
+    Behavior on opacity {
+      NumberAnimation { duration: Style.durations.small; easing.type: Easing.OutCubic }
+    }
+  }
+
+  Loader {
+    active: !root.active
+    sourceComponent: buttonComponent
+    anchors.fill: parent
+    id: buttonLoader
   }
 
   // property int fieldWidth: 1920 / 9 - Style.spacing.p1 - Style.bar.borderWidth
@@ -79,11 +91,11 @@ Item {
         borderWidth: Style.bar.borderWidth
         BorderRect {
           id: innerRect
-          anchors.horizontalCenter: root.active ? undefined : parent.horizontalCenter
-          implicitWidth: parent.width - Style.spacing.p1 * 2
+          implicitWidth: parent.height - Style.spacing.p1 * 2
           anchors.margins: Style.spacing.p1
           anchors.top: parent.top
           anchors.bottom: parent.bottom
+          anchors.left: parent.left
           borderWidth: Style.bar.borderWidth
           color: Style.srcery.black
           // rotation: 45
@@ -93,18 +105,18 @@ Item {
 
       states: [
 
-        State {
-          name: "active"
-          when: root.active && !hover.hovered
-          PropertyChanges {
-            // innerRect.rotation: 0
-            innerRect.implicitWidth: Style.spacing.p1
-            innerRect.color: Style.srcery.brightWhite
-            innerRect.borderColor: Style.srcery.brightWhite
-          }
-          // PropertyChanges { outerRect.borderColor: Style.srcery.brightBlack }
-          // PropertyChanges { innerRect.borderColor: Style.srcery.brightWhite }
-        },
+        // State {
+        //   name: "active"
+        //   when: root.active && !hover.hovered
+        //   PropertyChanges {
+        //     // innerRect.rotation: 0
+        //     innerRect.implicitWidth: Style.spacing.p1
+        //     innerRect.color: Style.srcery.brightWhite
+        //     innerRect.borderColor: Style.srcery.brightWhite
+        //   }
+        //   // PropertyChanges { outerRect.borderColor: Style.srcery.brightBlack }
+        //   // PropertyChanges { innerRect.borderColor: Style.srcery.brightWhite }
+        // },
 
         State {
           name: "hovered"
@@ -113,13 +125,13 @@ Item {
           PropertyChanges { innerRect.borderColor: Style.srcery.brightWhite }
         },
 
-        State {
-          name: "activeHovered"
-          when: hover.hovered && root.active
-          PropertyChanges { outerRect.borderColor: Style.srcery.brightWhite }
-          PropertyChanges { innerRect.borderColor: Style.srcery.brightWhite }
-          // PropertyChanges { innerRect.rotation: 0 }
-        }
+        // State {
+        //   name: "activeHovered"
+        //   when: hover.hovered && root.active
+        //   PropertyChanges { outerRect.borderColor: Style.srcery.brightWhite }
+        //   PropertyChanges { innerRect.borderColor: Style.srcery.brightWhite }
+        //   // PropertyChanges { innerRect.rotation: 0 }
+        // }
       ]
 
       transitions: [
@@ -161,7 +173,8 @@ Item {
       placeholderTextColor: Style.srcery.gray3
       font.family: Style.font.light
       font.pointSize: Style.font.normal
-      placeholderText: " Search..."
+      placeholderText: "  Search (/ for mode)"
+      text: GlobalState.searchQuery
       onTextChanged: {
         if (text === Config.menuPrefix) {
           GlobalState.launcherMode = "menu"
@@ -230,11 +243,34 @@ Item {
           event.accepted = true
         }
       }
-      cursorDelegate: Rectangle {
+      // BorderRect {
+      //   id: innerRect
+      //   anchors.horizontalCenter: root.active ? undefined : parent.horizontalCenter
+      //   implicitWidth: parent.width - Style.spacing.p1 * 2
+      //   anchors.margins: Style.spacing.p1
+      //   anchors.top: parent.top
+      //   anchors.bottom: parent.bottom
+      //   borderWidth: Style.bar.borderWidth
+      //   color: Style.srcery.black
+      //   // rotation: 45
+      //   borderColor: Style.srcery.gray3
+      // }
+      cursorDelegate: BorderRect {
         id: cursor
         property bool disableBlink
-        color: Style.srcery.brightWhite
-        implicitWidth: Style.spacing.p1
+        property bool visualActive: false
+
+        color: visualActive ? Style.srcery.brightWhite : "transparent"
+        borderColor: Style.srcery.gray3
+        borderWidth: visualActive ? 0 : 1
+        implicitWidth: visualActive ? Style.spacing.p1 : parent.height - Style.spacing.p1 * 2
+
+        Component.onCompleted: visualActive = true
+
+        Connections {
+          target: root
+          function onActiveChanged() { cursor.visualActive = root.active }
+        }
 
         Connections {
           target: field
@@ -268,11 +304,23 @@ Item {
 
         Behavior on opacity {
           NumberAnimation {
-            duration: Style.durations.small
+            duration: Style.durations.normal
+            easing.type: Easing.InOutCubic
+          }
+        }
+        Behavior on implicitWidth {
+          NumberAnimation {
+            duration: Style.durations.normal
             easing.type: Easing.InOutCubic
           }
         }
 
+        Behavior on color {
+          ColorAnimation {
+            duration: 500
+            easing.type: Easing.OutQuad
+          }
+        }
       }
 
       Behavior on color {
