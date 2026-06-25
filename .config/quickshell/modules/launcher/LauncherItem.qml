@@ -34,8 +34,9 @@ Item {
   property var actions: []
   property bool isNotification: false
   property bool isCurrentItem: ListView.isCurrentItem
-  anchors.top: parent?.top
-  anchors.bottom: parent?.bottom
+  implicitHeight: parent.height
+  // anchors.top: parent?.top
+  // anchors.bottom: parent?.bottom
   // height: parent?.height ?? 0
   implicitWidth: {
     if (parentWidth <= 0) return 0
@@ -45,6 +46,7 @@ Item {
   property string iconSource: ""
   property string imageSource: ""
   property int iconSize: 40
+  property double contentOpacity: 1.0
 
   clip: true
 
@@ -180,7 +182,7 @@ Item {
       Behavior on opacity {
         NumberAnimation {
           property: "opacity"
-          duration: Style.durations.small
+          duration: Style.durations.large
           easing.type: Easing.InOutQuad
         }
       }

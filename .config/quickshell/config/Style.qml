@@ -106,6 +106,7 @@ Singleton {
 
   component Durations: QtObject {
     readonly property int slow: 800
+    readonly property int large: 500
     readonly property int normal: 400
     readonly property int medium: 300
     readonly property int small: 200

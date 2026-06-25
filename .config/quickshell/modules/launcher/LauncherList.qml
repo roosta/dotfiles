@@ -205,6 +205,10 @@ Item {
             to: 1
             duration: Style.durations.medium
           }
+          NumberAnimation {
+            property: "opacity"
+            to: 1.0
+          }
         }
         remove: Transition {
           NumberAnimation {
@@ -213,8 +217,21 @@ Item {
             duration: Style.durations.medium
           }
         }
+        move: Transition {
+          NumberAnimation {
+            properties: "x"
+            duration: Style.animationCurves
+            .expressiveDefaultSpatialDuration
+            easing.type: Easing.BezierSpline
+            easing.bezierCurve: Style.animationCurves
+            .emphasized
+          }
+        }
         displaced: Transition {
-          NumberAnimation { property: "opacity"; to: 1.0 }
+          NumberAnimation {
+            property: "opacity"
+            to: 1.0
+          }
           // NumberAnimation { property: "scale"; to: 1.0 }
           NumberAnimation {
             properties: "x"
@@ -222,7 +239,7 @@ Item {
               .expressiveDefaultSpatialDuration
             easing.type: Easing.BezierSpline
             easing.bezierCurve: Style.animationCurves
-              .expressiveDefaultSpatial
+              .emphasized
           }
         }
       }
