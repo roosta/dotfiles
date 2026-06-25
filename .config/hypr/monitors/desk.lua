@@ -23,6 +23,7 @@ hl.monitor({
   mode = "preferred",
   position = "-1920x0",
   scale = "2",
+  vrr = 0
 })
 
 hl.monitor({
@@ -30,6 +31,7 @@ hl.monitor({
   mode = "preferred",
   position = "1920x0",
   scale = "2",
+  vrr = 0
 })
 
 hl.monitor({
