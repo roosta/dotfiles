@@ -149,7 +149,12 @@ Item {
             spacing: Style.spacing.p1
             Layout.leftMargin: Style.spacing.p1
 
-            LauncherButton { monitorId: root.monitorId }
+            LauncherButton {
+              monitorId: root.monitorId
+              onDecrementCurrentIndex: root.decrementCurrentIndex()
+              onIncrementCurrentIndex: root.incrementCurrentIndex()
+              onAccepted: root.accepted()
+            }
 
             Workspaces {
               monitorId: root.monitorId
@@ -198,7 +203,12 @@ Item {
             Workspaces {
               monitorId: root.monitorId
             }
-            LauncherButton { monitorId: root.monitorId }
+            LauncherButton {
+              monitorId: root.monitorId
+              onDecrementCurrentIndex: root.decrementCurrentIndex()
+              onIncrementCurrentIndex: root.incrementCurrentIndex()
+              onAccepted: root.accepted()
+            }
             // Clock { }
           }}
         }
