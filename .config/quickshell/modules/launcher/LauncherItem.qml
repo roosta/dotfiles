@@ -34,7 +34,7 @@ Item {
   property var actions: []
   property bool isNotification: false
   property bool isCurrentItem: ListView.isCurrentItem
-  implicitHeight: parent.height
+  implicitHeight: parent?.height ?? 0
   // anchors.top: parent?.top
   // anchors.bottom: parent?.bottom
   // height: parent?.height ?? 0

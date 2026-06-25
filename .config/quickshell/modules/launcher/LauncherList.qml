@@ -167,7 +167,7 @@ Item {
             NumberAnimation {
               duration: Style.animationCurves.expressiveFastSpatialDuration
               easing.type: Easing.BezierSpline
-              easing.bezierCurve: Style.animationCurves.expressiveDefaultSpatial
+              easing.bezierCurve: Style.animationCurves.expressiveFastSpatial
             }
           }
           gradient: Gradient {
@@ -200,31 +200,39 @@ Item {
         }
         add: Transition {
           NumberAnimation {
-            properties: "opacity"
-            from: 0
-            to: 1
-            duration: Style.durations.medium
+            properties: "y"
+            from: -Style.launcher.height
+            to: 0
+            duration: Style.animationCurves
+              .expressiveFastSpatialDuration
+            easing.type: Easing.BezierSpline
+            easing.bezierCurve: Style.animationCurves
+              .expressiveFastSpatial
           }
-          NumberAnimation {
-            property: "opacity"
-            to: 1.0
-          }
+          // NumberAnimation {
+          //   property: "opacity"
+          //   to: 1.0
+          // }
         }
         remove: Transition {
           NumberAnimation {
-            properties: "opacity"
-            to: 0
-            duration: Style.durations.medium
+            properties: "y"
+            to: Style.launcher.height
+            duration: Style.animationCurves
+              .expressiveFastSpatialDuration
+            easing.type: Easing.BezierSpline
+            easing.bezierCurve: Style.animationCurves
+              .expressiveFastSpatial
           }
         }
         move: Transition {
           NumberAnimation {
             properties: "x"
             duration: Style.animationCurves
-            .expressiveDefaultSpatialDuration
+              .expressiveDefaultSpatialDuration
             easing.type: Easing.BezierSpline
             easing.bezierCurve: Style.animationCurves
-            .emphasized
+              .expressiveDefaultSpatial
           }
         }
         displaced: Transition {
@@ -239,7 +247,7 @@ Item {
               .expressiveDefaultSpatialDuration
             easing.type: Easing.BezierSpline
             easing.bezierCurve: Style.animationCurves
-              .emphasized
+              .expressiveDefaultSpatial
           }
         }
       }
