@@ -10,10 +10,10 @@
 // ┆└─────────────────────────────────────────────┘┆
 
 import QtQuick
-import QtQuick.Layouts
-// import Quickshell
 import qs.components
 import qs.services
+import QtQuick.Controls
+import QtQuick.Layouts
 import qs.config
 pragma ComponentBehavior: Bound
 
@@ -108,7 +108,9 @@ Item {
             RowLayout {
               spacing: Style.spacing.p1
               anchors.centerIn: parent
+              WsButton { direction: -1; monitorId: root.monitorId }
               Workspaces { monitorId: root.monitorId }
+              WsButton { direction: 1; monitorId: root.monitorId }
             }
           }
           Rectangle {
