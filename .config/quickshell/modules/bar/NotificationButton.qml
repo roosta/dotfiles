@@ -18,7 +18,7 @@ import qs
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
-import QtQuick.Shapes
+// import QtQuick.Shapes
 // import Quickshell
 // import Quickshell.Hyprland
 // import Quickshell.Wayland
@@ -47,51 +47,68 @@ Button {
     State {
       name: "open"
       when: root.menuOpen && !root.hovered && !root.active
-      PropertyChanges { shape.rotation: 90 }
-      PropertyChanges { path.strokeColor: Style.srcery.brightWhite }
-      PropertyChanges { rect.borderColor: Style.srcery.brightBlack }
+      // PropertyChanges { shape.rotation: 90 }
+      // PropertyChanges { path.strokeColor: Style.srcery.brightWhite }
+      PropertyChanges {
+        rect.borderColor: Style.srcery.brightBlack
+        dot.color: Style.srcery.brightWhite
+      }
 
     },
     State {
       name: "openActive"
       when: root.menuOpen && !root.hovered && root.active
-      PropertyChanges { shape.rotation: 90 }
+      PropertyChanges {
+        triangle.rotation: 180
+        triangle.gradientEnabled: true
+        dot.color: Style.srcery.brightWhite
+      }
       PropertyChanges { path.strokeColor: Style.srcery.brightWhite }
       PropertyChanges { rect.borderColor: Style.srcery.brightBlack }
     },
     State {
       name: "openActiveHovered"
       when: root.menuOpen && root.hovered && root.active
-      PropertyChanges { shape.rotation: 90 }
-      PropertyChanges { path.strokeColor: Style.srcery.brightWhite }
+      PropertyChanges {
+        triangle.rotation: 180
+        triangle.gradientEnabled: true
+        dot.color: Style.srcery.brightWhite
+      }
+      // PropertyChanges { path.strokeColor: Style.srcery.brightWhite }
       PropertyChanges { rect.borderColor: Style.srcery.brightWhite }
     },
     State {
       name: "openHovered"
       when: root.menuOpen && root.hovered && !root.active
-      PropertyChanges { shape.rotation: 90 }
-      PropertyChanges { path.strokeColor: Style.srcery.brightWhite }
+      // PropertyChanges { shape.rotation: 90 }
+      // PropertyChanges { path.strokeColor: Style.srcery.brightWhite }
       PropertyChanges { rect.borderColor: Style.srcery.brightWhite }
     },
     State {
       name: "active"
       when: root.active && !root.hovered && !root.menuOpen
-      PropertyChanges { shape.rotation: 180 }
+      PropertyChanges {
+        triangle.rotation: 180
+        triangle.gradientEnabled: true
+      }
       PropertyChanges { path.strokeColor: Style.srcery.white }
       PropertyChanges { rect.borderColor: Style.srcery.gray5 }
     },
     State {
       name: "activeHovered"
       when: root.active && root.hovered && !root.menuOpen
-      PropertyChanges { shape.rotation: 180 }
-      PropertyChanges { path.strokeColor: Style.srcery.brightWhite }
+      PropertyChanges {
+        triangle.rotation: 180
+        triangle.gradientEnabled: true
+      }
+      // PropertyChanges { dot.color: Style.srcery.brightWhite }
       PropertyChanges { rect.borderColor: Style.srcery.brightBlack }
     },
     State {
       name: "hovered"
       when: hover.hovered && !root.active && !root.menuOpen
       PropertyChanges { rect.borderColor: Style.srcery.gray6 }
-      PropertyChanges { path.strokeColor: Style.srcery.brightWhite }
+      // PropertyChanges { path.strokeColor: Style.srcery.brightWhite }
 
     }
   ]
@@ -116,21 +133,44 @@ Button {
     borderWidth: Style.bar.borderWidth
     anchors.fill: parent
 
-    Shape {
-      id: shape
+    Triangle {
+      id: triangle
+      width: 20
+      height: 18
       anchors.centerIn: parent
-      width: Style.bar.iconSize
-      height: Style.bar.iconSize
-      ShapePath {
-        strokeWidth: 1
-        id: path
-        strokeColor: Style.srcery.gray3
-        fillColor: Style.srcery.black
-        PathSvg {
-          id: svg
-          path: "M 10 1.7 L 18.3 16.3 L 1.7 16.3 Z"
-        }
+      gradientEnabled: false
+      strokeColor: Style.srcery.brightBlack
+      gradientStart: Style.srcery.yellow
+      gradientEnd: Style.srcery.cyan
+      gradientRotation: 90
+      Rectangle {
+        id: dot
+        width: 4
+        height: 4
+        radius: 4
+        anchors.bottom: parent.bottom
+        anchors.bottomMargin: 4
+        color: Style.srcery.brightBlack
+        // anchors.centerIn: parent
+        anchors.topMargin: 4
+        anchors.horizontalCenter: parent.horizontalCenter
       }
     }
+    // Shape {
+    //   id: shape
+    //   anchors.centerIn: parent
+    //   width: Style.bar.iconSize
+    //   height: Style.bar.iconSize
+    //   ShapePath {
+    //     strokeWidth: 1
+    //     id: path
+    //     strokeColor: Style.srcery.gray3
+    //     fillColor: Style.srcery.black
+    //     PathSvg {
+    //       id: svg
+    //       path: "M 10 1.7 L 18.3 16.3 L 1.7 16.3 Z"
+    //     }
+    //   }
+    // }
   }
 }
