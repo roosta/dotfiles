@@ -121,6 +121,8 @@ hl.config({
     disable_hyprland_logo = true,
     disable_splash_rendering = true,
     background_color = srcery.black,
+    initial_workspace_tracking = 0,
+    font_family = "IosevkaTerm Nerd Font",
   },
 
   -- https://wiki.hypr.land/Configuring/Advanced-and-Cool/XWayland/
