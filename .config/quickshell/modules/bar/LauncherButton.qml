@@ -178,7 +178,7 @@ Item {
         State {
           name: "hovered"
           when: hover.hovered && !root.active
-          PropertyChanges { outerRect.borderColor: Style.srcery.gray6 }
+          PropertyChanges { outerRect.borderColor: Style.srcery.brightBlack }
           PropertyChanges { innerRect.gradientAngle: 360 }
         },
 
@@ -227,7 +227,7 @@ Item {
       renderType: TextField.NativeRendering
       cursorVisible: !readOnly
       implicitWidth: 200
-      placeholderTextColor: Style.srcery.gray3
+      placeholderTextColor: Style.srcery.gray6
       font.family: Style.font.light
       font.pointSize: Style.font.normal
       placeholderText: "  Search (/ for modes)"
