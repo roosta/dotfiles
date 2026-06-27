@@ -124,7 +124,7 @@ Item {
             implicitHeight: button.visualActive ? 4 : parent.implicitHeight
             anchors.centerIn: parent
             radius: 4
-            color: Style.srcery.brightBlue
+            color: Style.srcery.brightWhite
 
             Behavior on implicitWidth {
               NumberAnimation {
@@ -317,7 +317,7 @@ Item {
 
         property Gradient cursorGradient: Gradient {
           orientation: Gradient.Horizontal
-          GradientStop { position: 1; color: Style.srcery.brightBlue }
+          GradientStop { position: 1; color: Style.srcery.brightWhite }
         }
         gradient: visualActive ? cursorGradient : activeGradient
         implicitWidth: visualActive ? Style.spacing.p1 : parent.height - Style.spacing.p1 * 2
@@ -329,7 +329,7 @@ Item {
           // opacity: cursor.visualActive ? 0 : 1
           anchors.centerIn: parent
           radius: cursor.visualActive ? 0 : 4
-          color: Style.srcery.brightBlue
+          color: Style.srcery.brightWhite
 
           Behavior on implicitWidth {
             NumberAnimation {
