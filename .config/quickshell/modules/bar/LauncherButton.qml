@@ -40,10 +40,10 @@ Item {
     sourceComponent: fieldComponent
     anchors.fill: parent
     id: fieldLoader
-    opacity: root.active ? 1 : 0
-    Behavior on opacity {
-      NumberAnimation { duration: Style.durations.small; easing.type: Easing.OutCubic }
-    }
+    // opacity: root.active ? 1 : 0
+    // Behavior on opacity {
+    //   NumberAnimation { duration: Style.durations.small; easing.type: Easing.OutCubic }
+    // }
   }
 
   Loader {
@@ -89,9 +89,15 @@ Item {
         anchors.fill: parent
         borderColor: Style.srcery.gray3
         borderWidth: Style.bar.borderWidth
-        BorderRect {
+        GradientRect {
           id: innerRect
           implicitWidth: parent.height - Style.spacing.p1 * 2
+          gradientAngle: 45
+          gradient: Gradient {
+            orientation: Gradient.Horizontal
+            GradientStop { position: 1; color: Style.srcery.magenta }
+            GradientStop { position: 0; color: Style.srcery.blue }
+          }
           anchors.margins: Style.spacing.p1
           anchors.top: parent.top
           anchors.bottom: parent.bottom
@@ -99,7 +105,7 @@ Item {
           borderWidth: Style.bar.borderWidth
           color: Style.srcery.black
           // rotation: 45
-          borderColor: Style.srcery.gray3
+          borderColor: Style.srcery.white
         }
       }
 
@@ -122,7 +128,7 @@ Item {
           name: "hovered"
           when: hover.hovered && !root.active
           PropertyChanges { outerRect.borderColor: Style.srcery.gray6 }
-          PropertyChanges { innerRect.borderColor: Style.srcery.brightWhite }
+          PropertyChanges { innerRect.gradientAngle: 360 }
         },
 
         // State {
@@ -140,6 +146,11 @@ Item {
             properties: "implicitWidth,implicitHeight"
             duration: Style.durations.small
             easing.type: Easing.OutCubic
+          }
+          NumberAnimation {
+            properties: "gradientAngle"
+            duration: Style.durations.normal
+            easing.type: Easing.InOutCubic
           }
           ColorAnimation {
             duration: Style.durations.normal
