@@ -93,10 +93,18 @@ Item {
           id: innerRect
           implicitWidth: parent.height - Style.spacing.p1 * 2
           gradientAngle: 45
+          rotation: 45
           gradient: Gradient {
             orientation: Gradient.Horizontal
-            GradientStop { position: 1; color: Style.srcery.magenta }
+            GradientStop { position: 1; color: Style.srcery.green }
             GradientStop { position: 0; color: Style.srcery.blue }
+          }
+          Rectangle {
+            implicitWidth: 4
+            implicitHeight: 4
+            anchors.centerIn: parent
+            radius: 4
+            color: Style.srcery.brightBlue
           }
           anchors.margins: Style.spacing.p1
           anchors.top: parent.top
@@ -107,6 +115,16 @@ Item {
           // rotation: 45
           borderColor: Style.srcery.white
         }
+      }
+
+      NumberAnimation {
+        target: innerRect
+        running: hover.hovered && !root.active
+        property: "gradientAngle"
+        duration: 1000
+        to: 405
+        loops: Animation.Infinite;
+        easing.type: Easing.Linear
       }
 
       states: [
@@ -146,11 +164,6 @@ Item {
             properties: "implicitWidth,implicitHeight"
             duration: Style.durations.small
             easing.type: Easing.OutCubic
-          }
-          NumberAnimation {
-            properties: "gradientAngle"
-            duration: Style.durations.normal
-            easing.type: Easing.InOutCubic
           }
           ColorAnimation {
             duration: Style.durations.normal
