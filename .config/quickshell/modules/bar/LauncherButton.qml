@@ -36,14 +36,10 @@ Item {
   && GlobalState.launcherMode !== "notifications"
 
   Loader {
-    active: true
+    active: root.active
     sourceComponent: fieldComponent
     anchors.fill: parent
     id: fieldLoader
-    // opacity: root.active ? 1 : 0
-    // Behavior on opacity {
-    //   NumberAnimation { duration: Style.durations.small; easing.type: Easing.OutCubic }
-    // }
   }
 
   Loader {
@@ -53,7 +49,6 @@ Item {
     id: buttonLoader
   }
 
-  // property int fieldWidth: 1920 / 9 - Style.spacing.p1 - Style.bar.borderWidth
   Layout.topMargin: Style.bar.borderWidth
   implicitWidth: root.active ? 300 : Style.bar.height - Style.spacing.p3
   implicitHeight: Style.bar.height - Style.bar.borderWidth - Style.spacing.p1 * 2
@@ -68,12 +63,14 @@ Item {
   Component {
     id: buttonComponent
     Button {
-
+      property bool visualActive: false
+      opacity: visualActive ? 1 : 0
       id: button
-      // required property var appList;
-
-      // color: Style.srcery.brightWhite
-
+      Component.onCompleted: visualActive = true
+      Connections {
+        target: root
+        function onActiveChanged() { button.visualActive = !root.active }
+      }
       anchors.fill: parent
       onPressed: {
         GlobalState.toggleLauncher({id: root.monitorId })
@@ -91,21 +88,56 @@ Item {
         borderWidth: Style.bar.borderWidth
         GradientRect {
           id: innerRect
-          implicitWidth: parent.height - Style.spacing.p1 * 2
+
+          implicitWidth: button.visualActive ? parent.height - Style.spacing.p1 * 2 : Style.spacing.p1
           implicitHeight: parent.height - Style.spacing.p1 * 2
+          // implicitWidth: parent.height - Style.spacing.p1 * 2
+          // implicitHeight: parent.height - Style.spacing.p1 * 2
+
+          Behavior on rotation {
+            NumberAnimation {
+              duration: Style.durations.medium
+              easing.type: Easing.InOutCubic
+            }
+          }
+          Behavior on implicitWidth {
+            NumberAnimation {
+              duration: Style.durations.medium
+              easing.type: Easing.Linear
+            }
+          }
+          Behavior on implicitHeight {
+            NumberAnimation {
+              duration: Style.durations.medium
+              easing.type: Easing.Linear
+            }
+          }
           gradientAngle: 45
-          rotation: 45
+          rotation: button.visualActive ? 45 : 0
           gradient: Gradient {
             orientation: Gradient.Horizontal
             GradientStop { position: 1; color: Style.srcery.green }
             GradientStop { position: 0; color: Style.srcery.blue }
           }
           Rectangle {
-            implicitWidth: 4
-            implicitHeight: 4
+            implicitWidth: button.visualActive ? 4 : parent.implicitWidth
+            implicitHeight: button.visualActive ? 4 : parent.implicitHeight
             anchors.centerIn: parent
             radius: 4
             color: Style.srcery.brightBlue
+
+            Behavior on implicitWidth {
+              NumberAnimation {
+                duration: Style.durations.medium
+                easing.type: Easing.Linear
+              }
+            }
+            Behavior on implicitHeight {
+              NumberAnimation {
+                duration: Style.durations.medium
+                easing.type: Easing.Linear
+              }
+            }
           }
           anchors.margins: Style.spacing.p1
           anchors.top: parent.top
@@ -167,7 +199,7 @@ Item {
             easing.type: Easing.OutCubic
           }
           ColorAnimation {
-            duration: Style.durations.normal
+            duration: Style.durations.medium
             easing.type: Easing.OutCubic
           }
         }
@@ -268,24 +300,11 @@ Item {
           event.accepted = true
         }
       }
-      // BorderRect {
-      //   id: innerRect
-      //   anchors.horizontalCenter: root.active ? undefined : parent.horizontalCenter
-      //   implicitWidth: parent.width - Style.spacing.p1 * 2
-      //   anchors.margins: Style.spacing.p1
-      //   anchors.top: parent.top
-      //   anchors.bottom: parent.bottom
-      //   borderWidth: Style.bar.borderWidth
-      //   color: Style.srcery.black
-      //   // rotation: 45
-      //   borderColor: Style.srcery.gray3
-      // }
+
       cursorDelegate: GradientRect {
         id: cursor
         property bool disableBlink
         property bool visualActive: false
-
-        // color: visualActive ? Style.srcery.brightWhite : "transparent"
 
         gradientAngle: 45
         rotation: visualActive ? 0 : 45
@@ -301,8 +320,6 @@ Item {
           GradientStop { position: 1; color: Style.srcery.brightBlue }
         }
         gradient: visualActive ? cursorGradient : activeGradient
-        // borderColor: Style.srcery.gray3
-        // borderWidth: visualActive ? 0 : 1
         implicitWidth: visualActive ? Style.spacing.p1 : parent.height - Style.spacing.p1 * 2
         implicitHeight: parent.height - Style.spacing.p1 * 2
 
@@ -316,13 +333,13 @@ Item {
 
           Behavior on implicitWidth {
             NumberAnimation {
-              duration: Style.durations.normal
+              duration: Style.durations.medium
               easing.type: Easing.Linear
             }
           }
           Behavior on implicitHeight {
             NumberAnimation {
-              duration: Style.durations.normal
+              duration: Style.durations.medium
               easing.type: Easing.Linear
             }
           }
@@ -366,20 +383,20 @@ Item {
 
         Behavior on opacity {
           NumberAnimation {
-            duration: Style.durations.normal
+            duration: Style.durations.medium
             easing.type: Easing.InOutCubic
           }
         }
         Behavior on implicitWidth {
           NumberAnimation {
-            duration: Style.durations.normal
+            duration: Style.durations.medium
             easing.type: Easing.InOutCubic
           }
         }
 
         Behavior on rotation {
           NumberAnimation {
-            duration: Style.durations.normal
+            duration: Style.durations.medium
             easing.type: Easing.InOutCubic
           }
         }
