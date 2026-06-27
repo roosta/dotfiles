@@ -92,6 +92,7 @@ Item {
         GradientRect {
           id: innerRect
           implicitWidth: parent.height - Style.spacing.p1 * 2
+          implicitHeight: parent.height - Style.spacing.p1 * 2
           gradientAngle: 45
           rotation: 45
           gradient: Gradient {
@@ -279,16 +280,53 @@ Item {
       //   // rotation: 45
       //   borderColor: Style.srcery.gray3
       // }
-      cursorDelegate: BorderRect {
+      cursorDelegate: GradientRect {
         id: cursor
         property bool disableBlink
         property bool visualActive: false
 
-        color: visualActive ? Style.srcery.brightWhite : "transparent"
-        borderColor: Style.srcery.gray3
-        borderWidth: visualActive ? 0 : 1
-        implicitWidth: visualActive ? Style.spacing.p1 : parent.height - Style.spacing.p1 * 2
+        // color: visualActive ? Style.srcery.brightWhite : "transparent"
 
+        gradientAngle: 45
+        rotation: visualActive ? 0 : 45
+
+        property Gradient activeGradient: Gradient {
+          orientation: Gradient.Horizontal
+          GradientStop { position: 1; color: Style.srcery.green }
+          GradientStop { position: 0; color: Style.srcery.blue }
+        }
+
+        property Gradient cursorGradient: Gradient {
+          orientation: Gradient.Horizontal
+          GradientStop { position: 1; color: Style.srcery.brightBlue }
+        }
+        gradient: visualActive ? cursorGradient : activeGradient
+        // borderColor: Style.srcery.gray3
+        // borderWidth: visualActive ? 0 : 1
+        implicitWidth: visualActive ? Style.spacing.p1 : parent.height - Style.spacing.p1 * 2
+        implicitHeight: parent.height - Style.spacing.p1 * 2
+
+        Rectangle {
+          implicitWidth: cursor.visualActive ? parent.implicitWidth : 4
+          implicitHeight: cursor.visualActive ? parent.implicitHeight : 4
+          // opacity: cursor.visualActive ? 0 : 1
+          anchors.centerIn: parent
+          radius: cursor.visualActive ? 0 : 4
+          color: Style.srcery.brightBlue
+
+          Behavior on implicitWidth {
+            NumberAnimation {
+              duration: Style.durations.normal
+              easing.type: Easing.Linear
+            }
+          }
+          Behavior on implicitHeight {
+            NumberAnimation {
+              duration: Style.durations.normal
+              easing.type: Easing.Linear
+            }
+          }
+        }
         Component.onCompleted: visualActive = true
 
         Connections {
@@ -333,6 +371,13 @@ Item {
           }
         }
         Behavior on implicitWidth {
+          NumberAnimation {
+            duration: Style.durations.normal
+            easing.type: Easing.InOutCubic
+          }
+        }
+
+        Behavior on rotation {
           NumberAnimation {
             duration: Style.durations.normal
             easing.type: Easing.InOutCubic
