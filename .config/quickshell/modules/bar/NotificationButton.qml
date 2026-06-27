@@ -63,7 +63,7 @@ Button {
         triangle.gradientEnabled: true
         dot.color: Style.srcery.brightWhite
       }
-      PropertyChanges { path.strokeColor: Style.srcery.brightWhite }
+      // PropertyChanges { path.strokeColor: Style.srcery.brightWhite }
       PropertyChanges { rect.borderColor: Style.srcery.brightBlack }
     },
     State {
@@ -91,7 +91,7 @@ Button {
         triangle.rotation: 180
         triangle.gradientEnabled: true
       }
-      PropertyChanges { path.strokeColor: Style.srcery.white }
+      // PropertyChanges { path.strokeColor: Style.srcery.white }
       PropertyChanges { rect.borderColor: Style.srcery.gray5 }
     },
     State {
