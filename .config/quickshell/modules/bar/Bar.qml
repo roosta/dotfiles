@@ -123,8 +123,8 @@ Item {
               Clock { }
               AlertsIndicator { monitorId: root.monitorId }
               KeyboardButton { monitorId: root.monitorId }
-              TrayButton { monitorId: root.monitorId }
               AudioButton { monitorId: root.monitorId }
+              TrayButton { monitorId: root.monitorId }
               NotificationButton { monitorId: root.monitorId }
             }
           }
