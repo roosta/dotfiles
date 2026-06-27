@@ -12,14 +12,15 @@ Item {
   property int borderWidth: 1
   property int radius: 0
   property real gradientAngle: 0
+  property int gradientPadding: 10
 
   function gradientSize() {
     const rad = root.gradientAngle * Math.PI / 180
     const absCos = Math.abs(Math.cos(rad))
     const absSin = Math.abs(Math.sin(rad))
     return {
-      width:  width * absCos + height * absSin,
-      height: width * absSin + height * absCos
+      width:  width * absCos + height * absSin + gradientPadding,
+      height: width * absSin + height * absCos + gradientPadding
     }
   }
 
