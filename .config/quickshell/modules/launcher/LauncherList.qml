@@ -204,6 +204,12 @@ Item {
         }
         populate: Transition {
           NumberAnimation {
+            properties: "opacity"
+            to: 1.0
+            easing.type: Easing.Linear
+            duration: Style.durations.tiny
+          }
+          NumberAnimation {
             properties: "x"
             duration: Style.animationCurves.expressiveDefaultSpatialDuration
             easing.type: Easing.BezierSpline
@@ -212,6 +218,12 @@ Item {
         }
 
         add: Transition {
+          NumberAnimation {
+            properties: "opacity"
+            to: 1.0
+            easing.type: Easing.Linear
+            duration: Style.durations.tiny
+          }
           NumberAnimation {
             properties: "y"
             from: -Style.launcher.height
@@ -229,6 +241,12 @@ Item {
         }
 
         remove: Transition {
+          NumberAnimation {
+            properties: "opacity"
+            to: 0.0
+            easing.type: Easing.Linear
+            duration: Style.durations.tiny
+          }
           NumberAnimation {
             properties: "y"
             to: Style.launcher.height
