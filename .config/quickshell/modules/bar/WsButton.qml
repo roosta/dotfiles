@@ -1,4 +1,5 @@
 import QtQuick
+import Quickshell.Wayland
 import qs.services
 import Quickshell
 import qs.components
@@ -15,10 +16,12 @@ Button {
 
   required property string monitorId
 
+  readonly property Toplevel activeWindow: ToplevelManager.activeToplevel
   readonly property HyprlandMonitor monitor: Hyprland
     .monitorFor(root.QsWindow.window?.screen)
   readonly property int activeWorkspaceId: monitor?.activeWorkspace?.id ?? 1
   property var workspaces: HyprlandData.workspacesByMonitor[monitorId] ?? []
+  property var persistent: workspaces.filter(w => w.ispersistent)
 
   HoverHandler {
     id: hover
@@ -42,9 +45,12 @@ Button {
     }
   ]
   onPressed: {
-    const move = activeWorkspaceId + root.direction
-    if (move <= workspaces.length && move >= 1) {
-      Hyprland.dispatch(`hl.dsp.window.move({ workspace = ${move}, window = "activewindow", follow = true })`)
+    let move = activeWorkspaceId + root.direction
+    let screens = activeWindow?.screens ?? []
+    if (screens[0]?.name !== monitorId) { return }
+    if (move > persistent.length) move = persistent.length
+    if (move > 0) {
+      Hyprland.dispatch(`hl.dsp.window.move({ workspace = ${move}, window = "activewindow" })`)
     }
   }
 
