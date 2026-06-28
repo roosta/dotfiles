@@ -32,7 +32,9 @@ Item {
   property bool isOpen: false
 
   default property alias contents: launcherList.children
-  anchors.fill: parent
+
+  Layout.fillWidth: true
+  Layout.fillHeight: true
 
   Timer {
     id: timer

@@ -19,6 +19,7 @@ import qs.utils
 import QtQuick
 import QtQuick.Layouts
 import Quickshell.Hyprland
+import Quickshell
 
 // import qs.utils
 // import QtQuick.Controls
@@ -27,10 +28,7 @@ import Quickshell.Hyprland
 Item {
   id: root
   required property string monitorId
-  property var appList: layout.currentMenu?.item?.modelData ?? []
-  onAppListChanged: {
-    GlobalState.matchCount = appList.length
-  }
+  // property var appList: layout.currentMenu?.item?.modelData ?? []
   anchors.bottomMargin: Style.bar.height
   anchors.fill: parent
   property alias launcherHeight: launcher.height
@@ -40,22 +38,18 @@ Item {
   signal incrementCurrentIndex()
   signal accepted()
   onAccepted: {
-    // qmllint disable missing-property
-    const currentItem = layout.currentMenu?.item?.list?.currentItem;
+    const currentItem = launcherList?.list?.currentItem;
     if (currentItem) {
-      // qmllint disable missing-property
-      layout.currentMenu.accept(currentItem.modelData)
+      launcherList.accept(currentItem.modelData)
     }
   }
 
   onIncrementCurrentIndex: {
-    // qmllint disable missing-property
-    layout.currentMenu?.item?.list.incrementCurrentIndex()
+    launcherList.list.incrementCurrentIndex()
   }
 
   onDecrementCurrentIndex: {
-    // qmllint disable missing-property
-    layout.currentMenu?.item?.list.decrementCurrentIndex()
+    launcherList.list.decrementCurrentIndex()
   }
   // property int currentIndex: 0
 
@@ -125,141 +119,97 @@ Item {
       anchors.fill: parent
       id: layout
       spacing: 0
-
-      property QtObject currentMenu: {
-        switch(state) {
-          case "audio":
-            return audioMenu
-          case "display":
-            return displayMenu
-          case "power":
-            return powerMenu
-          case "utils":
-            return utilsMenu
-          case "menu":
-            return menuMenu
-          case "notifications":
-            return notificationMenu
-          default:
-            return appMenu
-        }
-      }
-
-
       // This handles setting context description when launcher is open
       // TODO: Improve
-      property string desc: currentMenu?.item?.list?.currentItem?.name ?? "Undefined"
+      property string desc: launcherList?.list?.currentItem?.name ?? "Undefined"
       onDescChanged: {
         if (typeof desc === "string" && desc !== "Undefined") { ContextData.launcherDesc = desc }
       }
 
-      state: GlobalState.launcherMode
-
-      // Applications
-      LauncherMenu {
-        id: appMenu
-        active: layout.state === "apps" || layout.state === ""
-        monitorId: root.monitorId
-        sourceModel: Fuzzy.query(GlobalState.searchQuery, LauncherData.appsData)
-        onAccept: (entry) => {
-          LauncherData.launch(entry)
-          GlobalState.closeLauncher()
-        }
-      }
-
-
-      // Notifications
-      LauncherMenu {
-        id: notificationMenu
-        active: layout.state === "notifications"
-        monitorId: root.monitorId
-        canClose: true
-        sourceModel: {
+      property var sourceData: {
+        const s = GlobalState.launcherMode
+        if (s === "notifications") {
           const q = GlobalState.searchQuery.replace(`${Config.menuPrefix}/notifications`, "")
-          return Fuzzy.go(q, Notifications.list, {
-            all: true,
-            key: "appName"
-
-          }).map(s => s.obj)
-        }
-        onAccept: (entry) => {
-          Notifications.attemptInvokeAction(entry.notificationId, "default")
-          GlobalState.closeLauncher()
-        }
-      }
-
-      // Utilities (scripts)
-      LauncherMenu {
-        id: utilsMenu
-        active: layout.state === "utils"
-        monitorId: root.monitorId
-        sourceModel: {
-          const q = GlobalState.searchQuery.replace(`${Config.menuPrefix}/utils`, "")
-          return Fuzzy.query(q, LauncherData.utilsData)
-        }
-        onAccept: (entry) => {
-          LauncherData.launch(entry)
-          GlobalState.closeLauncher()
-        }
-      }
-
-      // Audio menu
-      LauncherMenu {
-        id: audioMenu
-        active: layout.state === "audio"
-        monitorId: root.monitorId
-        sourceModel: {
-          const q = GlobalState.searchQuery.replace(`${Config.menuPrefix}/audio`, "")
-          return Fuzzy.query(q, LauncherData.audioData)
-        }
-        onAccept: (entry) => {
-          LauncherData.launch(entry)
-          GlobalState.closeLauncher()
-        }
-      }
-
-      // Display menu
-      LauncherMenu {
-        id: displayMenu
-        active: layout.state === "display"
-        monitorId: root.monitorId
-        sourceModel: {
-          const q = GlobalState.searchQuery.replace(`${Config.menuPrefix}/display`, "")
-          return Fuzzy.query(q, LauncherData.displayData)
-        }
-        onAccept: (entry) => {
-          LauncherData.launch(entry)
-          GlobalState.closeLauncher()
-        }
-      }
-
-      // Power menu
-      LauncherMenu {
-        id: powerMenu
-        active: layout.state === "power"
-        monitorId: root.monitorId
-        sourceModel: {
+          return Fuzzy.go(q, Notifications.list, { all: true, key: "appName" }).map(s => s.obj)
+        } else if (s === "menu") {
+          const q = GlobalState.searchQuery.replace("/", "")
+          return Fuzzy.query(q, LauncherData.menuData)
+        } else if (s === "power") {
           const q = GlobalState.searchQuery.replace(`${Config.menuPrefix}/power`, "")
           return Fuzzy.query(q, LauncherData.powerData)
-        }
-        onAccept: (entry) => {
-          LauncherData.launch(entry)
-          GlobalState.closeLauncher()
+        } else if (s === "display") {
+          const q = GlobalState.searchQuery.replace(`${Config.menuPrefix}/display`, "")
+          return Fuzzy.query(q, LauncherData.displayData)
+        } else if (s === "audio") {
+          const q = GlobalState.searchQuery.replace(`${Config.menuPrefix}/audio`, "")
+          return Fuzzy.query(q, LauncherData.audioData)
+        } else if (s === "utils") {
+          const q = GlobalState.searchQuery.replace(`${Config.menuPrefix}/utils`, "")
+          return Fuzzy.query(q, LauncherData.utilsData)
+        } else {
+          return Fuzzy.query(GlobalState.searchQuery, LauncherData.appsData)
         }
       }
 
-      // Meta menu
-      LauncherMenu {
-        id: menuMenu
-        active: layout.state === "menu"
-        monitorId: root.monitorId
-        sourceModel: {
-          const q = GlobalState.searchQuery.replace("/", "")
-          Fuzzy.query(q, LauncherData.menuData)
-        }
-        onAccept: (entry) => {
+      onSourceDataChanged: {
+        GlobalState.matchCount = layout.sourceData.length
+      }
+
+      function onAccept(entry) {
+        const s = GlobalState.launcherMode
+        if (s === "notifications") {
+          Notifications.attemptInvokeAction(entry.notificationId, "default")
+          GlobalState.closeLauncher()
+        } else if (s === "menu") {
           GlobalState.launcherMode = entry.mode
           GlobalState.searchQuery = ""
+        } else if (s === "power"
+          || s === "display"
+          || s === "audio"
+          || s === "utils"
+          || s === "apps"
+          || s === "") {
+          LauncherData.launch(entry)
+          GlobalState.closeLauncher()
+        }
+
+      }
+
+      LauncherList {
+        monitorId: root.monitorId
+        id: launcherList
+
+        sourceModel: layout.sourceData
+
+        signal accept(entry: var)
+        onAccept: (entry) => {
+          layout.onAccept(entry)
+        }
+
+        delegate: LauncherItem {
+          required property var modelData
+
+          iconSource: {
+            const icon = modelData?.iconId || modelData?.appIcon
+            if (icon) {
+              return Quickshell.iconPath(icon)
+            } else if (modelData?.id) {
+              return Icons.getEntryIcon(modelData)
+            }
+            return ""
+          }
+
+          notificationId: modelData?.notificationId ?? -1
+          imageSource: modelData?.image ?? ""
+          name: modelData?.name ?? modelData?.appName ?? ""
+          favorite: Config.favorites.includes(modelData?.id ?? "") ?? false
+          isNotification: modelData?.isNotification ?? false
+          timeElapsed: Functions.timeElapsed(modelData?.time) ?? ""
+          description: modelData?.comment ?? modelData?.body ?? ""
+          genericName: modelData?.genericName ?? modelData?.summary ??  ""
+          actions: modelData?.actions ?? []
+          categories: modelData?.categories ?? []
+          onClicked: launcherList.accept(modelData)
         }
       }
 
