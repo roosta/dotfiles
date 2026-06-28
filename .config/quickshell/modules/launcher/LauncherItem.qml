@@ -15,10 +15,12 @@ import qs
 import QtQuick.Layouts
 import QtQuick.Controls
 import QtQuick
-import qs.utils
+// import qs.utils
 import qs.config
 import qs.services
 import qs.components
+import QtQuick.Effects
+import qs.utils
 
 Item {
   id: root
@@ -49,7 +51,7 @@ Item {
   property int iconSize: 40
   property double contentOpacity: 1.0
 
-  clip: true
+  // clip: true
 
   MouseArea {
     id: mouseArea
@@ -98,6 +100,15 @@ Item {
     }
 
   ]
+  MultiEffect {
+    source: card
+    anchors.fill: card
+    shadowBlur: 1.0
+    shadowEnabled: true
+    shadowColor: Functions.transparentize("#000", 0.5)
+    shadowVerticalOffset: 0
+    shadowHorizontalOffset: 0
+  }
 
   Rectangle {
     id: card

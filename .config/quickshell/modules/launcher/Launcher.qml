@@ -93,7 +93,7 @@ Item {
     anchors.left: parent.left
     anchors.right: parent.right
     anchors.bottom: parent.bottom
-    color: Style.srcery.darkBlack
+    color: "transparent"
     topBorder: Style.bar.borderWidth
     borderColor: Style.srcery.gray2
 

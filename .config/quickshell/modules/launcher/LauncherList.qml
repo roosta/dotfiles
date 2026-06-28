@@ -36,6 +36,8 @@ Item {
   Layout.fillWidth: true
   Layout.fillHeight: true
 
+  clip: true
+  Layout.topMargin: Style.bar.borderWidth
   Timer {
     id: timer
     interval: Style.durations.small
@@ -120,7 +122,7 @@ Item {
       ListView {
         id: list
         visible: root.sourceModel.length > 0
-        clip: true
+        // clip: true
         anchors.fill: parent
         // currentIndex: GlobalState.menuIndex
 
