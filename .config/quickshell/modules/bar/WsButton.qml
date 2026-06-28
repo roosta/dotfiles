@@ -48,7 +48,11 @@ Button {
     let move = activeWorkspaceId + root.direction
     let screens = activeWindow?.screens ?? []
     if (screens[0]?.name !== monitorId) { return }
-    if (move > persistent.length) move = persistent.length
+    if (move > persistent.length) {
+      if (direction < 0) {
+        move = persistent.length
+      } else { return }
+    }
     if (move > 0) {
       Hyprland.dispatch(`hl.dsp.window.move({ workspace = ${move}, window = "activewindow" })`)
     }
