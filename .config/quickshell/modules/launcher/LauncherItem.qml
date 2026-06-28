@@ -194,7 +194,7 @@ Item {
       Behavior on opacity {
         NumberAnimation {
           property: "opacity"
-          duration: Style.durations.large
+          duration: GlobalState.launcherOpen ? Style.durations.tiny : Style.durations.large
           easing.type: Easing.InOutQuad
         }
       }
