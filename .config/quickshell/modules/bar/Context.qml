@@ -28,11 +28,20 @@ Item {
     id: rowLayout
     anchors.fill: parent
     spacing: Style.spacing.p2
-    IconImage {
-      id: windowIcon
-      // anchors.centerIn: parent
-      source: ContextData.data.icon
-      implicitSize: parent.height - Style.spacing.p3
+    BorderRect {
+      color: "transparent"
+      // borderColor: Style.srcery.gray3
+      // borderWidth: Style.bar.borderWidth
+      implicitHeight: Style.bar.height - Style.bar.borderWidth - Style.spacing.p1 * 2
+      implicitWidth: parent.height - Style.spacing.p3
+      IconImage {
+        id: windowIcon
+        anchors.fill: parent
+        // anchors.centerIn: parent
+        source: ContextData.data.icon
+        // implicitSize: parent.height - Style.spacing.p3
+        // anchors.margins: Style.spacing.p0
+      }
     }
     ColumnLayout {
       id: colLayout
