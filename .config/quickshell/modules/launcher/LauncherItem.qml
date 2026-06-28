@@ -360,8 +360,9 @@ Item {
         onHoveredChanged: {
           if (actionsArea.hovered) {
             collapseTimer.stop()
-            drawer.drawerExpanded = true
+            openTimer.start()
           } else {
+            openTimer.stop()
             collapseTimer.start()
           }
         }
@@ -371,6 +372,12 @@ Item {
         id: collapseTimer
         interval: Style.durations.medium
         onTriggered: drawer.drawerExpanded = false
+      }
+
+      Timer {
+        id: openTimer
+        interval: Style.durations.small
+        onTriggered: drawer.drawerExpanded = true
       }
 
       MouseArea {
