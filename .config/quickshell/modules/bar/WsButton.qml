@@ -54,7 +54,7 @@ Button {
       } else { return }
     }
     if (move > 0) {
-      Hyprland.dispatch(`hl.dsp.window.move({ workspace = ${move}, window = "activewindow" })`)
+      Hyprland.dispatch(`hl.dsp.window.move({ workspace = ${move}, window = "activewindow", follow = true })`)
     }
   }
 
