@@ -27,21 +27,12 @@ Item {
   RowLayout {
     id: rowLayout
     anchors.fill: parent
-    spacing: 0
-    BorderRect {
-      implicitWidth: Style.bar.height
-      implicitHeight: Style.bar.height - Style.bar.borderWidth
-      Layout.topMargin: Style.bar.borderWidth
-      color: Style.srcery.black
-      // rightBorder: Style.bar.borderWidth
-      leftBorder: Style.bar.borderWidth
-      borderColor: Style.srcery.gray3
-      IconImage {
-        id: windowIcon
-        anchors.centerIn: parent
-        source: ContextData.data.icon
-        implicitSize: parent.height - Style.spacing.p3
-      }
+    spacing: Style.spacing.p2
+    IconImage {
+      id: windowIcon
+      // anchors.centerIn: parent
+      source: ContextData.data.icon
+      implicitSize: parent.height - Style.spacing.p3
     }
     ColumnLayout {
       id: colLayout

@@ -90,6 +90,7 @@ Item {
                 onIncrementCurrentIndex: root.incrementCurrentIndex()
                 onAccepted: root.accepted()
               }
+              Separator {}
               Loader {
                 Layout.fillHeight: true
                 Layout.fillWidth: true
@@ -122,7 +123,9 @@ Item {
               spacing: Style.spacing.p1
               anchors.right: parent.right
               anchors.rightMargin: Style.spacing.p1
+              // anchors.fill: parent
               Clock { }
+              Separator {}
               AlertsIndicator { monitorId: root.monitorId }
               KeyboardButton { monitorId: root.monitorId }
               AudioButton { monitorId: root.monitorId }
