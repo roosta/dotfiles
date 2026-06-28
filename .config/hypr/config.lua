@@ -113,7 +113,8 @@ hl.config({
 
   -- https://wiki.hypr.land/Configuring/Basics/Variables/#binds
   binds = {
-    hide_special_on_workspace_change = true
+    hide_special_on_workspace_change = true,
+    movefocus_cycles_groupfirst = true,
   },
 
   -- https://wiki.hypr.land/Configuring/Basics/Variables/#misc
