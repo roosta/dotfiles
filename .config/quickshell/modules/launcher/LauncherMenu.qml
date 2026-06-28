@@ -40,7 +40,6 @@ Loader {
     delegate: LauncherItem {
       required property var modelData
 
-      parentWidth: list.width
       iconSource: {
         const icon = modelData?.iconId || modelData?.appIcon
         if (icon) {

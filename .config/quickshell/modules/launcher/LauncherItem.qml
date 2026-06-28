@@ -27,7 +27,6 @@ Item {
   property int notificationId: -1
   property bool canClose: notificationId >= 0
   property string genericName
-  property int parentWidth: 1920
   property bool favorite: false
   property string timeElapsed: ""
   property var categories: []
@@ -39,8 +38,10 @@ Item {
   // anchors.bottom: parent?.bottom
   // height: parent?.height ?? 0
   implicitWidth: {
-    if (parentWidth <= 0) return 0
-    return parentWidth / 9 - Style.spacing.p1 - Style.bar.borderWidth
+    const view = ListView.view
+    if (!view || view.width <= 0) return 0
+    const count = 9
+    return (view.width - (count - 1) * view.spacing) / count
   }
   signal clicked()
   property string iconSource: ""
