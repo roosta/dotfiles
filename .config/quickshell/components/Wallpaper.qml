@@ -17,6 +17,7 @@ import Quickshell.Hyprland
 import Quickshell.Wayland
 import QtQuick.Shapes
 import QtQuick.VectorImage
+import qs
 
 import qs.utils
 import qs.services
@@ -44,12 +45,19 @@ Loader {
 
 
     readonly property string wallpaper: `${Paths.srcery}/srcery-wallpaper/srcery-wallpaper.png`
-    anchors.bottomMargin: Style.bar.height
+    // anchors.bottomMargin: Style.bar.height
 
     Rectangle {
       id: backgroundColor
       anchors.fill: parent
-      color: Style.srcery.black
+      color: GlobalState.launcherOpen ? Style.srcery.darkBlack : Style.srcery.black
+
+      Behavior on color {
+        ColorAnimation {
+          duration: 300
+          easing.type: Easing.OutQuad
+        }
+      }
     }
 
     Diagram {

@@ -33,6 +33,10 @@ ShellRoot {
       id: scope
       required property ShellScreen modelData
       property string monitorId: modelData?.name ?? ""
+      readonly property HyprlandMonitor monitor: Hyprland
+        .monitorFor(modelData)
+      readonly property int activeWorkspaceId: monitor?.activeWorkspace?.id ?? 1
+      property var windows: HyprlandData.windowsByWorkspace[activeWorkspaceId] ?? []
 
       NamedPanel {
         id: wallpaper
@@ -165,7 +169,7 @@ ShellRoot {
           states: [
             State {
               name: "open"
-              when: GlobalState.overlayOpen
+              when: GlobalState.overlayOpen && scope.windows.length > 0
               PropertyChanges { content.color: Functions.transparentize("#000", 0.7) }
             }
           ]

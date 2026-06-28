@@ -13,6 +13,7 @@ import QtQuick
 import qs.config
 import qs.services
 import QtQuick.Layouts
+import qs
 
 Item {
   id: root
@@ -28,9 +29,17 @@ Item {
 
   Rectangle {
     anchors.fill: parent
-    border.color: Style.srcery.black
+    border.color: GlobalState.launcherOpen ? Style.srcery.darkBlack : Style.srcery.black
     color: "transparent"
     border.width: root.size / 2
+
+    Behavior on color {
+      ColorAnimation {
+        duration: 300
+        easing.type: Easing.OutQuad
+      }
+    }
+
   }
 
   FlexboxLayout {
