@@ -49,7 +49,6 @@ Item {
   property string iconSource: ""
   property string imageSource: ""
   property int iconSize: 40
-  property double contentOpacity: 1.0
 
   // clip: true
 
@@ -199,6 +198,7 @@ Item {
           easing.type: Easing.InOutQuad
         }
       }
+
       id: layout
       anchors.margins: Style.spacing.p3
       Layout.alignment: Qt.AlignTop
