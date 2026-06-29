@@ -72,13 +72,20 @@ Item {
         function onActiveChanged() { button.visualActive = !root.active }
       }
       anchors.fill: parent
-      onPressed: {
-        GlobalState.toggleLauncher({id: root.monitorId })
-      }
-
-      HoverHandler {
-        id: hover
+      MouseArea {
+        id: mouseArea
+        acceptedButtons: Qt.LeftButton | Qt.RightButton
         cursorShape: Qt.PointingHandCursor
+        anchors.fill: parent
+        hoverEnabled: true
+
+        onClicked: (mouse) => {
+          if (mouse.button === Qt.RightButton) {
+            GlobalState.toggleLauncher({id: root.monitorId, mode: "menu"})
+          } else if (mouse.button === Qt.LeftButton) {
+            GlobalState.toggleLauncher({id: root.monitorId })
+          }
+        }
       }
 
       background: BorderRect {
@@ -152,7 +159,7 @@ Item {
 
       NumberAnimation {
         target: innerRect
-        running: hover.hovered && !root.active
+        running: mouseArea.containsMouse && !root.active
         property: "gradientAngle"
         duration: 1000
         to: 405
@@ -177,7 +184,7 @@ Item {
 
         State {
           name: "hovered"
-          when: hover.hovered && !root.active
+          when: mouseArea.containsMouse && !root.active
           PropertyChanges { outerRect.borderColor: Style.srcery.brightBlack }
           PropertyChanges { innerRect.gradientAngle: 360 }
         },
