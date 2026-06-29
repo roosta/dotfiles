@@ -27,16 +27,18 @@ Item {
   RowLayout {
     id: rowLayout
     anchors.fill: parent
-    spacing: Style.spacing.p2
+    spacing: Style.spacing.p1
     BorderRect {
       color: "transparent"
-      // borderColor: Style.srcery.gray3
-      // borderWidth: Style.bar.borderWidth
+      borderColor: Style.srcery.gray3
+      borderWidth: Style.bar.borderWidth
       implicitHeight: Style.bar.height - Style.bar.borderWidth - Style.spacing.p1 * 2
-      implicitWidth: parent.height - Style.spacing.p3
+      implicitWidth: implicitHeight
       IconImage {
         id: windowIcon
         anchors.fill: parent
+        anchors.centerIn: parent
+        anchors.margins: 4
         // anchors.centerIn: parent
         source: ContextData.data.icon
         // implicitSize: parent.height - Style.spacing.p3
