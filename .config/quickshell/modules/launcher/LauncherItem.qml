@@ -113,6 +113,7 @@ Item {
   Rectangle {
     id: card
     anchors.fill: parent
+    opacity: 0
     border.color: Style.srcery.gray3
     color: Style.srcery.black
     border.width: Style.bar.borderWidth
