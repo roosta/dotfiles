@@ -82,7 +82,6 @@ Item {
             RowLayout {
               spacing: Style.spacing.p1
               anchors.left: parent.left
-              anchors.leftMargin: Style.spacing.p1
               anchors.fill: parent
               LauncherButton {
                 monitorId: root.monitorId

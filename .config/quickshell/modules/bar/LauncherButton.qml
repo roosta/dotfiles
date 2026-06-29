@@ -12,7 +12,7 @@
 pragma ComponentBehavior: Bound
 // import qs.services
 import qs.config
-// import qs.utils
+import qs.utils
 import qs.components
 import qs
 import QtQuick
@@ -34,6 +34,7 @@ Item {
   property bool active: GlobalState.launcherOpen
   && GlobalState.launcherMonitorId === root.monitorId
 
+  Layout.leftMargin: Style.spacing.p1
   Loader {
     active: root.active
     sourceComponent: fieldComponent
@@ -75,8 +76,12 @@ Item {
         id: mouseArea
         acceptedButtons: Qt.LeftButton | Qt.RightButton
         cursorShape: Qt.PointingHandCursor
-        anchors.fill: parent
+        // anchors.fill: parent
         hoverEnabled: true
+        x: -Style.spacing.p2
+        y: -Style.spacing.p2 + Style.bar.borderWidth
+        implicitWidth: parent.width + (Style.spacing.p2 * 2)
+        implicitHeight: parent.height + (Style.spacing.p2 * 2)
 
         onClicked: (mouse) => {
           if (mouse.button === Qt.RightButton) {
