@@ -21,7 +21,7 @@ hl.monitor({
 hl.monitor({
   output = monitors.left,
   mode = "preferred",
-  position = "-1920x0",
+  position = "-1920x-16",
   scale = "2",
   vrr = 0
 })
@@ -29,7 +29,7 @@ hl.monitor({
 hl.monitor({
   output = monitors.right,
   mode = "preferred",
-  position = "1920x0",
+  position = "1920x-16",
   scale = "2",
   vrr = 0
 })
