@@ -203,7 +203,7 @@ Item {
           RowLayout {
             id: rightSection
             spacing: Style.spacing.p1
-            Layout.rightMargin: Style.spacing.p1
+            // Layout.rightMargin: Style.spacing.p1
             Workspaces {
               monitorId: root.monitorId
             }
