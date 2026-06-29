@@ -129,6 +129,7 @@ Item {
               KeyboardButton { monitorId: root.monitorId }
               AudioButton { monitorId: root.monitorId }
               TrayButton { monitorId: root.monitorId }
+              Separator {}
               NotificationButton { monitorId: root.monitorId }
             }
           }
