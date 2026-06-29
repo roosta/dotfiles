@@ -142,7 +142,7 @@ hl.window_rule({
 -- Screenshot tool (satty) — center floating
 hl.window_rule({
   name  = "screenshot",
-  match = { class = "(?i)(satty)$" },
+  match = { class = "(?i)(org.satty.satty)$" },
   float  = true,
   center = true,
   size   = "50% 50%",
