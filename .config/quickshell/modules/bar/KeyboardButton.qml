@@ -28,8 +28,7 @@ BorderRect {
   required property string monitorId
 
   implicitWidth: layout.implicitWidth + Style.spacing.p1 * 2
-  implicitHeight: Style.bar.height - Style.bar.borderWidth
-    - Style.spacing.p1 * 2
+  implicitHeight: Style.bar.height - Style.bar.borderWidth - Style.spacing.p1 * 2
 
   Behavior on implicitWidth {
     NumberAnimation {

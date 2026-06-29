@@ -50,7 +50,7 @@ Item {
   }
 
   Layout.topMargin: Style.bar.borderWidth
-  implicitWidth: root.active ? 300 : Style.bar.height - Style.spacing.p3
+  implicitWidth: root.active ? 300 : implicitHeight
   implicitHeight: Style.bar.height - Style.bar.borderWidth - Style.spacing.p1 * 2
 
   Behavior on implicitWidth {
