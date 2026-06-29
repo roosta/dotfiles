@@ -68,6 +68,18 @@ Item {
   }
 
   GlobalShortcut { // qmllint disable unresolved-type
+    name: "toggleMenu"
+    description: "Toggles launcher menu"
+
+    onPressed: {
+
+      if (Hyprland.focusedMonitor?.name === root.monitorId) {
+        GlobalState.toggleLauncher({id: Hyprland.focusedMonitor?.name, mode: "menu"})
+      }
+    }
+  }
+
+  GlobalShortcut { // qmllint disable unresolved-type
     name: "toggleNotifications"
     description: "Toggles nofication launcher panel"
 
