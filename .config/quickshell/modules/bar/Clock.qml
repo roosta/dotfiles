@@ -21,13 +21,13 @@ Rectangle {
   color: "transparent"
   ColumnLayout {
     implicitHeight: Style.bar.height - Style.spacing.p1 * 2
-    spacing: -4
+    spacing: -2
     anchors.verticalCenter: parent.verticalCenter
     Text {
       Layout.alignment: Qt.AlignRight
       font {
         family: Style.font.light
-        pointSize: Style.font.normal
+        pointSize: Style.font.small
       }
 
       color: Style.srcery.brightWhite
@@ -37,7 +37,7 @@ Rectangle {
       Layout.alignment: Qt.AlignRight
       font {
         family: Style.font.light
-        pointSize: Style.font.small
+        pointSize: Style.font.tiny
       }
 
       color: Style.srcery.white

@@ -46,12 +46,12 @@ Item {
     ColumnLayout {
       id: colLayout
       Layout.fillWidth: true
-      spacing: -4
+      spacing: -2
       Text {
 
         font {
           family: Style.font.light
-          pointSize: Style.font.normal
+          pointSize: Style.font.small
         }
 
         color: Style.srcery.brightWhite
@@ -64,7 +64,7 @@ Item {
         Layout.rightMargin: Style.spacing.p5
         font {
           family: Style.font.light
-          pointSize: Style.font.small
+          pointSize: Style.font.tiny
         }
 
         color: Style.srcery.white
