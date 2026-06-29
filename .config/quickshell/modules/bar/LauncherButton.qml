@@ -34,7 +34,7 @@ Item {
   property bool active: GlobalState.launcherOpen
   && GlobalState.launcherMonitorId === root.monitorId
 
-  Layout.leftMargin: monitorId === Config.displays.center ? Style.spacing.p1 : 0
+  Layout.leftMargin: (monitorId === Config.displays.center || monitorId === Config.displays.tv) ? Style.spacing.p1 : 0
   Layout.rightMargin: monitorId === Config.displays.left ? Style.spacing.p1 : 0
   Loader {
     active: root.active
