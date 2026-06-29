@@ -27,26 +27,46 @@ import QtQuick.Layouts
 Button {
   id: root
   Layout.topMargin: Style.bar.borderWidth
-  implicitWidth: Style.bar.height - Style.spacing.p3
+  implicitWidth: implicitHeight
   implicitHeight: Style.bar.height - Style.bar.borderWidth - Style.spacing.p1 * 2
+
+  Layout.rightMargin: Style.spacing.p1
 
   property bool active: Notifications?.list.length > 0 ?? false
   property bool menuOpen: GlobalState.launcherOpen
     && GlobalState.launcherMode === "notifications"
   required property string monitorId
 
-  HoverHandler {
-    id: hover
+  // HoverHandler {
+  //   id: hover
+  //   cursorShape: Qt.PointingHandCursor
+  // }
+  MouseArea {
+    id: mouseArea
+    acceptedButtons: Qt.LeftButton | Qt.RightButton
     cursorShape: Qt.PointingHandCursor
-  }
+    // anchors.fill: parent
+    hoverEnabled: true
+    x: -Style.spacing.p2
+    y: -Style.spacing.p2 + Style.bar.borderWidth
+    implicitWidth: parent.width + (Style.spacing.p2 * 2)
+    implicitHeight: parent.height + (Style.spacing.p2 * 2)
 
-  onPressed: {
-    GlobalState.toggleLauncher({id: root.monitorId, mode: "notifications"})
+    onClicked: (mouse) => {
+      if (mouse.button === Qt.RightButton) {
+        // GlobalState.toggleLauncher({id: root.monitorId })
+      } else if (mouse.button === Qt.LeftButton) {
+        GlobalState.toggleLauncher({id: root.monitorId, mode: "notifications"})
+      }
+    }
   }
+  // onPressed: {
+  //   GlobalState.toggleLauncher({id: root.monitorId, mode: "notifications"})
+  // }
   states: [
     State {
       name: "open"
-      when: root.menuOpen && !root.hovered && !root.active
+      when: root.menuOpen && !mouseArea.containsMouse && !root.active
       // PropertyChanges { shape.rotation: 90 }
       // PropertyChanges { path.strokeColor: Style.srcery.brightWhite }
       PropertyChanges {
@@ -57,7 +77,7 @@ Button {
     },
     State {
       name: "openActive"
-      when: root.menuOpen && !root.hovered && root.active
+      when: root.menuOpen && !mouseArea.containsMouse && root.active
       PropertyChanges {
         triangle.rotation: 180
         triangle.gradientEnabled: true
@@ -68,7 +88,7 @@ Button {
     },
     State {
       name: "openActiveHovered"
-      when: root.menuOpen && root.hovered && root.active
+      when: root.menuOpen && mouseArea.containsMouse && root.active
       PropertyChanges {
         triangle.rotation: 180
         triangle.gradientEnabled: true
@@ -79,14 +99,17 @@ Button {
     },
     State {
       name: "openHovered"
-      when: root.menuOpen && root.hovered && !root.active
+      when: root.menuOpen && mouseArea.containsMouse && !root.active
       // PropertyChanges { shape.rotation: 90 }
       // PropertyChanges { path.strokeColor: Style.srcery.brightWhite }
-      PropertyChanges { rect.borderColor: Style.srcery.brightWhite }
+      PropertyChanges {
+        rect.borderColor: Style.srcery.brightWhite
+        dot.color: Style.srcery.brightWhite
+      }
     },
     State {
       name: "active"
-      when: root.active && !root.hovered && !root.menuOpen
+      when: root.active && !mouseArea.containsMouse && !root.menuOpen
       PropertyChanges {
         triangle.rotation: 180
         triangle.gradientEnabled: true
@@ -96,7 +119,7 @@ Button {
     },
     State {
       name: "activeHovered"
-      when: root.active && root.hovered && !root.menuOpen
+      when: root.active && mouseArea.containsMouse && !root.menuOpen
       PropertyChanges {
         triangle.rotation: 180
         triangle.gradientEnabled: true
@@ -106,7 +129,7 @@ Button {
     },
     State {
       name: "hovered"
-      when: hover.hovered && !root.active && !root.menuOpen
+      when: mouseArea.containsMouse && !root.active && !root.menuOpen
       PropertyChanges { rect.borderColor: Style.srcery.gray6 }
       // PropertyChanges { path.strokeColor: Style.srcery.brightWhite }
 

@@ -121,7 +121,7 @@ Item {
             RowLayout {
               spacing: Style.spacing.p1
               anchors.right: parent.right
-              anchors.rightMargin: Style.spacing.p1
+              // anchors.rightMargin: Style.spacing.p1
               // anchors.fill: parent
               Clock { }
               Separator {}
