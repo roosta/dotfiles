@@ -79,22 +79,13 @@ Singleton {
       iconId: "applications-all"
     },
     {
-      id: "ritual-mode-notifications",
-      name: "Notifications",
-      comment: "Notification control menu",
-      mode: "notifications",
+      id: "ritual-mode-utils",
+      name: "Utilities",
+      comment: "Various handy utilities, normally launches a script stored in ~/scripts",
+      mode: "utils",
       genericName: "Menu",
-      categories: ["System"],
-      iconId: "notifications"
-    },
-    {
-      id: "ritual-mode-display",
-      name: "Display",
-      comment: "Switch display layouts between predefined presets",
-      mode: "display",
-      genericName: "Menu",
-      categories: ["Display", "Configuration"],
-      iconId: "preferences-desktop-display"
+      categories: ["Utility", "FileTools"],
+      iconId: "applications-utilities"
     },
     {
       id: "ritual-mode-audio",
@@ -106,6 +97,15 @@ Singleton {
       iconId: "audio-x-generic"
     },
     {
+      id: "ritual-mode-display",
+      name: "Display",
+      comment: "Switch display layouts between predefined presets",
+      mode: "display",
+      genericName: "Menu",
+      categories: ["Display", "Configuration"],
+      iconId: "preferences-desktop-display"
+    },
+    {
       id: "ritual-mode-power",
       name: "Power",
       comment: "Power options for system (shutdown, restart, logout etc)",
@@ -115,14 +115,14 @@ Singleton {
       iconId: "preferences-system"
     },
     {
-      id: "ritual-mode-utils",
-      name: "Utilities",
-      comment: "Various handy utilities, normally launches a script stored in ~/scripts",
-      mode: "utils",
+      id: "ritual-mode-notifications",
+      name: "Notifications",
+      comment: "Notification control menu",
+      mode: "notifications",
       genericName: "Menu",
-      categories: ["Utility", "FileTools"],
-      iconId: "applications-utilities"
-    }
+      categories: ["System"],
+      iconId: "notifications"
+    },
   ]
 
   // Power scripts (shutdown, logout, reboot etc), see ~/scripts for each option
