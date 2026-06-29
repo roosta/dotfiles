@@ -76,6 +76,7 @@ Item {
       MouseArea {
         id: mouseArea
         acceptedButtons: Qt.LeftButton | Qt.RightButton
+        z: 99
         cursorShape: Qt.PointingHandCursor
         // anchors.fill: parent
         hoverEnabled: true

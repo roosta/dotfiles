@@ -31,16 +31,11 @@ Button {
   implicitHeight: Style.bar.height - Style.bar.borderWidth - Style.spacing.p1 * 2
 
   Layout.rightMargin: Style.spacing.p1
-
   property bool active: Notifications?.list.length > 0 ?? false
   property bool menuOpen: GlobalState.launcherOpen
     && GlobalState.launcherMode === "notifications"
   required property string monitorId
 
-  // HoverHandler {
-  //   id: hover
-  //   cursorShape: Qt.PointingHandCursor
-  // }
   MouseArea {
     id: mouseArea
     acceptedButtons: Qt.LeftButton | Qt.RightButton
@@ -56,22 +51,19 @@ Button {
       if (mouse.button === Qt.RightButton) {
         // GlobalState.toggleLauncher({id: root.monitorId })
       } else if (mouse.button === Qt.LeftButton) {
-        GlobalState.toggleLauncher({id: root.monitorId, mode: "notifications"})
+        GlobalState.toggleLauncher({
+          id: root.monitorId, mode: "notifications",
+          direction: Qt.RightToLeft,
+        })
       }
     }
   }
-  // onPressed: {
-  //   GlobalState.toggleLauncher({id: root.monitorId, mode: "notifications"})
-  // }
   states: [
     State {
       name: "open"
       when: root.menuOpen && !mouseArea.containsMouse && !root.active
-      // PropertyChanges { shape.rotation: 90 }
-      // PropertyChanges { path.strokeColor: Style.srcery.brightWhite }
       PropertyChanges {
         rect.borderColor: Style.srcery.brightBlack
-        dot.color: Style.srcery.brightWhite
       }
 
     },
@@ -79,59 +71,70 @@ Button {
       name: "openActive"
       when: root.menuOpen && !mouseArea.containsMouse && root.active
       PropertyChanges {
-        triangle.rotation: 180
-        triangle.gradientEnabled: true
-        dot.color: Style.srcery.brightWhite
+        quad.bottomLeft:  Qt.point(0.5, 1)
+        quad.bottomRight: Qt.point(0.5, 1)
+        quad.topLeft:     Qt.point(0, 0)
+        quad.topRight:    Qt.point(1, 0)
+        quad.gradientEnabled: true
+        dot.y: 5
       }
-      // PropertyChanges { path.strokeColor: Style.srcery.brightWhite }
       PropertyChanges { rect.borderColor: Style.srcery.brightBlack }
     },
     State {
       name: "openActiveHovered"
       when: root.menuOpen && mouseArea.containsMouse && root.active
       PropertyChanges {
-        triangle.rotation: 180
-        triangle.gradientEnabled: true
-        dot.color: Style.srcery.brightWhite
+        // quad.rotation: 180
+        quad.gradientEnabled: true
+
+        quad.bottomLeft:  Qt.point(0.5, 1)
+        quad.bottomRight: Qt.point(0.5, 1)
+        quad.topLeft:     Qt.point(0, 0)
+        quad.topRight:    Qt.point(1, 0)
+        dot.y: 5
       }
-      // PropertyChanges { path.strokeColor: Style.srcery.brightWhite }
       PropertyChanges { rect.borderColor: Style.srcery.brightWhite }
     },
     State {
       name: "openHovered"
       when: root.menuOpen && mouseArea.containsMouse && !root.active
-      // PropertyChanges { shape.rotation: 90 }
-      // PropertyChanges { path.strokeColor: Style.srcery.brightWhite }
       PropertyChanges {
         rect.borderColor: Style.srcery.brightWhite
-        dot.color: Style.srcery.brightWhite
       }
     },
     State {
       name: "active"
       when: root.active && !mouseArea.containsMouse && !root.menuOpen
       PropertyChanges {
-        triangle.rotation: 180
-        triangle.gradientEnabled: true
+        // quad.rotation: 180
+        // quad.gradientEnabled: true
       }
-      // PropertyChanges { path.strokeColor: Style.srcery.white }
-      PropertyChanges { rect.borderColor: Style.srcery.gray5 }
+      PropertyChanges {
+        rect.borderColor: Style.srcery.gray5
+        quad.bottomLeft:  Qt.point(0.5, 1)
+        quad.bottomRight: Qt.point(0.5, 1)
+        quad.topLeft:     Qt.point(0, 0)
+        quad.topRight:    Qt.point(1, 0)
+        dot.y: 5
+      }
     },
     State {
       name: "activeHovered"
       when: root.active && mouseArea.containsMouse && !root.menuOpen
       PropertyChanges {
-        triangle.rotation: 180
-        triangle.gradientEnabled: true
+        quad.gradientEnabled: true
+        quad.bottomLeft:  Qt.point(0.5, 1)
+        quad.bottomRight: Qt.point(0.5, 1)
+        quad.topLeft:     Qt.point(0, 0)
+        quad.topRight:    Qt.point(1, 0)
+        dot.y: 5
       }
-      // PropertyChanges { dot.color: Style.srcery.brightWhite }
       PropertyChanges { rect.borderColor: Style.srcery.brightBlack }
     },
     State {
       name: "hovered"
       when: mouseArea.containsMouse && !root.active && !root.menuOpen
       PropertyChanges { rect.borderColor: Style.srcery.gray6 }
-      // PropertyChanges { path.strokeColor: Style.srcery.brightWhite }
 
     }
   ]
@@ -139,7 +142,7 @@ Button {
   transitions: [
     Transition {
       NumberAnimation {
-        properties: "rotation"
+        properties: "y"
         duration: Style.durations.normal
         easing.type: Easing.OutCubic
       }
@@ -149,33 +152,57 @@ Button {
       }
     }
   ]
-  background: BorderRect {
+  background: GradientRect {
     id: rect
     color: Style.srcery.black
     borderColor: Style.srcery.gray3
     borderWidth: Style.bar.borderWidth
     anchors.fill: parent
 
-    Triangle {
-      id: triangle
+    Quad {
+      id: quad
       width: 20
       height: 18
+      topLeft:  Qt.point(0.5, 0)
+      topRight: Qt.point(0.5, 0)
       anchors.centerIn: parent
-      gradientEnabled: false
+      gradientEnabled: true
       strokeColor: Style.srcery.brightBlack
       gradientStart: Style.srcery.yellow
       gradientEnd: Style.srcery.cyan
       gradientRotation: 90
+      // quad.gradientEnabled: true
+      Behavior on bottomLeft  { PropertyAnimation { duration: Style.durations.small; easing.type: Easing.InOutQuad } }
+      Behavior on bottomRight { PropertyAnimation { duration: Style.durations.small; easing.type: Easing.InOutQuad } }
+      Behavior on topLeft  { PropertyAnimation { duration: Style.durations.small; easing.type: Easing.InOutQuad } }
+      Behavior on topRight { PropertyAnimation { duration: Style.durations.small; easing.type: Easing.InOutQuad } }
       Rectangle {
         id: dot
         width: 4
         height: 4
         radius: 4
-        anchors.bottom: parent.bottom
-        anchors.bottomMargin: 4
+        y: 10
+        SequentialAnimation on color {
+          loops: Animation.Infinite
+          running: root.active
+          ColorAnimation {
+            from: Style.srcery.brightWhite
+            to: Style.srcery.gray3
+            duration: Style.durations.slow
+            easing.type: Easing.Linear
+          }
+          ColorAnimation {
+            from: Style.srcery.gray3
+            to: Style.srcery.brightWhite
+            easing.type: Easing.Linear
+            duration: Style.durations.slow
+          }
+        }
+        // anchors.bottom: parent.bottom
+        // anchors.bottomMargin: 4
         color: Style.srcery.brightBlack
         // anchors.centerIn: parent
-        anchors.topMargin: 4
+        // anchors.topMargin: 4
         anchors.horizontalCenter: parent.horizontalCenter
       }
     }
