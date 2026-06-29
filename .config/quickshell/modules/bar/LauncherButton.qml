@@ -33,7 +33,6 @@ Item {
 
   property bool active: GlobalState.launcherOpen
   && GlobalState.launcherMonitorId === root.monitorId
-  && GlobalState.launcherMode !== "notifications"
 
   Loader {
     active: root.active
