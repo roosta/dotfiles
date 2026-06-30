@@ -105,7 +105,7 @@ Item {
     anchors.left: parent.left
     anchors.right: parent.right
     anchors.bottom: parent.bottom
-    color: "transparent"
+    color: Style.srcery.black
     topBorder: Style.bar.borderWidth
     borderColor: Style.srcery.gray2
 
