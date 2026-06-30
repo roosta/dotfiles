@@ -63,13 +63,13 @@ Singleton {
   Process {
     id: statusLight
     running: false
-    command: ["status-light", "animation", "--name", "notify", "--loop", "--fps", 20]
+    command: ["status-light", "start", "notify"]
   }
 
   Process {
     id: statusLightIdle
     running: false
-    command: ["status-light", "animation", "--name", "idle"]
+    command: ["status-light", "start", "idle"]
   }
 
   property bool statusLightAvailable: false
