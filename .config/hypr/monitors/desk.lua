@@ -36,7 +36,10 @@ hl.monitor({
 
 hl.monitor({
   output = monitors.top,
-  disabled = true,
+  mode = "preferred",
+  position = "0x-1080",
+  scale = "1.5",
+  vrr = 0
 })
 
 hl.monitor({
@@ -52,7 +55,7 @@ hl.env("PROTON_WAYLAND", primary_monitor)
 
 utils.add_workspaces(monitors.center, {1,2,3,4,5,6,7,8,9,10}, 1)
 utils.add_workspaces(monitors.left, {11,12,13,14}, 11)
--- utils.add_workspaces(monitors.top, {15,16,17,18}, 15)
+utils.add_workspaces(monitors.top, {15,16,17,18}, 15)
 utils.add_workspaces(monitors.right, {19,20,21,22}, 19)
 
 -- Then add the dwindle layout overrides separately
