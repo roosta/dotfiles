@@ -27,7 +27,8 @@ return {
       "qmljs",
       "qmldir",
       "yaml",
-      "xml"
+      "xml",
+      "cpp"
     }
     local alreadyInstalled = require('nvim-treesitter.config').get_installed()
     local parsersToInstall = vim.iter(ensureInstalled)
