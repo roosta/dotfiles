@@ -16,7 +16,6 @@ Button {
 
   required property string monitorId
 
-  readonly property Toplevel activeWindow: ToplevelManager.activeToplevel
   readonly property HyprlandMonitor monitor: Hyprland
     .monitorFor(root.QsWindow.window?.screen)
   readonly property int activeWorkspaceId: monitor?.activeWorkspace?.id ?? 1
@@ -46,8 +45,9 @@ Button {
   ]
   onPressed: {
     let move = activeWorkspaceId + root.direction
-    let screens = activeWindow?.screens ?? []
-    if (screens[0]?.name !== monitorId) { return }
+    let focusedMonitor = Hyprland.focusedMonitor?.name ?? ""
+    if (focusedMonitor !== Config.displays.center && focusedMonitor !== Config.displays.tv) { return }
+
     if (move > persistent.length) {
       if (direction < 0) {
         move = persistent.length
