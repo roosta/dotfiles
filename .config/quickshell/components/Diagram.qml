@@ -29,7 +29,7 @@ Item {
 
   Rectangle {
     anchors.fill: parent
-    border.color: GlobalState.launcherOpen ? Style.srcery.darkBlack : Style.srcery.black
+    border.color: GlobalState.launcherOpen ? Style.srcery.hardBlack : Style.srcery.black
     color: "transparent"
     border.width: root.size / 2
 

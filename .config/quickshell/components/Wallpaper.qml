@@ -50,7 +50,7 @@ Loader {
     Rectangle {
       id: backgroundColor
       anchors.fill: parent
-      color: GlobalState.launcherOpen ? Style.srcery.darkBlack : Style.srcery.black
+      color: GlobalState.launcherOpen ? Style.srcery.hardBlack : Style.srcery.black
 
       Behavior on color {
         ColorAnimation {
