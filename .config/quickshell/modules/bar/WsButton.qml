@@ -8,6 +8,7 @@ import Quickshell.Hyprland
 import QtQuick.Controls
 import QtQuick.Layouts
 import qs.config
+import Quickshell.Io
 pragma ComponentBehavior: Bound
 
 Button {
@@ -43,6 +44,19 @@ Button {
       }
     }
   ]
+
+
+  // Custom move window dispatcher, I need to disable mouse warp while doing
+  // workspace moves via this button, otherwise the mouse cursor snaps to middle
+  // of active window on every button press, but I want it enabled otherwise
+  Process {
+    id: moveWindow
+    running: false
+    property int wsid: 0
+    command: ["hyprctl", "eval", `hl.config({cursor = { no_warps = true }}); hl.dispatch(hl.dsp.window.move({ workspace = ${wsid}, window = 'activewindow', follow = true })); hl.config({cursor = { no_warps = false }})
+    `]
+  }
+
   onPressed: {
     let move = activeWorkspaceId + root.direction
     let focusedMonitor = Hyprland.focusedMonitor?.name ?? ""
@@ -54,7 +68,8 @@ Button {
       } else { return }
     }
     if (move > 0) {
-      Hyprland.dispatch(`hl.dsp.window.move({ workspace = ${move}, window = "activewindow", follow = true })`)
+      moveWindow.wsid = move
+      moveWindow.running = true
     }
   }
 
