@@ -36,7 +36,6 @@ hl.config({
 
   cursor = {
     inactive_timeout = 30,
-    no_warps = true
   },
 
   -- https://wiki.hypr.land/Configuring/Basics/Variables/#group
