@@ -112,7 +112,6 @@ Item {
   Rectangle {
     id: card
     anchors.fill: parent
-    opacity: 0
     border.color: Style.srcery.gray3
     color: Style.srcery.black
     border.width: Style.bar.borderWidth
@@ -190,12 +189,12 @@ Item {
 
     ColumnLayout {
       opacity: GlobalState.launcherOpen ? 1 : 0
-
+      clip: true
       Behavior on opacity {
         NumberAnimation {
           property: "opacity"
           duration: GlobalState.launcherOpen ? Style.durations.tiny : Style.durations.large
-          easing.type: Easing.InOutQuad
+          easing.type: Easing.Linear
         }
       }
 
