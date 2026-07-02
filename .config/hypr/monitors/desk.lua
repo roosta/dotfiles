@@ -15,7 +15,7 @@ hl.monitor({
   position = "0x0",
   scale = "2",
   bitdepth = 10,
-  vrr = 3,
+  vrr = 0, -- 3
 })
 
 hl.monitor({
