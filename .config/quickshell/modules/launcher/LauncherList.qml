@@ -273,6 +273,16 @@ Item {
               .expressiveDefaultSpatial
           }
         }
+        move: Transition {
+          NumberAnimation {
+            properties: "x"
+            duration: Style.animationCurves
+            .expressiveDefaultSpatialDuration
+            easing.type: Easing.BezierSpline
+            easing.bezierCurve: Style.animationCurves
+            .expressiveDefaultSpatial
+          }
+        }
       }
     }
   }
