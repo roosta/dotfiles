@@ -188,7 +188,9 @@ Item {
     }
 
     ColumnLayout {
-      opacity: GlobalState.launcherOpen ? 1 : 0
+      id: layout
+      property bool ready: false
+      opacity: (ready && GlobalState.launcherOpen) ? 1 : 0
       clip: true
       Behavior on opacity {
         NumberAnimation {
@@ -197,8 +199,8 @@ Item {
           easing.type: Easing.Linear
         }
       }
+      Component.onCompleted: Qt.callLater(() => { layout.ready = true })
 
-      id: layout
       anchors.margins: Style.spacing.p3
       Layout.alignment: Qt.AlignTop
       anchors.fill: parent
