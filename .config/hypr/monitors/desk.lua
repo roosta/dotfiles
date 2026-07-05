@@ -15,7 +15,7 @@ hl.monitor({
   position = "0x0",
   scale = "2",
   bitdepth = 10,
-  vrr = 0, -- 3
+  vrr = 3
 })
 
 hl.monitor({
@@ -39,12 +39,8 @@ hl.monitor({
   mode = "preferred",
   position = "0x-1080",
   scale = "1.5",
-  vrr = 0
-})
-
-hl.monitor({
-  output = monitors.tv,
-  disabled = true,
+  vrr = 0,
+  disabled = false
 })
 
 -- Exec commands
@@ -58,10 +54,31 @@ utils.add_workspaces(monitors.left, {11,12,13,14}, 11)
 utils.add_workspaces(monitors.top, {15,16,17,18}, 15)
 utils.add_workspaces(monitors.right, {19,20,21,22}, 19)
 
--- Then add the dwindle layout overrides separately
-hl.workspace_rule({ workspace = "1", layout = "dwindle" })
-hl.workspace_rule({ workspace = "2", layout = "dwindle" })
+-- hl.workspace_rule({ workspace = "1", layout = "dwindle" })
+-- hl.workspace_rule({ workspace = "2", layout = "dwindle" })
 
+hl.on("monitor.added", function(m)
+  if m.name == monitors.left then
+    hl.dispatch(hl.dsp.window.move({
+      monitor = monitors.left,
+      window = "class:firefox-developer-edition",
+      follow = false
+    }))
+
+  elseif m.name == monitors.right then
+    hl.dispatch(hl.dsp.window.move({
+      monitor = monitors.right,
+      window = "class:(?i).*(discord|vesktop).*",
+      follow = false
+    }))
+
+    hl.dispatch(hl.dsp.window.move({
+      monitor = monitors.right,
+      window = "class:firefox-media",
+      follow = false
+    }))
+  end
+end)
 
 hl.window_rule({
   match = { class = "firefox-media" },
@@ -78,9 +95,11 @@ hl.window_rule({
   monitor = monitors.right,
 })
 
-hl.window_rule({
-  match = { class = "(?i)steam.*$" },
-  monitor = monitors.center,
+
+-- Disable display finally, so to avoid race conditions
+hl.monitor({
+  output = monitors.tv,
+  disabled = true,
 })
 
 -- windowrule = monitor $center_monitor, match:class steam.*$
