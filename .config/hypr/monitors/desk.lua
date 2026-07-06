@@ -57,7 +57,21 @@ utils.add_workspaces(monitors.right, {19,20,21,22}, 19)
 -- hl.workspace_rule({ workspace = "1", layout = "dwindle" })
 -- hl.workspace_rule({ workspace = "2", layout = "dwindle" })
 
+local required_monitors = { monitors.left, monitors.right, monitors.center, monitors.top }
+local connected_monitors = {}
+
+local function all_required_connected()
+  for _, name in ipairs(required_monitors) do
+    if not connected_monitors[name] then
+      return false
+    end
+  end
+  return true
+end
+
 hl.on("monitor.added", function(m)
+  connected_monitors[m.name] = true
+
   if m.name == monitors.left then
     hl.dispatch(hl.dsp.window.move({
       monitor = monitors.left,
@@ -78,6 +92,15 @@ hl.on("monitor.added", function(m)
       follow = false
     }))
   end
+
+  -- Disable the tv display only once all required monitors are connected,
+  -- to avoid race conditions.
+  if all_required_connected() then
+    hl.monitor({
+      output = monitors.tv,
+      disabled = true,
+    })
+  end
 end)
 
 hl.window_rule({
@@ -95,11 +118,5 @@ hl.window_rule({
   monitor = monitors.right,
 })
 
-
--- Disable display finally, so to avoid race conditions
-hl.monitor({
-  output = monitors.tv,
-  disabled = true,
-})
 
 -- windowrule = monitor $center_monitor, match:class steam.*$
