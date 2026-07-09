@@ -34,36 +34,34 @@ hl.on("monitor.added", function(m)
       follow = false
     }))
     hl.dsp.exec_cmd(vars.scripts_home .. "/switch-audio.sh tv")
-
-    -- Disable the other displays only once the tv has connected,
-    -- to avoid race conditions.
-    hl.monitor({
-      output = monitors.top,
-      disabled = true,
-      mode = "preferred",
-      position = "0x-1080",
-      scale = "1.5",
-      vrr = 0
-    })
-
-    hl.monitor({
-      output = monitors.center,
-      disabled = true,
-    })
-
-    hl.monitor({
-      output = monitors.left,
-      disabled = true,
-    })
-
-    hl.monitor({
-      output = monitors.right,
-      disabled = true,
-    })
   end
 end)
 
 hl.window_rule({
   match = { class = "firefox-media" },
   workspace = 5
+})
+
+hl.monitor({
+  output = monitors.top,
+  disabled = true,
+  mode = "preferred",
+  position = "0x-1080",
+  scale = "1.5",
+  vrr = 0
+})
+
+hl.monitor({
+  output = monitors.center,
+  disabled = true,
+})
+
+hl.monitor({
+  output = monitors.left,
+  disabled = true,
+})
+
+hl.monitor({
+  output = monitors.right,
+  disabled = true,
 })
