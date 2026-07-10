@@ -12,6 +12,11 @@ return {
     file_types = { "markdown", "Avante", "codecompanion" },
     -- heading = { border = true },
     -- anti_conceal = { enabled = false },
+    html = {
+      comment = {
+        conceal = false
+      }
+    }
   },
   dependencies = { "nvim-tree/nvim-web-devicons" },
 }
