@@ -187,6 +187,30 @@ Item {
       }
     }
 
+    Quad {
+      width: 30
+      height: 30
+      anchors.topMargin: Style.spacing.p2
+      anchors.leftMargin: Style.spacing.p2
+      anchors.top: parent.top
+      anchors.left: parent.left
+      topLeft:  Qt.point(1, 0)
+      topRight: Qt.point(1, 0)
+      rotation: 180
+    }
+
+    Quad {
+      width: 30
+      height: 30
+      anchors.topMargin: Style.spacing.p2
+      anchors.rightMargin: Style.spacing.p2
+      anchors.top: parent.top
+      anchors.right: parent.right
+      topLeft:  Qt.point(1, 0)
+      topRight: Qt.point(1, 0)
+      rotation: -90
+    }
+
     ColumnLayout {
       id: layout
       property bool ready: false
@@ -223,6 +247,7 @@ Item {
           Layout.alignment: Qt.AlignHCenter
           id: container
 
+
           Rectangle {
             id: outer
             implicitWidth: 80
@@ -238,6 +263,28 @@ Item {
               anchors.bottomMargin: 8
               anchors.leftMargin: 8
             }
+
+
+            Text {
+              color: Style.srcery.brightYellow
+              id: favorite
+              // anchors.top: parent.top
+              anchors.top: parent.top
+              anchors.left: parent.left
+              anchors.leftMargin: Style.spacing.p1
+              anchors.topMargin: 2
+
+
+              // anchors.horizontalCenter: parent.horizontalCenter
+              opacity: root.favorite ? 1 : 0
+              rotation: -45
+              text: "󰓒"
+              font {
+                family: Style.font.main
+                pixelSize: Style.font.xl
+              }
+            }
+
             Rectangle {
               rotation: -45
               id: inner
@@ -538,16 +585,3 @@ Item {
   }
 }
 
-
-// Text {
-//   color: Style.srcery.brightYellow
-//   id: favorite
-//   Layout.alignment: Qt.AlignHCenter
-//   Layout.topMargin: Style.spacing.p3
-//   opacity: root.favorite ? 1 : 0
-//   text: "󰓒"
-//   font {
-//     family: Style.font.main
-//     pixelSize: Style.font.xl
-//   }
-// }
