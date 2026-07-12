@@ -205,65 +205,97 @@ Item {
       Layout.alignment: Qt.AlignTop
       anchors.fill: parent
 
+      component Dot: Rectangle {
+        implicitWidth: 8
+        implicitHeight: 8
+        radius: 3
+        color: "transparent"
+        border.color: Style.srcery.gray3
+        border.width: Style.bar.borderWidth
+      }
       ColumnLayout {
         Layout.fillWidth: true
         spacing: Style.spacing.p2
 
         Item {
           implicitWidth: 120
-          implicitHeight: 100
+          implicitHeight: 120
           Layout.alignment: Qt.AlignHCenter
-          id: iconRect
+          id: container
 
-          Triangle {
-            anchors.fill: parent
+          Rectangle {
+            id: outer
+            implicitWidth: 80
+            implicitHeight: 80
+            anchors.centerIn: parent
+            color: Style.srcery.black
+            border.color: Style.srcery.gray3
+            border.width: 1
+            rotation: 45
+            Dot {
+              anchors.bottom: parent.bottom
+              anchors.left: parent.left
+              anchors.bottomMargin: 8
+              anchors.leftMargin: 8
+            }
+            Rectangle {
+              rotation: -45
+              id: inner
+              anchors.centerIn: parent
+              anchors.margins: 10
+              color: Style.srcery.black
+              border.width: 1
+              border.color: Style.srcery.gray3
+              implicitWidth: childrenRect.width
+              implicitHeight: childrenRect.height
 
+              Rectangle {
 
-            ColumnLayout {
-              anchors.fill: parent
+                implicitWidth: childrenRect.width
+                implicitHeight: childrenRect.height
+                border.width: 1
+                border.color: Style.srcery.gray3
+                color: Style.srcery.black
 
-              // TODO: fix this, not sure why the text element takes up so much space
-              spacing: -16
-              Text {
-                color: Style.srcery.brightYellow
-                id: favorite
-                Layout.alignment: Qt.AlignHCenter
-                Layout.topMargin: Style.spacing.p3
-                opacity: root.favorite ? 1 : 0
-                text: "󰓒"
-                font {
-                  family: Style.font.main
-                  pixelSize: Style.font.xl
+                radius: implicitWidth / 2
+                ColumnLayout {
+                  Loader {
+                    Layout.preferredWidth: root.iconSize
+                    Layout.preferredHeight: root.iconSize
+                    Layout.margins: Style.spacing.p2
+                    sourceComponent: {
+                      if (root.iconSource !== "") return iconComponent
+                      if (root.imageSource !== "") return imageComponent
+                      return null
+                    }
+                  }
+
+                  Component {
+                    id: iconComponent
+                    IconImage {
+                      source: root.iconSource
+                      width: root.iconSize
+                      height: root.iconSize
+                    }
+                  }
+
+                  Component {
+                    id: imageComponent
+                    Image {
+                      source: root.imageSource
+                      width: root.iconSize
+                      height: root.iconSize
+                    }
+                  }
                 }
               }
-              Loader {
-                Layout.alignment: Qt.AlignHCenter
-                Layout.preferredWidth: root.iconSize
-                Layout.preferredHeight: root.iconSize
-                sourceComponent: {
-                  if (root.iconSource !== "") return iconComponent
-                  if (root.imageSource !== "") return imageComponent
-                  return null
-                }
-              }
+            }
 
-              Component {
-                id: iconComponent
-                IconImage {
-                  source: root.iconSource
-                  width: root.iconSize
-                  height: root.iconSize
-                }
-              }
-
-              Component {
-                id: imageComponent
-                Image {
-                  source: root.imageSource
-                  width: root.iconSize
-                  height: root.iconSize
-                }
-              }
+            Dot {
+              anchors.top: parent.top
+              anchors.right: parent.right
+              anchors.topMargin: 8
+              anchors.rightMargin: 8
             }
           }
         }
@@ -504,3 +536,16 @@ Item {
   }
 }
 
+
+// Text {
+//   color: Style.srcery.brightYellow
+//   id: favorite
+//   Layout.alignment: Qt.AlignHCenter
+//   Layout.topMargin: Style.spacing.p3
+//   opacity: root.favorite ? 1 : 0
+//   text: "󰓒"
+//   font {
+//     family: Style.font.main
+//     pixelSize: Style.font.xl
+//   }
+// }
