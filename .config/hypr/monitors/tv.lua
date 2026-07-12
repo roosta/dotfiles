@@ -33,7 +33,8 @@ hl.on("monitor.added", function(m)
       window = "class:firefox-media",
       follow = false
     }))
-    hl.dsp.exec_cmd(vars.scripts_home .. "/switch-audio.sh tv")
+
+    hl.exec_cmd(vars.scripts_home .. "/switch-audio.sh tv")
   end
 end)
 
