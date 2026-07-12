@@ -388,7 +388,7 @@ Item {
 
       implicitHeight: {
         if (drawerExpanded && root.actions.length > 0) {
-          return 140
+          return actionColumn.implicitHeight + Style.spacing.p2
         } else {
           return 26
         }
@@ -443,6 +443,7 @@ Item {
         anchors.margins: Style.spacing.p1
         anchors.fill: parent
         ColumnLayout {
+          id: actionColumn
           anchors.fill: parent
           Text {
             text: {
@@ -462,9 +463,10 @@ Item {
             active: root.actions.length > 0
             Layout.fillWidth: true
 
+            id: flowLoader
             sourceComponent: Flow {
               spacing: Style.spacing.p1
-              anchors.fill: parent
+              width: flowLoader.width
               Repeater {
                 id: actionRepeater
                 model: root.actions
