@@ -191,6 +191,7 @@ Item {
       width: 30
       height: 30
       anchors.topMargin: Style.spacing.p2
+      fillColor: "transparent"
       anchors.leftMargin: Style.spacing.p2
       anchors.top: parent.top
       anchors.left: parent.left
@@ -202,6 +203,7 @@ Item {
     Quad {
       width: 30
       height: 30
+      fillColor: "transparent"
       anchors.topMargin: Style.spacing.p2
       anchors.rightMargin: Style.spacing.p2
       anchors.top: parent.top
