@@ -326,6 +326,7 @@ Singleton {
   readonly property var aliases: [
     [/.*spotify.*/i, "spotify"],
     [/kando/i, "input-mouse"],
+    [/aseprite/i, "libresprite"],
     [/minecraft.*/i, "minecraft"],
     [/^steam_app_(\d+)$/, "steam_icon_$1"],
     [/kitty/i, "terminal"],
