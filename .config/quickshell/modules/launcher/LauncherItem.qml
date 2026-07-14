@@ -27,6 +27,8 @@ Item {
   property string name
   property string description
   property int notificationId: -1
+
+  property int activeDrawerIndex: 0
   property bool canClose: notificationId >= 0
   property string genericName
   property bool favorite: false
@@ -46,6 +48,63 @@ Item {
     return (view.width - (count - 1) * view.spacing) / count
   }
   signal clicked()
+  signal openDrawer()
+  signal closeDrawer()
+  signal drawerNext()
+  signal drawerPrev()
+  signal drawerActivate()
+
+  onDrawerActivate: {
+    if (root.activeDrawerIndex >= 0 && root.activeDrawerIndex < root.actions.length) {
+      LauncherData.launch(actions[root.activeDrawerIndex])
+      GlobalState.closeLauncher()
+    }
+  }
+
+  onDrawerNext: {
+    if (root.actions.length === 0) { return }
+    if (root.activeDrawerIndex < root.actions.length - 1) {
+      root.activeDrawerIndex += 1
+    } else {
+      root.activeDrawerIndex = 0
+    }
+  }
+  onDrawerPrev: {
+    if (root.actions.length === 0) { return }
+    if (root.activeDrawerIndex > 0) {
+      root.activeDrawerIndex -= 1
+    } else {
+      root.activeDrawerIndex = root.actions.length - 1
+    }
+  }
+  onOpenDrawer: {
+    if (root.actions.length > 0) {
+      drawer.drawerExpanded = true
+    }
+  }
+
+  onCloseDrawer: {
+    if (root.actions.length > 0) {
+      drawer.drawerExpanded = false
+    }
+  }
+
+  onIsCurrentItemChanged: {
+    if (!root.isCurrentItem) {
+      drawer.drawerExpanded = false
+    }
+  }
+  Connections {
+    target: GlobalState
+
+    function onLauncherOpenChanged() {
+      if (!GlobalState.launcherOpen) {
+        drawer.drawerExpanded = false
+        root.activeDrawerIndex = 0
+      }
+    }
+  }
+
   property string iconSource: ""
   property string imageSource: ""
   property int iconSize: 40
@@ -436,6 +495,12 @@ Item {
     Rectangle {
       id: drawer
       property bool drawerExpanded: false
+      onDrawerExpandedChanged: {
+        GlobalState.itemDrawerActive = drawerExpanded
+        if (!drawerExpanded) {
+          root.activeDrawerIndex = 0
+        }
+      }
 
       implicitHeight: {
         if (drawerExpanded && root.actions.length > 0) {
@@ -536,7 +601,7 @@ Item {
                       name: "hovered"
                       when: actionButton.hovered
                       PropertyChanges {
-                        actionBg.border.color: Style.srcery.brightBlack
+                        actionBg.color: Style.srcery.gray3
                         actionText.color: Style.srcery.white
                       }
                     }
@@ -556,12 +621,18 @@ Item {
                     LauncherData.launch(modelData)
                     GlobalState.closeLauncher()
                   }
-                  background: Rectangle {
+                  background: GradientRect {
                     id: actionBg
-                    border.width: 1
-                    border.color: Style.srcery.gray3
+                    borderWidth: 1
+                    borderColor: Style.srcery.gray3
                     color: Style.srcery.gray1
-
+                    gradientAngle: 45
+                    property Gradient activeGradient: Gradient {
+                      orientation: Gradient.Horizontal
+                      GradientStop { position: 1; color: Style.srcery.magenta }
+                      GradientStop { position: 0; color: Style.srcery.blue }
+                    }
+                    gradient: (root.activeDrawerIndex === actionButton.index && root.isCurrentItem) ? activeGradient : undefined
                   }
                   contentItem: Text {
                     id: actionText

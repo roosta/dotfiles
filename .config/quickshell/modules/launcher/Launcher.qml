@@ -36,7 +36,33 @@ Item {
 
   signal decrementCurrentIndex()
   signal incrementCurrentIndex()
+  signal drawerNext()
+  signal drawerPrev()
+  signal openDrawer()
+  signal closeDrawer()
+  signal drawerActivate()
+
   signal accepted()
+  onDrawerActivate: {
+    const currentItem = launcherList?.list?.currentItem;
+    currentItem.drawerActivate()
+  }
+  onDrawerNext: {
+    const currentItem = launcherList?.list?.currentItem;
+    currentItem.drawerNext()
+  }
+  onDrawerPrev: {
+    const currentItem = launcherList?.list?.currentItem;
+    currentItem.drawerPrev()
+  }
+  onOpenDrawer: {
+    const currentItem = launcherList?.list?.currentItem;
+    currentItem.openDrawer()
+  }
+  onCloseDrawer: {
+    const currentItem = launcherList?.list?.currentItem;
+    currentItem.closeDrawer()
+  }
   onAccepted: {
     const currentItem = launcherList?.list?.currentItem;
     if (currentItem) {

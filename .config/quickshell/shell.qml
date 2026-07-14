@@ -180,6 +180,11 @@ ShellRoot {
           monitorId: scope.monitorId
           onDecrementCurrentIndex: launcher.decrementCurrentIndex()
           onIncrementCurrentIndex: launcher.incrementCurrentIndex()
+          onOpenDrawer: launcher.openDrawer()
+          onCloseDrawer: launcher.closeDrawer()
+          onDrawerNext: launcher.drawerNext()
+          onDrawerPrev: launcher.drawerPrev()
+          onDrawerActivate: launcher.drawerActivate()
           onAccepted: launcher.accepted()
         }
 

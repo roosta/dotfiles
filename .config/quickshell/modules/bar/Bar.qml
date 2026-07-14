@@ -26,7 +26,12 @@ Item {
 
   signal decrementCurrentIndex()
   signal incrementCurrentIndex()
+  signal drawerNext()
+  signal drawerPrev()
   signal accepted()
+  signal openDrawer()
+  signal closeDrawer()
+  signal drawerActivate()
 
   anchors {
     bottom: parent.bottom
@@ -87,6 +92,11 @@ Item {
                 monitorId: root.monitorId
                 onDecrementCurrentIndex: root.decrementCurrentIndex()
                 onIncrementCurrentIndex: root.incrementCurrentIndex()
+                onOpenDrawer: root.openDrawer()
+                onCloseDrawer: root.closeDrawer()
+                onDrawerNext: root.drawerNext()
+                onDrawerActivate: root.drawerActivate()
+                onDrawerPrev: root.drawerPrev()
                 onAccepted: root.accepted()
               }
               Separator {}
@@ -158,6 +168,8 @@ Item {
               monitorId: root.monitorId
               onDecrementCurrentIndex: root.decrementCurrentIndex()
               onIncrementCurrentIndex: root.incrementCurrentIndex()
+              onOpenDrawer: root.openDrawer()
+              onCloseDrawer: root.closeDrawer()
               onAccepted: root.accepted()
             }
 
@@ -212,6 +224,8 @@ Item {
               monitorId: root.monitorId
               onDecrementCurrentIndex: root.decrementCurrentIndex()
               onIncrementCurrentIndex: root.incrementCurrentIndex()
+              onOpenDrawer: root.openDrawer()
+              onCloseDrawer: root.closeDrawer()
               onAccepted: root.accepted()
             }
             // Clock { }

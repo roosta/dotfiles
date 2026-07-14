@@ -29,6 +29,11 @@ Item {
 
   signal decrementCurrentIndex()
   signal incrementCurrentIndex()
+  signal openDrawer()
+  signal drawerNext()
+  signal drawerPrev()
+  signal drawerActivate()
+  signal closeDrawer()
   signal accepted()
 
   property bool active: GlobalState.launcherOpen
@@ -269,7 +274,9 @@ Item {
       }
 
       function goPrevious() {
-        if (GlobalState.menuDirection === Qt.LeftToRight) {
+        if (GlobalState.itemDrawerActive) {
+          root.drawerPrev()
+        } else if (GlobalState.menuDirection === Qt.LeftToRight) {
           return root.decrementCurrentIndex()
         } else if (GlobalState.menuDirection === Qt.RightToLeft) {
           return root.incrementCurrentIndex()
@@ -277,7 +284,9 @@ Item {
       }
 
       function goNext() {
-        if (GlobalState.menuDirection === Qt.LeftToRight) {
+        if (GlobalState.itemDrawerActive) {
+          root.drawerNext()
+        } else if (GlobalState.menuDirection === Qt.LeftToRight) {
           return root.incrementCurrentIndex()
         } else if (GlobalState.menuDirection === Qt.RightToLeft) {
           return root.decrementCurrentIndex()
@@ -287,8 +296,10 @@ Item {
       Keys.onEscapePressed: GlobalState.closeLauncher()
       Keys.onRightPressed: goNext()
       Keys.onLeftPressed: goPrevious()
+      Keys.onUpPressed: root.openDrawer()
+      Keys.onDownPressed: root.closeDrawer()
       Component.onCompleted: forceActiveFocus()
-      onAccepted: root.accepted()
+      onAccepted: GlobalState.itemDrawerActive ? root.drawerActivate() : root.accepted()
 
       // https://github.com/caelestia-dots/shell/blob/fe4ebb79b6162d7e5e4e9a00d8a39ff10876fb8c/modules/launcher/Content.qml#L109
       Keys.onPressed: event => {
@@ -298,6 +309,12 @@ Item {
             event.accepted = true;
           } else if (event.key === Qt.Key_H) {
             goPrevious()
+            event.accepted = true;
+          } else if (event.key === Qt.Key_K) {
+            root.openDrawer()
+            event.accepted = true;
+          } else if (event.key === Qt.Key_J) {
+            root.closeDrawer()
             event.accepted = true;
           }
         } else if (event.key === Qt.Key_Tab && GlobalState.matchCount === 1) {

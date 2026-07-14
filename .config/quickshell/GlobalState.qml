@@ -33,6 +33,7 @@ Singleton {
   property int menuIndex: 0
   property string searchQuery: ""
   property int matchCount: 0
+  property bool itemDrawerActive: false
 
   Timer {
     id: timer
