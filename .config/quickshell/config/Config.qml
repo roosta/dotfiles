@@ -94,7 +94,39 @@ Singleton {
       mode: "audio",
       genericName: "Menu",
       categories: ["Audio", "Configuration"],
-      iconId: "audio-x-generic"
+      iconId: "audio-x-generic",
+      actions: [
+        {
+          "id": "ASP",
+          "name": "Speakers",
+          "icon": "",
+          "execString": `${Paths.home}/scripts/switch-audio.sh speakers`,
+          "command": [
+            `${Paths.home}/scripts/switch-audio.sh`,
+            "speakers"
+          ]
+        },
+        {
+          "id": "AHP",
+          "name": "Headphones",
+          "icon": "",
+          "execString": `${Paths.home}/scripts/switch-audio.sh headphones`,
+          "command": [
+            `${Paths.home}/scripts/switch-audio.sh`,
+            "headphones"
+          ]
+        },
+        {
+          "id": "ATV",
+          "name": "Television",
+          "icon": "",
+          "execString": `${Paths.home}/scripts/switch-audio.sh tv`,
+          "command": [
+            `${Paths.home}/scripts/switch-audio.sh`,
+            "tv"
+          ]
+        }
+      ]
     },
     {
       id: "ritual-mode-display",
@@ -103,7 +135,59 @@ Singleton {
       mode: "display",
       genericName: "Menu",
       categories: ["Display", "Configuration"],
-      iconId: "preferences-desktop-display"
+      iconId: "preferences-desktop-display",
+      actions: [
+        {
+          "id": "DDSK",
+          "name": "Desk",
+          "icon": "",
+          "execString": `${Paths.home}/scripts/switch-display.sh desk`,
+          "command": [
+            `${Paths.home}/scripts/switch-display.sh`,
+            "desk"
+          ]
+        },
+        {
+          "id": "DTV",
+          "name": "Television",
+          "icon": "",
+          "execString": `${Paths.home}/scripts/switch-display.sh tv`,
+          "command": [
+            `${Paths.home}/scripts/switch-display.sh`,
+            "tv"
+          ]
+        },
+        {
+          "id": "DMI",
+          "name": "Mirror",
+          "icon": "",
+          "execString": `${Paths.home}/scripts/switch-display.sh mirror`,
+          "command": [
+            `${Paths.home}/scripts/switch-display.sh`,
+            "mirror"
+          ]
+        },
+        {
+          "id": "DALL",
+          "name": "All",
+          "icon": "",
+          "execString": `${Paths.home}/scripts/switch-display.sh all`,
+          "command": [
+            `${Paths.home}/scripts/switch-display.sh`,
+            "all"
+          ]
+        },
+        {
+          "id": "DX",
+          "name": "Exclusive",
+          "icon": "",
+          "execString": `${Paths.home}/scripts/switch-display.sh exclusive`,
+          "command": [
+            `${Paths.home}/scripts/switch-display.sh`,
+            "exclusive"
+          ]
+        }
+      ]
     },
     {
       id: "ritual-mode-power",
