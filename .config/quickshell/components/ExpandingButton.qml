@@ -37,15 +37,26 @@ BorderRect {
   default property alias contents: layout.data
   required property string monitorId
   required property string buttonLabel
+  property bool isEmpty: false;
+
   property var onRightClick: () => {
     // console.log("right click")
   }
-  property bool isEmpty: false;
 
   property var onLeftClick: () => {
     if (!root.isEmpty) {
       root.active = !root.active
     }
+  }
+
+  property var wheelHandler: (event) => {
+    // console.log("rotation", event.angleDelta.y, "scaled", rotation, "@", wheel.point.position, "=>", parent.rotation)
+  }
+
+  WheelHandler {
+    id: wheel
+    acceptedDevices: PointerDevice.Mouse | PointerDevice.TouchPad
+    onWheel: (event) => root.wheelHandler(event)
   }
 
   implicitWidth: {

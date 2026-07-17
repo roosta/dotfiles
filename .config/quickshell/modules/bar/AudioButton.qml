@@ -66,6 +66,14 @@ ExpandingButton {
 
   onRightClick: openAudioMenu
 
+  wheelHandler: (event) => {
+    if (event.angleDelta.y > 0) {
+      AudioData.incrementVolume()
+    } else if (event.angleDelta.y < 0) {
+      AudioData.decrementVolume()
+    }
+  }
+
   BorderRect {
     id: srcBtn
     visible: root.active
