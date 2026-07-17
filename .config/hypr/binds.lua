@@ -35,7 +35,7 @@ hl.bind(main_mod .. " + Return", hl.dsp.window.fullscreen({ mode = 1 })) -- maxi
 hl.bind(main_mod .. " + P", hl.dsp.window.pseudo()) -- dwindle
 hl.bind(main_mod .. " + equal", hl.dsp.layout("togglesplit"))
 hl.bind(main_mod .. " + SHIFT + space", hl.dsp.window.float({ action = "toggle" }))
-hl.bind(main_mod .. " + space", hl.dsp.layout("cyclenext"))
+hl.bind(main_mod .. " + space", hl.dsp.window.cycle_next())
 
 -- Media keys
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"), { repeating = true })
