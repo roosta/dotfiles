@@ -35,6 +35,23 @@ ExpandingButton {
   }
   buttonLabel: muted ? mutedIcon : getSinkIcon(AudioData.sink)
 
+  Connections {
+    target: AudioData
+    function onVolumeChanged() {
+      if (!timer.running) {
+        timer.running = true
+        root.active = true
+      }
+    }
+  }
+
+  Timer {
+    id: timer
+    interval: 1000 * 10
+    onTriggered: {
+      root.active = false
+    }
+  }
   property var openAudioMenu: () => {
     const i = Config.outputs.findIndex(o => o.sink === AudioData.sink.name)
     GlobalState.openLauncher({
