@@ -38,9 +38,9 @@ ExpandingButton {
   Connections {
     target: AudioData
     function onVolumeChanged() {
-      if (!timer.running && AudioData.ready) {
-        timer.running = true
+      if (AudioData.ready) {
         root.active = true
+        timer.restart()
       }
     }
   }
