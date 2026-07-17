@@ -496,7 +496,7 @@ Item {
       id: drawer
       property bool drawerExpanded: false
       onDrawerExpandedChanged: {
-        GlobalState.itemDrawerActive = drawerExpanded
+        GlobalState.itemDrawerActive = drawerExpanded && root.isCurrentItem
         if (!drawerExpanded) {
           root.activeDrawerIndex = 0
         }
