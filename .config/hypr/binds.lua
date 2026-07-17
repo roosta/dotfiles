@@ -38,9 +38,9 @@ hl.bind(main_mod .. " + SHIFT + space", hl.dsp.window.float({ action = "toggle" 
 hl.bind(main_mod .. " + space", hl.dsp.window.cycle_next())
 
 -- Media keys
-hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"), { repeating = true })
-hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"), { repeating = true })
-hl.bind("XF86AudioMute",        hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"), { locked = true })
+hl.bind("XF86AudioRaiseVolume", hl.dsp.global("quickshell:incrementVolume"))
+hl.bind("XF86AudioLowerVolume", hl.dsp.global("quickshell:decrementVolume"))
+hl.bind("XF86AudioMute",        hl.dsp.global("quickshell:toggleMute"), { locked = true })
 
 -- Requires playerctl
 hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
