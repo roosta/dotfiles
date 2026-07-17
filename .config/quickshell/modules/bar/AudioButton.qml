@@ -38,7 +38,7 @@ ExpandingButton {
   Connections {
     target: AudioData
     function onVolumeChanged() {
-      if (!timer.running) {
+      if (!timer.running && AudioData.ready) {
         timer.running = true
         root.active = true
       }
@@ -47,11 +47,13 @@ ExpandingButton {
 
   Timer {
     id: timer
+    running: false
     interval: 1000 * 10
     onTriggered: {
       root.active = false
     }
   }
+
   property var openAudioMenu: () => {
     const i = Config.outputs.findIndex(o => o.sink === AudioData.sink.name)
     GlobalState.openLauncher({
