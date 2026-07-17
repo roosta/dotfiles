@@ -9,6 +9,13 @@
 // ├┤ License : GNU General Public License v3                    ├┤
 // ┆└────────────────────────────────────────────────────────────┘┆
 
+// Description: Its a button that is placed on the Bar, and it expands when
+// left clicking, showing detailed content. For example, in AudioButton.qml I
+// keep the volume bar and input indicator collapsed, only visible when this is
+// expanded.
+//
+// Requires a monitorId and a button label, and you can optionally implement the click handlers
+
 pragma ComponentBehavior: Bound
 import qs.config
 // import qs.services
@@ -30,7 +37,16 @@ BorderRect {
   default property alias contents: layout.data
   required property string monitorId
   required property string buttonLabel
+  property var onRightClick: () => {
+    // console.log("right click")
+  }
   property bool isEmpty: false;
+
+  property var onLeftClick: () => {
+    if (!root.isEmpty) {
+      root.active = !root.active
+    }
+  }
 
   implicitWidth: {
     if (root.active) {
@@ -115,17 +131,22 @@ BorderRect {
     Button {
       id: button
       implicitHeight: root.height
-      implicitWidth: root.height
-      onPressed: {
-        if (!root.isEmpty) {
-          root.active = !root.active
+
+      MouseArea {
+        id: mouseArea
+        acceptedButtons: Qt.LeftButton | Qt.RightButton
+        anchors.fill: parent
+        cursorShape: Qt.PointingHandCursor
+        hoverEnabled: true
+        onClicked: (mouse) => {
+          if (mouse.button === Qt.RightButton) {
+            root.onRightClick()
+          } else if (mouse.button === Qt.LeftButton) {
+            root.onLeftClick()
+          }
         }
       }
-
-      HoverHandler {
-        id: hover
-        cursorShape: Qt.PointingHandCursor
-      }
+      implicitWidth: root.height
       background: BorderRect {
         id: buttonBg
         color: Style.srcery.black

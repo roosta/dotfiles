@@ -35,6 +35,18 @@ ExpandingButton {
   }
   buttonLabel: muted ? mutedIcon : getSinkIcon(AudioData.sink)
 
+  property var openAudioMenu: () => {
+    const i = Config.outputs.findIndex(o => o.sink === AudioData.sink.name)
+    GlobalState.openLauncher({
+      id: root.monitorId,
+      mode: "audio",
+      direction: Qt.RightToLeft,
+      index: i > -1 ? i : 0
+    })
+  }
+
+  onRightClick: openAudioMenu
+
   BorderRect {
     id: srcBtn
     visible: root.active
@@ -53,15 +65,7 @@ ExpandingButton {
       id: srcMouse
       hoverEnabled: true
       anchors.fill: parent
-      onClicked: {
-        const i = Config.outputs.findIndex(o => o.sink === AudioData.sink.name)
-        GlobalState.openLauncher({
-          id: root.monitorId,
-          mode: "audio",
-          direction: Qt.RightToLeft,
-          index: i > -1 ? i : 0
-        })
-      }
+      onClicked: root.openAudioMenu()
     }
 
     transitions: [
