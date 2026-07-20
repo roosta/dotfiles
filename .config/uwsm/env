@@ -1,5 +1,5 @@
-export GDK_SCALE=2
 export XCURSOR_SIZE=24
+export XCURSOR_THEME=Breeze
 export ELECTRON_OZONE_PLATFORM_HINT=auto
 export SDL_VIDEODRIVER="wayland,x11,windows"
 export _JAVA_AWT_WM_NONREPARENTING=1
