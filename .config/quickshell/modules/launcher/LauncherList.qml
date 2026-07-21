@@ -101,7 +101,7 @@ Item {
           Triangle {
             id: triangle
             anchors.horizontalCenter: parent.horizontalCenter
-            y: root.isOpen ? 25 : Style.launcher.height
+            y: root.sourceModel.length === 0 ? 25 : Style.launcher.height
             width: 170
             height: 150
 
