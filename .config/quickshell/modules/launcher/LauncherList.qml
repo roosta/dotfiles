@@ -79,35 +79,71 @@ Item {
       color: "transparent"
 
       Rectangle {
-        visible: root.sourceModel.length === 0
+        id: emptyContainer
+        visible: false
         anchors.fill: parent
-        color: "transparent"
+        color: Style.srcery.black
         clip: true
+        Connections {
+          target: root
+          function onSourceModelChanged() {
+            if (root.sourceModel.length === 0) {
+              if (emptyTimer.running) {
+                emptyTimer.stop()
+              }
+              if (!emptyContainer.visible) {
+                emptyContainer.visible = true
+              }
+            } else if (emptyContainer.visible && !emptyTimer.running) {
+              emptyTimer.restart()
+            }
+          }
+        }
         BorderRect {
           id: rect
-          color: Style.srcery.black
-          borderColor: Style.srcery.gray3
+          color: "transparent"
+          borderColor: root.sourceModel.length === 0 ? Style.srcery.gray3 : Style.srcery.black
           borderWidth: Style.bar.borderWidth
           anchors.fill: parent
-          // anchors.topMargin: root.isOpen ? 0 : Style.launcher.height
-          //
-          // Behavior on anchors.topMargin {
-          //   NumberAnimation {
-          //     duration: Style.durations.normal
-          //     easing.type: Easing.InOutCubic
-          //   }
-          // }
-          //
+
+          Timer {
+            id: emptyTimer
+            interval: Style.animationCurves.expressiveSlowSpatialDuration
+            onTriggered: {
+              emptyContainer.visible = false
+            }
+          }
+          Behavior on borderColor {
+            ColorAnimation {
+              duration: Style.durations.normal
+              easing.type: Easing.InOutQuad
+            }
+          }
+
           Triangle {
             id: triangle
             anchors.horizontalCenter: parent.horizontalCenter
-            y: root.sourceModel.length === 0 ? 25 : Style.launcher.height
-            width: 170
-            height: 150
+            y: {
+              if (root.sourceModel.length === 0) {
+                return (Style.launcher.height - 180 - Style.spacing.p1 * 2) / 2
+              } else {
+                return Style.launcher.height
+              }
+            }
+            width: 200
+            height: 180
+
+            Behavior on y {
+              NumberAnimation {
+                duration: Style.animationCurves.expressiveSlowSpatialDuration
+                easing.type: Easing.BezierSpline
+                easing.bezierCurve: Style.animationCurves.expressiveFastSpatial
+              }
+            }
 
             Text {
               anchors.centerIn: parent
-              anchors.verticalCenterOffset: 22
+              anchors.verticalCenterOffset: 30
               font {
                 family: Style.font.light
                 pointSize: Style.font.normal

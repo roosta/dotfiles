@@ -26,13 +26,6 @@ Canvas {
   property color gradientEnd: "transparent"
   property real gradientRotation: 0
 
-  Behavior on y {
-    NumberAnimation {
-      duration: Style.durations.slow
-      easing.type: Easing.InOutQuad
-    }
-  }
-
   onWidthChanged:          requestPaint()
   onHeightChanged:         requestPaint()
   onFillColorChanged:      requestPaint()
