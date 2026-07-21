@@ -21,6 +21,8 @@ import qs.components
 // import qs.services
 // import qs.utils
 import qs
+import QtQuick.Effects
+import qs.utils
 
 Item {
   id: root
@@ -100,7 +102,7 @@ Item {
           }
         }
         BorderRect {
-          id: rect
+          id: border
           color: "transparent"
           borderColor: root.sourceModel.length === 0 ? Style.srcery.gray3 : Style.srcery.black
           borderWidth: Style.bar.borderWidth
@@ -120,37 +122,96 @@ Item {
             }
           }
 
-          Triangle {
-            id: triangle
+          MultiEffect {
+            source: emptyItem
+            anchors.fill: emptyItem
+            shadowBlur: 1.0
+            shadowEnabled: true
+            shadowColor: Functions.transparentize("#000", 0.5)
+            shadowVerticalOffset: 0
+            shadowHorizontalOffset: 0
+          }
+
+          Item {
             anchors.horizontalCenter: parent.horizontalCenter
+            width: size
+            height: size
+            id: emptyItem
             y: {
               if (root.sourceModel.length === 0) {
-                return (Style.launcher.height - 180 - Style.spacing.p1 * 2) / 2
+                return (Style.launcher.height - emptyItem.size - Style.spacing.p1 * 2) / 2
               } else {
                 return Style.launcher.height
               }
             }
-            width: 200
-            height: 180
 
             Behavior on y {
               NumberAnimation {
                 duration: Style.animationCurves.expressiveSlowSpatialDuration
                 easing.type: Easing.BezierSpline
-                easing.bezierCurve: Style.animationCurves.expressiveFastSpatial
+                easing.bezierCurve: Style.animationCurves.expressiveSlowSpatial
               }
             }
+            property int size: 150
+            Rectangle {
+              id: outerRect
+              border.color: Style.srcery.gray3
+              anchors.fill: parent
+              Text {
+                rotation: -45
+                anchors.leftMargin: Style.spacing.p3
+                anchors.topMargin: Style.spacing.p3
+                anchors.top: parent.top
+                anchors.left: parent.left
+                font {
+                  family: Style.font.light
+                  pointSize: 16
+                }
+                color: Style.srcery.gray4
+                text: ""
+              }
+              Behavior on rotation {
+                NumberAnimation {
+                  duration: Style.animationCurves.expressiveSlowSpatialDuration
+                  easing.type: Easing.BezierSpline
+                  easing.bezierCurve: Style.animationCurves.expressiveSlowSpatial
+                }
+              }
+              rotation: {
+                if (root.sourceModel.length === 0) {
+                  return 45
+                } else {
+                  return 0
+                }
+              }
+              border.width: Style.bar.borderWidth
+              color: Style.srcery.black
+              Rectangle {
+                color: "transparent"
+                border.color: Style.srcery.gray3
+                border.width: Style.bar.borderWidth
+                id: innerRect
+                rotation: -45
+                width: {
+                  return emptyItem.size / Math.sqrt(2)
+                }
+                height: width
+                anchors.centerIn: parent
+              }
 
+            }
             Text {
               anchors.centerIn: parent
-              anchors.verticalCenterOffset: 30
+              width: innerRect.width - Style.spacing.p2 * 2
+              horizontalAlignment: Text.AlignHCenter
               font {
                 family: Style.font.light
                 pointSize: Style.font.normal
               }
+
+              wrapMode: Text.Wrap
               color: Style.srcery.gray4
-              // text: "ᛖᛗᛈᛏᛁ"
-              text: "EMPTY"
+              text: `NO ${GlobalState.launcherMode.toUpperCase()}`
             }
           }
         }
