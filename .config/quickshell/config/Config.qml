@@ -341,7 +341,7 @@ Singleton {
       genericName: "Display",
       categories: ["Display", "Exclusive"],
       comment: "Disable all but center monitor (desk), setting a single exclusive display",
-      script: [`${Paths.home}/scripts/switch-display.sh`, "single"],
+      script: [`${Paths.home}/scripts/switch-display.sh`, "exclusive"],
       iconId: "cs-display"
     }
   ]
