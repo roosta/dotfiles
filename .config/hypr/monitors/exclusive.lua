@@ -6,7 +6,7 @@
 local monitors = require("monitors/monitors")
 local utils = require("monitors/utils")
 local primary_monitor = monitors.center
-local vars = require("variables").vars
+-- local vars = require("variables").vars
 
 hl.monitor({
   output = monitors.center,
@@ -17,19 +17,6 @@ hl.monitor({
   vrr = 3
 })
 
-
-utils.add_workspaces(primary_monitor, {1,2,3,4,5,6,7,8,9,10}, 1)
-
-hl.on("monitor.added", function(m)
-  if m.name == primary_monitor then
-    utils.collect_workspaces(primary_monitor)
-  end
-end)
-
-hl.window_rule({
-  match = { class = "firefox-media" },
-  workspace = 5
-})
 
 hl.monitor({
   output = monitors.top,
@@ -45,3 +32,28 @@ hl.monitor({
   output = monitors.right,
   disabled = true,
 })
+
+hl.monitor({
+  output = monitors.tv,
+  disabled = true,
+})
+
+-- Exec commands
+hl.exec_cmd("xrandr --output " .. primary_monitor .. " --primary")
+
+-- Environment variables
+hl.env("PROTON_WAYLAND", primary_monitor)
+
+utils.add_workspaces(primary_monitor, {1,2,3,4,5,6,7,8,9,10}, 1)
+
+hl.on("monitor.added", function(m)
+  if m.name == primary_monitor then
+    utils.collect_workspaces(primary_monitor)
+  end
+end)
+
+hl.window_rule({
+  match = { class = "firefox-media" },
+  workspace = 5
+})
+

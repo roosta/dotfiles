@@ -1,7 +1,8 @@
 -- ┌┌┐┌─┐┌┐┐o┌┐┐┌─┐┬─┐┐─┐
 -- ││││ │││││ │ │ ││┬┘└─┐
--- ┘ ┆┘─┘┆└┘┆ ┆ ┘─┘┆└┘──┘
--- Define monitors used in configs
+-- │ ┆┘─┘┆└┘┆ ┆ ┘─┘┆└┘──┘
+-- ┘ Define monitors used in configs
+
 local monitors = {
   center = "DP-1",
   left = "DP-2",
@@ -9,4 +10,5 @@ local monitors = {
   top = "HDMI-A-3",
   tv = "HDMI-A-2"
 }
+
 return monitors

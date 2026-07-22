@@ -1,7 +1,7 @@
--- ┬─┐┬─┐┐─┐┬┌   ┬  ┬─┐┐ ┬┌─┐┬ ┐┌┐┐
--- │ │├─ └─┐├┴┐  │  │─┤└┌┘│ ││ │ │
--- ┆─┘┴─┘──┘┆ ┘  ┆─┘┘ ┆ ┆ ┘─┘┆─┘ ┆
--- Desk setup - three++ monitor configuration
+-- ┬─┐┬  ┬    ┌┌┐┌─┐┌┐┐o┌┐┐┌─┐┬─┐┐─┐  ┬  ┬─┐┐ ┬┌─┐┬ ┐┌┐┐
+-- │─┤│  │    ││││ │││││ │ │ ││┬┘└─┐  │  │─┤└┌┘│ ││ │ │
+-- ┆ ┆┆─┘┆─┘  ┘ ┆┘─┘┆└┘┆ ┆ ┘─┘┆└┘──┘  ┆─┘┘ ┆ ┆ ┘─┘┆─┘ ┆
+-- ┆ All - Enable all monitors in a side-by-side layout
 
 -- Monitor variables
 local monitors = require("monitors/monitors")
@@ -40,12 +40,15 @@ hl.monitor({
   position = "0x-1080",
   scale = "1.5",
   vrr = 0,
-  disabled = false
 })
 
 hl.monitor({
   output = monitors.tv,
-  disabled = true,
+  mode = "3840x2160@120",
+  position = "3840x-16",
+  scale = "2",
+  bitdepth = 10,
+  vrr = 3
 })
 
 -- Exec commands
@@ -58,6 +61,7 @@ utils.add_workspaces(monitors.center, {1,2,3,4,5,6,7,8,9,10}, 1)
 utils.add_workspaces(monitors.left, {11,12,13,14}, 11)
 utils.add_workspaces(monitors.top, {15,16,17,18}, 15)
 utils.add_workspaces(monitors.right, {19,20,21,22}, 19)
+utils.add_workspaces(monitors.tv, {23,24,25,26}, 23)
 
 -- hl.workspace_rule({ workspace = "1", layout = "dwindle" })
 -- hl.workspace_rule({ workspace = "2", layout = "dwindle" })
@@ -99,5 +103,3 @@ hl.window_rule({
   match = { class = "(?i).*(discord|vesktop).*" },
   monitor = monitors.right,
 })
-
--- windowrule = monitor $center_monitor, match:class steam.*$
