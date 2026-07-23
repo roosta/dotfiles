@@ -237,5 +237,13 @@ alias -s {yml,json,txt,tex,css,ts,js,html,md,handlebars,hbs}="${EDITOR:-nvim}"
 alias -s {com,net,org,io}=firefox
 
 # }}}
+# Local: {{{
+# ------------------------------------------------------------------------------
+
+if [ -f "${HOME}/.zsh.d/aliases.local.zsh" ]; then
+  source "${HOME}/.zsh.d/aliases.local.zsh"
+fi
+
+# }}}
 
 # vim: set ts=2 sw=2 tw=80 fdm=marker et :

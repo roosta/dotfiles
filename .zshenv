@@ -49,9 +49,4 @@ export PAGER=nvimpager
 export PARU_PAGER=$PAGER
 export MANPAGER=$PAGER
 
-
-if [ -f "${HOME}/.secrets/environment.zsh" ]; then
-	source "${HOME}/.secrets/environment.zsh"
-fi
-
 #  vim: set ts=2 sw=2 tw=0 fdm=marker noet :
