@@ -69,10 +69,18 @@ Button {
     implicitHeight: childrenRect.height
     radius: Style.bar.radius
     color: "transparent"
-    borderColor: Style.srcery.gray2
+    borderColor: root.isOccupied ? Style.srcery.gray2 : Style.srcery.black
 
-    dashed: HyprlandData.scratch.id === root.workspaceId
-    borderWidth: root.isOccupied ? 1 : 0
+    // gradientAngle: 45
+    property Gradient activeGradient: Gradient {
+      orientation: Gradient.Horizontal
+      GradientStop { position: 1; color: Style.srcery.cyan }
+      GradientStop { position: 0; color: Style.srcery.white }
+    }
+    property bool isScratch: HyprlandData.scratch.id === root.workspaceId
+    gradient: isScratch && HyprlandData.scratchActive ? activeGradient : undefined
+    dashed: isScratch
+    borderWidth: Style.bar.borderWidth
 
     Behavior on borderColor {
       ColorAnimation {
@@ -80,6 +88,7 @@ Button {
         easing.type: Easing.OutCubic
       }
     }
+
     Loader {
       active: !root.isOccupied
       sourceComponent: indicator
