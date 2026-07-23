@@ -37,17 +37,12 @@ require("rules")
 -- https://wiki.hypr.land/Configuring/Basics/Autostart/
 -- Several services are started using systemd, to enable various hyprland utils
 hl.on("hyprland.start", function ()
-  -- hl.exec_cmd("dbus-update-activation-environment --systemd --all")
-  -- hl.exec_cmd("quickshell")
   hl.exec_cmd("/usr/lib/polkit-kde-authentication-agent-1")
-  hl.exec_cmd("[workspace 3 silent] " .. vars.browser)
-  hl.exec_cmd("[workspace 2 silent] steam -silent")
-  hl.exec_cmd("[workspace 21 silent] flatpak run com.discordapp.Discord --start-minimized")
-  hl.exec_cmd("[workspace 1] " .. vars.terminal)
-  -- hl.exec_cmd("kando")
-  -- hl.exec_cmd("hypridle")
-  -- hl.exec_cmd("hyprpm reload -n")
-  -- hl.exec_cmd("blueman-manager")
+  hl.exec_cmd(vars.browser, { workspace = "3 silent" })
+  hl.exec_cmd("steam -silent", { workspace = "2 silent"})
+  hl.exec_cmd("flatpak run com.discordapp.Discord --start-minimized", { workspace = "21 silent" } )
+  hl.exec_cmd(vars.terminal, { workspace = "1 silent" })
+  hl.exec_cmd("~/Apps/open-webui.AppImage", { workspace = "special:scratch silent" })
 end)
 
 -- vim: set ts=2 sw=2 tw=0 fdm=marker ft=lua et :
