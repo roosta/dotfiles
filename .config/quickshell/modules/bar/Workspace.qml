@@ -27,10 +27,9 @@ import qs.utils
 
 Button {
   id: root
-  required property var occupied
+  required property bool isOccupied
   required property int workspaceId
   required property int activeWorkspaceId
-  readonly property bool isOccupied: occupied[workspaceId] ?? false
   readonly property bool isWorkspace: true
   required property var modelData
   property bool active: activeWorkspaceId === workspaceId

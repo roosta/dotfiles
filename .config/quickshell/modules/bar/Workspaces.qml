@@ -127,7 +127,7 @@ BorderRect {
         id: workspaceRepeater
 
         Workspace {
-          occupied: root.occupied
+          isOccupied: root.occupied[modelData?.id] ?? false
           activeWorkspaceId: root.activeWorkspaceId;
           workspaceId: modelData?.id;
           onCalculatedWidthChanged: activeIndicator.updateIndicator()
