@@ -30,6 +30,11 @@ some mainstays:
 | [Quickshell](https://quickshell.org/) | Launcher, bar, and widgets all made with quickshell | [dir](../.config/quickshell), [config](../.config/quickshell/config/Config.qml) |
 
 
+Aside from the bespoke configuration listed above, I use
+[Srcery](https://srcery.sh) [upstream](https://github.com/srcery-colors)
+whenever possible, included as submodules in
+[`.config/srcery`](../.config/srcery)
+
 ## Install
 
 My dotfiles are managed using the method described in the [Arch wiki dotfiles
