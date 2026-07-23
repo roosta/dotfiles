@@ -20,6 +20,11 @@ Item {
   property var dashPattern: [4, 4]
   property real dashOffset: 0
 
+  // Marching ants animation
+  property bool animated: false
+  // milliseconds for one full dash-pattern cycle
+  property int animationDuration: 500
+
   function gradientSize() {
     const rad = root.gradientAngle * Math.PI / 180
     const absCos = Math.abs(Math.cos(rad))
@@ -106,6 +111,17 @@ Item {
         radius: Math.max(0, root.radius - root.borderWidth / 2)
       }
     }
+  }
+
+  // Marching ants: continuously shift the dash offset by one pattern length
+  NumberAnimation {
+    target: root
+    property: "dashOffset"
+    running: root.dashed && root.animated
+    from: 0
+    to: root.dashPattern.reduce((a, b) => a + b, 0)
+    duration: root.animationDuration
+    loops: Animation.Infinite
   }
 
   MultiEffect {
