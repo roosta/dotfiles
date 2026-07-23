@@ -69,7 +69,13 @@ Button {
     implicitHeight: childrenRect.height
     radius: Style.bar.radius
     color: "transparent"
-    borderColor: root.isOccupied ? Style.srcery.gray2 : Style.srcery.black
+    borderColor: {
+      if (!root.isOccupied)
+        return Style.srcery.black
+      if (root.urgent)
+        return (hover.hovered && !root.active) ? Style.srcery.gray6 : Style.srcery.gray2
+      return (root.active || hover.hovered) ? Style.srcery.brightBlack : Style.srcery.gray2
+    }
 
     // gradientAngle: 45
     property Gradient activeGradient: Gradient {
@@ -100,52 +106,19 @@ Button {
         implicitHeight: Style.bar.height - Style.bar.borderWidth
         - Style.spacing.p1 * 2
 
-        states: [
-          State {
-            name: "hover"
-            when: root.hovered && !root.active
-            PropertyChanges {
-              circle.color: Style.srcery.brightWhite
-            }
-          },
-          State {
-            name: "active"
-            when: !root.hovered && root.active
-            PropertyChanges {
-              circle.color: Style.srcery.brightWhite
-            }
-          },
-
-          State {
-            name: "hoveredActive"
-            when: root.hovered && root.active
-            PropertyChanges {
-              circle.color: Style.srcery.brightWhite
-            }
-          },
-          State {
-            name: "normal"
-            when: !root.hovered && !root.active
-            PropertyChanges {
-              circle.color: Style.srcery.gray6
-            }
-          }
-        ]
-        transitions: [
-          Transition {
+        Rectangle {
+          id: circle
+          anchors.centerIn: parent
+          width: root.buttonSize * 0.25
+          height: width
+          radius: width / 2
+          color: (root.hovered || root.active) ? Style.srcery.brightWhite : Style.srcery.gray6
+          Behavior on color {
             ColorAnimation {
               duration: Style.durations.small
               easing.type: Easing.OutQuad
             }
           }
-        ]
-        Rectangle {
-          id: circle
-          anchors.centerIn: parent
-          width: root.buttonSize * 0.25
-          color: Style.srcery.gray6
-          height: width
-          radius: width / 2
         }
       }
     }
@@ -172,77 +145,11 @@ Button {
             Layout.preferredWidth: root.iconSize + Style.spacing.p3
             Layout.preferredHeight: Style.bar.height - Style.bar.borderWidth - Style.spacing.p1 * 2
 
-            onUrgentChanged: {
-              if (!urgent) {
-                blinkAnimation.running = false
-                // desaturatedIcon.opacity = 1.0
-              }
-            }
-            states: [
-              State {
-                name: "urgent_active"
-                when: appIcon.urgent && root.active && !hover.hovered
-                PropertyChanges {
-                  blinkAnimation.running: true
-                }
-              },
-              State {
-                name: "urgent"
-                when: appIcon.urgent && !root.active && !hover.hovered
-                PropertyChanges {
-                  blinkAnimation.running: true
-                }
-              },
-              State {
-                name: "hovered"
-                when: !appIcon.urgent && !root.active && hover.hovered
-                PropertyChanges {
-                  blinkAnimation.running: false
-                  wsBackground.borderColor: Style.srcery.brightBlack
-                  // desaturatedIcon.opacity: 1.0
-                }
-              },
-              State {
-                name: "UrgentHovered"
-                when: appIcon.urgent && !root.active && hover.hovered
-                PropertyChanges {
-                  blinkAnimation.running: true
-                  wsBackground.borderColor: Style.srcery.gray6
-                }
-              },
-              State {
-                name: "active"
-                when: !appIcon.urgent && root.active  && !hover.hovered
-                PropertyChanges {
-                  blinkAnimation.running: false
-                  wsBackground.borderColor: Style.srcery.brightBlack
-                  desaturatedIcon.opacity: 1.0
-                }
-              },
-              State {
-                name: "activeHovered"
-                when: !appIcon.urgent && root.active  && hover.hovered
-                PropertyChanges {
-                  blinkAnimation.running: false
-                  wsBackground.borderColor: Style.srcery.brightBlack
-                  desaturatedIcon.opacity: 1.0
-                }
-              },
-              State {
-                name: "normal"
-                when: !appIcon.urgent && !root.active && !hover.hovered
-                PropertyChanges {
-                  blinkAnimation.running: false
-                  wsBackground.borderColor: Style.srcery.gray2
-                  desaturatedIcon.opacity: 1.0
-                }
-              }
-
-            ]
             SequentialAnimation {
               id: blinkAnimation
-              running: false
+              running: appIcon.urgent
               loops: Animation.Infinite
+              onRunningChanged: if (!running) desaturatedIcon.opacity = 1.0
 
               PropertyAnimation {
                 target: desaturatedIcon
@@ -275,6 +182,9 @@ Button {
               implicitWidth: root.iconSize
               implicitHeight: root.iconSize
               anchors.centerIn: parent
+
+              // grayscale scratch icons unless the scratch is active
+              saturation: (wsBackground.isScratch && !HyprlandData.scratchActive) ? -1.0 : 0.0
 
               Behavior on saturation {
                 NumberAnimation {
