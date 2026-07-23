@@ -23,10 +23,10 @@ some mainstays:
 | Software | Description | Config |
 |----|----|----|
 | [Zsh](https://www.zsh.org/) | I do most of my work in here | [dir](../.zsh.d), [config](../.zshrc)  |
-| [Nvim](https://neovim.io/) | Neovim is my primary editor used in the terminal | [dir](../.config/nvim) |
-| [Hyprland](https://hypr.land/) | The compositor that handles monitors, windows, workspaces, etc | [dir](../.config/hypr) |
+| [Nvim](https://neovim.io/) | Neovim is my primary editor used in the terminal | [dir](../.config/nvim), [config](../config/nvim/init.lua) |
+| [Hyprland](https://hypr.land/) | The compositor that handles monitors, windows, workspaces, etc | [dir](../.config/hypr), [config](../config/hypr/hyprland.lua) |
 | [Scripts](https://github.com/roosta/scripts) | My shell scripts, these control various aspects of the ritual desktop shell | [repo](https://github.com/roosta/scripts) |
-| [Kando](https://kando.menu/) | Pie menu used for mouse controls, with a custom theme | [dir](../.config/kando), [theme](.config/kando/menu-themes/ritual) |
+| [Kando](https://kando.menu/) | Pie menu used for mouse controls, with a custom theme | [dir](../.config/kando), [theme](../.config/kando/menu-themes/ritual) |
 | [Quickshell](https://quickshell.org/) | Launcher, bar, and widgets all made with quickshell | [dir](../.config/quickshell), [config](../.config/quickshell/config/Config.qml) |
 
 
