@@ -68,7 +68,7 @@ BorderRect {
         GradientStop { position: 1; color: Style.srcery.brightBlack }
       }
       gradientAngle: 45
-      gradient: root.monitor?.focused ? activeGradient : inactiveGradient
+      gradient: (root.monitor?.focused && !HyprlandData.scratchActive) ? activeGradient : inactiveGradient
       property real targetX: 0
       property real targetWidth: 0
 
