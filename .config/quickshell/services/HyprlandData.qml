@@ -37,6 +37,8 @@ Singleton {
   property var activeWorkspace: null
   property var monitors: []
   property var layers: ({})
+  property var scratch: undefined
+  property string activespecial: undefined
   property string submap: ""
   property bool submapActive: submap.length > 0
 
@@ -105,6 +107,8 @@ Singleton {
         }
       } else if (event.name === "submap") {
         root.submap = event?.data
+      } else if (event.name === "activespecial") {
+        root.activespecial = event?.data
       }
     }
   }
@@ -164,9 +168,15 @@ Singleton {
       onStreamFinished: {
         if (workspacesCollector?.text) {
           const workspaces = JSON.parse(workspacesCollector.text)
-          .sort((a, b) => a.id - b.id);
+            .sort((a, b) => {
+              if (a.id < 0 && b.id >= 0) return 1;
+              if (a.id >= 0 && b.id < 0) return -1;
+              return a.id - b.id;
+            });
           root.workspaces = workspaces
-          root.workspacesByMonitor = Functions.groupBy(workspaces, x => x.monitor)
+          // root.workspaces = workspaces.filter(w => !w.name.includes("special:scratch"))
+          root.scratch = workspaces.find(w => w.name.includes("special:scratch"))
+          root.workspacesByMonitor = Functions.groupBy(root.workspaces, x => x.monitor)
           let byId = {};
           for (var i = 0; i < root.workspaces.length; ++i) {
             var ws = root.workspaces[i];
