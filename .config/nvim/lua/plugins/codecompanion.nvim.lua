@@ -37,15 +37,15 @@ return {
     interactions = {
       chat = {
         adapter = "anthropic",
-        -- model = "claude-fable-5"
+        model = "claude-opus-4.8"
       },
       inline = {
         adapter = "anthropic",
-        -- model = "claude-fable-5"
+        model = "claude-opus-4.8"
       },
       cmd = {
         adapter = "anthropic",
-        -- model = "claude-fable-5"
+        model = "claude-opus-4.8"
       }
     },
   }
