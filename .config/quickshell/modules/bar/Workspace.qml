@@ -83,7 +83,8 @@ Button {
       GradientStop { position: 1; color: Style.srcery.cyan }
       GradientStop { position: 0; color: Style.srcery.white }
     }
-    property bool isScratch: HyprlandData.scratch.id === root.workspaceId
+    property bool isScratch: HyprlandData.scratch !== undefined
+      && HyprlandData.scratch.id === root.workspaceId
     gradient: activeGradient
     gradientActive: isScratch && HyprlandData.scratchActive
     dashed: isScratch
