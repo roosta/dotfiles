@@ -218,7 +218,7 @@ alias viqs="${EDITOR:-nvim} -c 'cd $HOME/.config/quickshell' \
 # |& short hand for piping stdout and stderr
 
 alias -g NL=/dev/null
-alias -g SK="&& sudo -K" # clear sudo cache on command success 
+alias -g SK="&& sudo -K" # clear sudo cache on command success
 alias -g G='| rg'
 alias -g H='|& head'
 alias -g T='|& tail'
