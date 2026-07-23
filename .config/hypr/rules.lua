@@ -28,7 +28,15 @@ hl.window_rule({
 hl.window_rule({
   name  = "special",
   match = { workspace = "s[true]" },
-  border_color = border(srcery.cyan, srcery.bright_white, 45),
+  rounding = 8
+  -- border_color = border(srcery.cyan, srcery.bright_white, 45),
+})
+
+hl.workspace_rule({
+  workspace = "s[true]",
+  gaps_in = 12,
+  gaps_out = 24
+  -- gaps_in = 0
 })
 
 -- Ignore maximize requests from all apps

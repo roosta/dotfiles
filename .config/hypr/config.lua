@@ -72,7 +72,7 @@ hl.config({
     inactive_opacity = 1.0,
     dim_inactive = false,
     dim_strength = 0.025,
-    dim_special = 0.07,
+    dim_special = 0,
     dim_around = 0.30,
 
     shadow = {
@@ -92,7 +92,7 @@ hl.config({
       passes = 3,
       popups = true,
       size = 4,
-      special = false,
+      special = true,
       xray = false,
       -- brightness = 1,
       -- noise = 0.04,
