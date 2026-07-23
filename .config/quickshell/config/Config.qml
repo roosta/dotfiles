@@ -415,7 +415,8 @@ Singleton {
     [/^steam_app_(\d+)$/, "steam_icon_$1"],
     [/kitty/i, "terminal"],
     [/.*pavucontrol.*/, "gnome-volume-control"],
-    [/.*gpick.*/i, "preferences-color"]
+    [/.*gpick.*/i, "preferences-color"],
+    [/pake-open-webui/i, "web-browser"]
   ]
 
   // Move to something interactive via the menu, but this'll do for now
