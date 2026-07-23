@@ -44,8 +44,13 @@ hl.monitor({
 })
 
 hl.monitor({
+  mode = "3840x2160@120",
   output = monitors.tv,
   disabled = true,
+  position = "0x0",
+  scale = "2",
+  bitdepth = 10,
+  vrr = 3
 })
 
 -- Exec commands
