@@ -38,7 +38,8 @@ Singleton {
   property var monitors: []
   property var layers: ({})
   property var scratch: undefined
-  property string activespecial: undefined
+  property bool scratchActive: false
+  property string scratchEventData: ""
   property string submap: ""
   property bool submapActive: submap.length > 0
 
@@ -108,7 +109,8 @@ Singleton {
       } else if (event.name === "submap") {
         root.submap = event?.data
       } else if (event.name === "activespecial") {
-        root.activespecial = event?.data
+        root.scratchActive = event.data.includes("special:scratch")
+        root.scratchEventData = event?.data
       }
     }
   }

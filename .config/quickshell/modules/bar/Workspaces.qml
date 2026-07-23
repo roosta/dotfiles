@@ -127,6 +127,7 @@ BorderRect {
         id: workspaceRepeater
 
         Workspace {
+          monitorId: root.monitorId
           isOccupied: root.occupied[modelData?.id] ?? false
           activeWorkspaceId: root.activeWorkspaceId;
           workspaceId: modelData?.id;

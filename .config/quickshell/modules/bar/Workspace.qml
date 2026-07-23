@@ -32,6 +32,7 @@ Button {
   required property int activeWorkspaceId
   readonly property bool isWorkspace: true
   required property var modelData
+  required property string monitorId
   property bool active: activeWorkspaceId === workspaceId
   property bool urgent: {
     return HyprlandData.urgentWindows.some(win => {
@@ -39,7 +40,8 @@ Button {
     })
   }
 
-
+  property bool scratchActive: HyprlandData.scratchActive
+    && HyprlandData.scratchEventData.includes(monitorId)
   property int buttonSize: 26 * Config.scale
   property int iconSize: 16 * Config.scale
   property int calculatedWidth: {
@@ -61,17 +63,18 @@ Button {
     cursorShape: root.active ? Qt.ArrowCursor : Qt.PointingHandCursor
   }
 
-  background: Rectangle {
+  background: GradientRect {
     id: wsBackground
     implicitWidth: root.calculatedWidth
     implicitHeight: childrenRect.height
     radius: Style.bar.radius
     color: "transparent"
-    border.color: Style.srcery.gray2
+    borderColor: Style.srcery.gray2
 
-    border.width: root.isOccupied ? 1 : 0
+    dashed: HyprlandData.scratch.id === root.workspaceId
+    borderWidth: root.isOccupied ? 1 : 0
 
-    Behavior on border.color {
+    Behavior on borderColor {
       ColorAnimation {
         duration: Style.durations.normal
         easing.type: Easing.OutCubic
@@ -186,7 +189,7 @@ Button {
                 when: !appIcon.urgent && !root.active && hover.hovered
                 PropertyChanges {
                   blinkAnimation.running: false
-                  wsBackground.border.color: Style.srcery.brightBlack
+                  wsBackground.borderColor: Style.srcery.brightBlack
                   // desaturatedIcon.opacity: 1.0
                 }
               },
@@ -195,7 +198,7 @@ Button {
                 when: appIcon.urgent && !root.active && hover.hovered
                 PropertyChanges {
                   blinkAnimation.running: true
-                  wsBackground.border.color: Style.srcery.gray6
+                  wsBackground.borderColor: Style.srcery.gray6
                 }
               },
               State {
@@ -203,7 +206,7 @@ Button {
                 when: !appIcon.urgent && root.active  && !hover.hovered
                 PropertyChanges {
                   blinkAnimation.running: false
-                  wsBackground.border.color: Style.srcery.brightBlack
+                  wsBackground.borderColor: Style.srcery.brightBlack
                   desaturatedIcon.opacity: 1.0
                 }
               },
@@ -212,7 +215,7 @@ Button {
                 when: !appIcon.urgent && root.active  && hover.hovered
                 PropertyChanges {
                   blinkAnimation.running: false
-                  wsBackground.border.color: Style.srcery.brightBlack
+                  wsBackground.borderColor: Style.srcery.brightBlack
                   desaturatedIcon.opacity: 1.0
                 }
               },
@@ -221,7 +224,7 @@ Button {
                 when: !appIcon.urgent && !root.active && !hover.hovered
                 PropertyChanges {
                   blinkAnimation.running: false
-                  wsBackground.border.color: Style.srcery.gray2
+                  wsBackground.borderColor: Style.srcery.gray2
                   desaturatedIcon.opacity: 1.0
                 }
               }
