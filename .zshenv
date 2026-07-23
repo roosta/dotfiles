@@ -15,7 +15,7 @@ typeset -gU cdpath fpath mailpath path
 path=(
 	~/.local/bin
 	~/.cargo/bin
-	~/.npm/bin
+	~/.local/share/pnpm/bin
 	$path[@]
 )
 
