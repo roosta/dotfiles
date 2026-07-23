@@ -14,6 +14,12 @@ Item {
   property real gradientAngle: 0
   property int gradientPadding: 10
 
+  // Dashed border support
+  property bool dashed: false
+  // dashPattern is in units of strokeWidth (borderWidth): [dash, gap, ...]
+  property var dashPattern: [4, 4]
+  property real dashOffset: 0
+
   function gradientSize() {
     const rad = root.gradientAngle * Math.PI / 180
     const absCos = Math.abs(Math.cos(rad))
@@ -61,9 +67,10 @@ Item {
     anchors.fill: parent
     preferredRendererType: Shape.CurveRenderer
 
+    // Solid ring: outer filled minus inner (even-odd) -> alpha hole
     ShapePath {
       fillRule: ShapePath.OddEvenFill
-      fillColor: "white"
+      fillColor: root.dashed ? "transparent" : "white"
       strokeWidth: 0
 
       PathRectangle {
@@ -78,6 +85,25 @@ Item {
         width:  root.width  - root.borderWidth * 2
         height: root.height - root.borderWidth * 2
         radius: Math.max(0, root.radius - root.borderWidth)
+      }
+    }
+
+    // Dashed ring: stroke the outline centered within the border width
+    ShapePath {
+      fillColor: "transparent"
+      strokeColor: root.dashed ? "white" : "transparent"
+      strokeWidth: root.borderWidth
+      strokeStyle: ShapePath.DashLine
+      dashPattern: root.dashPattern
+      dashOffset: root.dashOffset
+      capStyle: ShapePath.FlatCap
+
+      PathRectangle {
+        x: root.borderWidth / 2
+        y: root.borderWidth / 2
+        width:  root.width  - root.borderWidth
+        height: root.height - root.borderWidth
+        radius: Math.max(0, root.radius - root.borderWidth / 2)
       }
     }
   }
