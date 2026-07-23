@@ -84,7 +84,8 @@ Button {
       GradientStop { position: 0; color: Style.srcery.white }
     }
     property bool isScratch: HyprlandData.scratch.id === root.workspaceId
-    gradient: isScratch && HyprlandData.scratchActive ? activeGradient : undefined
+    gradient: activeGradient
+    gradientActive: isScratch && HyprlandData.scratchActive
     dashed: isScratch
     borderWidth: Style.bar.borderWidth
 
@@ -188,7 +189,6 @@ Button {
 
               Behavior on saturation {
                 NumberAnimation {
-                  properties: "saturation"
                   duration: Style.durations.small
                   easing.type: Easing.OutCubic
                 }

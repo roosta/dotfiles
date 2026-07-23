@@ -14,6 +14,10 @@ Item {
   property real gradientAngle: 0
   property int gradientPadding: 10
 
+  // Crossfade the gradient in/out over the solid borderColor fill
+  property bool gradientActive: true
+  property int gradientAnimationDuration: 300
+
   // Dashed border support
   property bool dashed: false
   // dashPattern is in units of strokeWidth (borderWidth): [dash, gap, ...]
@@ -53,6 +57,15 @@ Item {
     layer.enabled: true
     anchors.fill: parent
 
+    // Solid fallback beneath the gradient so we can crossfade to/from it
+    Rectangle {
+      rotation: root.gradientAngle
+      anchors.centerIn: parent
+      width:  gradientRect.width
+      height: gradientRect.height
+      color: root.borderColor
+    }
+
     Rectangle {
       id: gradientRect
       rotation: root.gradientAngle
@@ -60,6 +73,13 @@ Item {
       width:  root.gradientSize(root.gradientAngle).width
       height: root.gradientSize(root.gradientAngle).height
       color: root.borderColor  // solid fallback; gradient overrides this when set
+      opacity: root.gradientActive ? 1 : 0
+      Behavior on opacity {
+        NumberAnimation {
+          duration: root.gradientAnimationDuration
+          easing.type: Easing.OutCubic
+        }
+      }
     }
   }
 
