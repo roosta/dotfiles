@@ -13,7 +13,6 @@
 typeset -gU cdpath fpath mailpath path
 
 path=(
-	~/bin
 	~/.local/bin
 	~/.cargo/bin
 	~/.npm/bin
