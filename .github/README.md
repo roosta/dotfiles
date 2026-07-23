@@ -124,7 +124,7 @@ and changed based on my needs using it.
 I've been heavily inspired by, learned a lot from, and copied portions of code from:
 
 - [end-4/dots-hyprland: Usability-first dotfiles](https://github.com/end-4/dots-hyprland)
-- [caelestia-dots/shell: ‼️ No waybar here ‼️](https://github.com/caelestia-dots/shell)
+- [caelestia-dots/shell: A fluid, morphing shell for your Linux desktop](https://github.com/caelestia-dots/shell)
 
 > Code copied will be clearly marked with a permalink and modification notice.
 
