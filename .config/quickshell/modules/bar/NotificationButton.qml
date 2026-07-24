@@ -42,10 +42,11 @@ Button {
     cursorShape: Qt.PointingHandCursor
     // anchors.fill: parent
     hoverEnabled: true
-    x: -Style.spacing.p2
-    y: -Style.spacing.p2 + Style.bar.borderWidth
-    implicitWidth: parent.width + (Style.spacing.p2 * 2)
-    implicitHeight: parent.height + (Style.spacing.p2 * 2)
+
+    x: -Style.spacing.p1
+    y: -Style.spacing.p1
+    implicitWidth: parent.width + (Style.spacing.p1 * 2) + Style.bar.borderWidth
+    implicitHeight: parent.height + (Style.spacing.p1 * 2)  + Style.bar.borderWidth
 
     onClicked: (mouse) => {
       if (mouse.button === Qt.RightButton) {
