@@ -108,6 +108,45 @@ Item {
           borderWidth: Style.bar.borderWidth
           anchors.fill: parent
 
+          Quad {
+            width: 50
+            height: 50
+            anchors.topMargin: Style.spacing.p2
+            fillColor: "transparent"
+            strokeColor: root.sourceModel.length === 0 ? Style.srcery.gray3 : Style.srcery.black
+            anchors.leftMargin: Style.spacing.p2
+            anchors.top: parent.top
+            anchors.left: parent.left
+            topLeft:  Qt.point(1, 0)
+            topRight: Qt.point(1, 0)
+            rotation: 180
+            Behavior on strokeColor {
+              ColorAnimation {
+                duration: Style.durations.normal
+                easing.type: Easing.InOutQuad
+              }
+            }
+          }
+
+          Quad {
+            width: 50
+            height: 50
+            fillColor: "transparent"
+            strokeColor: root.sourceModel.length === 0 ? Style.srcery.gray3 : Style.srcery.black
+            anchors.topMargin: Style.spacing.p2
+            anchors.rightMargin: Style.spacing.p2
+            anchors.top: parent.top
+            anchors.right: parent.right
+            topLeft:  Qt.point(1, 0)
+            topRight: Qt.point(1, 0)
+            rotation: -90
+            Behavior on strokeColor {
+              ColorAnimation {
+                duration: Style.durations.normal
+                easing.type: Easing.InOutQuad
+              }
+            }
+          }
           Timer {
             id: emptyTimer
             interval: Style.animationCurves.expressiveSlowSpatialDuration
@@ -197,6 +236,13 @@ Item {
                 }
                 height: width
                 anchors.centerIn: parent
+                Rectangle {
+                  anchors.fill: parent
+                  radius: parent.width / 2
+                  color: "transparent"
+                  border.color: Style.srcery.gray3
+                  border.width: 1
+                }
               }
 
             }
