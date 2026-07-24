@@ -25,6 +25,33 @@ Item {
     rotation: 45
     border.color: Style.srcery.gray4
     color: "transparent"
+
+    Quad {
+      width: 58
+      height: 58
+      fillColor: "transparent"
+      strokeColor: Style.srcery.gray3
+      anchors.top: parent.top
+      anchors.right: parent.right
+      anchors.rightMargin: Style.spacing.p2
+      anchors.topMargin: Style.spacing.p2
+      rotation: -90
+      topLeft:  Qt.point(1, 0)
+      topRight: Qt.point(1, 0)
+    }
+
+    Quad {
+      width: 58
+      height: 58
+      rotation: 90
+      topLeft:  Qt.point(1, 0)
+      topRight: Qt.point(1, 0)
+      anchors.bottom: parent.bottom
+      anchors.bottomMargin: Style.spacing.p2
+      anchors.left: parent.left
+      anchors.leftMargin: Style.spacing.p2
+
+    }
   }
 
   Rectangle {
