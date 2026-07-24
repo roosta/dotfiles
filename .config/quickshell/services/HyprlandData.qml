@@ -37,9 +37,8 @@ Singleton {
   property var activeWorkspace: null
   property var monitors: []
   property var layers: ({})
-  property var scratch: undefined
-  property bool scratchActive: false
-  property string scratchEventData: ""
+  property var special: []
+  property string specialEventData: ""
   property string submap: ""
   property bool submapActive: submap.length > 0
 
@@ -109,8 +108,7 @@ Singleton {
       } else if (event.name === "submap") {
         root.submap = event?.data
       } else if (event.name === "activespecial") {
-        root.scratchActive = event.data.includes("special:scratch")
-        root.scratchEventData = event?.data
+        root.specialEventData = event?.data
       }
     }
   }
@@ -176,8 +174,7 @@ Singleton {
               return a.id - b.id;
             });
           root.workspaces = workspaces
-          // root.workspaces = workspaces.filter(w => !w.name.includes("special:scratch"))
-          root.scratch = workspaces.find(w => w.name.includes("special:scratch"))
+          root.special = workspaces.filter(w => w.name.includes("special"))
           root.workspacesByMonitor = Functions.groupBy(root.workspaces, x => x.monitor)
           let byId = {};
           for (var i = 0; i < root.workspaces.length; ++i) {

@@ -39,10 +39,12 @@ Button {
       return win.workspace.id === root.workspaceId
     })
   }
-  property bool isScratch: HyprlandData.scratch !== undefined
-  && HyprlandData.scratch.id === root.workspaceId
-  property bool scratchActive: HyprlandData.scratchActive
-    && HyprlandData.scratchEventData.includes(monitorId)
+  property var specialIds: HyprlandData.special.map(w => w.id)
+  property bool isSpecial: HyprlandData.special.length > 0
+    && specialIds.includes(root.workspaceId)
+  property bool specialActive: HyprlandData.specialEventData.includes(monitorId)
+    && HyprlandData.specialEventData.includes(modelData.name)
+
   property int buttonSize: 26 * Config.scale
   property int iconSize: 16 * Config.scale
   property int calculatedWidth: {
@@ -55,8 +57,9 @@ Button {
   }
 
   onPressed: {
-    if (isScratch) {
-      Hyprland.dispatch(`hl.dsp.workspace.toggle_special("scratch")`)
+    if (isSpecial) {
+      const n = modelData.name.split(":")[1]
+      Hyprland.dispatch(`hl.dsp.workspace.toggle_special("${n}")`)
     } else if (workspaceId !== activeWorkspaceId) {
       Hyprland.dispatch(`hl.dsp.focus({ workspace = ${workspaceId} })`)
     }
@@ -87,8 +90,8 @@ Button {
       GradientStop { position: 0; color: Style.srcery.white }
     }
     gradient: activeGradient
-    gradientActive: root.isScratch && HyprlandData.scratchActive
-    dashed: root.isScratch
+    gradientActive: root.isSpecial && root.specialActive
+    dashed: root.isSpecial
     borderWidth: Style.bar.borderWidth
 
     Behavior on borderColor {
@@ -187,7 +190,7 @@ Button {
               anchors.centerIn: parent
 
               // grayscale scratch icons unless the scratch is active
-              saturation: (root.isScratch && !HyprlandData.scratchActive) ? -1.0 : 0.0
+              saturation: (root.isSpecial && !root.specialActive) ? -1.0 : 0.0
 
               Behavior on saturation {
                 NumberAnimation {
