@@ -264,7 +264,7 @@ Item {
       }
       ListView {
         id: list
-        visible: root.sourceModel.length > 0
+        visible: count > 0
         // clip: true
         anchors.fill: parent
         // currentIndex: GlobalState.menuIndex
