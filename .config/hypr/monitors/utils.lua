@@ -23,7 +23,39 @@ local function collect_workspaces(monitor)
   end
 end
 
+-- Waits until all monitors in `expected` (list of output names) are
+-- connected, then runs `callback` once. Already-connected monitors count.
+local function when_monitors_ready(expected, callback)
+  local remaining = {}
+  local count = 0
+  for _, name in ipairs(expected) do
+    remaining[name] = true
+    count = count + 1
+  end
+
+  local function mark(name)
+    if remaining[name] then
+      remaining[name] = nil
+      count = count - 1
+      if count == 0 then callback() end
+    end
+  end
+
+  -- Account for monitors already connected
+  for _, m in ipairs(hl.get_monitors() or {}) do
+    mark(m.name)
+  end
+
+  if count == 0 then return end
+
+  -- Wait for the rest
+  hl.on("monitor.added", function(m)
+    mark(m.name)
+  end)
+end
+
 return {
   add_workspaces = add_workspaces,
-  collect_workspaces = collect_workspaces
+  collect_workspaces = collect_workspaces,
+  when_monitors_ready = when_monitors_ready,
 }
