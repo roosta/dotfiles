@@ -43,6 +43,7 @@ Item {
     Quad {
       width: 58
       height: 58
+      fillColor: "transparent"
       rotation: 90
       topLeft:  Qt.point(1, 0)
       topRight: Qt.point(1, 0)
