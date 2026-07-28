@@ -59,6 +59,12 @@ ShellRoot {
         anchors.bottom: true
         anchors.left: true
         anchors.right: true
+        Behavior on hcalc {
+          NumberAnimation {
+            duration: Style.durations.small
+            easing.type: Easing.InOutCubic
+          }
+        }
         property int hcalc: {
           if (GlobalState.launcherOpen && GlobalState.launcherMonitorId === scope.monitorId) {
             return Style.bar.height + Style.launcher.height
