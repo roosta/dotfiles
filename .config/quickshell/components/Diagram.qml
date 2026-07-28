@@ -61,7 +61,7 @@ Item {
     color: "transparent"
     border.width: root.size / 2
 
-    Behavior on color {
+    Behavior on border.color {
       ColorAnimation {
         duration: 300
         easing.type: Easing.OutQuad
