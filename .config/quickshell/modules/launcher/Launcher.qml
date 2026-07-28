@@ -30,7 +30,11 @@ Item {
   required property string monitorId
   // property var appList: layout.currentMenu?.item?.modelData ?? []
   anchors.bottomMargin: Style.bar.height
-  anchors.fill: parent
+  // anchors.fill: parent
+  anchors.bottom: parent.bottom
+  anchors.left: parent.left
+  anchors.right: parent.right
+  implicitHeight: launcherHeight
   property alias launcherHeight: launcher.height
   property bool monitorIsFocused: Hyprland.focusedMonitor?.id === monitorId
 
