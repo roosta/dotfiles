@@ -286,7 +286,11 @@ Item {
           easing.type: Easing.Linear
         }
       }
-      Component.onCompleted: Qt.callLater(() => { layout.ready = true })
+      Component.onCompleted: Qt.callLater(() => {
+        if (layout) {
+          layout.ready = true
+        }
+      })
 
       anchors.margins: Style.spacing.p3
       Layout.alignment: Qt.AlignTop
