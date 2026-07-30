@@ -6,7 +6,7 @@
 local monitors = require("monitors/monitors")
 local utils = require("monitors/utils")
 local primary_monitor = monitors.tv
--- local vars = require("variables").vars
+local vars = require("variables").vars
 
 hl.monitor({
   output = monitors.tv,
@@ -54,8 +54,7 @@ hl.on("monitor.added", function(m)
       window = "class:firefox-media",
       follow = false
     }))
-
-    -- hl.exec_cmd(vars.scripts_home .. "/switch-audio.sh tv")
+    hl.exec_cmd(vars.scripts_home .. "/switch-audio.sh tv")
   end
 end)
 
