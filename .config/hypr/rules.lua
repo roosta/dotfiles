@@ -60,6 +60,13 @@ hl.window_rule({
   rounding = 18,
 })
 
+hl.window_rule({
+  name  = "kdialog",
+  match = { class = "org.kde.kdialog" },
+  center = true
+})
+
+
 -- Presenter window
 hl.window_rule({
   name  = "present-rounding",
