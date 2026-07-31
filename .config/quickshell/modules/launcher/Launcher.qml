@@ -254,33 +254,6 @@ Item {
           onClicked: launcherList.accept(modelData)
         }
       }
-
-      // Silence warnings about property access
-      // Due to the currrentMenu being sort of generic I dont know how to let qmllint
-      // know about these properties, but they are there
-      // LauncherField {
-      //   id: field
-      //   onTextChanged: root.query = text
-      //   monitorId: root.monitorId
-      //   // qmllint disable missing-property
-      //   appList: layout.currentMenu?.item?.modelData ?? []
-      //   parentWidth: parent.width
-      //   onIncrementCurrentIndex: {
-      //     // qmllint disable missing-property
-      //     // layout.currentMenu?.item?.list.incrementCurrentIndex()
-      //   }
-      //   onDecrementCurrentIndex: {
-      //     // qmllint disable missing-property
-      //     // layout.currentMenu?.item?.list.decrementCurrentIndex()
-      //   }
-      //   onAccepted: {
-      //     const currentItem = layout.currentMenu?.item?.list?.currentItem; // qmllint disable missing-property
-      //     if (currentItem) {
-      //       // qmllint disable missing-property
-      //       layout.currentMenu.accept(currentItem.modelData)
-      //     }
-      //   }
-      // }
     }
   }
 }
