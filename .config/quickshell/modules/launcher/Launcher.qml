@@ -21,22 +21,31 @@ import QtQuick.Layouts
 import Quickshell.Hyprland
 import Quickshell
 
-// import qs.utils
-// import QtQuick.Controls
-// import Quickshell
-
 Item {
   id: root
   required property string monitorId
-  // property var appList: layout.currentMenu?.item?.modelData ?? []
+
   anchors.bottomMargin: Style.bar.height
-  // anchors.fill: parent
   anchors.bottom: parent.bottom
   anchors.left: parent.left
   anchors.right: parent.right
-  implicitHeight: launcherHeight
-  property alias launcherHeight: launcher.height
+
+  // Constant height: nothing outside this item reflows while animating.
+  implicitHeight: Style.launcher.height
+
+  // Exposed for shell.qml — now constant, no per-frame churn.
+  readonly property int launcherHeight: Style.launcher.height
+
+  // The slide happens inside these bounds
+  clip: true
+
+  readonly property bool active: GlobalState.launcherOpen
+    && GlobalState.launcherMonitorId === root.monitorId
+
   property bool monitorIsFocused: Hyprland.focusedMonitor?.id === monitorId
+
+  // Only render while on-screen or mid-transition
+  visible: launcher.y < Style.launcher.height
 
   signal decrementCurrentIndex()
   signal incrementCurrentIndex()
@@ -47,6 +56,7 @@ Item {
   signal drawerActivate()
 
   signal accepted()
+
   onDrawerActivate: {
     const currentItem = launcherList?.list?.currentItem;
     currentItem.drawerActivate()
@@ -81,16 +91,12 @@ Item {
   onDecrementCurrentIndex: {
     launcherList.list.decrementCurrentIndex()
   }
-  // property int currentIndex: 0
-
-  visible: launcher.height > 0
 
   GlobalShortcut { // qmllint disable unresolved-type
     name: "toggleLauncher"
     description: "Toggles launcher"
 
     onPressed: {
-
       if (Hyprland.focusedMonitor?.name === root.monitorId) {
         GlobalState.toggleLauncher({ id: Hyprland.focusedMonitor?.name })
       }
@@ -102,7 +108,6 @@ Item {
     description: "Toggles launcher menu"
 
     onPressed: {
-
       if (Hyprland.focusedMonitor?.name === root.monitorId) {
         GlobalState.toggleLauncher({id: Hyprland.focusedMonitor?.name, mode: "menu"})
       }
@@ -129,33 +134,28 @@ Item {
       }
     }
   }
+
   BorderRect {
     id: launcher
-    implicitHeight: 0
+
+    // Fixed geometry: the ColumnLayout / ListView never relayout during the animation
     anchors.left: parent.left
     anchors.right: parent.right
-    anchors.bottom: parent.bottom
+    implicitHeight: Style.launcher.height
+
+    // 0 == fully open, Style.launcher.height == fully hidden below the bar
+    y: root.active ? 0 : Style.launcher.height
+
     color: Style.srcery.black
     topBorder: Style.bar.borderWidth
     borderColor: Style.srcery.gray2
 
-    states: [
-      State {
-        name: "active"
-        when: GlobalState.launcherOpen && GlobalState.launcherMonitorId === root.monitorId
-        PropertyChanges { launcher.implicitHeight: Style.launcher.height }
+    Behavior on y {
+      NumberAnimation {
+        duration: Style.durations.small
+        easing.type: Easing.InOutCubic
       }
-    ]
-
-    transitions: [
-      Transition {
-        NumberAnimation {
-          properties: "implicitHeight"
-          duration: Style.durations.small
-          easing.type: Easing.InOutCubic
-        }
-      }
-    ]
+    }
 
     ColumnLayout {
       anchors.fill: parent

@@ -59,19 +59,12 @@ ShellRoot {
         anchors.bottom: true
         anchors.left: true
         anchors.right: true
-        Behavior on hcalc {
-          NumberAnimation {
-            duration: Style.durations.small
-            easing.type: Easing.InOutCubic
-          }
-        }
-        property int hcalc: {
-          if (GlobalState.launcherOpen && GlobalState.launcherMonitorId === scope.monitorId) {
-            return Style.bar.height + Style.launcher.height
-          }
-          return Style.bar.height
-        }
-        exclusiveZone: hcalc
+
+        // One commit on open, one on close — Hyprland animates the windows.
+        // Animating this would relayout every window on the monitor per frame.
+        exclusiveZone: GlobalState.launcherOpen && GlobalState.launcherMonitorId === scope.monitorId
+          ? Style.bar.height + Style.launcher.height
+          : Style.bar.height
       }
 
       NamedPanel {
@@ -155,7 +148,8 @@ ShellRoot {
           anchors.top: parent.top
           anchors.left: parent.left
           implicitWidth: parent.width
-          implicitHeight: parent.height - Style.bar.height - launcher.launcherHeight
+          // Constant: keeps the input mask from being recommitted every frame
+          implicitHeight: parent.height - Style.bar.height - Style.launcher.height
 
           transitions: [
             Transition {
