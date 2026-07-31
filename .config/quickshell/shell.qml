@@ -41,7 +41,9 @@ ShellRoot {
       NamedPanel {
         id: wallpaper
         WlrLayershell.layer: WlrLayer.Background
-        // exclusionMode: ExclusionMode.Ignore
+        // Constant geometry: the compositor must not resize us when the
+        // exclusive zone changes. Wallpaper.qml offsets its content itself.
+        exclusionMode: ExclusionMode.Ignore
         name: "wallpaper"
         screen: scope.modelData
         anchors.left: true
