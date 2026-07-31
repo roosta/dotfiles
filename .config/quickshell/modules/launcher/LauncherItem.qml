@@ -276,21 +276,7 @@ Item {
 
     ColumnLayout {
       id: layout
-      property bool ready: false
-      opacity: (ready && GlobalState.launcherOpen) ? 1 : 0
       clip: true
-      Behavior on opacity {
-        NumberAnimation {
-          property: "opacity"
-          duration: GlobalState.launcherOpen ? Style.durations.tiny : Style.durations.large
-          easing.type: Easing.Linear
-        }
-      }
-      Component.onCompleted: Qt.callLater(() => {
-        if (layout) {
-          layout.ready = true
-        }
-      })
 
       anchors.margins: Style.spacing.p3
       Layout.alignment: Qt.AlignTop
