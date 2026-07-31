@@ -81,4 +81,8 @@ vim.keymap.set('n', '<Leader>vc', function()
   print("Visual column: " .. col)
 end, { desc = "Show visual column position" })
 
+-- gx replacement
+vim.keymap.set({"n","x"}, "gx", function()
+  vim.ui.open(vim.fn.expand("<cfile>"))
+end)
 --  vim: set ts=2 sw=2 tw=0 fdm=marker et :
