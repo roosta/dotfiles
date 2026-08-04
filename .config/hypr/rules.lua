@@ -143,16 +143,14 @@ hl.window_rule({
   workspace = "11 silent",
 })
 
--- Fix floating steam windows
--- hl.window_rule({
---   name  = "steam-float",
---   match = {
---     title = "(?i)(steam|friends list|steam settings)",
---     class = "steam",
---     float = true,
---   },
---   float = false,
--- })
+hl.window_rule({
+  name  = "steam-big-picture",
+  match = {
+    title = "title:^(Steam Big Picture Mode)$",
+    class = "steam",
+  },
+  focus_on_activate = true
+})
 
 -- Screenshot tool (satty) — center floating
 hl.window_rule({
