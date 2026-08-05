@@ -17,6 +17,18 @@
             "children": [
               {
                 "type": "command",
+                "name": "Virtual Machine Manager",
+                "icon": "virt-manager",
+                "iconTheme": "system",
+                "data": {
+                  "command": "virt-manager",
+                  "detached": true,
+                  "isolated": false,
+                  "delayed": false
+                }
+              },
+              {
+                "type": "command",
                 "data": {
                   "command": "kitty",
                   "detached": true,
