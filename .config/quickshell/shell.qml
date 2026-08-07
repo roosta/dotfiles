@@ -147,12 +147,7 @@ ShellRoot {
         Rectangle {
           id: content
           color: "transparent"
-          anchors.top: parent.top
-          anchors.left: parent.left
-          implicitWidth: parent.width
-          // Constant: keeps the input mask from being recommitted every frame
-          implicitHeight: parent.height - Style.bar.height - Style.launcher.height
-
+          anchors.fill: parent
           transitions: [
             Transition {
               ColorAnimation {
