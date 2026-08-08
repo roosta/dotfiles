@@ -430,6 +430,7 @@ Singleton {
     "org.mozilla.Thunderbird",
     "com.discordapp.Discord",
     "kitty",
-    "kando"
+    "kando",
+    "virt-manager"
   ]
 }
