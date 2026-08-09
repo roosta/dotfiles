@@ -54,8 +54,19 @@ local function when_monitors_ready(expected, callback)
   end)
 end
 
+local function log(val)
+  hl.notification.create({
+    text = val,
+    timeout = 5000,
+    icon = "ok",
+  })
+end
+
 return {
   add_workspaces = add_workspaces,
   collect_workspaces = collect_workspaces,
   when_monitors_ready = when_monitors_ready,
+  log = log,
 }
+
+

@@ -4,7 +4,7 @@
 -- Exclusive TV layout
 
 local monitors = require("monitors/monitors")
-local utils = require("monitors/utils")
+local utils = require("utils")
 local primary_monitor = monitors.center
 -- local vars = require("variables").vars
 
