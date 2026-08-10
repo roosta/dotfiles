@@ -5,6 +5,7 @@
 
 local main_mod = "SUPER"
 local vars = require("variables").vars
+local utils = require("utils")
 
 -- General
 hl.bind(main_mod .. " + SHIFT + R", hl.dsp.exec_cmd("hyprctl reload"))
@@ -12,6 +13,8 @@ hl.bind(main_mod .. " + C", hl.dsp.window.close())
 
 -- Groups
 hl.bind(main_mod .. " + G", hl.dsp.group.toggle())
+
+-- Apps
 hl.bind(main_mod .. " + Q", hl.dsp.exec_cmd(vars.terminal))
 
 -- Quickshell
@@ -46,6 +49,15 @@ hl.bind("XF86AudioMute",        hl.dsp.global("quickshell:toggleMute"), { locked
 hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"),   { locked = true })
 hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"),       { locked = true })
+
+-- Demo
+hl.bind(main_mod .. " + SHIFT + Delete", function()
+  hl.dispatch(hl.dsp.exec_cmd(vars.scripts_home .. "/demo-notify.sh"))
+end)
+
+hl.bind(main_mod .. " + SHIFT + End", function()
+  hl.dispatch(hl.dsp.exec_cmd(vars.scripts_home .. "/demo-layout.sh"))
+end)
 
 local directions = {
   left = "left",
