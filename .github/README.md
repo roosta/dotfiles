@@ -2,7 +2,7 @@
     <h2>⛥  Ritualistic Dotfiles ⛦</h2>
 </div>
 
-![screen](https://raw.githubusercontent.com/roosta/assets/master/dotfiles/ritual_screen.png)
+![screen](https://raw.githubusercontent.com/roosta/assets/master/dotfiles/ritual_screen_v0.2.0.png)
 
 A [Srcery](https://srcery.sh) themed collection of dotfiles comprising my [Ritual
 desktop shell](#ritual-desktop-shell) for [Arch Linux](https://archlinux.org/). Designed for
@@ -117,7 +117,7 @@ custom color scheme built atop the [Breeze theme](https://kde.org/plasma-desktop
 
 ## Ritual desktop shell
 
-<video src="https://github.com/user-attachments/assets/63304a4e-1961-4533-91ca-aec0c2b92a6f" controls width="800"></video>
+<video src="https://github.com/user-attachments/assets/77551ee1-f712-45a7-94b9-418f5ed77c54" controls width="800"></video>
 
 [Hyprland](https://hypr.land/) and [Quickshell](https://quickshell.org/) is
 used for the custom desktop shell based on the [Srcery](https://srcery.sh/)
