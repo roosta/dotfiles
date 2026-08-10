@@ -416,7 +416,8 @@ Singleton {
     [/kitty/i, "terminal"],
     [/.*pavucontrol.*/, "gnome-volume-control"],
     [/.*gpick.*/i, "preferences-color"],
-    [/pake-open-webui/i, "web-browser"]
+    [/pake-open-webui/i, "web-browser"],
+    [/org.satty.satty/i, "image"]
   ]
 
   // Move to something interactive via the menu, but this'll do for now
