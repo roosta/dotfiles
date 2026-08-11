@@ -63,6 +63,15 @@ flatpak:
   - name: Feishin
     application: org.jeffvli.feishin
     description: Jellyfin, Navidrome, and OpenSubsonic Compatible Music Player
+  - name: ProtonUp-Qt
+    application: net.davidotek.pupgui2
+    description: Install Wine and Proton-based compatibility tools
+  - name: PCSX2
+    application: net.pcsx2.PCSX2
+    description: PlayStation 2 emulator
+  - name: Dolphin Emulator
+    application: org.DolphinEmu.dolphin-emu
+    description: Dolphin Emulator - GameCube / Wii
 
 # Packages to install
 packages:
@@ -348,9 +357,9 @@ packages:
     - name: wev
       description: A tool for debugging wayland events on a Wayland window, analagous to the X11 tool xev
       aur: false
-    - name: rose-pine-hyprcursor
-      description: rose pine themed cursor for hyprland
-      aur: true
+    # - name: rose-pine-hyprcursor
+    #   description: rose pine themed cursor for hyprland
+    #   aur: true
     - name: kando-bin
       description: A pie menu for the desktop. It will be highly customizable and will allow you to create your own menus and actions.(Prebuilt version.Use system-wide electron)
       aur: true
@@ -359,6 +368,9 @@ packages:
       aur: false
     - name: breeze-icons
       description: Breeze icon theme
+      aur: false
+    - name: breeze-cursors
+      description: Breeze cursors
       aur: false
     - name: plasma-integration
       description: Qt Platform Theme integration plugins for the Plasma workspaces
@@ -476,9 +488,9 @@ packages:
     - name: cargo-outdated
       description: A cargo subcommand for displaying when Rust dependencies are out of date
       aur: false
-    - name: ldtk
-      description: Modern and efficient 2D level editor with a strong focus on user-friendliness
-      aur: true
+    # - name: ldtk
+    #   description: Modern and efficient 2D level editor with a strong focus on user-friendliness
+    #   aur: true
     - name: ldd
       description: Linker from the LLVM project
       aur: false
@@ -564,9 +576,9 @@ packages:
     - name: firefox-tridactyl
       description: Replace Firefox's control mechanism with one modelled on Vim
       aur: false
-    - name: firefox-tridactyl-native
-      description: Tridactyl native messaging host application for Firefox
-      aur: true
+    # - name: firefox-tridactyl-native
+    #   description: Tridactyl native messaging host application for Firefox
+    #   aur: true
     - name: firefox-extension-passff
       description: zx2c4 pass manager addon for firefox
       aur: false
@@ -748,11 +760,8 @@ packages:
     - name: winetricks
       description: Script to install various redistributable runtime libraries in Wine.
       aur: false
-    - name: proton-ge-custom-bin
-      description: A fancy custom distribution of Valves Proton with various patches
-      aur: true
-    - name: libretro-retrodream
-      description: Sega Dreamcast core
+    - name: libretro-fbneo-git
+      description: FinalBurn Neo multi-arcade core
       aur: true
     - name: libretro-swanstation-git
       description: SwanStation is an open-source Libretro core implementation of DuckStation, a PSX emulator.
