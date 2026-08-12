@@ -57,7 +57,7 @@ hl.monitor({
 hl.exec_cmd("xrandr --output " .. primary_monitor .. " --primary")
 
 -- Environment variables
-hl.env("PROTON_WAYLAND", primary_monitor)
+hl.env("PROTON_WAYLAND_MONITOR", primary_monitor)
 
 utils.add_workspaces(monitors.center, {1,2,3,4,5,6,7,8,9,10}, 1)
 utils.add_workspaces(monitors.left, {11,12,13,14}, 11)
