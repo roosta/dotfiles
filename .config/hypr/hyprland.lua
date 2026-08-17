@@ -32,7 +32,7 @@ require("rules")
 -- https://wiki.hypr.land/Configurng/Basics/Autostart/
 -- Several services are started using systemd, to enable various hyprland utils
 hl.on("hyprland.start", function ()
-  hl.exec_cmd("quickshell")
+  -- hl.exec_cmd("quickshell")
   hl.exec_cmd("/usr/lib/polkit-kde-authentication-agent-1")
 end)
 
