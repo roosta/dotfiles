@@ -5,7 +5,7 @@
 
 -- Monitor variables
 local monitors = require("monitors/monitors")
-local utils = require("monitors/utils")
+local utils = require("utils")
 local primary_monitor = monitors.main
 
 -- Layout
@@ -16,7 +16,7 @@ hl.monitor({
   scale = "2",
 })
 
-utils.add_workspaces(monitors.center, {1,2,3,4,5,6,7,8,9,10}, 1)
+utils.add_workspaces(monitors.main, {1,2,3,4,5,6,7,8,9,10}, 1)
 
 -- Then add the dwindle layout overrides separately
 hl.workspace_rule({ workspace = "1", layout = "dwindle" })
