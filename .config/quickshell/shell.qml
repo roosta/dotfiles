@@ -29,7 +29,7 @@ import qs
 ShellRoot {
   Variants {
     model: Quickshell.screens
-    Scope {
+    delegate: Scope {
       id: scope
       required property ShellScreen modelData
       property string monitorId: modelData?.name ?? ""
