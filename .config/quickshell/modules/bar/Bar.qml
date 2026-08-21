@@ -118,9 +118,9 @@ Item {
             RowLayout {
               spacing: Style.spacing.p1
               anchors.centerIn: parent
-              WsButton { direction: -1; monitorId: root.monitorId }
+              ShiftButton { direction: -1; monitorId: root.monitorId }
               Workspaces { monitorId: root.monitorId }
-              WsButton { direction: 1; monitorId: root.monitorId }
+              ShiftButton { direction: 1; monitorId: root.monitorId }
             }
           }
           Rectangle {
