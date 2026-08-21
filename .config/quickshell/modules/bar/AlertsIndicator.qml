@@ -95,7 +95,7 @@ BorderRect {
         id: audioControl
         font.family: Style.font.main
         delay: 600
-        text: "hello world"
+        text: Alerts.audioInTooltip
         visible: audioArea.containsMouse
         contentItem: Text {
           text: audioControl.text
@@ -103,14 +103,6 @@ BorderRect {
           color: Style.srcery.brightWhite
         }
 
-        Timer {
-          interval: 1000
-          running: audioControl.visible
-          repeat: audioControl.visible
-          onTriggered: {
-            ResourceUsage.refreshTooltip()
-          }
-        }
         background: BorderRect {
           color: Style.srcery.gray1
         }
