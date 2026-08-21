@@ -15,6 +15,15 @@ Button {
   id: root
   property int direction: -1
 
+  // Manual press feedback so it survives window-focus grab changes
+  property bool active: false
+
+  Timer {
+    id: pressFlash
+    interval: 100
+    onTriggered: root.active = false
+  }
+
   required property string monitorId
 
   readonly property HyprlandMonitor monitor: Hyprland
@@ -30,7 +39,7 @@ Button {
   states: [
     State {
       name: "pressed"
-      when: root.pressed
+      when: root.active
 
       PropertyChanges {
         triangle.strokeColor: Style.srcery.brightWhite
@@ -58,6 +67,9 @@ Button {
   }
 
   onPressed: {
+    root.active = true
+    pressFlash.restart()
+
     let move = activeWorkspaceId + root.direction
     let focusedMonitor = Hyprland.focusedMonitor?.name ?? ""
     if (focusedMonitor !== Config.displays.center && focusedMonitor !== Config.displays.tv) { return }
