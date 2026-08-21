@@ -34,6 +34,7 @@ BorderRect {
   MouseArea {
     id: mouseArea
     hoverEnabled: true
+    cursorShape: Qt.PointingHandCursor
     anchors.fill: parent
   }
   Behavior on implicitWidth {
@@ -47,13 +48,11 @@ BorderRect {
       name: "hovered"
       when: mouseArea.containsMouse && !mouseArea.pressed
       PropertyChanges { root.borderColor: Style.srcery.gray4 }
-      PropertyChanges { mouseArea.cursorShape: Qt.PointingHandCursor }
     },
     State {
       name: "pressed"
       when: mouseArea.pressed && mouseArea.containsMouse
       PropertyChanges { root.borderColor: Style.srcery.gray6 }
-      PropertyChanges { mouseArea.cursorShape: Qt.PointingHandCursor }
     }
   ]
   RowLayout {
@@ -85,6 +84,37 @@ BorderRect {
       color: "transparent"
       Layout.preferredWidth: Style.font.size3
       Layout.preferredHeight: Style.font.size3
+      MouseArea {
+        id: audioArea
+        anchors.fill: parent
+        hoverEnabled: true
+        cursorShape: Qt.PointingHandCursor
+
+      }
+      ToolTip {
+        id: audioControl
+        font.family: Style.font.main
+        delay: 600
+        text: "hello world"
+        visible: audioArea.containsMouse
+        contentItem: Text {
+          text: audioControl.text
+          font: audioControl.font
+          color: Style.srcery.brightWhite
+        }
+
+        Timer {
+          interval: 1000
+          running: audioControl.visible
+          repeat: audioControl.visible
+          onTriggered: {
+            ResourceUsage.refreshTooltip()
+          }
+        }
+        background: BorderRect {
+          color: Style.srcery.gray1
+        }
+      }
       Text {
         text: ""
         anchors.centerIn: parent
@@ -117,6 +147,7 @@ BorderRect {
       visible: Alerts.videoIn
       Layout.preferredWidth: Style.font.size3
       Layout.preferredHeight: Style.font.size3
+
       Text {
         text: "󱎴"
         anchors.centerIn: parent
@@ -133,23 +164,29 @@ BorderRect {
       visible: Alerts.cpuUsage
       Layout.preferredWidth: Style.font.size3
       Layout.preferredHeight: Style.font.size3
+      MouseArea {
+        id: cpuArea
+        anchors.fill: parent
+        hoverEnabled: true
+        cursorShape: Qt.PointingHandCursor
+
+      }
       ToolTip {
-        id: control
-        font: Style.font.main
+        id: cpuControl
+        font.family: Style.font.main
         delay: 600
         text: ResourceUsage.cpuTooltip
-        visible: mouseArea.containsMouse
+        visible: cpuArea.containsMouse
         contentItem: Text {
-          text: control.text
-          font: control.font
+          text: cpuControl.text
+          font: cpuControl.font
           color: Style.srcery.brightWhite
         }
 
         Timer {
-          id: tpTimer
           interval: 1000
-          running: control.visible
-          repeat: control.visible
+          running: cpuControl.visible
+          repeat: cpuControl.visible
           onTriggered: {
             ResourceUsage.refreshTooltip()
           }
