@@ -192,7 +192,7 @@ alias reload='killall -SIGUSR2'
 alias vialias="${EDITOR:-nvim} $HOME/.zsh.d/aliases.zsh"
 alias vibar="${EDITOR:-nvim} $HOME/.config/waybar/modules.jsonc \
   $HOME/.config/waybar/style.css $HOME/.config/waybar/config.jsonc"
-alias vienv="${EDITOR:-nvim} $HOME/.zshenv"
+alias vienv="${EDITOR:-nvim} $HOME/.zshenv $HOME/.config/uwsm/*"
 alias vifzf="${EDITOR:-nvim} $HOME/.zsh.d/fzf.zsh"
 alias vigit="${EDITOR:-nvim} $HOME/.gitconfig"
 alias vigtk="${EDITOR:-nvim} $HOME/.gtkrc-2.0 \
