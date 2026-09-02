@@ -12,3 +12,5 @@ export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
 export QT_QPA_PLATFORMTHEME=kde
 export XDG_MENU_PREFIX=plasma-
 export QSG_RHI_BACKEND=vulkan
+
+# vim: set ft=bash ts=2 sw=2 tw=0 fdm=marker et :

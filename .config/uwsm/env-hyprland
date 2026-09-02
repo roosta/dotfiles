@@ -1,3 +1,5 @@
 export HYPRCURSOR_SIZE=48
 export HYPRCURSOR_THEME=Breeze
 export AQ_DRM_DEVICES="/dev/dri/card1:/dev/dri/card0"
+
+# vim: set ft=bash ts=2 sw=2 tw=0 fdm=marker et :
