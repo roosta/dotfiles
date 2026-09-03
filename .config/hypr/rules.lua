@@ -144,6 +144,11 @@ hl.window_rule({
 })
 
 hl.window_rule({
+  match = { title = "system_monitor" },
+  workspace = "15 silent",
+})
+
+hl.window_rule({
   name  = "steam-big-picture",
   match = {
     title = "title:^(Steam Big Picture Mode)$",
