@@ -417,7 +417,8 @@ Singleton {
     [/.*pavucontrol.*/, "gnome-volume-control"],
     [/.*gpick.*/i, "preferences-color"],
     [/pake-open-webui/i, "web-browser"],
-    [/org.satty.satty/i, "image"]
+    [/org.satty.satty/i, "image"],
+    [/virt-viewer/i, "virt-manager"]
   ]
 
   // Move to something interactive via the menu, but this'll do for now
