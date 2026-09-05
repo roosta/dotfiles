@@ -157,6 +157,14 @@ hl.window_rule({
   focus_on_activate = true
 })
 
+hl.window_rule({
+  name  = "open-webui-client",
+  match = {
+    class = "Pake-open-webui",
+  },
+  workspace = "special:scratch silent"
+})
+
 -- Screenshot tool (satty) — center floating
 hl.window_rule({
   name  = "screenshot",
