@@ -24,10 +24,6 @@ fpath=(
 	$fpath[@]
 )
 
-# Use this with hyprland disable xwayland scaling
-export GDK_SCALE=2
-export QSG_RHI_BACKEND=vulkan
-
 export TERMINAL=kitty
 export BROWSER=firefox
 
