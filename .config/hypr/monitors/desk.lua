@@ -53,9 +53,6 @@ hl.monitor({
   vrr = 3
 })
 
--- Exec commands
-hl.exec_cmd("xrandr --output " .. primary_monitor .. " --primary")
-
 -- Environment variables
 hl.env("PROTON_WAYLAND_MONITOR", primary_monitor)
 
@@ -71,6 +68,7 @@ utils.collect_workspaces(primary_monitor)
 utils.when_monitors_ready(
   { monitors.center, monitors.left, monitors.right, monitors.top },
   function()
+    hl.exec_cmd("xrandr --output " .. primary_monitor .. " --primary")
     utils.collect_workspaces(primary_monitor)
     hl.dispatch(hl.dsp.window.move({
       monitor = monitors.left,
