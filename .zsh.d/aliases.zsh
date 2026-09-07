@@ -245,5 +245,14 @@ if [ -f "${HOME}/.zsh.d/aliases.local.zsh" ]; then
 fi
 
 # }}}
+# Path: {{{
+# ------------------------------------------------------------------------------
+# Expand using tilde, `~roms` for example, supports completion and in-place
+# substitution
+
+hash -d roms="/mnt/humma/emulation/roms"
+hash -d netemu="/mnt/humma/netdrive/emulation"
+
+# }}}
 
 # vim: set ts=2 sw=2 tw=80 fdm=marker et :
