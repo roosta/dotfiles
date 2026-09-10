@@ -77,13 +77,13 @@ utils.when_monitors_ready(
     }))
 
     hl.dispatch(hl.dsp.window.move({
-      monitor = monitors.right,
+      workspace = 20,
       window = "class:(?i).*(discord|vesktop).*",
       follow = false
     }))
 
     hl.dispatch(hl.dsp.window.move({
-      monitor = monitors.right,
+      workspace = 19,
       window = "class:firefox-media",
       follow = false
     }))
@@ -92,7 +92,7 @@ utils.when_monitors_ready(
 
 hl.window_rule({
   match = { class = "firefox-media" },
-  monitor = monitors.right,
+  workspace = 19,
 })
 
 hl.window_rule({
@@ -102,7 +102,7 @@ hl.window_rule({
 
 hl.window_rule({
   match = { class = "(?i).*(discord|vesktop).*" },
-  monitor = monitors.right,
+  workspace = 20
 })
 
 -- windowrule = monitor $center_monitor, match:class steam.*$
