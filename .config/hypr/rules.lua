@@ -148,14 +148,14 @@ hl.window_rule({
   workspace = "15 silent",
 })
 
-hl.window_rule({
-  name  = "steam-big-picture",
-  match = {
-    title = "title:^(Steam Big Picture Mode)$",
-    class = "steam",
-  },
-  focus_on_activate = true
-})
+-- hl.window_rule({
+--   name  = "steam-big-picture",
+--   match = {
+--     title = "title:^(Steam Big Picture Mode)$",
+--     class = "steam",
+--   },
+--   focus_on_activate = true
+-- })
 
 hl.window_rule({
   name  = "open-webui-client",
@@ -172,6 +172,12 @@ hl.window_rule({
   float  = true,
   center = true,
   size   = "50% 50%",
+})
+
+hl.window_rule({
+  name  = "factorio",
+  match = { class = "(?i)factorio$" },
+  render_unfocused = true
 })
 
 -- ----------- --
