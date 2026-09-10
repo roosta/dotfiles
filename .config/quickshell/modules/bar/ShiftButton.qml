@@ -26,8 +26,8 @@ Button {
 
   required property string monitorId
 
-  readonly property HyprlandMonitor monitor: Hyprland
-    .monitorFor(root.QsWindow.window?.screen)
+  required property HyprlandMonitor monitor
+
   readonly property int activeWorkspaceId: monitor?.activeWorkspace?.id ?? 1
   property var workspaces: HyprlandData.workspacesByMonitor[monitorId] ?? []
   property var persistent: workspaces.filter(w => w.ispersistent)

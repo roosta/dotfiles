@@ -33,8 +33,7 @@ BorderRect {
     acc[ws.id] = ws?.windows > 0;
     return acc;
   }, {})
-  readonly property HyprlandMonitor monitor: Hyprland
-    .monitorFor(root.QsWindow.window?.screen)
+  required property HyprlandMonitor monitor
   readonly property Toplevel activeWindow: ToplevelManager.activeToplevel
   readonly property int activeWorkspaceId: monitor?.activeWorkspace?.id ?? 1
 

@@ -15,11 +15,13 @@ import qs.services
 import QtQuick.Controls
 import QtQuick.Layouts
 import qs.config
+import Quickshell.Hyprland
 pragma ComponentBehavior: Bound
 
 Item {
   id: root
   required property string monitorId
+  required property HyprlandMonitor monitor
 
   z: 1
   implicitHeight: Style.bar.height
@@ -118,9 +120,9 @@ Item {
             RowLayout {
               spacing: Style.spacing.p1
               anchors.centerIn: parent
-              ShiftButton { direction: -1; monitorId: root.monitorId }
-              Workspaces { monitorId: root.monitorId }
-              ShiftButton { direction: 1; monitorId: root.monitorId }
+              ShiftButton { direction: -1; monitorId: root.monitorId; monitor: root.monitor }
+              Workspaces { monitorId: root.monitorId; monitor: root.monitor }
+              ShiftButton { direction: 1; monitorId: root.monitorId; monitor: root.monitor }
             }
           }
           Rectangle {
@@ -175,6 +177,7 @@ Item {
 
             Workspaces {
               monitorId: root.monitorId
+              monitor: root.monitor
             }
 
           }
@@ -219,6 +222,7 @@ Item {
             // Layout.rightMargin: Style.spacing.p1
             Workspaces {
               monitorId: root.monitorId
+              monitor: root.monitor
             }
             LauncherButton {
               monitorId: root.monitorId
@@ -261,7 +265,7 @@ Item {
               RowLayout {
                 spacing: Style.spacing.p1
                 anchors.centerIn: parent
-                Workspaces { monitorId: root.monitorId }
+                Workspaces { monitorId: root.monitorId; monitor: root.monitor }
               }
             }
             Rectangle {

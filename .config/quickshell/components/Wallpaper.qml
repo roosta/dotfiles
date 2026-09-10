@@ -25,8 +25,7 @@ import qs.config
 
 Loader {
   required property string monitorId
-  readonly property HyprlandMonitor monitor: Hyprland
-    .monitorFor(root.QsWindow.window?.screen)
+  required property HyprlandMonitor monitor
   readonly property Toplevel activeWindow: ToplevelManager.activeToplevel
   readonly property bool isOccupied: occupied[activeWorkspaceId] ?? false
   readonly property int activeWorkspaceId: monitor?.activeWorkspace?.id ?? 1

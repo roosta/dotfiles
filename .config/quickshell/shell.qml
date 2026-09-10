@@ -50,7 +50,10 @@ ShellRoot {
         anchors.right: true
         anchors.top: true
         anchors.bottom: true
-        Wallpaper { monitorId: scope.monitorId }
+        Wallpaper {
+          monitorId: scope.monitorId
+          monitor: scope.monitor
+        }
       }
 
       NamedPanel {
@@ -175,6 +178,7 @@ ShellRoot {
         Bar {
           id: bar
           monitorId: scope.monitorId
+          monitor: scope.monitor
           onDecrementCurrentIndex: launcher.decrementCurrentIndex()
           onIncrementCurrentIndex: launcher.incrementCurrentIndex()
           onOpenDrawer: launcher.openDrawer()
