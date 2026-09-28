@@ -1,207 +1,352 @@
 {
-  "version": "2.3.1",
+  "version": "3.0.0",
   "menus": [
     {
       "root": {
-        "type": "submenu",
+        "type": "root",
         "name": "Media Menu",
         "icon": "visibility",
         "iconTheme": "material-symbols-rounded",
+        "activateWorkflow": {
+          "quickSelectKey": "Backspace",
+          "actions": [
+            {
+              "type": "close-menu"
+            }
+          ]
+        },
         "children": [
           {
             "type": "submenu",
-            "data": {},
             "name": "Apps",
             "icon": "apps",
             "iconTheme": "material-symbols-rounded",
             "children": [
               {
-                "type": "command",
+                "type": "button",
                 "name": "Virtual Machine Manager",
                 "icon": "virt-manager",
                 "iconTheme": "system",
-                "data": {
-                  "command": "virt-manager",
-                  "detached": true,
-                  "isolated": false,
-                  "delayed": false
+                "selectWorkflow": {
+                  "actions": [
+                    {
+                      "type": "execute-command",
+                      "command": "virt-manager",
+                      "detached": true,
+                      "isolated": false
+                    },
+                    {
+                      "type": "close-menu"
+                    }
+                  ]
                 }
               },
               {
-                "type": "command",
-                "data": {
-                  "command": "kitty",
-                  "detached": true,
-                  "isolated": false,
-                  "delayed": false
-                },
+                "type": "button",
                 "name": "kitty",
                 "icon": "kitty",
-                "iconTheme": "system"
+                "iconTheme": "system",
+                "selectWorkflow": {
+                  "actions": [
+                    {
+                      "type": "execute-command",
+                      "command": "kitty",
+                      "detached": true,
+                      "isolated": false
+                    },
+                    {
+                      "type": "close-menu"
+                    }
+                  ]
+                }
               },
               {
-                "type": "command",
-                "data": {
-                  "command": "thunderbird",
-                  "detached": true,
-                  "isolated": false,
-                  "delayed": false
-                },
+                "type": "button",
                 "name": "Thunderbird",
                 "icon": "org.mozilla.Thunderbird",
-                "iconTheme": "system"
+                "iconTheme": "system",
+                "selectWorkflow": {
+                  "actions": [
+                    {
+                      "type": "execute-command",
+                      "command": "thunderbird",
+                      "detached": true,
+                      "isolated": false
+                    },
+                    {
+                      "type": "close-menu"
+                    }
+                  ]
+                }
               },
               {
-                "type": "command",
-                "data": {
-                  "command": "/usr/lib/firefox/firefox",
-                  "detached": true,
-                  "isolated": false,
-                  "delayed": false
-                },
+                "type": "button",
                 "name": "Firefox",
                 "icon": "firefox",
-                "iconTheme": "system"
+                "iconTheme": "system",
+                "selectWorkflow": {
+                  "actions": [
+                    {
+                      "type": "execute-command",
+                      "command": "/usr/lib/firefox/firefox",
+                      "detached": true,
+                      "isolated": false
+                    },
+                    {
+                      "type": "close-menu"
+                    }
+                  ]
+                }
               },
               {
-                "type": "command",
-                "data": {
-                  "command": "/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=com.discordapp.Discord --file-forwarding com.discordapp.Discord @@u  @@",
-                  "detached": true,
-                  "isolated": false,
-                  "delayed": false
-                },
+                "type": "button",
                 "name": "Discord",
                 "icon": "com.discordapp.Discord",
-                "iconTheme": "system"
+                "iconTheme": "system",
+                "selectWorkflow": {
+                  "actions": [
+                    {
+                      "type": "execute-command",
+                      "command": "/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=com.discordapp.Discord --file-forwarding com.discordapp.Discord @@u  @@",
+                      "detached": true,
+                      "isolated": false
+                    },
+                    {
+                      "type": "close-menu"
+                    }
+                  ]
+                }
               },
               {
-                "type": "command",
-                "data": {
-                  "command": "spotify-launcher",
-                  "detached": true,
-                  "isolated": false,
-                  "delayed": false
-                },
+                "type": "button",
                 "name": "Spotify (Launcher)",
                 "icon": "spotify-client",
-                "iconTheme": "system"
+                "iconTheme": "system",
+                "selectWorkflow": {
+                  "actions": [
+                    {
+                      "type": "execute-command",
+                      "command": "spotify-launcher",
+                      "detached": true,
+                      "isolated": false
+                    },
+                    {
+                      "type": "close-menu"
+                    }
+                  ]
+                }
               },
               {
-                "type": "command",
-                "data": {
-                  "command": "/usr/bin/steam",
-                  "delayed": false
-                },
+                "type": "button",
                 "name": "Steam",
                 "icon": "steam",
-                "iconTheme": "system"
+                "iconTheme": "system",
+                "selectWorkflow": {
+                  "actions": [
+                    {
+                      "type": "execute-command",
+                      "command": "/usr/bin/steam",
+                      "detached": true,
+                      "isolated": false
+                    },
+                    {
+                      "type": "close-menu"
+                    }
+                  ]
+                }
               },
               {
-                "type": "command",
-                "data": {
-                  "command": "lutris",
-                  "delayed": false
-                },
+                "type": "button",
                 "name": "Lutris",
                 "icon": "net.lutris.Lutris",
-                "iconTheme": "system"
+                "iconTheme": "system",
+                "selectWorkflow": {
+                  "actions": [
+                    {
+                      "type": "execute-command",
+                      "command": "lutris",
+                      "detached": true,
+                      "isolated": false
+                    },
+                    {
+                      "type": "close-menu"
+                    }
+                  ]
+                }
               },
               {
-                "type": "command",
-                "data": {
-                  "command": "dolphin",
-                  "detached": true,
-                  "isolated": false,
-                  "delayed": false
-                },
+                "type": "button",
                 "name": "Dolphin",
                 "icon": "org.kde.dolphin",
-                "iconTheme": "system"
+                "iconTheme": "system",
+                "selectWorkflow": {
+                  "actions": [
+                    {
+                      "type": "execute-command",
+                      "command": "dolphin",
+                      "detached": true,
+                      "isolated": false
+                    },
+                    {
+                      "type": "close-menu"
+                    }
+                  ]
+                }
               },
               {
-                "type": "command",
-                "data": {
-                  "command": "/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=jellyfin-desktop org.jellyfin.JellyfinDesktop",
-                  "delayed": false
-                },
+                "type": "button",
                 "name": "Jellyfin",
                 "icon": "org.jellyfin.JellyfinDesktop",
-                "iconTheme": "system"
+                "iconTheme": "system",
+                "selectWorkflow": {
+                  "actions": [
+                    {
+                      "type": "execute-command",
+                      "command": "/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=jellyfin-desktop org.jellyfin.JellyfinDesktop",
+                      "detached": true,
+                      "isolated": false
+                    },
+                    {
+                      "type": "close-menu"
+                    }
+                  ]
+                }
               },
               {
-                "type": "command",
-                "data": {
-                  "command": "media-browser",
-                  "delayed": false
-                },
+                "type": "button",
                 "name": "Firefox Media Browser",
                 "icon": "firefox-media-candy",
-                "iconTheme": "system"
+                "iconTheme": "system",
+                "selectWorkflow": {
+                  "actions": [
+                    {
+                      "type": "execute-command",
+                      "command": "media-browser",
+                      "detached": true,
+                      "isolated": false
+                    },
+                    {
+                      "type": "close-menu"
+                    }
+                  ]
+                }
               }
-            ]
+            ],
+            "activateWorkflow": {
+              "quickSelectKey": "Backspace",
+              "actions": [
+                {
+                  "type": "close-submenu"
+                }
+              ]
+            }
           },
           {
-            "type": "hotkey",
-            "data": {
-              "hotkey": "KeyL",
-              "delayed": true
-            },
+            "type": "button",
             "name": "+10",
             "icon": "forward_10",
             "iconTheme": "material-symbols-rounded",
-            "angle": 72
+            "angle": 72,
+            "selectWorkflow": {
+              "actions": [
+                {
+                  "type": "close-menu"
+                },
+                {
+                  "type": "simulate-hotkey",
+                  "hotkey": "KeyL"
+                }
+              ]
+            }
           },
           {
-            "type": "command",
-            "data": {
-              "command": "hyprctl dispatch 'hl.dsp.focus({ workspace = \"empty\"})'",
-              "delayed": false
-            },
+            "type": "button",
             "name": "New Workspace",
             "icon": "add_box",
-            "iconTheme": "material-symbols-rounded"
+            "iconTheme": "material-symbols-rounded",
+            "selectWorkflow": {
+              "actions": [
+                {
+                  "type": "execute-command",
+                  "command": "hyprctl dispatch 'hl.dsp.focus({ workspace = \"empty\"})'",
+                  "detached": true,
+                  "isolated": false
+                },
+                {
+                  "type": "close-menu"
+                }
+              ]
+            }
           },
           {
-            "type": "command",
-            "data": {
-              "command": "hyprctl dispatch 'hl.dsp.window.close({ window = \"activewindow\" })'",
-              "delayed": true
-            },
+            "type": "button",
             "name": "Close Window",
             "icon": "close",
-            "iconTheme": "material-symbols-rounded"
+            "iconTheme": "material-symbols-rounded",
+            "selectWorkflow": {
+              "actions": [
+                {
+                  "type": "close-menu"
+                },
+                {
+                  "type": "execute-command",
+                  "command": "hyprctl dispatch 'hl.dsp.window.close({ window = \"activewindow\" })'",
+                  "detached": true,
+                  "isolated": false
+                }
+              ]
+            }
           },
           {
-            "type": "command",
-            "data": {
-              "command": "hyprctl dispatch 'hl.dsp.window.fullscreen({ mode = \"fullscreen\", action = \"toggle\", window = \"activewindow\" })'\n",
-              "delayed": true
-            },
+            "type": "button",
             "name": "Fullscreen",
             "icon": "fullscreen",
-            "iconTheme": "material-symbols-rounded"
+            "iconTheme": "material-symbols-rounded",
+            "selectWorkflow": {
+              "actions": [
+                {
+                  "type": "close-menu"
+                },
+                {
+                  "type": "execute-command",
+                  "command": "hyprctl dispatch 'hl.dsp.window.fullscreen({ mode = \"fullscreen\", action = \"toggle\", window = \"activewindow\" })'\n",
+                  "detached": true,
+                  "isolated": false
+                }
+              ]
+            }
           },
           {
-            "type": "hotkey",
-            "data": {
-              "hotkey": "KeyJ",
-              "delayed": true
-            },
+            "type": "button",
             "name": "-10",
             "icon": "replay_10",
             "iconTheme": "material-symbols-rounded",
-            "angle": 288
+            "angle": 288,
+            "selectWorkflow": {
+              "actions": [
+                {
+                  "type": "close-menu"
+                },
+                {
+                  "type": "simulate-hotkey",
+                  "hotkey": "KeyJ"
+                }
+              ]
+            }
           }
         ]
       },
       "shortcut": "",
       "shortcutID": "media-menu",
-      "centered": false,
+      "useFixedPosition": false,
+      "fixedMenuPosition": {
+        "x": 0.5,
+        "y": 0.5
+      },
       "anchored": false,
       "hoverMode": false,
-      "conditions": {},
-      "tags": []
+      "tags": [],
+      "conditions": {}
     }
   ],
   "collections": [

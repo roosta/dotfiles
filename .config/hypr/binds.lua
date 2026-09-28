@@ -140,7 +140,7 @@ local function set_kando(enabled)
   if enabled == kando_bound then return end
   kando_bound = enabled
   if enabled then
-    hl.bind("mouse:275", hl.dsp.global("menu.kando.Kando:media-menu"))
+    hl.bind("mouse:275", hl.dsp.global("kando:media-menu"))
   else
     hl.unbind("mouse:275")
   end
