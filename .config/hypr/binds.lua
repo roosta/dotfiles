@@ -19,8 +19,8 @@ hl.bind(main_mod .. " + Q", hl.dsp.exec_cmd(vars.terminal))
 
 -- Quickshell
 hl.bind(main_mod .. " + Tab", hl.dsp.global("quickshell:toggleLauncher"))
+hl.bind(main_mod .. " + SHIFT + TAB", hl.dsp.global("quickshell:toggleMenu"))
 hl.bind(main_mod .. " + Home", hl.dsp.global("quickshell:toggleNotifications"))
-hl.bind(main_mod .. " + Grave", hl.dsp.global("quickshell:toggleMenu"))
 hl.bind(main_mod .. " + BackSpace", hl.dsp.global("quickshell:discardLastNotification"))
 hl.bind("SHIFT + code:66", hl.dsp.global("quickshell:shiftlock"))
 
@@ -98,8 +98,8 @@ for i = 1, 12 do
 end
 
 -- Special workspace (scratchpad)
-hl.bind(main_mod .. " + period", hl.dsp.window.move({ workspace = "special:scratch" }))
-hl.bind(main_mod .. " + comma", hl.dsp.workspace.toggle_special("scratch"))
+hl.bind(main_mod .. " + SHIFT + Grave", hl.dsp.window.move({ workspace = "special:scratch" }))
+hl.bind(main_mod .. " + Grave", hl.dsp.workspace.toggle_special("scratch"))
 
 -- Scroll through existing workspaces with mainMod + scroll
 hl.bind(main_mod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
