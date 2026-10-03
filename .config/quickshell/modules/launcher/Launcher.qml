@@ -152,8 +152,9 @@ Item {
 
     Behavior on y {
       NumberAnimation {
-        duration: Style.durations.small
-        easing.type: Easing.InOutCubic
+        duration: Style.animationCurves.expressiveFastSpatialDuration
+        easing.type: Easing.BezierSpline
+        easing.bezierCurve: Style.animationCurves.expressiveSlowSpatial
       }
     }
 
