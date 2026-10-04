@@ -418,7 +418,8 @@ Singleton {
     [/pake-open-webui/i, "web-browser"],
     [/org.satty.satty/i, "image"],
     [/virt-viewer/i, "virt-manager"],
-    [/dolphin-emu/i, "dolphin-emu"]
+    [/dolphin-emu/i, "dolphin-emu"],
+    [/com\.transmissionbt\..*/i, "transmission"]
   ]
 
   // Move to something interactive via the menu, but this'll do for now
