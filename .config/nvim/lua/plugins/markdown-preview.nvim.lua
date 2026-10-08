@@ -6,7 +6,8 @@
 
 return {
   "iamcco/markdown-preview.nvim",
-  build = "cd app && npm install && git restore .",
+  cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+  build = ":call mkdp#util#install()",
   ft = { "markdown" },
   keys = {
     { "gm", ":MarkdownPreview<cr>", silent = true, desc = "Markdown Preview" }
