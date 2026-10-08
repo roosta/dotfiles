@@ -137,3 +137,4 @@ x-scheme-handler/snews=org.mozilla.Thunderbird.desktop
 x-scheme-handler/vesktop=dev.vencord.Vesktop.desktop
 x-scheme-handler/webcal=org.mozilla.Thunderbird.desktop
 x-scheme-handler/webcals=org.mozilla.Thunderbird.desktop
+x-scheme-handler/wowup=wowup.desktop
