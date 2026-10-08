@@ -458,12 +458,6 @@ packages:
     - name: nodejs
       description: Evented I/O for V8 javascript ("Current" release)
       aur: false
-    - name: npm
-      description: JavaScript package manager
-      aur: false
-    - name: npm-check-updates
-      description: Find newer versions of dependencies than what your package.json or bower.json allows
-      aur: false
     - name: pandoc-cli
       description: Conversion between documentation formats
       aur: false
