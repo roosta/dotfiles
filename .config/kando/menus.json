@@ -3,30 +3,41 @@
   "menus": [
     {
       "root": {
-        "type": "root",
         "name": "Media Menu",
         "icon": "visibility",
         "iconTheme": "material-symbols-rounded",
+        "type": "root",
         "activateWorkflow": {
           "quickSelectKey": "Backspace",
           "actions": [
             {
-              "type": "close-menu"
+              "type": "execute-command",
+              "command": "hyprctl dispatch 'hl.dsp.global(\"quickshell:toggleLauncher\")'\n",
+              "detached": true,
+              "isolated": false
             }
           ]
         },
         "children": [
           {
-            "type": "submenu",
             "name": "Apps",
             "icon": "apps",
             "iconTheme": "material-symbols-rounded",
+            "type": "submenu",
+            "activateWorkflow": {
+              "quickSelectKey": "Backspace",
+              "actions": [
+                {
+                  "type": "close-submenu"
+                }
+              ]
+            },
             "children": [
               {
-                "type": "button",
                 "name": "Virtual Machine Manager",
                 "icon": "virt-manager",
                 "iconTheme": "system",
+                "type": "button",
                 "selectWorkflow": {
                   "actions": [
                     {
@@ -42,10 +53,10 @@
                 }
               },
               {
-                "type": "button",
                 "name": "kitty",
                 "icon": "kitty",
                 "iconTheme": "system",
+                "type": "button",
                 "selectWorkflow": {
                   "actions": [
                     {
@@ -61,10 +72,10 @@
                 }
               },
               {
-                "type": "button",
                 "name": "Thunderbird",
                 "icon": "org.mozilla.Thunderbird",
                 "iconTheme": "system",
+                "type": "button",
                 "selectWorkflow": {
                   "actions": [
                     {
@@ -80,10 +91,10 @@
                 }
               },
               {
-                "type": "button",
                 "name": "Firefox",
                 "icon": "firefox",
                 "iconTheme": "system",
+                "type": "button",
                 "selectWorkflow": {
                   "actions": [
                     {
@@ -99,10 +110,10 @@
                 }
               },
               {
-                "type": "button",
                 "name": "Discord",
                 "icon": "com.discordapp.Discord",
                 "iconTheme": "system",
+                "type": "button",
                 "selectWorkflow": {
                   "actions": [
                     {
@@ -118,10 +129,10 @@
                 }
               },
               {
-                "type": "button",
                 "name": "Spotify (Launcher)",
                 "icon": "spotify-client",
                 "iconTheme": "system",
+                "type": "button",
                 "selectWorkflow": {
                   "actions": [
                     {
@@ -137,10 +148,10 @@
                 }
               },
               {
-                "type": "button",
                 "name": "Steam",
                 "icon": "steam",
                 "iconTheme": "system",
+                "type": "button",
                 "selectWorkflow": {
                   "actions": [
                     {
@@ -156,10 +167,10 @@
                 }
               },
               {
-                "type": "button",
                 "name": "Lutris",
                 "icon": "net.lutris.Lutris",
                 "iconTheme": "system",
+                "type": "button",
                 "selectWorkflow": {
                   "actions": [
                     {
@@ -175,10 +186,10 @@
                 }
               },
               {
-                "type": "button",
                 "name": "Dolphin",
                 "icon": "org.kde.dolphin",
                 "iconTheme": "system",
+                "type": "button",
                 "selectWorkflow": {
                   "actions": [
                     {
@@ -194,10 +205,10 @@
                 }
               },
               {
-                "type": "button",
                 "name": "Jellyfin",
                 "icon": "org.jellyfin.JellyfinDesktop",
                 "iconTheme": "system",
+                "type": "button",
                 "selectWorkflow": {
                   "actions": [
                     {
@@ -213,10 +224,10 @@
                 }
               },
               {
-                "type": "button",
                 "name": "Firefox Media Browser",
                 "icon": "firefox-media-candy",
                 "iconTheme": "system",
+                "type": "button",
                 "selectWorkflow": {
                   "actions": [
                     {
@@ -231,21 +242,13 @@
                   ]
                 }
               }
-            ],
-            "activateWorkflow": {
-              "quickSelectKey": "Backspace",
-              "actions": [
-                {
-                  "type": "close-submenu"
-                }
-              ]
-            }
+            ]
           },
           {
-            "type": "button",
             "name": "+10",
             "icon": "forward_10",
             "iconTheme": "material-symbols-rounded",
+            "type": "button",
             "angle": 72,
             "selectWorkflow": {
               "actions": [
@@ -260,29 +263,29 @@
             }
           },
           {
-            "type": "button",
             "name": "New Workspace",
-            "icon": "add_box",
+            "icon": "open_in_full",
             "iconTheme": "material-symbols-rounded",
+            "type": "button",
             "selectWorkflow": {
               "actions": [
                 {
-                  "type": "execute-command",
-                  "command": "hyprctl dispatch 'hl.dsp.focus({ workspace = \"empty\"})'",
-                  "detached": true,
-                  "isolated": false
+                  "type": "close-menu"
                 },
                 {
-                  "type": "close-menu"
+                  "type": "execute-command",
+                  "command": "hyprctl dispatch 'hl.dsp.window.fullscreen({ mode = 1 })'",
+                  "detached": true,
+                  "isolated": false
                 }
               ]
             }
           },
           {
-            "type": "button",
             "name": "Close Window",
             "icon": "close",
             "iconTheme": "material-symbols-rounded",
+            "type": "button",
             "selectWorkflow": {
               "actions": [
                 {
@@ -298,10 +301,10 @@
             }
           },
           {
-            "type": "button",
             "name": "Fullscreen",
             "icon": "fullscreen",
             "iconTheme": "material-symbols-rounded",
+            "type": "button",
             "selectWorkflow": {
               "actions": [
                 {
@@ -309,7 +312,7 @@
                 },
                 {
                   "type": "execute-command",
-                  "command": "hyprctl dispatch 'hl.dsp.window.fullscreen({ mode = \"fullscreen\", action = \"toggle\", window = \"activewindow\" })'\n",
+                  "command": "hyprctl dispatch 'hl.dsp.window.fullscreen({ mode = \"fullscreen\", action = \"toggle\", window = \"activewindow\" })'",
                   "detached": true,
                   "isolated": false
                 }
@@ -317,10 +320,10 @@
             }
           },
           {
-            "type": "button",
             "name": "-10",
             "icon": "replay_10",
             "iconTheme": "material-symbols-rounded",
+            "type": "button",
             "angle": 288,
             "selectWorkflow": {
               "actions": [
@@ -345,8 +348,8 @@
       },
       "anchored": false,
       "hoverMode": false,
-      "tags": [],
-      "conditions": {}
+      "conditions": {},
+      "tags": []
     }
   ],
   "collections": [

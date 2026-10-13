@@ -44,7 +44,7 @@
   "keepInputFocus": false,
   "hideOnFocusOut": true,
   "enableMarkingMode": true,
-  "enableTurboMode": true,
+  "enableTurboMode": false,
   "warpMouse": true,
   "returnPointerToMenuOpeningPosition": false,
   "hoverModeNeedsConfirmation": true,
