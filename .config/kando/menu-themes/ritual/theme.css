@@ -90,6 +90,7 @@ center item and the child items. */
     transition: var(--menu-transition);
   }
 
+  &.type-root>.icon-layer>.icon-container,
   &.type-submenu > .icon-layer > .icon-container {
     color: var(--submenu-icon-color);
   }
@@ -203,6 +204,7 @@ center item and the child items. */
     opacity: 0;
   }
 
+  &.type-root>.icon-layer,
   &.type-submenu > .icon-layer {
     background-color: var(--background-color);
     border-radius: 50%;
