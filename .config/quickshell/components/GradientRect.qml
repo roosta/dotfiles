@@ -50,47 +50,51 @@ Item {
   // Ring shape: solid ring (even-odd filled) or dashed outline, in ringColor
   component Ring: Shape {
     id: ring
-    required property Item host
     property color ringColor: "white"
+    property bool dashed: false
+    property int borderWidth: 1
+    property int radius: 0
+    property var dashPattern: [4, 4]
+    property real dashOffset: 0
     preferredRendererType: Shape.CurveRenderer
 
     // Solid ring: outer filled minus inner (even-odd) -> alpha hole
     ShapePath {
       fillRule: ShapePath.OddEvenFill
-      fillColor: ring.host.dashed ? "transparent" : ring.ringColor
+      fillColor: ring.dashed ? "transparent" : ring.ringColor
       strokeWidth: 0
 
       PathRectangle {
         x: 0; y: 0
-        width: ring.host.width
-        height: ring.host.height
-        radius: ring.host.radius
+        width: ring.width
+        height: ring.height
+        radius: ring.radius
       }
       PathRectangle {
-        x: ring.host.borderWidth
-        y: ring.host.borderWidth
-        width:  ring.host.width  - ring.host.borderWidth * 2
-        height: ring.host.height - ring.host.borderWidth * 2
-        radius: Math.max(0, ring.host.radius - ring.host.borderWidth)
+        x: ring.borderWidth
+        y: ring.borderWidth
+        width:  ring.width  - ring.borderWidth * 2
+        height: ring.height - ring.borderWidth * 2
+        radius: Math.max(0, ring.radius - ring.borderWidth)
       }
     }
 
     // Dashed ring: stroke the outline centered within the border width
     ShapePath {
       fillColor: "transparent"
-      strokeColor: ring.host.dashed ? ring.ringColor : "transparent"
-      strokeWidth: ring.host.borderWidth
+      strokeColor: ring.dashed ? ring.ringColor : "transparent"
+      strokeWidth: ring.borderWidth
       strokeStyle: ShapePath.DashLine
-      dashPattern: ring.host.dashPattern
-      dashOffset: ring.host.dashOffset
+      dashPattern: ring.dashPattern
+      dashOffset: ring.dashOffset
       capStyle: ShapePath.FlatCap
 
       PathRectangle {
-        x: ring.host.borderWidth / 2
-        y: ring.host.borderWidth / 2
-        width:  ring.host.width  - ring.host.borderWidth
-        height: ring.host.height - ring.host.borderWidth
-        radius: Math.max(0, ring.host.radius - ring.host.borderWidth / 2)
+        x: ring.borderWidth / 2
+        y: ring.borderWidth / 2
+        width:  ring.width  - ring.borderWidth
+        height: ring.height - ring.borderWidth
+        radius: Math.max(0, ring.radius - ring.borderWidth / 2)
       }
     }
   }
@@ -109,8 +113,12 @@ Item {
   // Solid ring, drawn directly (no layer/effect)
   Ring {
     anchors.fill: parent
-    host: root
     ringColor: root.borderColor
+    dashed: root.dashed
+    borderWidth: root.borderWidth
+    radius: root.radius
+    dashPattern: root.dashPattern
+    dashOffset: root.dashOffset
   }
 
   // Gradient source (static content, only used when a gradient is assigned)
@@ -135,8 +143,12 @@ Item {
     visible: false
     layer.enabled: root.useGradient
     anchors.fill: parent
-    host: root
     ringColor: "white"
+    dashed: root.dashed
+    borderWidth: root.borderWidth
+    radius: root.radius
+    dashPattern: root.dashPattern
+    dashOffset: root.dashOffset
   }
 
   // Marching ants: continuously shift the dash offset by one pattern length
