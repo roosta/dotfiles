@@ -38,7 +38,7 @@ hl.monitor({
   output = monitors.top,
   mode = "preferred",
   position = "0x-1080",
-  scale = "1.5",
+  scale = "1",
   vrr = 0,
   disabled = false
 })
