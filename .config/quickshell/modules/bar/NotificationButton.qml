@@ -36,6 +36,11 @@ Button {
     && GlobalState.launcherMode === "notifications"
   required property string monitorId
 
+  onActiveChanged: {
+    if (!active)
+      dot.color = Style.srcery.brightWhite
+  }
+
   MouseArea {
     id: mouseArea
     acceptedButtons: Qt.LeftButton | Qt.RightButton
