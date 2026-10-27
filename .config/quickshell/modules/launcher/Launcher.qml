@@ -169,29 +169,39 @@ Item {
         if (typeof desc === "string" && desc !== "Undefined") { ContextData.launcherDesc = desc }
       }
 
+      readonly property string effectiveQuery: {
+        const raw = GlobalState.searchQuery
+        const mode = GlobalState.launcherMode
+
+        if (mode === "menu")
+          return raw.replace("/", "")
+
+        if (["notifications", "power", "display", "audio", "utils"].includes(mode))
+          return raw.replace(`${Config.menuPrefix}/${mode}`, "")
+
+        return raw
+      }
+
       property var sourceData: {
-        const s = GlobalState.launcherMode
-        if (s === "notifications") {
-          const q = GlobalState.searchQuery.replace(`${Config.menuPrefix}/notifications`, "")
-          return Fuzzy.go(q, Notifications.list, { all: true, key: "appName" }).map(s => s.obj)
-        } else if (s === "menu") {
-          const q = GlobalState.searchQuery.replace("/", "")
-          return Fuzzy.query(q, LauncherData.menuData)
-        } else if (s === "power") {
-          const q = GlobalState.searchQuery.replace(`${Config.menuPrefix}/power`, "")
-          return Fuzzy.query(q, LauncherData.powerData)
-        } else if (s === "display") {
-          const q = GlobalState.searchQuery.replace(`${Config.menuPrefix}/display`, "")
-          return Fuzzy.query(q, LauncherData.displayData)
-        } else if (s === "audio") {
-          const q = GlobalState.searchQuery.replace(`${Config.menuPrefix}/audio`, "")
-          return Fuzzy.query(q, LauncherData.audioData)
-        } else if (s === "utils") {
-          const q = GlobalState.searchQuery.replace(`${Config.menuPrefix}/utils`, "")
-          return Fuzzy.query(q, LauncherData.utilsData)
-        } else {
-          return Fuzzy.query(GlobalState.searchQuery, LauncherData.appsData)
+        const mode = GlobalState.launcherMode
+        const q = effectiveQuery
+
+        if (mode === "notifications") {
+          return Fuzzy.go(q, Notifications.list, {
+            all: true,
+            key: "appName"
+          }).map(result => result.obj)
         }
+
+        const entries = mode === "menu" ? LauncherData.menuData
+          : mode === "power" ? LauncherData.powerData
+          : mode === "display" ? LauncherData.displayData
+          : mode === "audio" ? LauncherData.audioData
+          : mode === "utils" ? LauncherData.utilsData
+          : LauncherData.appsData
+
+        // Force a model update even when the query returns the same entry.
+        return [...Fuzzy.query(q, entries)]
       }
 
       onSourceDataChanged: {
