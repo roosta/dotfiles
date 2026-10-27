@@ -429,11 +429,15 @@ Singleton {
     "steam",
     "net.lutris.Lutris",
     "org.jellyfin.JellyfinDesktop",
-    "spotify",
+    "spotify-launcher",
     "org.mozilla.Thunderbird",
+    "org.kde.dolphin",
     "com.discordapp.Discord",
     "kitty",
-    "kando",
-    "virt-manager"
+    "menu.kando.kando",
+    "org.jeffvli.feishin",
+    "virt-manager",
+    "btop",
+    "aseprite"
   ]
 }
