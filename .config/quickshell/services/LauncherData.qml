@@ -24,7 +24,7 @@ import qs.utils
 
 Singleton {
   id: root
-  property list<var> audioData: {
+  property var audioData: {
     if (AudioData.ready) {
       let data = [...Config.outputs, ...Config.audioOptions]
       return data.map(a => ({ name: Fuzzy.prepare(a.name), entry: a }))
@@ -32,7 +32,7 @@ Singleton {
     return []
   }
 
-  property list<var> displayData: {
+  property var displayData: {
     return Config.displayLayouts.map(a => {
       return  {
         name: Fuzzy.prepare(a.name),
@@ -41,7 +41,7 @@ Singleton {
     })
   }
 
-  property list<var> powerData: {
+  property var powerData: {
     return Config.powerScripts.map(a => {
       return  {
         name: Fuzzy.prepare(a.name),
@@ -50,21 +50,21 @@ Singleton {
     })
   }
 
-  property list<var> menuData: Config.launcherMenus.map(a => {
+  property var menuData: Config.launcherMenus.map(a => {
     return  {
       name: Fuzzy.prepare(a.name),
       entry: a
     }
   })
 
-  property list<var> utilsData: Config.utilities.map(a => {
+  property var utilsData: Config.utilities.map(a => {
     return {
       name: Fuzzy.prepare(a.name),
       entry: a
     }
   })
 
-  property list<var> appsData: {
+  property var appsData: {
     let entries = Array.from(DesktopEntries.applications.values) ?? [];
 
     const favs = Config.favorites
