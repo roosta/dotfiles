@@ -122,8 +122,8 @@ Singleton {
         if (clientsCollector?.text) {
           root.windowList = JSON.parse(clientsCollector.text)
           let tempWinByAddress = {};
-          for (var i = 0; i < root.windowList.length; ++i) {
-            var win = root.windowList[i];
+          for (let i = 0; i < root.windowList.length; ++i) {
+            const win = root.windowList[i];
             tempWinByAddress[win.address] = win;
           }
           root.windowByAddress = tempWinByAddress;
