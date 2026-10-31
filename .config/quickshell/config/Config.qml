@@ -434,7 +434,7 @@ Singleton {
     "org.kde.dolphin",
     "com.discordapp.Discord",
     "kitty",
-    "menu.kando.kando",
+    "menu.kando.Kando",
     "org.jeffvli.feishin",
     "virt-manager",
     "btop",
