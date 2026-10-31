@@ -30,12 +30,12 @@ BorderRect {
   required property string monitorId
   property var workspaces: HyprlandData.workspacesByMonitor[monitorId] ?? []
   readonly property var occupied: workspaces.reduce((acc, ws) => {
-    acc[ws.id] = ws?.windows > 0;
+    acc[ws.address] = ws?.windows > 0;
     return acc;
   }, {})
   required property HyprlandMonitor monitor
   readonly property Toplevel activeWindow: ToplevelManager.activeToplevel
-  readonly property int activeWorkspaceId: monitor?.activeWorkspace?.id ?? 1
+  readonly property string activeWorkspaceAddress: monitor?.activeWorkspace?.address ?? "1"
 
   Behavior on implicitWidth {
     NumberAnimation {
@@ -71,9 +71,7 @@ BorderRect {
 
       function updateIndicator() {
         let x = Style.spacing.p1 + Style.bar.borderWidth
-        let targetIdx = root.workspaces.findIndex(w => {
-          return w.id === root.activeWorkspaceId
-        });
+        let targetIdx = root.workspaces.findIndex(w => w.address === root.activeWorkspaceAddress);
 
         for (let i = 0; i < targetIdx && i < workspaceRepeater.count; i++) {
           let item = workspaceRepeater.itemAt(i);
@@ -125,9 +123,9 @@ BorderRect {
 
         Workspace {
           monitorId: root.monitorId
-          isOccupied: root.occupied[modelData?.id] ?? false
-          activeWorkspaceId: root.activeWorkspaceId;
-          workspaceId: modelData?.id;
+          isOccupied: root.occupied[modelData?.address] ?? false
+          activeWorkspaceAddress: root.activeWorkspaceAddress;
+          workspaceAddress: modelData.address;
           onCalculatedWidthChanged: activeIndicator.updateIndicator()
         }
       }
@@ -135,7 +133,7 @@ BorderRect {
 
   }
 
-  onActiveWorkspaceIdChanged: activeIndicator.updateIndicator()
+  onActiveWorkspaceAddressChanged: activeIndicator.updateIndicator()
   onWorkspacesChanged: activeIndicator.updateIndicator()
   Component.onCompleted: {
     activeIndicator.updateIndicator();

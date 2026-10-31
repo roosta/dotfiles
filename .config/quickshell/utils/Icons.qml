@@ -61,9 +61,9 @@ Singleton {
 
   // Returns a collection of icons in a given workspace (wsid)
   // Removes duplicates, and applies aliases if present
-  function getWsIcons(wsid: int): var {
+  function getWsIcons(wsAddr: string): var {
     const classes = HyprlandData.windowList.filter(w => {
-      return w.workspace.id === wsid
+      return w.workspace.address === wsAddr
     }).map(w => w?.class)
     const uniq = [...new Set(classes)].sort((a, b) => a.localeCompare(b))
     return uniq.map(id => {

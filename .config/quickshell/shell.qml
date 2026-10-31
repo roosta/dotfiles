@@ -35,8 +35,8 @@ ShellRoot {
       property string monitorId: modelData?.name ?? ""
       readonly property HyprlandMonitor monitor: Hyprland
         .monitorFor(modelData)
-      readonly property int activeWorkspaceId: monitor?.activeWorkspace?.id ?? 1
-      property var windows: HyprlandData.windowsByWorkspace[activeWorkspaceId] ?? []
+      readonly property string activeWorkspaceAddress: monitor?.activeWorkspace?.address ?? "1"
+      property var windows: HyprlandData.windowsByWorkspace[activeWorkspaceAddress] ?? []
 
       NamedPanel {
         id: wallpaper

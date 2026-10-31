@@ -28,28 +28,28 @@ import qs.utils
 Button {
   id: root
   required property bool isOccupied
-  required property int workspaceId
-  required property int activeWorkspaceId
+  required property string workspaceAddress
+  required property string activeWorkspaceAddress
   readonly property bool isWorkspace: true
   required property var modelData
   required property string monitorId
-  property bool active: activeWorkspaceId === workspaceId
+  property bool active: activeWorkspaceAddress === workspaceAddress
   property bool urgent: {
     return HyprlandData.urgentWindows.some(win => {
-      return win.workspace.id === root.workspaceId
+      return win.workspace.address === root.workspaceAddress
     })
   }
-  property var specialIds: HyprlandData.special.map(w => w.id)
+  property var specialAddr: HyprlandData.special.map(w => w.address)
   property bool isSpecial: HyprlandData.special.length > 0
-    && specialIds.includes(root.workspaceId)
+    && specialAddr.includes(root.workspaceAddress)
   property bool specialActive: HyprlandData.specialEventData.includes(monitorId)
-    && HyprlandData.specialEventData.includes(modelData.name)
+    && HyprlandData.specialEventData.includes(root.workspaceAddress)
 
   property int buttonSize: 26 * Config.scale
   property int iconSize: 16 * Config.scale
   property int calculatedWidth: {
     if (root.isOccupied) {
-      let iconCount = Icons.getWsIcons(workspaceId).length ?? 0;
+      let iconCount = Icons.getWsIcons(workspaceAddress).length ?? 0;
       return iconCount * (root.iconSize + Style.spacing.p3);
     } else {
       return root.iconSize + Style.spacing.p3;
@@ -58,10 +58,10 @@ Button {
 
   onPressed: {
     if (isSpecial) {
-      const n = modelData.name.split(":")[1]
+      const n = modelData.address.split(":")[1]
       Hyprland.dispatch(`hl.dsp.workspace.toggle_special("${n}")`)
-    } else if (workspaceId !== activeWorkspaceId) {
-      Hyprland.dispatch(`hl.dsp.focus({ workspace = ${workspaceId} })`)
+    } else if (workspaceAddress !== activeWorkspaceAddress) {
+      Hyprland.dispatch(`hl.dsp.focus({ workspace = ${workspaceAddress} })`)
     }
   }
   HoverHandler {
@@ -138,7 +138,7 @@ Button {
       RowLayout {
         spacing: 0
         Repeater {
-          model: Icons.getWsIcons(root.workspaceId)
+          model: Icons.getWsIcons(root.workspaceAddress)
           Item {
             required property var modelData
             property bool urgent:  {

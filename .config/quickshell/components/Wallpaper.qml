@@ -27,13 +27,13 @@ Loader {
   required property string monitorId
   required property HyprlandMonitor monitor
   readonly property Toplevel activeWindow: ToplevelManager.activeToplevel
-  readonly property bool isOccupied: occupied[activeWorkspaceId] ?? false
-  readonly property int activeWorkspaceId: monitor?.activeWorkspace?.id ?? 1
-  property var windows: HyprlandData.windowsByWorkspace[activeWorkspaceId] ?? []
+  readonly property bool isOccupied: occupied[activeWorkspaceAddress] ?? false
+  readonly property string activeWorkspaceAddress: monitor?.activeWorkspace?.address ?? "1"
+  property var windows: HyprlandData.windowsByWorkspace[activeWorkspaceAddress] ?? []
   property bool onlyFloating: windows.every(w => w.floating) ?? false
   property var workspaces: HyprlandData.workspacesByMonitor[monitorId] ?? []
   readonly property var occupied: workspaces.reduce((acc, ws) => {
-    acc[ws.id] = ws?.windows > 0;
+    acc[ws.address] = ws?.windows > 0;
     return acc;
   }, {})
 

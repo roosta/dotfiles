@@ -30,8 +30,8 @@ Singleton {
   property var addresses: []
   property var windowByAddress: ({})
   property var workspaces: []
-  property var workspaceIds: []
-  property var workspaceById: ({})
+  property var workspaceAddresses: []
+  property var workspaceByAddress: ({})
   property var workspacesByMonitor: ({})
   property var windowsByWorkspace: ({})
   property var activeWorkspace: null
@@ -39,6 +39,7 @@ Singleton {
   property var layers: ({})
   property var special: []
   property string specialEventData: ""
+  property bool specialActive: specialEventData.includes("special")
   property string submap: ""
   property bool submapActive: submap.length > 0
 
@@ -127,7 +128,7 @@ Singleton {
             tempWinByAddress[win.address] = win;
           }
           root.windowByAddress = tempWinByAddress;
-          root.windowsByWorkspace = Functions.groupBy(root.windowList, w => w.workspace.id)
+          root.windowsByWorkspace = Functions.groupBy(root.windowList, w => w.workspace.address)
           root.addresses = root.windowList.map(win => win.address);
         }
       }
@@ -168,21 +169,17 @@ Singleton {
       onStreamFinished: {
         if (workspacesCollector?.text) {
           const workspaces = JSON.parse(workspacesCollector.text)
-            .sort((a, b) => {
-              if (a.id < 0 && b.id >= 0) return 1;
-              if (a.id >= 0 && b.id < 0) return -1;
-              return a.id - b.id;
-            });
+            .sort((a, b) => a.id - b.id || a.name.localeCompare(b.name));
           root.workspaces = workspaces
           root.special = workspaces.filter(w => w.name.includes("special"))
           root.workspacesByMonitor = Functions.groupBy(root.workspaces, x => x.monitor)
-          let byId = {};
-          for (var i = 0; i < root.workspaces.length; ++i) {
-            var ws = root.workspaces[i];
-            byId[ws.id] = ws;
+          let byAddress = {};
+          for (let i = 0; i < root.workspaces.length; ++i) {
+            const ws = root.workspaces[i];
+            byAddress[ws.address] = ws;
           }
-          root.workspaceById = byId
-          root.workspaceIds = root.workspaces.map(ws => ws.id);
+          root.workspaceByAddress = byAddress
+          root.workspaceAddresses = root.workspaces.map(ws => ws.address);
         }
       }
     }
