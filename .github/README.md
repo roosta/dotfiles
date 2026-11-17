@@ -124,7 +124,7 @@ used for the custom desktop shell based on the [Srcery](https://srcery.sh/)
 colorscheme. This is a constant work-in-progress and gets frequently updated
 and changed based on my needs using it.
 
-### Attribution
+### Acknowledgments
 
 I've been heavily inspired by, learned a lot from, and copied portions of code from:
 
