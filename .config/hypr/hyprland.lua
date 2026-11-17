@@ -43,7 +43,7 @@ hl.on("hyprland.start", function ()
   hl.exec_cmd("flatpak run com.discordapp.Discord --start-minimized", { workspace = "21 silent" } )
   hl.exec_cmd(vars.terminal, { workspace = "1 silent" })
   hl.exec_cmd(vars.browser, { workspace = "3 silent" })
-  hl.exec_cmd("~/.local/bin/open-webui-client")
+  -- hl.exec_cmd("~/.local/bin/open-webui-client")
 end)
 
 -- vim: set ts=2 sw=2 tw=0 fdm=marker ft=lua et :
