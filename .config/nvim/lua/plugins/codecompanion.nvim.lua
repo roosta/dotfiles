@@ -29,13 +29,22 @@ return {
 
     interactions = {
       chat = {
-        adapter = "openrouter",
+        adapter = {
+          name = "openrouter",
+          model = "deepseek/deepseek-v4.1-flash-1017"
+        },
       },
       inline = {
-        adapter = "openrouter",
+        adapter = {
+          name = "openrouter",
+          model = "deepseek/deepseek-v4.1-flash-1017"
+        }
       },
       cmd = {
-        adapter = "openrouter",
+        adapter = {
+          name = "openrouter",
+          model = "deepseek/deepseek-v4.1-flash-1017"
+        }
       }
     },
 
