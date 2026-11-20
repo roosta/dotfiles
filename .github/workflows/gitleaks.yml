@@ -2,7 +2,7 @@ name: gitleaks
 on:
   push:
     branches: ['**']
-  workflow_dispatch:
+  workflow_dispatch: {}
 jobs:
   scan:
     name: gitleaks
